@@ -28,7 +28,7 @@ As personas elaboradas durante o processo de definição do problema são aprese
 
 | Flávia de Souza  | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
-|![FS](https://user-images.githubusercontent.com/74699119/157862389-88d251a0-6491-4180-9def-f1ac278044eb.png)| **Idade:** 58 <br> **Ocupação:** Diretora de escola |**Aplicativos:**<br>● Facebook<br>● Whatsapp<br>● Gmail|
+|![FS](https://user-images.githubusercontent.com/74699119/157870593-47e85e52-7a86-4f5f-9795-62976f2056ae.png)| **Idade:** 58 <br> **Ocupação:** Diretora de escola |**Aplicativos:**<br>● Facebook<br>● Whatsapp<br>● Gmail|
 |**Motivações:**<br>● Melhorar o desempenho dos alunos de sua escola<br>● Aumentar a satisfação dos professores com seu emprego<br>● Promover mais atividades culturais na escola|**Frustrações:**<br>● Altas taxas de evasão escolar<br>● Reclamações dos pais em relação a comunicação com a escola<br>● Reclamações dos professores em relação ao comportamento dos alunos|**Hobbies:**<br>● Viajar<br>● Jardinagem <br>● Assistir novelas|
 
 | Renato Moreira | Informações:                       |                                        |
@@ -38,7 +38,7 @@ As personas elaboradas durante o processo de definição do problema são aprese
 
 | Mariana Rezende | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
-|![MR](https://user-images.githubusercontent.com/74699119/157862975-ed8e3f27-8c3a-46fd-9d5e-7bbcb323e59f.png)| **Idade:** 25 <br> **Ocupação:** Professora de educação infantil |**Aplicativos:**<br>● Youtube<br>● Gmail<br>● Instagram|
+|![MR](https://user-images.githubusercontent.com/74699119/157870547-f569bef9-c35f-4894-a846-0c8a56ffdb01.png)| **Idade:** 25 <br> **Ocupação:** Professora de educação infantil |**Aplicativos:**<br>● Youtube<br>● Gmail<br>● Instagram|
 |**Motivações:**<br>● Terminar a faculdade de administração<br>● Ajudar em ongs de animais<br>● Realizar um mestrado no exterior|**Frustrações:**<br>● Dificuldade em se comunicar com os pais sobre o dia a dia das crianças<br>● Dificuldade em organizar atividades para seus alunos participarem|**Hobbies:**<br>● Assistir séries<br>● Passeios na natureza <br>● Ler livros|
 
 | Fernanda Teixeira  | Informações:                       |                                        |
@@ -48,7 +48,7 @@ As personas elaboradas durante o processo de definição do problema são aprese
 
 | Paula Silveira  | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
-|![PS](https://user-images.githubusercontent.com/74699119/157864030-22970b92-2891-4714-ab6d-85ad04d68135.png)| **Idade:** 32 <br> **Ocupação:** Orientadora pedagógicaescolar |**Aplicativos:**<br>● Linkedin <br>● Youtube<br>● Gmail<br>● Whatsapp|
+|![PS](https://user-images.githubusercontent.com/74699119/157870506-65f8da79-9c4a-4c27-ad6b-73d8b6c6b689.png)| **Idade:** 32 <br> **Ocupação:** Orientadora pedagógicaescolar |**Aplicativos:**<br>● Linkedin <br>● Youtube<br>● Gmail<br>● Whatsapp|
 |**Motivações:**<br>● Orientar os professores com os melhores métodos pedagógicos para aplicar em sala de aula<br>● Promover o desenvolvimento pessoal dos alunos|**Frustrações:**<br>●	Ineficiência na comunicação com os professores<br>● Professores reportando dificuldade em implementar métodos pedagógicos por baixo engajamento dos alunos com as atividades propostas<br>● Falta de participação e feedback dos pais no funcionamento da escola|**Hobbies:**<br>● Participar de congressos de educação<br>● Ler <br>● Viajar |
  
 ## Histórias de Usuários
