@@ -13,7 +13,7 @@ As personas elaboradas durante o processo de definição do problema são aprese
 
 | Rafaela Miranda      | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
-|![RM](https://user-images.githubusercontent.com/74699119/157861197-ef432823-9274-43c6-a150-49e8c3ec2a34.png)| **Idade:** 35 <br> **Ocupação:** Dona de casa, mãe |**Aplicativos:**<br>● Facebook<br>● Netflix<br>● Twitter<br>● Instagram|
+|![RM](https://user-images.githubusercontent.com/74699119/157868822-a1647845-d66c-4cfc-8007-2a560dddf4de.png)| **Idade:** 35 <br> **Ocupação:** Dona de casa, mãe |**Aplicativos:**<br>● Facebook<br>● Netflix<br>● Twitter<br>● Instagram|
 |**Motivações:**<br>● Estar presente na vida escolar dos filhos <br>● Ver o crescimento intelectual dos filhos |**Frustrações:**<br>● Morosidade no atendimento particular da escola <br>● Falta de praticidade no acesso à agenda escolar <br>● Falta de privacidade no compartilhamento de recados referentes ao filho |**Hobbies:**<br>● Ler livros com os filhos<br>● Viajar com a família <br>● Curtir o tempo livre brincando com os filhos|
 
 | Sebastião Silva      | Informações:                       |                                        |
@@ -33,7 +33,7 @@ As personas elaboradas durante o processo de definição do problema são aprese
 
 | Renato Moreira | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
-|![RMo](https://user-images.githubusercontent.com/74699119/157862724-54ec5e95-0cd1-4173-a352-2a72578ab383.png)| **Idade:** 31 <br> **Ocupação:** Professor de matemática do ensino fundamental |**Aplicativos:**<br>● Facebook<br>● Twitter<br>● Instagram|
+|![RMo](https://user-images.githubusercontent.com/74699119/157868671-7e07ce9b-638b-47b9-8118-ba1a6359eb90.png)| **Idade:** 31 <br> **Ocupação:** Professor de matemática do ensino fundamental |**Aplicativos:**<br>● Facebook<br>● Twitter<br>● Instagram|
 |**Motivações:**<br>● Despertar o interesse dos alunos pela matemática<br>● Ter uma boa didática  |**Frustrações:**<br>● Alunos faltando em suas aulas<br>● Desinteresse dos alunos na disciplina |**Hobbies:**<br>● Ler livros<br>● Jogar futebol <br>● Ver séries|
 
 | Mariana Rezende | Informações:                       |                                        |
@@ -43,10 +43,10 @@ As personas elaboradas durante o processo de definição do problema são aprese
 
 | Fernanda Teixeira  | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
-|![FT](https://user-images.githubusercontent.com/74699119/157863600-dad6c40b-c144-407d-aa5c-bdc9c2f7c4c7.png)| **Idade:** 24 <br> **Ocupação:** Assistente de secretaria escolar |**Aplicativos:**<br>● Youtube<br>● Whatsapp<br>● Kindle|
+|![FT](https://user-images.githubusercontent.com/74699119/157868769-c4830081-16db-45c5-8e95-a8f8805fce56.png)| **Idade:** 24 <br> **Ocupação:** Assistente de secretaria escolar |**Aplicativos:**<br>● Youtube<br>● Whatsapp<br>● Kindle|
 |**Motivações:**<br>● Ajudar no desenvolvimento e formação de seus alunos<br>● Estabelecer uma boa comunicação com os responsáveis do aluno |**Frustrações:**<br>● Dificuldades de comunicação na gestão da escola<br>● Pais insatisfeitos com a escola que trabalha|**Hobbies:**<br>● Leitura<br>● Filmes <br>● Cuidar de seus cães |
 
-| Fernanda Teixeira  | Informações:                       |                                        |
+| Paula Silveira  | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
 |![PS](https://user-images.githubusercontent.com/74699119/157864030-22970b92-2891-4714-ab6d-85ad04d68135.png)| **Idade:** 32 <br> **Ocupação:** Orientadora pedagógicaescolar |**Aplicativos:**<br>● Linkedin <br>● Youtube<br>● Gmail<br>● Whatsapp|
 |**Motivações:**<br>● Orientar os professores com os melhores métodos pedagógicos para aplicar em sala de aula<br>● Promover o desenvolvimento pessoal dos alunos|**Frustrações:**<br>●	Ineficiência na comunicação com os professores<br>● Professores reportando dificuldade em implementar métodos pedagógicos por baixo engajamento dos alunos com as atividades propostas<br>● Falta de participação e feedback dos pais no funcionamento da escola|**Hobbies:**<br>● Participar de congressos de educação<br>● Ler <br>● Viajar |
