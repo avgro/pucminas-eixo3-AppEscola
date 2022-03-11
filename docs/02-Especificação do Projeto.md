@@ -53,54 +53,63 @@ As personas elaboradas durante o processo de definição do problema são aprese
  
 ## Histórias de Usuários
 
-Com base na análise das personas forma identificadas as seguintes histórias de usuários:
+Com base na compreensão da rotina das personas elaboradas para este projeto, foram registradas as histórias de usuário mostradas a seguir.
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-|Usuário do sistema  | Registrar minhas tarefas           | Não esquecer de fazê-las               |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
-
-Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
-
-> **Links Úteis**:
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
-> - [User Stories: requisitos que humanos entendem](https://www.luiztools.com.br/post/user-stories-descricao-de-requisitos-que-humanos-entendem/)
-> - [Histórias de Usuários: mais exemplos](https://www.reqview.com/doc/user-stories-example.html)
-> - [9 Common User Story Mistakes](https://airfocus.com/blog/user-story-mistakes/)
+|Viviane Almeida     | Receber um feedback diário das atividades que meu filho participa na escola. | Acompanhar a vida escolar do meu filho de maneira mais próxima. |
+| Rafaela Miranda	| Ter maior praticidade no acesso a agenda escolar de meu filho. |	Estar ciente de todos os eventos escolares que meu filho vai participar e também de compromissos que requerem minha presença |
+| Rafaela Miranda | Ter maior privacidade e segurança na troca de informações com a escola.	| Me sentir mais segura em relação ao que acontece com meu filho na escola|
+| Sebastião Silva	| Ter uma comunicação mais direta com a instituição de ensino. |	Para obter ciência do comportamento do meu filho na escola e, assim, poder colaborar com seu aprendizado.|
+| Felipe Campos |	Que meus pais sejam informados de todas as novas informações/atualizações vindas da escola. |	Para que meus pais estejam mais presentes na minha vida escolar e possam me auxiliar melhor.|
+| Flávia de Souza |	Comunicar os responsáveis dos alunos sobre eventos importantes e reuniões de pais e professores. |	Aumentar a adesão dos pais às reuniões e eventos|
+| Renato Moreira	| Compartilhar com os pais informações relevantes sobre o dia a dia e desempenho do aluno em sala de aula. |	Gerar maior engajamento dos pais com o processo de aprendizado dos filhos.| 
+| Renato Moreira	| Poder me comunicar diretamente com os responsáveis do aluno quando for necessário. | Estar melhor informado sobre as circunstâncias do aluno em casos excepcionais (alunos faltando às aulas, etc).|
+| Mariana Rezende |	Poder compartilhar um relatório diário sobre a rotina escolar de seus alunos mais novos com os responsáveis do aluno de modo rápido e digital. | Assegurar os pais de que as necessidades dos filhos estão sendo devidamente atendidas. |
+| Fernanda Teixeira	| Melhorar/promover uma melhor integração e comunicação entre a secretaria da escola com os pais dos alunos. | Garantir que a escola passe informações precisas e rápidas para que os pais possam se integrar cada vez mais com o aprendizado dos seus filhos.|
+| Fernanda Teixeira |	Aumentar a taxa de adesão dos pais nos eventos e reuniões da escola. |	Por acreditar que receber uma maior participação dos pais na escola ajudaria no desempenho escolar dos alunos.| 
+| Paula Silveira	| Poder receber feedback dos professores envolvidos em tarefas pedagógicas a qualquer momento. | Monitorar melhor o andamento dos processos pedagógicos e orientar os professores em relação a possíveis dúvidas.|
+| Paula Silveira |	Poder agendar conselhos de classe através de uma plataforma centralizada que notifique e envie lembretes para todos os participantes. | Aumentar a consistência de realização dos conselhos de classe, promovendo um melhor monitoramento do projeto político pedagógico da escola.|
 
 ## Requisitos
 
-As tabelas que se seguem apresentam os requisitos funcionais e não funcionais que detalham o escopo do projeto.
+As questões que delimitam o escopo funcional do projeto são definidas por meio dos requisitos funcionais, que descrevem as funcionalidades através das quais o usuário pode interagir com o sistema, e dos requisitos não funcionais, que descrevem as qualidades que o sistema deve apresentar para sua aceitação. Os requisitos funcionais e não funcionais do projeto são apresentados nas tabelas a seguir.
 
 ### Requisitos Funcionais
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+|RF-01|	A aplicação deve possuir um sistema de autenticação e login com quatro tipos de usuário: administrador do sistema, responsáveis pelo aluno, professor e funcionário (tipo genérico que abrange membros da secretaria, setor financeiro, etc)|	Alta|
+|RF-02|	A aplicação deve oferecer ao administrador do sistema a funcionalidade de criar contas de usuário para responsáveis do aluno, professores e outros funcionários, enviando as informações de login através de e-mail para os mesmos após a criação|	Alta|
+|RF-03|	A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis.|	Alta|
+|RF-04|	A aplicação deve permitir que o administrador do sistema associe um ou mais professores para cada disciplina cadastrada com um código distinto, sendo que disciplinas com o mesmo conteúdo podem ter códigos distintos em casos de múltiplas turmas com professores diferentes para cada uma.|	Alta|
+|RF-05|	A aplicação deve permitir que o administrador do sistema adicione ou remova alunos das turmas disponíveis, além de selecionar as disciplinas que serão ministradas para aquela turma|	Média|
+|RF-06|	A aplicação deve permitir que usuários que acessem suas contas alterem suas informações de contato, endereço e senha|	Alta|
+|RF-07|	A aplicação deve permitir a troca de mensagens online pelo aplicativo entre os responsáveis do aluno e os professores de seus filhos, além de outros contatos relevantes como funcionários da secretaria e setor financeiro|	Alta|
+|RF-08|	A aplicação deve permitir envio de documentos, fotos, vídeos e autorizações para eventos e passeios (que podem ser aceitos dentro do próprio aplicativo) para os responsáveis do aluno pelos funcionários da escola|	Média|
+|RF-09|	A aplicação deve apresentar uma função de pesquisa dentro do histórico de mensagens do usuário. A busca poderá ser feita por palavras chaves ou por pessoas|	Média|
+|RF-10|	A aplicação deve apresentar uma agenda online que exiba para cada turma os eventos associados à rotina escolar do aluno (horário das aulas, provas, excursões e eventos, etc) e os eventos associados a compromissos dos responsáveis do aluno (reuniões de pais e professores, etc)|	Alta|
+|RF-11|	A aplicação deve permitir aos professores e funcionários da administração adicionar eventos à agenda escolar de uma ou mais turmas, tais como provas, excursões e reuniões que ficarão visíveis para os responsáveis do aluno daquela turma|	Alta|
+|RF-12|	A aplicação deve disponibilizar uma “linha do tempo” privada aonde o professor possa fazer postagens com fotos e texto sobre o aluno que estarão visíveis apenas para os responsáveis do aluno, administradores do sistema e o professor em questão|	Média|
+|RF-13|	A aplicação deve possuir uma seção de notificações onde o pai será notificado sobre eventos, mensagens importantes e compromissos cuja data esteja próxima|	Média|
+
 
 ### Requisitos não Funcionais
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
+|RNF-01|	O site deve ser publicado em um ambiente acessível publicamente na Internet (Repl.it, GitHub Pages, Heroku)|	Alta |
+|RNF-02|	O site deverá ser responsivo permitindo a visualização em um celular de forma adequada | Alta | 
+|RNF-03|	O site deve ter bom nível de contraste entre os elementos da tela em conformidade | Média | 
+|RNF-04|	O site deve ser compatível com os principais navegadores do mercado (Google Chrome, Firefox, Microsoft Edge)|	Alta |
+|RNF-05|	O sistema deve ser desenvolvido na linguagem C#, utilizando o framework Asp.NET Core	| Alta |
+|RNF-06|	O tempo de resposta para as requisições não deve ser maior que cinco segundos |	Média |
+|RNF-07|	O sistema deve estar disponível pelo menos 99% do tempo entre 6 da manhã e meia noite, sete dias por semana | Alta |
+|RNF-08|	O site deve ser passível de manutenção e migração de plataforma em até 3 meses | Baixa |
+|RNF-09|	O tratamento de dados pessoais na aplicação deve estar de acordo com o estabelecido na LGPD (Lei Geral de Proteção de Dados ) | Alta | 
+|RNF-10|	A aplicação deve suportar no mínimo dez usuários simultâneos sem impacto no tempo de resposta | Média | 
+  
 
-Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
-
-- [Requisitos Funcionais
- (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
- correspondem a uma funcionalidade que deve estar presente na
-  plataforma (ex: cadastro de usuário).
-- [Requisitos Não Funcionais
-  (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
-  correspondem a uma característica técnica, seja de usabilidade,
-  desempenho, confiabilidade, segurança ou outro (ex: suporte a
-  dispositivos iOS e Android).
-Lembre-se que cada requisito deve corresponder à uma e somente uma
-característica alvo da sua solução. Além disso, certifique-se de que
-todos os aspectos capturados nas Histórias de Usuário foram cobertos.
 
 ## Restrições
 
@@ -108,25 +117,15 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
-|01| O projeto deverá ser entregue até o final do semestre |
-|02| Não pode ser desenvolvido um módulo de backend        |
-
-
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
-
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
+|RE-01| O projeto deverá ser entregue no final do semestre letivo, não podendo extrapolar a data de 07/07/2020 |
+|RE-02| A equipe não pode subcontratar o desenvolvimento do trabalho. |
 
 ## Diagrama de Casos de Uso
 
-O diagrama de casos de uso é o próximo passo após a elicitação de requisitos, que utiliza um modelo gráfico e uma tabela com as descrições sucintas dos casos de uso e dos atores. Ele contempla a fronteira do sistema e o detalhamento dos requisitos funcionais com a indicação dos atores, casos de uso e seus relacionamentos. 
+O diagrama abaixo ilustra as principais ligações entre casos de uso e atores relacionados aos Requisitos Funcionais levantados para o projeto.
 
-As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de Casos de Uso”.
+![Diagrama de Casos de Uso AppEscola_ADS_2022](https://user-images.githubusercontent.com/74699119/157866297-7675167a-be7a-4fbb-907d-463f77012dd0.png)
+<p align="center">
+<b>Figura 1 </b> – Diagrama de casos de uso.
+</p>
 
-> **Links Úteis**:
-> - [Criando Casos de Uso](https://www.ibm.com/docs/pt-br/elm/6.0?topic=requirements-creating-use-cases)
-> - [Como Criar Diagrama de Caso de Uso: Tutorial Passo a Passo](https://gitmind.com/pt/fazer-diagrama-de-caso-uso.html/)
-> - [Lucidchart](https://www.lucidchart.com/)
-> - [Astah](https://astah.net/)
-> - [Diagrams](https://app.diagrams.net/)
