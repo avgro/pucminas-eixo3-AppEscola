@@ -8,7 +8,7 @@ As personas elaboradas durante o processo de definição do problema são aprese
 
 | Viviane Almeida      | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
-|![VA](https://user-images.githubusercontent.com/74699119/157860314-62d9042a-99f8-4a47-885d-e2da38cff37d.png)| **Idade:** 57 <br> **Ocupação:** Gerente de relações públicas, mãe |**Aplicativos:**<br>● Netflix<br>● Youtube<br>● Linkedin|
+|![VA](https://user-images.githubusercontent.com/74699119/157877871-fa9aed30-59bc-4e23-bb50-d7f734fcf471.png)| **Idade:** 57 <br> **Ocupação:** Gerente de relações públicas, mãe |**Aplicativos:**<br>● Netflix<br>● Youtube<br>● Linkedin|
 |**Motivações:**<br>● Acompanhar o aprendizado dos filhos <br>● Aproveitar o tempo com a família <br>● Viajar|**Frustrações:**<br>● Descompromisso da escola<br>● Não passar mais tempo com os filhos<br>● Não conseguir participar ativamente do ensino dos filhos |**Hobbies:**<br>● História<br>● Encontras os amigos<br>● Viajar<br>● Ver filmes e séries|
 
 | Rafaela Miranda      | Informações:                       |                                        |
@@ -18,7 +18,7 @@ As personas elaboradas durante o processo de definição do problema são aprese
 
 | Sebastião Silva      | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
-|![SS](https://user-images.githubusercontent.com/74699119/157861718-19fe839a-ecbd-4685-9699-fa3fd8d40a6e.png)| **Idade:** 65 <br> **Ocupação:** Pai, aposentado |**Aplicativos:**<br>● Whatsapp<br>● E-mail|
+|![SS](https://user-images.githubusercontent.com/74699119/157877912-ab54615f-ec08-4ea7-ad39-353bc9e81a72.png)| **Idade:** 65 <br> **Ocupação:** Pai, aposentado |**Aplicativos:**<br>● Whatsapp<br>● E-mail|
 |**Motivações:**<br>● Família <br>● Amigos |**Frustrações:**<br>● Inseguro com a internet <br>● Insatisfeito com a dificuldade de comunicação com a escola do Filho |**Hobbies:**<br>● Descansar em casa<br>● Assistir filmes e novelas <br>● Pescar|
 
 | Felipe Campos   | Informações:                       |                                        |
@@ -48,7 +48,7 @@ As personas elaboradas durante o processo de definição do problema são aprese
 
 | Paula Silveira  | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
-|![PS](https://user-images.githubusercontent.com/74699119/157870506-65f8da79-9c4a-4c27-ad6b-73d8b6c6b689.png)| **Idade:** 32 <br> **Ocupação:** Orientadora pedagógicaescolar |**Aplicativos:**<br>● Linkedin <br>● Youtube<br>● Gmail<br>● Whatsapp|
+|![PS](https://user-images.githubusercontent.com/74699119/157877954-3c69b72a-b9ed-4c5f-91ab-8dfd9172a928.png)| **Idade:** 32 <br> **Ocupação:** Orientadora pedagógicaescolar |**Aplicativos:**<br>● Linkedin <br>● Youtube<br>● Gmail<br>● Whatsapp|
 |**Motivações:**<br>● Orientar os professores com os melhores métodos pedagógicos para aplicar em sala de aula<br>● Promover o desenvolvimento pessoal dos alunos|**Frustrações:**<br>●	Ineficiência na comunicação com os professores<br>● Professores reportando dificuldade em implementar métodos pedagógicos por baixo engajamento dos alunos com as atividades propostas<br>● Falta de participação e feedback dos pais no funcionamento da escola|**Hobbies:**<br>● Participar de congressos de educação<br>● Ler <br>● Viajar |
  
 ## Histórias de Usuários
