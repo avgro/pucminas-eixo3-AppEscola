@@ -1,23 +1,26 @@
-# TÍTULO DO PROJETO
+# Aplicação de comunicação escolar para ensino fundamental e educação infantil
 
-`CURSO`
+`CURSO: Análise e Desenvolvimento de Sistemas`
 
-`DISCIPLINA`
+`DISCIPLINA: Eixo 2 - Projeto: Desenvolvimento de uma Aplicação Interativa`
 
-`SEMESTRE`
+`SEMESTRE: 1º Semestre de 2022` 
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+Aplicação de comunicação escolar focada nos níveis de ensino fundamental e educação infantil que visa criar um sistema centralizado com envio de texto, imagens e vídeos entre os usuários cadastrados. Além do sistema de mensagens, a aplicação disponibilizará outras funções como o acesso a uma agenda escolar, um sistema de notificações e uma linha do tempo onde o professor poderá postar atualizações sobre o aluno para visualização exclusiva por seus responsáveis através de suas contas de usuário. O cadastro de novas contas de usuário (para professores, responsáveis do aluno e outros funcionários), disciplinas, turmas e alunos será realizado pela escola através de uma conta de administrador, que também poderá postar avisos e marcar eventos dentro do sistema.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* André Soares Alves da Silva
+* André Vieira Grochowski
+* Maria Luiza Silva Lacerda
+* Robson Levi Mariano Eduardo
+* Sergio Luiz de Menezes Filho
+* Vania Maria Tiburzio Rezende
+
 
 ## Orientador
 
-* Nome completo do professor 1
+* José Wilson Da Costa 
 
 ## Instruções de utilização
 
