@@ -6,8 +6,8 @@
 
 `SEMESTRE: 1º Semestre de 2022` 
 
-Aplicação de comunicação escolar focada nos níveis de ensino fundamental e educação infantil que visa criar um sistema centralizado com envio de texto, imagens e vídeos entre 
-os usuários cadastrados. Além do sistema de mensagens, a aplicação disponibilizará outras funções como o acesso a uma agenda escolar, um sistema de notificações e uma linha do tempo onde o professor poderá postar atualizações sobre o aluno para visualização exclusiva por seus responsáveis através de suas contas de usuário. O cadastro de novas contas de usuário (para professores, responsáveis do aluno e outros funcionários), disciplinas, turmas e alunos será realizado pela escola através de uma conta de administrador, que também poderá postar avisos e marcar eventos dentro do sistema.
+<p align="justify">Aplicação de comunicação escolar focada nos níveis de ensino fundamental e educação infantil que visa criar um sistema centralizado com envio de texto, imagens e vídeos entre 
+os usuários cadastrados. Além do sistema de mensagens, a aplicação disponibilizará outras funções como o acesso a uma agenda escolar, um sistema de notificações e uma linha do tempo onde o professor poderá postar atualizações sobre o aluno para visualização exclusiva por seus responsáveis através de suas contas de usuário. O cadastro de novas contas de usuário (para professores, responsáveis do aluno e outros funcionários), disciplinas, turmas e alunos será realizado pela escola através de uma conta de administrador, que também poderá postar avisos e marcar eventos dentro do sistema.</p>
 
 ## Integrantes
 
@@ -25,7 +25,7 @@ os usuários cadastrados. Além do sistema de mensagens, a aplicação disponibi
 
 ## Instruções de utilização
 
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+<p align="justify">Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.</p>
 
 # Documentação
 
