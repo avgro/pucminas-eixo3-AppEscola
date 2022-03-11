@@ -29,7 +29,7 @@ As personas elaboradas durante o processo de definição do problema são aprese
 | Flávia de Souza  | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
 |![FS](https://user-images.githubusercontent.com/74699119/157862389-88d251a0-6491-4180-9def-f1ac278044eb.png)| **Idade:** 58 <br> **Ocupação:** Diretora de escola |**Aplicativos:**<br>● Facebook<br>● Whatsapp<br>● Gmail|
-|**Motivações:**<br>● Melhorar o desempenho dos alunos de sua escola<br>● Aumentar a satisfação dos professores com seu emprego<br>● Promover mais atividades culturais na escola|**Frustrações:**<br>● Altas taxas de evasão escolar<br>●Reclamações dos pais em relação a comunicação com a escola<br>● Reclamações dos professores em relação ao comportamento dos alunos|**Hobbies:**<br>● Viajar<br>● Jardinagem <br>● Assistir novelas|
+|**Motivações:**<br>● Melhorar o desempenho dos alunos de sua escola<br>● Aumentar a satisfação dos professores com seu emprego<br>● Promover mais atividades culturais na escola|**Frustrações:**<br>● Altas taxas de evasão escolar<br>● Reclamações dos pais em relação a comunicação com a escola<br>● Reclamações dos professores em relação ao comportamento dos alunos|**Hobbies:**<br>● Viajar<br>● Jardinagem <br>● Assistir novelas|
 
 | Renato Moreira | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
