@@ -23,7 +23,7 @@ As personas elaboradas durante o processo de definição do problema são aprese
 
 | Felipe Campos   | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
-|![FC](https://user-images.githubusercontent.com/74699119/157862094-8c2f6177-e423-4ebc-a124-fb03757160ac.png)| **Idade:** 11 <br> **Ocupação:** Estudante |**Aplicativos:**<br>● Youtube<br>● Whatsapp|
+|![FC](https://user-images.githubusercontent.com/74699119/157880194-e7e662b8-c724-4d24-b4e6-3dd3dd7de502.png)| **Idade:** 11 <br> **Ocupação:** Estudante |**Aplicativos:**<br>● Youtube<br>● Whatsapp|
 |**Motivações:**<br>● Ir a escola<br>● Amigos<br>● Tirar boas notas nas provas |**Frustrações:**<br>● Desempenho insatisfatório em provas escolares <br>● Perder atividades importantes na escola<br>● Ser derrotado em jogos|**Hobbies:**<br>● Leitura<br>● Andar de skate <br>● Games|
 
 | Flávia de Souza  | Informações:                       |                                        |
