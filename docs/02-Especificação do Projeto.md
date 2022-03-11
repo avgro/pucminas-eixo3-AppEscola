@@ -39,21 +39,17 @@ As personas elaboradas durante o processo de definição do problema são aprese
 | Mariana Rezende | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
 |![MR](https://user-images.githubusercontent.com/74699119/157862975-ed8e3f27-8c3a-46fd-9d5e-7bbcb323e59f.png)| **Idade:** 25 <br> **Ocupação:** Professora de educação infantil |**Aplicativos:**<br>● Youtube<br>● Gmail<br>● Instagram|
-|**Motivações:**<br>● Terminar a faculdade de administração<br>● Ajudar em ongs de animais<br>● Realizar um mestrado no exterior
- |**Frustrações:**<br>● Dificuldade em se comunicar com os pais sobre o dia a dia das crianças<br>● Dificuldade em organizar atividades para seus alunos participarem |**Hobbies:**<br>● Assistir séries<br>● Passeios na natureza <br>● Ler livros|
+|**Motivações:**<br>● Terminar a faculdade de administração<br>● Ajudar em ongs de animais<br>● Realizar um mestrado no exterior|**Frustrações:**<br>● Dificuldade em se comunicar com os pais sobre o dia a dia das crianças<br>● Dificuldade em organizar atividades para seus alunos participarem|**Hobbies:**<br>● Assistir séries<br>● Passeios na natureza <br>● Ler livros|
 
 | Fernanda Teixeira  | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
 |![FT](https://user-images.githubusercontent.com/74699119/157863600-dad6c40b-c144-407d-aa5c-bdc9c2f7c4c7.png)| **Idade:** 24 <br> **Ocupação:** Assistente de secretaria escolar |**Aplicativos:**<br>● Youtube<br>● Whatsapp<br>● Kindle|
-|**Motivações:**<br>● Ajudar no desenvolvimento e formação de seus alunos<br>● Estabelecer uma boa comunicação com os responsáveis do aluno |**Frustrações:**<br>● Dificuldades de comunicação na gestão da escola<br>● Pais insatisfeitos com a escola que trabalha
- |**Hobbies:**<br>● Leitura<br>● Filmes <br>● Cuidar de seus cães |
+|**Motivações:**<br>● Ajudar no desenvolvimento e formação de seus alunos<br>● Estabelecer uma boa comunicação com os responsáveis do aluno |**Frustrações:**<br>● Dificuldades de comunicação na gestão da escola<br>● Pais insatisfeitos com a escola que trabalha|**Hobbies:**<br>● Leitura<br>● Filmes <br>● Cuidar de seus cães |
 
 | Fernanda Teixeira  | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
 |![PS](https://user-images.githubusercontent.com/74699119/157864030-22970b92-2891-4714-ab6d-85ad04d68135.png)| **Idade:** 32 <br> **Ocupação:** Orientadora pedagógicaescolar |**Aplicativos:**<br>● Linkedin <br>● Youtube<br>● Gmail<br>● Whatsapp|
-|**Motivações:**<br>● Orientar os professores com os melhores métodos pedagógicos para aplicar em sala de aula<br>● Promover o desenvolvimento pessoal dos alunos
- |**Frustrações:**<br>●	Ineficiência na comunicação com os professores<br>● Professores reportando dificuldade em implementar métodos pedagógicos por baixo engajamento dos alunos com as atividades propostas<br>● Falta de participação e feedback dos pais no funcionamento da escola
-|**Hobbies:**<br>● Participar de congressos de educação<br>● Ler <br>● Viajar |
+|**Motivações:**<br>● Orientar os professores com os melhores métodos pedagógicos para aplicar em sala de aula<br>● Promover o desenvolvimento pessoal dos alunos|**Frustrações:**<br>●	Ineficiência na comunicação com os professores<br>● Professores reportando dificuldade em implementar métodos pedagógicos por baixo engajamento dos alunos com as atividades propostas<br>● Falta de participação e feedback dos pais no funcionamento da escola|**Hobbies:**<br>● Participar de congressos de educação<br>● Ler <br>● Viajar |
  
 ## Histórias de Usuários
 
