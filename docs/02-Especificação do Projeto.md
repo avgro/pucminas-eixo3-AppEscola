@@ -1,10 +1,10 @@
 # Especificações do Projeto
 
- A definição precisa do problema e dos pontos mais relevantes deste projeto foi feita a partir de entrevistas realizadas pelos membros da equipe com pais de alunos em idade escolar entre a educação infantil e o ensino fundamental, que relataram suas principais frustrações com os métodos de comunicação entre pais e escola atualmente utilizados pelas escolas de seus filhos, além de conversas com professores e outros profissionais da educação diretamente envolvidos com a realidade das escolas de nível fundamental e educação infantil. Os principais pontos levantados durante o processo foram consolidados na forma de personas e histórias de usuário. 
+<p align="justify">A definição precisa do problema e dos pontos mais relevantes deste projeto foi feita a partir de entrevistas realizadas pelos membros da equipe com pais de alunos em idade escolar entre a educação infantil e o ensino fundamental, que relataram suas principais frustrações com os métodos de comunicação entre pais e escola atualmente utilizados pelas escolas de seus filhos, além de conversas com professores e outros profissionais da educação diretamente envolvidos com a realidade das escolas de nível fundamental e educação infantil. Os principais pontos levantados durante o processo foram consolidados na forma de personas e histórias de usuário.</p> 
 
 ## Personas
 
-As personas elaboradas durante o processo de definição do problema são apresentadas nas figuras a seguir: 
+<p align="justify">As personas elaboradas durante o processo de definição do problema são apresentadas nas figuras a seguir:</p>
 
 | Viviane Almeida      | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
@@ -53,7 +53,7 @@ As personas elaboradas durante o processo de definição do problema são aprese
  
 ## Histórias de Usuários
 
-Com base na compreensão da rotina das personas elaboradas para este projeto, foram registradas as histórias de usuário mostradas a seguir.
+<p align="justify">Com base na compreensão da rotina das personas elaboradas para este projeto, foram registradas as histórias de usuário mostradas a seguir.</p>
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
@@ -73,7 +73,7 @@ Com base na compreensão da rotina das personas elaboradas para este projeto, fo
 
 ## Requisitos
 
-As questões que delimitam o escopo funcional do projeto são definidas por meio dos requisitos funcionais, que descrevem as funcionalidades através das quais o usuário pode interagir com o sistema, e dos requisitos não funcionais, que descrevem as qualidades que o sistema deve apresentar para sua aceitação. Os requisitos funcionais e não funcionais do projeto são apresentados nas tabelas a seguir.
+<p align="justify">As questões que delimitam o escopo funcional do projeto são definidas por meio dos requisitos funcionais, que descrevem as funcionalidades através das quais o usuário pode interagir com o sistema, e dos requisitos não funcionais, que descrevem as qualidades que o sistema deve apresentar para sua aceitação. Os requisitos funcionais e não funcionais do projeto são apresentados nas tabelas a seguir.</p>
 
 ### Requisitos Funcionais
 
@@ -113,7 +113,7 @@ As questões que delimitam o escopo funcional do projeto são definidas por meio
 
 ## Restrições
 
-O projeto está restrito pelos itens apresentados na tabela a seguir.
+<p align="justify">O projeto está restrito pelos itens apresentados na tabela a seguir.</p>
 
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
@@ -122,7 +122,7 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 ## Diagrama de Casos de Uso
 
-O diagrama abaixo ilustra as principais ligações entre casos de uso e atores relacionados aos Requisitos Funcionais levantados para o projeto.
+<p align="justify">O diagrama abaixo ilustra as principais ligações entre casos de uso e atores relacionados aos Requisitos Funcionais levantados para o projeto.</p>
 
 ![Diagrama de Casos de Uso AppEscola_ADS_2022](https://user-images.githubusercontent.com/74699119/157866297-7675167a-be7a-4fbb-907d-463f77012dd0.png)
 <p align="center">
