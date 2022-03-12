@@ -6,17 +6,17 @@
 
 <p align="justify">As personas elaboradas durante o processo de definição do problema são apresentadas nas figuras a seguir:</p>
 
-| Viviane Almeida        | Informações:                       |                                        |
+| Viviane Almeida      | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
 |![VA](https://user-images.githubusercontent.com/74699119/157877871-fa9aed30-59bc-4e23-bb50-d7f734fcf471.png)| **Idade:** 57 <br> **Ocupação:** Gerente de relações públicas, mãe |**Aplicativos:**<br><ul>● Netflix<br>● Youtube<br>● Linkedin</ul>|
-|**Motivações:**<br><ul>● Acompanhar o aprendizado<br>dos filhos <br>● Aproveitar o tempo com a<br>família <br>● Viajar</ul>|**Frustrações:**<br><ul>● Descompromisso da escola<br>● Não passar mais tempo com os filhos<br>● Não conseguir participar ativamente do ensino dos filhos</ul>|**Hobbies:**<br><ul>● História<br>● Encontras os amigos<br>● Viajar<br>● Ver filmes e séries</ul>|
+|**Motivações:**<br><ul>● Acompanhar o aprendizado dos filhos <br>● Aproveitar o tempo com a família <br>● Viajar</ul>|**Frustrações:**<br><ul>● Descompromisso da escola<br>● Não passar mais tempo com os filhos<br>● Não conseguir participar ativamente do ensino dos filhos</ul>|**Hobbies:**<br><ul>● História<br>● Encontras os amigos<br>● Viajar<br>● Ver filmes e séries</ul>|
 
-| Rafaela Miranda   | Informações:                       |                                        |
+| Rafaela Miranda      | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
 |![RM](https://user-images.githubusercontent.com/74699119/157868822-a1647845-d66c-4cfc-8007-2a560dddf4de.png)| **Idade:** 35 <br> **Ocupação:** Dona de casa, mãe |**Aplicativos:**<br><ul>● Facebook<br>● Netflix<br>● Twitter<br>● Instagram</ul>|
 |**Motivações:**<br><ul>● Estar presente na vida escolar dos filhos <br>● Ver o crescimento intelectual dos filhos</ul>|**Frustrações:**<br><ul>● Morosidade no atendimento particular da escola <br>● Falta de praticidade no acesso à agenda escolar <br>● Falta de privacidade no compartilhamento de recados referentes ao filho</ul>|**Hobbies:**<br><ul>● Ler livros com os filhos<br>● Viajar com a família <br>● Curtir o tempo livre brincando com os filhos</ul>|
 
-| Sebastião Silva   | Informações:                       |                                        |
+| Sebastião Silva      | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
 |![SS](https://user-images.githubusercontent.com/74699119/157877912-ab54615f-ec08-4ea7-ad39-353bc9e81a72.png)| **Idade:** 65 <br> **Ocupação:** Pai, aposentado |**Aplicativos:**<br><ul>● Whatsapp<br>● E-mail</ul>|
 |**Motivações:**<br><ul>● Família <br>● Amigos</ul>|**Frustrações:**<br><ul>● Inseguro com a internet <br>● Insatisfeito com a dificuldade de comunicação com a escola do Filho</ul>|**Hobbies:**<br><ul>● Descansar em casa<br>● Assistir filmes e novelas <br>● Pescar</ul>|
@@ -29,27 +29,27 @@
 | Flávia de Souza  | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
 |![FS](https://user-images.githubusercontent.com/74699119/157870593-47e85e52-7a86-4f5f-9795-62976f2056ae.png)| **Idade:** 58 <br> **Ocupação:** Diretora de escola |**Aplicativos:**<br><ul>● Facebook<br>● Whatsapp<br>● Gmail</ul>|
-|**Motivações:**<br><ul>● Melhorar o desempenho<br>dos alunos de sua escola<br>● Aumentar a satisfação<br>dos professores com seu emprego<br>● Promover mais atividades<br>culturais na escola</ul>|**Frustrações:**<br><ul>● Altas taxas de evasão escolar<br>● Reclamações dos pais em relação a comunicação com a escola<br>● Reclamações dos professores em relação ao comportamento dos alunos</ul>|**Hobbies:**<br><ul>● Viajar<br>● Jardinagem <br>● Assistir novelas</ul>|
+|**Motivações:**<br><ul>● Melhorar o desempenho dos alunos de sua escola<br>● Aumentar a satisfação dos professores com seu emprego<br>● Promover mais atividades culturais na escola</ul>|**Frustrações:**<br><ul>● Altas taxas de evasão escolar<br>● Reclamações dos pais em relação a comunicação com a escola<br>● Reclamações dos professores em relação ao comportamento dos alunos</ul>|**Hobbies:**<br><ul>● Viajar<br>● Jardinagem <br>● Assistir novelas</ul>|
 
-| Renato Moreira         | Informações:                       |                                        |
+| Renato Moreira | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
 |![RMo](https://user-images.githubusercontent.com/74699119/157868671-7e07ce9b-638b-47b9-8118-ba1a6359eb90.png)| **Idade:** 31 <br> **Ocupação:** Professor de matemática do ensino fundamental |**Aplicativos:**<br><ul>● Facebook<br>● Twitter<br>● Instagram</ul>|
-|**Motivações:**<br><ul>● Despertar o interesse dos<br>alunos pela matemática<br>● Ter uma boa didática</ul>|**Frustrações:**<br><ul>● Alunos faltando em suas aulas<br>● Desinteresse dos alunos na disciplina</ul>|**Hobbies:**<br><ul>● Ler livros<br>● Jogar futebol <br>● Ver séries</ul>|
+|**Motivações:**<br><ul>● Despertar o interesse dos alunos pela matemática<br>● Ter uma boa didática</ul>|**Frustrações:**<br><ul>● Alunos faltando em suas aulas<br>● Desinteresse dos alunos na disciplina</ul>|**Hobbies:**<br><ul>● Ler livros<br>● Jogar futebol <br>● Ver séries</ul>|
 
 | Mariana Rezende | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
 |![MR](https://user-images.githubusercontent.com/74699119/157870547-f569bef9-c35f-4894-a846-0c8a56ffdb01.png)| **Idade:** 25 <br> **Ocupação:** Professora de educação infantil |**Aplicativos:**<br><ul>● Youtube<br>● Gmail<br>● Instagram</ul>|
-|**Motivações:**<br><ul>● Terminar a faculdade de administração<br>● Ajudar em ongs de animais<br>● Realizar um mestrado no<br>exterior</ul>|**Frustrações:**<br><ul>● Dificuldade em se comunicar com os pais sobre o dia a dia das crianças<br>● Dificuldade em organizar atividades para seus alunos participarem</ul>|**Hobbies:**<br><ul>● Assistir séries<br>● Passeios na natureza <br>● Ler livros</ul>|
+|**Motivações:**<br><ul>● Terminar a faculdade de administração<br>● Ajudar em ongs de animais<br>● Realizar um mestrado no exterior</ul>|**Frustrações:**<br><ul>● Dificuldade em se comunicar com os pais sobre o dia a dia das crianças<br>● Dificuldade em organizar atividades para seus alunos participarem</ul>|**Hobbies:**<br><ul>● Assistir séries<br>● Passeios na natureza <br>● Ler livros</ul>|
 
-| Fernanda Teixeira          | Informações:                       |                                        |
+| Fernanda Teixeira  | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
 |![FT](https://user-images.githubusercontent.com/74699119/157868769-c4830081-16db-45c5-8e95-a8f8805fce56.png)| **Idade:** 24 <br> **Ocupação:** Assistente de secretaria escolar |**Aplicativos:**<br><ul>● Youtube<br>● Whatsapp<br>● Kindle</ul>|
-|**Motivações:**<br><ul>● Ajudar no desenvolvimento<br>e formação de seus alunos<br>● Estabelecer uma boa<br>comunicação com os<br>responsáveis do aluno</ul>|**Frustrações:**<br><ul>● Dificuldades de comunicação na gestão da escola<br>● Pais insatisfeitos com a escola que trabalha</ul>|**Hobbies:**<br><ul>● Leitura<br>● Filmes <br>● Cuidar de seus cães</ul>|
+|**Motivações:**<br><ul>● Ajudar no desenvolvimento e formação de seus alunos<br>● Estabelecer uma boa comunicação com os responsáveis do aluno</ul>|**Frustrações:**<br><ul>● Dificuldades de comunicação na gestão da escola<br>● Pais insatisfeitos com a escola que trabalha</ul>|**Hobbies:**<br><ul>● Leitura<br>● Filmes <br>● Cuidar de seus cães</ul>|
 
 | Paula Silveira  | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
 |![PS](https://user-images.githubusercontent.com/74699119/157877954-3c69b72a-b9ed-4c5f-91ab-8dfd9172a928.png)| **Idade:** 32 <br> **Ocupação:** Orientadora pedagógica |**Aplicativos:**<br><ul>● Linkedin <br>● Youtube<br>● Gmail<br>● Whatsapp</ul>|
-|**Motivações:**<br><ul>● Orientar os professores<br>com os melhores métodos<br>pedagógicos para aplicar em sala de aula<br>● Promover o desenvolvimento<br>pessoal dos alunos</ul>|**Frustrações:**<br><ul>●	Ineficiência na comunicação com os professores<br>● Professores reportando dificuldade em implementar métodos pedagógicos por baixo engajamento dos alunos com as atividades propostas<br>● Falta de participação e feedback dos pais no funcionamento da escola</ul>|**Hobbies:**<br><ul>● Participar de congressos de educação<br>● Ler <br>● Viajar</ul>|
+|**Motivações:**<br><ul>● Orientar os professores com os melhores métodos pedagógicos para aplicar em sala de aula<br>● Promover o desenvolvimento pessoal dos alunos</ul>|**Frustrações:**<br><ul>●	Ineficiência na comunicação com os professores<br>● Professores reportando dificuldade em implementar métodos pedagógicos por baixo engajamento dos alunos com as atividades propostas<br>● Falta de participação e feedback dos pais no funcionamento da escola</ul>|**Hobbies:**<br><ul>● Participar de congressos de educação<br>● Ler <br>● Viajar</ul>|
  
 ## Histórias de Usuários
 
@@ -128,4 +128,3 @@
 <p align="center">
 <b>Figura 1 </b> – Diagrama de casos de uso.
 </p>
-
