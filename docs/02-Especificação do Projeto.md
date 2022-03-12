@@ -8,48 +8,48 @@
 
 | Viviane Almeida      | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
-|![VA](https://user-images.githubusercontent.com/74699119/157877871-fa9aed30-59bc-4e23-bb50-d7f734fcf471.png)| **Idade:** 57 <br> **Ocupação:** Gerente de relações públicas, mãe |**Aplicativos:**<br>● Netflix<br>● Youtube<br>● Linkedin|
-|**Motivações:**<br>● Acompanhar o aprendizado dos filhos <br>● Aproveitar o tempo com a família <br>● Viajar|**Frustrações:**<br>● Descompromisso da escola<br>● Não passar mais tempo com os filhos<br>● Não conseguir participar ativamente do ensino dos filhos |**Hobbies:**<br>● História<br>● Encontras os amigos<br>● Viajar<br>● Ver filmes e séries|
+|![VA](https://user-images.githubusercontent.com/74699119/157877871-fa9aed30-59bc-4e23-bb50-d7f734fcf471.png)| **Idade:** 57 <br> **Ocupação:** Gerente de relações públicas, mãe |**Aplicativos:**<br><ul>● Netflix<br>● Youtube<br>● Linkedin</ul>|
+|**Motivações:**<br><ul>● Acompanhar o aprendizado dos filhos <br>● Aproveitar o tempo com a família <br>● Viajar</ul>|**Frustrações:**<br><ul>● Descompromisso da escola<br>● Não passar mais tempo com os filhos<br>● Não conseguir participar ativamente do ensino dos filhos</ul>|**Hobbies:**<br><ul>● História<br>● Encontras os amigos<br>● Viajar<br>● Ver filmes e séries</ul>|
 
 | Rafaela Miranda      | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
-|![RM](https://user-images.githubusercontent.com/74699119/157868822-a1647845-d66c-4cfc-8007-2a560dddf4de.png)| **Idade:** 35 <br> **Ocupação:** Dona de casa, mãe |**Aplicativos:**<br>● Facebook<br>● Netflix<br>● Twitter<br>● Instagram|
-|**Motivações:**<br>● Estar presente na vida escolar dos filhos <br>● Ver o crescimento intelectual dos filhos |**Frustrações:**<br>● Morosidade no atendimento particular da escola <br>● Falta de praticidade no acesso à agenda escolar <br>● Falta de privacidade no compartilhamento de recados referentes ao filho |**Hobbies:**<br>● Ler livros com os filhos<br>● Viajar com a família <br>● Curtir o tempo livre brincando com os filhos|
+|![RM](https://user-images.githubusercontent.com/74699119/157868822-a1647845-d66c-4cfc-8007-2a560dddf4de.png)| **Idade:** 35 <br> **Ocupação:** Dona de casa, mãe |**Aplicativos:**<br><ul>● Facebook<br>● Netflix<br>● Twitter<br>● Instagram</ul>|
+|**Motivações:**<br><ul>● Estar presente na vida escolar dos filhos <br>● Ver o crescimento intelectual dos filhos</ul>|**Frustrações:**<br><ul>● Morosidade no atendimento particular da escola <br>● Falta de praticidade no acesso à agenda escolar <br>● Falta de privacidade no compartilhamento de recados referentes ao filho</ul>|**Hobbies:**<br><ul>● Ler livros com os filhos<br>● Viajar com a família <br>● Curtir o tempo livre brincando com os filhos</ul>|
 
 | Sebastião Silva      | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
-|![SS](https://user-images.githubusercontent.com/74699119/157877912-ab54615f-ec08-4ea7-ad39-353bc9e81a72.png)| **Idade:** 65 <br> **Ocupação:** Pai, aposentado |**Aplicativos:**<br>● Whatsapp<br>● E-mail|
-|**Motivações:**<br>● Família <br>● Amigos |**Frustrações:**<br>● Inseguro com a internet <br>● Insatisfeito com a dificuldade de comunicação com a escola do Filho |**Hobbies:**<br>● Descansar em casa<br>● Assistir filmes e novelas <br>● Pescar|
+|![SS](https://user-images.githubusercontent.com/74699119/157877912-ab54615f-ec08-4ea7-ad39-353bc9e81a72.png)| **Idade:** 65 <br> **Ocupação:** Pai, aposentado |**Aplicativos:**<br><ul>● Whatsapp<br>● E-mail</ul>|
+|**Motivações:**<br><ul>● Família <br>● Amigos</ul>|**Frustrações:**<br><ul>● Inseguro com a internet <br>● Insatisfeito com a dificuldade de comunicação com a escola do Filho</ul>|**Hobbies:**<br><ul>● Descansar em casa<br>● Assistir filmes e novelas <br>● Pescar</ul>|
 
-| Felipe Campos   | Informações:                       |                                        |
+| Felipe Campos   | Informações:                       |                                             |
 |--------------------|------------------------------------|----------------------------------------|
-|![FC](https://user-images.githubusercontent.com/74699119/157880194-e7e662b8-c724-4d24-b4e6-3dd3dd7de502.png)| **Idade:** 11 <br> **Ocupação:** Estudante |**Aplicativos:**<br>● Youtube<br>● Whatsapp|
-|**Motivações:**<br>● Ir a escola<br>● Amigos<br>● Tirar boas notas nas provas |**Frustrações:**<br>● Desempenho insatisfatório em provas escolares <br>● Perder atividades importantes na escola<br>● Ser derrotado em jogos|**Hobbies:**<br>● Leitura<br>● Andar de skate <br>● Games|
+|![FC](https://user-images.githubusercontent.com/74699119/157880194-e7e662b8-c724-4d24-b4e6-3dd3dd7de502.png)| **Idade:** 11 <br> **Ocupação:** Estudante |**Aplicativos:**<br><br><ul>● Youtube<br>● Whatsapp</ul>|
+| **Motivações:**<br><ul>● Ir para escola <br>● Fazer amigos <br>● Tirar boas notas nas provas</ul>| **Frustrações:**<br><ul> <li>Insatisfação com o seu desempenho nas provas escolares</li> <li>Perder atividades importantes na escola</li> <li>Ser derrotado em jogos</li></ul>| **Hobbies:**<br><ul>● Leitura <br>● Andar de skate, bicicleta e patins <br>● Games</ul>|
 
 | Flávia de Souza  | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
-|![FS](https://user-images.githubusercontent.com/74699119/157870593-47e85e52-7a86-4f5f-9795-62976f2056ae.png)| **Idade:** 58 <br> **Ocupação:** Diretora de escola |**Aplicativos:**<br>● Facebook<br>● Whatsapp<br>● Gmail|
-|**Motivações:**<br>● Melhorar o desempenho dos alunos de sua escola<br>● Aumentar a satisfação dos professores com seu emprego<br>● Promover mais atividades culturais na escola|**Frustrações:**<br>● Altas taxas de evasão escolar<br>● Reclamações dos pais em relação a comunicação com a escola<br>● Reclamações dos professores em relação ao comportamento dos alunos|**Hobbies:**<br>● Viajar<br>● Jardinagem <br>● Assistir novelas|
+|![FS](https://user-images.githubusercontent.com/74699119/157870593-47e85e52-7a86-4f5f-9795-62976f2056ae.png)| **Idade:** 58 <br> **Ocupação:** Diretora de escola |**Aplicativos:**<br><ul>● Facebook<br>● Whatsapp<br>● Gmail</ul>|
+|**Motivações:**<br><ul>● Melhorar o desempenho dos alunos de sua escola<br>● Aumentar a satisfação dos professores com seu emprego<br>● Promover mais atividades culturais na escola</ul>|**Frustrações:**<br><ul>● Altas taxas de evasão escolar<br>● Reclamações dos pais em relação a comunicação com a escola<br>● Reclamações dos professores em relação ao comportamento dos alunos</ul>|**Hobbies:**<br><ul>● Viajar<br>● Jardinagem <br>● Assistir novelas</ul>|
 
 | Renato Moreira | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
-|![RMo](https://user-images.githubusercontent.com/74699119/157868671-7e07ce9b-638b-47b9-8118-ba1a6359eb90.png)| **Idade:** 31 <br> **Ocupação:** Professor de matemática do ensino fundamental |**Aplicativos:**<br>● Facebook<br>● Twitter<br>● Instagram|
-|**Motivações:**<br>● Despertar o interesse dos alunos pela matemática<br>● Ter uma boa didática  |**Frustrações:**<br>● Alunos faltando em suas aulas<br>● Desinteresse dos alunos na disciplina |**Hobbies:**<br>● Ler livros<br>● Jogar futebol <br>● Ver séries|
+|![RMo](https://user-images.githubusercontent.com/74699119/157868671-7e07ce9b-638b-47b9-8118-ba1a6359eb90.png)| **Idade:** 31 <br> **Ocupação:** Professor de matemática do ensino fundamental |**Aplicativos:**<br><ul>● Facebook<br>● Twitter<br>● Instagram</ul>|
+|**Motivações:**<br><ul>● Despertar o interesse dos alunos pela matemática<br>● Ter uma boa didática</ul>|**Frustrações:**<br><ul>● Alunos faltando em suas aulas<br>● Desinteresse dos alunos na disciplina</ul>|**Hobbies:**<br><ul>● Ler livros<br>● Jogar futebol <br>● Ver séries</ul>|
 
 | Mariana Rezende | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
-|![MR](https://user-images.githubusercontent.com/74699119/157870547-f569bef9-c35f-4894-a846-0c8a56ffdb01.png)| **Idade:** 25 <br> **Ocupação:** Professora de educação infantil |**Aplicativos:**<br>● Youtube<br>● Gmail<br>● Instagram|
-|**Motivações:**<br>● Terminar a faculdade de administração<br>● Ajudar em ongs de animais<br>● Realizar um mestrado no exterior|**Frustrações:**<br>● Dificuldade em se comunicar com os pais sobre o dia a dia das crianças<br>● Dificuldade em organizar atividades para seus alunos participarem|**Hobbies:**<br>● Assistir séries<br>● Passeios na natureza <br>● Ler livros|
+|![MR](https://user-images.githubusercontent.com/74699119/157870547-f569bef9-c35f-4894-a846-0c8a56ffdb01.png)| **Idade:** 25 <br> **Ocupação:** Professora de educação infantil |**Aplicativos:**<br><ul>● Youtube<br>● Gmail<br>● Instagram</ul>|
+|**Motivações:**<br><ul>● Terminar a faculdade de administração<br>● Ajudar em ongs de animais<br>● Realizar um mestrado no exterior</ul>|**Frustrações:**<br><ul>● Dificuldade em se comunicar com os pais sobre o dia a dia das crianças<br>● Dificuldade em organizar atividades para seus alunos participarem</ul>|**Hobbies:**<br><ul>● Assistir séries<br>● Passeios na natureza <br>● Ler livros</ul>|
 
 | Fernanda Teixeira  | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
-|![FT](https://user-images.githubusercontent.com/74699119/157868769-c4830081-16db-45c5-8e95-a8f8805fce56.png)| **Idade:** 24 <br> **Ocupação:** Assistente de secretaria escolar |**Aplicativos:**<br>● Youtube<br>● Whatsapp<br>● Kindle|
-|**Motivações:**<br>● Ajudar no desenvolvimento e formação de seus alunos<br>● Estabelecer uma boa comunicação com os responsáveis do aluno |**Frustrações:**<br>● Dificuldades de comunicação na gestão da escola<br>● Pais insatisfeitos com a escola que trabalha|**Hobbies:**<br>● Leitura<br>● Filmes <br>● Cuidar de seus cães |
+|![FT](https://user-images.githubusercontent.com/74699119/157868769-c4830081-16db-45c5-8e95-a8f8805fce56.png)| **Idade:** 24 <br> **Ocupação:** Assistente de secretaria escolar |**Aplicativos:**<br><ul>● Youtube<br>● Whatsapp<br>● Kindle</ul>|
+|**Motivações:**<br><ul>● Ajudar no desenvolvimento e formação de seus alunos<br>● Estabelecer uma boa comunicação com os responsáveis do aluno</ul>|**Frustrações:**<br><ul>● Dificuldades de comunicação na gestão da escola<br>● Pais insatisfeitos com a escola que trabalha</ul>|**Hobbies:**<br><ul>● Leitura<br>● Filmes <br>● Cuidar de seus cães</ul>|
 
 | Paula Silveira  | Informações:                       |                                        |
 |--------------------|------------------------------------|----------------------------------------|
-|![PS](https://user-images.githubusercontent.com/74699119/157877954-3c69b72a-b9ed-4c5f-91ab-8dfd9172a928.png)| **Idade:** 32 <br> **Ocupação:** Orientadora pedagógica |**Aplicativos:**<br>● Linkedin <br>● Youtube<br>● Gmail<br>● Whatsapp|
-|**Motivações:**<br>● Orientar os professores com os melhores métodos pedagógicos para aplicar em sala de aula<br>● Promover o desenvolvimento pessoal dos alunos|**Frustrações:**<br>●	Ineficiência na comunicação com os professores<br>● Professores reportando dificuldade em implementar métodos pedagógicos por baixo engajamento dos alunos com as atividades propostas<br>● Falta de participação e feedback dos pais no funcionamento da escola|**Hobbies:**<br>● Participar de congressos de educação<br>● Ler <br>● Viajar |
+|![PS](https://user-images.githubusercontent.com/74699119/157877954-3c69b72a-b9ed-4c5f-91ab-8dfd9172a928.png)| **Idade:** 32 <br> **Ocupação:** Orientadora pedagógica |**Aplicativos:**<br><ul>● Linkedin <br>● Youtube<br>● Gmail<br>● Whatsapp</ul>|
+|**Motivações:**<br><ul>● Orientar os professores com os melhores métodos pedagógicos para aplicar em sala de aula<br>● Promover o desenvolvimento pessoal dos alunos</ul>|**Frustrações:**<br><ul>●	Ineficiência na comunicação com os professores<br>● Professores reportando dificuldade em implementar métodos pedagógicos por baixo engajamento dos alunos com as atividades propostas<br>● Falta de participação e feedback dos pais no funcionamento da escola</ul>|**Hobbies:**<br><ul>● Participar de congressos de educação<br>● Ler <br>● Viajar</ul>|
  
 ## Histórias de Usuários
 
@@ -96,18 +96,18 @@
 
 ### Requisitos não Funcionais
 
-|ID     | Descrição do Requisito  |Prioridade |
-|-------|-------------------------|----|
-|RNF-01|	O site deve ser publicado em um ambiente acessível publicamente na Internet (Repl.it, GitHub Pages, Heroku)|	Alta |
-|RNF-02|	O site deverá ser responsivo permitindo a visualização em um celular de forma adequada | Alta | 
-|RNF-03|	O site deve ter bom nível de contraste entre os elementos da tela em conformidade | Média | 
-|RNF-04|	O site deve ser compatível com os principais navegadores do mercado (Google Chrome, Firefox, Microsoft Edge)|	Alta |
-|RNF-05|	O sistema deve ser desenvolvido na linguagem C#, utilizando o framework Asp.NET Core	| Alta |
-|RNF-06|	O tempo de resposta para as requisições não deve ser maior que cinco segundos |	Média |
-|RNF-07|	O sistema deve estar disponível pelo menos 99% do tempo entre 6 da manhã e meia noite, sete dias por semana | Alta |
-|RNF-08|	O site deve ser passível de manutenção e migração de plataforma em até 3 meses | Baixa |
-|RNF-09|	O tratamento de dados pessoais na aplicação deve estar de acordo com o estabelecido na LGPD (Lei Geral de Proteção de Dados ) | Alta | 
-|RNF-10|	A aplicação deve suportar no mínimo dez usuários simultâneos sem impacto no tempo de resposta | Média | 
+|ID      | Descrição do Requisito  |Prioridade |
+|--------|-------------------------|----|
+|RNF-01 |	O site deve ser publicado em um ambiente acessível publicamente na Internet (Repl.it, GitHub Pages, Heroku)|	Alta |
+|RNF-02 |	O site deverá ser responsivo permitindo a visualização em um celular de forma adequada | Alta | 
+|RNF-03 |	O site deve ter bom nível de contraste entre os elementos da tela em conformidade | Média | 
+|RNF-04 |	O site deve ser compatível com os principais navegadores do mercado (Google Chrome, Firefox, Microsoft Edge)|	Alta |
+|RNF-05 |	O sistema deve ser desenvolvido na linguagem C#, utilizando o framework Asp.NET Core	| Alta |
+|RNF-06 |	O tempo de resposta para as requisições não deve ser maior que cinco segundos |	Média |
+|RNF-07 |	O sistema deve estar disponível pelo menos 99% do tempo entre 6 da manhã e meia noite, sete dias por semana | Alta |
+|RNF-08 |	O site deve ser passível de manutenção e migração de plataforma em até 3 meses | Baixa |
+|RNF-09 |	O tratamento de dados pessoais na aplicação deve estar de acordo com o estabelecido na LGPD (Lei Geral de Proteção de Dados ) | Alta | 
+|RNF-10 |	A aplicação deve suportar no mínimo dez usuários simultâneos sem impacto no tempo de resposta | Média | 
   
 
 
@@ -115,10 +115,10 @@
 
 <p align="justify">O projeto está restrito pelos itens apresentados na tabela a seguir.</p>
 
-|ID| Restrição                                             |
-|--|-------------------------------------------------------|
-|RE-01| O projeto deverá ser entregue no final do semestre letivo, não podendo extrapolar a data de 07/07/2020 |
-|RE-02| A equipe não pode subcontratar o desenvolvimento do trabalho. |
+|ID     | Restrição                                                                                                                         |
+|-------|-----------------------------------------------------------------------------------------------------------------------------------|
+|RE-01 | O projeto deverá ser entregue no final do semestre letivo, não podendo extrapolar a data de 07/07/2020 |
+|RE-02 | A equipe não pode subcontratar o desenvolvimento do trabalho. |
 
 ## Diagrama de Casos de Uso
 
