@@ -16,7 +16,7 @@ os usuários cadastrados. Além do sistema de mensagens, a aplicação disponibi
 * Maria Luiza Silva Lacerda
 * Robson Levi Mariano Eduardo
 * Sergio Luiz de Menezes Filho
-* Vania Rezende
+* Vania Maria Tiburzio Rezende
 
 
 ## Orientador
