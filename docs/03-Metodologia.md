@@ -18,13 +18,13 @@ O projeto segue a seguinte convenção para o nome de branches:
 - `testing`: versão em testes do software
 - `dev`: versão de desenvolvimento do software
 
-A gerência de issues será feita pelo próprio sistema do Github dentro do repositório do projeto, o adotando a seguinte convenção para
+A gerência de issues será feita pelo próprio sistema do Github dentro do repositório do projeto, adotando-se a seguinte convenção para
 etiquetas:
 
-- `documentation`: melhorias ou acréscimos à documentação
-- `bug`: uma funcionalidade encontra-se com problemas
-- `enhancement`: uma funcionalidade precisa ser melhorada
-- `feature`: uma nova funcionalidade precisa ser introduzida
+- `documentation`: realizar mudanças na documentação
+- `bug`: reportar problemas nas funcionalidades implementadas
+- `enhancement`: realizar melhorias em alguma funcionalidade
+- `feature`: realizar a implementação de uma nova funcionalidade
 
 Discuta como a configuração do projeto foi feita na ferramenta de versionamento escolhida. Exponha como a gerência de tags, merges, commits e branchs é realizada. Discuta como a gerência de issues foi realizada.
 
