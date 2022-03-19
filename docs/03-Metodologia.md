@@ -75,7 +75,7 @@ Este quadro é apresentado, no estado atual, na Figura 1.</p>
 <p align="center"><b>Figura 1</b> - Tela do kanban (Trello) utilizada pelo grupo</p>
 <br>
 Os itens são ainda, etiquetados em função da natureza da atividade e da Sprint a qual são alocados, seguindo as seguintes categorias:
-
+<br>
 * Documentação: Elaborar parte da documentação do projeto
 * Funcionalidade: Implementar uma funcionalidade específica no projeto
 * Sprint: Sprint na qual a tarefa será trabalhada
