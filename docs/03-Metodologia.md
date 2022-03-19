@@ -81,7 +81,7 @@ Os itens são ainda, etiquetados em função da natureza da atividade e da Sprin
 
 As ferramentas empregadas no projeto são:
 - **Editor de Código:** O editor de código escolhido foi o _Visual Studio 2022_ pela integração com o Framework ASP.NET e outras ferramentas utilizadas no projeto como GitHub e o SQL Server.
-- **Sistema de gerenciamento de banco de dados(SGBD):** O SGBD escolhido para o projeto foi o _SQL Server_ dado sua boa integração com o editor de código e para facilitar a migração do banco de dados para o Azure nas fases mais avançadas do projeto.
+- **Sistema gerenciador de banco de dados(SGBD):** O SGBD escolhido para o projeto foi o _SQL Server_ dado sua boa integração com o editor de código e para facilitar a migração do banco de dados para o Azure nas fases mais avançadas do projeto.
 - **Ferramentas de comunicação:** A ferramenta de comunicação escolhida foi o _Microsoft Teams_ dado a facilidade de comunicação, reuniões em vídeo e compartilhamento de arquivos e a criação de um ambiente de trabalho exclusivamente focado no projeto em questão.
 - **Ferramentas de desenho de tela (wireframing):** A ferramenta escolhida para a elaboração dos wireframes foi o _Lucidchart_. A escolha se deu dado a sua capacidade de geração de wireframes interativos detalhados e da familiaridade dos membros da equipe com a ferramenta.
 - **Ferramentas de elaboração de diagramas:** Para a elaboração dos diversos diagramas do projeto (diagramas de fluxo, diagramas de classes, modelo ER e esquema relacional), a ferramenta _Lucidchart_ foi escolhida por conta de sua versatilidade para elaboração de diagramas de diversos tipos e da familiaridade dos membros da equipe com seu uso.
