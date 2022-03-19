@@ -42,13 +42,13 @@ Discuta como a configuração do projeto foi feita na ferramenta de versionament
 <p align="justify">A equipe utiliza processos da metodologia ágil, tendo escolhido o Scrum para gestão e planejamento do projeto em questão.</p>
 
 A equipe está organizada da seguinte maneira:
-* Scrum Master: Vania Maria Tiburzio Rezende
-* Product Owner: Sergio Luiz de Menezes Filho
-* Equipe de Desenvolvimento:
+- **Scrum Master:** Vania Maria Tiburzio Rezende
+- **Product Owner:** Sergio Luiz de Menezes Filho
+- **Equipe de Desenvolvimento:**
      - André Soares Alves da Silva
      - Maria Luiza Silva Lacerda
      - Robson Levi Mariano Eduardo
-* Equipe de Design : André Vieira Grochowski
+- **Equipe de Design:** André Vieira Grochowski
 
 ### Processo
 
