@@ -1,9 +1,7 @@
 
 # Metodologia
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a></span>
-
-Descreva aqui a metodologia de trabalho do grupo para atacar o problema. Definições sobre os ambiente de trabalho utilizados pela  equipe para desenvolver o projeto. Abrange a relação de ambientes utilizados, a estrutura para gestão do código fonte, além da definição do processo e ferramenta através dos quais a equipe se organiza (Gestão de Times).
+<p align="justify">Será apresentado a metodologia com as definições sobre os ambientes de trabalho utilizados pela equipe para desenvolver o projeto. Inclui a gestão do código fonte, além da definição do processo e ferramenta através dos quais a equipe se organiza para gestão do time.</p>
 
 ## Controle de Versão
 
@@ -39,7 +37,32 @@ Discuta como a configuração do projeto foi feita na ferramenta de versionament
 
 ### Divisão de Papéis
 
-Apresente a divisão de papéis entre os membros do grupo.
+<p align="justify">A equipe utiliza processos da metodologia ágil, tendo escolhido o Scrum para gestão e planejamento do projeto em questão.</p>
+
+A equipe está organizada da seguinte maneira:
+* Scrum Master: Vania Maria
+* Product Owner: Sergio Luiz
+* Equipe de Desenvolvimento:
+     - André Soares
+     - Maria Luiza
+     - Robson Levi
+* Equipe de Design : André Vieira
+
+<p align="justify">Para organização e distribuição das tarefas do projeto, a equipe está utilizando o quadro Kanban (Trello) construído com as seguintes listas:</p>
+
+- **Backlog:** Essa lista é onde as tarefas de projetos são alocadas em cartões individuais. A lista também reúne tarefas que o time pode querer trabalhar ou nas quais precisará trabalhar no futuro, mas que ainda estão sendo avaliadas.
+- **Em andamento:** Quando uma tarefa tiver sido iniciada, ela é movida para cá.
+- **Fase de teste:** Checagem de Qualidade. Quando a tarefa está quase concluída, é o momento de movê-la para esta lista para que seja revisada ou que alguém dê uma segunda olhada.
+- **Concluído:** Nesta lista são colocadas as tarefas que passaram pelos testes e controle de qualidade e estão prontos para ser entregues ao usuário. Pois já foram revisadas e aprovadas, não há mais edições ou revisões necessárias.
+- **Bloqueado:** Caso venha existir tarefas que foram impedidas de serem concluídas por algum motivo, deverão ser registradas nessa lista.
+
+<p align="justify">O quadro kanban do grupo no Trello está disponível através da URL https://trello.com/b/lIIiew8L/kanban-projeto-aplica%C3%A7%C3%A3o-de-comunica%C3%A7%C3%A3o-escolar e é apresentado, no estado atual, na Figura 1.</p>
+
+<p align="center">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-aplicacao-de-comunicacao-escolar/blob/main/docs/img/Quadro%20trello.PNG?raw=true" alt="quadro kanban">
+</p>
+<p align="center">Figura 1 - Tela do kanban (Trello) utilizada pelo grupo</p>
+
 
 > **Links Úteis**:
 > - [11 Passos Essenciais para Implantar Scrum no seu 
