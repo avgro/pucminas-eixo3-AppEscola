@@ -3,19 +3,6 @@
 
 <p align="justify">Será apresentado a metodologia com as definições sobre os ambientes de trabalho utilizados pela equipe para desenvolver o projeto. Inclui a gestão do código fonte, além da definição do processo e ferramenta através dos quais a equipe se organiza para gestão do time.</p>
 
-## Relação de ambientes de trabalho
-
-<p align="justify">Os artefatos do projeto são desenvolvidos a partir de diversas plataformas e a relação dos ambientes com seu respectivo propósito é apresentada a seguir.</p>
-
-* Repositório de código fonte
-   - GitHub: https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-aplicacao-de-comunicacao-escolar.git
-* Documentos do projeto
-   - Google Docs: ?
-* Projeto de Interface
-   - MarvelApp: ?
-* Gerenciamento do Projeto
-   - Trello: https://trello.com/b/lIIiew8L/kanban-projeto-aplica%C3%A7%C3%A3o-de-comunica%C3%A7%C3%A3o-escolar
-
 ## Gestão de código fonte
 
 ## Controle de Versão
@@ -103,3 +90,12 @@ As ferramentas empregadas no projeto são:
 *	Ferramentas de elaboração de diagramas: Para a elaboração dos diversos diagramas do projeto (diagramas de fluxo, diagramas de classes, modelo ER e esquema relacional), a ferramenta _Lucidchart_ foi escolhida por conta de sua versatilidade para elaboração de diagramas de diversos tipos e da familiaridade dos membros da equipe com seu uso.
 *	Ferramentas de controle de versão: Conforme descrito na seção “Controle de Versão”, a ferramenta de controle de versão escolhida foi o _Git_, cuja utilização se deu através da integração com o editor de código _Visual Studio 2022_, para a hospedagem do repositório será utilizado o _GitHub_.
 *	Ferramenta de organização de distribuição de tarefas: A ferramenta _Trello_ foi escolhida para a organização e distribuição das tarefas seguindo o modelo Scrum, conforme descrito na subseção “Processo” da seção “Gerenciamento de Projeto”.
+ 
+### Relação de Ambientes de Trabalho
+   
+| Ambiente      | Plataforma                | Link de Acesso             |
+|---------------|---------------------------|----------------------------|
+| Repositório de código fonte | GitHub | https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-aplicacao-de-comunicacao-escolar.git |
+| Projeto de Interface (Wireframes) | Lucidchart | Inserir Link |
+| Gerenciamento do Projeto | Trello | https://trello.com/b/lIIiew8L/kanban-projeto-aplica%C3%A7%C3%A3o-de-comunica%C3%A7%C3%A3o-escolar |
+
