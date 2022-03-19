@@ -3,14 +3,11 @@
 
 <p align="justify">Segue apresentado a metodologia com as definições sobre os ambientes de trabalho utilizados pela equipe para desenvolver o projeto. Inclui a gestão do código fonte, além da definição do processo e ferramentas através dos quais a equipe se organiza para gestão do projeto.</p>
 
-## Gestão de código fonte
 
-## Controle de Versão
+## Gestão de Controle de Versão
 
-A ferramenta de controle de versão escolhida para o projeto foi o
-Git, com o Github tendo sido escolhido para a hospedagem do repositório.
+Para gestão do código fonte utilizaremos o Gitflow, com modelo de organização de branches, o qual mostra que tipos de ramificações configurar e como fazer merge. Assim, todas as manutenções no código são realizadas em branches separados, identificados como Main, Hotfix, Release, Develop e Feature, ou seja, um modelo de ramificação de manutenção que permite corrigir com rapidez lançamentos de produção mantendo uma linha de desenvolvimento dedicada para a atualização de segurança, deixando que a equipe trabalhe com problemas sem interromper o fluxo do trabalho ou esperar o próximo ciclo de lançamento.
 
-O fluxo de trabalho do Git escolhido para o projeto foi o Gitflow.
 ![Fluxo de controle do código fonte](img/fluxodecontroledocodigofontenorepositorio2.png)
 
 **Figura 1 - Fluxo de controle do código fonte no repositório github**  
