@@ -18,7 +18,7 @@ O projeto segue a seguinte convenção para o nome de branches:
 - `testing`: versão em testes do software
 - `dev`: versão de desenvolvimento do software
 
-Quanto à gerência de issues, o projeto adota a seguinte convenção para
+A gerência de issues será feita pelo próprio sistema do Github dentro do repositório do projeto, o adotando a seguinte convenção para
 etiquetas:
 
 - `documentation`: melhorias ou acréscimos à documentação
