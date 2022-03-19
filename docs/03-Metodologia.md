@@ -18,14 +18,6 @@ O projeto segue a seguinte convenção para o nome de branches:
 - `testing`: versão em testes do software
 - `dev`: versão de desenvolvimento do software
 
-A gerência de issues será feita pelo próprio sistema do Github dentro do repositório do projeto, adotando-se a seguinte convenção para
-etiquetas:
-
-- `documentation`: realizar mudanças na documentação
-- `bug`: reportar problemas nas funcionalidades implementadas
-- `enhancement`: realizar melhorias em alguma funcionalidade
-- `feature`: realizar a implementação de uma nova funcionalidade
-
 Discuta como a configuração do projeto foi feita na ferramenta de versionamento escolhida. Exponha como a gerência de tags, merges, commits e branchs é realizada. Discuta como a gerência de issues foi realizada.
 
 > **Links Úteis**:
@@ -34,6 +26,14 @@ Discuta como a configuração do projeto foi feita na ferramenta de versionament
 >  - [Comparando fluxos de trabalho](https://www.atlassian.com/br/git/tutorials/comparing-workflows)
 > - [Understanding the GitHub flow](https://guides.github.com/introduction/flow/)
 > - [The gitflow workflow - in less than 5 mins](https://www.youtube.com/watch?v=1SXpE08hvGs)
+
+A gerência de issues será feita pelo próprio sistema do Github dentro do repositório do projeto, adotando-se a seguinte convenção para
+etiquetas:
+
+- `documentation`: realizar mudanças na documentação
+- `bug`: reportar problemas nas funcionalidades implementadas
+- `enhancement`: realizar melhorias em alguma funcionalidade
+- `feature`: realizar a implementação de uma nova funcionalidade
 
 ## Gerenciamento de Projeto
 
