@@ -65,7 +65,7 @@ A equipe está organizada da seguinte maneira:
 <br>
 https://trello.com/b/lIIiew8L/kanban-projeto-aplica%C3%A7%C3%A3o-de-comunica%C3%A7%C3%A3o-escolar
 <br>
-Este quadro é apresentado, no estado atual, na Figura 1.</p>
+Este quadro é apresentado, no estado atual, na figura a seguir:</p>
 <b>
 <p align="center">
    
