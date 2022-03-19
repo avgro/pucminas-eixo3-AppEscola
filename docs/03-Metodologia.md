@@ -3,6 +3,21 @@
 
 <p align="justify">Será apresentado a metodologia com as definições sobre os ambientes de trabalho utilizados pela equipe para desenvolver o projeto. Inclui a gestão do código fonte, além da definição do processo e ferramenta através dos quais a equipe se organiza para gestão do time.</p>
 
+## Relação de ambientes de trabalho
+
+<p align="justify">Os artefatos do projeto são desenvolvidos a partir de diversas plataformas e a relação dos ambientes com seu respectivo propósito é apresentada a seguir.</p>
+
+* Repositório de código fonte
+   - GitHub: https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-aplicacao-de-comunicacao-escolar.git
+* Documentos do projeto
+   - Google Docs: ?
+* Projeto de Interface
+   - MarvelApp: ?
+* Gerenciamento do Projeto
+   - Trello: https://trello.com/b/lIIiew8L/kanban-projeto-aplica%C3%A7%C3%A3o-de-comunica%C3%A7%C3%A3o-escolar
+
+## Gestão de código fonte
+
 ## Controle de Versão
 
 A ferramenta de controle de versão adotada no projeto foi o
@@ -63,6 +78,17 @@ A equipe está organizada da seguinte maneira:
 </p>
 <p align="center">Figura 1 - Tela do kanban (Trello) utilizada pelo grupo</p>
 
+As tarefas são, ainda, etiquetadas em função da natureza da atividade, da spring e seguem o seguinte esquema de cores/categorias:
+
+* Sprint 1
+* Sprint 2
+* Sprint 3...
+* Funcionalidade
+* Documentação
+
+<p align="center">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-aplicacao-de-comunicacao-escolar/blob/main/docs/img/Etiquetas.PNG?raw=true" alt="Etiquetas">
+</p>
 
 > **Links Úteis**:
 > - [11 Passos Essenciais para Implantar Scrum no seu 
