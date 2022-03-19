@@ -55,72 +55,47 @@ Discuta como a configuração do projeto foi feita na ferramenta de versionament
 <p align="justify">A equipe utiliza processos da metodologia ágil, tendo escolhido o Scrum para gestão e planejamento do projeto em questão.</p>
 
 A equipe está organizada da seguinte maneira:
-* Scrum Master: Vania Maria
-* Product Owner: Sergio Luiz
+* Scrum Master: Vania Maria Tiburzio Rezende
+* Product Owner: Sergio Luiz de Menezes Filho
 * Equipe de Desenvolvimento:
-     - André Soares
-     - Maria Luiza
-     - Robson Levi
-* Equipe de Design : André Vieira
+     - André Soares Alves da Silva
+     - Maria Luiza Silva Lacerda
+     - Robson Levi Mariano Eduardo
+* Equipe de Design : André Vieira Grochowski
+
+### Processo
 
 <p align="justify">Para organização e distribuição das tarefas do projeto, a equipe está utilizando o quadro Kanban (Trello) construído com as seguintes listas:</p>
 
-- **Backlog:** Essa lista é onde as tarefas de projetos são alocadas em cartões individuais. A lista também reúne tarefas que o time pode querer trabalhar ou nas quais precisará trabalhar no futuro, mas que ainda estão sendo avaliadas.
+- **Backlog:** Essa lista é onde os itens a serem implementados do projeto são alocados em cartões individuais. A lista também reúne itens que o time pode querer trabalhar ou nos quais precisará trabalhar no futuro, mas que ainda estão sendo avaliados.
+- **Backlog da Sprint:** Essa lista é onde os itens do backlog a serem trabalhados na sprint atual são alocados como tarefas a serem realizadas pelos membros da equipe.
 - **Em andamento:** Quando uma tarefa tiver sido iniciada, ela é movida para cá.
-- **Fase de teste:** Checagem de Qualidade. Quando a tarefa está quase concluída, é o momento de movê-la para esta lista para que seja revisada ou que alguém dê uma segunda olhada.
+- **Fase de teste:** Checagem de Qualidade. Quando a tarefa está quase concluída, é o momento de movê-la para esta lista para que seja revisada pelos membros da equipe e seja determinado se os critérios de aceitação foram atingidos.
 - **Concluído:** Nesta lista são colocadas as tarefas que passaram pelos testes e controle de qualidade e estão prontos para ser entregues ao usuário. Pois já foram revisadas e aprovadas, não há mais edições ou revisões necessárias.
 - **Bloqueado:** Caso venha existir tarefas que foram impedidas de serem concluídas por algum motivo, deverão ser registradas nessa lista.
 
 <p align="justify">O quadro kanban do grupo no Trello está disponível através da URL https://trello.com/b/lIIiew8L/kanban-projeto-aplica%C3%A7%C3%A3o-de-comunica%C3%A7%C3%A3o-escolar e é apresentado, no estado atual, na Figura 1.</p>
 
 <p align="center">
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-aplicacao-de-comunicacao-escolar/blob/main/docs/img/Quadro%20trello.PNG?raw=true" alt="quadro kanban">
+   
+![kanban_aplicao_escolar](https://user-images.githubusercontent.com/74699119/159126256-41b9e6b5-ba53-4fb8-b330-8791734e1cd4.png)
+   
 </p>
-<p align="center">Figura 1 - Tela do kanban (Trello) utilizada pelo grupo</p>
+<p align="center"><b>Figura 1</b> - Tela do kanban (Trello) utilizada pelo grupo</p>
 
-As tarefas são, ainda, etiquetadas em função da natureza da atividade, da spring e seguem o seguinte esquema de cores/categorias:
+Os itens são ainda, etiquetados em função da natureza da atividade e da Sprint a qual são alocados, seguindo as seguintes categorias:
 
-* Sprint 1
-* Sprint 2
-* Sprint 3...
-* Funcionalidade
-* Documentação
-
-<p align="center">
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-aplicacao-de-comunicacao-escolar/blob/main/docs/img/Etiquetas.PNG?raw=true" alt="Etiquetas">
-</p>
-
-> **Links Úteis**:
-> - [11 Passos Essenciais para Implantar Scrum no seu 
-> Projeto](https://mindmaster.com.br/scrum-11-passos/)
-> - [Scrum em 9 minutos](https://www.youtube.com/watch?v=XfvQWnRgxG0)
-
-### Processo
-
-Coloque  informações sobre detalhes da implementação do Scrum seguido pelo grupo. O grupo poderá fazer uso de ferramentas on-line para acompanhar o andamento do projeto, a execução das tarefas e o status de desenvolvimento da solução.
+* Documentação: Elaborar parte da documentação do projeto
+* Funcionalidade: Implementar uma funcionalidade específica no projeto
+* Sprint: Sprint na qual a tarefa será trabalhada
  
-> **Links Úteis**:
-> - [Project management, made simple](https://github.com/features/project-management/)
-> - [Sobre quadros de projeto](https://docs.github.com/pt/github/managing-your-work-on-github/about-project-boards)
-> - [Como criar Backlogs no Github](https://www.youtube.com/watch?v=RXEy6CFu9Hk)
-> - [Tutorial Slack](https://slack.com/intl/en-br/)
-
 ### Ferramentas
 
 As ferramentas empregadas no projeto são:
-
-- Editor de código.
-- Ferramentas de comunicação
-- Ferramentas de desenho de tela (_wireframing_)
-
-O editor de código foi escolhido porque ele possui uma integração com o
-sistema de versão. As ferramentas de comunicação utilizadas possuem
-integração semelhante e por isso foram selecionadas. Por fim, para criar
-diagramas utilizamos essa ferramenta por melhor captar as
-necessidades da nossa solução.
-
-Liste quais ferramentas foram empregadas no desenvolvimento do projeto, justificando a escolha delas, sempre que possível.
- 
-> **Possíveis Ferramentas que auxiliarão no gerenciamento**: 
-> - [Slack](https://slack.com/)
-> - [Github](https://github.com/)
+*	Editor de Código: O editor de código escolhido foi o _Visual Studio 2022_
+*	Sistema de gerenciamento de banco de dados(SGBD): O SGBD escolhido para o projeto foi o _SQL Server_ 
+*	Ferramentas de comunicação: A ferramenta de comunicação escolhida foi o _Microsoft Teams_
+*	Ferramentas de desenho de tela (wireframing): A ferramenta escolhida para a elaboração dos wireframes foi o _Lucidchart_. A escolha se deu dado a sua capacidade de geração de wireframes interativos detalhados e da familiaridade dos membros da equipe com a ferramenta.
+*	Ferramentas de elaboração de diagramas: Para a elaboração dos diversos diagramas do projeto (diagramas de fluxo, diagramas de classes, modelo ER e esquema relacional), a ferramenta _Lucidchart_ foi escolhida por conta de sua versatilidade para elaboração de diagramas de diversos tipos e da familiaridade dos membros da equipe com seu uso.
+*	Ferramentas de controle de versão: Conforme descrito na seção “Controle de Versão”, a ferramenta de controle de versão escolhida foi o _Git_, cuja utilização se deu através da integração com o editor de código _Visual Studio 2022_, para a hospedagem do repositório será utilizado o _GitHub_.
+*	Ferramenta de organização de distribuição de tarefas: A ferramenta _Trello_ foi escolhida para a organização e distribuição das tarefas seguindo o modelo Scrum, conforme descrito na subseção “Processo” da seção “Gerenciamento de Projeto”.
