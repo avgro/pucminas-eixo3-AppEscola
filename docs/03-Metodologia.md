@@ -75,7 +75,9 @@ A equipe está organizada da seguinte maneira:
 - **Bloqueado:** Caso venha existir tarefas que foram impedidas de serem concluídas por algum motivo, deverão ser registradas nessa lista.
 
 <p align="justify">O quadro kanban do grupo no Trello está disponível através da URL:
-https://trello.com/b/lIIiew8L/kanban-projeto-aplica%C3%A7%C3%A3o-de-comunica%C3%A7%C3%A3o-escolar 
+<br>
+https://trello.com/b/lIIiew8L/kanban-projeto-aplica%C3%A7%C3%A3o-de-comunica%C3%A7%C3%A3o-escolar
+<br>
 Este quadro é apresentado, no estado atual, na Figura 1.</p>
 <b>
 <p align="center">
