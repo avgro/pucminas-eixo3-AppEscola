@@ -61,16 +61,13 @@ A equipe está organizada da seguinte maneira:
 - **Concluído:** Nesta lista são colocadas as tarefas que passaram pelos testes e controle de qualidade e estão prontos para ser entregues ao usuário. Pois já foram revisadas e aprovadas, não há mais edições ou revisões necessárias.
 - **Bloqueado:** Caso venha existir tarefas que foram impedidas de serem concluídas por algum motivo, deverão ser registradas nessa lista.
 
-<p align="justify">O quadro kanban do grupo no Trello está disponível através da seguinte URL:
+<p align="justify">O quadro Kanban do grupo no Trello está disponível através da seguinte URL:
 <br>
 https://trello.com/b/lIIiew8L/kanban-projeto-aplica%C3%A7%C3%A3o-de-comunica%C3%A7%C3%A3o-escolar
 <br>
 Este quadro é apresentado, no estado atual, na figura a seguir:</p>
-<p align="center">
    
 ![kanban_aplicao_escolar](https://user-images.githubusercontent.com/74699119/159126256-41b9e6b5-ba53-4fb8-b330-8791734e1cd4.png)
-   
-</p>
 <p align="center"><b>Figura 1</b> - Tela do kanban (Trello) utilizada pelo grupo</p>
 <br>
 
