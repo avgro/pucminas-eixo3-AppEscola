@@ -11,9 +11,10 @@ A ferramenta de controle de versão escolhida para o projeto foi o
 Git, com o Github tendo sido escolhido para a hospedagem do repositório.
 
 O fluxo de trabalho do Git escolhido para o projeto foi o Gitflow.
-
 ![Fluxo de controle do código fonte](img/fluxodecontroledocodigofontenorepositorio2.png)
 
+**Figura 1 - Fluxo de controle do código fonte no repositório github**  
+</div> 
 A gerência de issues será feita pelo próprio sistema do Github dentro do repositório do projeto, adotando-se a seguinte convenção para
 etiquetas:
 
