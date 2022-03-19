@@ -58,7 +58,7 @@ A equipe está organizada da seguinte maneira:
 - **Concluído:** Nesta lista são colocadas as tarefas que passaram pelos testes e controle de qualidade e estão prontos para ser entregues ao usuário. Pois já foram revisadas e aprovadas, não há mais edições ou revisões necessárias.
 - **Bloqueado:** Caso venha existir tarefas que foram impedidas de serem concluídas por algum motivo, deverão ser registradas nessa lista.
 
-O quadro kanban do grupo no Trello está disponível através da URL https://trello.com/b/lIIiew8L/kanban-projeto-aplica%C3%A7%C3%A3o-de-comunica%C3%A7%C3%A3o-escolar e é apresentado, no estado atual, na Figura 1.
+<p align="justify">O quadro kanban do grupo no Trello está disponível através da URL https://trello.com/b/lIIiew8L/kanban-projeto-aplica%C3%A7%C3%A3o-de-comunica%C3%A7%C3%A3o-escolar e é apresentado, no estado atual, na Figura 1.</p>
 
 <p align="center">
 <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-aplicacao-de-comunicacao-escolar/blob/main/docs/img/Quadro%20trello.PNG?raw=true" alt="quadro kanban">
