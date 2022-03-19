@@ -76,9 +76,9 @@ Este quadro é apresentado, no estado atual, na figura a seguir:</p>
 
 Os itens são ainda, etiquetados em função da natureza da atividade e da Sprint a qual são alocados, seguindo as seguintes categorias:
 
-- Documentação: Elaborar parte da documentação do projeto
-- Funcionalidade: Implementar uma funcionalidade específica no projeto
-- Sprint: Sprint na qual a tarefa será trabalhada
+- **Documentação:** Elaborar parte da documentação do projeto
+- **Funcionalidade:** Implementar uma funcionalidade específica no projeto
+- **Sprint:** Sprint na qual a tarefa será trabalhada
  
 ### Ferramentas
 
