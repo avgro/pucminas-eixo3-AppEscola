@@ -6,14 +6,14 @@
 
 ## Gestão de Controle de Versão
 
-Para gestão do código fonte utilizaremos o Gitflow, com modelo de organização de branches, o qual mostra que tipos de ramificações configurar e como fazer merge. Assim, todas as manutenções no código são realizadas em branches separados, identificados como Main, Hotfix, Release, Develop e Feature, ou seja, um modelo de ramificação de manutenção que permite corrigir com rapidez lançamentos de produção mantendo uma linha de desenvolvimento dedicada para a atualização de segurança, deixando que a equipe trabalhe com problemas sem interromper o fluxo do trabalho ou esperar o próximo ciclo de lançamento.
+<p align="justify">Para gestão do código fonte utilizaremos o Gitflow, com modelo de organização de branches, o qual mostra que tipos de ramificações configurar e como fazer merge. Assim, todas as manutenções no código são realizadas em branches separados, identificados como Main, Hotfix, Release, Develop e Feature, ou seja, um modelo de ramificação de manutenção que permite corrigir com rapidez lançamentos de produção mantendo uma linha de desenvolvimento dedicada para a atualização de segurança, deixando que a equipe trabalhe com problemas sem interromper o fluxo do trabalho ou esperar o próximo ciclo de lançamento.</p>
 
 ![Fluxo de controle do código fonte](img/fluxodecontroledocodigofontenorepositorio2.png)
 
 **Figura 1 - Fluxo de controle do código fonte no repositório github**  
 </div> 
-A gerência de issues será feita pelo próprio sistema do Github dentro do repositório do projeto, adotando-se a seguinte convenção para
-etiquetas:
+<p align="justify">A gerência de issues será feita pelo próprio sistema do Github dentro do repositório do projeto, adotando-se a seguinte convenção para
+etiquetas:</p>
 
 - `documentation`: realizar mudanças na documentação
 - `bug`: reportar problemas nas funcionalidades implementadas
