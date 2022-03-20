@@ -4,4 +4,4 @@
 
 * Kraft, MA.; Dougherty, SM. **The Effect of Teacher-Family Communication on Student Engagement: Evidence from a Randomized Field Experiment**. Journal of Research on Educational Effectiveness. 2013;6 (3) :199-222. 
 
-* Fluxo de trabalho de Gitflow. Atlassian. Disponível em: https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow. Acesso em: 20/03/2022.
+* **Fluxo de trabalho de Gitflow**. Atlassian. Disponível em: https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow. Acesso em: 20/03/2022.
