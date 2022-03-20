@@ -21,7 +21,7 @@ Uma representação gráfica deste fluxo de trabalho (obtida do artigo da Atlass
 <p align="center"><b>Figura 2</b> - Fluxo de controle do código fonte no repositório github  </p>
 <br>
 </div> 
-<p align="justify">A gerência de issues será feita pelo próprio sistema do Github dentro do repositório do projeto, adotando-se a seguinte convenção para
+<p align="justify">A gerência de issues será feita utilizando o próprio sistema do Github dentro do repositório do projeto, adotando-se a seguinte convenção para
 etiquetas:</p>
 
 - `documentation`: realizar mudanças na documentação
