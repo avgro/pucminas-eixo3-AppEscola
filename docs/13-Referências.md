@@ -4,4 +4,7 @@
 
 * Kraft, MA.; Dougherty, SM. **The Effect of Teacher-Family Communication on Student Engagement: Evidence from a Randomized Field Experiment**. Journal of Research on Educational Effectiveness. 2013;6 (3) :199-222. 
 
+* Driessen, V. **A successful Git branching model**. nvie.com, 2010. Disponível em: https://nvie.com/posts/a-successful-git-branching-model/. Acesso em: 20/03/2022.
+https://nvie.com/posts/a-successful-git-branching-model/
+
 * **Fluxo de trabalho de Gitflow**. Atlassian. Disponível em: https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow. Acesso em: 20/03/2022.
