@@ -1,8 +1,7 @@
 
 # Metodologia
 
-<p align="justify">Segue apresentado a metodologia com as definições sobre os ambientes de trabalho utilizados pela equipe para desenvolver o projeto. Inclui a gestão do código fonte, além da definição do processo e ferramentas através dos quais a equipe se organiza para gestão do projeto.</p>
-
+<p align="justify">Segue apresentado a metodologia do projeto, detalhando-se as definições sobre os ambientes de trabalho utilizados pela equipe no processo de desenvolvimento. Inclui a gestão do código fonte e controle de versão, além da definição do processo de gerenciamento e ferramentas utilizadas pela equipe para o desenvolvimento do projeto.</p>
 
 ## Gestão de Controle de Versão
 
