@@ -38,4 +38,13 @@ Os testes funcionais a serem realizados no aplicativo são descritos a seguir:
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Clicar botão usuário e senha. 4) Clicar no botão adicionar e ou remover aluno/ disciplina. |
 |Critérios de êxito| O aluno deve estar associado à sua disciplina corretamente. |
 
+|Caso de teste 05     | CT 05 - Alterar Dados |
+|-------|-------------------------
+|Requisitos Associados | 	 RF-06  A aplicação deve permitir que usuários acessem suas contas, alterem suas informações de contato, endereço e senha..
+|Objetivo do teste| Verificar se o usuário consegue acessar sua conta e alterar seus dados. |
+|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Clicar botão usuário e senha. Informar usuário e senha. 4) Alterar informações do contato. 5) Clicar no botão Salvar alterações.  |
+|Critérios de êxito| Os dados do usuário devem ser alterados com sucesso. . |
+
+
+
 
