@@ -53,6 +53,15 @@ Os testes funcionais a serem realizados no aplicativo são descritos a seguir:
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Clicar botão usuário e senha. Informar usuário e senha.4) Acessar área de mensagens. |
 |Critérios de êxito| Mensagem deve ser enviada corretamente . Mensagem deve ser recebida corretamente constando remetente, arquivos e/ou documentos |
 
+|Caso de teste 07     | CT 07 - Buscar Mensagens |
+|-------|-------------------------
+|Requisitos Associados | 	 RF-09  A aplicação deve apresentar uma função de pesquisa dentro do histórico de mensagens do usuário. A busca poderá ser feita por palavras chaves ou por nome de usuário.
+|Objetivo do teste| Verificar se o site faz a busca por mensagens dentro do histórico.. |
+|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Clicar botão usuário e senha. Informar usuário e senha. 4) Acessar área de menagens. |
+|Critérios de êxito| Site localiza dentro do seu banco de dados mensagens com as palavras chaves buscadas . |
+
+
+
 
 
 
