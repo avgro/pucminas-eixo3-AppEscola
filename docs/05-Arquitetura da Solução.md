@@ -6,28 +6,22 @@ Definição de como o software é estruturado em termos dos componentes que faze
 
 ## Diagrama de Classes
 
-O diagrama de classes ilustra graficamente como será a estrutura do software, e como cada uma das classes da sua estrutura estarão interligadas. Essas classes servem de modelo para materializar os objetos que executarão na memória.
+![Diagrama de Classes ADS 2022_1](https://user-images.githubusercontent.com/74699119/160708825-218ceb30-4312-4f2f-af8d-12c5ccfc18d0.png)
+<p align="center"><b>Figura 5</b> - Diagrama de classes do projeto</p>
+<br>
 
-As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de Classes”.
-
-> - [Diagramas de Classes - Documentação da IBM](https://www.ibm.com/docs/pt-br/rational-soft-arch/9.6.1?topic=diagrams-class)
-> - [O que é um diagrama de classe UML? | Lucidchart](https://www.lucidchart.com/pages/pt/o-que-e-diagrama-de-classe-uml)
 
 ## Modelo ER
 
-O Modelo ER representa através de um diagrama como as entidades (coisas, objetos) se relacionam entre si na aplicação interativa.]
-
-As referências abaixo irão auxiliá-lo na geração do artefato “Modelo ER”.
-
-> - [Como fazer um diagrama entidade relacionamento | Lucidchart](https://www.lucidchart.com/pages/pt/como-fazer-um-diagrama-entidade-relacionamento)
+![Diagrama ER ADS 2022_1](https://user-images.githubusercontent.com/74699119/160708941-4cf64bfc-b49c-42a1-9ccd-f7c4d45bb4e6.png)
+<p align="center"><b>Figura 6</b> - Modelo de entidade/relacionamento do projeto</p>
+<br>
 
 ## Esquema Relacional
 
-O Esquema Relacional corresponde à representação dos dados em tabelas juntamente com as restrições de integridade e chave primária.
- 
-As referências abaixo irão auxiliá-lo na geração do artefato “Esquema Relacional”.
-
-> - [Criando um modelo relacional - Documentação da IBM](https://www.ibm.com/docs/pt-br/cognos-analytics/10.2.2?topic=designer-creating-relational-model)
+![Esquema Relacional ADS 2022_1](https://user-images.githubusercontent.com/74699119/160709064-6ac9c578-c8ac-4e80-bdfa-dca59e908d94.png)
+<p align="center"><b>Figura 7</b> - Esquema relacional do projeto</p>
+<br>
 
 ## Tecnologias Utilizadas
 
