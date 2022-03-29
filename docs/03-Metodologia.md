@@ -62,7 +62,7 @@ https://trello.com/b/lIIiew8L/kanban-projeto-aplica%C3%A7%C3%A3o-de-comunica%C3%
 Este quadro é apresentado, no estado atual, na figura a seguir:</p>
    
 ![kanban_aplicao_escolar](https://user-images.githubusercontent.com/74699119/159126256-41b9e6b5-ba53-4fb8-b330-8791734e1cd4.png)
-<p align="center"><b>Figura 2</b> - Tela do kanban (Trello) utilizada pelo grupo</p>
+<p align="center"><b>Figura 3</b> - Tela do kanban (Trello) utilizada pelo grupo</p>
 <br>
 
 <p align="justify">Os itens são ainda, etiquetados em função da natureza da atividade e da Sprint a qual são alocados, seguindo as seguintes categorias:
