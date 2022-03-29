@@ -40,10 +40,21 @@ Os testes funcionais a serem realizados no aplicativo são descritos a seguir:
 
 |Caso de teste 05     | CT 05 - Alterar Dados |
 |-------|-------------------------
-|Requisitos Associados | 	 RF-06  A aplicação deve permitir que usuários acessem suas contas, alterem suas informações de contato, endereço e senha..
+|Requisitos Associados | 	 RF-06  A aplicação deve permitir que usuários acessem suas contas, alterem suas informações de contato, endereço e senha.
 |Objetivo do teste| Verificar se o usuário consegue acessar sua conta e alterar seus dados. |
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Clicar botão usuário e senha. Informar usuário e senha. 4) Alterar informações do contato. 5) Clicar no botão Salvar alterações.  |
 |Critérios de êxito| Os dados do usuário devem ser alterados com sucesso. . |
+
+
+|Caso de teste 06     | CT 06 - Troca de Mensagens e Documentos |
+|-------|-------------------------
+|Requisitos Associados | 	 RF-07 - A aplicação deve permitir a troca de mensagens online pelo aplicativo entre os responsáveis do aluno e os professores, além de outros contatos relevantes como funcionários da secretaria e setor financeiro. RF- 08 - A aplicação deve permitir envio de documentos, fotos, vídeos, autorizações para eventos e passeios (que podem ser aceito dentro do próprio aplicativo). .
+|Objetivo do teste| Verificar as trocas de mensagens, documentos, fotos e vídeos. |
+|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Clicar botão usuário e senha. Informar usuário e senha.4) Acessar área de mensagens. |
+|Critérios de êxito| Mensagem deve ser enviada corretamente . Mensagem deve ser recebida corretamente constando remetente, arquivos e/ou documentos |
+
+
+
 
 
 
