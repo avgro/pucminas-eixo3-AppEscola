@@ -189,17 +189,23 @@
 </table>
 
 <table>
-  <tr><th></th>
-<th></th>
+  <tr><th>Caso de Teste	</th>
+<th>
+CT- 12 - Alterar Dados</th>
     </tr>
-   <tr><th></th>
-     <th></th>
+   <tr><th>Objetivo do Teste</th>
+     <th>•	Verificar se o usuário consegue acessar sua conta e alterar seus dados.</th>
   </tr>
-     <tr><th></th>
-       <th></th>
+     <tr><th>Passos	</th>
+       <th>1) Acessar o navegador.<br>
+2) Informar o endereço do site.<br>
+3) Clicar no Botão Login. Informar seu e-mail e sua senha. <br>
+4) Alterar informações do contato.<br>
+5)Clicar no botão Salvar alterações.</th>
   </tr>
-   <tr><th></th>
-<th></th>
+   <tr><th>Critérios de Êxito</th>
+<th>
+●	Os dados do usuário devem ser alterados com sucesso.</th>
      </tr>
 </table>
 
