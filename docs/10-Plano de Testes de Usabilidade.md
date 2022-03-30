@@ -30,3 +30,15 @@
   <th>	•	Registrar os cadastros e armazenar suas informações. <th>
   </tr>
 </table>
+<table>
+<tr><th>Caso de Teste	</th>
+  <th>CT-03 – Realização de Login</th></tr>
+<tr><th>Objetivo do teste</th>
+  <th>•	Verificar a usabilidade do sistema de LOGIN</th></tr>
+<tr><th>Passos</th>
+  <th>1 - Acessar o site.<br>
+ 2 - Clicar em login.<br>
+ 3 – Inserir e-mail e senha de acesso.</th></tr>
+<tr><th>Critérios de Êxito</th>	
+  <th>•	Ser redirecionado automaticamente para Home-Page.</th></tr>
+
