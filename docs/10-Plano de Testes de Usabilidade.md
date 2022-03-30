@@ -125,7 +125,7 @@
      <tr><th>Passos</th>
        <th>1) Acessar o navegador<br>
 2) Informar o endereço do site<br>
-3) Clicar botão usuário e senha. Informar usuário e senha<br> 
+3) Clicar botão usuário e senha. Informar seu usuário e sua senha<br> 
 4) Visualizar agenda.</th>
   </tr>
    <tr><th>Critérios de Êxito</th>
@@ -134,17 +134,39 @@
 </table>
 
 <table>
-  <tr><th></th>
-<th></th>
+  <tr><th>Caso de Teste</th>
+<th>CT- 09 - Visualizar Linha do Tempo</th>
     </tr>
-   <tr><th></th>
-     <th></th>
+   <tr><th>Objetivo do Teste</th>
+     <th>	•	Verificar se a linha do tempo está sendo apresentada completamente na página</th>
   </tr>
-     <tr><th></th>
-       <th></th>
+     <tr><th>Passos</th>
+       <th>	1) Acessar o navegador <br>
+2) Informar o endereço do site.<br>
+3) Clicar botão usuário e senha. Informar seu usuário e sua senha.<br></th>
   </tr>
-   <tr><th></th>
-<th></th>
+   <tr><th>Critérios de Êxito</th>
+<th>	●	Apresentação das postagens com fotos e texto visíveis para seus respectivos responsáveis.
+</th>
+     </tr>
+</table>
+
+<table>
+  <tr><th>Caso de Teste</th>
+<th>	CT- 10 - Visualizar Notificações</th>
+    </tr>
+   <tr><th>Objetivo do Teste</th>
+     <th>	•	Verificar se as notificações estão acontecendo corretamente.</th>
+  </tr>
+     <tr><th>Passos</th>
+       <th>1) Acessar o navegador.<br>
+2) Informar o endereço do site.<br>
+3) Clicar botão usuário e senha. Informar seu usuário e sua senha.<br> 
+4) Visualizar área de notificações.</th>
+  </tr>
+   <tr><th>Critérios de Êxito</th>
+<th>	
+	●	As notificações devem ser exibidas corretamente.</th>
      </tr>
 </table>
 
