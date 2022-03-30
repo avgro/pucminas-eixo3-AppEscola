@@ -53,7 +53,7 @@
 <tr><th>Passos</th>
   <th>1) Acessar o navegador<br>
 2) Informar o endereço do site<br>
-3) Clicar botão usuário e senha. Informar usuário e senha <br>
+3)  Clicar no Botão Login. Informar seu e-mail e sua senha. <br>
 4) Acessar a área de cadastros para efetuar a inclusão ou a exclusão de usuário.</th>
   </tr>
 <tr><th> Critérios de Êxito		</th>
@@ -70,7 +70,7 @@
 <tr><th>Passos	</th>
   <th>1) Acessar o navegador<br>
 2) Informar o endereço do site<br>
-3) Clicar botão usuário e senha. Informar usuário e senha <br>
+3)  Clicar no Botão Login. Informar seu e-mail e sua senha. <br>
 4) ...</th>
     </tr> 
 <tr><th>Critérios de Êxito</th>
@@ -87,7 +87,7 @@
   <tr><th> Passos</th>
     <th>1) Acessar o navegador<br>
         2) Informar o endereço do site.<br>
-        3) Clicar botão usuário e senha. Informar seu usuário e sua senha <br>
+        3)  Clicar no Botão Login. Informar seu e-mail e sua senha.<br>
         4) Acessar área de mensagens.</th>
     </tr>
   <tr><th>Critérios de Êxito	</th>
@@ -105,7 +105,7 @@
      <tr><th>Passos</th>
        <th>1) Acessar o navegador<br>
 2) Informar o endereço do site<br>
-3) Clicar botão usuário e senha. Informar seu usuário e sua senha <br>
+3)  Clicar no Botão Login. Informar seu e-mail e sua senha. <br>
       4) Acessar área de mensagens.</th>
   </tr>
    <tr><th>Critérios de Êxito</th>
@@ -125,7 +125,7 @@
      <tr><th>Passos</th>
        <th>1) Acessar o navegador<br>
 2) Informar o endereço do site<br>
-3) Clicar botão usuário e senha. Informar seu usuário e sua senha<br> 
+3)  Clicar no Botão Login. Informar seu e-mail e sua senha.<br> 
 4) Visualizar agenda.</th>
   </tr>
    <tr><th>Critérios de Êxito</th>
@@ -143,7 +143,7 @@
      <tr><th>Passos</th>
        <th>	1) Acessar o navegador <br>
 2) Informar o endereço do site.<br>
-3) Clicar botão usuário e senha. Informar seu usuário e sua senha.<br></th>
+3)  Clicar no Botão Login. Informar seu e-mail e sua senha.<br></th>
   </tr>
    <tr><th>Critérios de Êxito</th>
 <th>	●	Apresentação das postagens com fotos e texto visíveis para seus respectivos responsáveis.
@@ -161,7 +161,7 @@
      <tr><th>Passos</th>
        <th>1) Acessar o navegador.<br>
 2) Informar o endereço do site.<br>
-3) Clicar botão usuário e senha. Informar seu usuário e sua senha.<br> 
+3) Clicar no Botão Login. Informar seu e-mail e sua senha.<br> 
 4) Visualizar área de notificações.</th>
   </tr>
    <tr><th>Critérios de Êxito</th>
@@ -171,17 +171,20 @@
 </table>
 
 <table>
-  <tr><th></th>
-<th></th>
+  <tr><th>Caso de Teste</th>
+<th>CT- 11 - Adicionar ou Remover Aluno/ Disciplina</th>
     </tr>
-   <tr><th></th>
-     <th></th>
+   <tr><th>Objetivo do Teste	</th>
+     <th>•	Verificar se o administrador do sistema consegue adicionar ou excluir os alunos às disciplinas cadastradas.</th>
   </tr>
-     <tr><th></th>
-       <th></th>
+     <tr><th>Passos	</th>
+       <th>1) Acessar o navegador.<br>
+2) Informar o endereço do site.<br>
+3)  Clicar no Botão Login. Informar seu e-mail e sua senha. <br>
+4) Clicar no botão adicionar e ou remover aluno/disciplina.</th>
   </tr>
-   <tr><th></th>
-<th></th>
+   <tr><th>Critérios de Êxito	</th>
+<th>●	O aluno deve estar associado à sua disciplina corretamente.</th>
      </tr>
 </table>
 
