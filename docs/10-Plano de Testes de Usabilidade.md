@@ -60,6 +60,41 @@
   <th>•	O administrador deve conseguir cadastrar ou excluir corretamente uma conta de usuário.</th>
   </tr>
   </table>
+<table>
+  <tr><th>Caso de Teste</th>	
+    <th>CT-05 - Associar Professor/ Disciplina</th>
+    </tr>
+<tr><th>Objetivo do teste	</th>
+  <th>•	Verificar associação de disciplinas com o Professor</th>
+    </tr> 
+<tr><th>Passos	</th>
+  <th>1) Acessar o navegador<br>
+2) Informar o endereço do site<br>
+3) Clicar botão usuário e senha. Informar usuário e senha <br>
+4) ...</th>
+    </tr> 
+<tr><th>Critérios de Êxito</th>
+  <th>•	Exibir se o Professor está corretamente associado a Disciplina</th>
+  <tr>
+    </table>
+<table>
+  <tr><th>Caso de Teste</th>
+    <th>CT- 06 – Sistemas de trocas de Mensagens e Documentos</th>
+    </tr>
+  <tr><th>Objetivo do Teste</th>
+    <th>Verificar as trocas de mensagens, documentos, fotos e vídeos se está funcionando corretamente</th>
+    </tr>
+  <tr><th> Passos</th>
+    <th>1) Acessar o navegador<br>
+        2) Informar o endereço do site.<br>
+        3) Clicar botão usuário e senha. Informar seu usuário e sua senha <br>
+        4) Acessar área de mensagens.</th>
+    </tr>
+  <tr><th>Critérios de Êxito	</th>
+    <th>•	Mensagem deve ser enviada corretamente<br>
+      •	Mensagem deve ser recebida corretamente constando remetente, arquivos e/ou documentos</th>
+  </tr>
+  </table>
 
 
 
