@@ -15,7 +15,7 @@ Os testes funcionais a serem realizados no aplicativo são descritos a seguir:
 |Requisitos Associados | 	 RF-01  A aplicação deve possuir um sistema de autenticação e login com quatro tipos de usuários: administrador do sistema, responsáveis pelo aluno, professor e o funcionário (tipo genérico que abrange membros da secretaria, setor financeiro etc.).
 |Objetivo do teste| Verificar a funcionalidade de autenticidade e de login do sistema. |
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Visualizar a página principal. |
-|Critérios de êxito| O sistema será direcionado para a tela Home Page . |
+|Critérios de êxito| O sistema será direcionado para a tela Home Page personalizada . |
 
 |Caso de teste 02     | CT 02 - Criar e Excluir Conta Usuário |
 |-------|-------------------------
