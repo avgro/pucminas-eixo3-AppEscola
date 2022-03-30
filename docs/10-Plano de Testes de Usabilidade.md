@@ -51,7 +51,7 @@
 •	Verificar se o usuário está cadastrado corretamente após a criação do cadastro pelo administrador.</th>
 </tr>
 <tr><th>Passos</th>
-  th>1) Acessar o navegador<br>
+  <th>1) Acessar o navegador<br>
 2) Informar o endereço do site<br>
 3) Clicar botão usuário e senha. Informar usuário e senha <br>
 4) Acessar a área de cadastros para efetuar a inclusão ou a exclusão de usuário.</th>
