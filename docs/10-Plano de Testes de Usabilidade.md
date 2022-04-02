@@ -33,9 +33,11 @@ Segue tabela com cada caso de teste:
   <th>•	O Administrator poderá efetuar cadastros de Alunos, Professores e Disciplinas <th>
   </tr>
   <tr><th>Passos</th>
-  <th>	1 - Entrar na plataforma.<br>
+  <th>	1 - Entrar no site pelo seu navegador de sua escolha.<br>
   2 – Clicar e efetuar o Login.<br>
-  3 – Registrar as informações necessárias para as realizações dos cadastros. <th>
+  3 – Ao entrar em seu painel de administrador.<br>
+  4- clicar nos botões cadastros Usuarios e ou Alunos, Professores e disciplinas.<br>
+  5- Após preencher os campos, clique na opcão Salvar.<th>
   </tr>
   <tr><th>Critérios de Êxito</th>
   <th>	•	Registrar os cadastros e armazenar suas informações. <th>
