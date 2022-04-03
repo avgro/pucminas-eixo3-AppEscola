@@ -36,7 +36,7 @@ Segue tabela com cada caso de teste:
   <th>	1 - Entrar no site pelo seu navegador de sua escolha.<br>
   2 – Clicar e efetuar o Login.<br>
   3 – Ao entrar em seu painel de administrador.<br>
-  4- clicar nos botões cadastros Usuarios e ou Alunos, Professores e disciplinas.<br>
+  4- clicar nos botões cadastrar Alunos, Professores e disciplinas.<br>
   5- Após preencher os campos, clique na opcão Salvar.<th>
   </tr>
   <tr><th>Critérios de Êxito</th>
@@ -67,7 +67,8 @@ Segue tabela com cada caso de teste:
   <th>1) Acessar o navegador<br>
 2) Informar o endereço do site<br>
 3)  Clicar no Botão Login. Informar seu e-mail e sua senha. <br>
-4) Acessar a área de cadastros para efetuar a inclusão ou a exclusão de usuário.</th>
+4) Entrar na opção "todos os usuarios" para efetuar a exclusão de um usuario.<br>
+5) Para realizar um cadastro novo de usuario na opção "cadastrar usuario" em seguida escolha tipo de cadastro que deseja efetuar.</th>
   </tr>
 <tr><th> Critérios de Êxito		</th>
   <th>•	O administrador deve conseguir cadastrar ou excluir corretamente uma conta de usuário.</th>
