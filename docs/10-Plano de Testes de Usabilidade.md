@@ -197,7 +197,7 @@ Segue tabela com cada caso de teste:
        <th>1) Acessar o navegador.<br>
 2) Informar o endereço do site.<br>
 3)  Clicar no Botão Login. Informar seu e-mail e sua senha. <br>
-4) Clicar no botão adicionar e ou remover aluno/disciplina.</th>
+4) Clicar na opção "Todos os usuarios" para remover um aluno.</th>
   </tr>
    <tr><th>Critérios de Êxito	</th>
 <th>●	O aluno deve estar associado à sua disciplina corretamente.</th>
