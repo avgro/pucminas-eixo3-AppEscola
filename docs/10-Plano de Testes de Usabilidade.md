@@ -216,7 +216,7 @@ CT- 12 - Alterar Dados</th>
        <th>1) Acessar o navegador.<br>
 2) Informar o endereço do site.<br>
 3) Clicar no Botão Login. Informar seu e-mail e sua senha. <br>
-4) Alterar informações do contato.<br>
+4) Opção Alterar dados.<br>
 5)Clicar no botão Salvar alterações.</th>
   </tr>
    <tr><th>Critérios de Êxito</th>
