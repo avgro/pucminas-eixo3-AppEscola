@@ -158,7 +158,8 @@ Segue tabela com cada caso de teste:
      <tr><th>Passos</th>
        <th>	1) Acessar o navegador <br>
 2) Informar o endereço do site.<br>
-3)  Clicar no Botão Login. Informar seu e-mail e sua senha.<br></th>
+3)  Clicar no Botão Login. Informar seu e-mail e sua senha.<br>
+	     4) clicar na opção Linha do tempo, para visualizar.</th>
   </tr>
    <tr><th>Critérios de Êxito</th>
 <th>	●	Apresentação das postagens com fotos e texto visíveis para seus respectivos responsáveis.
@@ -177,7 +178,7 @@ Segue tabela com cada caso de teste:
        <th>1) Acessar o navegador.<br>
 2) Informar o endereço do site.<br>
 3) Clicar no Botão Login. Informar seu e-mail e sua senha.<br> 
-4) Visualizar área de notificações.</th>
+4) Para visualizar clicar na opção Avisos.</th>
   </tr>
    <tr><th>Critérios de Êxito</th>
 <th>	
