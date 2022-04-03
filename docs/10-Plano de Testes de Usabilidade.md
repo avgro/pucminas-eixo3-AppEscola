@@ -120,7 +120,8 @@ Segue tabela com cada caso de teste:
        <th>1) Acessar o navegador<br>
 2) Informar o endereço do site<br>
 3)  Clicar no Botão Login. Informar seu e-mail e sua senha. <br>
-      4) Acessar área de mensagens.</th>
+      4) clicar na opção de mensagens.<br>
+5) Dentro da conversa, clique na "Lupa", e insira a palavra desejada que quer localizar.</th>
   </tr>
    <tr><th>Critérios de Êxito</th>
 <th>	Site localiza dentro do seu banco de dados mensagens com as palavras chaves buscada.</th>
@@ -140,7 +141,7 @@ Segue tabela com cada caso de teste:
        <th>1) Acessar o navegador<br>
 2) Informar o endereço do site<br>
 3) Clicar no Botão Login. Informar seu e-mail e sua senha.<br> 
-4) Visualizar agenda.</th>
+4) clique na opção "Agenda" para visualiza-la.</th>
   </tr>
    <tr><th>Critérios de Êxito</th>
 <th>●	O sistema deve carregar as atualizações feitas corretamente.</th>
