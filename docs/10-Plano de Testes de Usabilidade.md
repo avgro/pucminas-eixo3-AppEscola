@@ -85,7 +85,7 @@ Segue tabela com cada caso de teste:
   <th>1) Acessar o navegador<br>
 2) Informar o endereço do site<br>
 3)  Clicar no Botão Login. Informar seu e-mail e sua senha. <br>
-4) ...</th>
+4) Em seu painel administrativo, escolher a opção "cadastrar disciplinas" em seguida clicar na opção Associações.</th>
     </tr> 
 <tr><th>Critérios de Êxito</th>
   <th>•	Exibir se o Professor está corretamente associado a Disciplina</th>
@@ -101,8 +101,8 @@ Segue tabela com cada caso de teste:
   <tr><th> Passos</th>
     <th>1) Acessar o navegador<br>
         2) Informar o endereço do site.<br>
-        3)  Clicar no Botão Login. Informar seu e-mail e sua senha.<br>
-        4) Acessar área de mensagens.</th>
+        3) Clicar no Botão Login. Informar seu e-mail e sua senha.<br>
+        4) clicar na opção de mensagens.</th>
     </tr>
   <tr><th>Critérios de Êxito	</th>
     <th>•	Mensagem deve ser enviada corretamente<br>
@@ -139,7 +139,7 @@ Segue tabela com cada caso de teste:
      <tr><th>Passos</th>
        <th>1) Acessar o navegador<br>
 2) Informar o endereço do site<br>
-3)  Clicar no Botão Login. Informar seu e-mail e sua senha.<br> 
+3) Clicar no Botão Login. Informar seu e-mail e sua senha.<br> 
 4) Visualizar agenda.</th>
   </tr>
    <tr><th>Critérios de Êxito</th>
