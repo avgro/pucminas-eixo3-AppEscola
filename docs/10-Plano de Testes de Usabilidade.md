@@ -53,7 +53,7 @@ Segue tabela com cada caso de teste:
  2 - Clicar em login.<br>
  3 – Inserir e-mail e senha de acesso.</th></tr>
 <tr><th>Critérios de Êxito</th>	
-  <th>•	Ser redirecionado automaticamente para Home-Page.</th></tr>
+  <th>•	Após efetuar o login será redirecionado automaticamente para sua respectiva tela de painel de acordo com seu cadastro.</th></tr>
   </table>
   <table>
   <tr><th>Caso de Teste	</th>
