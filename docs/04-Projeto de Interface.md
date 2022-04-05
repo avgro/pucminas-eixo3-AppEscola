@@ -9,7 +9,7 @@ Visão geral da interação do usuário pelas telas do sistema e protótipo inte
 
 ## Diagrama de Fluxo
 
-![Diagrama de Fluxo do Usuario ADS 2022_1](https://user-images.githubusercontent.com/74699119/160708583-4aaf6f05-c32e-41d3-86cb-af2eb7a2cd2f.png)
+![Diagrama de Fluxo do Usuario ADS 2022_1_versao2](https://user-images.githubusercontent.com/74699119/161865551-187fd8c1-57fa-46f2-89b4-0887ca632947.png)
 <p align="center"><b>Figura 4</b> - Diagrama de fluxo do usuário do projeto</p>
 <br>
 
