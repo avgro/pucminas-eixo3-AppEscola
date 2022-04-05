@@ -6,14 +6,14 @@ Definição de como o software é estruturado em termos dos componentes que faze
 
 ## Diagrama de Classes
 
-![Diagrama de Classes ADS 2022_1](https://user-images.githubusercontent.com/74699119/160708825-218ceb30-4312-4f2f-af8d-12c5ccfc18d0.png)
+![Diagrama de Classes ADS 2022_1](https://user-images.githubusercontent.com/74699119/161865589-53b327e9-0841-4502-8cf6-d43cf2b1a392.png)
 <p align="center"><b>Figura 5</b> - Diagrama de classes do projeto</p>
 <br>
 
 
 ## Modelo ER
 
-![Diagrama ER ADS 2022_1](https://user-images.githubusercontent.com/74699119/160708941-4cf64bfc-b49c-42a1-9ccd-f7c4d45bb4e6.png)
+![Diagrama ER ADS 2022_1](https://user-images.githubusercontent.com/74699119/161865602-d901fc8f-aa3a-49c2-8b91-97926dacc204.png)
 <p align="center"><b>Figura 6</b> - Modelo de entidade/relacionamento do projeto</p>
 <br>
 
