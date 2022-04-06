@@ -29,7 +29,7 @@ Linguagens de progamação utilizadas:
 
 Frameworks utilizados:
 - ASP.NET Core MVC: Framework implementando o padrão Model-View-Controller, será utilizado como base para desenvolvimento da solução.
-- Entity Framework Core: Framework de mapeamento objeto-relacional (técnica utilizada para reduzir a impedância entre o modelo orientado a objetos e o modelo relacional) para a plataforma .NET, será utilizado para facilitar a manipulação e consulta do banco de dados relacional utilizado aplicação.
+- Entity Framework Core: Framework de mapeamento objeto-relacional (técnica utilizada para resolver o problema da impedância entre o modelo orientado a objetos e o modelo relacional) para a plataforma .NET, será utilizado para facilitar a manipulação e consulta do banco de dados relacional utilizado aplicação.
 
 Bibliotecas utilizadas:
 -bcrypt.net-next: Biblioteca que permite criptografar senhas utilizando o método "bcrypt". Será utilizada para criptografar as senhas de usuário do sistema.
