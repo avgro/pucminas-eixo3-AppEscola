@@ -44,7 +44,7 @@ Sistema gerenciador de banco de dados: SQL Server, escolhido por sua boa integra
 Outras tecnologias:
 - HTML: Linguagem de marcação utilizada para a construção das páginas web.
 - CSS: Linguagem de folhas de estilos utilizada para aplicar estilos nos elementos HTML.
-- Razor: Sintaxe de marcação que permite inserir código baseado em .NET em páginas web.
+- Razor: Sintaxe de marcação que permite inserir código baseado em .NET em páginas web junto ao HTML.
 
 Apresente também uma figura explicando como as tecnologias estão relacionadas ou como uma interação do usuário com o sistema vai ser conduzida, por onde ela passa até retornar uma resposta ao usuário.
 
