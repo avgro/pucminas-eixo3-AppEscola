@@ -9,11 +9,10 @@ Para o desenvolvimento do sistema em questão, foram projetadas telas buscando-s
 <p align="center"><b>Figura 4</b> - Diagrama de fluxo do usuário do projeto</p>
 <br>
 
-## Wireframes
+## Wireframe Interativo
 
-![Exemplo de Wireframe](img/wireframe-example.png)
+Conforme o diagrama de fluxo do projeto apresentado no item anterior, as telas do sistema são apresentados em detalhes nos itens que se seguem. Para visualizar o wireframe interativo, acesse o seguinte link: https://lucid.app/documents/embeddedchart/660ffadd-238f-49f7-9ed3-5b89b8208a25?invitationId=inv_d8efbf44-b38b-48bc-9c44-65305935decf# 
 
-São protótipos usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante do layout de elementos fundamentais na interface.
  
 > **Links Úteis**:
 > - [Protótipos vs Wireframes](https://www.nngroup.com/videos/prototypes-vs-wireframes-ux-projects/)
