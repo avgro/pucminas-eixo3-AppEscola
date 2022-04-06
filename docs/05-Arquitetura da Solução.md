@@ -29,11 +29,4 @@ Apresente também uma figura explicando como as tecnologias estão relacionadas 
 
 ## Hospedagem
 
-Explique como a hospedagem e o lançamento da plataforma foi feita.
-
-> **Links Úteis**:
->
-> - [Website com GitHub Pages](https://pages.github.com/)
-> - [Programação colaborativa com Repl.it](https://repl.it/)
-> - [Getting Started with Heroku](https://devcenter.heroku.com/start)
-> - [Publicando Seu Site No Heroku](http://pythonclub.com.br/publicando-seu-hello-world-no-heroku.html)
+A hospedagem da solução será feita no serviço de hospedagem da SmarterASP.NET. Após o desenvolvimento local da aplicação, os dados da base de dados local do projeto serão migrados para uma nova base de dados MSSQL criada dentro do serviço de hospedagem e a publicação da aplicação na plataforma será realizada com auxílio da funcionalidade "Publish" do Visual Studio Community 2022.
