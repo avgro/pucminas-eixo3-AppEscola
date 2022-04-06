@@ -1,8 +1,6 @@
 # Arquitetura da Solução
 
-<span style="color:red">Pré-requisitos: <a href="3-Projeto de Interface.md"> Projeto de Interface</a></span>
-
-Definição de como o software é estruturado em termos dos componentes que fazem parte da solução e do ambiente de hospedagem da aplicação.
+São apresentados nesta seção os detalhes técnicos da solução desenvolvida, tratando dos componentes que a integram e do ambiente de hospedagem utilizado para hospeda-la.
 
 ## Diagrama de Classes
 
