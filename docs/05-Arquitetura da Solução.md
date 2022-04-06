@@ -19,7 +19,7 @@ Definição de como o software é estruturado em termos dos componentes que faze
 
 ## Esquema Relacional
 
-![Esquema Relacional ADS 2022_1](https://user-images.githubusercontent.com/74699119/160709064-6ac9c578-c8ac-4e80-bdfa-dca59e908d94.png)
+![Esquema Relacional ADS 2022_1](https://user-images.githubusercontent.com/74699119/161871528-dd3a133a-2ded-4955-ada7-43c69ddfb13e.png)
 <p align="center"><b>Figura 7</b> - Esquema relacional do projeto</p>
 <br>
 
