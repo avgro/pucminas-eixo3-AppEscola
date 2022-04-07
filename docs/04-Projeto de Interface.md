@@ -41,3 +41,18 @@ Para as telas de homepage, soluções e login, que são apresentadas quando não
  
 ![Login](https://user-images.githubusercontent.com/74699119/162331923-77bc25bd-6244-42bc-ba68-2b0123583e09.png)
 
+ ### Tela - Tela inicial (pós login do usuário)
+ 
+Tipo de usuário - Administrador
+ ![InicialAdmin](https://user-images.githubusercontent.com/74699119/162332939-cfbc70e6-2803-46b9-afe0-334ea8afcb76.png)
+
+Tipo de usuário - Professor
+ ![InicialProfessor](https://user-images.githubusercontent.com/74699119/162332931-935dd871-c045-4242-a640-d5c940eb541b.png)
+
+Tipo de usuário - Responsável do Aluno
+ ![InicialResp](https://user-images.githubusercontent.com/74699119/162332936-23a82cbb-5e89-47b8-b0c6-b1c4c717ef7e.png)
+
+Tipo de usuário - Outros
+![InicialOutros](https://user-images.githubusercontent.com/74699119/162332924-f8d07559-bbf5-4618-bfdf-025f19455b0e.png)
+
+
