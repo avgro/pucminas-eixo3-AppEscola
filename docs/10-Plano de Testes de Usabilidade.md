@@ -2,7 +2,7 @@
 
 Segundo Paulo Roberto Floriano, a realização de testes é parte essencial no processo de desenvolvimento de um site ou portal corporativo. A partir deles, é possível detectar erros, verificar inconsistências e avaliar a experiência dos usuários no contato com a ferramenta. Além disso, os dados coletados durante a realização dos testes oferecem subsídios para a tomada de decisões importantes sobre o planejamento do portal, como o horizonte de lançamento e a sua estratégia de evolução. O teste de usabilidade simula as condições de utilização do sistema da perspectiva do usuário final. Ele prioriza a análise da facilidade de navegação entre as telas da aplicação e a clareza de textos e mensagens com o objetivo de levantar as dificuldades e problemas de uso para, posteriormente, desenvolver soluções que deixem o site mais simples e intuitivo.
 
-Modelo de teste a ser utilizado: Descoberta de problemas. Tendo como objetivo identificar, corrigir eventuais problemas existentes na plataforma e averiguar quais são os obstáculos para a fluida utilização.  
+Modelo de teste a ser utilizado: Descoberta de problemas. Objetivos: identificar, corrigir eventuais problemas existentes na plataforma e averiguar quais são os obstáculos para a fluida utilização.  
 
 Serão selecionados seis usuários com variáveis características, contextos distintos e diferentes papeis dentro da aplicação. 
 
