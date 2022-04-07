@@ -57,7 +57,7 @@ Os testes funcionais a serem realizados no aplicativo são descritos a seguir:
 |-------|-------------------------
 |Requisitos Associados | 	 RF-09  A aplicação deve apresentar uma função de pesquisa dentro do histórico de mensagens do usuário. A busca poderá ser feita por palavras chaves ou por nome de usuário.
 |Objetivo do teste| Verificar se o site faz a busca por mensagens dentro do histórico.. |
-|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Clicar botão usuário e senha. Informar usuário e senha. 4) Acessar área de menagens. |
+|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Clicar botão usuário e senha. Informar usuário e senha. 4) Acessar área de mensagens. 5) Clicar na mensagem que queira visualizar. |
 |Critérios de êxito| Site localiza dentro do seu banco de dados mensagens com as palavras chaves buscadas . |
 
 
@@ -65,7 +65,7 @@ Os testes funcionais a serem realizados no aplicativo são descritos a seguir:
 |-------|-------------------------
 |Requisitos Associados | 	 RF-10 - A aplicação deve apresentar uma agenda online que exiba para cada turma os eventos associados à rotina escolar do aluno (horário das aulas, provas, excursões e evento). Exibir também eventos associados a compromissos dos responsáveis do aluno (reunião de pais e professores). RF-11-  A aplicação deve permitir aos professores adicionar eventos à agenda escolar de uma ou mais turmas, como: provas, excursões e reuniões que ficarão visíveis para os responsáveis do aluno daquela turma.
 |Objetivo do teste| - Verificar e o usuário professor consegue adicionar eventos à agenda. - Verificar se o usuário responsável pelo aluno consegue visualizar a agenda e suas atualizações feitas pelo usuário professor na turma correta. |
-|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Clicar botão usuário e senha. Informar usuário e senha. 4) Visualizar agenda. |
+|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Clicar botão usuário e senha. Informar usuário e senha do professor ou administrador. 4) Clicar em  agenda escolar. 5) Alterar agenda escolar. 6) Salvar. |
 |Critérios de êxito| O sistema deve carregar as atualizações feitas corretamente. |
 
 |Caso de teste 09    | CT 09 - Visualizar Linha do Tempo |
