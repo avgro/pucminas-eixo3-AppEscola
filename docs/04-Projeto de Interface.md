@@ -21,7 +21,8 @@ Observamos que a estrutura está dividida em quatro tabelas:
 > - Conteúdo - Onde é apresentado o conteúdo das telas.
 > - Rodapé - Nesta tabela é apresentado as informações de contato e copyright.
 
-![Estrutura de interface (1)](https://user-images.githubusercontent.com/89323922/162097824-533d1ba1-9367-4284-b445-4f88f8e303ff.png)
+![Estrutura de interface](https://user-images.githubusercontent.com/89323922/162098121-d093dcc0-0448-4161-bc2f-da9640ca54fb.png)
+
 
  
 > **Links Úteis**:
