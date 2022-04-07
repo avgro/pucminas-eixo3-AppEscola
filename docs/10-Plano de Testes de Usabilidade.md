@@ -4,7 +4,7 @@ Segundo Paulo Roberto Floriano, a realização de testes é parte essencial no p
 
 Modelo de teste a ser utilizado: Descoberta de problemas. Tendo como objetivo identificar, corrigir eventuais problemas existentes na plataforma e averiguar quais são os obstáculos para a fluida utilização.  
 
-Serão selecionados dez usuários com variáveis características, contextos distintos e diferentes papeis dentro da aplicação. 
+Serão selecionados seis usuários com variáveis características, contextos distintos e diferentes papeis dentro da aplicação. 
 
 O teste será feito de forma remota, individual  e por um avaliador. 
 Será  possível medir o tempo para fazer cada teste, os erros e acertos acometidos, e a concretização da tarefa. 
