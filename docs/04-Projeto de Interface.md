@@ -25,8 +25,9 @@ Observamos que a estrutura está dividida em seções:
 
 Para as telas de homepage, soluções e login, que são apresentadas quando não há nenhum usuário logado no sistema, uma estrutura similar, porém sem a presença do menu lateral à esquerda é utilizada.
 
- ![Estrutura 2](https://user-images.githubusercontent.com/74699119/162331519-85b85f2d-dd58-46d1-893f-b1218c2c8e30.png)
- 
+ ![Estrutura de interface (2)](https://user-images.githubusercontent.com/89323922/162333677-47a725a1-fb14-410f-aa98-f01dcf57b345.png)
+
+
  Listadas abaixo estão as telas individuais do wireframe com suas descrições:
  
  ### Tela - Homepage
