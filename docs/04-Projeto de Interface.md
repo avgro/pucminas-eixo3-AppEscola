@@ -31,7 +31,7 @@ Para as telas de homepage, soluções e login, que são apresentadas quando não
  Listadas abaixo estão as telas individuais do wireframe com suas descrições:
  
  ### Tela - Homepage
-![Homepage](https://user-images.githubusercontent.com/74699119/162333801-aaabc2bd-0415-467d-a364-b41fb70e1187.png)
+![Homepage](https://user-images.githubusercontent.com/89323922/162334022-a58640ec-e94e-4b4a-9954-c2ad5a5d31fc.png)
 
  ### Tela - Soluções
  ![Solucoes](https://user-images.githubusercontent.com/74699119/162333813-9a6fd50a-b4f0-4b67-af58-eec2f59e93ae.png)
