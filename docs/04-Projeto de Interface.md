@@ -12,17 +12,32 @@ Para o desenvolvimento do sistema em questão, foram projetadas telas buscando-s
 ## Wireframe Interativo
 
 Conforme o diagrama de fluxo do projeto apresentado no item anterior, as telas do sistema são apresentados em detalhes nos itens que se seguem. 
-Para visualizar o wireframe interativo, acesse o seguinte link: https://lucid.app/documents/embeddedchart/660ffadd-238f-49f7-9ed3-5b89b8208a25?invitationId=inv_d8efbf44-b38b-48bc-9c44-65305935decf# 
+O wireframe interativo do projeto encontra-se disponível em: https://lucid.app/documents/embeddedchart/660ffadd-238f-49f7-9ed3-5b89b8208a25?invitationId=inv_d8efbf44-b38b-48bc-9c44-65305935decf# 
 
-A estrutura de interface será comum em 90% das telas do sistema. Logo abaixo, podemos visualizar uma imagem ilustrando a divisão dos conteúdos. 
-Observamos que a estrutura está dividida em quatro tabelas:
+A estrutura de interface será comum em todas as telas do sistema após a realização do login. A figura abaixo ilustra a divisão dos conteúdos nestas telas. 
+Observamos que a estrutura está dividida em seções:
 * Cabeçalho - Onde são dispostos os elementos fixos da navegação principal do site, cujo será apresentado em todas as telas para todos os usuários do sistema.
-* Menu - Apresenta os menus de navegação do sistema e é associado ao conteúdo da tela. A tabela de Menu será diferente e de acordo com o nível de acesso de cada usuário. 
+* Menu lateral - Apresenta os menus de navegação do sistema e é associado ao conteúdo da tela. A tabela de Menu será diferente e de acordo com o nível de acesso de cada usuário. 
 * Conteúdo - Onde é apresentado o conteúdo das telas.
 * Rodapé - Nesta tabela é apresentado as informações de contato e copyright.
 
 ![Estrutura de interface](https://user-images.githubusercontent.com/89323922/162098121-d093dcc0-0448-4161-bc2f-da9640ca54fb.png)
 
+Para as telas de homepage, soluções e login, que são apresentadas quando não há nenhum usuário logado no sistema, uma estrutura similar, porém sem a presença do menu lateral à esquerda é utilizada.
 
+ ![Estrutura 2](https://user-images.githubusercontent.com/74699119/162331519-85b85f2d-dd58-46d1-893f-b1218c2c8e30.png)
  
+ Listadas abaixo estão as telas individuais do wireframe com suas descrições:
+ 
+ ### Tela - Homepage
+
+![Homepage](https://user-images.githubusercontent.com/74699119/162331659-297726be-afcc-4135-a13f-177a1ffb45fa.png)
+
+ ### Tela - Soluções
+ 
+ ![Solucoes](https://user-images.githubusercontent.com/74699119/162331790-79497cab-b866-4dc1-95e7-bc947a04ed6f.png)
+ 
+ ### Tela - Login
+ 
+![Login](https://user-images.githubusercontent.com/74699119/162331923-77bc25bd-6244-42bc-ba68-2b0123583e09.png)
 
