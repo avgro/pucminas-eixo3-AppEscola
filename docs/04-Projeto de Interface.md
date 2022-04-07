@@ -11,7 +11,17 @@ Para o desenvolvimento do sistema em questão, foram projetadas telas buscando-s
 
 ## Wireframe Interativo
 
-Conforme o diagrama de fluxo do projeto apresentado no item anterior, as telas do sistema são apresentados em detalhes nos itens que se seguem. Para visualizar o wireframe interativo, acesse o seguinte link: https://lucid.app/documents/embeddedchart/660ffadd-238f-49f7-9ed3-5b89b8208a25?invitationId=inv_d8efbf44-b38b-48bc-9c44-65305935decf# 
+Conforme o diagrama de fluxo do projeto apresentado no item anterior, as telas do sistema são apresentados em detalhes nos itens que se seguem. 
+Para visualizar o wireframe interativo, acesse o seguinte link: https://lucid.app/documents/embeddedchart/660ffadd-238f-49f7-9ed3-5b89b8208a25?invitationId=inv_d8efbf44-b38b-48bc-9c44-65305935decf# 
+
+A estrutura de interface será comum em 90% das telas do sistema. Logo abaixo, podemos visualizar uma imagem ilustrando a divisão dos conteúdos. 
+Observamos que a estrutura está dividida em quatro tabelas:
+> - **Cabeçalho - ** Onde são dispostos os elementos fixos da navegação principal do site, cujo será apresentado em todas as telas para todos os usuários do sistema.
+> - **Menu - ** Apresenta os menus de navegação do sistema e é associado ao conteúdo da tela. A tabela de Menu será diferente e de acordo com o nível de acesso de cada usuário. 
+> - **Conteúdo - ** Onde é apresentado o conteúdo das telas.
+> - **Rodapé - ** Nesta tabela é apresentado as informações de contato e copyright.
+
+![Estrutura de interface (1)](https://user-images.githubusercontent.com/89323922/162097824-533d1ba1-9367-4284-b445-4f88f8e303ff.png)
 
  
 > **Links Úteis**:
