@@ -43,16 +43,16 @@ Para as telas de homepage, soluções e login, que são apresentadas quando não
 
  ### Tela - Tela inicial (pós login do usuário)
  
-Tipo de usuário - Administrador
+<b>Tipo de usuário - Administrador</b><br>
  ![InicialAdmin](https://user-images.githubusercontent.com/74699119/162332939-cfbc70e6-2803-46b9-afe0-334ea8afcb76.png)
 
-Tipo de usuário - Professor
+<b>Tipo de usuário - Professor</b><br>
  ![InicialProfessor](https://user-images.githubusercontent.com/74699119/162332931-935dd871-c045-4242-a640-d5c940eb541b.png)
 
-Tipo de usuário - Responsável do Aluno
+<b>Tipo de usuário - Responsável do Aluno</b><br>
  ![InicialResp](https://user-images.githubusercontent.com/74699119/162332936-23a82cbb-5e89-47b8-b0c6-b1c4c717ef7e.png)
 
-Tipo de usuário - Outros
+<b>Tipo de usuário - Outros</b><br>
 ![InicialOutros](https://user-images.githubusercontent.com/74699119/162332924-f8d07559-bbf5-4618-bfdf-025f19455b0e.png)
 
 
