@@ -41,7 +41,17 @@ Para as telas de homepage, soluções e login, que são apresentadas quando não
 ![Solucoes](https://user-images.githubusercontent.com/74699119/162334174-b2def755-07c6-43ef-9b74-ad1275951866.png)
 
  ### Tela - Login
+ 
+<p align="justify">  Na tela de login, mostra os elementos padrões do cabeçalho, rodapé e temos o bloco principal de login:
+ 
+> - **Área para login de usuários:** são solicitadas as informações de e-mail e senha para que o login seja efetuado. O usuário possui disponível também a opção de recuperação de senha.</p>
+
+ 
 ![Login](https://user-images.githubusercontent.com/74699119/162334186-8bc32fd8-8a8e-413e-959e-324fbcd9b6e5.png)
+
+<p align="justify"> A elaboração da Tela Login atende ao seguinte requisito funcional:
+ 
+- **Requisito Funcional-01:** A aplicação deve possuir um sistema de autenticação e login financeiro com quatro tipos de usuário: administrador do sistema, responsável pelo aluno, professor e funcionário (tipo genérico que abrange membros da secretaria, setor etc.)</p>
 
  ### Tela - Tela inicial (pós login do usuário)
  
