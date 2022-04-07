@@ -16,10 +16,10 @@ Para visualizar o wireframe interativo, acesse o seguinte link: https://lucid.ap
 
 A estrutura de interface será comum em 90% das telas do sistema. Logo abaixo, podemos visualizar uma imagem ilustrando a divisão dos conteúdos. 
 Observamos que a estrutura está dividida em quatro tabelas:
-> - **Cabeçalho - ** Onde são dispostos os elementos fixos da navegação principal do site, cujo será apresentado em todas as telas para todos os usuários do sistema.
-> - **Menu - ** Apresenta os menus de navegação do sistema e é associado ao conteúdo da tela. A tabela de Menu será diferente e de acordo com o nível de acesso de cada usuário. 
-> - **Conteúdo - ** Onde é apresentado o conteúdo das telas.
-> - **Rodapé - ** Nesta tabela é apresentado as informações de contato e copyright.
+> - Cabeçalho - Onde são dispostos os elementos fixos da navegação principal do site, cujo será apresentado em todas as telas para todos os usuários do sistema.
+> - Menu - Apresenta os menus de navegação do sistema e é associado ao conteúdo da tela. A tabela de Menu será diferente e de acordo com o nível de acesso de cada usuário. 
+> - Conteúdo - Onde é apresentado o conteúdo das telas.
+> - Rodapé - Nesta tabela é apresentado as informações de contato e copyright.
 
 ![Estrutura de interface (1)](https://user-images.githubusercontent.com/89323922/162097824-533d1ba1-9367-4284-b445-4f88f8e303ff.png)
 
