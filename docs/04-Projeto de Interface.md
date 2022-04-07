@@ -31,6 +31,10 @@ Para as telas de homepage, soluções e login, que são apresentadas quando não
  Listadas abaixo estão as telas individuais do wireframe com suas descrições:
  
  ### Tela - Homepage
+ 
+ A tela de homepage apresenta uma breve explicação sobre o produto, com as informações básicas do que o sistema tem a oferecer.
+ Através dessa página é possivel que os usuários visualizem os contatos da instituição de ensino, como também possibilita o acesso das telas: Soluções e Login.
+ 
 ![Homepage](https://user-images.githubusercontent.com/74699119/162334329-5fb9f5c3-4905-401a-957d-6eca9e8b04bb.png)
 
  ### Tela - Soluções
