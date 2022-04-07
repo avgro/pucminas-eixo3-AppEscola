@@ -16,20 +16,13 @@ Para visualizar o wireframe interativo, acesse o seguinte link: https://lucid.ap
 
 A estrutura de interface será comum em 90% das telas do sistema. Logo abaixo, podemos visualizar uma imagem ilustrando a divisão dos conteúdos. 
 Observamos que a estrutura está dividida em quatro tabelas:
-> - Cabeçalho - Onde são dispostos os elementos fixos da navegação principal do site, cujo será apresentado em todas as telas para todos os usuários do sistema.
-> - Menu - Apresenta os menus de navegação do sistema e é associado ao conteúdo da tela. A tabela de Menu será diferente e de acordo com o nível de acesso de cada usuário. 
-> - Conteúdo - Onde é apresentado o conteúdo das telas.
-> - Rodapé - Nesta tabela é apresentado as informações de contato e copyright.
+* Cabeçalho - Onde são dispostos os elementos fixos da navegação principal do site, cujo será apresentado em todas as telas para todos os usuários do sistema.
+* Menu - Apresenta os menus de navegação do sistema e é associado ao conteúdo da tela. A tabela de Menu será diferente e de acordo com o nível de acesso de cada usuário. 
+* Conteúdo - Onde é apresentado o conteúdo das telas.
+* Rodapé - Nesta tabela é apresentado as informações de contato e copyright.
 
 ![Estrutura de interface](https://user-images.githubusercontent.com/89323922/162098121-d093dcc0-0448-4161-bc2f-da9640ca54fb.png)
 
 
  
-> **Links Úteis**:
-> - [Protótipos vs Wireframes](https://www.nngroup.com/videos/prototypes-vs-wireframes-ux-projects/)
-> - [Ferramentas de Wireframes](https://rockcontent.com/blog/wireframes/)
-> - [MarvelApp](https://marvelapp.com/developers/documentation/tutorials/)
-> - [Figma](https://www.figma.com/)
-> - [Adobe XD](https://www.adobe.com/br/products/xd.html#scroll)
-> - [Axure](https://www.axure.com/edu) (Licença Educacional)
-> - [InvisionApp](https://www.invisionapp.com/) (Licença Educacional)
+
