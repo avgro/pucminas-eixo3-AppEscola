@@ -72,14 +72,14 @@ Os testes funcionais a serem realizados no aplicativo são descritos a seguir:
 |-------|-------------------------
 |Requisitos Associados | 	 RF-12 - A aplicação deve disponibilizar uma “linha do tempo” privada onde o professor possa fazer postagens, com fotos e texto sobre o aluno, que estarão visíveis apenas para os responsáveis daquele aluno, administradores do sistema e o respectivo professor.
 |Objetivo do teste| Verificar se a linha do tempo está sendo apresentada completamente na página. |
-|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Clicar botão usuário e senha. Informar usuário e senha. 4) Visualizar linha do tempo. |
+|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Clicar botão usuário e senha. Informar usuário e senha. 4) Clicar em linha d tempo. 5) Visualizar linha do tempo. |
 |Critérios de êxito| Apresentação das postagens com fotos e texto visíveis para seus respectivos responsáveis. |
 
 |Caso de teste 10     | CT 10 -  Visualizar Notificações |
 |-------|-------------------------
 |Requisitos Associados | 	 RF-13 - A aplicação deve possuir uma seção de notificações onde o usuário responsável será notificado sobre eventos, mensagens importantes e compromissos cuja data esteja próxima.
 |Objetivo do teste| Verificar se a carga de notificações está acontecendo corretamente. |
-|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Clicar botão usuário e senha. Informar usuário e senha. 4) Visualizar área de notificações.  |
+|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Clicar botão usuário e senha. Informar usuário e senha. 4) Clicar em notificações. 5) Visualizar área de notificações.  |
 |Critérios de êxito| As notificações devem ser exibidas corretamente. |
 
 
