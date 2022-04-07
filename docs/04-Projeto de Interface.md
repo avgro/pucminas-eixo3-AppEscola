@@ -50,9 +50,10 @@ Para as telas de homepage, soluções e login, que são apresentadas quando não
  ![InicialProfessor](https://user-images.githubusercontent.com/74699119/162332931-935dd871-c045-4242-a640-d5c940eb541b.png)
 
 <b>Tipo de usuário - Responsável do Aluno</b><br>
- ![InicialResp](https://user-images.githubusercontent.com/74699119/162332936-23a82cbb-5e89-47b8-b0c6-b1c4c717ef7e.png)
+![InicialResp](https://user-images.githubusercontent.com/74699119/162333483-0d800daf-455f-463c-943c-780c0d5a2ffe.png)
 
 <b>Tipo de usuário - Outros</b><br>
-![InicialOutros](https://user-images.githubusercontent.com/74699119/162332924-f8d07559-bbf5-4618-bfdf-025f19455b0e.png)
+![InicialOutros](https://user-images.githubusercontent.com/74699119/162333489-bfc29083-5e9c-4f47-bbf6-9f65edf7ea93.png)
+
 
 
