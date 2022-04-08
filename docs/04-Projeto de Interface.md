@@ -167,4 +167,7 @@ Os blocos de conteúdo serão diferentes de acordo com o tipo de usuário:
 
 ### Tela - Apagar disciplina
 
+<p> Está funcionalidade tem como objetivo apagar uma disciplina cadastrada no sistema.</p>
+O administrador irá selecionar uma disciplina para poder exclui-la.
+
 ![apagardisciplina](https://user-images.githubusercontent.com/74699119/162500017-ce9d88a1-d107-47dd-97a2-301506aeb982.png)
