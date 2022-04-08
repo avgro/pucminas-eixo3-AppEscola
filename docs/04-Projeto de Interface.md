@@ -67,24 +67,23 @@ No bloco de barra lateral à esquerda, também será diferente para cada tipo de
 <p align="justify"> A elaboração das Telas iniciais (pós login do usuário) atende ao seguinte requisito funcional:
 
 > - **Requisito Funcional-01:** A aplicação deve possuir um sistema de autenticação e login com quatro tipos de usuário: administrador do sistema, responsáveis pelo aluno, professor e funcionário (tipo genérico que abrange membros da secretaria, setor financeiro, etc)</p>
+
+<b>Tipo de usuário - Responsável do Aluno</b><br>
+
+![InicialProfessor](https://user-images.githubusercontent.com/74699119/162334270-59eb5755-c46a-4fd5-8d24-cbc4a4b826c1.png)
+
+<b>Tipo de usuário - Professor</b><br>
+
+![InicialProfessor](https://user-images.githubusercontent.com/74699119/162332931-935dd871-c045-4242-a640-d5c940eb541b.png)
  
 <b>Tipo de usuário - Administrador</b><br>
 
  ![InicialAdmin](https://user-images.githubusercontent.com/74699119/162332939-cfbc70e6-2803-46b9-afe0-334ea8afcb76.png)
 
-<b>Tipo de usuário - Professor</b><br>
-
- ![InicialProfessor](https://user-images.githubusercontent.com/74699119/162332931-935dd871-c045-4242-a640-d5c940eb541b.png)
- 
-<b>Tipo de usuário - Responsável do Aluno</b><br>
-
-![InicialProfessor](https://user-images.githubusercontent.com/74699119/162334270-59eb5755-c46a-4fd5-8d24-cbc4a4b826c1.png)
-
 <b>Tipo de usuário - Outros</b><br>
 
 ![InicialOutros](https://user-images.githubusercontent.com/74699119/162333489-bfc29083-5e9c-4f47-bbf6-9f65edf7ea93.png)
  
-
 ### Tela - Mostrar notificações 
 
 ![notificacoes](https://user-images.githubusercontent.com/74699119/162345763-f1844ad3-58aa-4192-afb1-ca4bfca99739.png)
