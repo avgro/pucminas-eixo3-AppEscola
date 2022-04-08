@@ -86,11 +86,11 @@ Para as telas de homepage, soluções e login, que são apresentadas quando não
 
 ### Tela - Mostrar notificações 
 
-![notificacoes](https://user-images.githubusercontent.com/74699119/162344533-8bec7074-daa4-4b16-9930-f68e82a31598.png)
+![notificacoes](https://user-images.githubusercontent.com/74699119/162345478-518cebff-63da-403f-b3ea-d838357a535a.png)
 
 ### Tela - Opções da conta
 
-![perfil](https://user-images.githubusercontent.com/74699119/162345026-744a41ba-d534-417c-8be7-42613b869556.png)
+![perfil](https://user-images.githubusercontent.com/74699119/162345487-94dad779-b01c-487f-b845-f3022f3ce7ce.png)
 
 ### Tela - Alterar informações da conta
 
