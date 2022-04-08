@@ -86,7 +86,7 @@ Para as telas de homepage, soluções e login, que são apresentadas quando não
 
 ### Tela - Mostrar notificações 
 
-![notificacoes](https://user-images.githubusercontent.com/74699119/162345478-518cebff-63da-403f-b3ea-d838357a535a.png)
+![notificacoes](https://user-images.githubusercontent.com/74699119/162345763-f1844ad3-58aa-4192-afb1-ca4bfca99739.png)
 
 ### Tela - Opções da conta
 
@@ -94,7 +94,7 @@ Para as telas de homepage, soluções e login, que são apresentadas quando não
 
 ### Tela - Alterar informações da conta
 
-![alterardados](https://user-images.githubusercontent.com/74699119/162345021-8049c7aa-6aed-416f-8385-c3129b8915f6.png)
+![alterardados](https://user-images.githubusercontent.com/74699119/162345769-fe3d5b97-29cf-481a-879c-7396f0df221a.png)
 
 ### Tela - Agenda escolar
  
