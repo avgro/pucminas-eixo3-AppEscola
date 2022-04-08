@@ -114,6 +114,13 @@ Os blocos de conteúdo serão diferentes de acordo com o tipo de usuário:
 ![linhadotempoprofessor](https://user-images.githubusercontent.com/74699119/162346136-6c188ec0-d05c-4f8f-87d2-e54a6b6340ed.png)
 
 ### Tela - Assinar autorização
+
 ![assinarautorizacao](https://user-images.githubusercontent.com/74699119/162346531-1ce86e36-7f85-4efe-b65e-e858b299e290.png)
 
+### Tela - Visualizar turmas (Professor)
 
+![minhasturmas](https://user-images.githubusercontent.com/74699119/162491880-52bf44c1-04e5-441c-8cf9-d477e3da42b0.png)
+
+### Tela - Visualizar todos os usuários (Administrador)
+
+![visualizarusuarios](https://user-images.githubusercontent.com/74699119/162491862-3dd7695d-9447-4534-bdf3-9526684ea5df.png)
