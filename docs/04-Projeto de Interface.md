@@ -55,13 +55,13 @@ Para as telas de homepage, soluções e login, que são apresentadas quando não
  ### Tela - Tela inicial (pós login do usuário)
  
    <p align="justify"> Nesta tela, todos os usuários poderão acessar o seu perfil para a alteração dos dados cadastrais, bem como visualizar a caixa de mensagens através do ícone do lado direito no cabeçalho. Os blocos de conteúdo serão diferentes de acordo com o tipo de usuário:</p>
- * Administrador: apresentará em destaque a agenda e as notificações.
- * Professor/Resp. do aluno/Outros: apresentará em destaque as turmas, as notificações e a agenda.
+* Administrador: apresentará em destaque a agenda e as notificações.
+* Professor/Resp. do aluno/Outros: apresentará em destaque as turmas, as notificações e a agenda.
  <p align="justify"> No bloco de barra lateral à esquerda, também será diferente para cada tipo de usuário:
- ** Administrador: apresentará os menus de acesso para as telas de todos os usuário, agenda, mensagens, cadastrar usuários, alunos, turmas e disciplinas.
- ** Professor: apresentará os menus de acesso para as telas de minhas turmas, linha do tempo, agenda e mensagens.
- ** Responsável do aluno: apresentará os menus de acesso para as telas de linha do tempo, agenda, mensagens e assinaturas de autorização.
- ** Outros: apresentará os menus de agenda e mensagens.</p>
+* Administrador: apresentará os menus de acesso para as telas de todos os usuário, agenda, mensagens, cadastrar usuários, alunos, turmas e disciplinas.
+* Professor: apresentará os menus de acesso para as telas de minhas turmas, linha do tempo, agenda e mensagens.
+* Responsável do aluno: apresentará os menus de acesso para as telas de linha do tempo, agenda, mensagens e assinaturas de autorização.
+* Outros: apresentará os menus de agenda e mensagens.</p>
 
 <p align="justify"> A elaboração das Telas iniciais (pós login do usuário) atende ao seguinte requisito funcional:
 
@@ -82,8 +82,6 @@ Para as telas de homepage, soluções e login, que são apresentadas quando não
 <b>Tipo de usuário - Outros</b><br>
 
 ![InicialOutros](https://user-images.githubusercontent.com/74699119/162333489-bfc29083-5e9c-4f47-bbf6-9f65edf7ea93.png)
-
-<p align="justify"> A elaboração das Telas iniciais (pós login do usuário) atende ao seguinte requisito funcional:
  
 
 ### Tela - Mostrar notificações 
