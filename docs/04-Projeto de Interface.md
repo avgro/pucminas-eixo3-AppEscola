@@ -88,69 +88,107 @@ Os blocos de conteúdo serão diferentes de acordo com o tipo de usuário:
  
 ### Tela - Mostrar notificações 
 
+<p align="justify">  Na tela de notificações, mostra os elementos que os usuários estão recebendo de atualização da ferramenta, sejam novas mensagens ou eventos.
+ 
+ <p align="justify">  Será mostrado aos usuários um resumo das notificações no botão Notificação na parte superios da tala, bem como em um painel centralizado na página.
+ 
 ![notificacoes](https://user-images.githubusercontent.com/74699119/162345763-f1844ad3-58aa-4192-afb1-ca4bfca99739.png)
-
+  
 ### Tela - Opções da conta
 
+ <p align="justify">  Será permitido aos usuários acessarem o submenu de Alterar dados, sendo direcionado para a página específica e permitindo ao usuário a alteração de seus dados.
+  
 ![perfil](https://user-images.githubusercontent.com/74699119/162345487-94dad779-b01c-487f-b845-f3022f3ce7ce.png)
-
+ 
 ### Tela - Alterar informações da conta
 
+ <p align="justify">  Será permitido aos usuários modificarem suas informações básicas, como senha, endereço e outros dados.
+  
 ![alterardados](https://user-images.githubusercontent.com/74699119/162345769-fe3d5b97-29cf-481a-879c-7396f0df221a.png)
-
+ 
 ### Tela - Agenda escolar
  
+ <p align="justify">  Será permitido aos usuários, visualizarem fotos de momentos dos alunos durante algum evento ou ao longo da rotina escolar.
+  
  ![agenda](https://user-images.githubusercontent.com/74699119/162344162-f914e94e-aa09-43d2-8717-b30a745d7454.png)
-
-### Tela - Caixa de mensagens
  
+### Tela - Caixa de mensagens
+
+ <p align="justify">  Será permitido aos usuários visualizarem os eventos marcados na agenda escolar, sendo permitido incluir eventos e visualizar detalhes.
+  
  ![mensagens](https://user-images.githubusercontent.com/74699119/162344187-13992039-2465-4d99-b2b5-81a3ab36b7b6.png)
+ 
+
  
 ### Tela - Linha do tempo
  <b>Tipo de usuário - Responsável do Aluno</b><br>
 ![linhadotemporesp](https://user-images.githubusercontent.com/74699119/162346282-026937c4-fddc-4018-8c32-d38322e4333d.png)
-
+ 
+> - **Responsável do aluno:** Será permitido ao usuário visualizar imagens adicionadas de seus filhos. Este usuáriio poderá ver todas as fotos adicionadas e interagir através de comentários.
+ 
  <b>Tipo de usuário - Professor</b><br>
 ![linhadotempoprofessor](https://user-images.githubusercontent.com/74699119/162346136-6c188ec0-d05c-4f8f-87d2-e54a6b6340ed.png)
+ 
+> - **Professor:** Este usuáriao poderá adicionar imagens de um determinado aluno, bem como interagir com a publicação por meio de comentários.
 
 ### Tela - Assinar autorização
 
+<p align="justify">  Será permitido aos usuários do tipo Responsável visualizarem notificações de eventos que necessitam de sua autorização, assinalando se autorizam ou não que seu filho participe. Ao usuário será apresentada uma mensagem informando o conteúdo necessário de autorização, que pode ser um evento, excursão etc.
+ 
 ![assinarautorizacao](https://user-images.githubusercontent.com/74699119/162346531-1ce86e36-7f85-4efe-b65e-e858b299e290.png)
-
+ 
 ### Tela - Visualizar turmas do professor
-
+ 
+<p align="justify">  Será permitido aos usuários do tipo Professor visualizarem as turmas que estão sob sua responsabilidade e os alunos atrelados. Ele poderá realizar pesquisas para filtragem das turmas, bem como verá a disciplina da matéria que leciona para cada uma.
+ 
 ![minhasturmas](https://user-images.githubusercontent.com/74699119/162491880-52bf44c1-04e5-441c-8cf9-d477e3da42b0.png)
-
+ 
 ### Tela - Visualizar todos os usuários do sistema
 
+<p align="justify">  Será permitido aos usuários do tipo Administrador visualizarem todos os usuários cadastrados ao sistema, vendo suas informações básicas de ID, nome, e-mail e tipo de usuário. Será permitido a este usuário manejar os demais, como deletando ou pesquisando.
+ 
 ![visualizarusuarios](https://user-images.githubusercontent.com/74699119/162491957-8cdcb7aa-5f20-4c35-acd8-f3a7d04e76b1.png)
-
+ 
 ### Tela - Cadastrar usuário
 
+<p align="justify">  Será permitido aos usuários do tipo Administrador cadastrar um novo usuário ao sistema, adicionando informações previamente apresentadas, bem como selecionando o tipo de usuário atralado aquele novo usuário.
+ 
 ![cadastrarusuario](https://user-images.githubusercontent.com/74699119/162492785-8c1b148e-a2d1-4b9d-aafd-734d9cfacbde.png)
-
+ 
 ### Tela - Cadastrar aluno
 
-![cadastraraluno](https://user-images.githubusercontent.com/74699119/162492772-0fbc75b3-7c3e-4b36-9b3d-1a9e5e1d246f.png)
-
+<p align="justify">  Será permitido aos usuários do tipo Administrador cadastrar um novo aluno ao sistema, adicionando informações previamente apresentadas, bem como atrelando ele ao seu usuário do tipo Responsável, previamente cadastrado.
+ 
+ ![cadastraraluno](https://user-images.githubusercontent.com/74699119/162492772-0fbc75b3-7c3e-4b36-9b3d-1a9e5e1d246f.png)
+ 
 ### Tela - Cadastrar turmas e disciplinas
 
+<p align="justify">  Será permitido aos usuários do tipo Administrador cadastrar uma nova turma e disciplina ao sistema, bem como gerenciar os detalhes de tais dados, como associação de alunos. O usuário deverá clicar nas opções desejadas e seguir o fluxo de preenchimento apresentado pelo sistema.
+ 
 ![cadastrarturmadisciplina](https://user-images.githubusercontent.com/74699119/162493055-f54e6516-c464-4d10-b0d8-00e15df2fe13.png)
-
+ 
 ### Tela - Cadastrar turma
 
+<p align="justify">  Será permitido aos usuários do tipo Administrador cadastrar uma nova turma, em que lhe será apresentada uma opção de inserir o código de uma nova turma e salvar no sistema.
+ 
 ![cadastrarturma](https://user-images.githubusercontent.com/74699119/162493089-dc857d3e-56e8-42b4-a22e-e4d160b2c45e.png)
 
 ### Tela - Associar aluno à turma
 
+<p align="justify">  Será permitido aos usuários do tipo Administrador associar uma turma cadastrada a alunos cadastrados, vinculando essas informações.
+ 
 ![associaralunoturma](https://user-images.githubusercontent.com/74699119/162499619-a4e93ba0-ed13-487f-986f-efe454ee843c.png)
 
 ### Tela - Associar disciplina à turma
-
+ 
+<p align="justify">  Será permitido aos usuários do tipo Administrador associar uma disciplina cadastrada a uma turma cadastrada, vinculando essas informações.
+ 
 ![associaralunodisciplina](https://user-images.githubusercontent.com/74699119/162499613-0b0bd1a4-70a8-4916-9183-5ffe1ff8682c.png)
 
 ### Tela - Gerenciar alunos e disciplinas associados à turma
-
+ 
+<p align="justify">  Será permitido aos usuários do tipo Administrador visualizar todas as associações de alunos e disciplinas, podendo editar as informações cadastradas.
+ 
 ![gerenciarassociacao](https://user-images.githubusercontent.com/74699119/162499638-d8a68a01-e834-499d-8cc2-70bced69f119.png)
 
 ### Tela - Apagar turma
