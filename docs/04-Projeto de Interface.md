@@ -71,7 +71,7 @@ Para as telas de homepage, soluções e login, que são apresentadas quando não
 
 <b>Tipo de usuário - Outros</b><br>
 
-<p align="justify"> Nesta tela, o usuário (outros) poderá acessar o perfil no site, bem como visualizar a caixa de mensagens através do ícone do lado direito no cabeçalho. Os blocos centralizados na página mostram em destaque as notificações, as turmas do usuário outros e a agenda.  No Bloco de Barra Lateral à esquerda, ao clicar, são apresentadas as turmas, linha do tempo, agenda e mensagens. Há, ainda, dois campos “Painel Inicial” e “Notificações”, o primeiro direcionar para a tela home-page e o segundo exibe as notificações.</p>
+<p align="justify"> Nesta tela, o usuário (outros) poderá acessar o perfil no site, bem como visualizar a caixa de mensagens através do ícone do lado direito no cabeçalho. Os blocos centralizados na página mostram em destaque as notificações, as turmas do usuário outros e a agenda.  No Bloco de Barra Lateral à esquerda, ao clicar, são apresentadas agenda e mensagens. Há, ainda, dois campos “Painel Inicial” e “Notificações”, o primeiro direcionar para a tela home-page e o segundo exibe as notificações.</p>
 
 ![InicialOutros](https://user-images.githubusercontent.com/74699119/162333489-bfc29083-5e9c-4f47-bbf6-9f65edf7ea93.png)
 
