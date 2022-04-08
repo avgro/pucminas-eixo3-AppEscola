@@ -128,7 +128,7 @@ Os blocos de conteúdo serão diferentes de acordo com o tipo de usuário:
  
  <b>Tipo de usuário - Professor</b><br>
   
-  > - **Professor:** Este usuáriao poderá adicionar imagens de um determinado aluno, bem como interagir com a publicação por meio de comentários.
+  > - **Professor:** Este usuário poderá adicionar imagens de um determinado aluno, bem como interagir com a publicação por meio de comentários.
   
 ![linhadotempoprofessor](https://user-images.githubusercontent.com/74699119/162346136-6c188ec0-d05c-4f8f-87d2-e54a6b6340ed.png)
  
@@ -152,7 +152,7 @@ Os blocos de conteúdo serão diferentes de acordo com o tipo de usuário:
  
 ### Tela - Cadastrar usuário
 
-<p align="justify">  Será permitido aos usuários do tipo Administrador cadastrar um novo usuário ao sistema, adicionando informações previamente apresentadas, bem como selecionando o tipo de usuário atralado aquele novo usuário.
+<p align="justify">  Será permitido aos usuários do tipo Administrador cadastrar um novo usuário ao sistema, adicionando informações previamente apresentadas, bem como selecionando o tipo de usuário atrelado aquele novo usuário.
  
 ![cadastrarusuario](https://user-images.githubusercontent.com/74699119/162492785-8c1b148e-a2d1-4b9d-aafd-734d9cfacbde.png)
  
