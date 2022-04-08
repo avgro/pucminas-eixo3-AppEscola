@@ -156,7 +156,7 @@ Os blocos de conteúdo serão diferentes de acordo com o tipo de usuário:
 ### Tela - Apagar turma
 
 <p> Está tela possui uma funcionalidade que tem como objetivo apagar uma turma cadastrada no sistema.</p>
-<p> O usuário administrador irá selecionar uma disciplina para poder exclui-la.</p>
+<p> O usuário administrador irá selecionar uma turma para poder exclui-la.</p>
 
 ![apagarturma](https://user-images.githubusercontent.com/74699119/162499604-f287a930-760d-4e38-a973-2fb2a408d537.png)
 
