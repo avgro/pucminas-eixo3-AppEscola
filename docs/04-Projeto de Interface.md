@@ -109,6 +109,6 @@ No bloco de barra lateral à esquerda, também será diferente para cada tipo de
 ![linhadotemporesp](https://user-images.githubusercontent.com/74699119/162346057-1a91eef8-1091-4aaa-8fe1-40e3ae9a7f68.png)
 
  <b>Tipo de usuário - Professor</b><br>
-![linhadotempoprofessor](https://user-images.githubusercontent.com/74699119/162346062-1ad1a797-1ad1-4d31-ae0f-f805e34c0309.png)
+![linhadotempoprofessor](https://user-images.githubusercontent.com/74699119/162346136-6c188ec0-d05c-4f8f-87d2-e54a6b6340ed.png)
 
 
