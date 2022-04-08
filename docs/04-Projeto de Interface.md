@@ -103,5 +103,12 @@ No bloco de barra lateral à esquerda, também será diferente para cada tipo de
 ### Tela - Caixa de mensagens
  
  ![mensagens](https://user-images.githubusercontent.com/74699119/162344187-13992039-2465-4d99-b2b5-81a3ab36b7b6.png)
+ 
+### Tela - Linha do tempo
+ <b>Tipo de usuário - Responsável do Aluno</b><br>
+![linhadotemporesp](https://user-images.githubusercontent.com/74699119/162346057-1a91eef8-1091-4aaa-8fe1-40e3ae9a7f68.png)
+
+ <b>Tipo de usuário - Professor</b><br>
+![linhadotempoprofessor](https://user-images.githubusercontent.com/74699119/162346062-1ad1a797-1ad1-4d31-ae0f-f805e34c0309.png)
 
 
