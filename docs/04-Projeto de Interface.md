@@ -123,4 +123,4 @@ Os blocos de conteúdo serão diferentes de acordo com o tipo de usuário:
 
 ### Tela - Visualizar todos os usuários (Administrador)
 
-![visualizarusuarios](https://user-images.githubusercontent.com/74699119/162491862-3dd7695d-9447-4534-bdf3-9526684ea5df.png)
+![visualizarusuarios](https://user-images.githubusercontent.com/74699119/162491957-8cdcb7aa-5f20-4c35-acd8-f3a7d04e76b1.png)
