@@ -54,15 +54,22 @@ Para as telas de homepage, soluções e login, que são apresentadas quando não
 
  ### Tela - Tela inicial (pós login do usuário)
  
-<b>Tipo de usuário - Administrador</b><br>
+  <p align="justify"> Nesta tela, todos os usuários poderão acessar o seu perfil para a alteração dos dados cadastrais, bem como visualizar a caixa de mensagens através do ícone do lado direito no cabeçalho. Os blocos de conteúdo serão diferentes de acordo com o tipo de usuário:</p>
+ * Administrador: apresentará em destaque a agenda e as notificações.
+ * Professor/Resp. do aluno/Outros: apresentará em destaque as turmas, as notificações e a agenda.
+ <p align="justify"> No bloco de barra lateral à esquerda, também será diferente para cada tipo de usuário:</p>
+ * Administrador: apresentará os menus de acesso para as telas de todos os usuário, agenda, mensagens, cadastrar usuários, alunos, turmas e disciplinas.
+ * Professor: apresentará os menus de acesso para as telas de minhas turmas, linha do tempo, agenda e mensagens.
+ * Responsável do aluno: apresentará os menus de acesso para as telas de linha do tempo, agenda, mensagens e assinaturas de autorização.
+ * Outros: apresentará os menus de agenda e mensagens.
 
-<p align="justify"> Nesta tela, o usuário (Administrador) poderá acessar o perfil no site, bem como visualizar a caixa de mensagens através do ícone do lado direito no cabeçalho. Os blocos centralizados na página mostram em destaque as notificações e a agenda. No Bloco de Barra Lateral à esquerda, ao clicar, são apresentados os menus de acesso para a tela de todos os usuários, agenda, mensagens, cadastrar usuários, alunos, turmas e disciplinas. Há, ainda, dois campos “Painel Inicial” e “Notificações”, o primeiro direciona para a tela home-page e o segundo exibe as notificações.</p>
+> - **Requisito Funcional-01:** A aplicação deve possuir um sistema de autenticação e login com quatro tipos de usuário: administrador do sistema, responsáveis pelo aluno, professor e funcionário (tipo genérico que abrange membros da secretaria, setor financeiro, etc)</p>
+ 
+<b>Tipo de usuário - Administrador</b><br>
 
  ![InicialAdmin](https://user-images.githubusercontent.com/74699119/162332939-cfbc70e6-2803-46b9-afe0-334ea8afcb76.png)
 
 <b>Tipo de usuário - Professor</b><br>
-
-<p align="justify"> Nas telas de o usuário professor, responsável do aluno e outros, poderá acessar o perfil no site, bem como visualizar a caixa de mensagens através do ícone do lado direito no cabeçalho. Os blocos centralizados na página mostram em destaque as notificações, as turmas do usuário professor e a agenda.  No Bloco de Barra Lateral à esquerda, ao clicar, são apresentadas as turmas, linha do tempo, agenda e mensagens. Há, ainda, dois campos “Painel Inicial” e “Notificações”, o primeiro direciona para a tela home-page e o segundo exibe as notificações.</p>
 
  ![InicialProfessor](https://user-images.githubusercontent.com/74699119/162332931-935dd871-c045-4242-a640-d5c940eb541b.png)
  
@@ -76,7 +83,6 @@ Para as telas de homepage, soluções e login, que são apresentadas quando não
 
 <p align="justify"> A elaboração das Telas iniciais (pós login do usuário) atende ao seguinte requisito funcional:
  
-- **Requisito Funcional-01:** A aplicação deve possuir um sistema de autenticação e login com quatro tipos de usuário: administrador do sistema, responsáveis pelo aluno, professor e funcionário (tipo genérico que abrange membros da secretaria, setor financeiro, etc)</p>
 
 ### Tela - Mostrar notificações 
 
