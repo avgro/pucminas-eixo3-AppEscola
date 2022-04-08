@@ -48,7 +48,7 @@ Para as telas de homepage, soluções e login, que são apresentadas quando não
  
 <p align="justify">  Na tela de login, mostra os elementos padrões do cabeçalho, rodapé e temos o bloco principal de login:
  
-> - **Área para login de usuários:** são solicitadas as informações de e-mail e senha para que o login seja efetuado. O usuário possui disponível também a opção de recuperação de senha.</p>
+- **Área para login de usuários:** são solicitadas as informações de e-mail e senha para que o login seja efetuado. O usuário possui disponível também a opção de recuperação de senha.</p>
 
  
 ![Login](https://user-images.githubusercontent.com/74699119/162334186-8bc32fd8-8a8e-413e-959e-324fbcd9b6e5.png)
