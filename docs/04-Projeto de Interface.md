@@ -58,11 +58,13 @@ Nesta tela, todos os usuários poderão acessar o seu perfil para a alteração 
 Os blocos de conteúdo serão diferentes de acordo com o tipo de usuário:
 > - **Administrador:** - Apresentará em destaque a agenda e as notificações.
 > - **Professor/Resp. do aluno/Outros:** Apresentará em destaque as turmas, as notificações e a agenda.
-No bloco de barra lateral à esquerda, também será diferente para cada tipo de usuário:
+
+<p align="justify"> No bloco de barra lateral à esquerda, também será diferente para cada tipo de usuário:
+
 > - **Administrador:** Apresentará os menus de acesso para as telas de todos os usuário, agenda, mensagens, cadastrar usuários, alunos, turmas e disciplinas.
 > - **Professor:** Apresentará os menus de acesso para as telas de minhas turmas, linha do tempo, agenda e mensagens.
 > - **Responsável do aluno:** Apresentará os menus de acesso para as telas de linha do tempo, agenda, mensagens e assinaturas de autorização.
-> - **Outros:** Apresentará os menus de agenda e mensagens.
+> - **Outros:** Apresentará os menus de agenda e mensagens.</p>
 
 <p align="justify"> A elaboração das Telas iniciais (pós login do usuário) atende ao seguinte requisito funcional:
 
