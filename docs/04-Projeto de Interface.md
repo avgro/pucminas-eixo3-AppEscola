@@ -157,3 +157,14 @@ Os blocos de conteúdo serão diferentes de acordo com o tipo de usuário:
 
 ![apagarturma](https://user-images.githubusercontent.com/74699119/162499604-f287a930-760d-4e38-a973-2fb2a408d537.png)
 
+### Tela - Cadastrar disciplina
+
+![cadastrardisciplina](https://user-images.githubusercontent.com/74699119/162499995-782aea1b-eee0-45ba-b755-d375d78728fe.png)
+
+### Tela - Editar disciplina
+
+![editardisciplina](https://user-images.githubusercontent.com/74699119/162500005-62896a90-f8fe-40b7-85ae-150b733a3be2.png)
+
+### Tela - Apagar disciplina
+
+![apagardisciplina](https://user-images.githubusercontent.com/74699119/162500017-ce9d88a1-d107-47dd-97a2-301506aeb982.png)
