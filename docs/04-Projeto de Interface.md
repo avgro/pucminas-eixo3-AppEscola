@@ -113,5 +113,6 @@ Nesta tela, todos os usuários poderão acessar o seu perfil para a alteração 
 ![linhadotempoprofessor](https://user-images.githubusercontent.com/74699119/162346136-6c188ec0-d05c-4f8f-87d2-e54a6b6340ed.png)
 
 ### Tela - Assinar autorização
-![assinarautorizacao](https://user-images.githubusercontent.com/74699119/162346465-23ad6034-14f0-4681-80e6-8321df84ce0c.png)
+![assinarautorizacao](https://user-images.githubusercontent.com/74699119/162346531-1ce86e36-7f85-4efe-b65e-e858b299e290.png)
+
 
