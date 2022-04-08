@@ -135,6 +135,8 @@ Os blocos de conteúdo serão diferentes de acordo com o tipo de usuário:
 
 ### Tela - Cadastrar turmas e disciplinas
 
-![cadastrarturmadisciplina](https://user-images.githubusercontent.com/74699119/162492781-b1048797-3d3a-43ab-a9f4-d35b2f393d09.png)
+![cadastrarturmadisciplina](https://user-images.githubusercontent.com/74699119/162493055-f54e6516-c464-4d10-b0d8-00e15df2fe13.png)
 
+### Tela - Cadastrar turma
 
+![cadastrarturma](https://user-images.githubusercontent.com/74699119/162493089-dc857d3e-56e8-42b4-a22e-e4d160b2c45e.png)
