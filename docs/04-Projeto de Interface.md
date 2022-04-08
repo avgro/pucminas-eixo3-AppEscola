@@ -140,3 +140,20 @@ Os blocos de conteúdo serão diferentes de acordo com o tipo de usuário:
 ### Tela - Cadastrar turma
 
 ![cadastrarturma](https://user-images.githubusercontent.com/74699119/162493089-dc857d3e-56e8-42b4-a22e-e4d160b2c45e.png)
+
+### Tela - Associar aluno à turma
+
+![associaralunoturma](https://user-images.githubusercontent.com/74699119/162499619-a4e93ba0-ed13-487f-986f-efe454ee843c.png)
+
+### Tela - Associar disciplina à turma
+
+![associaralunodisciplina](https://user-images.githubusercontent.com/74699119/162499613-0b0bd1a4-70a8-4916-9183-5ffe1ff8682c.png)
+
+### Tela - Gerenciar alunos e disciplinas associados à turma
+
+![gerenciarassociacao](https://user-images.githubusercontent.com/74699119/162499638-d8a68a01-e834-499d-8cc2-70bced69f119.png)
+
+### Tela - Apagar turma
+
+![apagarturma](https://user-images.githubusercontent.com/74699119/162499604-f287a930-760d-4e38-a973-2fb2a408d537.png)
+
