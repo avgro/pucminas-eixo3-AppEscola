@@ -78,5 +78,12 @@ Para as telas de homepage, soluções e login, que são apresentadas quando não
  
 - **Requisito Funcional-01:** A aplicação deve possuir um sistema de autenticação e login com quatro tipos de usuário: administrador do sistema, responsáveis pelo aluno, professor e funcionário (tipo genérico que abrange membros da secretaria, setor financeiro, etc)</p>
 
+ ### Tela - Agenda escolar
+ 
+ ![agenda](https://user-images.githubusercontent.com/74699119/162344162-f914e94e-aa09-43d2-8717-b30a745d7454.png)
+
+ ### Tela - Caixa de mensagens
+ 
+ ![mensagens](https://user-images.githubusercontent.com/74699119/162344187-13992039-2465-4d99-b2b5-81a3ab36b7b6.png)
 
 
