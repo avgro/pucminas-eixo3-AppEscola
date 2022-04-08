@@ -84,11 +84,11 @@ Para as telas de homepage, soluções e login, que são apresentadas quando não
 
 ### Tela - Opções da conta
 
-![perfil](https://user-images.githubusercontent.com/74699119/162344725-c618cfc1-e05d-4d8d-8dd7-e70a60a94c88.png)
+![perfil](https://user-images.githubusercontent.com/74699119/162345026-744a41ba-d534-417c-8be7-42613b869556.png)
 
 ### Tela - Alterar informações da conta
 
-![alterardados](https://user-images.githubusercontent.com/74699119/162344895-e80bc8e0-c9de-4f00-b664-e59c2d3fd384.png)
+![alterardados](https://user-images.githubusercontent.com/74699119/162345021-8049c7aa-6aed-416f-8385-c3129b8915f6.png)
 
 ### Tela - Agenda escolar
  
