@@ -159,7 +159,7 @@ Os blocos de conteúdo serão diferentes de acordo com o tipo de usuário:
 
 ### Tela - Cadastrar disciplina
 
-<p> Nesta tela, o usuário administrador irá cadastrar a disciplina vinculando os professores e as turmas.<p>
+<p> Nesta tela, o usuário administrador irá cadastrar a disciplina vinculando os professores e as turmas envolvidas.<p>
 
 ![cadastrardisciplina](https://user-images.githubusercontent.com/74699119/162499995-782aea1b-eee0-45ba-b755-d375d78728fe.png)
 
