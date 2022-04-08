@@ -48,14 +48,9 @@ Para as telas de homepage, soluções e login, que são apresentadas quando não
  
 <p align="justify">  Na tela de login, mostra os elementos padrões do cabeçalho, rodapé e temos o bloco principal de login:
  
-- **Área para login de usuários:** são solicitadas as informações de e-mail e senha para que o login seja efetuado. O usuário possui disponível também a opção de recuperação de senha.</p>
+> - **Área para login de usuários:** são solicitadas as informações de e-mail e senha para que o login seja efetuado. O usuário possui disponível também a opção de recuperação de senha.</p>
 
- 
 ![Login](https://user-images.githubusercontent.com/74699119/162334186-8bc32fd8-8a8e-413e-959e-324fbcd9b6e5.png)
-
-<p align="justify"> A elaboração da Tela Login atende ao seguinte requisito funcional:
- 
-- **Requisito Funcional-01:** A aplicação deve possuir um sistema de autenticação e login financeiro com quatro tipos de usuário: administrador do sistema, responsável pelo aluno, professor e funcionário (tipo genérico que abrange membros da secretaria, setor etc.)</p>
 
  ### Tela - Tela inicial (pós login do usuário)
  
@@ -63,7 +58,14 @@ Para as telas de homepage, soluções e login, que são apresentadas quando não
  ![InicialAdmin](https://user-images.githubusercontent.com/74699119/162332939-cfbc70e6-2803-46b9-afe0-334ea8afcb76.png)
 
 <b>Tipo de usuário - Professor</b><br>
+
+<p align="justify"> Nesta tela, o usuário (professor) poderá acessar o perfil no site, bem como visualizar a caixa de mensagens através do ícone do lado direito no cabeçalho. Os blocos centralizados na página mostram em destaque as notificações, as turmas do usuário professor e a agenda.  No Bloco de Barra Lateral à esquerda, ao clicar, são apresentadas as turmas, linha do tempo, agenda e mensagens. Há, ainda, dois campos “Painel Inicial” e “Notificações”, o primeiro direciona para a tela home-page e o segundo exibe as notificações.</p>
+
  ![InicialProfessor](https://user-images.githubusercontent.com/74699119/162332931-935dd871-c045-4242-a640-d5c940eb541b.png)
+ 
+ <p align="justify"> A elaboração da Tela Inicial (pós login do usuário) atende ao seguinte requisito funcional:
+ 
+- **Requisito Funcional-01:** A aplicação deve possuir um sistema de autenticação e login financeiro com quatro tipos de usuário: administrador do sistema, responsável pelo aluno, professor e funcionário (tipo genérico que abrange membros da secretaria, setor etc.)</p>
 
 <b>Tipo de usuário - Responsável do Aluno</b><br>
 ![InicialProfessor](https://user-images.githubusercontent.com/74699119/162334270-59eb5755-c46a-4fd5-8d24-cbc4a4b826c1.png)
