@@ -163,6 +163,10 @@ Os blocos de conteúdo serão diferentes de acordo com o tipo de usuário:
 
 ### Tela - Editar disciplina
 
+<p> Está tela irá possuir uma funcionalidade, cujo o objetivo será a edição de uma disciplina já cadastrada no sistema.</p>
+<p> O usuário administrador poderá selecionar uma disciplina existente no sistema e, assim, poder realizar as alterações desejadas.
+    Podendo salvar ou cancelar o processo de edição.</p>
+
 ![editardisciplina](https://user-images.githubusercontent.com/74699119/162500005-62896a90-f8fe-40b7-85ae-150b733a3be2.png)
 
 ### Tela - Apagar disciplina
