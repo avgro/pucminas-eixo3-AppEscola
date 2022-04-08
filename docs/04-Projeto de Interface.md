@@ -90,13 +90,13 @@ Os blocos de conteúdo serão diferentes de acordo com o tipo de usuário:
 
 <p align="justify">  Na tela de notificações, mostra os elementos que os usuários estão recebendo de atualização da ferramenta, sejam novas mensagens ou eventos.
  
- <p align="justify">  Será mostrado aos usuários um resumo das notificações no botão Notificação na parte superios da tala, bem como em um painel centralizado na página.
+ <p align="justify">  Será mostrado aos usuários um resumo das notificações no botão Notificação na parte superior da tela, bem como em um painel centralizado na página.
  
 ![notificacoes](https://user-images.githubusercontent.com/74699119/162345763-f1844ad3-58aa-4192-afb1-ca4bfca99739.png)
   
 ### Tela - Opções da conta
 
- <p align="justify">  Será permitido aos usuários acessarem o submenu de Alterar dados, sendo direcionado para a página específica e permitindo ao usuário a alteração de seus dados.
+ <p align="justify">  Será permitido aos usuários acessarem o submenu de Alterar dados, sendo direcionado para a página específica e permitindo ao usuário a alteração de seus dados. O usuário também terá a funcionalidade de logout.</p>
   
 ![perfil](https://user-images.githubusercontent.com/74699119/162345487-94dad779-b01c-487f-b845-f3022f3ce7ce.png)
  
@@ -119,18 +119,19 @@ Os blocos de conteúdo serão diferentes de acordo com o tipo de usuário:
  ![mensagens](https://user-images.githubusercontent.com/74699119/162344187-13992039-2465-4d99-b2b5-81a3ab36b7b6.png)
  
 
- 
 ### Tela - Linha do tempo
  <b>Tipo de usuário - Responsável do Aluno</b><br>
+  
+  > - **Responsável do aluno:** Será permitido ao usuário visualizar imagens adicionadas de seus filhos. Este usuáriio poderá ver todas as fotos adicionadas e interagir através de comentários.
+  
 ![linhadotemporesp](https://user-images.githubusercontent.com/74699119/162346282-026937c4-fddc-4018-8c32-d38322e4333d.png)
  
-> - **Responsável do aluno:** Será permitido ao usuário visualizar imagens adicionadas de seus filhos. Este usuáriio poderá ver todas as fotos adicionadas e interagir através de comentários.
- 
  <b>Tipo de usuário - Professor</b><br>
+  
+  > - **Professor:** Este usuáriao poderá adicionar imagens de um determinado aluno, bem como interagir com a publicação por meio de comentários.
+  
 ![linhadotempoprofessor](https://user-images.githubusercontent.com/74699119/162346136-6c188ec0-d05c-4f8f-87d2-e54a6b6340ed.png)
  
-> - **Professor:** Este usuáriao poderá adicionar imagens de um determinado aluno, bem como interagir com a publicação por meio de comentários.
-
 ### Tela - Assinar autorização
 
 <p align="justify">  Será permitido aos usuários do tipo Responsável visualizarem notificações de eventos que necessitam de sua autorização, assinalando se autorizam ou não que seu filho participe. Ao usuário será apresentada uma mensagem informando o conteúdo necessário de autorização, que pode ser um evento, excursão etc.
