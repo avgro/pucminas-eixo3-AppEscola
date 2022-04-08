@@ -56,8 +56,6 @@ Para as telas de homepage, soluções e login, que são apresentadas quando não
  
 <b>Tipo de usuário - Administrador</b><br>
 
-<p align="justify"> Nesta tela, o usuário (Administrador) poderá acessar o perfil no site, bem como visualizar a caixa de mensagens através do ícone do lado direito no cabeçalho. Os blocos centralizados na página mostram em destaque as notificações e a agenda. No Bloco de Barra Lateral à esquerda, ao clicar, são apresentadas o menu de acesso para a tela de todos os usuários, agenda, mensagens, cadastrar usuários, alunos, turmas e disciplinas. Há, ainda, dois campos “Painel Inicial” e “Notificações”, o primeiro direciona para a tela home-page e o segundo exibe as notificações.</p>
-
  ![InicialAdmin](https://user-images.githubusercontent.com/74699119/162332939-cfbc70e6-2803-46b9-afe0-334ea8afcb76.png)
 
 <b>Tipo de usuário - Professor</b><br>
