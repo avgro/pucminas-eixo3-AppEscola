@@ -39,7 +39,7 @@ Para as telas de homepage, soluções e login, que são apresentadas quando não
 
  ### Tela - Soluções
  
- <p>A tela de Soluções apresenta através de imagens ilustrativas com textos explicativos, as especificações das funcionalidades do sistema.</p>
+ <p>A tela de Soluções apresenta através de imagens ilustrativas e textos explicativos, as funcionalidades do sistema.</p>
  <p>Está tela proporciona ao usuário o acesso à tela de Login e homepage, como também as informações de contato.</p>
  
 ![Solucoes](https://user-images.githubusercontent.com/74699119/162334174-b2def755-07c6-43ef-9b74-ad1275951866.png)
