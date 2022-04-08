@@ -77,7 +77,7 @@ Para as telas de homepage, soluções e login, que são apresentadas quando não
 
 <p align="justify"> A elaboração das Telas iniciais (pós login do usuário) atende ao seguinte requisito funcional:
  
-- **Requisito Funcional-01:** A aplicação deve possuir um sistema de autenticação e login financeiro com quatro tipos de usuário: administrador do sistema, responsável pelo aluno, professor e funcionário (tipo genérico que abrange membros da secretaria, setor etc.)</p>
+- **Requisito Funcional-01:** A aplicação deve possuir um sistema de autenticação e login com quatro tipos de usuário: administrador do sistema, responsáveis pelo aluno, professor e funcionário (tipo genérico que abrange membros da secretaria, setor financeiro, etc)</p>
 
 
 
