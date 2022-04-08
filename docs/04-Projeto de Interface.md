@@ -117,10 +117,24 @@ Os blocos de conteúdo serão diferentes de acordo com o tipo de usuário:
 
 ![assinarautorizacao](https://user-images.githubusercontent.com/74699119/162346531-1ce86e36-7f85-4efe-b65e-e858b299e290.png)
 
-### Tela - Visualizar turmas (Professor)
+### Tela - Visualizar turmas do professor
 
 ![minhasturmas](https://user-images.githubusercontent.com/74699119/162491880-52bf44c1-04e5-441c-8cf9-d477e3da42b0.png)
 
-### Tela - Visualizar todos os usuários (Administrador)
+### Tela - Visualizar todos os usuários do sistema
 
 ![visualizarusuarios](https://user-images.githubusercontent.com/74699119/162491957-8cdcb7aa-5f20-4c35-acd8-f3a7d04e76b1.png)
+
+### Tela - Cadastrar usuário
+
+![cadastrarusuario](https://user-images.githubusercontent.com/74699119/162492785-8c1b148e-a2d1-4b9d-aafd-734d9cfacbde.png)
+
+### Tela - Cadastrar aluno
+
+![cadastraraluno](https://user-images.githubusercontent.com/74699119/162492772-0fbc75b3-7c3e-4b36-9b3d-1a9e5e1d246f.png)
+
+### Tela - Cadastrar turmas e disciplinas
+
+![cadastrarturmadisciplina](https://user-images.githubusercontent.com/74699119/162492781-b1048797-3d3a-43ab-a9f4-d35b2f393d09.png)
+
+
