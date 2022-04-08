@@ -55,9 +55,9 @@ Para as telas de homepage, soluções e login, que são apresentadas quando não
  ### Tela - Tela inicial (pós login do usuário)
  
 Nesta tela, todos os usuários poderão acessar o seu perfil para a alteração dos dados cadastrais, bem como visualizar a caixa de mensagens através do ícone do lado direito no cabeçalho. 
-<p align="justify"> Os blocos de conteúdo serão diferentes de acordo com o tipo de usuário:
+Os blocos de conteúdo serão diferentes de acordo com o tipo de usuário:
 > - **Administrador:** - Apresentará em destaque a agenda e as notificações.
-> - **Professor/Resp. do aluno/Outros:** Apresentará em destaque as turmas, as notificações e a agenda.</p>
+> - **Professor/Resp. do aluno/Outros:** Apresentará em destaque as turmas, as notificações e a agenda.
 
 <p align="justify"> No bloco de barra lateral à esquerda, também será diferente para cada tipo de usuário:
 
