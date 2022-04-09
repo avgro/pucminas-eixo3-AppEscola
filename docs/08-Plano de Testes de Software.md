@@ -22,31 +22,54 @@ Os testes funcionais a serem realizados no aplicativo são descritos a seguir:
 |Requisitos Associados | 	 RF-02 A aplicação deve oferecer ao administrador do sistema a funcionalidade de criar contas de usuário para responsáveis do aluno, professores e outros funcionários, enviando as informações de login através de e-mail para eles após a criação. RF-03  A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis.
 |Objetivo do teste|  A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis. Verificar se o usuário cadastrado recebeu o e-mail após a criação da conta pelo administrador.|
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Realizar login com uma conta do tipo "Administrador" 4) Clicar na opção "Todos os usuários" na tela inicial da conta de administrador 5) Visualizar usuários listados na tela|
-|Critérios de êxito| ● O usuário deverá ser direcionado para a tela de "visualizar todos os usuários do sistema" e ser capaz de ver os usuários cadastrados. |
+|Critérios de êxito| O usuário deverá ser direcionado para a tela de "visualizar todos os usuários do sistema" e ser capaz de ver os usuários cadastrados. |
 
 
-|Caso de teste 03     | CT 03 - Criar e Excluir Conta Usuário |
+|Caso de teste 03     | CT 03 - Criar Conta Usuário |
 |-------|-------------------------
 |Requisitos Associados | 	 RF-02 A aplicação deve oferecer ao administrador do sistema a funcionalidade de criar contas de usuário para responsáveis do aluno, professores e outros funcionários, enviando as informações de login através de e-mail para eles após a criação. RF-03  A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis.
 |Objetivo do teste|  A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis. Verificar se o usuário cadastrado recebeu o e-mail após a criação da conta pelo administrador.|
+|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Realizar login com uma conta do tipo "Administrador" 4) Clicar na opção "Todos os usuários" na tela inicial da conta de administrador 5) Localizar o usuário que deseja deletar na lista de usuários cadastrados 6) Clicar no botão "Deletar". 7) A tela de "Visualizar usuários" será atualizada e o usuário excluído deverá ter sumido dela |
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Realizar login com uma conta do tipo "Administrador" 4) Clicar na opção "Cadastrar usuário" na tela inicial da conta de administrador 5) Preencher todas as informações requisitadas 6) Clicar no botão "Cadastrar". 7) O usuário será redirecionado para a tela "Visualizar usuários cadastrados no sistema" onde o novo usuário cadastrado deverá estar presente na lista |
-|Critérios de êxito| ● O novo usuário deve ser cadastrado com sucesso e aparecer na lista de usuários cadastrados do sistema. |
+|Critérios de êxito| O novo usuário deve ser cadastrado com sucesso e aparecer na lista de usuários cadastrados do sistema. |
 
-|Caso de teste 04     | CT 04 -  Cadastrar aluno |
+|Caso de teste 03     | CT 04 - Excluir Conta Usuário |
+|-------|-------------------------
+|Requisitos Associados | 	 RF-02 A aplicação deve oferecer ao administrador do sistema a funcionalidade de criar contas de usuário para responsáveis do aluno, professores e outros funcionários, enviando as informações de login através de e-mail para eles após a criação. RF-03  A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis.
+|Objetivo do teste|  A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis. Verificar se o usuário cadastrado recebeu o e-mail após a criação da conta pelo administrador.|
+|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Realizar login com uma conta do tipo "Administrador" 4) Clicar na opção "Todos os usuários" na tela inicial da conta de administrador 5) Localizar o usuário que deseja deletar na lista de usuários cadastrados 6) Clicar no botão "Deletar". 7) A tela de "Visualizar usuários" será atualizada e o usuário excluído deverá ter sumido dela |
+|Critérios de êxito| O novo usuário deletado deve desaparecer da lista de usuários do sistema. |
+
+|Caso de teste 04     | CT 05 -  Cadastrar aluno |
 |-------|-------------------------
 |Requisitos Associados | 	 RF-03 A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis.
 |Objetivo do teste| Verificar se o administrador do sistema consegue adicionar ou excluir os alunos às disciplinas cadastradas. |
-|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login como administrador 4) Clicar na opção "Cadastrar Aluno" 5) Inserir as informações solicitadas no formulário 6) Clicar em "Cadastrar". 7) Clicar em "Gerenciar associações" e verificar se a turma aparece disponível na lista de turmas a escolher. |
-|Critérios de êxito| A turma deve ser cadastrada com sucesso e poder ser selecionada e estar disponível no sistema. |
+|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login como administrador 4) Clicar na opção "Cadastrar Aluno" 5) Na tela de "Visualizar alunos cadastrados", clicar na opção "Cadastrar novo aluno" 5) Inserir as informações solicitadas no formulário 6) Clicar em "Cadastrar". 7) O usuário deve ser redirecionado para a tela de "Visualizar alunos cadastrados". O novo aluno cadastrado deve estar presente na lista |
+|Critérios de êxito| O novo aluno deve ser cadastrado com sucesso e aparecer na lista de alunos cadastrados |
 
-|Caso de teste 05     | CT 04 -  Cadastrar turma |
+|Caso de teste 04     | CT 06 -  Editar informações do aluno |
+|-------|-------------------------
+|Requisitos Associados | 	 RF-03 A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis.
+|Objetivo do teste| Verificar se o administrador do sistema consegue adicionar ou excluir os alunos às disciplinas cadastradas. |
+|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login como administrador 4) Clicar na opção "Cadastrar Aluno" 5) Na tela de "Visualizar alunos cadastrados", clicar na opção "Editar" ao lado do nome do aluno 6) Inserir novas informações e clicar em "Salvar". 7) A tela de "Visualizar alunos cadastrados" será atualizada e o aluno selecionado deve ter desaparecido da lista |
+|Critérios de êxito| O aluno deve ser deletado e desaparecer da lista de alunos cadastrados |
+
+|Caso de teste 04     | CT 07 -  Excluir aluno |
+|-------|-------------------------
+|Requisitos Associados | 	 RF-03 A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis.
+|Objetivo do teste| Verificar se o administrador do sistema consegue adicionar ou excluir os alunos às disciplinas cadastradas. |
+|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login como administrador 4) Clicar na opção "Cadastrar Aluno" 5) Na tela de "Visualizar alunos cadastrados", clicar na opção "Deletar" ao lado do nome do aluno 6) A tela de "Visualizar alunos cadastrados" será atualizada e o aluno selecionado deve ter desaparecido da lista |
+|Critérios de êxito| O aluno deve ser deletado e desaparecer da lista de alunos cadastrados |
+
+
+|Caso de teste 05     | CT 08 -  Cadastrar turma |
 |-------|-------------------------
 |Requisitos Associados | 	 RF-03 A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis.
 |Objetivo do teste| Verificar se o administrador do sistema consegue adicionar ou excluir os alunos às disciplinas cadastradas. |
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login como administrador 4) Clicar na opção "Cadastrar Turma" 5) Inserir nome da turma que deseja cadastar 6) Clicar em "Salvar". 7) Clicar em "Gerenciar associações" e verificar se a turma aparece disponível na lista de turmas a escolher. |
 |Critérios de êxito| A turma deve ser cadastrada com sucesso e poder ser selecionada e estar disponível no sistema. |
 
-|Caso de teste 06     | CT 04 -  Apagar turma |
+|Caso de teste 06     | CT 09 -  Apagar turma |
 |-------|-------------------------
 |Requisitos Associados | 	 RF-03 A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis.
 |Objetivo do teste| Verificar se o administrador do sistema consegue adicionar ou excluir os alunos às disciplinas cadastradas. |
