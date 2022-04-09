@@ -150,7 +150,12 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 <p align="justify">  Será permitido aos usuários do tipo Administrador cadastrar um novo usuário ao sistema, adicionando informações previamente apresentadas, bem como selecionando o tipo de usuário atrelado aquele novo usuário.</p>
  
 ![cadastrarusuario](https://user-images.githubusercontent.com/74699119/162492785-8c1b148e-a2d1-4b9d-aafd-734d9cfacbde.png)
- 
+
+### Tela - Visualizar alunos cadastrados
+<p align="justify">  Será permitido aos usuários do tipo Administrador visualizar a lista de alunos cadastrados sistema, bem como remover alunos cadastrados ou editar suas informações para situações nas quais seja necessário trocar sua turma ou adicionar mais responsáveis.</p>
+
+![listaalunos](https://user-images.githubusercontent.com/74699119/162586613-1a1db82f-c39c-4a58-b735-2a37356a886c.png)
+
 ### Tela - Cadastrar aluno
 
 <p align="justify">  Será permitido aos usuários do tipo Administrador cadastrar um novo aluno ao sistema, adicionando informações previamente apresentadas, bem como atrelando ele ao seu usuário do tipo Responsável, previamente cadastrado.</p>
