@@ -32,11 +32,34 @@ Os testes funcionais a serem realizados no aplicativo são descritos a seguir:
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Realizar login com uma conta do tipo "Administrador" 4) Clicar na opção "Cadastrar usuário" na tela inicial da conta de administrador 5) Preencher todas as informações requisitadas 6) Clicar no botão "Cadastrar". 7) O usuário será redirecionado para a tela "Visualizar usuários cadastrados no sistema" onde o novo usuário cadastrado deverá estar presente na lista |
 |Critérios de êxito| ● O novo usuário deve ser cadastrado com sucesso e aparecer na lista de usuários cadastrados do sistema. |
 
+|Caso de teste 04     | CT 04 -  Cadastrar aluno |
+|-------|-------------------------
+|Requisitos Associados | 	 RF-03 A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis.
+|Objetivo do teste| Verificar se o administrador do sistema consegue adicionar ou excluir os alunos às disciplinas cadastradas. |
+|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login como administrador 4) Clicar na opção "Cadastrar Aluno" 5) Inserir as informações solicitadas no formulário 6) Clicar em "Cadastrar". 7) Clicar em "Gerenciar associações" e verificar se a turma aparece disponível na lista de turmas a escolher. |
+|Critérios de êxito| A turma deve ser cadastrada com sucesso e poder ser selecionada e estar disponível no sistema. |
+
+|Caso de teste 05     | CT 04 -  Cadastrar turma |
+|-------|-------------------------
+|Requisitos Associados | 	 RF-03 A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis.
+|Objetivo do teste| Verificar se o administrador do sistema consegue adicionar ou excluir os alunos às disciplinas cadastradas. |
+|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login como administrador 4) Clicar na opção "Cadastrar Turma" 5) Inserir nome da turma que deseja cadastar 6) Clicar em "Salvar". 7) Clicar em "Gerenciar associações" e verificar se a turma aparece disponível na lista de turmas a escolher. |
+|Critérios de êxito| A turma deve ser cadastrada com sucesso e poder ser selecionada e estar disponível no sistema. |
+
+|Caso de teste 06     | CT 04 -  Apagar turma |
+|-------|-------------------------
+|Requisitos Associados | 	 RF-03 A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis.
+|Objetivo do teste| Verificar se o administrador do sistema consegue adicionar ou excluir os alunos às disciplinas cadastradas. |
+|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login como administrador 4) Clicar na opção "Apagar Turma" 5) Selecionar nome da turma que deseja apagar 6) Clicar em "Apagar". 7) Clicar em "Gerenciar associações" e verificar se a turma desapareceu da lista de turmas a escolher. |
+|Critérios de êxito| A turma deve ser apagada com sucesso e poder ser selecionada e não estar mais disponível no sistema. |
+
+|Caso de teste 04     | CT 04 -  Adicionar Remover Aluno/ Disciplina 
+
 |Caso de teste 03     | CT 03 - Associar Professor/ Disciplina |
 |-------|-------------------------
 |Requisitos Associados | 	 RF-04 A aplicação deve permitir que o administrador do sistema associe um ou mais professores para cada disciplina cadastrada com um código distinto, sendo que disciplinas com o mesmo conteúdo podem ter códigos distintos em casos de múltiplas turmas com professores diferentes para cada uma. .
 |Objetivo do teste| Verificar se o administrador do sistema consegue associar os professores as disciplinas cadastradas. |
-|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Clicar botão usuário e senha do administrador. Informar usuário e senha. 4) Associar o professor a sua respectiva disciplina. 5) Salvar. |
+|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login como administrador. 4) Clicar em "cadastrar disciplina". 5) Clicar em " 5) Salvar. |
 |Critérios de êxito| O professor deve estar associado à sua disciplina corretamente. |
 
 |Caso de teste 04     | CT 04 -  Adicionar ou Remover Aluno/ Disciplina |
