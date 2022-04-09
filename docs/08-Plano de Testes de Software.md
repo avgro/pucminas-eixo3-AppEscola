@@ -14,15 +14,23 @@ Os testes funcionais a serem realizados no aplicativo são descritos a seguir:
 |-------|-------------------------
 |Requisitos Associados | 	 RF-01  A aplicação deve possuir um sistema de autenticação e login com quatro tipos de usuários: administrador do sistema, responsáveis pelo aluno, professor e o funcionário (tipo genérico que abrange membros da secretaria, setor financeiro etc.).
 |Objetivo do teste| Verificar a funcionalidade de autenticidade e de login do sistema. |
-|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Visualizar a página principal. |
+|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Visualizar a página principal. 4) Clicar no botão "Login" presente no canto direito do cabeçalho. 5) Informar nome de usuário e senha cadastrados no sistema para um determinado usuário. 6) Clicar no botão "Entrar". |
 |Critérios de êxito| O sistema será direcionado para a tela Home Page personalizada . |
 
-|Caso de teste 02     | CT 02 - Criar e Excluir Conta Usuário |
+|Caso de teste 02     | CT 02 - Visualizar usuários cadastrados no sistema |
 |-------|-------------------------
 |Requisitos Associados | 	 RF-02 A aplicação deve oferecer ao administrador do sistema a funcionalidade de criar contas de usuário para responsáveis do aluno, professores e outros funcionários, enviando as informações de login através de e-mail para eles após a criação. RF-03  A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis.
 |Objetivo do teste|  A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis. Verificar se o usuário cadastrado recebeu o e-mail após a criação da conta pelo administrador.|
-|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Clicar botão usuário e senha. Informar usuário e senha. 4) Acessar a área de cadastros para efetuar a inclusão ou a exclusão de usuário. 5) Clicar em " Salvar "|
-|Critérios de êxito| ●O administrador deve conseguir cadastrar ou excluir corretamente uma conta de usuário. ●O usuário deve receber um e-mail, com informações de login, após o administrador criar a conta. |
+|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Realizar login com uma conta do tipo "Administrador" 4) Clicar na opção "Todos os usuários" na tela inicial da conta de administrador 5) Visualizar usuários listados na tela|
+|Critérios de êxito| ● O usuário deverá ser direcionado para a tela de "visualizar todos os usuários do sistema" e ser capaz de ver os usuários cadastrados. |
+
+
+|Caso de teste 03     | CT 03 - Criar e Excluir Conta Usuário |
+|-------|-------------------------
+|Requisitos Associados | 	 RF-02 A aplicação deve oferecer ao administrador do sistema a funcionalidade de criar contas de usuário para responsáveis do aluno, professores e outros funcionários, enviando as informações de login através de e-mail para eles após a criação. RF-03  A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis.
+|Objetivo do teste|  A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis. Verificar se o usuário cadastrado recebeu o e-mail após a criação da conta pelo administrador.|
+|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Realizar login com uma conta do tipo "Administrador" 4) Clicar na opção "Cadastrar usuário" na tela inicial da conta de administrador 5) Preencher todas as informações requisitadas 6) Clicar no botão "Cadastrar". 7) O usuário será redirecionado para a tela "Visualizar usuários cadastrados no sistema" onde o novo usuário cadastrado deverá estar presente na lista |
+|Critérios de êxito| ● O novo usuário deve ser cadastrado com sucesso e aparecer na lista de usuários cadastrados do sistema. |
 
 |Caso de teste 03     | CT 03 - Associar Professor/ Disciplina |
 |-------|-------------------------
