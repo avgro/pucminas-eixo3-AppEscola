@@ -51,6 +51,7 @@ A figura abaixo demonstra como as tecnologias empregadas se relacionam dentro do
 ![Figura Tecnologias e Resposta ADS 2022_1](https://user-images.githubusercontent.com/74699119/162551814-41649e37-208d-4efc-a24b-4fbc8d2e1cce.png)
 <p align="center"><b>Figura 8</b> - Tecnologias empregadas no sistema e retorno de resposta do sistema mediante requisição feita pelo usuário</p>
 <br>
+
 ## Hospedagem
 
 A hospedagem da solução será feita no serviço de hospedagem da SmarterASP.NET. Após o desenvolvimento local da aplicação, os dados da base de dados local do projeto serão migrados para uma nova base de dados MSSQL criada dentro do serviço de hospedagem e a publicação da aplicação na plataforma será realizada com auxílio da funcionalidade "Publicar" do Visual Studio Community.
