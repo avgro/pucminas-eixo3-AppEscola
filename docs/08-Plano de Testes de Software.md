@@ -78,30 +78,28 @@ Os testes funcionais a serem realizados no aplicativo são descritos a seguir:
 
 |Caso de teste 10     | CT 10 -  Cadastrar disciplina e associar disciplina a professor e turma |
 |-------|-------------------------
-|Requisitos Associados | 	 RF-03 A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis.<br>
-RF-05 A aplicação deve permitir que o administrador do sistema adicione ou remova alunos das turmas disponíveis, além de selecionar as disciplinas que serão ministradas para aquela turma
+|Requisitos Associados | 	 RF-03 A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis.<br>RF-05 A aplicação deve permitir que o administrador do sistema adicione ou remova alunos das turmas disponíveis, além de selecionar as disciplinas que serão ministradas para aquela turma |
 |Objetivo do teste| Verificar se o a funcionalidade de cadastrar novas disciplinas no sistema está funcionando corretamente e se a mesma permite vincular a disciplina a um professor e uma turma |
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login como administrador 4) Clicar na aba "Cadastrar disciplina" 5) Selecionar a opção "Cadastrar disciplina" 6) Inserir o nome da disciplina e selecionar o professor responsável e a turma a qual a disciplina faz parte. 7) Clicar em "Salvar" 8) Clicar em "Gerenciar associações" e verificar se a disciplina aparece listada para a turma em questão |
 |Critérios de êxito| A disciplina deve ser cadastrada com sucesso e ficar associada a um professor e turma. |
 
 |Caso de teste 11     | CT 11 -  Editar disciplina |
 |-------|-------------------------
-|Requisitos Associados | 	 RF-03 A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis.<br>
-RF-05 A aplicação deve permitir que o administrador do sistema adicione ou remova alunos das turmas disponíveis, além de selecionar as disciplinas que serão ministradas para aquela turma
+|Requisitos Associados | 	 RF-03 A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis.<br>RF-05 A aplicação deve permitir que o administrador do sistema adicione ou remova alunos das turmas disponíveis, além de selecionar as disciplinas que serão ministradas para aquela turma |
 |Objetivo do teste| Verificar se o a funcionalidade de editar disciplinas cadastradas no sistema está funcionando corretamente |
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login como administrador 4) Clicar na aba "Cadastrar disciplina" 5) Selecionar a opção "Editar disciplina" 6) Selecionar a disciplina que deseja alterar e inserir as novas informações da disciplina. 7) Clicar em "Salvar" 8) Clicar em "Gerenciar associações" e verificar se a disciplina aparece listada com os novos dados. |
 |Critérios de êxito| A disciplina deve ser editada com sucesso e as novas informações devem aparecer no sistema. |
 
 |Caso de teste 12     | CT 12 -  Apagar disciplina |
 |-------|-------------------------
-|Requisitos Associados | 	 RF-03 A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis.<br>
-RF-05 A aplicação deve permitir que o administrador do sistema adicione ou remova alunos das turmas disponíveis, além de selecionar as disciplinas que serão ministradas para aquela turma
+|Requisitos Associados | 	 RF-03 A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis.<br>RF-05 A aplicação deve permitir que o administrador do sistema adicione ou remova alunos das turmas disponíveis, além de selecionar as disciplinas que serão ministradas para aquela turma |
 |Objetivo do teste| Verificar se o a funcionalidade de editar disciplinas cadastradas no sistema está funcionando corretamente |
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login como administrador 4) Clicar na aba "Cadastrar disciplina" 5) Selecionar a opção "Apagar disciplina" 6) Selecionar a disciplina que deseja apagar. 7) Clicar em "Apagar" 8) Clicar em "Gerenciar associações" e verificar se a disciplina aparece listada com os novos dados. |
 |Critérios de êxito| A disciplina deve ser apagada com sucesso e suas informações devem desaparecer do sistema. |
 
-|Caso de teste 13     | CT 13 -  Adicionar Aluno a uma turma 
-|Requisitos Associados | 	 RF-05 A aplicação deve permitir que o administrador do sistema adicione ou remova alunos das turmas disponíveis, além de selecionar as disciplinas que serão ministradas para aquela turma
+|Caso de teste 13     | CT 13 -  Adicionar Aluno a uma turma |
+|-------|-------------------------
+|Requisitos Associados | 	 RF-03 A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis. | 
 |Objetivo do teste| Verificar se o administrador do sistema consegue adicionar alunos a uma turma cadastrada. |
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login como administrador 4) Clicar na opção "Associar alunos à turma" 5) Selecionar nome da turma que deseja apagar 6) Selecionar o nome do aluno que deseja incluir na turma. 7) Clicar em "Salvar" e verificar se a turma desapareceu da lista de turmas a escolher. 8) Clicar em "Gerenciar associações" e verificar se o aluno aparece listado na turma. |
 |Critérios de êxito| O aluno deve ser inserido na turma e deve aparecer listado entre os alunos pertencentes a turma. |
