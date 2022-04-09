@@ -143,7 +143,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
 <p align="justify">  Será permitido aos usuários do tipo Administrador visualizarem todos os usuários cadastrados ao sistema, vendo suas informações básicas de ID, nome, e-mail e tipo de usuário. Será permitido a este usuário manejar os demais, podendo editar ou deletar usuários.</p>
  
-![visualizarusuarios](https://user-images.githubusercontent.com/74699119/162586787-ba53948c-3b6c-4e97-8d37-abdac3fa4617.png)
+![visualizarusuarios](https://user-images.githubusercontent.com/74699119/162586848-9fe9b305-4687-4560-ad93-5d76befa080a.png)
 
 ### Tela - Cadastrar usuário
 
