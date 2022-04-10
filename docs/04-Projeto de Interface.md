@@ -83,7 +83,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 <b>Tipo de usuário: Professor, Responsável do Aluno e "Outros"
 ![notificacoes](https://user-images.githubusercontent.com/74699119/162345763-f1844ad3-58aa-4192-afb1-ca4bfca99739.png)
  
-<b>Tipo de usuário: Administrador  
+ <b>Tipo de usuário: Administrador</b>
 ![notificacoesadministrador](https://user-images.githubusercontent.com/74699119/162607878-76ee7c49-42f7-4828-8e87-ce566b7dedf5.png)
 
 ### Tela - Criar notificação
