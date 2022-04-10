@@ -45,12 +45,12 @@ Segue tabela com cada caso de teste:
 <tr><th>Caso de Teste </th>
 <th>CT-03 – Realizar cadastro de turma e disciplina, associar disciplinas a uma turma </th></tr>
 <tr><th>Objetivo do teste</th>
-  <th>•	Verificar a realização de cadastro de usuário do tipo "Professor", "Responsável do aluno" e "Outros" por um usuário usando uma conta de administrador.</th></tr>
+  <th>•	Verificar a realização do cadastro de usuário do tipo "Professor", "Responsável do aluno" e "Outros" por um usuário usando uma conta de administrador.</th></tr>
 <tr><th>Ações esperadas</th>
-  <th>1 - Usuário administrador acessa o site.<br>
+  <th>1- Usuário administrador acessa o site.<br>
   2– Usuário acessa a tela de login e insere as informações de login da conta do tipo "Administrador" fornecidas a ele.<br>
   3– Usuário clica em "fazer login" e entra no sistema como Administrador.<br>
-  4- Ao entrar em seu painel de administrador, usuário clica no botão "cadastrar usuários" e insere todas as informações requisitadas no formulário, selecionado um tipo de usuário no campo "tipo de usuário".<br>
+  4- Ao entrar em seu painel de administrador clica no botão "cadastrar usuários" e insere todas as informações requisitadas no formulário, selecionando um tipo de usuário no campo "tipo de usuário".<br>
   5- Após preencher os campos, usuário clica na opcão "Cadastrar".<br>
   6- Usuário repete o processo para todos os tipos de usuários. </th></tr>
 <tr><th>Critérios de Êxito</th>	
