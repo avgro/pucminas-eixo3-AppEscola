@@ -165,7 +165,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
 ### Tela - Cadastrar aluno
 
-<p align="justify">  Será permitido aos usuários do tipo Administrador cadastrar um novo aluno ao sistema, adicionando informações previamente apresentadas, bem como atrelando ele ao seu usuário do tipo Responsável, previamente cadastrado.</p>
+<p align="justify">  Será permitido aos usuários do tipo Administrador cadastrar um novo aluno ao sistema, adicionando informações previamente apresentadas, bem como atrelar ele ao seu usuário do tipo Responsável, previamente cadastrado.</p>
  
  ![cadastraraluno](https://user-images.githubusercontent.com/74699119/162492772-0fbc75b3-7c3e-4b36-9b3d-1a9e5e1d246f.png)
  
@@ -177,7 +177,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
  
 ### Tela - Cadastrar turma
 
-<p align="justify">  Será permitido aos usuários do tipo Administrador cadastrar uma nova turma, em que lhe será apresentada uma opção de inserir o código de uma nova turma e salvar no sistema.</p>
+<p align="justify">  Será permitido aos usuários do tipo Administrador cadastrar uma nova turma, em que lhe será apresentada uma opção de inserir o nome de uma nova turma e salvar no sistema.</p>
  
 ![cadastrarturma](https://user-images.githubusercontent.com/74699119/162493089-dc857d3e-56e8-42b4-a22e-e4d160b2c45e.png)
 
@@ -207,13 +207,13 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
 ### Tela - Cadastrar disciplina
 
-<p align="justify"> Nesta tela, o usuário administrador irá cadastrar a disciplina vinculando os professores e as turmas envolvidas.<p>
+<p align="justify"> Nesta tela, o usuário administrador poderá cadastrar a disciplina e vincular os professores e as turmas da mesma.<p>
 
 ![cadastrardisciplina](https://user-images.githubusercontent.com/74699119/162499995-782aea1b-eee0-45ba-b755-d375d78728fe.png)
 
 ### Tela - Editar disciplina
 
-<p align="justify"> Está tela irá possuir uma funcionalidade, cujo o objetivo será a edição de uma disciplina já cadastrada no sistema. O usuário administrador irá selecionar uma disciplina existente no sistema e, assim, poder alterar o nome da disciplina, o vínculo da turma e professor. Podendo salvar ou cancelar o processo de edição.</p>
+<p align="justify"> Está tela possuirá uma funcionalidade, cujo o objetivo será a edição de uma disciplina já cadastrada no sistema. O usuário administrador irá selecionar uma disciplina existente no sistema e, assim, poder alterar o nome da disciplina, o vínculo da turma e professor. Podendo salvar ou cancelar o processo de edição.</p>
 
 ![editardisciplina](https://user-images.githubusercontent.com/74699119/162500005-62896a90-f8fe-40b7-85ae-150b733a3be2.png)
 
