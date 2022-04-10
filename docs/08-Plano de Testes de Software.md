@@ -200,7 +200,7 @@ Os testes funcionais a serem realizados no aplicativo são descritos a seguir:
 |-------|-------------------------
 |Requisitos Associados | 	 RNF-02 - O site deverá ser responsivo permitindo a visualização em um celular de forma adequada.
 |Objetivo do teste| Verificar a responsividade do site. |
-|Passos |	1) Acessar o navegador de um computador.	2) Informar o endereço do site. 3) Visualizar a página principal. 4) Acessar o site de um dispositivo móvel. 5) Informar o endereço do site. 6) Visualizar a página principal. |
+|Passos |	1) Acessar o navegador de um computador.	2) Informar o endereço do site. 3) Visualizar a página principal. 4) Navegar por todas as telas do site e verificar responsividade do layout. 5) Acessar o site de um dispositivo móvel. 6) Informar o endereço do site. 7) Visualizar a página principal. 8) Navegar por todas as telas do site e verificar responsividade do layout. |
 |Critérios de êxito| O site deve ser totalmente responsivo, sem quebras de texto e páginas. |
 
 
