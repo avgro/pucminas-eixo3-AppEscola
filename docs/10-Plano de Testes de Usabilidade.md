@@ -132,12 +132,11 @@ Segue tabela com cada caso de teste:
   <tr><th>Caso de Teste</th>
 <th>CT- 08 - Visualizar (todos os tipos de usuário) e Alterar (usuários do tipo "Professor" e "Administrador" Agenda online</th>
     </tr>
-   <tr><th>Objetivo do Teste</th>
-     <th>Verificar e o usuário professor consegue adicionar eventos à agenda.<br>
-       Verificar se o usuário responsável pelo aluno consegue visualizar a agenda e suas atualizações feitas pelo usuário professor na turma correta.
-     </th>
+   <tr><th>Objetivo do Teste	</th>
+     <th>•	Verificar se o usuário é capaz de visualizar a agenda e se o usuário logado como "Administrador" ou "Professor" é capaz de adicionar eventos à agenda.</th>
   </tr>
-     <tr><th>1 - Usuário acessa o site.<br>
+     <tr><th>Ações esperadas</th>
+         <th>1 - Usuário acessa o site.<br>
   2 – Usuário acessa a tela de login e insere as informações de login da conta fornecidas a ele.<br>
   3 – Usuário clica em "fazer login" e entra no sistema como qualquer tipo de usuário.<br>
   4- Ao entrar em seu painel de usuário, usuário clica no botão "Agenda".<br>
@@ -146,7 +145,7 @@ Segue tabela com cada caso de teste:
   7- Usuário insere as informações solicitadas e clica em "Salvar"<br>
   8- Usuário repete o processo para os quatro tipos de conta de usuário.</th></tr>
    <tr><th>Critérios de Êxito</th>
-<th>●	Usuário deve ser capaz de visualizar a agenda e, quando logado como "Administrador" ou "Professor", cadastar novos eventos na agenda.</th>
+<th>	Usuário deve ser capaz de visualizar a agenda e, quando logado como "Administrador" ou "Professor", cadastar novos eventos na agenda.</th>
      </tr>
 </table>
 
