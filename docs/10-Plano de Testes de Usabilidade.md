@@ -20,7 +20,7 @@ Segue tabela com cada caso de teste:
   <th>1 - Usuário acessa o site.<br>
  2- Usuário clica no botão de login.<br>
  3– Usuário insere usuário e senha nos campos solicitados.<br>
- 4- Usuário clica em "Entrar" e realiza o login no sistema<br>
+ 4- Usuário clica em "Entrar" e realiza o login no sistema.<br>
  5- Usuário visualiza tela inicial do usuário logado.<br>
  6- Usuário clica em "Perfil" no canto direito do cabeçalho.<br>
  7- Usuário clica em "Sair".<br>
