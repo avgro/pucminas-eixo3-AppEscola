@@ -96,7 +96,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
 ### Tela - Opções da conta
 
- <p align="justify">  Será permitido aos usuários acessarem o submenu de Alterar dados, sendo direcionado para a página específica e permitindo ao usuário a alteração de seus dados. O usuário também terá a funcionalidade de logout.</p>
+ <p align="justify">  Será permitido aos usuários acessarem o submenu de opções da conta, que possui as funcionalidades de "Alterar dados", que direciona o usuário para a tela de "Alterar informações da conta" e "Sair", que finaliza a sessão do usuário realiznado logoff.</p>
 
 ![perfil](https://user-images.githubusercontent.com/74699119/162345487-94dad779-b01c-487f-b845-f3022f3ce7ce.png)
  
