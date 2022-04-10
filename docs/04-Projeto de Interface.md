@@ -116,7 +116,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
 ### Tela - Caixa de mensagens
 
- <p align="justify">  Será permitido aos usuários visualizarem os eventos marcados na agenda escolar, sendo permitido incluir eventos e visualizar detalhes.
+ <p align="justify">  Será permitido aos usuários receber e enviar mensagens contendo texto, imagens e video. Esta tela mostra a caixa de entrada de mensagens, bem como a área para compor uma nova mensagem.
   
 ![mensagens](https://user-images.githubusercontent.com/74699119/162601595-b868f4d4-7209-4cd4-b477-56887cd76a0d.png)
 
