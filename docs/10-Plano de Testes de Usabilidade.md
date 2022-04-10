@@ -118,22 +118,65 @@ Segue tabela com cada caso de teste:
 <th>CT- 07 - Visualizar e Alterar Agenda </th>
     </tr>
    <tr><th>Objetivo do Teste	</th>
-     <th>•	Verificar se o usuário tipo "Responsável pelo aluno" é capaz de visualizar a agenda. Verificar se o usuário tipo "Administrador" ou "Professor" é capaz de adicionar eventos à agenda.</th>
+     <th>•	Verificar se o usuário acessando uma conta do tipo "Responsável pelo aluno" é capaz de visualizar a agenda. Verificar se o usuário acessando uma conta do tipo "Administrador" ou "Professor" é capaz de adicionar eventos à agenda.</th>
   </tr>
      <tr><th>Ações esperadas</th>
          <th>1- Usuário acessa o site.<br>
-  2– Usuário Administrador ou Usuário Professor acessa a tela de login e insere as informações de login.<br>
+  2– Usuário utilizando conta do tipo "Administrador" ou "Professor" acessa a tela de login e insere as informações de login.<br>
   3– Usuário clica em "fazer login" e entra no sistema.<br>
   4- Ao entrar em seu painel de usuário, clica no botão "Agenda".<br>
   5- Usuário visualiza agenda escolar.<br>
   6- Clicar no botão "Cadastrar evento".<br>
   7- Usuário insere as informações solicitadas e clica em "Salvar"<br>
-  1- Usuário Responsável pelo aluno acessa a tela de login, insere as informações de login, clica em agenda e consegue visualizar as informações inseridas. </th></tr>
+  8- Usuário usando conta do tipo "Responsável pelo aluno" acessa a tela de login, insere as informações de login, clica em agenda e consegue visualizar as informações inseridas. </th></tr>
    <tr><th>Critérios de Êxito</th>
 <th>	Usuário "Responsável pelo Aluno" deve ser capaz de visualizar a agenda. Quando logado como "Administrador" ou "Professor" consegue cadastar novos eventos na agenda.</th>
      </tr>
 </table>
 
+<table>
+  <tr><th>Caso de Teste</th>
+<th>CT- 08 - Assinar autorização para participação do filho em evento </th>
+    </tr>
+   <tr><th>Objetivo do Teste	</th>
+     <th>•	Verificar se o usuário acessando uma conta do tipo "Responsável pelo aluno" é capaz de autorizar a participação do filho em um evento escolar.</th>
+  </tr>
+     <tr><th>Ações esperadas</th>
+         <th>1- Usuário acessa o site.<br>
+  2– Usuário usando conta do tipo "Responsável do aluno" acessa a tela de login e insere as informações de login.<br>
+  3– Usuário clica em "fazer login" e entra no sistema utilizando uma conta do tipo "Responsável do aluno".<br>
+  4- Ao entrar em seu painel de usuário, clica no botão "Assinar autorização".<br>
+  5- Usuário seleciona autorização.<br>
+  6- Usuário clicar no botão "Autorizo meu/minha filho(a) a participar da atividade proposta acima" ou "Não autorizo meu/minha filho(a) a participar da atividade proposta acima".<br>
+   <tr><th>Critérios de Êxito</th>
+<th>	Usuário "Responsável pelo Aluno" deve ser capaz de escolher autorizar ou não o filho a participar no evento.</th>
+     </tr>
+</table>
+	
+<table>
+  <tr><th>Caso de Teste</th>
+<th>CT- 09 - Visualizar, cadastrar publicação e comentar publicação na linha do tempo</th>
+    </tr>
+   <tr><th>Objetivo do Teste	</th>
+     <th>•	Verificar se o usuário acessando uma conta do tipo "Responsável pelo aluno" é capaz de visualizar e comentar eventos na linha do tempo do filho. Verificar se o usuário acessando uma conta do tipo "Professor" é capaz de visualizar, cadastrar e comentar eventos na linha do tempo do aluno.</th>
+  </tr>
+     <tr><th>Ações esperadas</th>
+         <th>1- Usuário acessa o site.<br>
+  2– Usuário utilizando conta do tipo "Professor" acessa a tela de login e insere as informações de login.<br>
+  3– Usuário clica em "fazer login" e entra no sistema utilizando uma conta do tipo "Professor".<br>
+  4- Ao entrar em seu painel de usuário, clica no botão "Linha do tempo".<br>
+  6- Usuário clica no botão "Cadastar publicação"".<br>
+  5- Usuário preenche as informações solicitadas para cadastrar nova publicação na linha do tempo.<br>
+  6- Usuário clica no botão "Salvar"".<br>
+  6- Usuário preenche o campo de "Escrever comentário" e clica em "Postar".<br>
+  7- Usuário faz logoff e entra no sistema com uma conta do tipo "Responsável do aluno" associado ao aluno para o qual a publicação foi feita<br>
+  8- Usuário clica em "Linha do tempo" e visualiza a postagem do professor.<br>
+  9- Usuário preenche o campo "Escrever comentário" e clica em "Postar"</th></tr>
+   <tr><th>Critérios de Êxito</th>
+<th>	Usuário usando conta do tipo "Professor" deve ser capaz de cadastrar e comentar eventos na linha do tempo. Usuário do tipo "Responsável do aluno" deve ser capaz apenas de visualizar e comentar postagens sobre seu filho feitas pelo professor.</th>
+     </tr>
+</table>
+	
 <table>
   <tr><th>Caso de Teste</th>
 <th>CT- 08 - Visualizar Linha do Tempo</th>
