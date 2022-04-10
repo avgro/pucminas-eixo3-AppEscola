@@ -203,6 +203,13 @@ Os testes funcionais a serem realizados no aplicativo são descritos a seguir:
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login no sistema. 4) Clicar em notificações. 5) Visualizar área de notificações.  |
 |Critérios de êxito| As notificações devem ser exibidas corretamente para o usuário. |
 
+|Caso de teste 28     | CT 28 - Responsividade |
+|-------|-------------------------
+|Requisitos Associados | 	 RF-0.
+|Objetivo do teste| Verificar a responsividade do site. |
+|Passos |	1) Acessar o navegador de um .	2) Informar o endereço do site. 3) Visualizar a página principal. 4) Acessar o site de um dispositivo móvel. 5) Informar o endereço do site. 6) Visualizar a página principal. |
+|Critérios de êxito| O site deve ser totalmente responsivo, sem quebras de texto e páginas. |
+
 
 
 
