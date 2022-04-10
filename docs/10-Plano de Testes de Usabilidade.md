@@ -169,9 +169,9 @@ Segue tabela com cada caso de teste:
   2– Usuário utilizando conta do tipo "Professor" acessa a tela de login e insere as informações de login.<br>
   3– Usuário clica em "fazer login" e entra no sistema utilizando uma conta do tipo "Professor".<br>
   4- Ao entrar em seu painel de usuário, clica no botão "Linha do tempo".<br>
-  5- Usuário clica no botão "Cadastar publicação"".<br>
+  5- Usuário clica no botão "Cadastar publicação".<br>
   6- Usuário preenche as informações solicitadas para cadastrar nova publicação na linha do tempo.<br>
-  7- Usuário clica no botão "Salvar"".<br>
+  7- Usuário clica no botão "Salvar".<br>
   8- Usuário preenche o campo de "Escrever comentário" e clica em "Postar".<br>
   9- Usuário faz logoff e entra no sistema com uma conta do tipo "Responsável do aluno" associado ao aluno para o qual a publicação foi feita<br>
   10- Usuário clica em "Linha do tempo" e visualiza a postagem do professor.<br>
