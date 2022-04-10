@@ -74,24 +74,26 @@ Segue tabela com cada caso de teste:
 
 <table> 
 <tr><th>Caso de Teste </th>	  
-    <th>CT-05 - Cadastrar aluno e associa-lo a uma turma</th>
+    <th>CT-05 - Cadastrar aluno e associa-lo a um ou mais responsáveis e a uma turma</th>
     </tr>
 <tr><th>Objetivo do teste	</th>
   <th>•	Verificar associação de disciplinas com o Professor</th>
     </tr> 
-<tr><th>Ações	</th>
-  <th>1) Acessar o navegador<br>
-2) Informar o endereço do site<br>
-3)  Clicar no Botão Login. Informar seu e-mail e sua senha. <br>
-4) Em seu painel administrativo, escolher a opção "cadastrar disciplinas" em seguida clicar na opção Associações.</th>
-    </tr> 
-<tr><th>Critérios de Êxito</th>
-  <th>•	Exibir se o Professor está corretamente associado a Disciplina</th>
-  <tr>
-    </table>
+<tr><th>Ações esperadas	</th>
+  <th>  <th>1 - Usuário acessa o site.<br>
+  2 – Usuário acessa a tela de login e insere as informações de login da conta do tipo "Administrador" fornecidas a ele.<br>
+  3 – Usuário clica em "fazer login" e entra no sistema como Administrador.<br>
+  4- Ao entrar em seu painel de administrador, usuário clica no botão "cadastrar alunos" no menu e seleciona a opção "Cadastrar novo aluno".<br>
+  5- Usuário insere todas as informações requisitadas no formulário, selecionado os responsáveis do aluno no processo.<br>
+  6- Usuário clica na aba "Cadastrar turma" do paínel do administrador e seleciona a opção "Associar alunos à turma".<br>
+  7- Usuário seleciona a turma e o aluno a serem associados e clica em "Salvar". </th></tr>
+<tr><th>Critérios de Êxito</th>	
+  <th>•	Usuário é capaz de cadastrar pelo menos um usuário de cada tipo.</th></tr>
+  </table>
+    
 <table>
   <tr><th>Caso de Teste</th>
-    <th>CT- 06 – Sistemas de trocas de Mensagens e Documentos</th>
+    <th>CT- 06 – Testar uso de sistemas de trocas de Mensagens e Documentos pelo usuário</th>
     </tr>
   <tr><th>Objetivo do Teste</th>
     <th>Verificar as trocas de mensagens, documentos, fotos e vídeos se está funcionando corretamente</th>
