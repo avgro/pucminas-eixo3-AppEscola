@@ -37,8 +37,8 @@ Segue tabela com cada caso de teste:
   2 – Usuário acessa a tela de login e insere as informações de login da conta do tipo "Administrador" fornecidas a ele.<br>
   3 – Usuário clica em "fazer login" e entra no sistema como Administrador.<br>
   4- Ao entrar em seu painel de administrador, usuário clica no botão cadastrar usuários e insere todas as informações requisitadas no formulário, selecionado um tipo de usuário no campo "tipo de usuário".<br>
-  5- Após preencher os campos, usuário clica na opcão "Cadastrar".<th>
-  5- Usuário repete o processo para todos os tipos de usuário.<th>	  
+  5- Após preencher os campos, usuário clica na opcão "Cadastrar".<br>
+  6- Usuário repete o processo para todos os tipos de usuário.<th>	  
   </tr>
   <tr><th>Critérios de Êxito</th>
   <th>	•	Usuário é capaz de cadastrar pelo menos um usuário de cada tipo. <th>
