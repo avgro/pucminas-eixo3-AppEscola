@@ -55,31 +55,25 @@ Segue tabela com cada caso de teste:
 <tr><th>Critérios de Êxito</th>	
   <th>•	Usuário é capaz de cadastrar pelo menos um usuário de cada tipo.</th></tr>
   </table>
-  
-  <table>
-  <tr><th>Caso de Teste	</th>
-    <th>CT-04 – Realizar cadastro de turma e disciplina e associar disciplinas a uma turma</th>
-  </tr>
-  <tr><th>Objetivo do teste	</th>
-<th>•	Verificar se o administrador do sistema está criando ou excluindo corretamente uma conta.<br>
-•	Verificar se o usuário está cadastrado corretamente após a criação do cadastro pelo administrador.</th>
-</tr>
+
+<table> 
+<tr><th>Caso de Teste </th>
+<th>CT-04 – Realizar cadastro de turma e disciplina e associar disciplinas a uma turma </th></tr>
+<tr><th>Objetivo do teste</th>
+  <th>•	Verificar a realização de cadastro de usuário do tipo "Profesor", "Responsável do aluno" e "Outros" por um usuário usando uma conta de administrador.</th></tr>
 <tr><th>Ações esperadas</th>
-  <th> 1 - Usuário entra no site pelo seu navegador de sua escolha.<br>
+  <th>1 - Usuário acessa o site.<br>
   2 – Usuário acessa a tela de login e insere as informações de login da conta do tipo "Administrador" fornecidas a ele.<br>
   3 – Usuário clica em "fazer login" e entra no sistema como Administrador.<br>
-  4- Ao entrar em seu painel de administrador, usuário clica no botão "cadastrar turma" do menu e clica na opção "cadastrar turma" dentro da aba que se abrirá.<br>
-  5 - Usuário informa o nome da turma e clica em "salvar".
-  6 - Usuário clica na opção "cadastrar disciplina" e informa o nome da disciplina, turma da qual faz parte (selecionando a turma recém criada) e o professor associado a ela (selecionando um usuário cadastrado do tipo "professor".	  
-  <th>
-  </tr>
-<tr><th> Critérios de Êxito		</th>
-  <th>•	O usuário usando a conta de administrador deve conseguir cadastrar uma turma e disciplina, associando a disciplina à turma e a um usuário cadastrado do tipo "Professor".</th>
-  </tr>
+  4- Ao entrar em seu painel de administrador, usuário clica no botão "cadastrar usuários" e insere todas as informações requisitadas no formulário, selecionado um tipo de usuário no campo "tipo de usuário".<br>
+  5- Após preencher os campos, usuário clica na opcão "Cadastrar".<br>
+  6- Usuário repete o processo para todos os tipos de usuário. </th></tr>
+<tr><th>Critérios de Êxito</th>	
+  <th>•	Usuário é capaz de cadastrar pelo menos um usuário de cada tipo.</th></tr>
   </table>
-<table>
-  <tr><th>Caso de Teste</th>	
-	  
+
+<table> 
+<tr><th>Caso de Teste </th>	  
     <th>CT-05 - Cadastrar aluno e associa-lo a uma turma</th>
     </tr>
 <tr><th>Objetivo do teste	</th>
