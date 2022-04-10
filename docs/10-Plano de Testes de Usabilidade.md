@@ -121,16 +121,16 @@ Segue tabela com cada caso de teste:
      <th>•	Verificar se o usuário tipo "Responsável pelo aluno" é capaz de visualizar a agenda. Verificar se o usuário tipo "Administrador" ou "Professor" é capaz de adicionar eventos à agenda.</th>
   </tr>
      <tr><th>Ações esperadas</th>
-         <th>1 - Usuário acessa o site.<br>
-  2 – Usuário acessa a tela de login e insere as informações de login da conta fornecidas a ele.<br>
-  3 – Usuário clica em "fazer login" e entra no sistema como qualquer tipo de usuário.<br>
-  4- Ao entrar em seu painel de usuário, usuário clica no botão "Agenda".<br>
+         <th>1- Usuário acessa o site.<br>
+  2– Usuário Administrador ou Usuário Professor acessa a tela de login e insere as informações de login.<br>
+  3– Usuário clica em "fazer login" e entra no sistema.<br>
+  4- Ao entrar em seu painel de usuário, clica no botão "Agenda".<br>
   5- Usuário visualiza agenda escolar.<br>
-  6- Caso o usuário tenha logado com uma conta do tipo "Professor" ou "Administrador", usuário clica no botão "Cadastrar evento".<br>
+  6- Clicar no botão "Cadastrar evento".<br>
   7- Usuário insere as informações solicitadas e clica em "Salvar"<br>
-  8- Usuário repete o processo para os quatro tipos de conta de usuário.</th></tr>
+  1- Usuário Responsável pelo aluno acessa a tela de login, insere as informações de login, clica em agenda e consegue visualizar as informações inseridas. </th></tr>
    <tr><th>Critérios de Êxito</th>
-<th>	Usuário deve ser capaz de visualizar a agenda e, quando logado como "Administrador" ou "Professor", cadastar novos eventos na agenda.</th>
+<th>	Usuário "Responsável pelo Aluno" deve ser capaz de visualizar a agenda. Quando logado como "Administrador" ou "Professor" consegue cadastar novos eventos na agenda.</th>
      </tr>
 </table>
 
