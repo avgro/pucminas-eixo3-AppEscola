@@ -90,61 +90,63 @@ Segue tabela com cada caso de teste:
 <tr><th>Critérios de Êxito</th>	
   <th>•	Usuário é capaz de cadastrar pelo menos um usuário de cada tipo.</th></tr>
   </table>
-    
-<table>
-  <tr><th>Caso de Teste</th>
-    <th>CT- 06 – Testar uso de sistemas de trocas de Mensagens e Documentos pelo usuário</th>
+
+<table> 
+<tr><th>Caso de Teste </th>	  
+    <th>CT-06 – Testar uso de sistemas de trocas de Mensagens e Documentos pelo usuário</th>
     </tr>
-  <tr><th>Objetivo do Teste</th>
-    <th>Verificar as trocas de mensagens, documentos, fotos e vídeos se está funcionando corretamente</th>
-    </tr>
-  <tr><th> Passos</th>
-    <th>1) Acessar o navegador<br>
-        2) Informar o endereço do site.<br>
-        3) Clicar no Botão Login. Informar seu e-mail e sua senha.<br>
-        4) clicar na opção de mensagens.</th>
-    </tr>
-  <tr><th>Critérios de Êxito	</th>
-    <th>•	Mensagem deve ser enviada corretamente<br>
-      •	Mensagem deve ser recebida corretamente constando remetente, arquivos e/ou documentos</th>
-  </tr>
+<tr><th>Objetivo do teste	</th>
+  <th>•	Verificar a trocas de mensagens, documentos, fotos e vídeos pelo usuário</th>
+    </tr> 
+<tr><th>Ações esperadas	</th>
+  <th>1 - Usuário acessa o site.<br>
+  2 – Usuário acessa a tela de login e insere as informações de login da conta fornecidas a ele.<br>
+  3 – Usuário clica em "fazer login" e entra no sistema como qualquer tipo de usuário.<br>
+  4- Ao entrar em seu painel de usuário, usuário clica no botão "mensagens".<br>
+  5- Usuário insere todas as informações requisitadas, tais como assunto e conteúdo da mensagem, além de anexar arquivos de imagem e vídeo.<br>
+  6- Usuário clica em "enviar mensagem".</th></tr>
+<tr><th>Critérios de Êxito</th>	
+  <th>•	Usuário é capaz de enviar uma mensagem.</th></tr>
   </table>
+  
 <table>
   <tr><th>Caso de Teste</th>
-<th>CT- 07 – Sistema de localizar e buscar mensagens</th>
+<th>CT- 07 – Testar uso da funcionalidade de busca de mensagens no sistema pelo usuário</th>
     </tr>
    <tr><th>Objetivo do Teste	</th>
-     <th>•	Verificar se o site fez a busca por mensagens dentro do histórico corretamente</th>
+     <th>•	Verificar se o usuário é capaz de localizar uma mensagem na caixa de mensagens utilizando a barra de busca</th>
   </tr>
-     <tr><th>Passos</th>
-       <th>1) Acessar o navegador<br>
-2) Informar o endereço do site<br>
-3)  Clicar no Botão Login. Informar seu e-mail e sua senha. <br>
-      4) clicar na opção de mensagens.<br>
-5) Dentro da conversa, clique na "Lupa", e insira a palavra desejada que quer localizar.</th>
-  </tr>
+     <tr><th>Ações esperadas</th>
+         <th>1 - Usuário acessa o site.<br>
+  2 – Usuário acessa a tela de login e insere as informações de login da conta fornecidas a ele.<br>
+  3 – Usuário clica em "fazer login" e entra no sistema como qualquer tipo de usuário.<br>
+  4- Ao entrar em seu painel de usuário, usuário clica no botão "mensagens".<br>
+  5- Usuário insere conteúdo da mensagem que está buscando na barra de busca e clica no botão de procurar.<br>
+  6- Usuário encontra a mensagem desejada.</th></tr>
    <tr><th>Critérios de Êxito</th>
-<th>	Site localiza dentro do seu banco de dados mensagens com as palavras chaves buscada.</th>
+<th>	Usuário é capaz de localizar a mensagem que deseja a partir das palavras chaves da busca.</th>
      </tr>
 </table>
 
 <table>
   <tr><th>Caso de Teste</th>
-<th>CT- 08 - Visualizar e Alterar Agenda online</th>
+<th>CT- 08 - Visualizar (todos os tipos de usuário) e Alterar (usuários do tipo "Professor" e "Administrador" Agenda online</th>
     </tr>
    <tr><th>Objetivo do Teste</th>
      <th>Verificar e o usuário professor consegue adicionar eventos à agenda.<br>
        Verificar se o usuário responsável pelo aluno consegue visualizar a agenda e suas atualizações feitas pelo usuário professor na turma correta.
      </th>
   </tr>
-     <tr><th>Passos</th>
-       <th>1) Acessar o navegador<br>
-2) Informar o endereço do site<br>
-3) Clicar no Botão Login. Informar seu e-mail e sua senha.<br> 
-4) clique na opção "Agenda" para visualiza-la.</th>
-  </tr>
+     <tr><th>1 - Usuário acessa o site.<br>
+  2 – Usuário acessa a tela de login e insere as informações de login da conta fornecidas a ele.<br>
+  3 – Usuário clica em "fazer login" e entra no sistema como qualquer tipo de usuário.<br>
+  4- Ao entrar em seu painel de usuário, usuário clica no botão "Agenda".<br>
+  5- Usuário visualiza agenda escolar.<br>
+  6- Caso o usuário tenha logado com uma conta do tipo "Professor" ou "Administrador", usuário clica no botão "Cadastrar evento".<br>
+  7- Usuário insere as informações solicitadas e clica em "Salvar"<br>
+  8- Usuário repete o processo para os quatro tipos de conta de usuário.</th></tr>
    <tr><th>Critérios de Êxito</th>
-<th>●	O sistema deve carregar as atualizações feitas corretamente.</th>
+<th>●	Usuário deve ser capaz de visualizar a agenda e, quando logado como "Administrador" ou "Professor", cadastar novos eventos na agenda.</th>
      </tr>
 </table>
 
