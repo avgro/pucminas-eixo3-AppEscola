@@ -20,9 +20,13 @@ Segue tabela com cada caso de teste:
   <th>1 - Usuário acessa o site.<br>
  2- Usuário clica no botão de login.<br>
  3– Usuário insere usuário e senha nos campos solicitados.
- 4- Usuário clica em "Entrar" e realiza o login no sistema </th></tr>
+ 4- Usuário clica em "Entrar" e realiza o login no sistema<br>
+ 5- Usuário visualiza tela inicial do usuário logado.<br>
+ 6- Usuário clica em "Perfil" no canto direito do cabeçalho.<br>
+ 7- Usuário clica em "Sair".
+ 8- Usuário encerra sua sessão no sistema.</th></tr>
 <tr><th>Critérios de Êxito</th>	
-  <th>•	Após efetuar o login será redirecionado automaticamente para sua respectiva tela de painel de acordo com seu cadastro.</th></tr>
+  <th>•	Usuário deve ser capaz de realizar login e logoff do sistema </th></tr>
   </table>
   
 <table> 
@@ -115,7 +119,7 @@ Segue tabela com cada caso de teste:
 
 <table>
   <tr><th>Caso de Teste</th>
-<th>CT- 07 - Visualizar e Alterar Agenda </th>
+<th>CT- 07 - Visualizar e cadastrar eventos na agenda escolar </th>
     </tr>
    <tr><th>Objetivo do Teste	</th>
      <th>•	Verificar se o usuário acessando uma conta do tipo "Responsável pelo aluno" é capaz de visualizar a agenda. Verificar se o usuário acessando uma conta do tipo "Administrador" ou "Professor" é capaz de adicionar eventos à agenda.</th>
@@ -155,7 +159,7 @@ Segue tabela com cada caso de teste:
 	
 <table>
   <tr><th>Caso de Teste</th>
-<th>CT- 09 - Visualizar, cadastrar publicação e comentar publicação na linha do tempo</th>
+<th>CT- 09 - Visualizar, cadastrar e comentar publicação na linha do tempo</th>
     </tr>
    <tr><th>Objetivo do Teste	</th>
      <th>•	Verificar se o usuário acessando uma conta do tipo "Responsável pelo aluno" é capaz de visualizar e comentar eventos na linha do tempo do filho. Verificar se o usuário acessando uma conta do tipo "Professor" é capaz de visualizar, cadastrar e comentar eventos na linha do tempo do aluno.</th>
@@ -165,13 +169,13 @@ Segue tabela com cada caso de teste:
   2– Usuário utilizando conta do tipo "Professor" acessa a tela de login e insere as informações de login.<br>
   3– Usuário clica em "fazer login" e entra no sistema utilizando uma conta do tipo "Professor".<br>
   4- Ao entrar em seu painel de usuário, clica no botão "Linha do tempo".<br>
-  6- Usuário clica no botão "Cadastar publicação"".<br>
-  5- Usuário preenche as informações solicitadas para cadastrar nova publicação na linha do tempo.<br>
-  6- Usuário clica no botão "Salvar"".<br>
-  6- Usuário preenche o campo de "Escrever comentário" e clica em "Postar".<br>
-  7- Usuário faz logoff e entra no sistema com uma conta do tipo "Responsável do aluno" associado ao aluno para o qual a publicação foi feita<br>
-  8- Usuário clica em "Linha do tempo" e visualiza a postagem do professor.<br>
-  9- Usuário preenche o campo "Escrever comentário" e clica em "Postar"</th></tr>
+  5- Usuário clica no botão "Cadastar publicação"".<br>
+  6- Usuário preenche as informações solicitadas para cadastrar nova publicação na linha do tempo.<br>
+  7- Usuário clica no botão "Salvar"".<br>
+  8- Usuário preenche o campo de "Escrever comentário" e clica em "Postar".<br>
+  9- Usuário faz logoff e entra no sistema com uma conta do tipo "Responsável do aluno" associado ao aluno para o qual a publicação foi feita<br>
+  10- Usuário clica em "Linha do tempo" e visualiza a postagem do professor.<br>
+  11- Usuário preenche o campo "Escrever comentário" e clica em "Postar"</th></tr>
    <tr><th>Critérios de Êxito</th>
 <th>	Usuário usando conta do tipo "Professor" deve ser capaz de cadastrar e comentar eventos na linha do tempo. Usuário do tipo "Responsável do aluno" deve ser capaz apenas de visualizar e comentar postagens sobre seu filho feitas pelo professor.</th>
      </tr>
@@ -179,79 +183,44 @@ Segue tabela com cada caso de teste:
 	
 <table>
   <tr><th>Caso de Teste</th>
-<th>CT- 08 - Visualizar Linha do Tempo</th>
-    </tr>
-   <tr><th>Objetivo do Teste</th>
-     <th>•	Verificar se a linha do tempo está sendo apresentada corretamente na página</th>
-  </tr>
-     <tr><th>Passos</th>
-       <th>	1- Acessar o navegador <br>
-2- Informar o endereço do site.<br>
-3- Clicar no Botão Login. Informar seu e-mail e sua senha.<br>
-	     4- Clicar na opção Linha do tempo.</th>
-  </tr>
-   <tr><th>Critérios de Êxito</th>
-<th>●	Apresentação das postagens com fotos e texto visíveis para seus respectivos responsáveis.
-</th>
-     </tr>
-</table>
-
-<table>
-  <tr><th>Caso de Teste</th>
-<th>	CT- 09 - Visualizar Notificações</th>
-    </tr>
-   <tr><th>Objetivo do Teste</th>
-     <th>•	Verificar se as notificações são visualizadas corretamente.</th>
-  </tr>
-     <tr><th>Passos</th>
-       <th>1-  Acessar o navegador.<br>
-2- Informar o endereço do site.<br>
-3- Clicar no Botão Login. Informar seu e-mail e sua senha.<br> 
-4- Para visualizar clicar na opção Notificações.</th>
-  </tr>
-   <tr><th>Critérios de Êxito</th>
-<th>	●As notificações devem ser exibidas corretamente.</th>
-     </tr>
-</table>
-
-<table>
-  <tr><th>Caso de Teste</th>
-<th>CT- 10 - Adicionar ou Remover Aluno/ Disciplina</th>
+<th>CT- 10 - Lançar e visualizar notificações no sistema</th>
     </tr>
    <tr><th>Objetivo do Teste	</th>
-     <th>•	Verificar se o administrador do sistema consegue adicionar ou excluir os alunos às disciplinas cadastradas.</th>
+     <th>•	Verificar se o usuário acessando uma conta do tipo "Administrador" é capaz de lançar e visualizar notificações no sistema. Verificar se o usuário logado nos demais tipos de conta são capazes de visualizar as notificações.</th>
   </tr>
-     <tr><th>Passos	</th>
-       <th>1- Acessar o navegador.<br>
-2- Informar o endereço do site.<br>
-3- Clicar no botão Login. Informar seu e-mail e sua senha. <br>
-4- Clicar na opção adiconar ou remover um aluno.</th>
-  </tr>
-   <tr><th>Critérios de Êxito	</th>
-<th>●	O aluno deve estar inserido na sua disciplina corretamente.</th>
+     <tr><th>Ações esperadas</th>
+         <th>1- Usuário acessa o site.<br>
+  2– Usuário utilizando conta do tipo "Administrador" acessa a tela de login e insere as informações de login.<br>
+  3– Usuário clica em "fazer login" e entra no sistema utilizando uma conta do tipo "Administrador".<br>
+  4- Ao entrar em seu painel de usuário, clica no botão "Notificações" no canto esquerdo do cabeçalho.<br>
+  5- Usuário visualiza notificações.
+  6- Usuário clica no botão "Criar notificação".<br>
+  7- Usuário preenche as informações solicitadas para lançar notificação.<br>
+  8- Usuário clica no botão "Lançar notificação".<br>
+  9- Usuário faz logoff e entra no sistema utilizando os demais tipos de conta de usuário.<br>
+  10- Usuário clica em "Notificações" e visualiza as notificações.
+   <tr><th>Critérios de Êxito</th>
+<th>	Usuário usando conta do tipo "Administrador" devem ser capazes de lançar notificações. Usuários usando outros tipos de conta devem ser capazes apenas de visualizar notificações.</th>
      </tr>
 </table>
 
 <table>
-  <tr><th>Caso de Teste	</th>
-<th>
-CT- 11 - Alterar Dados</th>
+  <tr><th>Caso de Teste</th>
+<th>CT- 11 - Alterar dados pessoais no sistema</th>
     </tr>
-   <tr><th>Objetivo do Teste</th>
-     <th>•	Verificar se o usuário consegue acessar sua conta e alterar seus dados.</th>
+   <tr><th>Objetivo do Teste	</th>
+     <th>•	VVerificar se o usuário consegue acessar sua conta e alterar seus dados..</th>
   </tr>
-     <tr><th>Passos	</th>
-       <th>1- Acessar o navegador.<br>
-2- Informar o endereço do site.<br>
-3- Clicar no Botão Login. Informar seu e-mail e sua senha. <br>
-4- Opção Alterar dados.<br>
-5- Clicar no botão Salvar alterações.</th>
-  </tr>
+     <tr><th>Ações esperadas</th>
+         <th>1- Usuário acessa o site.<br>
+  2– Usuário utilizando qualquer tipo de conta acessa a tela de login e insere as informações de login.<br>
+  3– Usuário clica em "fazer login" e entra no sistema.<br>
+  4- Ao entrar em seu painel de usuário, clica no botão "Perfil" no canto direito do cabeçalho.<br>
+  5- Usuário clica em "Alterar dados".<br>
+  6- Usuário visualiza tela de alterar dados.
+  7- Usuário preenche as informações solicitadas para alterar informações.<br>
+  8- Usuário clica no botão "Salvar".<br>
    <tr><th>Critérios de Êxito</th>
-<th>
-●	Os dados do usuário devem ser alterados com sucesso.</th>
+<th>	Usuário usando conta de qualquer tipos é capaz de alterar seus dados pessoais.</th>
      </tr>
 </table>
-
-
-
