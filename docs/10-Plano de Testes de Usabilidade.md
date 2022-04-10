@@ -80,13 +80,13 @@ Segue tabela com cada caso de teste:
 <tr><th>Caso de Teste </th>	  
     <th>CT-05 – Testar uso de sistemas de trocas de Mensagens e Documentos pelo usuário</th>
     </tr>
-<tr><th>Objetivo do teste	</th>
+<tr><th>Objetivo do teste </th>
   <th>•	Verificar a trocas de mensagens, documentos, fotos e vídeos </th>
     </tr> 
 <tr><th>Ações esperadas	</th>
   <th>1- Usuário acessa o site.<br>
   2– Usuário acessa a tela de login e insere as informações de login da conta fornecida a ele.<br>
-  3– Usuário clica em "fazer login" .<br>
+  3– Usuário clica em "fazer login".<br>
   4- Ao entrar em seu painel de usuário clica no botão "mensagens".<br>
   5- Usuário insere todas as informações requisitadas, tais como: assunto e conteúdo da mensagem, além de anexar arquivos de imagem e vídeo.<br>
   6- Usuário clica em "enviar mensagem".</th></tr>
@@ -158,13 +158,13 @@ Segue tabela com cada caso de teste:
 <th>	CT- 09 - Visualizar Notificações</th>
     </tr>
    <tr><th>Objetivo do Teste</th>
-     <th>•	Verificar se as notificações estão acontecendo corretamente.</th>
+     <th>•	Verificar se as notificações são visualizadas corretamente.</th>
   </tr>
      <tr><th>Passos</th>
        <th>1-  Acessar o navegador.<br>
 2- Informar o endereço do site.<br>
 3- Clicar no Botão Login. Informar seu e-mail e sua senha.<br> 
-4- Para visualizar clicar na opção Avisos.</th>
+4- Para visualizar clicar na opção Notificações.</th>
   </tr>
    <tr><th>Critérios de Êxito</th>
 <th>	●As notificações devem ser exibidas corretamente.</th>
@@ -179,13 +179,13 @@ Segue tabela com cada caso de teste:
      <th>•	Verificar se o administrador do sistema consegue adicionar ou excluir os alunos às disciplinas cadastradas.</th>
   </tr>
      <tr><th>Passos	</th>
-       <th>1) Acessar o navegador.<br>
-2) Informar o endereço do site.<br>
-3)  Clicar no Botão Login. Informar seu e-mail e sua senha. <br>
-4) Clicar na opção "Todos os usuarios" para remover um aluno.</th>
+       <th>1- Acessar o navegador.<br>
+2- Informar o endereço do site.<br>
+3- Clicar no Botão Login. Informar seu e-mail e sua senha. <br>
+4- Clicar na opção adiconar ou remover um aluno.</th>
   </tr>
    <tr><th>Critérios de Êxito	</th>
-<th>●	O aluno deve estar associado à sua disciplina corretamente.</th>
+<th>●	O aluno deve estar inserido na sua disciplina corretamente.</th>
      </tr>
 </table>
 
@@ -198,11 +198,11 @@ CT- 11 - Alterar Dados</th>
      <th>•	Verificar se o usuário consegue acessar sua conta e alterar seus dados.</th>
   </tr>
      <tr><th>Passos	</th>
-       <th>1) Acessar o navegador.<br>
-2) Informar o endereço do site.<br>
-3) Clicar no Botão Login. Informar seu e-mail e sua senha. <br>
-4) Opção Alterar dados.<br>
-5)Clicar no botão Salvar alterações.</th>
+       <th>1- Acessar o navegador.<br>
+2- Informar o endereço do site.<br>
+3- Clicar no Botão Login. Informar seu e-mail e sua senha. <br>
+4- Opção Alterar dados.<br>
+5- Clicar no botão Salvar alterações.</th>
   </tr>
    <tr><th>Critérios de Êxito</th>
 <th>
