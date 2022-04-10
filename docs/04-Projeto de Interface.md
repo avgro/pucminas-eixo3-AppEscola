@@ -100,13 +100,13 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
  
 ### Tela - Alterar informações da conta
 
- <p align="justify">  Será permitido aos usuários modificarem suas informações básicas, como senha, endereço e outros dados.
+ <p align="justify">  Será permitido aos usuários modificarem suas informações básicas, como senha, endereço e outros dados.</p>
   
 ![alterardados](https://user-images.githubusercontent.com/74699119/162345769-fe3d5b97-29cf-481a-879c-7396f0df221a.png)
  
 ### Tela - Agenda escolar
  
- <p align="justify">  Será permitido aos usuários visualizar um calendário contendo os eventos da escola de acordo com a data em que estão marcados. Os usuários do tipo "Professor" e Administrador" poderão não só visualizar, como também cadastrar eventos na agenda.
+ <p align="justify">  Será permitido aos usuários visualizar um calendário contendo os eventos da escola de acordo com a data em que estão marcados. Os usuários do tipo "Professor" e Administrador" poderão não só visualizar, como também cadastrar eventos na agenda.</p>
  
 <b> Tipo de usuário: Responsável do aluno ou "Outro"</b>
 ![agenda](https://user-images.githubusercontent.com/74699119/162344162-f914e94e-aa09-43d2-8717-b30a745d7454.png)
