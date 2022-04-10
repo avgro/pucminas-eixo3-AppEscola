@@ -80,7 +80,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
 <p align="justify"> Na tela de notificações, são mostrados avisos para os usuários, sejam notificações do sistema ou notificações lançadas diretamente pelo administrador. Será mostrado aos usuários um resumo das notificações no botão "Notificação" na parte superior da tela, bem como em um painel centralizado na página. Usuários do tipo "Administrador" poderão criar novas notificações que serão enviadas para os demais usuários clicando na opção "Criar notificação". </p>
 
-<b>Tipo de usuário: Professor, Responsável do Aluno e "Outros"
+<b>Tipo de usuário: Professor, Responsável do Aluno e "Outros"</b>
 ![notificacoes](https://user-images.githubusercontent.com/74699119/162345763-f1844ad3-58aa-4192-afb1-ca4bfca99739.png)
  
  <b>Tipo de usuário: Administrador</b>
