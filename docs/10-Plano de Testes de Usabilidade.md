@@ -102,9 +102,9 @@ Segue tabela com cada caso de teste:
      <th>•	Verificar se o usuário é capaz de localizar uma mensagem utilizando a barra de busca</th>
   </tr>
      <tr><th>Ações esperadas</th>
-         <th>1 - Usuário acessa o site.<br>
-  2 – Usuário acessa a tela de login e insere as informações de login da conta fornecidas a ele.<br>
-  3 – Usuário clica em "fazer login" e entra no sistema.<br>
+         <th>1- Usuário acessa o site.<br>
+  2– Usuário acessa a tela de login e insere as informações de login da conta fornecidas a ele.<br>
+  3– Usuário clica em "fazer login" e entra no sistema.<br>
   4- Ao entrar em seu painel de usuário, usuário clica no botão "mensagens".<br>
   5- Usuário insere conteúdo da mensagem que está buscando na barra de busca e clica no botão de procurar.<br>
   6- Usuário encontra a mensagem desejada.</th></tr>
@@ -139,16 +139,16 @@ Segue tabela com cada caso de teste:
 <th>CT- 08 - Visualizar Linha do Tempo</th>
     </tr>
    <tr><th>Objetivo do Teste</th>
-     <th>	•	Verificar se a linha do tempo está sendo apresentada completamente na página</th>
+     <th>•	Verificar se a linha do tempo está sendo apresentada corretamente na página</th>
   </tr>
      <tr><th>Passos</th>
-       <th>	1) Acessar o navegador <br>
-2) Informar o endereço do site.<br>
-3)  Clicar no Botão Login. Informar seu e-mail e sua senha.<br>
-	     4) clicar na opção Linha do tempo, para visualizar.</th>
+       <th>	1- Acessar o navegador <br>
+2- Informar o endereço do site.<br>
+3- Clicar no Botão Login. Informar seu e-mail e sua senha.<br>
+	     4- Clicar na opção Linha do tempo, para visualizar.</th>
   </tr>
    <tr><th>Critérios de Êxito</th>
-<th>	●	Apresentação das postagens com fotos e texto visíveis para seus respectivos responsáveis.
+<th>●	Apresentação das postagens com fotos e texto visíveis para seus respectivos responsáveis.
 </th>
      </tr>
 </table>
@@ -158,17 +158,16 @@ Segue tabela com cada caso de teste:
 <th>	CT- 09 - Visualizar Notificações</th>
     </tr>
    <tr><th>Objetivo do Teste</th>
-     <th>	•	Verificar se as notificações estão acontecendo corretamente.</th>
+     <th>•	Verificar se as notificações estão acontecendo corretamente.</th>
   </tr>
      <tr><th>Passos</th>
-       <th>1) Acessar o navegador.<br>
-2) Informar o endereço do site.<br>
-3) Clicar no Botão Login. Informar seu e-mail e sua senha.<br> 
-4) Para visualizar clicar na opção Avisos.</th>
+       <th>1-  Acessar o navegador.<br>
+2- Informar o endereço do site.<br>
+3- Clicar no Botão Login. Informar seu e-mail e sua senha.<br> 
+4- Para visualizar clicar na opção Avisos.</th>
   </tr>
    <tr><th>Critérios de Êxito</th>
-<th>	
-	●	As notificações devem ser exibidas corretamente.</th>
+<th>	●As notificações devem ser exibidas corretamente.</th>
      </tr>
 </table>
 
