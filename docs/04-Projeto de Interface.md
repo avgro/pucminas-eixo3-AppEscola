@@ -113,7 +113,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
  
 ### Tela - Agenda escolar
  
- <p align="justify">  Será permitido aos usuários visualizar um calendário contendo os eventos da escola de acordo com a data em que estão marcados. Os usuários do tipo "Professor" e Administrador" poderão não só visualizar, mas também cadastrar eventos na agenda.
+ <p align="justify">  Será permitido aos usuários visualizar um calendário contendo os eventos da escola de acordo com a data em que estão marcados. Os usuários do tipo "Professor" e Administrador" poderão não só visualizar, como também cadastrar eventos na agenda.
  
 <b> Tipo de usuário: Responsável do aluno ou "Outro"</b>
 ![agenda](https://user-images.githubusercontent.com/74699119/162344162-f914e94e-aa09-43d2-8717-b30a745d7454.png)
@@ -130,7 +130,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 ### Tela - Linha do tempo
  <b>Tipo de usuário - Responsável do Aluno</b><br>
   
-  > - **Responsável do aluno:** Será permitido ao usuário visualizar imagens adicionadas de seus filhos. Este usuáriio poderá ver todas as fotos adicionadas e interagir através de comentários.
+  > - **Responsável do aluno:** Será permitido ao usuário visualizar imagens adicionadas de seus filhos. Este usuário poderá ver todas as fotos adicionadas e interagir através de comentários.
   
 ![linhadotemporesp](https://user-images.githubusercontent.com/74699119/162608351-595dad44-6185-4f26-b40c-e5745458403f.png)
  
