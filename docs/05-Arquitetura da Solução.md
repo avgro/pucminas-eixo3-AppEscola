@@ -4,7 +4,7 @@ São apresentados nesta seção os detalhes técnicos da solução desenvolvida,
 
 ## Diagrama de Classes
 
-![Diagrama de Classes ADS 2022_1](https://user-images.githubusercontent.com/74699119/161865589-53b327e9-0841-4502-8cf6-d43cf2b1a392.png)
+![Diagrama de Classes ADS 2022_1](https://user-images.githubusercontent.com/74699119/162635543-7bc38991-6b57-41e4-a14d-8c24d2e5b7c2.png)
 <p align="center"><b>Figura 5</b> - Diagrama de classes do projeto</p>
 <br>
 
