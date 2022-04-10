@@ -16,7 +16,7 @@ Segue tabela com cada caso de teste:
   <th> CT-01 - Teste de responsividade pelo usuário <th>
   </tr>
   <tr><th>Objetivo do teste</th>
-  <th>•	O usuário poderá acessar a página tanto em um desktop/Computar quanto em um mobile/Celular para testar a responsividade de todo conteúdo da aplicação</th>
+  <th>•	Verificar a responsividade da aplicação quando navegada por um usuário</th>
   </tr>
   <tr><th> Ações esperadas </th>
   <th>	1 - Usuário acessa o site em um desktop e visualiza os conteúdos.<br>
@@ -30,7 +30,7 @@ Segue tabela com cada caso de teste:
 	
   <th>CT-02 – Realização de Login</th></tr>
 <tr><th>Objetivo do teste</th>
-  <th>•	Verificar a usabilidade do sistema de LOGIN</th></tr>
+  <th>•	Verificar a usabilidade do sistema de login</th></tr>
 <tr><th>Ações esperadas</th>
   <th>1 - Usuário acessa o site.<br>
  2 - Usuário clica no botão de login.<br>
@@ -40,26 +40,19 @@ Segue tabela com cada caso de teste:
   <th>•	Após efetuar o login será redirecionado automaticamente para sua respectiva tela de painel de acordo com seu cadastro.</th></tr>
   </table>
   
-    <tr><th>Caso de Teste </th>
-  <th>	CT-03 – Realização de do cadastro de usuário do tipo "Profesor", "Responsável do alno" e "Outros". <th>
-  </tr>
-  <tr><th>Objetivo do teste	</th>
-  <th>•	Verificar se o usuário consegue utilizar a conta de administrador para cadastrar novos usuários dos tipos disponíveis <th>
-  </tr>
-  <tr><th>Ações esperadas</th>
-  <th>	1 - Usuário entra no site pelo seu navegador de sua escolha.<br>
+    <th>CT-02 – Realização de Login</th></tr>
+<tr><th>Objetivo do teste</th>
+  <th>•	Verificar a realização de cadastro de usuário do tipo "Profesor", "Responsável do aluno" e "Outros" por um usuário usando uma conta de administrador.</th></tr>
+<tr><th>Ações esperadas</th>
+  <th>1 - Usuário acessa o site.<br>
   2 – Usuário acessa a tela de login e insere as informações de login da conta do tipo "Administrador" fornecidas a ele.<br>
   3 – Usuário clica em "fazer login" e entra no sistema como Administrador.<br>
   4- Ao entrar em seu painel de administrador, usuário clica no botão "cadastrar usuários" e insere todas as informações requisitadas no formulário, selecionado um tipo de usuário no campo "tipo de usuário".<br>
   5- Após preencher os campos, usuário clica na opcão "Cadastrar".<br>
-  6- Usuário repete o processo para todos os tipos de usuário.<th>	  
-  </tr>
-  <tr><th>Critérios de Êxito</th>
-  <th>	•	Usuário é capaz de cadastrar pelo menos um usuário de cada tipo. <th>
-  </tr>
-</table>
-<table>
-<tr><th>Caso de Teste	</th>
+  6- Usuário repete o processo para todos os tipos de usuário. </th></tr>
+<tr><th>Critérios de Êxito</th>	
+  <th>•	Usuário é capaz de cadastrar pelo menos um usuário de cada tipo.</th></tr>
+  </table>
   
   <table>
   <tr><th>Caso de Teste	</th>
