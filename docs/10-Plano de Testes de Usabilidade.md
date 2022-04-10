@@ -45,7 +45,7 @@ Segue tabela com cada caso de teste:
 <tr><th>Caso de Teste </th>
 <th>CT-03 – Realizar cadastro de turma e disciplina, associar disciplinas a uma turma </th></tr>
 <tr><th>Objetivo do teste</th>
-  <th>•	Verificar a realização do cadastro de usuário do tipo "Professor", "Responsável do aluno" e "Outros" por um usuário usando uma conta de administrador.</th></tr>
+  <th>•	Verificar a realização do cadastro de usuário do tipo "Professor", "Responsável do aluno" e "Outros" por um usuário administrador.</th></tr>
 <tr><th>Ações esperadas</th>
   <th>1- Usuário administrador acessa o site.<br>
   2– Usuário acessa a tela de login e insere as informações de login da conta do tipo "Administrador" fornecidas a ele.<br>
@@ -65,15 +65,15 @@ Segue tabela com cada caso de teste:
   <th>•	Verificar associação de disciplinas </th>
     </tr> 
 <tr><th>Ações esperadas	</th>
-  <th>1 - Usuário acessa o site.<br>
-  2 – Usuário acessa a tela de login e insere as informações de login da conta do tipo "Administrador" fornecidas a ele.<br>
-  3 – Usuário clica em "fazer login" e entra no sistema como Administrador.<br>
-  4- Ao entrar em seu painel de administrador, usuário clica no botão "cadastrar alunos" no menu e seleciona a opção "Cadastrar novo aluno".<br>
-  5- Usuário insere todas as informações requisitadas no formulário, selecionado os responsáveis do aluno no processo.<br>
+  <th>1- Usuário acessa o site.<br>
+  2– Usuário acessa a tela de login e insere as informações de login da conta do tipo "Administrador" fornecidas a ele.<br>
+  3– Usuário clica em "fazer login" entrando no sistema como Administrador.<br>
+  4- Ao entrar em seu painel de administrador, usuário clica no botão "cadastrar alunos" no menu selecionando a opção "Cadastrar novo aluno".<br>
+  5- Usuário insere todas as informações requisitadas no formulário, selecionando os responsáveis do aluno no processo.<br>
   6- Usuário clica na aba "Cadastrar turma" do painel do administrador e seleciona a opção "Associar alunos à turma".<br>
   7- Usuário seleciona a turma e o aluno a serem associados e clica em "Salvar". </th></tr>
 <tr><th>Critérios de Êxito</th>	
-  <th>•	Usuário é capaz de cadastrar pelo menos um usuário de cada tipo.</th></tr>
+  <th>•	Usuário é capaz de cadastrar pelo menos um usuário de cada tipo e associa lo à uma turma.</th></tr>
   </table>
 
 <table> 
