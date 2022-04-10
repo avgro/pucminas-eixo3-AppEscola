@@ -155,7 +155,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
  
 ### Tela - Visualizar todos os usuários do sistema
 
-<p align="justify">  Será permitido aos usuários do tipo Administrador visualizar todos os usuários cadastrados ao sistema, vendo suas informações básicas de ID, nome, e-mail e tipo de usuário. Poderão também deletar contas de usuários a partir desta tela.</p>
+<p align="justify">  Será permitido aos usuários do tipo Administrador visualizar todos os usuários cadastrados no sistema, vendo suas informações básicas de ID, nome, e-mail e tipo de usuário. Poderão também deletar contas de usuários a partir desta tela.</p>
  
 ![usuariosadmin](https://user-images.githubusercontent.com/74699119/162587514-d7a4bd72-41fe-4163-8dd3-b7303ee4146c.png)
 
@@ -166,7 +166,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 ![cadastrarusuario](https://user-images.githubusercontent.com/74699119/162492785-8c1b148e-a2d1-4b9d-aafd-734d9cfacbde.png)
 
 ### Tela - Visualizar alunos cadastrados
-<p align="justify">  Será permitido aos usuários do tipo Administrador visualizar a lista de alunos cadastrados sistema, bem como remover alunos cadastrados ou editar suas informações para situações nas quais seja necessário trocar sua turma ou adicionar mais responsáveis.</p>
+<p align="justify">  Será permitido aos usuários do tipo Administrador visualizar a lista de alunos cadastrados no sistema, bem como remover alunos cadastrados ou editar suas informações para situações nas quais seja necessário trocar sua turma ou adicionar mais responsáveis.</p>
 
 ![listaalunos](https://user-images.githubusercontent.com/74699119/162586613-1a1db82f-c39c-4a58-b735-2a37356a886c.png)
 
