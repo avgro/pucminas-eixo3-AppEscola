@@ -60,7 +60,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 > - **Responsável do aluno:** Apresentará os menus de acesso para as telas de linha do tempo, agenda, mensagens e assinaturas de autorização.
 > - **Outros:** Apresentará os menus de agenda e mensagens.</p>
 
-<p align="justify"> Além disso, todos os usuários poderão acessar as notificações e o menu do usuário a partir das opções "Notificações" e "Perfil" presentes no cabeçalho</p> 
+<p align="justify"> Além disso, todos os usuários poderão acessar as notificações e o menu de opções da conta a partir das opções "Notificações" e "Perfil" presentes no cabeçalho</p> 
 
 <b>Tipo de usuário - Responsável do Aluno</b><br>
 
