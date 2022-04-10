@@ -209,7 +209,7 @@ Segue tabela com cada caso de teste:
 <th>CT- 11 - Alterar dados pessoais no sistema</th>
     </tr>
    <tr><th>Objetivo do Teste	</th>
-     <th>•	VVerificar se o usuário consegue acessar sua conta e alterar seus dados..</th>
+     <th>•	Verificar se o usuário consegue acessar sua conta e alterar seus dados..</th>
   </tr>
      <tr><th>Ações esperadas</th>
          <th>1- Usuário acessa o site.<br>
