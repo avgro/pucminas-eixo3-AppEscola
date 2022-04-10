@@ -11,7 +11,7 @@ São apresentados nesta seção os detalhes técnicos da solução desenvolvida,
 
 ## Modelo ER
 
-![Diagrama ER ADS 2022_1](https://user-images.githubusercontent.com/74699119/161865602-d901fc8f-aa3a-49c2-8b91-97926dacc204.png)
+![Diagrama ER ADS 2022_1](https://user-images.githubusercontent.com/74699119/162635473-51679df0-6ec5-401a-9022-0262ee26aa39.png)
 <p align="center"><b>Figura 6</b> - Modelo de entidade/relacionamento do projeto</p>
 <br>
 
