@@ -80,7 +80,7 @@ Segue tabela com cada caso de teste:
   <th>•	Verificar associação de disciplinas com o Professor</th>
     </tr> 
 <tr><th>Ações esperadas	</th>
-  <th>  <th>1 - Usuário acessa o site.<br>
+  <th>1 - Usuário acessa o site.<br>
   2 – Usuário acessa a tela de login e insere as informações de login da conta do tipo "Administrador" fornecidas a ele.<br>
   3 – Usuário clica em "fazer login" e entra no sistema como Administrador.<br>
   4- Ao entrar em seu painel de administrador, usuário clica no botão "cadastrar alunos" no menu e seleciona a opção "Cadastrar novo aluno".<br>
