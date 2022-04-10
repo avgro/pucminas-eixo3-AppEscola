@@ -59,10 +59,10 @@ Segue tabela com cada caso de teste:
 
 <table> 
 <tr><th>Caso de Teste </th>	  
-    <th>CT-04 - Cadastrar aluno e associa-lo a um ou mais responsáveis e a uma turma</th>
+    <th>CT-04 - Cadastrar aluno e associa-lo a um ou mais responsáveis e turma</th>
     </tr>
 <tr><th>Objetivo do teste	</th>
-  <th>•	Verificar associação de disciplinas com o Professor</th>
+  <th>•	Verificar associação de disciplinas </th>
     </tr> 
 <tr><th>Ações esperadas	</th>
   <th>1 - Usuário acessa o site.<br>
@@ -70,7 +70,7 @@ Segue tabela com cada caso de teste:
   3 – Usuário clica em "fazer login" e entra no sistema como Administrador.<br>
   4- Ao entrar em seu painel de administrador, usuário clica no botão "cadastrar alunos" no menu e seleciona a opção "Cadastrar novo aluno".<br>
   5- Usuário insere todas as informações requisitadas no formulário, selecionado os responsáveis do aluno no processo.<br>
-  6- Usuário clica na aba "Cadastrar turma" do paínel do administrador e seleciona a opção "Associar alunos à turma".<br>
+  6- Usuário clica na aba "Cadastrar turma" do painel do administrador e seleciona a opção "Associar alunos à turma".<br>
   7- Usuário seleciona a turma e o aluno a serem associados e clica em "Salvar". </th></tr>
 <tr><th>Critérios de Êxito</th>	
   <th>•	Usuário é capaz de cadastrar pelo menos um usuário de cada tipo.</th></tr>
