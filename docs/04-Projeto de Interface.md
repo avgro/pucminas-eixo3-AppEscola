@@ -144,7 +144,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
  
 ### Tela - Visualizar turmas do professor
  
-<p align="justify">  Será permitido aos usuários do tipo Professor visualizarem as turmas que estão sob sua responsabilidade e os alunos atrelados. Ele poderá realizar pesquisas para filtragem das turmas, bem como verá a disciplina da matéria que leciona para cada uma.</p>
+<p align="justify">  Será permitido aos usuários do tipo "Professor" visualizar todas as turmas que estão sob sua responsabilidade e os alunos atrelados a elas. Ele poderá realizar pesquisas para filtragem das turmas por nome do aluno ou disciplina lecionada.</p>
  
 ![minhasturmas](https://user-images.githubusercontent.com/74699119/162491880-52bf44c1-04e5-441c-8cf9-d477e3da42b0.png)
  
