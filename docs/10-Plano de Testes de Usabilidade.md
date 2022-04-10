@@ -19,11 +19,11 @@ Segue tabela com cada caso de teste:
 <tr><th>Ações esperadas</th>
   <th>1 - Usuário acessa o site.<br>
  2- Usuário clica no botão de login.<br>
- 3– Usuário insere usuário e senha nos campos solicitados.
+ 3– Usuário insere usuário e senha nos campos solicitados.<br>
  4- Usuário clica em "Entrar" e realiza o login no sistema<br>
  5- Usuário visualiza tela inicial do usuário logado.<br>
  6- Usuário clica em "Perfil" no canto direito do cabeçalho.<br>
- 7- Usuário clica em "Sair".
+ 7- Usuário clica em "Sair".<br>
  8- Usuário encerra sua sessão no sistema.</th></tr>
 <tr><th>Critérios de Êxito</th>	
   <th>•	Usuário deve ser capaz de realizar login e logoff do sistema </th></tr>
