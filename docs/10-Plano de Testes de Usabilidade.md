@@ -81,17 +81,17 @@ Segue tabela com cada caso de teste:
     <th>CT-05 – Testar uso de sistemas de trocas de Mensagens e Documentos pelo usuário</th>
     </tr>
 <tr><th>Objetivo do teste	</th>
-  <th>•	Verificar a trocas de mensagens, documentos, fotos e vídeos pelo usuário</th>
+  <th>•	Verificar a trocas de mensagens, documentos, fotos e vídeos </th>
     </tr> 
 <tr><th>Ações esperadas	</th>
-  <th>1 - Usuário acessa o site.<br>
-  2 – Usuário acessa a tela de login e insere as informações de login da conta fornecidas a ele.<br>
-  3 – Usuário clica em "fazer login" e entra no sistema como qualquer tipo de usuário.<br>
-  4- Ao entrar em seu painel de usuário, usuário clica no botão "mensagens".<br>
-  5- Usuário insere todas as informações requisitadas, tais como assunto e conteúdo da mensagem, além de anexar arquivos de imagem e vídeo.<br>
+  <th>1- Usuário acessa o site.<br>
+  2– Usuário acessa a tela de login e insere as informações de login da conta fornecida a ele.<br>
+  3– Usuário clica em "fazer login" .<br>
+  4- Ao entrar em seu painel de usuário clica no botão "mensagens".<br>
+  5- Usuário insere todas as informações requisitadas, tais como: assunto e conteúdo da mensagem, além de anexar arquivos de imagem e vídeo.<br>
   6- Usuário clica em "enviar mensagem".</th></tr>
 <tr><th>Critérios de Êxito</th>	
-  <th>•	Usuário é capaz de enviar uma mensagem.</th></tr>
+  <th>•	Mensagem enviada corretamente.</th></tr>
   </table>
   
 <table>
