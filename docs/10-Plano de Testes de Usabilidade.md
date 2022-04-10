@@ -27,9 +27,9 @@ Segue tabela com cada caso de teste:
   
 <table> 
 <tr><th>Caso de Teste </th>
-<th>CT-02 – Realização de cadastro de usuários do tipo "Responsável do aluno" e "Outros" </th></tr>
+<th>CT-02 – Realização do cadastro de usuários do tipo "Responsável do aluno" e  "Professor" </th></tr>
 <tr><th>Objetivo do teste</th>
-  <th>•	Verificar a realização de cadastro de usuário do tipo "Professor", "Responsável do aluno" e "Outros" por um usuário usando uma conta de administrador.</th></tr>
+  <th>•	Verificar a realização de cadastro de usuário do tipo "Professor" e "Responsável do aluno" por um usuário usando uma conta de administrador.</th></tr>
 <tr><th>Ações esperadas</th>
   <th>1 - Usuário acessa o site.<br>
   2– Usuário acessa a tela de login e insere as informações de login da conta do tipo "Administrador" fornecidas a ele.<br>
