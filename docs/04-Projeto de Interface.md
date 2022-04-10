@@ -138,7 +138,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
  
 ### Tela - Assinar autorização
 
-<p align="justify">  Será permitido aos usuários do tipo Responsável visualizarem notificações de eventos que necessitam de sua autorização, assinalando se autorizam ou não que seu filho participe. Ao usuário será apresentada uma mensagem informando o conteúdo necessário de autorização, que pode ser um evento, excursão etc.</p>
+<p align="justify">  Será permitido aos usuários do tipo "Responsável do aluno" visualizarem notificações de eventos que necessitam de sua autorização, assinalando se autorizam ou não que seu filho participe. Ao usuário será apresentada uma mensagem informando o conteúdo necessário de autorização, que pode ser um evento, excursão etc.</p>
  
 ![assinarautorizacao](https://user-images.githubusercontent.com/74699119/162346531-1ce86e36-7f85-4efe-b65e-e858b299e290.png)
  
