@@ -51,14 +51,16 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
  ### Tela - Tela inicial (pós login do usuário)
  
-<p align="justify"> Nesta tela, todos os usuários poderão acessar o seu perfil para a alteração dos dados cadastrais, bem como visualizar a caixa de mensagens através do ícone do lado direito no cabeçalho:</p>
+<p align="justify"> Tela inicial mostrada após realização do login pelo usuário, contém links de navegação para as demais telas/funcionalidades no menu lateral e no cabeçalho:</p>
 
-<p align="justify"> No bloco de barra lateral à esquerda, o conteúdo será diferente para cada tipo de usuário:
+<p align="justify"> No bloco de barra lateral à esquerda, as opções mostradas serão diferentes para cada tipo de usuário:
 
 > - **Administrador:** Apresentará os menus de acesso para as telas de todos os usuário, agenda, mensagens, cadastrar usuários, alunos, turmas e disciplinas.
 > - **Professor:** Apresentará os menus de acesso para as telas de minhas turmas, linha do tempo, agenda e mensagens.
 > - **Responsável do aluno:** Apresentará os menus de acesso para as telas de linha do tempo, agenda, mensagens e assinaturas de autorização.
 > - **Outros:** Apresentará os menus de agenda e mensagens.</p>
+
+<p align="justify"> Além disso, todos os usuários poderão acessar as notificações e o menu do usuário a partir das opções "Notificações" e "Perfil" presentes no cabeçalho</p> 
 
 <b>Tipo de usuário - Responsável do Aluno</b><br>
 
