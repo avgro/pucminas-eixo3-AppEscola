@@ -6,7 +6,7 @@ Modelo de teste a ser utilizado: Descoberta de problemas. Objetivos: identificar
 
 Serão selecionados seis usuários com variáveis características, contextos distintos e diferentes papeis dentro da aplicação. 
 
-O teste será feito de forma remota, individual  e por um avaliador, que anotará os resultados das ações dos usuários afim de observar possíveis falhas e ineficiencias no sistema. 
+O teste será feito de forma remota, individual  e por um avaliador, que anotará os resultados das ações dos usuários afim de observar possíveis falhas e ineficiências no sistema. 
 Será  possível medir o tempo para fazer cada teste, os erros e acertos acometidos, e a concretização da tarefa. 
 
 Segue tabela com cada caso de teste:
