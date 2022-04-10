@@ -102,7 +102,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
  
 ### Tela - Alterar informações da conta
 
- <p align="justify">  Será permitido aos usuários modificarem suas informações básicas, como email, telefone, senha e endereço.</p>
+ <p align="justify">  Será permitido aos usuários modificarem suas informações básicas, como email, telefone, senha e endereço ao preencher o formulário solicitando as novas informações e clicando em "Salvar".</p>
   
 ![alterardados](https://user-images.githubusercontent.com/74699119/162345769-fe3d5b97-29cf-481a-879c-7396f0df221a.png)
  
