@@ -25,10 +25,10 @@ Segue tabela com cada caso de teste:
   <th>• Usuário é capaz de visualizar o conteúdo totalmente responsivo, sem quebras de texto e de páginas.</th>
   </tr>
 </table>
-<table> 
 
-	
-  <th>CT-02 – Realização de Login</th></tr>
+<table> 
+<tr><th>Caso de Teste </th>
+<th>CT-02 – Realização de Login</th></tr>
 <tr><th>Objetivo do teste</th>
   <th>•	Verificar a usabilidade do sistema de login</th></tr>
 <tr><th>Ações esperadas</th>
@@ -40,8 +40,9 @@ Segue tabela com cada caso de teste:
   <th>•	Após efetuar o login será redirecionado automaticamente para sua respectiva tela de painel de acordo com seu cadastro.</th></tr>
   </table>
   
-  <table> 
-    <th>CT-03 – Realização de cadastro de usuários do tipo "Responsável do aluno" e "Outros" </th></tr>
+<table> 
+<tr><th>Caso de Teste </th>
+<th>CT-03 – Realização de cadastro de usuários do tipo "Responsável do aluno" e "Outros" </th></tr>
 <tr><th>Objetivo do teste</th>
   <th>•	Verificar a realização de cadastro de usuário do tipo "Profesor", "Responsável do aluno" e "Outros" por um usuário usando uma conta de administrador.</th></tr>
 <tr><th>Ações esperadas</th>
