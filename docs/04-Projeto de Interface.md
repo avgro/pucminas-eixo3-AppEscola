@@ -215,12 +215,12 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
 ### Tela - Editar disciplina
 
-<p align="justify"> Está tela possuirá uma funcionalidade, cujo o objetivo será a edição de uma disciplina já cadastrada no sistema. O usuário administrador irá selecionar uma disciplina existente no sistema e, assim, poder alterar o nome da disciplina, o vínculo da turma e professor. Podendo salvar ou cancelar o processo de edição.</p>
+<p align="justify"> A funcionalidade presente nesta tela possui o objetivo de possibilitar a edição de uma disciplina já cadastrada no sistema. O usuário administrador irá selecionar uma disciplina existente no sistema e, assim, poder alterar o nome da disciplina, o vínculo da turma e professor. Podendo salvar ou cancelar o processo de edição.</p>
 
 ![editardisciplina](https://user-images.githubusercontent.com/74699119/162500005-62896a90-f8fe-40b7-85ae-150b733a3be2.png)
 
 ### Tela - Apagar disciplina
 
-<p align="justify"> Está funcionalidade tem como objetivo apagar uma disciplina cadastrada no sistema. O usuário administrador irá selecionar uma disciplina para poder exclui-la.</p>
+<p align="justify"> A funcionalidade presente nesta tela tem como objetivo apagar uma disciplina cadastrada no sistema. O usuário administrador irá selecionar uma disciplina para poder exclui-la.</p>
 
 ![apagardisciplina](https://user-images.githubusercontent.com/74699119/162500017-ce9d88a1-d107-47dd-97a2-301506aeb982.png)
