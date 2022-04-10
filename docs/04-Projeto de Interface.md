@@ -129,7 +129,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
  
  <b>Tipo de usuário - Professor</b><br>
   
-  > - **Professor:** Este usuário poderá adicionar imagens de um determinado aluno, bem como interagir com a publicação por meio de comentários.
+  > - **Professor:** Este usuário poderá criar postagens adicionando texto e imagens de um determinado aluno, bem como interagir com a publicação por meio de comentários.
   
 ![linhadotempoprofessor](https://user-images.githubusercontent.com/74699119/162608349-7fa1c508-1324-4314-947f-7521ec0db4ef.png)
 
