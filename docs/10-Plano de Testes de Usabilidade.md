@@ -145,7 +145,7 @@ Segue tabela com cada caso de teste:
        <th>	1- Acessar o navegador <br>
 2- Informar o endereço do site.<br>
 3- Clicar no Botão Login. Informar seu e-mail e sua senha.<br>
-	     4- Clicar na opção Linha do tempo, para visualizar.</th>
+	     4- Clicar na opção Linha do tempo.</th>
   </tr>
    <tr><th>Critérios de Êxito</th>
 <th>●	Apresentação das postagens com fotos e texto visíveis para seus respectivos responsáveis.
@@ -181,7 +181,7 @@ Segue tabela com cada caso de teste:
      <tr><th>Passos	</th>
        <th>1- Acessar o navegador.<br>
 2- Informar o endereço do site.<br>
-3- Clicar no Botão Login. Informar seu e-mail e sua senha. <br>
+3- Clicar no botão Login. Informar seu e-mail e sua senha. <br>
 4- Clicar na opção adiconar ou remover um aluno.</th>
   </tr>
    <tr><th>Critérios de Êxito	</th>
