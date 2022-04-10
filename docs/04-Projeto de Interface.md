@@ -51,21 +51,14 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
  ### Tela - Tela inicial (pós login do usuário)
  
-<p align="justify"> Nesta tela, todos os usuários poderão acessar o seu perfil para a alteração dos dados cadastrais, bem como visualizar a caixa de mensagens através do ícone do lado direito no cabeçalho. Os blocos de conteúdo serão diferentes de acordo com o tipo de usuário:</p>
+<p align="justify"> Nesta tela, todos os usuários poderão acessar o seu perfil para a alteração dos dados cadastrais, bem como visualizar a caixa de mensagens através do ícone do lado direito no cabeçalho:</p>
 
-> - **Administrador:** Apresentará em destaque a agenda e as notificações.
-> - **Professor/Resp. do aluno/Outros:** Apresentará em destaque as turmas, as notificações e a agenda.
-
-<p align="justify"> No bloco de barra lateral à esquerda, também será diferente para cada tipo de usuário:
+<p align="justify"> No bloco de barra lateral à esquerda, o conteúdo será diferente para cada tipo de usuário:
 
 > - **Administrador:** Apresentará os menus de acesso para as telas de todos os usuário, agenda, mensagens, cadastrar usuários, alunos, turmas e disciplinas.
 > - **Professor:** Apresentará os menus de acesso para as telas de minhas turmas, linha do tempo, agenda e mensagens.
 > - **Responsável do aluno:** Apresentará os menus de acesso para as telas de linha do tempo, agenda, mensagens e assinaturas de autorização.
 > - **Outros:** Apresentará os menus de agenda e mensagens.</p>
-
-<p align="justify"> A elaboração das Telas iniciais (pós login do usuário) atende ao seguinte requisito funcional:
-
-> - **Requisito Funcional-01:** A aplicação deve possuir um sistema de autenticação e login com quatro tipos de usuário: administrador do sistema, responsáveis pelo aluno, professor e funcionário (tipo genérico que abrange membros da secretaria, setor financeiro, etc)</p>
 
 <b>Tipo de usuário - Responsável do Aluno</b><br>
 
