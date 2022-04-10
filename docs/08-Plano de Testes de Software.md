@@ -205,7 +205,7 @@ Os testes funcionais a serem realizados no aplicativo são descritos a seguir:
 
 |Caso de teste 28     | CT 28 - Responsividade |
 |-------|-------------------------
-|Requisitos Associados | 	 RF-0.
+|Requisitos Associados | 	 RNF-02 - O site deverá ser responsivo permitindo a visualização em um celular de forma adequada.
 |Objetivo do teste| Verificar a responsividade do site. |
 |Passos |	1) Acessar o navegador de um .	2) Informar o endereço do site. 3) Visualizar a página principal. 4) Acessar o site de um dispositivo móvel. 5) Informar o endereço do site. 6) Visualizar a página principal. |
 |Critérios de êxito| O site deve ser totalmente responsivo, sem quebras de texto e páginas. |
