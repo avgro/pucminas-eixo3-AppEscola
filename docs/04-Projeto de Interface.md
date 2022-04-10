@@ -111,8 +111,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
  <p align="justify">  Será permitido aos usuários visualizarem os eventos marcados na agenda escolar, sendo permitido incluir eventos e visualizar detalhes.
   
- ![mensagens](https://user-images.githubusercontent.com/74699119/162344187-13992039-2465-4d99-b2b5-81a3ab36b7b6.png)
- 
+![mensagens](https://user-images.githubusercontent.com/74699119/162601595-b868f4d4-7209-4cd4-b477-56887cd76a0d.png)
 
 ### Tela - Linha do tempo
  <b>Tipo de usuário - Responsável do Aluno</b><br>
