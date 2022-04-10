@@ -6,41 +6,42 @@ Modelo de teste a ser utilizado: Descoberta de problemas. Objetivos: identificar
 
 Serão selecionados seis usuários com variáveis características, contextos distintos e diferentes papeis dentro da aplicação. 
 
-O teste será feito de forma remota, individual  e por um avaliador. 
+O teste será feito de forma remota, individual  e por um avaliador, que anotará os resultados das ações dos usuários afim de observar possíveis falhas e ineficiencias no sistema. 
 Será  possível medir o tempo para fazer cada teste, os erros e acertos acometidos, e a concretização da tarefa. 
 
 Segue tabela com cada caso de teste:
 
 <table>
   <tr><th>Caso de Teste </th>
-  <th> CT-01 - Responsividade <th>
+  <th> CT-01 - Teste de responsividade pelo usuário <th>
   </tr>
   <tr><th>Objetivo do teste</th>
   <th>•	O usuário poderá acessar a página tanto em um desktop/Computar quanto em um mobile/Celular para testar a responsividade de todo conteúdo da aplicação</th>
   </tr>
-  <tr><th> Passos</th>
-  <th>	1 - Acesse o site em um desktop.<br>
-  2 - Acesse o site em um mobile.</th></tr>
+  <tr><th> Ações esperadas </th>
+  <th>	1 - Usuário acessa o site em um desktop e visualiza os conteúdos.<br>
+  2 - Usuário acesse o site em um mobile e visualiza os conteúdos.</th></tr>
   <tr><th>Critérios de Êxito </th>
-  <th>•	Conteúdo totalmente responsivo, sem quebras de texto e de páginas.</th>
+  <th>• Usuário é capaz de visualizar o conteúdo totalmente responsivo, sem quebras de texto e de páginas.</th>
   </tr>
 </table>
 <table> 
   <tr><th>Caso de Teste </th>
-  <th>	CT-02 – Realização de Cadastros <th>
+  <th>	CT-02 – Realização de do cadastro de usuário do tipo "Profesor", "Responsável do alno" e "Outros". <th>
   </tr>
   <tr><th>Objetivo do teste	</th>
   <th>•	O Administrator poderá efetuar cadastros de Alunos, Professores e Disciplinas <th>
   </tr>
-  <tr><th>Passos</th>
-  <th>	1 - Entrar no site pelo seu navegador de sua escolha.<br>
-  2 – Clicar e efetuar o Login.<br>
-  3 – Ao entrar em seu painel de administrador.<br>
-  4- clicar nos botões cadastrar Alunos, Professores e disciplinas.<br>
-  5- Após preencher os campos, clique na opcão Salvar.<th>
+  <tr><th>Ações esperadas</th>
+  <th>	1 - Usuário entra no site pelo seu navegador de sua escolha.<br>
+  2 – Usuário acessa a tela de login e insere as informações de login da conta do tipo "Administrador" fornecidas a ele.<br>
+  3 – Usuário clica em "fazer login" e entra no sistema como Administrador.<br>
+  4- Ao entrar em seu painel de administrador, usuário clica no botão cadastrar usuários e insere todas as informações requisitadas no formulário, selecionado um tipo de usuário no campo "tipo de usuário".<br>
+  5- Após preencher os campos, usuário clica na opcão "Cadastrar".<th>
+  5- Usuário repete o processo para todos os tipos de usuário.<th>	  
   </tr>
   <tr><th>Critérios de Êxito</th>
-  <th>	•	Registrar os cadastros e armazenar suas informações. <th>
+  <th>	•	Usuário é capaz de cadastrar pelo menos um usuário de cada tipo. <th>
   </tr>
 </table>
 <table>
@@ -48,7 +49,7 @@ Segue tabela com cada caso de teste:
   <th>CT-03 – Realização de Login</th></tr>
 <tr><th>Objetivo do teste</th>
   <th>•	Verificar a usabilidade do sistema de LOGIN</th></tr>
-<tr><th>Passos</th>
+<tr><th>Ações</th>
   <th>1 - Acessar o site.<br>
  2 - Clicar em login.<br>
  3 – Inserir e-mail e senha de acesso.</th></tr>
@@ -63,7 +64,7 @@ Segue tabela com cada caso de teste:
 <th>•	Verificar se o administrador do sistema está criando ou excluindo corretamente uma conta.<br>
 •	Verificar se o usuário está cadastrado corretamente após a criação do cadastro pelo administrador.</th>
 </tr>
-<tr><th>Passos</th>
+<tr><th>Ações</th>
   <th>1) Acessar o navegador<br>
 2) Informar o endereço do site<br>
 3)  Clicar no Botão Login. Informar seu e-mail e sua senha. <br>
@@ -81,7 +82,7 @@ Segue tabela com cada caso de teste:
 <tr><th>Objetivo do teste	</th>
   <th>•	Verificar associação de disciplinas com o Professor</th>
     </tr> 
-<tr><th>Passos	</th>
+<tr><th>Ações	</th>
   <th>1) Acessar o navegador<br>
 2) Informar o endereço do site<br>
 3)  Clicar no Botão Login. Informar seu e-mail e sua senha. <br>
