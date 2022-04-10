@@ -45,7 +45,7 @@ Segue tabela com cada caso de teste:
 <tr><th>Caso de Teste </th>
 <th>CT-03 – Realizar cadastro de turma e disciplina e associar disciplinas a uma turma </th></tr>
 <tr><th>Objetivo do teste</th>
-  <th>•	Verificar a realização de cadastro de usuário do tipo "Profesor", "Responsável do aluno" e "Outros" por um usuário usando uma conta de administrador.</th></tr>
+  <th>•	Verificar a realização de cadastro de usuário do tipo "Professor", "Responsável do aluno" e "Outros" por um usuário usando uma conta de administrador.</th></tr>
 <tr><th>Ações esperadas</th>
   <th>1 - Usuário acessa o site.<br>
   2 – Usuário acessa a tela de login e insere as informações de login da conta do tipo "Administrador" fornecidas a ele.<br>
