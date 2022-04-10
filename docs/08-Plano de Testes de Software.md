@@ -185,16 +185,23 @@ Os testes funcionais a serem realizados no aplicativo são descritos a seguir:
 |Caso de teste 25    | CT 25 - Comentar publicação da Linha do Tempo |
 |-------|-------------------------
 |Requisitos Associados | 	 RF-12 - A aplicação deve disponibilizar uma “linha do tempo” privada onde o professor possa fazer postagens, com fotos e texto sobre o aluno, que estarão visíveis apenas para os responsáveis daquele aluno, administradores do sistema e o respectivo professor.<br>A aplicação deve permitir envio de documentos, fotos, vídeos e autorizações para eventos e passeios (que podem ser aceitos dentro do próprio aplicativo) para os responsáveis do aluno pelos funcionários da escola |
-|Objetivo do teste| Verificar se o usuário do tipo "responsável do aluno" consegue visualizar a linha do tempo do filho |
-|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login como usuário do tipo "Professor" 4) Clicar na aba "Linha do Tempo". 5) Visualizar publicação |
-|Critérios de êxito| O responsável do aluno deve ser caapz de visualizar a publicação cadastrada pelo professor. |
+|Objetivo do teste| Verificar se os usuários do tipo "Professor" e "Responsável do Aluno" conseguem comentar nas publicações da linha do tempo |
+|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login como usuário do tipo "Professor" 4) Clicar na aba "Linha do Tempo". 5) Visualizar publicação 6) Escrever comentário na caixa de mensagem abaixo da publicação 7) Clicar em "Postar" 8) A tela de "Linha do tempo" deverá ser atualizada e o comentário estar presente na publicação 9) Repetir o mesmo procedimento com todos os tipos de usuário capazes de acessar a linha do tempo (Professor e responsável do aluno) |
+|Critérios de êxito| O usuário deve postar um comentário na linha do tempo com sucesso e esse deve permanecer associado ao evento da linha do tempo ao visualizar a página. |
 
-|Caso de teste 20     | CT 20 -  Visualizar Notificações |
+|Caso de teste 26     | CT 26 -  Lançar notificação no sistema |
+|-------|-------------------------
+|Requisitos Associados | 	 RF-13 - A aplicação deve possuir uma seção de notificações onde o usuário responsável será notificado sobre eventos, mensagens importantes e compromissos cuja data esteja próxima.
+|Objetivo do teste| Verificar se o usuário do tipo "Administrador" consegue lançar notificações no sistema |
+|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login com usuário do tipo "Administrador". 4) Clicar em "Notificações". 5) Clicar em "criar notificação" 6) Preencher os dados solicitados no formulário. 7) Clicar em "Lançar notificação". 8) Clicar novamente em "Notificações" e verificar se a notificação está presente |
+|Critérios de êxito| A notificação deve ser lançado com sucesso no sistema e aparecer na tela "Notificações". |
+
+|Caso de teste 27     | CT 27 -  Visualizar Notificações |
 |-------|-------------------------
 |Requisitos Associados | 	 RF-13 - A aplicação deve possuir uma seção de notificações onde o usuário responsável será notificado sobre eventos, mensagens importantes e compromissos cuja data esteja próxima.
 |Objetivo do teste| Verificar se a carga de notificações está acontecendo corretamente. |
-|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Clicar botão usuário e senha. Informar usuário e senha. 4) Clicar em notificações. 5) Visualizar área de notificações.  |
-|Critérios de êxito| As notificações devem ser exibidas corretamente. |
+|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login no sistema. 4) Clicar em notificações. 5) Visualizar área de notificações.  |
+|Critérios de êxito| As notificações devem ser exibidas corretamente para o usuário. |
 
 
 
