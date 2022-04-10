@@ -111,44 +111,44 @@ Os testes funcionais a serem realizados no aplicativo são descritos a seguir:
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login como administrador 4) Clicar na opção "Gerenciar associações" 5) Selecionar nome da turma que deseja retirar o aluno 6) Procurar o nome do aluno na lista e clicar em "Apagar" 8) A tela de "Gerenciar associações" será atualizada e o aluno apagado deverá estar ausente da lista de alunos da turma. |
 |Critérios de êxito| O aluno deve ser removido da turma e não deve mais aparecer listado entre os alunos pertencentes a turma. |
 
-|Caso de teste 05     | CT 05 - Alterar Dados |
+|Caso de teste 15     | CT 15 - Alterar Dados do usuário |
 |-------|-------------------------
 |Requisitos Associados | 	 RF-06  A aplicação deve permitir que usuários acessem suas contas, alterem suas informações de contato, endereço e senha.
 |Objetivo do teste| Verificar se o usuário consegue acessar sua conta e alterar seus dados. |
-|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Clicar botão usuário e senha. Informar usuário e senha. 4) Alterar informações do contato. 5) Clicar no botão Salvar alterações.  |
-|Critérios de êxito| Os dados do usuário devem ser alterados com sucesso. . |
+|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login como qualquer tipo de usuário 4) Clicar no botão "Perfil" no canto direito do cabeçalho. 5) Escolher a opção "Alterar dados". 6) Inserir as novas informações no formulário. 7) Clicar no botão "Salvar". 8) Abrir novamente a página de "Alterar dados" e verificar se os dados foram atualizados.  |
+|Critérios de êxito| Os dados do usuário devem ser alterados com sucesso e aparecer no sistema. |
 
 
-|Caso de teste 06     | CT 06 - Troca de Mensagens e Documentos |
+|Caso de teste 16     | CT 16 - Realizar troca de mensagens e documentos |
 |-------|-------------------------
-|Requisitos Associados | 	 RF-07 - A aplicação deve permitir a troca de mensagens online pelo aplicativo entre os responsáveis do aluno e os professores, além de outros contatos relevantes como funcionários da secretaria e setor financeiro. RF- 08 - A aplicação deve permitir envio de documentos, fotos, vídeos, autorizações para eventos e passeios (que podem ser aceitos dentro do próprio aplicativo). .
-|Objetivo do teste| Verificar as trocas de mensagens, documentos, fotos e vídeos. |
-|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Clicar botão usuário e senha. Informar usuário e senha. 4) Acessar área de mensagens. 5) Digitar  mensagem. 6) Escolher destinatário. 7) Clicar em enviar.  |
-|Critérios de êxito| Mensagem deve ser enviada corretamente . Mensagem deve ser recebida corretamente constando remetente, arquivos e/ou documentos |
+|Requisitos Associados | 	 RF-07 - A aplicação deve permitir a troca de mensagens online pelo aplicativo entre os responsáveis do aluno e os professores, além de outros contatos relevantes como funcionários da secretaria e setor financeiro.<br>RF- 08 - A aplicação deve permitir envio de documentos, fotos, vídeos, autorizações para eventos e passeios (que podem ser aceitos dentro do próprio aplicativo).
+|Objetivo do teste| Verificar a funcionalidade de troca de mensagens, documentos, fotos e vídeos. |
+|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login no sistema como qualquer tipo de usuário. 4) Clicar na aba "Mensagens". 5) Digitar  o assunto e conteúdo mensagem, anexar imagens e documentos. 6) Selecionar destinatários. 7) Clicar em enviar. 8) Fazer logoff e logar com a conta do usuário para o qual a mensagem foi enviada. 9) Verificar se mensagem chegou ao usuário selecionado  |
+|Critérios de êxito| Mensagem deve ser enviada corretamente . Mensagem deve ser recebida pelo destinatário, constando remetente, arquivos e/ou documentos |
 
-|Caso de teste 07     | CT 07 - Buscar Mensagens |
+|Caso de teste 17     | CT 17 - Buscar Mensagens |
 |-------|-------------------------
 |Requisitos Associados | 	 RF-09  A aplicação deve apresentar uma função de pesquisa dentro do histórico de mensagens do usuário. A busca poderá ser feita por palavras chaves ou por nome de usuário.
-|Objetivo do teste| Verificar se o site faz a busca por mensagens dentro do histórico.. |
-|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Clicar botão usuário e senha. Informar usuário e senha. 4) Acessar área de mensagens. 5) Clicar na mensagem que queira visualizar. |
-|Critérios de êxito| Site localiza dentro do seu banco de dados mensagens com as palavras chaves buscadas . |
+|Objetivo do teste| Verificar se o site faz a busca por mensagens dentro do caixa de mensagens. |
+|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login no sistema como qualquer tipo de usuário. 4) Clicar na aba "Mensagens". 5) Digitar na caixa de busca o assunto da mensagem e clicar no botão de busca. 6) Visualizar mensagem procurada.  |
+|Critérios de êxito| Localizar a mensagem desejada dentro da caixa de mensagens a partir das palavras chave inseridas. |
 
 
-|Caso de teste 08     | CT 08 - Visualizar e Alterar Agenda online |
+|Caso de teste 18     | CT 18 - Visualizar agenda online |
 |-------|-------------------------
 |Requisitos Associados | 	 RF-10 - A aplicação deve apresentar uma agenda online que exiba para cada turma os eventos associados à rotina escolar do aluno (horário das aulas, provas, excursões e evento). Exibir também eventos associados a compromissos dos responsáveis do aluno (reunião de pais e professores). RF-11-  A aplicação deve permitir aos professores adicionar eventos à agenda escolar de uma ou mais turmas, como: provas, excursões e reuniões que ficarão visíveis para os responsáveis do aluno daquela turma.
 |Objetivo do teste| - Verificar e o usuário professor consegue adicionar eventos à agenda. - Verificar se o usuário responsável pelo aluno consegue visualizar a agenda e suas atualizações feitas pelo usuário professor na turma correta. |
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Clicar botão usuário e senha. Informar usuário e senha do professor ou administrador. 4) Clicar em  agenda escolar. 5) Alterar agenda escolar. 6) Salvar. |
 |Critérios de êxito| O sistema deve carregar as atualizações feitas corretamente. |
 
-|Caso de teste 09    | CT 09 - Visualizar Linha do Tempo |
+|Caso de teste 19    | CT 19 - Visualizar Linha do Tempo |
 |-------|-------------------------
 |Requisitos Associados | 	 RF-12 - A aplicação deve disponibilizar uma “linha do tempo” privada onde o professor possa fazer postagens, com fotos e texto sobre o aluno, que estarão visíveis apenas para os responsáveis daquele aluno, administradores do sistema e o respectivo professor.
 |Objetivo do teste| Verificar se a linha do tempo está sendo apresentada completamente na página. |
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Clicar botão usuário e senha. Informar usuário e senha. 4) Clicar em linha do tempo. 5) Visualizar linha do tempo. |
 |Critérios de êxito| Apresentação das postagens com fotos e texto visíveis para seus respectivos responsáveis. |
 
-|Caso de teste 10     | CT 10 -  Visualizar Notificações |
+|Caso de teste 20     | CT 20 -  Visualizar Notificações |
 |-------|-------------------------
 |Requisitos Associados | 	 RF-13 - A aplicação deve possuir uma seção de notificações onde o usuário responsável será notificado sobre eventos, mensagens importantes e compromissos cuja data esteja próxima.
 |Objetivo do teste| Verificar se a carga de notificações está acontecendo corretamente. |
