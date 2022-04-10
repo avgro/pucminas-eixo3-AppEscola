@@ -103,10 +103,14 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
  
 ### Tela - Agenda escolar
  
- <p align="justify">  Será permitido aos usuários, visualizarem fotos de momentos dos alunos durante algum evento ou ao longo da rotina escolar.
-  
- ![agenda](https://user-images.githubusercontent.com/74699119/162344162-f914e94e-aa09-43d2-8717-b30a745d7454.png)
+ <p align="justify">  Será permitido aos usuários visualizar um calendário contendo os eventos da escola de acordo com a data em que estão marcados. Os usuários do tipo "Professor" e Administrador" poderão não só visualizar, mas também cadastrar eventos na agenda.
  
+<b> Tipo de usuário: Responsável do aluno ou "Outro"</b>
+![agenda](https://user-images.githubusercontent.com/74699119/162344162-f914e94e-aa09-43d2-8717-b30a745d7454.png)
+
+<b> Tipo de usuário: Administrador ou Professor</b>
+ ![agendaprof](https://user-images.githubusercontent.com/74699119/162601872-13393b4e-3f02-4b09-a6ab-a8aa39a4d297.png)
+
 ### Tela - Caixa de mensagens
 
  <p align="justify">  Será permitido aos usuários visualizarem os eventos marcados na agenda escolar, sendo permitido incluir eventos e visualizar detalhes.
