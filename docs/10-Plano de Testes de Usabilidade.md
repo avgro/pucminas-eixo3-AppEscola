@@ -11,24 +11,9 @@ Será  possível medir o tempo para fazer cada teste, os erros e acertos acometi
 
 Segue tabela com cada caso de teste:
 
-<table>
-  <tr><th>Caso de Teste </th>
-  <th> CT-01 - Teste de responsividade pelo usuário <th>
-  </tr>
-  <tr><th>Objetivo do teste</th>
-  <th>•	Verificar a responsividade da aplicação quando navegada por um usuário</th>
-  </tr>
-  <tr><th> Ações esperadas </th>
-  <th>	1 - Usuário acessa o site em um desktop e visualiza os conteúdos.<br>
-  2 - Usuário acesse o site em um mobile e visualiza os conteúdos.</th></tr>
-  <tr><th>Critérios de Êxito </th>
-  <th>• Usuário é capaz de visualizar o conteúdo totalmente responsivo, sem quebras de texto e de páginas.</th>
-  </tr>
-</table>
-
 <table> 
 <tr><th>Caso de Teste </th>
-<th>CT-02 – Realização de Login</th></tr>
+<th>CT-01 – Realização de Login</th></tr>
 <tr><th>Objetivo do teste</th>
   <th>•	Verificar a usabilidade do sistema de login</th></tr>
 <tr><th>Ações esperadas</th>
@@ -42,7 +27,7 @@ Segue tabela com cada caso de teste:
   
 <table> 
 <tr><th>Caso de Teste </th>
-<th>CT-03 – Realização de cadastro de usuários do tipo "Responsável do aluno" e "Outros" </th></tr>
+<th>CT-02 – Realização de cadastro de usuários do tipo "Responsável do aluno" e "Outros" </th></tr>
 <tr><th>Objetivo do teste</th>
   <th>•	Verificar a realização de cadastro de usuário do tipo "Profesor", "Responsável do aluno" e "Outros" por um usuário usando uma conta de administrador.</th></tr>
 <tr><th>Ações esperadas</th>
@@ -58,7 +43,7 @@ Segue tabela com cada caso de teste:
 
 <table> 
 <tr><th>Caso de Teste </th>
-<th>CT-04 – Realizar cadastro de turma e disciplina e associar disciplinas a uma turma </th></tr>
+<th>CT-03 – Realizar cadastro de turma e disciplina e associar disciplinas a uma turma </th></tr>
 <tr><th>Objetivo do teste</th>
   <th>•	Verificar a realização de cadastro de usuário do tipo "Profesor", "Responsável do aluno" e "Outros" por um usuário usando uma conta de administrador.</th></tr>
 <tr><th>Ações esperadas</th>
@@ -74,7 +59,7 @@ Segue tabela com cada caso de teste:
 
 <table> 
 <tr><th>Caso de Teste </th>	  
-    <th>CT-05 - Cadastrar aluno e associa-lo a um ou mais responsáveis e a uma turma</th>
+    <th>CT-04 - Cadastrar aluno e associa-lo a um ou mais responsáveis e a uma turma</th>
     </tr>
 <tr><th>Objetivo do teste	</th>
   <th>•	Verificar associação de disciplinas com o Professor</th>
@@ -93,7 +78,7 @@ Segue tabela com cada caso de teste:
 
 <table> 
 <tr><th>Caso de Teste </th>	  
-    <th>CT-06 – Testar uso de sistemas de trocas de Mensagens e Documentos pelo usuário</th>
+    <th>CT-05 – Testar uso de sistemas de trocas de Mensagens e Documentos pelo usuário</th>
     </tr>
 <tr><th>Objetivo do teste	</th>
   <th>•	Verificar a trocas de mensagens, documentos, fotos e vídeos pelo usuário</th>
@@ -111,7 +96,7 @@ Segue tabela com cada caso de teste:
   
 <table>
   <tr><th>Caso de Teste</th>
-<th>CT- 07 – Testar uso da funcionalidade de busca de mensagens no sistema pelo usuário</th>
+<th>CT- 06 – Testar uso da funcionalidade de busca de mensagens no sistema pelo usuário</th>
     </tr>
    <tr><th>Objetivo do Teste	</th>
      <th>•	Verificar se o usuário é capaz de localizar uma mensagem na caixa de mensagens utilizando a barra de busca</th>
@@ -130,7 +115,7 @@ Segue tabela com cada caso de teste:
 
 <table>
   <tr><th>Caso de Teste</th>
-<th>CT- 08 - Visualizar (todos os tipos de usuário) e Alterar (usuários do tipo "Professor" e "Administrador" Agenda online</th>
+<th>CT- 07 - Visualizar (todos os tipos de usuário) e Alterar (usuários do tipo "Professor" e "Administrador" Agenda online</th>
     </tr>
    <tr><th>Objetivo do Teste	</th>
      <th>•	Verificar se o usuário é capaz de visualizar a agenda e se o usuário logado como "Administrador" ou "Professor" é capaz de adicionar eventos à agenda.</th>
@@ -151,7 +136,7 @@ Segue tabela com cada caso de teste:
 
 <table>
   <tr><th>Caso de Teste</th>
-<th>CT- 09 - Visualizar Linha do Tempo</th>
+<th>CT- 08 - Visualizar Linha do Tempo</th>
     </tr>
    <tr><th>Objetivo do Teste</th>
      <th>	•	Verificar se a linha do tempo está sendo apresentada completamente na página</th>
@@ -170,7 +155,7 @@ Segue tabela com cada caso de teste:
 
 <table>
   <tr><th>Caso de Teste</th>
-<th>	CT- 10 - Visualizar Notificações</th>
+<th>	CT- 09 - Visualizar Notificações</th>
     </tr>
    <tr><th>Objetivo do Teste</th>
      <th>	•	Verificar se as notificações estão acontecendo corretamente.</th>
@@ -189,7 +174,7 @@ Segue tabela com cada caso de teste:
 
 <table>
   <tr><th>Caso de Teste</th>
-<th>CT- 11 - Adicionar ou Remover Aluno/ Disciplina</th>
+<th>CT- 10 - Adicionar ou Remover Aluno/ Disciplina</th>
     </tr>
    <tr><th>Objetivo do Teste	</th>
      <th>•	Verificar se o administrador do sistema consegue adicionar ou excluir os alunos às disciplinas cadastradas.</th>
@@ -208,7 +193,7 @@ Segue tabela com cada caso de teste:
 <table>
   <tr><th>Caso de Teste	</th>
 <th>
-CT- 12 - Alterar Dados</th>
+CT- 11 - Alterar Dados</th>
     </tr>
    <tr><th>Objetivo do Teste</th>
      <th>•	Verificar se o usuário consegue acessar sua conta e alterar seus dados.</th>
