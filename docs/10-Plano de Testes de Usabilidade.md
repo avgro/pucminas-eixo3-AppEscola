@@ -173,7 +173,7 @@ Segue tabela com cada caso de teste:
   6- Usuário preenche as informações solicitadas para cadastrar nova publicação na linha do tempo.<br>
   7- Usuário clica no botão "Salvar".<br>
   8- Usuário preenche o campo de "Escrever comentário" e clica em "Postar".<br>
-  9- Usuário faz logoff e entra no sistema com uma conta do tipo "Responsável do aluno" associado ao aluno para o qual a publicação foi feita<br>
+  9- Usuário faz logoff e entra no sistema com uma conta do tipo "Responsável do aluno" associado ao aluno para o qual a publicação foi feita.<br>
   10- Usuário clica em "Linha do tempo" e visualiza a postagem do professor.<br>
   11- Usuário preenche o campo "Escrever comentário" e clica em "Postar"</th></tr>
    <tr><th>Critérios de Êxito</th>
