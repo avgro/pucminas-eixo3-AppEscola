@@ -102,7 +102,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
  
 ### Tela - Alterar informações da conta
 
- <p align="justify">  Será permitido aos usuários modificarem suas informações básicas, como email, telefone, senha, endereço e outros dados.</p>
+ <p align="justify">  Será permitido aos usuários modificarem suas informações básicas, como email, telefone, senha e endereço.</p>
   
 ![alterardados](https://user-images.githubusercontent.com/74699119/162345769-fe3d5b97-29cf-481a-879c-7396f0df221a.png)
  
@@ -118,7 +118,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
 ### Tela - Caixa de mensagens
 
- <p align="justify">  Será permitido aos usuários receber e enviar mensagens contendo texto, imagens e video. Esta tela mostra a caixa de entrada de mensagens, bem como a área para compor uma nova mensagem.
+ <p align="justify">  Será permitido aos usuários receber e enviar mensagens contendo texto, imagens e video. Esta tela mostra a caixa de entrada de mensagens, bem como a área para compor uma nova mensagem.</p>
   
 ![mensagens](https://user-images.githubusercontent.com/74699119/162601595-b868f4d4-7209-4cd4-b477-56887cd76a0d.png)
 
