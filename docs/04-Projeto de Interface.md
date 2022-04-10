@@ -132,13 +132,14 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
   
   > - **Responsável do aluno:** Será permitido ao usuário visualizar imagens adicionadas de seus filhos. Este usuáriio poderá ver todas as fotos adicionadas e interagir através de comentários.
   
-![linhadotemporesp](https://user-images.githubusercontent.com/74699119/162346282-026937c4-fddc-4018-8c32-d38322e4333d.png)
+![linhadotemporesp](https://user-images.githubusercontent.com/74699119/162608351-595dad44-6185-4f26-b40c-e5745458403f.png)
  
  <b>Tipo de usuário - Professor</b><br>
   
   > - **Professor:** Este usuário poderá adicionar imagens de um determinado aluno, bem como interagir com a publicação por meio de comentários.
   
-![linhadotempoprofessor](https://user-images.githubusercontent.com/74699119/162346136-6c188ec0-d05c-4f8f-87d2-e54a6b6340ed.png)
+![linhadotempoprofessor](https://user-images.githubusercontent.com/74699119/162608349-7fa1c508-1324-4314-947f-7521ec0db4ef.png)
+
  
 ### Tela - Assinar autorização
 
