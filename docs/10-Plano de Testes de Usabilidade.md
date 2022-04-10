@@ -96,29 +96,29 @@ Segue tabela com cada caso de teste:
   
 <table>
   <tr><th>Caso de Teste</th>
-<th>CT- 06 – Testar uso da funcionalidade de busca de mensagens no sistema pelo usuário</th>
+<th>CT- 06 – Testar o uso da funcionalidade de busca de mensagens no sistema pelo usuário</th>
     </tr>
    <tr><th>Objetivo do Teste	</th>
-     <th>•	Verificar se o usuário é capaz de localizar uma mensagem na caixa de mensagens utilizando a barra de busca</th>
+     <th>•	Verificar se o usuário é capaz de localizar uma mensagem utilizando a barra de busca</th>
   </tr>
      <tr><th>Ações esperadas</th>
          <th>1 - Usuário acessa o site.<br>
   2 – Usuário acessa a tela de login e insere as informações de login da conta fornecidas a ele.<br>
-  3 – Usuário clica em "fazer login" e entra no sistema como qualquer tipo de usuário.<br>
+  3 – Usuário clica em "fazer login" e entra no sistema.<br>
   4- Ao entrar em seu painel de usuário, usuário clica no botão "mensagens".<br>
   5- Usuário insere conteúdo da mensagem que está buscando na barra de busca e clica no botão de procurar.<br>
   6- Usuário encontra a mensagem desejada.</th></tr>
    <tr><th>Critérios de Êxito</th>
-<th>	Usuário é capaz de localizar a mensagem que deseja a partir das palavras chaves da busca.</th>
+<th>	Usuário é capaz de localizar a mensagem que deseja a partir das palavras chaves.</th>
      </tr>
 </table>
 
 <table>
   <tr><th>Caso de Teste</th>
-<th>CT- 07 - Visualizar (todos os tipos de usuário) e Alterar (usuários do tipo "Professor" e "Administrador" Agenda online</th>
+<th>CT- 07 - Visualizar e Alterar Agenda </th>
     </tr>
    <tr><th>Objetivo do Teste	</th>
-     <th>•	Verificar se o usuário é capaz de visualizar a agenda e se o usuário logado como "Administrador" ou "Professor" é capaz de adicionar eventos à agenda.</th>
+     <th>•	Verificar se o usuário tipo "Responsável pelo aluno" é capaz de visualizar a agenda. Verificar se o usuário tipo "Administrador" ou "Professor" é capaz de adicionar eventos à agenda.</th>
   </tr>
      <tr><th>Ações esperadas</th>
          <th>1 - Usuário acessa o site.<br>
