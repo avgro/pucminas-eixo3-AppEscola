@@ -18,9 +18,9 @@ Segue tabela com cada caso de teste:
   <th>•	Verificar a usabilidade do sistema de login</th></tr>
 <tr><th>Ações esperadas</th>
   <th>1 - Usuário acessa o site.<br>
- 2 - Usuário clica no botão de login.<br>
- 3 – Usuário insere usuário e senha nos campos solicitados.
- 4 - Usuário clica em "Entrar" e realiza o login no sistema </th></tr>
+ 2- Usuário clica no botão de login.<br>
+ 3– Usuário insere usuário e senha nos campos solicitados.
+ 4- Usuário clica em "Entrar" e realiza o login no sistema </th></tr>
 <tr><th>Critérios de Êxito</th>	
   <th>•	Após efetuar o login será redirecionado automaticamente para sua respectiva tela de painel de acordo com seu cadastro.</th></tr>
   </table>
@@ -32,8 +32,8 @@ Segue tabela com cada caso de teste:
   <th>•	Verificar a realização de cadastro de usuário do tipo "Professor", "Responsável do aluno" e "Outros" por um usuário usando uma conta de administrador.</th></tr>
 <tr><th>Ações esperadas</th>
   <th>1 - Usuário acessa o site.<br>
-  2 – Usuário acessa a tela de login e insere as informações de login da conta do tipo "Administrador" fornecidas a ele.<br>
-  3 – Usuário clica em "fazer login" e entra no sistema como Administrador.<br>
+  2– Usuário acessa a tela de login e insere as informações de login da conta do tipo "Administrador" fornecidas a ele.<br>
+  3– Usuário clica em "fazer login" e entra no sistema como Administrador.<br>
   4- Ao entrar em seu painel de administrador, usuário clica no botão "cadastrar usuários" e insere todas as informações requisitadas no formulário, selecionado um tipo de usuário no campo "tipo de usuário".<br>
   5- Após preencher os campos, usuário clica na opcão "Cadastrar".<br>
   6- Usuário repete o processo para todos os tipos de usuário. </th></tr>
@@ -47,14 +47,14 @@ Segue tabela com cada caso de teste:
 <tr><th>Objetivo do teste</th>
   <th>•	Verificar a realização de cadastro de usuário do tipo "Professor", "Responsável do aluno" e "Outros" por um usuário usando uma conta de administrador.</th></tr>
 <tr><th>Ações esperadas</th>
-  <th>1 - Usuário acessa o site.<br>
-  2 – Usuário acessa a tela de login e insere as informações de login da conta do tipo "Administrador" fornecidas a ele.<br>
-  3 – Usuário clica em "fazer login" e entra no sistema como Administrador.<br>
+  <th>1 - Usuário administrador acessa o site.<br>
+  2– Usuário acessa a tela de login e insere as informações de login da conta do tipo "Administrador" fornecidas a ele.<br>
+  3– Usuário clica em "fazer login" e entra no sistema como Administrador.<br>
   4- Ao entrar em seu painel de administrador, usuário clica no botão "cadastrar usuários" e insere todas as informações requisitadas no formulário, selecionado um tipo de usuário no campo "tipo de usuário".<br>
   5- Após preencher os campos, usuário clica na opcão "Cadastrar".<br>
-  6- Usuário repete o processo para todos os tipos de usuário. </th></tr>
+  6- Usuário repete o processo para todos os tipos de usuários. </th></tr>
 <tr><th>Critérios de Êxito</th>	
-  <th>•	Usuário é capaz de cadastrar pelo menos um usuário de cada tipo.</th></tr>
+  <th>•	Usuário administrador é capaz de cadastrar pelo menos um usuário de cada tipo.</th></tr>
   </table>
 
 <table> 
