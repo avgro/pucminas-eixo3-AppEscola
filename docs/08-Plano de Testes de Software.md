@@ -137,73 +137,66 @@ Os testes funcionais a serem realizados no aplicativo são descritos a seguir:
 |-------|-------------------------
 |Requisitos Associados | 	 RF-10 - A aplicação deve apresentar uma agenda online que exiba para cada turma os eventos associados à rotina escolar do aluno (horário das aulas, provas, excursões e evento). Exibir também eventos associados a compromissos dos responsáveis do aluno (reunião de pais e professores).<br>RF-11-  A aplicação deve permitir aos professores adicionar eventos à agenda escolar de uma ou mais turmas, como: provas, excursões e reuniões que ficarão visíveis para os responsáveis do aluno daquela turma.|
 |Objetivo do teste| - Verificar se os usuários do tipo administrador e professor conseguem adicionar eventos à agenda.
-|Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login no sistema como administrador ou professor. 4) Clicar na aba "Agenda". 5) Clicar em "Cadastrar evento". 7) Preencher informações solicitadas. 6) Clicar em "Salvar". 7) A tela de "Agenda escolar" deve ser atualizada e o novo evento cadastrado deve aparecer nela 8) Repetir o mesmo procedimento para todos os usuários capazes de cadastrar eventos na agenda |
-|Critérios de êxito| O sistema deve registrar o evento cadastrado e carregar as atualizações feitas corretamente. |
-
-|Caso de teste 19     | CT 19 - Cadastrar eventos na agenda escolar |
-|-------|-------------------------
-|Requisitos Associados | 	 RF-10 - A aplicação deve apresentar uma agenda online que exiba para cada turma os eventos associados à rotina escolar do aluno (horário das aulas, provas, excursões e evento). Exibir também eventos associados a compromissos dos responsáveis do aluno (reunião de pais e professores).<br>RF-11-  A aplicação deve permitir aos professores adicionar eventos à agenda escolar de uma ou mais turmas, como: provas, excursões e reuniões que ficarão visíveis para os responsáveis do aluno daquela turma.|
-|Objetivo do teste| - Verificar se os usuários do tipo administrador e professor conseguem adicionar eventos à agenda.
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login no sistema como admnistrador ou professor. 4) Clicar na aba "Agenda". 5) Clicar em "Cadastrar evento". 6) Preencher informações solicitadas. 6) Clicar em "Salvar". 7) A tela de "Agenda escolar" deve ser atualizada e o novo evento cadastrado deve aparecer nela 8) Repetir o mesmo procedimento para todos os usuários capazes de cadastrar eventos na agenda |
 |Critérios de êxito| O sistema deve registrar o evento cadastrado e carregar as atualizações feitas corretamente. |
 
-|Caso de teste 20     | CT 20 - Visualizar eventos cadastrados na agenda escolar |
+|Caso de teste 19     | CT 19 - Visualizar eventos cadastrados na agenda escolar |
 |-------|-------------------------
 |Requisitos Associados | 	 RF-10 - A aplicação deve apresentar uma agenda online que exiba para cada turma os eventos associados à rotina escolar do aluno (horário das aulas, provas, excursões e evento). Exibir também eventos associados a compromissos dos responsáveis do aluno (reunião de pais e professores).<br>RF-11-  A aplicação deve permitir aos professores adicionar eventos à agenda escolar de uma ou mais turmas, como: provas, excursões e reuniões que ficarão visíveis para os responsáveis do aluno daquela turma.|
 |Objetivo do teste| - Verificar se todos os usuários conseguem visualizar os eventos cadastrados na agenda escolar.
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login no sistema como qualquer tipo de usuário. 4) Clicar na aba "Agenda". 5) Visualizar agenda escolar e seus eventos 6) Repetir o mesmo procedimento para todos os tipos de usuário. |
 |Critérios de êxito| Evento estar disponível na agenda para todos os tipos de usuário visualizarem. |
 
-|Caso de teste 21     | CT 21 - Apagar evento na agenda escolar |
+|Caso de teste 20     | CT 20 - Apagar evento na agenda escolar |
 |-------|-------------------------
 |Requisitos Associados | 	 RF-10 - A aplicação deve apresentar uma agenda online que exiba para cada turma os eventos associados à rotina escolar do aluno (horário das aulas, provas, excursões e evento). Exibir também eventos associados a compromissos dos responsáveis do aluno (reunião de pais e professores).<br>RF-11-  A aplicação deve permitir aos professores adicionar eventos à agenda escolar de uma ou mais turmas, como: provas, excursões e reuniões que ficarão visíveis para os responsáveis do aluno daquela turma.|
 |Objetivo do teste| - Verificar se os usuários do tipo administrador e professor conseguem remover eventos da agenda escolar.
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login no sistema como admnistrador ou professor. 4) Clicar na aba "Agenda". 5) Clicar em "Apagar evento". 6) Selecionar evento que se deseja apagar. 7) Clicar em "Apagar". 8) A tela de "Agenda escolar" deve ser atualizada e o evento apagado deve ter desaparecido da agenda 8) Repetir o mesmo procedimento para todos os usuários capazes de apagar eventos na agenda |
 |Critérios de êxito| O evento selecionado deve ter sido apagado e o sistema deve carregar as atualizações feitas corretamente, de modo que o evento não apareça mais na agenda. |
 
-|Caso de teste 22     | CT 22 - Assinar autorização para participação do filho em evento |
+|Caso de teste 21     | CT 21 - Assinar autorização para participação do filho em evento |
 |-------|-------------------------
 |Requisitos Associados | 	 RF-10 - A aplicação deve apresentar uma agenda online que exiba para cada turma os eventos associados à rotina escolar do aluno (horário das aulas, provas, excursões e evento). Exibir também eventos associados a compromissos dos responsáveis do aluno (reunião de pais e professores).<br>RF-11-  A aplicação deve permitir aos professores adicionar eventos à agenda escolar de uma ou mais turmas, como: provas, excursões e reuniões que ficarão visíveis para os responsáveis do aluno daquela turma.|
 |Objetivo do teste| - Verificar se o usuário do tipo "responsável do aluno" consegue autorizar o filho a participar de um evento que requer permissão |
 |Passos |	1) Cadastrar um evento que requer autorização dos responsáveis na agenda escolar (seguindo os passos do CT-18 e marcando a opção "Requer autorização".	2) Fazer login como usuário do tipo "Responsável do aluno" que esteja associado a um aluno de uma turma que pode participar do evento 3) Informar o endereço do site. 4) Clicar na aba "Assinar autorização". 5) Selecionar autorização do evento em questão. 6) Clicar na opção "Autorizo meu/minha filho(a) a participar da atividade proposta acima". 6) Clicar em "Enviar". 7) A tela de "Assinar autorização" deve ser atualizada e a autorização em questão deve constar como assinada. 8) Repetir os mesmos passos, mas dessa vez negando a autorização ao aluno clicando em "Não autorizo meu/minha filho(a) a participar da atividade proposta acima" no passo 6 |
 |Critérios de êxito| A autorização deve ser assinada com sucesso e constar como "assinada" ou "recusada" após o fim do processo a depender da escolha do usuário. |
 
-|Caso de teste 23    | CT 23 - Adicionar evento na Linha do Tempo |
+|Caso de teste 22    | CT 22 - Adicionar evento na Linha do Tempo |
 |-------|-------------------------
 |Requisitos Associados | 	 RF-12 - A aplicação deve disponibilizar uma “linha do tempo” privada onde o professor possa fazer postagens, com fotos e texto sobre o aluno, que estarão visíveis apenas para os responsáveis daquele aluno, administradores do sistema e o respectivo professor.<br>A aplicação deve permitir envio de documentos, fotos, vídeos e autorizações para eventos e passeios (que podem ser aceitos dentro do próprio aplicativo) para os responsáveis do aluno pelos funcionários da escola |
 |Objetivo do teste| Verificar se o usuário do tipo "professor" consegue postar um evento na linha do tempo de um aluno |
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login como usuário do tipo "Professor" 4) Clicar na aba "Linha do Tempo". 5) Clicar em "Cadastrar publicação". 6) Preencher as informações solicitadas. 7) Clicar em "Salvar" 8) A tela de "Linha do tempo" será atualizada e a nova postagem deverá aparecer nela . |
 |Critérios de êxito| O professor deve ser caapz de cadastrar uma publicação que deve aparecer na linha do tempo após o cadastro. |
 
-|Caso de teste 24    | CT 24 - Visualizar Linha do Tempo |
+|Caso de teste 23    | CT 23 - Visualizar Linha do Tempo |
 |-------|-------------------------
 |Requisitos Associados | 	 RF-12 - A aplicação deve disponibilizar uma “linha do tempo” privada onde o professor possa fazer postagens, com fotos e texto sobre o aluno, que estarão visíveis apenas para os responsáveis daquele aluno, administradores do sistema e o respectivo professor.<br>A aplicação deve permitir envio de documentos, fotos, vídeos e autorizações para eventos e passeios (que podem ser aceitos dentro do próprio aplicativo) para os responsáveis do aluno pelos funcionários da escola |
 |Objetivo do teste| Verificar se o usuário do tipo "responsável do aluno" consegue visualizar a linha do tempo do filho |
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login como usuário do tipo "Professor" 4) Clicar na aba "Linha do Tempo". 5) Visualizar publicação |
 |Critérios de êxito| O responsável do aluno deve ser caapz de visualizar a publicação cadastrada pelo professor. |
 
-|Caso de teste 25    | CT 25 - Comentar publicação da Linha do Tempo |
+|Caso de teste 24    | CT 24 - Comentar publicação da Linha do Tempo |
 |-------|-------------------------
 |Requisitos Associados | 	 RF-12 - A aplicação deve disponibilizar uma “linha do tempo” privada onde o professor possa fazer postagens, com fotos e texto sobre o aluno, que estarão visíveis apenas para os responsáveis daquele aluno, administradores do sistema e o respectivo professor.<br>A aplicação deve permitir envio de documentos, fotos, vídeos e autorizações para eventos e passeios (que podem ser aceitos dentro do próprio aplicativo) para os responsáveis do aluno pelos funcionários da escola |
 |Objetivo do teste| Verificar se os usuários do tipo "Professor" e "Responsável do Aluno" conseguem comentar nas publicações da linha do tempo |
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login como usuário do tipo "Professor" 4) Clicar na aba "Linha do Tempo". 5) Visualizar publicação 6) Escrever comentário na caixa de mensagem abaixo da publicação 7) Clicar em "Postar" 8) A tela de "Linha do tempo" deverá ser atualizada e o comentário estar presente na publicação 9) Repetir o mesmo procedimento com todos os tipos de usuário capazes de acessar a linha do tempo (Professor e responsável do aluno) |
 |Critérios de êxito| O usuário deve postar um comentário na linha do tempo com sucesso e esse deve permanecer associado ao evento da linha do tempo ao visualizar a página. |
 
-|Caso de teste 26     | CT 26 -  Lançar notificação no sistema |
+|Caso de teste 25     | CT 25 -  Lançar notificação no sistema |
 |-------|-------------------------
 |Requisitos Associados | 	 RF-13 - A aplicação deve possuir uma seção de notificações onde o usuário responsável será notificado sobre eventos, mensagens importantes e compromissos cuja data esteja próxima.
 |Objetivo do teste| Verificar se o usuário do tipo "Administrador" consegue lançar notificações no sistema |
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login com usuário do tipo "Administrador". 4) Clicar em "Notificações". 5) Clicar em "criar notificação" 6) Preencher os dados solicitados no formulário. 7) Clicar em "Lançar notificação". 8) Clicar novamente em "Notificações" e verificar se a notificação está presente |
 |Critérios de êxito| A notificação deve ser lançado com sucesso no sistema e aparecer na tela "Notificações". |
 
-|Caso de teste 27     | CT 27 -  Visualizar Notificações |
+|Caso de teste 26     | CT 26 -  Visualizar Notificações |
 |-------|-------------------------
 |Requisitos Associados | 	 RF-13 - A aplicação deve possuir uma seção de notificações onde o usuário responsável será notificado sobre eventos, mensagens importantes e compromissos cuja data esteja próxima.
 |Objetivo do teste| Verificar se a carga de notificações está acontecendo corretamente. |
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login no sistema. 4) Clicar em notificações. 5) Visualizar área de notificações.  |
 |Critérios de êxito| As notificações devem ser exibidas corretamente para o usuário. |
 
-|Caso de teste 28     | CT 28 - Responsividade |
+|Caso de teste 27     | CT 27 - Responsividade |
 |-------|-------------------------
 |Requisitos Associados | 	 RNF-02 - O site deverá ser responsivo permitindo a visualização em um celular de forma adequada.
 |Objetivo do teste| Verificar a responsividade do site. |
