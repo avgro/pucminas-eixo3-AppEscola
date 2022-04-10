@@ -109,7 +109,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 ![agenda](https://user-images.githubusercontent.com/74699119/162344162-f914e94e-aa09-43d2-8717-b30a745d7454.png)
 
 <b> Tipo de usuário: Administrador ou Professor</b>
- ![agendaprof](https://user-images.githubusercontent.com/74699119/162601872-13393b4e-3f02-4b09-a6ab-a8aa39a4d297.png)
+![agendaprof](https://user-images.githubusercontent.com/74699119/162601923-507c7a98-f458-466a-b34b-82866fd46886.png)
 
 ### Tela - Caixa de mensagens
 
