@@ -99,14 +99,14 @@ Os testes funcionais a serem realizados no aplicativo são descritos a seguir:
 
 |Caso de teste 13     | CT 13 -  Adicionar Aluno a uma turma |
 |-------|-------------------------
-|Requisitos Associados | 	 RF-03 A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis. | 
+|Requisitos Associados | 	 RF-05 A aplicação deve permitir que o administrador do sistema adicione ou remova alunos das turmas disponíveis, além de selecionar as disciplinas que serão ministradas para aquela turma. | 
 |Objetivo do teste| Verificar se o administrador do sistema consegue adicionar alunos a uma turma cadastrada. |
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login como administrador 4) Clicar na opção "Associar alunos à turma" 5) Selecionar nome da turma que deseja apagar 6) Selecionar o nome do aluno que deseja incluir na turma. 7) Clicar em "Salvar" e verificar se a turma desapareceu da lista de turmas a escolher. 8) Clicar em "Gerenciar associações" e verificar se o aluno aparece listado na turma. |
 |Critérios de êxito| O aluno deve ser inserido na turma e deve aparecer listado entre os alunos pertencentes a turma. |
 
 |Caso de teste 14     | CT 14 -  Remover aluno de uma turma |
 |-------|-------------------------
-|Requisitos Associados | 	 RF-03 A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis. | 
+|Requisitos Associados | 	 RF-05 A aplicação deve permitir que o administrador do sistema adicione ou remova alunos das turmas disponíveis, além de selecionar as disciplinas que serão ministradas para aquela turma. | 
 |Objetivo do teste| Verificar se o administrador do sistema consegue remover alunos de uma turma cadastrada. |
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login como administrador 4) Clicar na opção "Gerenciar associações" 5) Selecionar nome da turma que deseja retirar o aluno 6) Procurar o nome do aluno na lista e clicar em "Apagar" 8) A tela de "Gerenciar associações" será atualizada e o aluno apagado deverá estar ausente da lista de alunos da turma. |
 |Critérios de êxito| O aluno deve ser removido da turma e não deve mais aparecer listado entre os alunos pertencentes a turma. |
