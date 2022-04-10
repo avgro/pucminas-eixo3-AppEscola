@@ -85,14 +85,24 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
  
 ### Tela - Mostrar notificações 
 
-<p align="justify"> Na tela de notificações, mostra os elementos que os usuários estão recebendo de atualização da ferramenta, sejam novas mensagens ou eventos. Será mostrado aos usuários um resumo das notificações no botão Notificação na parte superior da tela, bem como em um painel centralizado na página. </p>
- 
+<p align="justify"> Na tela de notificações, são mostrados avisos para os usuários, sejam notificações do sistema ou notificações lançadas diretamente pelo administrador. Será mostrado aos usuários um resumo das notificações no botão Notificação na parte superior da tela, bem como em um painel centralizado na página. Usuários do tipo "Administrador" poderão criar novas notificações que serão enviadas para os demais usuários clicando na opção "Criar notificação". </p>
+
+<b>Tipo de usuário: Professor, Responsável do Aluno e "Outros"
 ![notificacoes](https://user-images.githubusercontent.com/74699119/162345763-f1844ad3-58aa-4192-afb1-ca4bfca99739.png)
-  
+ 
+<b>Tipo de usuário: Administrador  
+![notificacoesadministrador](https://user-images.githubusercontent.com/74699119/162607878-76ee7c49-42f7-4828-8e87-ce566b7dedf5.png)
+
+### Tela - Criar notificação
+
+ <p align="justify"> Tela acessada pelo Administrador ao clicar em "Criar notificação" no menu de notificações. Permite criar uma nova notificação e lança-la no sistema.</p>
+ 
+![telacriarnotificacao](https://user-images.githubusercontent.com/74699119/162607969-b59b5d7c-eb61-4129-8e98-90050d820d51.png)
+
 ### Tela - Opções da conta
 
  <p align="justify">  Será permitido aos usuários acessarem o submenu de Alterar dados, sendo direcionado para a página específica e permitindo ao usuário a alteração de seus dados. O usuário também terá a funcionalidade de logout.</p>
-  
+
 ![perfil](https://user-images.githubusercontent.com/74699119/162345487-94dad779-b01c-487f-b845-f3022f3ce7ce.png)
  
 ### Tela - Alterar informações da conta
