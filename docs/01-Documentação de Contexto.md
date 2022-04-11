@@ -1,4 +1,4 @@
-# Introduçãoa
+# Introdução
 
 <p align="justify">A interação efetiva entre pais, alunos e professores sempre foi uma questão de grande importância e vem se tornando um desafio cada vez maior na nossa sociedade. Muito em decorrência do aumento do dinamismo em nossas vidas, muitos pais no Brasil sentem que não são capazes de dedicar tempo suficiente à educação de seus filhos (de Oliveira, 2018). Além disto, o novo cenário gerado pela pandemia da Covid-19 traz uma série de novos desafios para a gestão escolar em geral.</p> 
 
