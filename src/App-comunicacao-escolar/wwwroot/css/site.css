@@ -16,3 +16,34 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.conteudo-textarea {
+    width: 100%;
+    height: 240px;
+}
+
+.caixa-destinatario-lista {
+    border: 1px solid;
+    border-radius: 6px;
+    padding: 4px 6px 4px 6px;
+    margin: 4px;
+}
+
+.mensagem-email {
+    border: 1px solid;
+    border-radius: 6px;
+    padding: 12px;
+    margin: 6px;
+}
+
+#tela-responder-mensagem {
+    background-color: white;
+    border: 1px solid;
+    border-radius: 6px;
+    padding: 12px;
+    position: fixed;
+    bottom: 0px;
+    right: 32px;
+    width: 640px;
+    display: none;
+}

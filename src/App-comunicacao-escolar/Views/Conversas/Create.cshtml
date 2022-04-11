@@ -1,0 +1,46 @@
+﻿@model App_comunicacao_escolar.Models.Conversa
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Conversa</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Assunto" class="control-label"></label>
+                <input asp-for="Assunto" class="form-control" />
+                <span asp-validation-for="Assunto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="destinatarioId" class="control-label">Selecionar destinatários</label>
+                <select id="destinatarioId" asp-for="Participantes" class ="form-control" asp-items="ViewBag.ParticipanteId" readonly>
+                </select>
+                <button type="button" class="btn btn-primary m-1" onclick="adicionarDestinatarioALista()">Adicionar destinatário</button>
+                <br />
+                <div class="d-flex text-wrap m-1" id="exibirDestinatariosSelecionados"></div>
+                <input type="text" id="listaDeDestinatariosPorId" name="listaDeDestinatariosPorId"/>
+            </div>
+            <div class="form-group">
+                <label for="conteudoMensagem" class="control-label">Conteúdo</label>
+                <textarea id="conteudoMensagem" name="conteudoMensagem" class="form-control conteudo-textarea" placeholder="Inserir conteúdo da mensagem..."></textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

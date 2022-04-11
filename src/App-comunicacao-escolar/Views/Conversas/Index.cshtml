@@ -1,0 +1,46 @@
+﻿@model IEnumerable<App_comunicacao_escolar.Models.Conversa>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RemetenteNome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrimeiraMensagem)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        ViewData["Mensagem"] = item.PrimeiraMensagem;
+        <tr>
+            <td>
+                <b>@Html.DisplayFor(modelItem => item.RemetenteNome)</b>
+            </td>
+            <td>
+                 @if(item.PrimeiraMensagem != null && item.PrimeiraMensagem.Length > 119)
+                {
+                     ViewData["Mensagem"] = item.PrimeiraMensagem.Substring(0, 120);
+                }
+                <b>@Html.DisplayFor(modelItem => item.Assunto)</b> -
+                @ViewData["Mensagem"]...
+            </td>  
+            <td>
+                <a class="btn btn-primary" asp-action="Visualizar" asp-route-id="@item.Id">Visualizar</a>
+            </td>
+        </tr>
+        
+}
+    </tbody>
+</table>
