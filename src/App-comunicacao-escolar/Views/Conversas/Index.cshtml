@@ -6,13 +6,15 @@
 
 <h1>Index</h1>
 
+@ViewData["IdUsuario"]
+
 <p>
     <a asp-action="Create">Create New</a>
 </p>
 @using (Html.BeginForm("Index", "Conversas", FormMethod.Post))
 {
     <div>
-        Buscar conversa por assunto ou conteúdo das mensagens: @Html.TextBox("searchId")
+        Buscar conversa por assunto ou conteúdo das mensagens: @Html.TextBox("searchString")
         <input id="Submit1" type="submit" value="Filtrar"/>
     </div>
 }

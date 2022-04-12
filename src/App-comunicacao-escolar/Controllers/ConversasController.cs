@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using App_comunicacao_escolar.Models;
+using System.Security.Claims;
 
 namespace App_comunicacao_escolar.Controllers
 {
@@ -20,27 +21,44 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: Conversas
-        public async Task<IActionResult> Index(string? searchId)
+        public async Task<IActionResult> Index(string? searchString, string? secao)
         {
+            int idDoUsuarioLogado = GetIdUsuarioLogado();
+
             var applicationDbContext = _context.Conversas.Include(c => c.Participantes).Include(c => c.NumeroDeNovasMensagensNaConversa);
 
             var conversas = await Task.Run(() => from c in applicationDbContext select c);
-            if (searchId != null)
+
+            conversas = await Task.Run(() => conversas.Where(d => d.Participantes.Any(p => p.Id == idDoUsuarioLogado) || d.RemetenteId == idDoUsuarioLogado));
+
+            if (searchString != null)
             {
-                conversas = await Task.Run(() => conversas.Where(d => d.Assunto.Contains(searchId) || d.Mensagens.Any(m => m.Conteudo.Contains(searchId))));
+                conversas = await Task.Run(() => conversas.Where(d => d.Assunto.Contains(searchString) || d.Mensagens.Any(m => m.Conteudo.Contains(searchString))));
             }
 
             return View(conversas);
         }
 
+        public int GetIdUsuarioLogado()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                ClaimsPrincipal currentUser = User;
+                return Int32.Parse(currentUser.FindFirst(ClaimTypes.NameIdentifier).Value);
+            }
+            return -1;
+        }
+
         // GET: Conversas/Visualizar/5
         public async Task<IActionResult> Visualizar(int? id)
         {
+            int idDoUsuarioLogado = GetIdUsuarioLogado();
+
             if (id == null)
             {
                 return NotFound();
             }
-            var applicationDbContext = _context.Conversas.Include(c => c.Mensagens);
+            var applicationDbContext = _context.Conversas.Include(c => c.Mensagens.Where(m => m.Participantes.Any(p => p.Id == idDoUsuarioLogado) || m.RemetenteId == idDoUsuarioLogado));
             var conversa = await applicationDbContext
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (conversa == null)
@@ -83,10 +101,11 @@ namespace App_comunicacao_escolar.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Assunto,PrimeiraMensagem,RemetenteNome,RemetenteId")] Conversa conversa, [Bind("listaDeDestinatariosPorId")] string listaDeDestinatariosPorId, [Bind("conteudoMensagem")] string conteudoMensagem, Mensagem mensagem)
         {
+            int idUsuarioLogado = GetIdUsuarioLogado();
             mensagem.DataEnvio = DateTime.Now;
             mensagem.Conteudo = conteudoMensagem;
-            mensagem.RemetenteId = 1;
-            mensagem.RemetenteNome = "Administrador";
+            mensagem.RemetenteId = idUsuarioLogado;
+            mensagem.RemetenteNome = _context.Usuarios.FirstOrDefault(u => u.Id == idUsuarioLogado).Nome;
 
             conversa.PrimeiraMensagem = mensagem.Conteudo;
             conversa.RemetenteNome = mensagem.RemetenteNome;
@@ -136,13 +155,14 @@ namespace App_comunicacao_escolar.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateResposta(Mensagem mensagem, [Bind("conteudoMensagem")] string conteudoMensagem, [Bind("conversaId")] int conversaId, [Bind("mensagemRespondidaId")] int mensagemRespondidaId, [Bind("listaDeDestinatariosPorId")] string listaDeDestinatariosPorId)
         {
+            int idUsuarioLogado = GetIdUsuarioLogado();
             mensagem.ConversaId = conversaId;
             mensagem.MensagemRespondidaId = mensagemRespondidaId;
             mensagem.DataEnvio = DateTime.Now;
             mensagem.Conteudo = conteudoMensagem;
             mensagem.listaDestinatarios= listaDeDestinatariosPorId;
-            mensagem.RemetenteId = 1;
-            mensagem.RemetenteNome = "Administrador";
+            mensagem.RemetenteId = idUsuarioLogado;
+            mensagem.RemetenteNome = _context.Usuarios.FirstOrDefault(u => u.Id == idUsuarioLogado).Nome;
 
             if (ModelState.IsValid! && isValidCustomizado(mensagem))
             {
