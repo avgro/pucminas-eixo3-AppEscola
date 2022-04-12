@@ -9,6 +9,13 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+@using (Html.BeginForm("Index", "Conversas", FormMethod.Post))
+{
+    <div>
+        Buscar conversa por assunto ou conteúdo das mensagens: @Html.TextBox("searchId")
+        <input id="Submit1" type="submit" value="Filtrar"/>
+    </div>
+}
 <table class="table">
     <thead>
         <tr>
@@ -18,6 +25,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.PrimeiraMensagem)
             </th>
+            <th></th>
             <th></th>
         </tr>
     </thead>
@@ -29,18 +37,39 @@
                 <b>@Html.DisplayFor(modelItem => item.RemetenteNome)</b>
             </td>
             <td>
-                 @if(item.PrimeiraMensagem != null && item.PrimeiraMensagem.Length > 119)
+                 @if(item.PrimeiraMensagem != null && item.PrimeiraMensagem.Length > 89)
                 {
-                     ViewData["Mensagem"] = item.PrimeiraMensagem.Substring(0, 120);
+                     ViewData["Mensagem"] = item.PrimeiraMensagem.Substring(0, 90);
                 }
-                <b>@Html.DisplayFor(modelItem => item.Assunto)</b> -
-                @ViewData["Mensagem"]...
+                <b>@Html.DisplayFor(modelItem => item.Assunto)</b> - @ViewData["Mensagem"]...
             </td>  
+            <td>
+                @* Exibir número de mensagens não lidas da conversa *@
+                @{
+                    ViewData["NumeroMensagensNaoLidas"] = 0;
+                    var numeroDeNovasMensagensNaConversa =  item.NumeroDeNovasMensagensNaConversa.FirstOrDefault(n => n.UsuarioId == 1 && n.ConversaId == item.Id);
+                    if (numeroDeNovasMensagensNaConversa != null)
+                    {
+                        ViewData["NumeroMensagensNaoLidas"] = numeroDeNovasMensagensNaConversa.NumeroDeMensagensNaoLidas; 
+                    }
+
+                }
+                <b>
+                @if (ViewData["NumeroMensagensNaoLidas"].Equals(1))
+                {
+                   <text>(1 mensagem nova)</text>
+                }
+                else if (!ViewData["NumeroMensagensNaoLidas"].Equals(0)) {
+                    <text>(@ViewData["NumeroMensagensNaoLidas"] mensagens novas)</text>
+                }
+                </b>
+                @* ------------------------------------------------ *@
+            </td>
             <td>
                 <a class="btn btn-primary" asp-action="Visualizar" asp-route-id="@item.Id">Visualizar</a>
             </td>
         </tr>
-        
+       
 }
     </tbody>
 </table>

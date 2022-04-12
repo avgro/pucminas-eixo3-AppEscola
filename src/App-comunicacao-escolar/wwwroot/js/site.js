@@ -45,29 +45,64 @@ function exibirDestinatariosNaTela() {
 }
 
 function abrirTelaDeResponderMensagem(idMensagemASerRespondida) {
-    document.getElementById("listaDeDestinatariosPorId").value = document.getElementsByClassName("listaDeDestinatariosPorId")[idMensagemASerRespondida].value;
-    document.getElementById("listaDeDestinatariosPorNome").value = document.getElementsByClassName("listaDeDestinatariosPorNome")[idMensagemASerRespondida].value;
+    let transferirListaDeDestinatariosId = document.getElementsByClassName("remetenteId")[idMensagemASerRespondida].value + ";";
+    document.getElementById("listaDeDestinatariosPorId").value = transferirListaDeDestinatariosId;
+
+    let transferirListaDeDestinatariosNome = document.getElementsByClassName("remetenteNome")[idMensagemASerRespondida].value + "; ";
+    document.getElementById("listaDeDestinatariosPorNome").value = transferirListaDeDestinatariosNome;
+
     document.getElementById("mensagemRespondidaId").value = document.getElementsByClassName("mensagemRespondidaId")[idMensagemASerRespondida].value;
 
+    copiarValoresDaPaginaParaAsListasJavascript();
+}
+
+function abrirTelaDeResponderMensagemParaTodosOsParticipantes(idMensagemASerRespondida, idRemetente = -1) {
+    let transferirListaDeDestinatariosId = document.getElementsByClassName("listaDeDestinatariosPorId")[idMensagemASerRespondida].value;
+    transferirListaDeDestinatariosId = document.getElementsByClassName("remetenteId")[idMensagemASerRespondida].value + ";" + transferirListaDeDestinatariosId;
+    document.getElementById("listaDeDestinatariosPorId").value = transferirListaDeDestinatariosId;
+
+    let transferirListaDeDestinatariosNome = document.getElementsByClassName("listaDeDestinatariosPorNome")[idMensagemASerRespondida].value;
+    transferirListaDeDestinatariosNome = document.getElementsByClassName("remetenteNome")[idMensagemASerRespondida].value + "; " + transferirListaDeDestinatariosNome;
+    document.getElementById("listaDeDestinatariosPorNome").value = transferirListaDeDestinatariosNome;
+
+    document.getElementById("mensagemRespondidaId").value = document.getElementsByClassName("mensagemRespondidaId")[idMensagemASerRespondida].value;
+
+    copiarValoresDaPaginaParaAsListasJavascript(idRemetente);
+}
+
+function fecharTelaDeResponderMensagem() {
+    document.getElementById("tela-responder-mensagem").style.display = "none";
+}
+
+function copiarValoresDaPaginaParaAsListasJavascript(idRemetente = -1) {
     listaDestinatariosId = [];
     listaDestinatariosNome = [];
 
     let selectListaDeDestinatariosPorId = document.getElementById("listaDeDestinatariosPorId").value;
     let selectListaDeDestinatariosPorNome = document.getElementById("listaDeDestinatariosPorNome").value;
     if (selectListaDeDestinatariosPorId != null && selectListaDeDestinatariosPorNome != null) {
-        var selectListaDeDestinatariosPorIdSplit = selectListaDeDestinatariosPorId.split(";");
-        var selectListaDeDestinatariosPorNomeSplit = selectListaDeDestinatariosPorNome.split(";");
+        let selectListaDeDestinatariosPorIdSplit = selectListaDeDestinatariosPorId.split(";");
+        let selectListaDeDestinatariosPorNomeSplit = selectListaDeDestinatariosPorNome.split(";");
+        let remetentePresenteNosDestinatarios = false;
         for (i = 0; i < (selectListaDeDestinatariosPorIdSplit.length - 1); i++) {
+            if (selectListaDeDestinatariosPorIdSplit[i+1] == idRemetente) {
+                remetentePresenteNosDestinatarios = true;
+            }
             listaDestinatariosId[i] = selectListaDeDestinatariosPorIdSplit[i];
             listaDestinatariosNome[i] = selectListaDeDestinatariosPorNomeSplit[i];
         }
-
+        if (remetentePresenteNosDestinatarios) {
+            removerDestinatarioDaLista(0);
+        }
         document.getElementById("tela-responder-mensagem").style.display = "block";
 
         exibirDestinatariosNaTela();
     }
 }
 
-function fecharTelaDeResponderMensagem() {
-    document.getElementById("tela-responder-mensagem").style.display = "none";
+function verificarSeUsuarioSelecionouDestinatarios() {
+    let selectListaDeDestinatariosPorId = document.getElementById("listaDeDestinatariosPorId").value;
+    if (selectListaDeDestinatariosPorId == "") {
+        window.alert("Selecionar ao menos um destinatário!")
+    }
 }

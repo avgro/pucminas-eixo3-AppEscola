@@ -4,6 +4,7 @@ using App_comunicacao_escolar.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App_comunicacao_escolar.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220412014312_M01")]
+    partial class M01
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,6 +36,9 @@ namespace App_comunicacao_escolar.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("NumeroDeNovasMensagensNaConversaId")
+                        .HasColumnType("int");
+
                     b.Property<string>("PrimeiraMensagem")
                         .HasColumnType("nvarchar(max)");
 
@@ -44,6 +49,8 @@ namespace App_comunicacao_escolar.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("NumeroDeNovasMensagensNaConversaId");
 
                     b.ToTable("Conversas");
                 });
@@ -97,18 +104,16 @@ namespace App_comunicacao_escolar.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("ConversaId")
-                        .HasColumnType("int");
-
                     b.Property<int>("NumeroDeMensagensNaoLidas")
                         .HasColumnType("int");
+
+                    b.Property<bool>("PossuiMensagensNaoLidas")
+                        .HasColumnType("bit");
 
                     b.Property<int>("UsuarioId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ConversaId");
 
                     b.ToTable("NumeroDeNovasMensagensNaConversa");
                 });
@@ -194,6 +199,15 @@ namespace App_comunicacao_escolar.Migrations
                     b.ToTable("MensagemUsuario");
                 });
 
+            modelBuilder.Entity("App_comunicacao_escolar.Models.Conversa", b =>
+                {
+                    b.HasOne("App_comunicacao_escolar.Models.NumeroDeNovasMensagensNaConversa", "NumeroDeNovasMensagensNaConversa")
+                        .WithMany("Conversas")
+                        .HasForeignKey("NumeroDeNovasMensagensNaConversaId");
+
+                    b.Navigation("NumeroDeNovasMensagensNaConversa");
+                });
+
             modelBuilder.Entity("App_comunicacao_escolar.Models.Mensagem", b =>
                 {
                     b.HasOne("App_comunicacao_escolar.Models.Conversa", "Conversa")
@@ -207,15 +221,6 @@ namespace App_comunicacao_escolar.Migrations
                     b.Navigation("Conversa");
 
                     b.Navigation("MensagemRespondida");
-                });
-
-            modelBuilder.Entity("App_comunicacao_escolar.Models.NumeroDeNovasMensagensNaConversa", b =>
-                {
-                    b.HasOne("App_comunicacao_escolar.Models.Conversa", "Conversa")
-                        .WithMany("NumeroDeNovasMensagensNaConversa")
-                        .HasForeignKey("ConversaId");
-
-                    b.Navigation("Conversa");
                 });
 
             modelBuilder.Entity("ConversaUsuario", b =>
@@ -251,13 +256,16 @@ namespace App_comunicacao_escolar.Migrations
             modelBuilder.Entity("App_comunicacao_escolar.Models.Conversa", b =>
                 {
                     b.Navigation("Mensagens");
-
-                    b.Navigation("NumeroDeNovasMensagensNaConversa");
                 });
 
             modelBuilder.Entity("App_comunicacao_escolar.Models.Mensagem", b =>
                 {
                     b.Navigation("Respostas");
+                });
+
+            modelBuilder.Entity("App_comunicacao_escolar.Models.NumeroDeNovasMensagensNaConversa", b =>
+                {
+                    b.Navigation("Conversas");
                 });
 #pragma warning restore 612, 618
         }

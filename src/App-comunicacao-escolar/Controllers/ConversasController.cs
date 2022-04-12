@@ -20,9 +20,17 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: Conversas
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? searchId)
         {
-            return View(await _context.Conversas.ToListAsync());
+            var applicationDbContext = _context.Conversas.Include(c => c.Participantes).Include(c => c.NumeroDeNovasMensagensNaConversa);
+
+            var conversas = await Task.Run(() => from c in applicationDbContext select c);
+            if (searchId != null)
+            {
+                conversas = await Task.Run(() => conversas.Where(d => d.Assunto.Contains(searchId) || d.Mensagens.Any(m => m.Conteudo.Contains(searchId))));
+            }
+
+            return View(conversas);
         }
 
         // GET: Conversas/Visualizar/5
@@ -88,11 +96,12 @@ namespace App_comunicacao_escolar.Controllers
             {
                 conversa.Participantes = new List<Usuario>();
                 conversa.Mensagens = new List<Mensagem>();
+                conversa.NumeroDeNovasMensagensNaConversa = new List<NumeroDeNovasMensagensNaConversa>();
                 mensagem.Participantes = new List<Usuario>();
                 mensagem.listaDestinatarios = listaDeDestinatariosPorId;
 
                 List<string> listaRemetentes = listaDeDestinatariosPorId.Split(";").ToList();
-
+        
                 string listaDeDestinatariosPorNome = "";
                 for (int i = 0; i < (listaRemetentes.Count - 1); i++)
                 {
@@ -100,6 +109,11 @@ namespace App_comunicacao_escolar.Controllers
                     Usuario usuario = _context.Usuarios.FirstOrDefault(s => s.Id == remetenteId);
                     conversa.Participantes.Add(usuario);
                     mensagem.Participantes.Add(usuario);
+
+                    NumeroDeNovasMensagensNaConversa numeroDeNovasMensagensNaConversa = new NumeroDeNovasMensagensNaConversa();
+                    numeroDeNovasMensagensNaConversa.UsuarioId = usuario.Id;
+                    numeroDeNovasMensagensNaConversa.NumeroDeMensagensNaoLidas = 1;
+                    conversa.NumeroDeNovasMensagensNaConversa.Add(numeroDeNovasMensagensNaConversa);
 
                     listaDeDestinatariosPorNome += usuario.Nome + "; ";
                 }
@@ -129,10 +143,12 @@ namespace App_comunicacao_escolar.Controllers
             mensagem.listaDestinatarios= listaDeDestinatariosPorId;
             mensagem.RemetenteId = 1;
             mensagem.RemetenteNome = "Administrador";
-            
-            if (ModelState.IsValid)
+
+            if (ModelState.IsValid! && isValidCustomizado(mensagem))
             {
                 mensagem.Participantes = new List<Usuario>();
+
+                Conversa conversa = _context.Conversas.Include(c => c.Participantes).Include(c => c.NumeroDeNovasMensagensNaConversa).FirstOrDefault(u => u.Id == conversaId);
 
                 List<string> listaRemetentes = listaDeDestinatariosPorId.Split(";").ToList();
 
@@ -143,13 +159,42 @@ namespace App_comunicacao_escolar.Controllers
                     Usuario usuario = _context.Usuarios.FirstOrDefault(u => u.Id == remetenteId);
                     mensagem.Participantes.Add(usuario);
 
+                    if (!conversa.Participantes.Contains(usuario))
+                    {
+                        conversa.Participantes.Add(usuario);
+
+                    }
+
+                    NumeroDeNovasMensagensNaConversa numeroDeNovasMensagensNaConversa = _context.numeroDeNovasMensagensNaConversa.FirstOrDefault(n => n.UsuarioId == usuario.Id && n.ConversaId == conversaId);
+                    if (numeroDeNovasMensagensNaConversa == null)
+                    {
+                        numeroDeNovasMensagensNaConversa = new NumeroDeNovasMensagensNaConversa();
+                        numeroDeNovasMensagensNaConversa.UsuarioId = usuario.Id;
+                        numeroDeNovasMensagensNaConversa.NumeroDeMensagensNaoLidas = 1;
+                        conversa.NumeroDeNovasMensagensNaConversa.Add(numeroDeNovasMensagensNaConversa);
+                    }
+                    else
+                    {
+                        numeroDeNovasMensagensNaConversa.NumeroDeMensagensNaoLidas += 1;
+                        _context.Update(numeroDeNovasMensagensNaConversa);
+                    }
+                    
                     listaDeDestinatariosPorNome += usuario.Nome + "; ";
                 }
                 mensagem.listaDestinatariosNome = listaDeDestinatariosPorNome;
                 _context.Add(mensagem);
+                _context.Update(conversa);
                 await _context.SaveChangesAsync();
             }
             return RedirectToRoute(new { controller = "Conversas", action = "Visualizar", id = mensagem.ConversaId });
+        }
+
+        private bool isValidCustomizado(Mensagem mensagem)
+        {
+            if (mensagem.listaDestinatarios == null){
+                return false;
+            };
+            return true;
         }
 
         // GET: Conversas/Edit/5

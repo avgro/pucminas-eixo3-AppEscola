@@ -20,10 +20,13 @@
         @Html.DisplayFor(modelItem => mensagem.Conteudo)
         <div class="border-bottom col-12 m-2"></div>
 
+        <input type="hidden" class="remetenteId" name="remetenteId" value=@mensagem.RemetenteId />
+        <input type="hidden" class="remetenteNome" name="remetenteNome" value=@mensagem.RemetenteNome />
         <input type="hidden" class="listaDeDestinatariosPorId" name="listaDeDestinatariosPorId" value=@mensagem.listaDestinatarios />
         <textarea name="listaDeDestinatariosPorNome" class="listaDeDestinatariosPorNome" hidden> @Html.DisplayFor(modelItem => mensagem.listaDestinatariosNome) </textarea>
         <input type="hidden" class="mensagemRespondidaId" name="mensagemRespondidaId" value=@mensagem.Id />
         <button type="button" class="btn btn-primary" onclick="abrirTelaDeResponderMensagem(@contarNumeroDeMensagens)">Responder</button>
+        <button type="button" class="btn btn-primary" onclick="abrirTelaDeResponderMensagemParaTodosOsParticipantes(@contarNumeroDeMensagens, @mensagem.RemetenteId)">Responder a todos</button>
         
         @{
              contarNumeroDeMensagens += 1;
@@ -43,14 +46,15 @@
                 <button type="button" class="btn btn-primary m-1" onclick="adicionarDestinatarioALista()">Adicionar destinatário</button>
                 <br />
                 <div class="d-flex text-wrap m-1" id="exibirDestinatariosSelecionados"></div>
+                <span asp-validation-for="Assunto" class="text-danger"></span>
+                <textarea id="conteudoMensagem" name="conteudoMensagem" class="form-control conteudo-textarea" placeholder="Inserir conteúdo da mensagem..." required></textarea>
 
-                <textarea id="conteudoMensagem" name="conteudoMensagem" class="form-control conteudo-textarea" placeholder="Inserir conteúdo da mensagem..."></textarea>
-                <input type="hidden" id="listaDeDestinatariosPorId" name="listaDeDestinatariosPorId"/>
+                <input type="text" id="listaDeDestinatariosPorId" name="listaDeDestinatariosPorId" required hidden/>
                 <textarea id="listaDeDestinatariosPorNome" name="listaDeDestinatariosPorNome" class="form-control" hidden>  </textarea>
                 <input type="hidden" id="mensagemRespondidaId" name="mensagemRespondidaId"/>
                 <input type="hidden" id="conversaId" name="conversaId" value=@Model.Id />
 
-                <button type="submit" class="btn btn-primary m-1">Responder</button>
+                <button type="submit" class="btn btn-primary m-1" onclick="verificarSeUsuarioSelecionouDestinatarios()">Responder</button>
             }
     </div>
 </div>

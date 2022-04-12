@@ -17,5 +17,6 @@ namespace App_comunicacao_escolar.Models
         public int? RemetenteId { get; set; }
         public ICollection<Usuario>? Participantes { get; set; }
         public ICollection<Mensagem>? Mensagens { get; set; }
+        public ICollection<NumeroDeNovasMensagensNaConversa>? NumeroDeNovasMensagensNaConversa { get; set; }
     }
 }

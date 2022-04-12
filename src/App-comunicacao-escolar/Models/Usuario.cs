@@ -16,6 +16,7 @@ namespace App_comunicacao_escolar.Models
         [Display(Name = "Nome de usuário")]
         public string? NomeDeUsuario { get; set; }
         [Required(ErrorMessage = "Obrigatório informar a senha!")]
+        [DataType(DataType.Password)]
         public string? Senha { get; set; }
         [Display(Name = "E-mail")]
         public string? Email { get; set; }
