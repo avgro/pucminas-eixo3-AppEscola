@@ -2,11 +2,10 @@
 
 @{
     ViewData["Title"] = "Index";
+
 }
 
 <h1>Index</h1>
-
-@ViewData["IdUsuario"]
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -49,7 +48,7 @@
                 @* Exibir número de mensagens não lidas da conversa *@
                 @{
                     ViewData["NumeroMensagensNaoLidas"] = 0;
-                    var numeroDeNovasMensagensNaConversa =  item.NumeroDeNovasMensagensNaConversa.FirstOrDefault(n => n.UsuarioId == 1 && n.ConversaId == item.Id);
+                    var numeroDeNovasMensagensNaConversa =  await Task.Run(() =>item.NumeroDeNovasMensagensNaConversa.FirstOrDefault(n => n.UsuarioId == ViewBag.IdUsuarioLogado && n.ConversaId == item.Id));
                     if (numeroDeNovasMensagensNaConversa != null)
                     {
                         ViewData["NumeroMensagensNaoLidas"] = numeroDeNovasMensagensNaConversa.NumeroDeMensagensNaoLidas; 

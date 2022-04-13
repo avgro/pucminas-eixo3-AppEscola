@@ -35,7 +35,7 @@ namespace App_comunicacao_escolar.Controllers
             {
                 conversas = await Task.Run(() => conversas.Where(d => d.Assunto.Contains(searchString) || d.Mensagens.Any(m => m.Conteudo.Contains(searchString))));
             }
-
+            ViewBag.IdUsuarioLogado = idDoUsuarioLogado;
             return View(conversas);
         }
 
@@ -52,21 +52,41 @@ namespace App_comunicacao_escolar.Controllers
         // GET: Conversas/Visualizar/5
         public async Task<IActionResult> Visualizar(int? id)
         {
-            int idDoUsuarioLogado = GetIdUsuarioLogado();
-
             if (id == null)
             {
                 return NotFound();
             }
-            var applicationDbContext = _context.Conversas.Include(c => c.Mensagens.Where(m => m.Participantes.Any(p => p.Id == idDoUsuarioLogado) || m.RemetenteId == idDoUsuarioLogado));
+
+            int idDoUsuarioLogado = GetIdUsuarioLogado();
+            var applicationDbContext = _context.Conversas.Include(c => c.Mensagens.Where(m => m.Participantes.Any(p => p.Id == idDoUsuarioLogado) || m.RemetenteId == idDoUsuarioLogado)).Include(c => c.Participantes);
             var conversa = await applicationDbContext
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(c => c.Id == id);
+
+            // Bloquear acesso de usuario via URL caso ele não seja participante da conversa.
+            bool usuarioIsParticipanteDaConversa = conversa.Participantes.Any(p => p.Id == idDoUsuarioLogado) || conversa.RemetenteId == idDoUsuarioLogado;
+            if (!usuarioIsParticipanteDaConversa)
+            {
+                return Forbid();
+            }
+
             if (conversa == null)
             {
                 return NotFound();
             }
             ViewData["ParticipanteId"] = new SelectList(_context.Usuarios, "Id", "Nome");
+
+            ZerarContadorDeNovasMensagens(idDoUsuarioLogado, conversa.Id);
+            
             return View(conversa);
+        }
+
+        public async void ZerarContadorDeNovasMensagens(int usuarioId, int conversaId)
+        {
+            NumeroDeNovasMensagensNaConversa numeroDeNovasMensagensNaConversa = _context.numeroDeNovasMensagensNaConversa.FirstOrDefault(n => n.UsuarioId == usuarioId && n.ConversaId == conversaId);
+            if (numeroDeNovasMensagensNaConversa != null) { 
+            _context.numeroDeNovasMensagensNaConversa.Remove(numeroDeNovasMensagensNaConversa);
+            }
+            await _context.SaveChangesAsync();
         }
 
         // GET: Conversas/Details/5
@@ -101,11 +121,11 @@ namespace App_comunicacao_escolar.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Assunto,PrimeiraMensagem,RemetenteNome,RemetenteId")] Conversa conversa, [Bind("listaDeDestinatariosPorId")] string listaDeDestinatariosPorId, [Bind("conteudoMensagem")] string conteudoMensagem, Mensagem mensagem)
         {
-            int idUsuarioLogado = GetIdUsuarioLogado();
+            int idDoUsuarioLogado = GetIdUsuarioLogado();
             mensagem.DataEnvio = DateTime.Now;
             mensagem.Conteudo = conteudoMensagem;
-            mensagem.RemetenteId = idUsuarioLogado;
-            mensagem.RemetenteNome = _context.Usuarios.FirstOrDefault(u => u.Id == idUsuarioLogado).Nome;
+            mensagem.RemetenteId = idDoUsuarioLogado;
+            mensagem.RemetenteNome = _context.Usuarios.FirstOrDefault(u => u.Id == idDoUsuarioLogado).Nome;
 
             conversa.PrimeiraMensagem = mensagem.Conteudo;
             conversa.RemetenteNome = mensagem.RemetenteNome;
@@ -155,20 +175,22 @@ namespace App_comunicacao_escolar.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateResposta(Mensagem mensagem, [Bind("conteudoMensagem")] string conteudoMensagem, [Bind("conversaId")] int conversaId, [Bind("mensagemRespondidaId")] int mensagemRespondidaId, [Bind("listaDeDestinatariosPorId")] string listaDeDestinatariosPorId)
         {
-            int idUsuarioLogado = GetIdUsuarioLogado();
+            int idDoUsuarioLogado = GetIdUsuarioLogado();
             mensagem.ConversaId = conversaId;
             mensagem.MensagemRespondidaId = mensagemRespondidaId;
             mensagem.DataEnvio = DateTime.Now;
             mensagem.Conteudo = conteudoMensagem;
             mensagem.listaDestinatarios= listaDeDestinatariosPorId;
-            mensagem.RemetenteId = idUsuarioLogado;
-            mensagem.RemetenteNome = _context.Usuarios.FirstOrDefault(u => u.Id == idUsuarioLogado).Nome;
+            mensagem.RemetenteId = idDoUsuarioLogado;
+            mensagem.RemetenteNome = _context.Usuarios.FirstOrDefault(u => u.Id == idDoUsuarioLogado).Nome;
 
-            if (ModelState.IsValid! && isValidCustomizado(mensagem))
+            Conversa conversa = _context.Conversas.Include(c => c.Participantes).Include(c => c.NumeroDeNovasMensagensNaConversa).FirstOrDefault(u => u.Id == conversaId);
+            // Bloquear o usuario de postar em conversa da qual não faz parte via inspetor de código.
+            bool usuarioIsParticipanteDaConversa = conversa.Participantes.Any(p => p.Id == idDoUsuarioLogado) || conversa.RemetenteId == idDoUsuarioLogado;
+
+            if (ModelState.IsValid! && isValidCustomizado(mensagem) && usuarioIsParticipanteDaConversa)
             {
                 mensagem.Participantes = new List<Usuario>();
-
-                Conversa conversa = _context.Conversas.Include(c => c.Participantes).Include(c => c.NumeroDeNovasMensagensNaConversa).FirstOrDefault(u => u.Id == conversaId);
 
                 List<string> listaRemetentes = listaDeDestinatariosPorId.Split(";").ToList();
 
@@ -190,6 +212,7 @@ namespace App_comunicacao_escolar.Controllers
                     {
                         numeroDeNovasMensagensNaConversa = new NumeroDeNovasMensagensNaConversa();
                         numeroDeNovasMensagensNaConversa.UsuarioId = usuario.Id;
+                        numeroDeNovasMensagensNaConversa.ConversaId = conversaId;
                         numeroDeNovasMensagensNaConversa.NumeroDeMensagensNaoLidas = 1;
                         conversa.NumeroDeNovasMensagensNaConversa.Add(numeroDeNovasMensagensNaConversa);
                     }
