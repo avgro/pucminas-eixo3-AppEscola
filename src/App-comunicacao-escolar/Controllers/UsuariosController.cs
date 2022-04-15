@@ -12,11 +12,11 @@ using Microsoft.AspNetCore.Authentication;
 
 namespace App_comunicacao_escolar.Controllers
 {
-    public class UsuariosController : Controller
+    public class UsuariosController : CommonController
     {
         private readonly ApplicationDbContext _context;
 
-        public UsuariosController(ApplicationDbContext context)
+        public UsuariosController(ApplicationDbContext context) : base(context)
         {
             _context = context;
         }

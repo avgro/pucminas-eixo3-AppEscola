@@ -47,3 +47,15 @@ body {
     width: 640px;
     display: none;
 }
+
+.contador-circular {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    color: white;
+    background-color: dodgerblue;
+    height: 24px;
+    width: 24px;
+    margin: 0;
+    border-radius: 100%;
+}

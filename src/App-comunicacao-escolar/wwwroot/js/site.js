@@ -6,6 +6,7 @@
 
 let listaDestinatariosId = [];
 let listaDestinatariosNome = [];
+let startRefreshCount = false;
 
 function adicionarDestinatarioALista() {
 
@@ -106,3 +107,19 @@ function verificarSeUsuarioSelecionouDestinatarios() {
         window.alert("Selecionar ao menos um destinatário!")
     }
 }
+
+
+
+window.addEventListener('load', function () {
+    jQrefresh();
+    startRefreshCount = true;
+})
+
+var intervalId = setInterval(function () {
+    jQrefresh();
+}, 5000);
+
+function jQrefresh() {
+    document.getElementById("refreshPartial").click();
+}
+

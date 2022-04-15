@@ -11,11 +11,11 @@ using System.Security.Claims;
 
 namespace App_comunicacao_escolar.Controllers
 {
-    public class ConversasController : Controller
+    public class ConversasController : CommonController
     {
         private readonly ApplicationDbContext _context;
 
-        public ConversasController(ApplicationDbContext context)
+        public ConversasController(ApplicationDbContext context) : base(context)
         {
             _context = context;
         }
@@ -25,7 +25,7 @@ namespace App_comunicacao_escolar.Controllers
         {
             int idDoUsuarioLogado = GetIdUsuarioLogado();
 
-            var applicationDbContext = _context.Conversas.Include(c => c.Participantes).Include(c => c.NumeroDeNovasMensagensNaConversa);
+            var applicationDbContext = await Task.Run(() => _context.Conversas.Include(c => c.Participantes).Include(c => c.NumeroDeNovasMensagensNaConversa));
 
             var conversas = await Task.Run(() => from c in applicationDbContext select c);
 
@@ -39,16 +39,6 @@ namespace App_comunicacao_escolar.Controllers
             return View(conversas);
         }
 
-        public int GetIdUsuarioLogado()
-        {
-            if (User.Identity.IsAuthenticated)
-            {
-                ClaimsPrincipal currentUser = User;
-                return Int32.Parse(currentUser.FindFirst(ClaimTypes.NameIdentifier).Value);
-            }
-            return -1;
-        }
-
         // GET: Conversas/Visualizar/5
         public async Task<IActionResult> Visualizar(int? id)
         {
@@ -58,7 +48,7 @@ namespace App_comunicacao_escolar.Controllers
             }
 
             int idDoUsuarioLogado = GetIdUsuarioLogado();
-            var applicationDbContext = _context.Conversas.Include(c => c.Mensagens.Where(m => m.Participantes.Any(p => p.Id == idDoUsuarioLogado) || m.RemetenteId == idDoUsuarioLogado)).Include(c => c.Participantes);
+            var applicationDbContext = await Task.Run(() => _context.Conversas.Include(c => c.Mensagens.Where(m => m.Participantes.Any(p => p.Id == idDoUsuarioLogado) || m.RemetenteId == idDoUsuarioLogado)).Include(c => c.Participantes));
             var conversa = await applicationDbContext
                 .FirstOrDefaultAsync(c => c.Id == id);
 
@@ -75,34 +65,13 @@ namespace App_comunicacao_escolar.Controllers
             }
             ViewData["ParticipanteId"] = new SelectList(_context.Usuarios, "Id", "Nome");
 
-            ZerarContadorDeNovasMensagens(idDoUsuarioLogado, conversa.Id);
-            
-            return View(conversa);
-        }
-
-        public async void ZerarContadorDeNovasMensagens(int usuarioId, int conversaId)
-        {
-            NumeroDeNovasMensagensNaConversa numeroDeNovasMensagensNaConversa = _context.numeroDeNovasMensagensNaConversa.FirstOrDefault(n => n.UsuarioId == usuarioId && n.ConversaId == conversaId);
-            if (numeroDeNovasMensagensNaConversa != null) { 
-            _context.numeroDeNovasMensagensNaConversa.Remove(numeroDeNovasMensagensNaConversa);
+            // Zerar contador de mensagens da conversa
+            var numeroDeNovasMensagensNaConversa = await _context.numeroDeNovasMensagensNaConversa.FirstOrDefaultAsync(n => n.UsuarioId == idDoUsuarioLogado && n.ConversaId == conversa.Id);
+            if (numeroDeNovasMensagensNaConversa != null)
+            {
+                _context.numeroDeNovasMensagensNaConversa.Remove(numeroDeNovasMensagensNaConversa);
             }
             await _context.SaveChangesAsync();
-        }
-
-        // GET: Conversas/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var conversa = await _context.Conversas
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (conversa == null)
-            {
-                return NotFound();
-            }
 
             return View(conversa);
         }
@@ -125,7 +94,7 @@ namespace App_comunicacao_escolar.Controllers
             mensagem.DataEnvio = DateTime.Now;
             mensagem.Conteudo = conteudoMensagem;
             mensagem.RemetenteId = idDoUsuarioLogado;
-            mensagem.RemetenteNome = _context.Usuarios.FirstOrDefault(u => u.Id == idDoUsuarioLogado).Nome;
+            mensagem.RemetenteNome = await Task.Run(() => _context.Usuarios.FirstOrDefault(u => u.Id == idDoUsuarioLogado).Nome);
 
             conversa.PrimeiraMensagem = mensagem.Conteudo;
             conversa.RemetenteNome = mensagem.RemetenteNome;
@@ -145,7 +114,7 @@ namespace App_comunicacao_escolar.Controllers
                 for (int i = 0; i < (listaRemetentes.Count - 1); i++)
                 {
                     int remetenteId = int.Parse(listaRemetentes[i]);
-                    Usuario usuario = _context.Usuarios.FirstOrDefault(s => s.Id == remetenteId);
+                    Usuario usuario = await _context.Usuarios.FirstOrDefaultAsync(s => s.Id == remetenteId);
                     conversa.Participantes.Add(usuario);
                     mensagem.Participantes.Add(usuario);
 
@@ -182,9 +151,10 @@ namespace App_comunicacao_escolar.Controllers
             mensagem.Conteudo = conteudoMensagem;
             mensagem.listaDestinatarios= listaDeDestinatariosPorId;
             mensagem.RemetenteId = idDoUsuarioLogado;
-            mensagem.RemetenteNome = _context.Usuarios.FirstOrDefault(u => u.Id == idDoUsuarioLogado).Nome;
+            mensagem.RemetenteNome = await Task.Run(() => _context.Usuarios.FirstOrDefault(u => u.Id == idDoUsuarioLogado).Nome);
 
-            Conversa conversa = _context.Conversas.Include(c => c.Participantes).Include(c => c.NumeroDeNovasMensagensNaConversa).FirstOrDefault(u => u.Id == conversaId);
+            Conversa conversa = await Task.Run(() => _context.Conversas.Include(c => c.Participantes).Include(c => c.NumeroDeNovasMensagensNaConversa).FirstOrDefault(u => u.Id == conversaId));
+            
             // Bloquear o usuario de postar em conversa da qual não faz parte via inspetor de código.
             bool usuarioIsParticipanteDaConversa = conversa.Participantes.Any(p => p.Id == idDoUsuarioLogado) || conversa.RemetenteId == idDoUsuarioLogado;
 
@@ -198,7 +168,7 @@ namespace App_comunicacao_escolar.Controllers
                 for (int i = 0; i < (listaRemetentes.Count - 1); i++)
                 {
                     int remetenteId = int.Parse(listaRemetentes[i]);
-                    Usuario usuario = _context.Usuarios.FirstOrDefault(u => u.Id == remetenteId);
+                    Usuario usuario = await _context.Usuarios.FirstOrDefaultAsync(u => u.Id == remetenteId);
                     mensagem.Participantes.Add(usuario);
 
                     if (!conversa.Participantes.Contains(usuario))
@@ -207,7 +177,7 @@ namespace App_comunicacao_escolar.Controllers
 
                     }
 
-                    NumeroDeNovasMensagensNaConversa numeroDeNovasMensagensNaConversa = _context.numeroDeNovasMensagensNaConversa.FirstOrDefault(n => n.UsuarioId == usuario.Id && n.ConversaId == conversaId);
+                    NumeroDeNovasMensagensNaConversa numeroDeNovasMensagensNaConversa = await Task.Run(() => _context.numeroDeNovasMensagensNaConversa.FirstOrDefault(n => n.UsuarioId == usuario.Id && n.ConversaId == conversaId));
                     if (numeroDeNovasMensagensNaConversa == null)
                     {
                         numeroDeNovasMensagensNaConversa = new NumeroDeNovasMensagensNaConversa();
@@ -232,6 +202,8 @@ namespace App_comunicacao_escolar.Controllers
             return RedirectToRoute(new { controller = "Conversas", action = "Visualizar", id = mensagem.ConversaId });
         }
 
+        // Metodos
+
         private bool isValidCustomizado(Mensagem mensagem)
         {
             if (mensagem.listaDestinatarios == null){
@@ -240,89 +212,5 @@ namespace App_comunicacao_escolar.Controllers
             return true;
         }
 
-        // GET: Conversas/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var conversa = await _context.Conversas.FindAsync(id);
-            if (conversa == null)
-            {
-                return NotFound();
-            }
-            return View(conversa);
-        }
-
-        // POST: Conversas/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Assunto,PrimeiraMensagem,RemetenteNome,RemetenteId")] Conversa conversa)
-        {
-            if (id != conversa.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(conversa);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ConversaExists(conversa.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(conversa);
-        }
-
-        // GET: Conversas/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var conversa = await _context.Conversas
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (conversa == null)
-            {
-                return NotFound();
-            }
-
-            return View(conversa);
-        }
-
-        // POST: Conversas/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var conversa = await _context.Conversas.FindAsync(id);
-            _context.Conversas.Remove(conversa);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool ConversaExists(int id)
-        {
-            return _context.Conversas.Any(e => e.Id == id);
-        }
     }
 }

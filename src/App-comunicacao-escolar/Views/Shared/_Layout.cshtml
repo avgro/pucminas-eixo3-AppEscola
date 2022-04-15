@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -8,6 +10,19 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/App_comunicacao_escolar.styles.css" asp-append-version="true" />
 </head>
+
+@{
+    int GetIdUsuarioLogado()
+    {
+        if (User.Identity.IsAuthenticated)
+        {
+            ClaimsPrincipal currentUser = User;
+            return Int32.Parse(currentUser.FindFirst(ClaimTypes.NameIdentifier).Value);
+        }
+        return -1;
+    } 
+}
+
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -26,7 +41,11 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">Cadastrar usuários</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Conversas" asp-action="Index">Mensagens</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Conversas" asp-action="Index">Mensagens
+                                <span id="msgupdate">
+                                    @await Component.InvokeAsync("ContadorDeMensagensNovas", GetIdUsuarioLogado())
+                                </span>
+                            </a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
@@ -49,6 +68,7 @@
         </nav>
     </header>
     <div class="container">
+        <a hidden id="refreshPartial" class="btn btn-primary" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#msgupdate" href="/Home/UpdateMsg"></a>
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -62,6 +82,9 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery/dist/js/jquery.min.js"></script>
+    <script src="~/lib/jquery-unobtrusive-ajax/jquery.unobtrusive-ajax.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
