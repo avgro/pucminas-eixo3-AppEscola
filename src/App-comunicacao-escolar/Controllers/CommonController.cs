@@ -16,7 +16,7 @@ namespace App_comunicacao_escolar.Controllers
         public async Task<IActionResult> UpdateMsg()
         {
             int idUsuarioLogado = GetIdUsuarioLogado();
-            var mensagensNaoLidasDoUsuarioAtual = await Task.Run(() => _context.numeroDeNovasMensagensNaConversa.Where(n => n.UsuarioId == idUsuarioLogado));
+            var mensagensNaoLidasDoUsuarioAtual = await Task.Run(() => _context.NumeroDeNovasMensagensNaConversa.Where(n => n.UsuarioId == idUsuarioLogado));
             int numeroDeNovasMensagensNaConversa = 0;
             foreach (var item in mensagensNaoLidasDoUsuarioAtual)
             {
@@ -25,7 +25,26 @@ namespace App_comunicacao_escolar.Controllers
             ViewBag.NumeroDeMensagensNovas = numeroDeNovasMensagensNaConversa;
             return PartialView("ContadorMsg");
         }
-        
+
+        public FileResult DownloadFile(MensagemArquivosAnexados anexo)
+        {
+            string fileName = anexo.NomeUnicoDoArquivo;
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Arquivos", "UploadsUsuarios", fileName);
+            try { 
+                byte[] bytes = System.IO.File.ReadAllBytes(filePath);
+                return File(bytes, "application/octet-stream", anexo.NomeOriginalDoArquivo);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public void Upload()
+        {
+            
+        }
+
         // Metodos comuns
         public int GetIdUsuarioLogado()
         {

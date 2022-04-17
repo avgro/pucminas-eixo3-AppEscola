@@ -25,5 +25,6 @@ namespace App_comunicacao_escolar.Models
         public DateTime? DataEnvio { get; set; }
         public ICollection<Usuario>? Participantes { get; set; }
         public ICollection<Mensagem>? Respostas { get; set; }
+        public ICollection<MensagemArquivosAnexados>? Anexos { get; set; }
     }
 }

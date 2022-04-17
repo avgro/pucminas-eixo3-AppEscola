@@ -4,6 +4,7 @@ using App_comunicacao_escolar.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App_comunicacao_escolar.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220415020710_M04")]
+    partial class M04
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -88,30 +90,6 @@ namespace App_comunicacao_escolar.Migrations
                     b.HasIndex("MensagemRespondidaId");
 
                     b.ToTable("Mensagem");
-                });
-
-            modelBuilder.Entity("App_comunicacao_escolar.Models.MensagemArquivosAnexados", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int?>("MensagemDosAnexosId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("NomeOriginalDoArquivo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NomeUnicoDoArquivo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MensagemDosAnexosId");
-
-                    b.ToTable("MensagemMensagemArquivosAnexados");
                 });
 
             modelBuilder.Entity("App_comunicacao_escolar.Models.NumeroDeNovasMensagensNaConversa", b =>
@@ -189,27 +167,6 @@ namespace App_comunicacao_escolar.Migrations
                     b.ToTable("Usuarios");
                 });
 
-            modelBuilder.Entity("App_comunicacao_escolar.Models.UsuariosQueArquivaramConversa", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int?>("ConversaId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UsuarioId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ConversaId");
-
-                    b.ToTable("UsuariosQueArquivaramConversa");
-                });
-
             modelBuilder.Entity("ConversaUsuario", b =>
                 {
                     b.Property<int>("ConversasId")
@@ -255,28 +212,10 @@ namespace App_comunicacao_escolar.Migrations
                     b.Navigation("MensagemRespondida");
                 });
 
-            modelBuilder.Entity("App_comunicacao_escolar.Models.MensagemArquivosAnexados", b =>
-                {
-                    b.HasOne("App_comunicacao_escolar.Models.Mensagem", "MensagemDosAnexos")
-                        .WithMany("Anexos")
-                        .HasForeignKey("MensagemDosAnexosId");
-
-                    b.Navigation("MensagemDosAnexos");
-                });
-
             modelBuilder.Entity("App_comunicacao_escolar.Models.NumeroDeNovasMensagensNaConversa", b =>
                 {
                     b.HasOne("App_comunicacao_escolar.Models.Conversa", "Conversa")
                         .WithMany("NumeroDeNovasMensagensNaConversa")
-                        .HasForeignKey("ConversaId");
-
-                    b.Navigation("Conversa");
-                });
-
-            modelBuilder.Entity("App_comunicacao_escolar.Models.UsuariosQueArquivaramConversa", b =>
-                {
-                    b.HasOne("App_comunicacao_escolar.Models.Conversa", "Conversa")
-                        .WithMany("UsuariosQueArquivaramConversa")
                         .HasForeignKey("ConversaId");
 
                     b.Navigation("Conversa");
@@ -317,14 +256,10 @@ namespace App_comunicacao_escolar.Migrations
                     b.Navigation("Mensagens");
 
                     b.Navigation("NumeroDeNovasMensagensNaConversa");
-
-                    b.Navigation("UsuariosQueArquivaramConversa");
                 });
 
             modelBuilder.Entity("App_comunicacao_escolar.Models.Mensagem", b =>
                 {
-                    b.Navigation("Anexos");
-
                     b.Navigation("Respostas");
                 });
 #pragma warning restore 612, 618

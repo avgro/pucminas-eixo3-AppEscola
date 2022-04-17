@@ -11,6 +11,7 @@ namespace App_comunicacao_escolar.Models
         [Required(ErrorMessage = "Inserir assunto da mensagem!")]
         public string? Assunto { get; set; }
         [Display(Name = "Mensagem")]
+        [Required(ErrorMessage = "Inserir o conteúdo da mensagem!")]
         public string? PrimeiraMensagem { get; set; }
         [Display(Name = "Remetente")]
         public string? RemetenteNome { get; set; }
@@ -18,5 +19,6 @@ namespace App_comunicacao_escolar.Models
         public ICollection<Usuario>? Participantes { get; set; }
         public ICollection<Mensagem>? Mensagens { get; set; }
         public ICollection<NumeroDeNovasMensagensNaConversa>? NumeroDeNovasMensagensNaConversa { get; set; }
+        public ICollection<UsuariosQueArquivaramConversa>? UsuariosQueArquivaramConversa { get; set; }
     }
 }
