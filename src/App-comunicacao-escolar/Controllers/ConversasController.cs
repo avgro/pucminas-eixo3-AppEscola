@@ -21,7 +21,7 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: Conversas
-        public async Task<IActionResult> Index(string? searchString, string? secao = "Caixa de entrada")
+        public IActionResult Index(string? searchString, string? secao = "Caixa de entrada")
         {
             int idDoUsuarioLogado = GetIdUsuarioLogado();
 
@@ -96,10 +96,10 @@ namespace App_comunicacao_escolar.Controllers
             getCustomErrorMessagesFromTempData();
 
             if (TempData.ContainsKey("Conteudo"))
-                @ViewData["Conteudo"] = TempData["Conteudo"].ToString(); // returns "Bill"
+                @ViewData["Conteudo"] = TempData["Conteudo"].ToString();
 
             if (TempData.ContainsKey("mensagemRespondidaId"))
-                @ViewData["mensagemRespondidaId"] = TempData["mensagemRespondidaId"].ToString(); // returns "Bill"
+                @ViewData["mensagemRespondidaId"] = TempData["mensagemRespondidaId"].ToString(); 
 
             return View(conversa);
         }
@@ -148,7 +148,7 @@ namespace App_comunicacao_escolar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Assunto,PrimeiraMensagem,RemetenteNome,RemetenteId")] Conversa conversa, 
+        public async Task<IActionResult> Create([Bind("Id,Assunto,PrimeiraMensagem,RemetenteNome,RemetenteId")] Conversa conversa,
             [Bind("listaDeDestinatariosPorId")] string listaDeDestinatariosPorId,
             List<IFormFile> arquivos,
             Mensagem mensagem)
@@ -303,7 +303,7 @@ namespace App_comunicacao_escolar.Controllers
                 TempData["Conteudo"] = mensagem.Conteudo;
                 TempData["mensagemRespondidaId"] = mensagem.MensagemRespondidaId;
             }
-            return RedirectToAction("Visualizar", new {id = mensagem.ConversaId});
+            return RedirectToAction("Visualizar", new { id = mensagem.ConversaId });
         }
 
         // Metodos
