@@ -87,7 +87,7 @@ body {
 
 .menu-content-layout {
     display: grid;
-    grid-template-columns: 240px 100%;
+    grid-template-columns: 240px 1fr;
 }
 
 .menu-lateral {

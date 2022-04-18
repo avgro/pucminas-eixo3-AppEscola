@@ -58,8 +58,8 @@
         </nav>
     </header>
     <a hidden id="refreshPartial" class="btn btn-primary" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#msgupdate" href="/Home/UpdateMsg"></a>
-    <div class="container">
-        <main role="main" class="pb-3">
+    <div class="container" >
+        <main role="main" class="pb-3 ">
             @if (ViewData["Controller"].Equals("PaginaComLayoutDiferente")) {
                 <div class="p-4">@RenderBody()</div>
             }
