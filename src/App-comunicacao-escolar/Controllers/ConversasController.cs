@@ -25,33 +25,33 @@ namespace App_comunicacao_escolar.Controllers
         {
             int idDoUsuarioLogado = GetIdUsuarioLogado();
 
-            var applicationDbContext = await Task.Run(() => _context.Conversas.Include(c => c.Participantes).Include(c => c.NumeroDeNovasMensagensNaConversa).Include(c => c.UsuariosQueArquivaramConversa));
+            var applicationDbContext = _context.Conversas.Include(c => c.Participantes).Include(c => c.NumeroDeNovasMensagensNaConversa).Include(c => c.UsuariosQueArquivaramConversa);
 
-            var conversas = await Task.Run(() => from c in applicationDbContext select c);
+            var conversas = from c in applicationDbContext select c;
 
             conversas = conversas.OrderByDescending(c => c.Id);
 
             if (secao.Equals("Enviados"))
             {
-                conversas = await Task.Run(() => conversas.Where(d => d.RemetenteId == idDoUsuarioLogado));
+                conversas = conversas.Where(d => d.RemetenteId == idDoUsuarioLogado);
             }
             else
             {
-                conversas = await Task.Run(() => conversas.Where(d => d.Participantes.Any(p => p.Id == idDoUsuarioLogado)));
+                conversas = conversas.Where(d => d.Participantes.Any(p => p.Id == idDoUsuarioLogado));
             }
 
             if (secao.Equals("Arquivados"))
             {
-                conversas = await Task.Run(() => conversas.Where(d => d.UsuariosQueArquivaramConversa.Any(u => u.UsuarioId == idDoUsuarioLogado)));
+                conversas = conversas.Where(d => d.UsuariosQueArquivaramConversa.Any(u => u.UsuarioId == idDoUsuarioLogado));
             }
             else
             {
-                conversas = await Task.Run(() => conversas.Where(d => !d.UsuariosQueArquivaramConversa.Any(u => u.UsuarioId == idDoUsuarioLogado)));
+                conversas = conversas.Where(d => !d.UsuariosQueArquivaramConversa.Any(u => u.UsuarioId == idDoUsuarioLogado));
             }
 
             if (searchString != null)
             {
-                conversas = await Task.Run(() => conversas.Where(d => d.Assunto.Contains(searchString) || d.Mensagens.Any(m => m.Conteudo.Contains(searchString))));
+                conversas = conversas.Where(d => d.Assunto.Contains(searchString) || d.Mensagens.Any(m => m.Conteudo.Contains(searchString)));
             }
             ViewBag.IdUsuarioLogado = idDoUsuarioLogado;
             ViewData["TituloDaSecao"] = secao;
@@ -68,7 +68,7 @@ namespace App_comunicacao_escolar.Controllers
             }
 
             int idDoUsuarioLogado = GetIdUsuarioLogado();
-            var applicationDbContext = await Task.Run(() => _context.Conversas.Include(c => c.Mensagens.Where(m => m.Participantes.Any(p => p.Id == idDoUsuarioLogado) || m.RemetenteId == idDoUsuarioLogado)).ThenInclude(m => m.Anexos).Include(c => c.Participantes));
+            var applicationDbContext = _context.Conversas.Include(c => c.Mensagens.Where(m => m.Participantes.Any(p => p.Id == idDoUsuarioLogado) || m.RemetenteId == idDoUsuarioLogado)).ThenInclude(m => m.Anexos).Include(c => c.Participantes);
             var conversa = await applicationDbContext
                 .FirstOrDefaultAsync(c => c.Id == id);
 
@@ -92,6 +92,14 @@ namespace App_comunicacao_escolar.Controllers
                 _context.NumeroDeNovasMensagensNaConversa.Remove(numeroDeNovasMensagensNaConversa);
             }
             await _context.SaveChangesAsync();
+
+            getCustomErrorMessagesFromTempData();
+
+            if (TempData.ContainsKey("Conteudo"))
+                @ViewData["Conteudo"] = TempData["Conteudo"].ToString(); // returns "Bill"
+
+            if (TempData.ContainsKey("mensagemRespondidaId"))
+                @ViewData["mensagemRespondidaId"] = TempData["mensagemRespondidaId"].ToString(); // returns "Bill"
 
             return View(conversa);
         }
@@ -131,6 +139,7 @@ namespace App_comunicacao_escolar.Controllers
         public IActionResult Create()
         {
             ViewData["ParticipanteId"] = new SelectList(_context.Usuarios, "Id", "Nome");
+
             return View();
         }
 
@@ -148,32 +157,33 @@ namespace App_comunicacao_escolar.Controllers
             mensagem.DataEnvio = DateTime.Now;
             mensagem.Conteudo = conversa.PrimeiraMensagem;
             mensagem.RemetenteId = idDoUsuarioLogado;
-            mensagem.RemetenteNome = await Task.Run(() => _context.Usuarios.FirstOrDefault(u => u.Id == idDoUsuarioLogado).Nome);
+            mensagem.RemetenteNome = _context.Usuarios.FirstOrDefault(u => u.Id == idDoUsuarioLogado).Nome;
 
             conversa.RemetenteNome = mensagem.RemetenteNome;
             conversa.RemetenteId = mensagem.RemetenteId;
             mensagem.listaDestinatarios = listaDeDestinatariosPorId;
 
+            // Faz validação dos atributos que não podem ser diretamente validados pelo Entity Framework e retorna as mensagens de erro como ViewData ou TempData.
             List<string> listarErrosDeValidacao = isValidCustomizadoCreate(conversa, mensagem, arquivos);
-            if (listarErrosDeValidacao.Count > 0)
+            while (listarErrosDeValidacao.Count > 0)
             {
+                ViewData["Error"] = "Error";
                 ModelState.AddModelError(listarErrosDeValidacao[0], listarErrosDeValidacao[1]);
+                ViewData[listarErrosDeValidacao[0]] = listarErrosDeValidacao[1];
+                listarErrosDeValidacao.RemoveRange(0, 2);
             }
-
-            ViewBag.ValidationError = true;
+            // -----------------------------------------------------------------------------------------
             if (ModelState.IsValid)
             {
-                ViewBag.ValidationError = false;
                 conversa.Participantes = new List<Usuario>();
                 conversa.Mensagens = new List<Mensagem>();
                 conversa.NumeroDeNovasMensagensNaConversa = new List<NumeroDeNovasMensagensNaConversa>();
                 mensagem.Participantes = new List<Usuario>();
 
-                mensagem = await Task.Run(() => fazerUploadDosArquivosAnexados(mensagem, arquivos));
+                mensagem = fazerUploadDosArquivosAnexados(mensagem, arquivos);
 
-
+                // Converte a string "listaDeDesinatariosPorId" em uma lista e realiza todas as operações necessárias para cada destinatário
                 List<string> listaRemetentes = listaDeDestinatariosPorId.Split(";").ToList();
-        
                 string listaDeDestinatariosPorNome = "";
                 for (int i = 0; i < (listaRemetentes.Count - 1); i++)
                 {
@@ -189,8 +199,8 @@ namespace App_comunicacao_escolar.Controllers
 
                     listaDeDestinatariosPorNome += usuario.Nome + "; ";
                 }
-
                 mensagem.listaDestinatariosNome = listaDeDestinatariosPorNome;
+                // -----------------------------------------------------------------------------------------
 
                 conversa.Mensagens.Add(mensagem);
                 _context.Add(conversa);
@@ -208,8 +218,8 @@ namespace App_comunicacao_escolar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateResposta(Mensagem mensagem, [Bind("conteudoMensagem")] string conteudoMensagem, 
-            [Bind("conversaId")] int conversaId, [Bind("mensagemRespondidaId")] int mensagemRespondidaId, 
+        public async Task<IActionResult> CreateResposta(Mensagem mensagem, [Bind("conteudoMensagem")] string conteudoMensagem,
+            [Bind("conversaId")] int conversaId, [Bind("mensagemRespondidaId")] int mensagemRespondidaId,
             [Bind("listaDeDestinatariosPorId")] string listaDeDestinatariosPorId, List<IFormFile> arquivos)
         {
             int idDoUsuarioLogado = GetIdUsuarioLogado();
@@ -217,31 +227,36 @@ namespace App_comunicacao_escolar.Controllers
             mensagem.MensagemRespondidaId = mensagemRespondidaId;
             mensagem.DataEnvio = DateTime.Now;
             mensagem.Conteudo = conteudoMensagem;
-            mensagem.listaDestinatarios= listaDeDestinatariosPorId;
+            mensagem.listaDestinatarios = listaDeDestinatariosPorId;
             mensagem.RemetenteId = idDoUsuarioLogado;
-            mensagem.RemetenteNome = await Task.Run(() => _context.Usuarios.FirstOrDefault(u => u.Id == idDoUsuarioLogado).Nome);
+            mensagem.RemetenteNome = _context.Usuarios.FirstOrDefault(u => u.Id == idDoUsuarioLogado).Nome;
 
-            Conversa conversa = await Task.Run(() => _context.Conversas.Include(c => c.Participantes).Include(c => c.NumeroDeNovasMensagensNaConversa).FirstOrDefault(u => u.Id == conversaId));
-            
+            Conversa conversa = _context.Conversas.Include(c => c.Participantes).Include(c => c.NumeroDeNovasMensagensNaConversa).FirstOrDefault(u => u.Id == conversaId);
+
             // Bloquear o usuario de postar em conversa da qual não faz parte via inspetor de código.
             bool usuarioIsParticipanteDaConversa = conversa.Participantes.Any(p => p.Id == idDoUsuarioLogado) || conversa.RemetenteId == idDoUsuarioLogado;
 
-            List<string> listarErrosDeValidacao = isValidCustomizadoCreateResposta(mensagem, arquivos);
-            if (listarErrosDeValidacao.Count > 0)
-            {
-                ModelState.AddModelError(listarErrosDeValidacao[0], listarErrosDeValidacao[1]);
-            }
 
-            ViewBag.ValidationError = true;
+            // Faz validação dos atributos que não podem ser diretamente validados pelo Entity Framework e retorna as mensagens de erro como ViewData ou TempData.
+            List<string> listarErrosDeValidacao = isValidCustomizadoCreateResposta(mensagem, arquivos);
+            while (listarErrosDeValidacao.Count > 0)
+            {
+                TempData["Error"] = "Error";
+                ModelState.AddModelError(listarErrosDeValidacao[0], listarErrosDeValidacao[1]);
+                TempData[listarErrosDeValidacao[0]] = listarErrosDeValidacao[1];
+                TempData["NomeDosErrosDeValidacao"] += listarErrosDeValidacao[0] + ";";
+                listarErrosDeValidacao.RemoveRange(0, 2);
+            }
+            // -----------------------------------------------------------------------------------------
+
             if (ModelState.IsValid! && usuarioIsParticipanteDaConversa)
             {
-                ViewBag.ValidationError = false;
                 mensagem.Participantes = new List<Usuario>();
 
-                mensagem = await Task.Run(() => fazerUploadDosArquivosAnexados(mensagem, arquivos));
+                mensagem = fazerUploadDosArquivosAnexados(mensagem, arquivos);
 
+                // Converte a string "listaDeDesinatariosPorId" em uma lista e realiza todas as operações necessárias para cada destinatário
                 List<string> listaRemetentes = listaDeDestinatariosPorId.Split(";").ToList();
-
                 string listaDeDestinatariosPorNome = "";
                 for (int i = 0; i < (listaRemetentes.Count - 1); i++)
                 {
@@ -255,7 +270,7 @@ namespace App_comunicacao_escolar.Controllers
 
                     }
 
-                    NumeroDeNovasMensagensNaConversa numeroDeNovasMensagensNaConversa = await Task.Run(() => _context.NumeroDeNovasMensagensNaConversa.FirstOrDefault(n => n.UsuarioId == usuario.Id && n.ConversaId == conversaId));
+                    NumeroDeNovasMensagensNaConversa numeroDeNovasMensagensNaConversa = await _context.NumeroDeNovasMensagensNaConversa.FirstOrDefaultAsync(n => n.UsuarioId == usuario.Id && n.ConversaId == conversaId);
                     if (numeroDeNovasMensagensNaConversa == null)
                     {
                         numeroDeNovasMensagensNaConversa = new NumeroDeNovasMensagensNaConversa();
@@ -269,61 +284,29 @@ namespace App_comunicacao_escolar.Controllers
                         numeroDeNovasMensagensNaConversa.NumeroDeMensagensNaoLidas += 1;
                         _context.Update(numeroDeNovasMensagensNaConversa);
                     }
-                    
+
                     listaDeDestinatariosPorNome += usuario.Nome + "; ";
                 }
+                // -----------------------------------------------------------------------------------------
+
                 mensagem.listaDestinatariosNome = listaDeDestinatariosPorNome;
                 _context.Add(mensagem);
                 _context.Update(conversa);
                 await _context.SaveChangesAsync();
             }
-            ViewBag.ValidationError = true;
-            return RedirectToRoute(new { controller = "Conversas", action = "Visualizar", id = mensagem.ConversaId });//
+            if (TempData.ContainsKey("Error"))
+            {
+                if (mensagem.Conteudo == null)
+                {
+                    mensagem.Conteudo = "";
+                }
+                TempData["Conteudo"] = mensagem.Conteudo;
+                TempData["mensagemRespondidaId"] = mensagem.MensagemRespondidaId;
+            }
+            return RedirectToAction("Visualizar", new {id = mensagem.ConversaId});
         }
 
         // Metodos
-
-
-        private List<string> isValidCustomizadoCreate(Conversa conversa, Mensagem mensagem, List<IFormFile> arquivos)
-        {
-            List<string> errorMessage = new List<string>();
-            if (mensagem.listaDestinatarios == null)
-            {
-                errorMessage.Add("Participantes");
-                errorMessage.Add("Selecione pelo menos um destinatário!");
-            };
-            long formFileTotalSyzeKb = 0;
-            foreach (var formFile in arquivos)
-            {
-                formFileTotalSyzeKb += formFile.Length;
-            }
-            if (formFileTotalSyzeKb > 2)
-            {
-                errorMessage.Add("Mensagens");
-                errorMessage.Add("Tamanho dos arquivos não pode exceder 25 MB!");
-            };
-            return errorMessage;
-        }
-        private List<string> isValidCustomizadoCreateResposta(Mensagem mensagem, List<IFormFile> arquivos)
-        {
-            List<string> errorMessage = new List<string>();
-            if (mensagem.listaDestinatarios == null)
-            {
-                errorMessage.Add("Participantes");
-                errorMessage.Add("Selecione pelo menos um destinatário!");
-            };
-            long formFileTotalSyzeKb = 0;
-            foreach (var formFile in arquivos)
-            {
-                formFileTotalSyzeKb += formFile.Length;
-            }
-            if (formFileTotalSyzeKb > 25000000)
-            {
-                errorMessage.Add("Mensagens");
-                errorMessage.Add("Tamanho dos arquivos não pode exceder 25 MB!");
-            };
-            return errorMessage;
-        }
 
         private Mensagem fazerUploadDosArquivosAnexados(Mensagem mensagem, List<IFormFile> arquivos)
         {
@@ -350,6 +333,53 @@ namespace App_comunicacao_escolar.Controllers
 
             }
             return mensagem;
+        }
+
+        // Metodos - Validação de atributos cuja validação não é diretamente coberta pelo Entity Framework
+        private List<string> isValidCustomizadoCreate(Conversa conversa, Mensagem mensagem, List<IFormFile> arquivos)
+        {
+            List<string> errorMessage = new List<string>();
+            if (mensagem.listaDestinatarios == null)
+            {
+                errorMessage.Add("listaDeDestinatariosPorIdError");
+                errorMessage.Add("Selecione pelo menos um destinatário!");
+            };
+            long formFileTotalSyzeKb = 0;
+            foreach (var formFile in arquivos)
+            {
+                formFileTotalSyzeKb += formFile.Length;
+            }
+            if (formFileTotalSyzeKb > 25000000)
+            {
+                errorMessage.Add("arquivosError");
+                errorMessage.Add("Tamanho dos arquivos não pode exceder 25 MB!");
+            };
+            return errorMessage;
+        }
+        private List<string> isValidCustomizadoCreateResposta(Mensagem mensagem, List<IFormFile> arquivos)
+        {
+            List<string> errorMessage = new List<string>();
+            if (mensagem.listaDestinatarios == null)
+            {
+                errorMessage.Add("listaDeDestinatariosPorIdError");
+                errorMessage.Add("Selecione pelo menos um destinatário!");
+            };
+            long formFileTotalSyzeKb = 0;
+            foreach (var formFile in arquivos)
+            {
+                formFileTotalSyzeKb += formFile.Length;
+            }
+            if (mensagem.Conteudo == null)
+            {
+                errorMessage.Add("conteudoMensagemError");
+                errorMessage.Add("Inserir conteúdo da mensagem!");
+            };
+            if (formFileTotalSyzeKb > 25000000)
+            {
+                errorMessage.Add("arquivosError");
+                errorMessage.Add("Tamanho dos arquivos não pode exceder 25 MB!");
+            };
+            return errorMessage;
         }
 
     }

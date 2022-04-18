@@ -58,12 +58,14 @@
             <td>
                 <b>@Html.DisplayFor(modelItem => item.RemetenteNome)</b>
             </td>
-            <td class="mensagem-table-space">
-                 @if(item.PrimeiraMensagem != null && item.PrimeiraMensagem.Length > 89)
-                {
-                     ViewData["Mensagem"] = item.PrimeiraMensagem.Substring(0, 90);
-                }
-                <b>@Html.DisplayFor(modelItem => item.Assunto)</b> - @ViewData["Mensagem"]...
+            <td>
+                <div class="mensagem-table-space">
+                     @if(item.PrimeiraMensagem != null && item.PrimeiraMensagem.Length > 79)
+                    {
+                         ViewData["Mensagem"] = item.PrimeiraMensagem.Substring(0, 80);
+                    }
+                    <b>@Html.DisplayFor(modelItem => item.Assunto)</b> - @ViewData["Mensagem"]...
+                </div>
             </td>  
             <td>
                 @* Exibir número de mensagens não lidas da conversa *@

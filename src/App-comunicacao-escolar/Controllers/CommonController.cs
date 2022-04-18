@@ -13,10 +13,10 @@ namespace App_comunicacao_escolar.Controllers
         {
             _context = context;
         }
-        public async Task<IActionResult> UpdateMsg()
+        public IActionResult UpdateMsg()
         {
             int idUsuarioLogado = GetIdUsuarioLogado();
-            var mensagensNaoLidasDoUsuarioAtual = await Task.Run(() => _context.NumeroDeNovasMensagensNaConversa.Where(n => n.UsuarioId == idUsuarioLogado));
+            var mensagensNaoLidasDoUsuarioAtual = _context.NumeroDeNovasMensagensNaConversa.Where(n => n.UsuarioId == idUsuarioLogado);
             int numeroDeNovasMensagensNaConversa = 0;
             foreach (var item in mensagensNaoLidasDoUsuarioAtual)
             {
@@ -54,6 +54,24 @@ namespace App_comunicacao_escolar.Controllers
                 return Int32.Parse(currentUser.FindFirst(ClaimTypes.NameIdentifier).Value);
             }
             return -1;
+        }
+
+        public void getCustomErrorMessagesFromTempData()
+        {
+            if (TempData.ContainsKey("Error"))
+                @ViewData["Error"] = TempData["Error"].ToString();
+
+            if (TempData.ContainsKey("NomeDosErrosDeValidacao"))
+            {
+                string NomeDosErrosDeValidacao = TempData["NomeDosErrosDeValidacao"].ToString();
+                List<string> listarErrosDeValidacao = NomeDosErrosDeValidacao.Split(";").ToList();
+                listarErrosDeValidacao.RemoveAt(listarErrosDeValidacao.Count - 1);
+                foreach (string error in listarErrosDeValidacao)
+                {
+                    ViewData[error] = TempData[error].ToString();
+                }
+            }
+
         }
 
     }

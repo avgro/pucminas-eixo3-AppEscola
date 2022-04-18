@@ -3,10 +3,26 @@
 
 // Write your JavaScript code.
 
-if (localStorage.getItem("postagemRealizada")) {
-    window.scrollTo(0, document.body.scrollHeight);
-    localStorage.removeItem("postagemRealizada");
+// Manter posição da barra de rolagem em atualização automática
+if (localStorage.getItem("scrollY")) {
+
+
+    let scrollY = JSON.parse(localStorage.getItem("scrollY"));
+    window.scrollTo({ top: scrollY, behavior: 'instant' });
 }
+
+window.addEventListener('load', function () {
+
+    if (localStorage.getItem("scrollY")) {
+        if (!document.getElementById("validation-error")) {
+            let scrollY = document.body.scrollHeight;
+            window.scrollTo({ top: scrollY, behavior: 'instant' });
+        }
+    }
+    localStorage.removeItem("scrollY");
+})
+
+
 
 function abrirTelaDeResponderMensagem(idMensagemASerRespondida) {
     let transferirListaDeDestinatariosId = document.getElementsByClassName("remetenteId")[idMensagemASerRespondida].value + ";";
@@ -64,25 +80,8 @@ function copiarValoresDaPaginaParaAsListasJavascript(idRemetente = -1) {
     }
 }
 
-function validarSubmissaoDeResposta() {
-    let okToSubmit = true;
-    let selectListaDeDestinatariosPorId = document.getElementById("listaDeDestinatariosPorId").value;
-    if (selectListaDeDestinatariosPorId == "") {
-        okToSubmit = false;
-        window.alert("Selecionar ao menos um destinatário!")
-    }
-    let selectListaDeAnexos = document.getElementById("arquivos");
-    let tamanhoListaDeAnexosEmBytes = 0;
-    for (i = 0; i < selectListaDeAnexos.files.length; i++) {
-        tamanhoListaDeAnexosEmBytes += selectListaDeAnexos.files[i].size;
-    }
-    if (tamanhoListaDeAnexosEmBytes > 25000000) {
-        okToSubmit = false;
-        window.alert("Tamanho dos arquivos excede o valor máximo de 25 MB!");
-    }
-    if (okToSubmit) {
-        localStorage.setItem("postagemRealizada", "ok");
-        okToSubmit = true;
-        document.getElementById("botao-submit-resposta").click();
-    }
+function postagemRealizada() {
+    let scrollY = window.scrollY;
+    localStorage.setItem("scrollY", JSON.stringify(scrollY));
 }
+

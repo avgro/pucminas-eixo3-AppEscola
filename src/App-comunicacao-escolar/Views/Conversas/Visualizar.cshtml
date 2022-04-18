@@ -7,11 +7,9 @@
 
 <h1> @Html.DisplayFor(model => model.Assunto)</h1>
 
-@if (ViewBag.ValidationError != null){
-    @if (ViewBag.ValidationError){
-        // Usada para que o Javascript saiba se o backend retornou error após a submissão do formulário
-        <div id="validation-error">Error</div>
-    }
+@if (@ViewData["Error"] != null){
+      // Usada para que o Javascript saiba se o backend retornou error após a submissão do formulário
+     <div hidden id="validation-error">@ViewData["Error"]</div>
 }
 
 <div>
@@ -24,8 +22,9 @@
             <span>@Html.DisplayFor(modelItem => mensagem.DataEnvio)</span>
         </div>
         <div class="border-bottom col-12 m-2"></div>
+        <div class="word-wrap-break-word">
         @Html.DisplayFor(modelItem => mensagem.Conteudo)
-        
+        </div>
         <!-- Exibir anexos -->
         @if (mensagem.Anexos.Count > 0){
             <div class="border-bottom col-12 m-2"></div>
@@ -67,27 +66,29 @@
                 <button type="button" class="btn btn-primary m-1" onclick="adicionarDestinatarioALista()">Adicionar destinatário</button>
                 <br />
                 <div class="d-flex text-wrap m-1" id="exibirDestinatariosSelecionados"></div>
+                <div class="text-danger mb-2" id="listaDeDestinatariosPorIdError">@ViewData["listaDeDestinatariosPorIdError"]</div>
                 <span asp-validation-for="Assunto" class="text-danger"></span>
-                <textarea id="conteudoMensagem" name="conteudoMensagem" class="form-control conteudo-textarea" placeholder="Inserir conteúdo da mensagem..." required></textarea>
+                <textarea onchange, onkeyup="checkError(conteudoMensagem, conteudoMensagemError)" id="conteudoMensagem" name="conteudoMensagem" class="form-control conteudo-textarea" placeholder="Inserir conteúdo da mensagem...">@ViewData["Conteudo"]</textarea>
+                <div class="text-danger" id="conteudoMensagemError">@ViewData["conteudoMensagemError"]</div>
 
                  <label for="arquivos" class="control-label">Anexar arquivos (Tamanho máximo: 25 MB):</label><br />
-                 <input type="file" class="m-1" id="arquivos" name="arquivos" multiple/>
+                 <input onchange="checkError(arquivos, arquivosError)" type="file" class="m-1" id="arquivos" name="arquivos" multiple/>
                  <br />
-                 <span asp-validation-for="Mensagens" class="text-danger"></span>
+                 <div class="text-danger" id="arquivosError">@ViewData["arquivosError"]</div>
 
-                <input type="text" id="listaDeDestinatariosPorId" name="listaDeDestinatariosPorId" required hidden/>
+                <input onkeyup="checkError(listaDeDestinatariosPorId, listaDeDestinatariosPorIdError)" type="text" id="listaDeDestinatariosPorId" name="listaDeDestinatariosPorId" hidden />
                 <textarea id="listaDeDestinatariosPorNome" name="listaDeDestinatariosPorNome" class="form-control" hidden>  </textarea>
-                <input type="hidden" id="mensagemRespondidaId" name="mensagemRespondidaId"/>
+                <input type="hidden" id="mensagemRespondidaId" name="mensagemRespondidaId" value=@ViewData["mensagemRespondidaId"] />
                 <input type="hidden" id="conversaId" name="conversaId" value=@Model.Id />
 
-                <button type="submit" id="botao-submit-resposta" hidden></button>
+                <button type="submit" class="btn btn-primary m-1" onclick="postagemRealizada()">Responder</button>
          </form>
-         <button type="button" class="btn btn-primary m-1" onclick="validarSubmissaoDeResposta()">Responder</button>
+
     </div>
 </div>
 <div>
     <div id="fim-da-pagina"></div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Voltar</a>
 </div>
 
 @section Scripts {
