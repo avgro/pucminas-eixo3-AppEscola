@@ -57,4 +57,5 @@ function exibirDestinatariosNaTela() {
     }
     exibirDestinatariosSelecionados.innerHTML = exibirDestinatariosSelecionadosConteudoHtml;
     listaDeDestinatariosPorId.value = preencherListaDeDestinatarios;
+    document.getElementById("listaDeDestinatariosPorId").onkeyup();
 }

@@ -3,20 +3,35 @@
 
 // Write your JavaScript code.
 
-// Refresh page 
+// Atualiza os contadores de mensagens e notificação a cada 5 segundos
+
+// Inicializa o contador após o carregamento da página
+
 
 window.addEventListener('load', function () {
     jQrefresh();
-    startRefreshCount = true;
 })
 
 var intervalId = setInterval(function () {
-    if (startRefreshCount) {
-        jQrefresh();
-    }
+
+    jQrefresh();
+
 }, 5000);
 
+// Atualiza o contador de mensagens
 function jQrefresh() {
     document.getElementById("refreshPartial").click();
 }
 
+// Suporte à validação customizada. Esconde mensagens de erro ao digitar valor nos campos a serem validados.
+function checkError(elementInput, divErrorMessage) {
+    if (elementInput.value == "") {
+        divErrorMessage.hidden = false;
+    }
+    else {
+        divErrorMessage.hidden = true;
+    }
+    if (elementInput.type == "file") {
+        divErrorMessage.hidden = true;
+    }
+}

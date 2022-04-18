@@ -56,5 +56,23 @@ namespace App_comunicacao_escolar.Controllers
             return -1;
         }
 
+        public void getCustomErrorMessagesFromTempData()
+        {
+            if (TempData.ContainsKey("Error"))
+                @ViewData["Error"] = TempData["Error"].ToString();
+
+            if (TempData.ContainsKey("NomeDosErrosDeValidacao"))
+            {
+                string NomeDosErrosDeValidacao = TempData["NomeDosErrosDeValidacao"].ToString();
+                List<string> listarErrosDeValidacao = NomeDosErrosDeValidacao.Split(";").ToList();
+                listarErrosDeValidacao.RemoveAt(listarErrosDeValidacao.Count - 1);
+                foreach (string error in listarErrosDeValidacao)
+                {
+                    ViewData[error] = TempData[error].ToString();
+                }
+            }
+
+        }
+
     }
 }
