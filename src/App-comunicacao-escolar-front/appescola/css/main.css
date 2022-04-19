@@ -57,6 +57,14 @@ html {
   font-size: 18px;
 }
 
+#mainSlider {
+  background-color: rgb(173, 165, 165);
+}
+
+.indicadoresCarousel {
+  color: green;
+}
+
 #contato {
   background-color: rgb(225, 199, 250);
 }
