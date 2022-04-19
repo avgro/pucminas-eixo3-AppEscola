@@ -9,12 +9,14 @@ namespace App_comunicacao_escolar.Models
         [Key]
         public int Id { get; set; }
         [Display(Name = "Remetente")]
+        [MaxLength(200)]
         public string? RemetenteNome { get; set; }
         public int? RemetenteId { get; set; }
         [Display(Name = "Destinatários")]
         public string? listaDestinatarios { get; set; }
         public string? listaDestinatariosNome { get; set; }
         [Display(Name = "Conteúdo")]
+        [MaxLength(10000)]
         public string? Conteudo { get; set; }
         public int? ConversaId { get; set; }
         [ForeignKey("ConversaId")]
