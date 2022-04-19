@@ -1,6 +1,33 @@
+using App_comunicacao_escolar.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<ApplicationDbContext>(options => 
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
+
+// IdentityConfigurations
+builder.Services.Configure<CookiePolicyOptions>(options =>
+{
+    options.CheckConsentNeeded = context => true;
+    options.MinimumSameSitePolicy = SameSiteMode.None
+    ;
+});
+
+builder.Services.Configure<Microsoft.AspNetCore.Mvc.CookieTempDataProviderOptions>(options => {
+    options.Cookie.IsEssential = true;
+});
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options => {
+    options.AccessDeniedPath = "/Usuarios/AccessDenied/";
+    options.LoginPath = "/Usuarios/Login/";
+});
+
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -18,7 +45,12 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseCookiePolicy();
+
 app.UseAuthorization();
+
+app.UseAuthentication();
+
 
 app.MapControllerRoute(
     name: "default",

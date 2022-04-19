@@ -4,11 +4,11 @@ using System.Diagnostics;
 
 namespace App_comunicacao_escolar.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : CommonController
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ApplicationDbContext context, ILogger<HomeController> logger) : base(context)
         {
             _logger = logger;
         }
@@ -28,5 +28,23 @@ namespace App_comunicacao_escolar.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public IActionResult MsgUpdate()
+        {
+           
+            return PartialView("ContadorMsg");
+        }
+    }
+}
+
+public static class HttpExtensions
+{
+    public static bool IsAjaxRequest(this HttpRequest request)
+    {
+        if (request == null)
+            return false;
+        else if (request.Headers != null)
+            return request.Headers["X-Requested-With"] == "XMLHttpRequest";
+        return false;
     }
 }

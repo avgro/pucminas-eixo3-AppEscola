@@ -1,0 +1,98 @@
+﻿@model App_comunicacao_escolar.Models.Conversa
+
+@{
+    ViewData["Title"] = "Mensagem";
+    int contarNumeroDeMensagens = 0;
+}
+
+<h1> @Html.DisplayFor(model => model.Assunto)</h1>
+
+@if (@ViewData["Error"] != null){
+      // Usada para que o Javascript saiba se o backend retornou error após a submissão do formulário
+     <div hidden id="validation-error">@ViewData["Error"]</div>
+}
+
+<div>
+    @foreach(Mensagem mensagem in Model.Mensagens)
+    {
+        <div class="mensagem-email">
+        <b>@Html.DisplayFor(modelItem => mensagem.RemetenteNome)</b>
+        <div class="d-flex justify-content-between">
+            <p>Para: @Html.DisplayFor(modelItem => mensagem.listaDestinatariosNome)</p>
+            <span>@Html.DisplayFor(modelItem => mensagem.DataEnvio)</span>
+        </div>
+        <div class="border-bottom col-12 m-2"></div>
+        <div class="word-wrap-break-anywhere">
+        @Html.DisplayFor(modelItem => mensagem.Conteudo)
+        </div>
+        <!-- Exibir anexos -->
+        @if (mensagem.Anexos.Count > 0){
+            <div class="border-bottom col-12 m-2"></div>
+            <text>Arquivos anexados:</text> <br>
+            <div class="d-flex flex-wrap m-1">
+                @foreach (MensagemArquivosAnexados anexo in mensagem.Anexos)
+                {
+                        <span class="caixa-itens-listados">@anexo.NomeOriginalDoArquivo 
+                            <span>@Html.ActionLink("Download", "DownloadFile", anexo)</span></span>
+                }
+            </div>
+        }
+        <!------------------->
+
+        <div class="border-bottom col-12 m-2"></div>
+
+        <input type="hidden" class="remetenteId" name="remetenteId" value=@mensagem.RemetenteId />
+        <input type="hidden" class="remetenteNome" name="remetenteNome" value=@mensagem.RemetenteNome />
+        <input type="hidden" class="listaDeDestinatariosPorId" name="listaDeDestinatariosPorId" value=@mensagem.listaDestinatarios />
+        <textarea name="listaDeDestinatariosPorNome" class="listaDeDestinatariosPorNome" hidden> @Html.DisplayFor(modelItem => mensagem.listaDestinatariosNome) </textarea>
+        <input type="hidden" class="mensagemRespondidaId" name="mensagemRespondidaId" value=@mensagem.Id />
+        <button type="button" class="btn btn-primary" onclick="abrirTelaDeResponderMensagem(@contarNumeroDeMensagens)">Responder</button>
+        <button type="button" class="btn btn-primary" onclick="abrirTelaDeResponderMensagemParaTodosOsParticipantes(@contarNumeroDeMensagens, @mensagem.RemetenteId)">Responder a todos</button>
+        
+        @{
+             contarNumeroDeMensagens += 1;
+        }
+    </div>
+
+    }
+    <div id="tela-responder-mensagem">
+        <form asp-action="CreateResposta" enctype="multipart/form-data">
+                <button type="button" class="float-end" onclick="fecharTelaDeResponderMensagem()">X</button>
+                <b>Responder mensagem</b>
+                <br />
+                <label for="destinatarioId" class="control-label">Destinatários:</label>
+                <select id="destinatarioId" asp-for="Participantes" class ="form-control" asp-items="ViewBag.ParticipanteId" readonly>
+                </select>
+                <button type="button" class="btn btn-primary m-1" onclick="adicionarDestinatarioALista()">Adicionar destinatário</button>
+                <br />
+                <div class="d-flex text-wrap m-1" id="exibirDestinatariosSelecionados"></div>
+                <div class="text-danger mb-2" id="listaDeDestinatariosPorIdError">@ViewData["listaDeDestinatariosPorIdError"]</div>
+                <span asp-validation-for="Assunto" class="text-danger"></span>
+                <textarea onchange, onkeyup="checkError(conteudoMensagem, conteudoMensagemError)" id="conteudoMensagem" name="conteudoMensagem" class="form-control conteudo-textarea" placeholder="Inserir conteúdo da mensagem...">@ViewData["Conteudo"]</textarea>
+                <div class="text-danger" id="conteudoMensagemError">@ViewData["conteudoMensagemError"]</div>
+
+                 <label for="arquivos" class="control-label">Anexar arquivos (Tamanho máximo: 25 MB):</label><br />
+                 <input onchange="checkError(arquivos, arquivosError)" type="file" class="m-1" id="arquivos" name="arquivos" multiple/>
+                 <br />
+                 <div class="text-danger" id="arquivosError">@ViewData["arquivosError"]</div>
+
+                <input onkeyup="checkError(listaDeDestinatariosPorId, listaDeDestinatariosPorIdError)" type="text" id="listaDeDestinatariosPorId" name="listaDeDestinatariosPorId" hidden />
+                <textarea id="listaDeDestinatariosPorNome" name="listaDeDestinatariosPorNome" class="form-control" hidden>  </textarea>
+                <input type="hidden" id="mensagemRespondidaId" name="mensagemRespondidaId" value=@ViewData["mensagemRespondidaId"] />
+                <input type="hidden" id="conversaId" name="conversaId" value=@Model.Id />
+
+                <button type="submit" class="btn btn-primary m-1" onclick="postagemRealizada()">Responder</button>
+         </form>
+
+    </div>
+</div>
+<div>
+    <div id="fim-da-pagina"></div>
+    <a asp-action="Index" asp-route-secao="@ViewData["TituloDaSecao"]">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/selecionardestinatarios.js" asp-append-version="true"></script>
+    <script src="~/js/visualizar-conversas.js" asp-append-version="true"></script>
+}

@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -8,10 +10,33 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/App_comunicacao_escolar.styles.css" asp-append-version="true" />
 </head>
+
+@{
+    int GetIdUsuarioLogado()
+    {
+        if (User.Identity.IsAuthenticated)
+        {
+            ClaimsPrincipal currentUser = User;
+            return Int32.Parse(currentUser.FindFirst(ClaimTypes.NameIdentifier).Value);
+        }
+        return -1;
+    }
+    ViewData["Controller"] = ViewContext.RouteData.Values["controller"].ToString();
+    ViewData["Action"] = ViewContext.RouteData.Values["action"].ToString();
+
+    bool layoutNaoTemMenuLateral()
+    {
+        if (ViewData["Controller"].Equals("Usuarios") && ViewData["Action"].Equals("Login"))
+        {
+            return true;
+        }
+        return false;
+    }
+}
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
+            <div class="container container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">App_comunicacao_escolar</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -22,17 +47,77 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                Olá, @User.Identity.Name
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Logout">Sair</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Login">Login</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
+    <a hidden id="refreshPartial" class="btn btn-primary" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#msgupdate" href="/Home/UpdateMsg"></a>
+    <div class="container" >
+        <main role="main" class="pb-3 ">
+            @if (layoutNaoTemMenuLateral()) {
+                <div class="p-4">@RenderBody()</div>
+            }
+            else 
+            {
+                <div class="menu-content-layout">
+                    <div>
+                        <div class="menu-lateral">
+                            <ul class="list-group">
+                                @if(ViewData["Controller"].Equals("Usuarios"))
+                                {
+                                    <li class="p-0 list-group-item item-menu-selecionado">
+                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">Cadastrar usuários</a>
+                                    </li>
+                                }
+                                else{
+                                    <li class="p-0 list-group-item ">
+                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">Cadastrar usuários</a>
+                                    </li>
+                                }
+
+                                @if(ViewData["Controller"].Equals("Conversas"))
+                                {
+                                    <li class="p-0 list-group-item item-menu-selecionado )">
+                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Conversas" asp-action="Index">Mensagens
+                                            <span id="msgupdate">
+                                                @await Component.InvokeAsync("ContadorDeMensagensNovas", GetIdUsuarioLogado())
+                                            </span>
+                                        </a>
+                                    </li>
+                                }
+                                else{
+                                    <li class="p-0 list-group-item )">
+                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Conversas" asp-action="Index">Mensagens
+                                            <span id="msgupdate">
+                                                @await Component.InvokeAsync("ContadorDeMensagensNovas", GetIdUsuarioLogado())
+                                            </span>
+                                        </a>
+                                    </li>
+                                }
+                                
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="p-4">@RenderBody()</div>
+                </div>
+            }
         </main>
     </div>
 
@@ -44,6 +129,9 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery/dist/js/jquery.min.js"></script>
+    <script src="~/lib/jquery-unobtrusive-ajax/jquery.unobtrusive-ajax.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
