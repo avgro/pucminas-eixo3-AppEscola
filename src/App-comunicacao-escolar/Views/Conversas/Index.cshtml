@@ -62,9 +62,9 @@
                 </td>
                 <td>
                     <div class="mensagem-table-space">
-                        @if (item.PrimeiraMensagem != null && item.PrimeiraMensagem.Length > 39)
+                        @if (item.PrimeiraMensagem != null && item.PrimeiraMensagem.Length > 29)
                         {
-                            ViewData["Mensagem"] = item.PrimeiraMensagem.Substring(0, 40);
+                            ViewData["Mensagem"] = item.PrimeiraMensagem.Substring(0, 30);
                         }
                         <b>@Html.DisplayFor(modelItem => item.Assunto)</b> - @ViewData["Mensagem"]...
                     </div>
@@ -96,7 +96,7 @@
                 </td>
                 <td>
                     <div class="d-flex">
-                        <a class="btn btn-primary" asp-action="Visualizar" asp-route-id="@item.Id">Visualizar</a>
+                        <a class="btn btn-primary" asp-action="Visualizar" asp-route-id="@item.Id" asp-route-secao="@ViewData["TituloDaSecao"]">Visualizar</a>
                         @if ((ViewData["TituloDaSecao"].Equals("Arquivados")))
                         {
                             @using (Html.BeginForm("Desarquivar", "Conversas", FormMethod.Post))

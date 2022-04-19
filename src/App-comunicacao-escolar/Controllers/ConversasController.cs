@@ -63,7 +63,7 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: Conversas/Visualizar/5
-        public async Task<IActionResult> Visualizar(int? id)
+        public async Task<IActionResult> Visualizar(int? id, string? secao)
         {
             if (id == null)
             {
@@ -102,8 +102,9 @@ namespace App_comunicacao_escolar.Controllers
                 @ViewData["Conteudo"] = TempData["Conteudo"].ToString();
 
             if (TempData.ContainsKey("mensagemRespondidaId"))
-                @ViewData["mensagemRespondidaId"] = TempData["mensagemRespondidaId"].ToString(); 
+                @ViewData["mensagemRespondidaId"] = TempData["mensagemRespondidaId"].ToString();
 
+            ViewData["TituloDaSecao"] = secao;
             return View(conversa);
         }
 
