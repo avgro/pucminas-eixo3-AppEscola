@@ -22,6 +22,16 @@
         return -1;
     }
     ViewData["Controller"] = ViewContext.RouteData.Values["controller"].ToString();
+    ViewData["Action"] = ViewContext.RouteData.Values["action"].ToString();
+
+    bool layoutNaoTemMenuLateral()
+    {
+        if (ViewData["Controller"].Equals("Usuarios") && ViewData["Action"].Equals("Login"))
+        {
+            return true;
+        }
+        return false;
+    }
 }
 <body>
     <header>
@@ -39,17 +49,17 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav">
-                        @if(User.Identity.IsAuthenticated)
+                        @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                 Olá, @User.Identity.Name
-                                 <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Logout">Sair</a>
+                                Olá, @User.Identity.Name
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Logout">Sair</a>
                             </li>
                         }
                         else
                         {
                             <li class="nav-item">
-                                 <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Login">Login</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Login">Login</a>
                             </li>
                         }
                     </ul>
@@ -60,7 +70,7 @@
     <a hidden id="refreshPartial" class="btn btn-primary" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#msgupdate" href="/Home/UpdateMsg"></a>
     <div class="container" >
         <main role="main" class="pb-3 ">
-            @if (ViewData["Controller"].Equals("PaginaComLayoutDiferente")) {
+            @if (layoutNaoTemMenuLateral()) {
                 <div class="p-4">@RenderBody()</div>
             }
             else 

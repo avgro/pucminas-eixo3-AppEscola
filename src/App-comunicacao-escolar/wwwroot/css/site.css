@@ -21,10 +21,13 @@ body {
   margin-bottom: 60px;
 }
 
-.word-wrap-break-word {
-    word-wrap: break-word;
+.word-wrap-break-anywhere {
+    word-wrap: anywhere;
 }
 
+.font-size-12px {
+    font-size: 12px;
+}
 .conteudo-textarea {
     width: 100%;
     height: 240px;
@@ -71,12 +74,14 @@ body {
 }
 
 .mensagem-table-space {
-    word-wrap: anywhere;
+    white-space: nowrap;
+    width: 30vw;
     overflow: hidden;
 }
 
 .nao-lido-spacer {
-    width: 150px;
+    text-align: center;
+    width: 180px;
 }
 
 .menu-content-layout {
