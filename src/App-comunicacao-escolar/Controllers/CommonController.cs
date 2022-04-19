@@ -23,6 +23,7 @@ namespace App_comunicacao_escolar.Controllers
                 numeroDeNovasMensagensNaConversa += item.NumeroDeMensagensNaoLidas;
             }
             ViewBag.NumeroDeMensagensNovas = numeroDeNovasMensagensNaConversa;
+            ViewData["idUsuarioLogado"] = idUsuarioLogado;
             return PartialView("ContadorMsg");
         }
 

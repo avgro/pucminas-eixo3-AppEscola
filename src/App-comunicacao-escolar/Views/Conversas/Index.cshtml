@@ -11,7 +11,7 @@
 
 <div class="d-flex justify-content-between my-4">
     <a class="btn btn-primary" asp-action="Create">Nova mensagem</a>
-    <div>
+    <div class="px-3">
         <label for="selecionar-secao">Selecionar seção:</label>
         <select onchange="mudarsecao()" id="selecionar-secao">
             <option>Caixa de entrada</option>
@@ -80,18 +80,18 @@
                         }
 
                     }
-                    <b>
-                        @if (ViewData["NumeroMensagensNaoLidas"].Equals(1))
-                        {
-                            <text>(1 mensagem nova)</text>
-                        }
-                        else if (!ViewData["NumeroMensagensNaoLidas"].Equals(0)) {
-                            <text>(@ViewData["NumeroMensagensNaoLidas"] mensagens novas)</text>
-                        }
-                        else {
-                            <div class="nao-lido-spacer"></div>
-                        }
-                    </b>
+                    
+                    <div class="nao-lido-spacer">
+                        <b>
+                            @if (ViewData["NumeroMensagensNaoLidas"].Equals(1))
+                            {
+                                <text>(1 mensagem nova)</text>
+                            }
+                            else if (!ViewData["NumeroMensagensNaoLidas"].Equals(0)) {
+                                <text>(@ViewData["NumeroMensagensNaoLidas"] mensagens novas)</text>
+                            }
+                        </b>
+                    </div>
                     @* ------------------------------------------------ *@
                 </td>
                 <td>

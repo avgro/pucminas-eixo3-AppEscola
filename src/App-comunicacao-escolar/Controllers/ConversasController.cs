@@ -22,7 +22,7 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: Conversas
-        public async Task<IActionResult> IndexAsync(string? searchString, string? secao = "Caixa de entrada", int pagina = 1)
+        public async Task<IActionResult> Index(string? searchString, string? secao = "Caixa de entrada", int pagina = 1)
         {
             int idDoUsuarioLogado = GetIdUsuarioLogado();
 
@@ -209,7 +209,7 @@ namespace App_comunicacao_escolar.Controllers
                 _context.Add(conversa);
                 _context.Add(mensagem);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(IndexAsync));
+                return RedirectToAction(nameof(Index));
             }
             ViewData["ParticipanteId"] = new SelectList(_context.Usuarios, "Id", "Nome");
             return View(conversa);
