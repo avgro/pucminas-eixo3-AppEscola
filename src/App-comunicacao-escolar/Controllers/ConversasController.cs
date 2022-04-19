@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using App_comunicacao_escolar.Models;
 using System.Security.Claims;
+using X.PagedList;
 
 namespace App_comunicacao_escolar.Controllers
 {
@@ -21,7 +22,7 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: Conversas
-        public IActionResult Index(string? searchString, string? secao = "Caixa de entrada")
+        public async Task<IActionResult> IndexAsync(string? searchString, string? secao = "Caixa de entrada", int pagina = 1)
         {
             int idDoUsuarioLogado = GetIdUsuarioLogado();
 
@@ -55,8 +56,10 @@ namespace App_comunicacao_escolar.Controllers
             }
             ViewBag.IdUsuarioLogado = idDoUsuarioLogado;
             ViewData["TituloDaSecao"] = secao;
+            ViewData["pagina"] = pagina;
             ViewData["searchString"] = searchString;
-            return View(conversas);
+
+            return View(await conversas.ToPagedListAsync(pagina, 50));
         }
 
         // GET: Conversas/Visualizar/5
@@ -206,7 +209,7 @@ namespace App_comunicacao_escolar.Controllers
                 _context.Add(conversa);
                 _context.Add(mensagem);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(IndexAsync));
             }
             ViewData["ParticipanteId"] = new SelectList(_context.Usuarios, "Id", "Nome");
             return View(conversa);

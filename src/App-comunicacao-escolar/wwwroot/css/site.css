@@ -71,14 +71,8 @@ body {
 }
 
 .mensagem-table-space {
-    width: 100%;
     word-wrap: anywhere;
     overflow: hidden;
-}
-@media (max-width: 1199px) {
-    .mensagem-table-space {
-        width: 33vw;
-    }
 }
 
 .nao-lido-spacer {
@@ -108,4 +102,3 @@ body {
 .item-menu-selecionado {
     background-color: wheat;
 }
-
