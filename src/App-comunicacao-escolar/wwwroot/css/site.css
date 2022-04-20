@@ -1,5 +1,6 @@
-html {
-    scroll-behavior: auto;
+/* Configurações gerais */
+body, html {
+    font-family: "Roboto", sans-serif;
 }
 
 html {
@@ -10,6 +11,19 @@ html {
   html {
     font-size: 16px;
   }
+}
+
+.btn {
+    font-weight: 500;
+}
+.btn-primary {
+    background-color: blueviolet;
+    border-color: blueviolet;
+}
+
+.btn-primary:hover {
+    background-color: blue;
+    border-color: blue;
 }
 
 html {
@@ -67,8 +81,9 @@ body {
     text-align: center;
     color: white;
     background-color: dodgerblue;
-    height: 24px;
-    width: 24px;
+    padding-top: 1px;
+    height: 25px;
+    width: 25px;
     margin: 0;
     border-radius: 100%;
 }
@@ -106,4 +121,65 @@ body {
 
 .item-menu-selecionado {
     background-color: wheat;
+}
+
+.login-box {
+    margin: auto;
+    margin-top: 90px;
+    margin-bottom: 270px;
+    width: 360px;
+    padding: 24px;
+    border: 1px solid rgba(0,0,0,.250);
+    border-radius: 5px;
+    box-shadow: 10px 5px 5px 2px rgba(0, 0, 0, 0.2);
+}
+/* Header */
+#header {
+    width: 100%;
+    background-color: rgb(225, 199, 250);
+}
+
+#header .navbar-collapse {
+    width: auto;
+}
+
+#header .nav-link {
+    font-weight: 500;
+    padding: 0;
+    color: black;
+    margin: 15px;
+}
+
+#header .nav-link:hover {
+    color: rgb(127, 15, 231);
+}
+
+#logo {
+    width: 100px;
+    height: 80px;
+}
+
+#login-btn {
+    display: inline-block;
+    width: fit-content;
+    font-weight: 500;
+    margin: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    background-color: blueviolet;
+    border-color: blueviolet;
+}
+
+#login-btn:hover {
+    background-color: blue;
+    border-color: blue;
+}
+
+.login-btn-center {
+    font-weight: 500;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-left: 50px;
+    background-color: blueviolet;
+    border-color: blueviolet;
 }
