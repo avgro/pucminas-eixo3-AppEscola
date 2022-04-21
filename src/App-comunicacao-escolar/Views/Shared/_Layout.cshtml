@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/App_comunicacao_escolar.styles.css" asp-append-version="true" />
+
 </head>
 
 @{
@@ -31,6 +32,18 @@
         {
             return true;
         }
+        if (ViewData["Controller"].Equals("Home") && !ViewData["Action"].Equals("AreaDoUsuario"))
+        {
+            return true;
+        }
+        if (ViewData["Controller"].Equals("Usuarios") && ViewData["Action"].Equals("AlterarDados"))
+        {
+            return true;
+        }
+        if (ViewData["Action"].Equals("AccessDenied"))
+        {
+            return true;
+        }
         return false;
     }
 }
@@ -46,18 +59,25 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Solucoes" asp-action="Index">Soluções</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Solucoes">Soluções</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="FaleConosco" asp-action="Index">Fale Conosco</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="FaleConosco">Fale Conosco</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <li class="nav-item">
-                                Olá, @User.Identity.Name
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Logout">Sair</a>
+                            <li class="nav-item d-flex flex-row-reverse">
+                                <div class="dropdown">
+                                  <button class="btn btn-transparent dropdown-toggle p-0" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Olá, @User.Identity.Name
+                                  </button>
+                                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" asp-area="" asp-controller="Usuarios" asp-action="AlterarDados" asp-route-id="@GetIdUsuarioLogado()">Alterar Dados</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Usuarios" asp-action="Logout">Sair</a>
+                                  </div>
+                                </div>
                             </li>
                         }
                         else
@@ -83,6 +103,17 @@
                     <div>
                         <div class="menu-lateral">
                             <ul class="list-group">
+                                @if(ViewData["Controller"].Equals("Home"))
+                                {
+                                    <li class="p-0 list-group-item item-menu-selecionado">
+                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AreaDoUsuario">Painel inicial</a>
+                                    </li>
+                                }
+                                else{
+                                    <li class="p-0 list-group-item ">
+                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AreaDoUsuario">Painel inicial</a>
+                                    </li>
+                                }
                                 @if(ViewData["Controller"].Equals("Usuarios"))
                                 {
                                     <li class="p-0 list-group-item item-menu-selecionado">
@@ -130,11 +161,10 @@
             &copy; 2022 - App_comunicacao_escolar - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/lib/jquery/dist/js/jquery.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/jquery-unobtrusive-ajax/jquery.unobtrusive-ajax.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

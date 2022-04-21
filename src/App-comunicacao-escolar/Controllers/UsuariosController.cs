@@ -175,6 +175,102 @@ namespace App_comunicacao_escolar.Controllers
             return View(usuario);
         }
 
+        // GET: Usuarios/Edit/5
+        public async Task<IActionResult> AlterarDados(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            if (id != GetIdUsuarioLogado())
+            {
+                return Forbid();
+            }
+
+            var usuario = await _context.Usuarios.FindAsync(id);
+            if (usuario == null)
+            {
+                return NotFound();
+            }
+            if (TempData.ContainsKey("MensagemDeSucesso"))
+                ViewData["MensagemDeSucesso"] = TempData["MensagemDeSucesso"].ToString();
+
+            return View(usuario);
+        }
+
+        // POST: Usuarios/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AlterarDados(int id, [Bind("Id,Nome,Sobrenome,NomeDeUsuario,Senha,Email,Logradouro,Cidade,Estado,Cep,Perfil")] Usuario usuarioNovasInformacoes,
+            [Bind("NovaSenha")] string novaSenha, [Bind("NovaSenha")] string novaSenhaRepetir)
+        {
+            if (id != GetIdUsuarioLogado())
+            {
+                return Forbid();
+            }
+
+            Usuario usuario = await _context.Usuarios.FindAsync(id);
+
+            var user = await _context.Usuarios
+                .FirstOrDefaultAsync(m => m.NomeDeUsuario == usuario.NomeDeUsuario);
+
+            bool isSenhaOk = false;
+            if (usuarioNovasInformacoes.Senha != null) { 
+                isSenhaOk = BCrypt.Net.BCrypt.Verify(usuarioNovasInformacoes.Senha, user.Senha);
+            }
+            if (isSenhaOk)
+            {
+                usuario.Email = usuarioNovasInformacoes.Email;
+                usuario.Logradouro = usuarioNovasInformacoes.Logradouro;
+                usuario.Cidade = usuarioNovasInformacoes.Cidade;
+                usuario.Estado = usuarioNovasInformacoes.Estado;
+                usuario.Cep = usuarioNovasInformacoes.Cep;
+
+            }
+            else
+            {
+                ModelState.AddModelError("", "");
+            }
+
+            if (novaSenha != null) { 
+                if (novaSenha.Equals(novaSenhaRepetir) && isSenhaOk)
+                {
+                    usuario.Senha = BCrypt.Net.BCrypt.HashPassword(novaSenha);
+                }
+                else
+                {
+                    ModelState.AddModelError("", "");
+                }
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(usuario);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!UsuarioExists(usuario.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                TempData["MensagemDeSucesso"] = "Dados alterados com sucesso!";
+                return RedirectToAction(nameof(AlterarDados));
+            }
+            ViewData["MensagemDeErro"] = "Dados não foram alterados!";
+            return View(usuario);
+        }
+
         // GET: Usuarios/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
