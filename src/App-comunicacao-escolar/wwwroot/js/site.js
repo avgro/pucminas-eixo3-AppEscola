@@ -37,3 +37,23 @@ function checkError(elementInput, divErrorMessage) {
         divErrorMessage.hidden = true;
     }
 }
+
+// Menu dropdown customizado (dropdown do Boostrap incompativel com Asp.Net.Core.MVC)
+
+function showDropDown(dropdownButton, dropdownDiv) {
+    if (dropdownDiv.hidden == true) {
+        dropdownDiv.hidden = false;
+
+    }
+    else {
+        dropdownDiv.hidden = true;
+    }
+    document.addEventListener('click', function (event) {
+        if (!dropdownButton.contains(event.target) && !dropdownDiv.contains(event.target)) {
+            dropdownDiv.hidden = true;
+        }
+    });
+
+}
+
+// ----------------------------------------------------------------------------- //
