@@ -60,8 +60,8 @@
                 <td>
                     <b>@Html.DisplayFor(modelItem => item.RemetenteNome)</b>
                 </td>
-                <td>
-                    <div class="mensagem-table-space">
+                <td class="pr-0 mr-0">
+                    <div class="pr-0 mr-0 mensagem-table-space word-wrap-break-anywhere">
                         @if (item.PrimeiraMensagem != null && item.PrimeiraMensagem.Length > 29)
                         {
                             ViewData["Mensagem"] = item.PrimeiraMensagem.Substring(0, 30);
@@ -69,7 +69,7 @@
                         <b>@Html.DisplayFor(modelItem => item.Assunto)</b> - @ViewData["Mensagem"]...
                     </div>
                 </td>  
-                <td>
+                <td class="px-0 mx-0">
                     @* Exibir número de mensagens não lidas da conversa *@
                     @{
                         ViewData["NumeroMensagensNaoLidas"] = 0;
@@ -92,24 +92,31 @@
                             }
                         </b>
                     </div>
+                    <div class="nao-lido-minimizado">
+                        <b>
+                            @if (!ViewData["NumeroMensagensNaoLidas"].Equals(0)){
+                                <text>(@ViewData["NumeroMensagensNaoLidas"])</text>
+                            }
+                        </b>
+                    </div>
                     @* ------------------------------------------------ *@
                 </td>
                 <td>
-                    <div class="d-flex">
-                        <a class="btn btn-primary" asp-action="Visualizar" asp-route-id="@item.Id" asp-route-secao="@ViewData["TituloDaSecao"]">Visualizar</a>
+                    <div class="botoes-conversa">
+                        <a class="btn btn-primary mx-1" asp-action="Visualizar" asp-route-id="@item.Id" asp-route-secao="@ViewData["TituloDaSecao"]">Visualizar</a>
                         @if ((ViewData["TituloDaSecao"].Equals("Arquivados")))
                         {
                             @using (Html.BeginForm("Desarquivar", "Conversas", FormMethod.Post))
                             {
                                 <input type="hidden" name="conversaId" value=@item.Id>
-                                <button type="submit" class="btn btn-secondary mx-2">Desarquivar</button>
+                                <button type="submit" class="btn btn-secondary mx-1">Desarquivar</button>
                             }
                         }
                         else {
                             @using (Html.BeginForm("Arquivar", "Conversas", FormMethod.Post))
                             {
                                 <input type="hidden" name="conversaId" value=@item.Id>
-                                <button type="submit" class="btn btn-secondary mx-2">Arquivar</button>
+                                <button type="submit" class="btn btn-secondary mx-1">Arquivar</button>
                             }
                         }
                     </div>

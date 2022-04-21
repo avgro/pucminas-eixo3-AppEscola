@@ -49,7 +49,8 @@ function showDropDown(dropdownButton, dropdownDiv) {
         dropdownDiv.hidden = true;
     }
     document.addEventListener('click', function (event) {
-        if (!dropdownButton.contains(event.target) && !dropdownDiv.contains(event.target)) {
+        const ignoreRefreshPartial = document.getElementById("refreshPartial");
+        if (!dropdownButton.contains(event.target) && !dropdownDiv.contains(event.target) && !ignoreRefreshPartial.contains(event.target)) {
             dropdownDiv.hidden = true;
         }
     });

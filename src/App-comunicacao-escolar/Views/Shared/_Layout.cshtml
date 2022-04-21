@@ -107,30 +107,30 @@
                             <ul class="list-group">
                                 @if(ViewData["Controller"].Equals("Home"))
                                 {
-                                    <li class="p-0 list-group-item item-menu-selecionado">
+                                    <li class="p-0 item-menu-first item-menu-selecionado">
                                         <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AreaDoUsuario">Painel inicial</a>
                                     </li>
                                 }
                                 else{
-                                    <li class="p-0 list-group-item ">
+                                    <li class="p-0 item-menu-first">
                                         <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AreaDoUsuario">Painel inicial</a>
                                     </li>
                                 }
                                 @if(ViewData["Controller"].Equals("Usuarios"))
                                 {
-                                    <li class="p-0 list-group-item item-menu-selecionado">
+                                    <li class="p-0 item-menu item-menu-selecionado">
                                         <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">Cadastrar usuários</a>
                                     </li>
                                 }
                                 else{
-                                    <li class="p-0 list-group-item ">
+                                    <li class="p-0 item-menu">
                                         <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">Cadastrar usuários</a>
                                     </li>
                                 }
 
                                 @if(ViewData["Controller"].Equals("Conversas"))
                                 {
-                                    <li class="p-0 list-group-item item-menu-selecionado )">
+                                    <li class="p-0 item-menu item-menu-selecionado )">
                                         <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Conversas" asp-action="Index">Mensagens
                                             <span id="msgupdate">
                                                 @await Component.InvokeAsync("ContadorDeMensagensNovas", GetIdUsuarioLogado())
@@ -139,7 +139,7 @@
                                     </li>
                                 }
                                 else{
-                                    <li class="p-0 list-group-item )">
+                                    <li class="p-0 item-menu )">
                                         <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Conversas" asp-action="Index">Mensagens
                                             <span id="msgupdate">
                                                 @await Component.InvokeAsync("ContadorDeMensagensNovas", GetIdUsuarioLogado())
