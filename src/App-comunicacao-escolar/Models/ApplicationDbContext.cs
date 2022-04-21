@@ -14,5 +14,13 @@ namespace App_comunicacao_escolar.Models
         public DbSet<NumeroDeNovasMensagensNaConversa> NumeroDeNovasMensagensNaConversa { get; set; }
         public DbSet<UsuariosQueArquivaramConversa> UsuariosQueArquivaramConversa { get; set; }
         public DbSet<MensagemArquivosAnexados> Anexos { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Usuario>()
+            .HasIndex(d => d.NomeDeUsuario).IsUnique();
+            modelBuilder.Entity<Usuario>()
+            .HasIndex(d => d.Email).IsUnique();
+        }
     }
 }
