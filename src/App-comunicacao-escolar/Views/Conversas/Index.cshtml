@@ -92,17 +92,20 @@
                             }
                         </b>
                     </div>
-                    <div class="nao-lido-minimizado">
-                        <b>
-                            @if (!ViewData["NumeroMensagensNaoLidas"].Equals(0)){
-                                <text>(@ViewData["NumeroMensagensNaoLidas"])</text>
-                            }
-                        </b>
-                    </div>
                     @* ------------------------------------------------ *@
                 </td>
                 <td>
                     <div class="botoes-conversa">
+                        <div class="nao-lido-minimizado">
+                            <b>
+                                @if (ViewData["NumeroMensagensNaoLidas"].Equals(1)){
+                                    <text>(@ViewData["NumeroMensagensNaoLidas"] Não lida)</text>
+                                }
+                                else if (!ViewData["NumeroMensagensNaoLidas"].Equals(0)){
+                                    <text>(@ViewData["NumeroMensagensNaoLidas"] Não lidas)</text>
+                                }
+                            </b>
+                        </div>
                         <a class="btn btn-primary mx-1" asp-action="Visualizar" asp-route-id="@item.Id" asp-route-secao="@ViewData["TituloDaSecao"]">Visualizar</a>
                         @if ((ViewData["TituloDaSecao"].Equals("Arquivados")))
                         {

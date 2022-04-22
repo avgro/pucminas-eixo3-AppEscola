@@ -86,6 +86,8 @@ li.active.page-item .page-link {
     .mensagem-email {
         min-width: 70vw;
         margin: auto;
+        margin-bottom: 6px;
+        margin-top: 6px;
     }
 }
 
@@ -154,7 +156,9 @@ li.active.page-item .page-link {
         display: none;
     }
     .nao-lido-minimizado {
+        text-align: center;
         display: block;
+        margin-bottom: 4px;
     }
 
 }
