@@ -86,7 +86,7 @@ namespace App_comunicacao_escolar.Controllers
             {
                 return NotFound();
             }
-            ViewData["ParticipanteId"] = new SelectList(_context.Usuarios, "Id", "Nome");
+            ViewData["ParticipanteId"] = new SelectList(_context.Usuarios, "Id", "NomeDisplayLista");
 
             // Zerar contador de mensagens da conversa
             var numeroDeNovasMensagensNaConversa = await _context.NumeroDeNovasMensagensNaConversa.FirstOrDefaultAsync(n => n.UsuarioId == idDoUsuarioLogado && n.ConversaId == conversa.Id);
@@ -142,7 +142,7 @@ namespace App_comunicacao_escolar.Controllers
         // GET: Conversas/Create
         public IActionResult Create()
         {
-            ViewData["ParticipanteId"] = new SelectList(_context.Usuarios, "Id", "Nome");
+            ViewData["ParticipanteId"] = new SelectList(_context.Usuarios, "Id", "NomeDisplayLista");
 
             return View();
         }
@@ -212,7 +212,7 @@ namespace App_comunicacao_escolar.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ParticipanteId"] = new SelectList(_context.Usuarios, "Id", "Nome");
+            ViewData["ParticipanteId"] = new SelectList(_context.Usuarios, "Id", "NomeDisplayLista");
             return View(conversa);
         }
 
@@ -266,30 +266,32 @@ namespace App_comunicacao_escolar.Controllers
                 {
                     int remetenteId = int.Parse(listaRemetentes[i]);
                     Usuario usuario = await _context.Usuarios.FirstOrDefaultAsync(u => u.Id == remetenteId);
-                    mensagem.Participantes.Add(usuario);
+                    if (usuario != null) { 
+                        mensagem.Participantes.Add(usuario);
 
-                    if (!conversa.Participantes.Contains(usuario))
-                    {
-                        conversa.Participantes.Add(usuario);
+                        if (!conversa.Participantes.Contains(usuario))
+                        {
+                            conversa.Participantes.Add(usuario);
 
+                        }
+
+                        NumeroDeNovasMensagensNaConversa numeroDeNovasMensagensNaConversa = await _context.NumeroDeNovasMensagensNaConversa.FirstOrDefaultAsync(n => n.UsuarioId == usuario.Id && n.ConversaId == conversaId);
+                        if (numeroDeNovasMensagensNaConversa == null)
+                        {
+                            numeroDeNovasMensagensNaConversa = new NumeroDeNovasMensagensNaConversa();
+                            numeroDeNovasMensagensNaConversa.UsuarioId = usuario.Id;
+                            numeroDeNovasMensagensNaConversa.ConversaId = conversaId;
+                            numeroDeNovasMensagensNaConversa.NumeroDeMensagensNaoLidas = 1;
+                            conversa.NumeroDeNovasMensagensNaConversa.Add(numeroDeNovasMensagensNaConversa);
+                        }
+                        else
+                        {
+                            numeroDeNovasMensagensNaConversa.NumeroDeMensagensNaoLidas += 1;
+                            _context.Update(numeroDeNovasMensagensNaConversa);
+                        }
+
+                        listaDeDestinatariosPorNome += usuario.Nome + "; ";
                     }
-
-                    NumeroDeNovasMensagensNaConversa numeroDeNovasMensagensNaConversa = await _context.NumeroDeNovasMensagensNaConversa.FirstOrDefaultAsync(n => n.UsuarioId == usuario.Id && n.ConversaId == conversaId);
-                    if (numeroDeNovasMensagensNaConversa == null)
-                    {
-                        numeroDeNovasMensagensNaConversa = new NumeroDeNovasMensagensNaConversa();
-                        numeroDeNovasMensagensNaConversa.UsuarioId = usuario.Id;
-                        numeroDeNovasMensagensNaConversa.ConversaId = conversaId;
-                        numeroDeNovasMensagensNaConversa.NumeroDeMensagensNaoLidas = 1;
-                        conversa.NumeroDeNovasMensagensNaConversa.Add(numeroDeNovasMensagensNaConversa);
-                    }
-                    else
-                    {
-                        numeroDeNovasMensagensNaConversa.NumeroDeMensagensNaoLidas += 1;
-                        _context.Update(numeroDeNovasMensagensNaConversa);
-                    }
-
-                    listaDeDestinatariosPorNome += usuario.Nome + "; ";
                 }
                 // -----------------------------------------------------------------------------------------
 

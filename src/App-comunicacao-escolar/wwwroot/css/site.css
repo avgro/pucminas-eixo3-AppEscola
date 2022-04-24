@@ -57,8 +57,38 @@ li.active.page-item .page-link {
 .text-center {
     text-align: center;
 }
+
+.text-right {
+    text-align: right;
+}
+
 .font-size-12px {
     font-size: 12px;
+}
+
+.whitespace-nowrap {
+    white-space: nowrap;
+}
+
+.input-size-standard {
+    width: 200px;
+}
+
+.input-size-2x {
+    width: 400px;
+}
+
+.input-size-2halfx {
+    width: 500px;
+    max-width: 84vw;
+}
+
+.input-size-half {
+    width: 100px;
+}
+
+.input-size-quarter {
+    width: 50px;
 }
 
 .conteudo-textarea {
@@ -76,7 +106,7 @@ li.active.page-item .page-link {
 }
 
 .mensagem-email {
-    border: 1px solid;
+    border: 1px solid lightgray;
     border-radius: 6px;
     padding: 12px;
     margin: 6px;
@@ -357,6 +387,7 @@ li.active.page-item .page-link {
 }
 
 .dropdown-menu-fix {
+    z-index: 1;
     position: relative;
     right: 0;
     margin: 0px;
@@ -394,7 +425,7 @@ li.active.page-item .page-link {
     }
 
     .botoes-conversa a, .botoes-conversa button {
-        width: 80px;
+        width: 90px;
         margin: 0px;
         padding: 2px;
         margin-top: 8px;

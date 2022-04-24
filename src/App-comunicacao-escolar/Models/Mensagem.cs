@@ -28,5 +28,13 @@ namespace App_comunicacao_escolar.Models
         public ICollection<Usuario>? Participantes { get; set; }
         public ICollection<Mensagem>? Respostas { get; set; }
         public ICollection<MensagemArquivosAnexados>? Anexos { get; set; }
+
+        public string converterDataParaDDMMYYYY(DateTime? dataEnvio)
+        {
+            string dataEnvioString = dataEnvio.ToString();
+            List<string> separarData = dataEnvioString.Split("/").ToList();
+            dataEnvioString = separarData[1] + "/" + separarData[0] + "/" + separarData[2];
+            return dataEnvioString;
+        }
     }
 }

@@ -69,7 +69,7 @@ namespace App_comunicacao_escolar.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
-            return RedirectToAction("Login","Usuarios");
+            return RedirectToAction("Login", "Usuarios");
         }
         public IActionResult AccessDenied()
         {
@@ -90,7 +90,7 @@ namespace App_comunicacao_escolar.Controllers
                 return NotFound();
             }
 
-            var usuario = await _context.Usuarios
+            var usuario = await _context.Usuarios.Include(u => u.Professor)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (usuario == null)
             {
@@ -101,7 +101,7 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: Usuarios/Create
-        public IActionResult Create()
+        public IActionResult Create(string? tipoDeUsuario)
         {
             return View();
         }
@@ -111,12 +111,34 @@ namespace App_comunicacao_escolar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Sobrenome,NomeDeUsuario,Senha,Email,Logradouro,Cidade,Estado,Cep,Perfil")] Usuario usuario)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Sobrenome,NomeDeUsuario,Senha,Email,TelefoneMovel,TelefoneFixo,Logradouro,Cidade,Estado,Cep,Perfil")] Usuario usuario, [Bind("professorFormacao")] string professorFormacao, [Bind("professorNivel")] NivelDoProfessorEnum professorNivel)
         {
+            usuario = FormatarInputs(usuario);
+            List<string> listarErrosDeValidacao = isValidCustomizado(usuario);
+            
+            Professor professor = new Professor();
+            if (usuario.Perfil.ToString().Equals("Professor"))
+            {   
+                professor.Usuario = usuario;
+                professor.Formacao = professorFormacao;
+                professor.Nivel = professorNivel;
+            }
+            while (listarErrosDeValidacao.Count > 0)
+            {
+                ViewData["Error"] = "Error";
+                ModelState.AddModelError(listarErrosDeValidacao[0], listarErrosDeValidacao[1]);
+                ViewData[listarErrosDeValidacao[0]] = listarErrosDeValidacao[1];
+                listarErrosDeValidacao.RemoveRange(0, 2);
+            }
             if (ModelState.IsValid)
             {
                 usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
+                usuario.NomeDisplayLista = usuario.Nome + " " + usuario.Sobrenome + " (" + usuario.NomeDeUsuario + ")";
                 _context.Add(usuario);
+                if (usuario.Perfil.ToString().Equals("Professor"))
+                {
+                    _context.Add(professor);
+                }
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -144,18 +166,39 @@ namespace App_comunicacao_escolar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Sobrenome,NomeDeUsuario,Senha,Email,Logradouro,Cidade,Estado,Cep,Perfil")] Usuario usuario)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Sobrenome,NomeDeUsuario,Senha,Email,TelefoneMovel,TelefoneFixo,Logradouro,Cidade,Estado,Cep,Perfil")] Usuario usuarioNovasInformacoes)
         {
-            if (id != usuario.Id)
+            if (id != usuarioNovasInformacoes.Id)
             {
                 return NotFound();
             }
 
+            // Manter mesmo perfil e senha
+            Usuario usuario = await _context.Usuarios.FindAsync(id);
+            usuario.Nome = usuarioNovasInformacoes.Nome;
+            usuario.Sobrenome = usuarioNovasInformacoes.Sobrenome;
+            usuario.Email = usuarioNovasInformacoes.Email;
+            usuario.TelefoneMovel = usuarioNovasInformacoes.TelefoneMovel;
+            usuario.TelefoneFixo = usuarioNovasInformacoes.TelefoneFixo;
+            usuario.Logradouro = usuarioNovasInformacoes.Logradouro;
+            usuario.Cidade = usuarioNovasInformacoes.Cidade;
+            usuario.Estado = usuarioNovasInformacoes.Estado;
+            usuario.Cep = usuarioNovasInformacoes.Cep;
+
+            usuario = FormatarInputs(usuario);
+            List<string> listarErrosDeValidacao = isValidCustomizado(usuario, usuario.Id);
+            while (listarErrosDeValidacao.Count > 0)
+            {
+                ViewData["Error"] = "Error";
+                ModelState.AddModelError(listarErrosDeValidacao[0], listarErrosDeValidacao[1]);
+                ViewData[listarErrosDeValidacao[0]] = listarErrosDeValidacao[1];
+                listarErrosDeValidacao.RemoveRange(0, 2);
+            }
             if (ModelState.IsValid)
             {
                 try
                 {
-                    usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
+                    usuario.NomeDisplayLista = usuario.Nome + " " + usuario.Sobrenome + " (" + usuario.NomeDeUsuario + ")";
                     _context.Update(usuario);
                     await _context.SaveChangesAsync();
                 }
@@ -193,18 +236,19 @@ namespace App_comunicacao_escolar.Controllers
             {
                 return NotFound();
             }
+
             if (TempData.ContainsKey("MensagemDeSucesso"))
                 ViewData["MensagemDeSucesso"] = TempData["MensagemDeSucesso"].ToString();
 
             return View(usuario);
         }
 
-        // POST: Usuarios/Edit/5
+        // POST: Usuarios/AlterarDados/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AlterarDados(int id, [Bind("Id,Nome,Sobrenome,NomeDeUsuario,Senha,Email,Logradouro,Cidade,Estado,Cep,Perfil")] Usuario usuarioNovasInformacoes,
+        public async Task<IActionResult> AlterarDados(int id, [Bind("Id,Nome,Sobrenome,NomeDeUsuario,Senha,Email,TelefoneMovel,TelefoneFixo,Logradouro,Cidade,Estado,Cep,Perfil")] Usuario usuarioNovasInformacoes,
             [Bind("NovaSenha")] string novaSenha, [Bind("NovaSenha")] string novaSenhaRepetir)
         {
             if (id != GetIdUsuarioLogado())
@@ -218,12 +262,14 @@ namespace App_comunicacao_escolar.Controllers
                 .FirstOrDefaultAsync(m => m.NomeDeUsuario == usuario.NomeDeUsuario);
 
             bool isSenhaOk = false;
-            if (usuarioNovasInformacoes.Senha != null) { 
+            if (usuarioNovasInformacoes.Senha != null) {
                 isSenhaOk = BCrypt.Net.BCrypt.Verify(usuarioNovasInformacoes.Senha, user.Senha);
             }
             if (isSenhaOk)
             {
                 usuario.Email = usuarioNovasInformacoes.Email;
+                usuario.TelefoneMovel = usuarioNovasInformacoes.TelefoneMovel;
+                usuario.TelefoneFixo = usuarioNovasInformacoes.TelefoneFixo;
                 usuario.Logradouro = usuarioNovasInformacoes.Logradouro;
                 usuario.Cidade = usuarioNovasInformacoes.Cidade;
                 usuario.Estado = usuarioNovasInformacoes.Estado;
@@ -235,7 +281,7 @@ namespace App_comunicacao_escolar.Controllers
                 ModelState.AddModelError("", "");
             }
 
-            if (novaSenha != null) { 
+            if (novaSenha != null) {
                 if (novaSenha.Equals(novaSenhaRepetir) && isSenhaOk)
                 {
                     usuario.Senha = BCrypt.Net.BCrypt.HashPassword(novaSenha);
@@ -246,10 +292,21 @@ namespace App_comunicacao_escolar.Controllers
                 }
             }
 
+            usuario = FormatarInputs(usuario);
+            List<string> listarErrosDeValidacao = isValidCustomizado(usuario, usuario.Id);
+            while (listarErrosDeValidacao.Count > 0)
+            {
+                ViewData["Error"] = "Error";
+                ModelState.AddModelError(listarErrosDeValidacao[0], listarErrosDeValidacao[1]);
+                ViewData[listarErrosDeValidacao[0]] = listarErrosDeValidacao[1];
+                listarErrosDeValidacao.RemoveRange(0, 2);
+            }
+
             if (ModelState.IsValid)
             {
                 try
                 {
+                    usuario.NomeDisplayLista = usuario.Nome + " " + usuario.Sobrenome + " (" + usuario.NomeDeUsuario + ")";
                     _context.Update(usuario);
                     await _context.SaveChangesAsync();
                 }
@@ -295,14 +352,48 @@ namespace App_comunicacao_escolar.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var usuario = await _context.Usuarios.FindAsync(id);
+            if (usuario.Perfil.ToString().Equals("Admin"))
+            {
+                return Forbid("Não é permitido deletar a conta de usuário do Adminisrador!");
+            }
             _context.Usuarios.Remove(usuario);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
+        // Métodos
         private bool UsuarioExists(int id)
         {
             return _context.Usuarios.Any(e => e.Id == id);
+        }
+
+        private Usuario FormatarInputs(Usuario usuario)
+        {
+            usuario.NomeDeUsuario = usuario.NomeDeUsuario.Trim();
+            usuario.Email = usuario.Email.Trim();
+            return usuario;
+        }
+
+        private List<string> isValidCustomizado(Usuario usuario, int idUsuarioSendoAtualizado = 0)
+        {
+            List<string> errorMessage = new List<string>();
+            if (_context.Usuarios.Any(x => x.NomeDeUsuario == usuario.NomeDeUsuario && x.Id != idUsuarioSendoAtualizado))
+            {
+                errorMessage.Add("NomeDeUsuario");
+                errorMessage.Add("Nome de usuário já utilizado por outro usuário!");
+            }
+            if (_context.Usuarios.Any(x => x.Email == usuario.Email && x.Id != idUsuarioSendoAtualizado))
+            {
+                errorMessage.Add("Email");
+                errorMessage.Add("E-mail já utilizado por outro usuário!");
+            }
+            if (usuario.Perfil.ToString().Equals("Admin") && idUsuarioSendoAtualizado == 0)
+            {
+                errorMessage.Add("Perfil");
+                errorMessage.Add("Não é permitido criar um novo usuário do tipo \"Administrador\"!");
+            }
+
+            return errorMessage;
         }
     }
 }

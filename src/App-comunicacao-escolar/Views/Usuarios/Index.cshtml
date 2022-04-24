@@ -19,9 +19,6 @@
                 @Html.DisplayNameFor(model => model.NomeDeUsuario)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Perfil)
             </th>
             <th></th>
@@ -38,15 +35,21 @@
                 @Html.DisplayFor(modelItem => item.NomeDeUsuario)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Perfil)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Apagar</a>
+                <span class="whitespace-nowrap text-center">
+                    <a class="btn btn-primary mb-2 p-1" asp-action="Details" asp-route-id="@item.Id">Mais informações</a>
+                </span>
+                <span class="whitespace-nowrap mx-3">
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a>              
+                    @if (item.Perfil != 0) {
+                       <text>|</text> <a asp-action="Delete" asp-route-id="@item.Id">Apagar</a>
+                    }
+                    else {
+                       <text></text> <span class="opacity-0">| Apagar</span>
+                    }
+                </span>
             </td>
         </tr>
 }

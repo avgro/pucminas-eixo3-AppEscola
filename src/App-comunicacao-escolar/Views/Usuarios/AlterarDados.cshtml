@@ -17,7 +17,7 @@
                 <div class="alert-danger text-center p-4">@ViewData["MensagemDeErro"]</div>
             }
             <form asp-action="AlterarDados">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div asp-validation-summary="All" class="text-danger"></div>
                 <h5>Nome </h5>
                 @Model.Nome @Model.Sobrenome<br />
                 <hr />
@@ -26,18 +26,18 @@
                 <input type="hidden" asp-for="Id" />
                 <div hidden>
                     <div class="d-flex">
-                        <div class="form-group col-4">
+                        <div class="form-group col-3">
                             <label asp-for="Nome" class="control-label"></label>
                             <input asp-for="Nome" class="form-control" readonly />
                             <span asp-validation-for="Nome" class="text-danger"></span>
                         </div>
-                        <div class="form-group col-4 mx-2">
+                        <div class="form-group col-3 mx-2">
                             <label asp-for="Sobrenome" class="control-label"></label>
                             <input asp-for="Sobrenome" class="form-control" readonly />
                             <span asp-validation-for="Sobrenome" class="text-danger"></span>
                         </div>
                     </div>
-                    <div class="form-group col-4">
+                    <div class="form-group col-3">
                             <label asp-for="NomeDeUsuario" class="control-label"></label>
                             <input asp-for="NomeDeUsuario" class="form-control" readonly />
                             <span asp-validation-for="NomeDeUsuario" class="text-danger"></span>
@@ -46,14 +46,34 @@
                 <hr />
                 <h5>Informações de contato</h5>
                 <span id="emailAtual">
-                    @Model.Email
+                    <b>Email:</b> @Model.Email
                     <button onclick="formularioTrocar(emailAtual, emailTrocar)" type="button" class="btn btn-link">Trocar email</button>
                 </span>
                 <div id="emailTrocar" hidden>
                     <div class="form-group col-5">
                         <label asp-for="Email" class="control-label"></label>
-                        <input asp-for="Email" class="form-control" />
+                        <input asp-for="Email" class="form-control" placeholder="email@email.com.br" />
                         <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <span id="telefoneAtual">
+                    <br />
+                    <b>Móvel:</b> @Model.TelefoneMovel
+                    <button onclick="formularioTrocar(telefoneAtual, telefoneTrocar)" type="button" class="btn btn-link">Trocar telefone</button>
+                    <br />
+                    <b>Fixo: </b> @Model.TelefoneFixo
+                    <button onclick="formularioTrocar(telefoneAtual, telefoneTrocar)" type="button" class="btn btn-link">Trocar telefone</button>
+                </span>
+                <div id="telefoneTrocar" hidden>
+                    <div class="form-group col-4">
+                        <label asp-for="TelefoneMovel" class="control-label"></label>
+                        <input onkeyup="formatarTelefone(TelefoneMovel)" asp-for="TelefoneMovel" class="form-control" placeholder="(XX)XXXXX-XXXX" />
+                        <span asp-validation-for="TelefoneMovel" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-4">
+                        <label asp-for="TelefoneFixo" class="control-label"></label>
+                        <input onkeyup="formatarTelefone(TelefoneFixo)" asp-for="TelefoneFixo" class="form-control" placeholder="(XX)XXXX-XXXX" />
+                        <span asp-validation-for="TelefoneFixo" class="text-danger"></span>
                     </div>
                 </div>
                 <br />
@@ -81,9 +101,9 @@
                             <input asp-for="Estado" class="form-control" />
                             <span asp-validation-for="Estado" class="text-danger"></span>
                         </div>
-                        <div class="form-group col-2">
+                        <div class="form-group col-3">
                             <label asp-for="Cep" class="control-label"></label>
-                            <input asp-for="Cep" class="form-control" />
+                            <input onkeyup="formatarCep(Cep)" asp-for="Cep" class="form-control" />
                             <span asp-validation-for="Cep" class="text-danger"></span>
                         </div>
                     </div>
@@ -137,4 +157,6 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script src="~/js/alterar-dados.js" asp-append-version="true"></script>
+    <script src="~/js/formatar-telefone.js" asp-append-version="true"></script>
+    <script src="~/js/formatar-cep.js" asp-append-version="true"></script>
 }

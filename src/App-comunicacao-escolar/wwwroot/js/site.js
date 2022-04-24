@@ -7,18 +7,14 @@
 
 // Inicializa o contador após o carregamento da página
 
-let windowLoaded = false;
 
 window.addEventListener('load', function () {
     jQrefresh();
-    windowLoaded = true;
+    var intervalId = setInterval(function () {
+        jQrefresh();
+    }, 5000);
 })
 
-var intervalId = setInterval(function () {
-    if (windowLoaded) {
-    jQrefresh();
-    }
-}, 5000);
 
 // Atualiza o contador de mensagens
 function jQrefresh() {
