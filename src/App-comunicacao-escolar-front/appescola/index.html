@@ -7,17 +7,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet"> 
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css" />
+
+    <!--Bootstrap Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
     <title>App Escola</title>
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
   </head>
   <body>
     <!--Header-->
     <div id="header">
       <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light " >
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navbar" >
          
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.html">
               <img src="./images/logo.svg" class="img-fluid" id="logo" />
             </a>
             <button
@@ -29,12 +34,14 @@
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
-              <span class="navbar-toggler-icon"></span>
+              <i class="bi bi-list"></i>
+              
             </button>
+            
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
-                <li class="nav-item">
-                  
+                <li class="nav-item"> 
+                  <a class="nav-link active" aria-current="page" href="index.html">Página Principal</a>                 
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="./pages/solucoes.html">Soluções</a>
@@ -61,7 +68,7 @@
               </div>
 
               <div class="carousel slide col-md-6 align-self-center text-center" data-ride="carousel" id="mainSlider" >
-                  <div class="carousel-indicators" id="indicadoresCarousel">
+                  <div class="carousel-indicators">
                     <button type="button" data-bs-target="#mainSlider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#mainSlider" data-bs-slide-to="1" aria-label="Slide 2"></button>
                     <button type="button" data-bs-target="#mainSlider" data-bs-slide-to="2" aria-label="Slide 3"></button>
@@ -69,10 +76,10 @@
                   </div>
                   <div class="carousel-inner">
                     <div class="carousel-item active">
-                      <img src="./images/logo.svg" class="d-block w-100" alt="...">
+                      <img src="./images/Cruise-Mexico-2015-055-scaled.jpg" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                      <img src="./images/logo.svg" class="d-block w-100" alt="...">
+                      <img src="./images/iStock-585609744.jpg" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
                       <img src="./images/logo.svg" class="d-block w-100" alt="...">
@@ -80,12 +87,12 @@
                   </div>
                   
                   <button class="carousel-control-prev" type="button" data-bs-target="#mainSlider" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <i class="bi bi-chevron-compact-left" ></i>                    
                     <span class="visually-hidden">Previous</span>
                   </button>
                   
                   <button class="carousel-control-next" type="button" data-bs-target="#mainSlider" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <i class="bi bi-chevron-compact-right"></i>
                     <span class="visually-hidden">Next</span>
                   </button>
                 </div>     
@@ -95,47 +102,118 @@
     </div>
     <!--/Slider-->
 
-     <!--Sobre-->
-    <div id="sobrer">
-        <div class="container pt-5">
-          <div class="row">
-              <div class="col-md-6 align-self-center text-center">
-                  <img src="./images/logo.svg" class="img-fluid">
+    <div class="container" id="info-container">
+      <div class="col-12">
+        <h2 class="title primary-color">Saiba Mais</h2>
+        <p class="subtitle secondary-color">
+          Saiba mais sobre a nossa plataforma
+        </p>
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12 col-md-5" id="info-banner">
+            <img src="./images/iStock-585609744.jpg" alt="Informações" class="img-fluid" />
+          </div>
+          <div class="col-12 col-md-7" id="info-content">
+            <div class="row">
+              <div class="col-12">
+                <h2 class="title">Estes dados fazem a diferença:</h2>
+                <p class="subtitle primary-color">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Praesentium tempore fugit et iusto quisquam beatae impedit
+                  nobis quas doloribus, atque, ut id similique eligendi, ab
+                  soluta magnam maxime cum debitis.
+                </p>
               </div>
-              
-              <div class="col-md-6 align-self-center" >
-                  <h1>
-                      Lorem ipsum dolor sit.
-                  </h1>
-                  <h4 class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, excepturi.</h4>
-                  
-              </div>              
-          </div>  
-        </div>
-    </div>
-    <!--/Sobre-->
-
-    <!--Footer-->
-    <footer id="contato">
-        <div class="container">
-            <div class="rodape py-4">
+              <div class="col-12" id="info-numbers">
                 <div class="row">
-                    <div class="col-md-6 align-self-center logo-footer">
-                        <img src="./images/logo.svg" class="img-fluid" alt="">
-                    </div>
-                    <div class="col-md-6 contato-footer">
-                        <ul>
-                            <li><a href="#">Contato</a></li>
-                            <li><a href="#">Privacidade</a></li>
-                            <li><a href="#">Endereço</a></li>
-                            
-                        </ul>
-                    </div>
+                  <div class="col-4">
+                    <h3 class="primary-color">+20</h3>
+                    <p class="secondary-color">Escolas atendidas</p>
+                  </div>
+                  <div class="col-4">
+                    <h3 class="primary-color">+900</h3>
+                    <p class="secondary-color">Alunos cadastrados</p>
+                  </div>
+                  <div class="col-4">
+                    <h3 class="primary-color">+250</h3>
+                    <p class="secondary-color">Pais satisfeitos</p>
+                  </div>
                 </div>
-
+              </div>
+              <div class="col-12">
+                <a class="btn btn-dark">Saber Mais</a>
+              </div>
             </div>
-
+          </div>
         </div>
+      </div>
+    </div>
+
+    
+   <!-- FOOTER -->
+    <footer class="container-fluid bg-dark-color" id="footer">
+      <div class="container">
+        <div class="row">
+          
+          <!-- FOOTER DETAILS -->
+          <div class="col-12" id="footer-details">
+            <div class="row">
+              <div class="col-12 col-md-4" id="news-container">
+                <h4>Fique por dentro das novidades</h4>
+                <p class="secondary-color">
+                  Inscreva-se para saber em primeira mão
+                </p>
+                <form>
+                  <div class="mb-3">
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="Digite o seu e-mail"
+                    />
+                  </div>
+                  <button class="btn btn-dark" type="submit">Inscrever</button>
+                </form>
+              </div>
+              <div class="col-12 col-md-4" id="contact-container">
+                <h4>Formas de contato</h4>
+                <p class="secondary-color">(31)9999-9999</p>
+                <p class="secondary-color">contato@appescola.com</p>
+              </div>
+              <div class="col-12 col-md-4" id="links-container">
+                <div class="row">
+                  <h4>Você pode estar buscando por:</h4>
+                 
+                  <div class="col-6">
+                    <ul class="list-unstyled">
+                      <li><a href="#" class="secondary-color">Contratar</a></li>
+                      <li>
+                        <a href="#" class="secondary-color">Trabalhe conosco</a>
+                      </li>
+                      <li><a href="#" class="secondary-color">Contato</a></li>
+                      <li><a href="#" class="secondary-color">Privacidade</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- FOOTER BOTTOM -->
+          <div class="col-12" id="footer-bottom">
+            <div class="row justify-content-between">
+              <div class="col-12 col-md-3">
+                <p class="secondary-color">AppEscola &copy; 2022</p>
+              </div>
+              <div class="col-12 col-md-3">
+                <p class="secondary-color">
+                  Seus filhos cuidados com 
+                  <i class="bi bi-heart"></i>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </footer>
     <!--/Footer-->
     <script
