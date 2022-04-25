@@ -49,7 +49,7 @@ namespace App_comunicacao_escolar.Controllers
 
                 var userIdentity = new ClaimsIdentity(claims, "login");
 
-                ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
+                ClaimsPrincipal principal = new(userIdentity);
 
                 var props = new AuthenticationProperties
                 {
@@ -101,7 +101,7 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: Usuarios/Create
-        public IActionResult Create(string? tipoDeUsuario)
+        public IActionResult Create(string tipoDeUsuario)
         {
             return View();
         }
@@ -114,9 +114,9 @@ namespace App_comunicacao_escolar.Controllers
         public async Task<IActionResult> Create([Bind("Id,Nome,Sobrenome,NomeDeUsuario,Senha,Email,TelefoneMovel,TelefoneFixo,Logradouro,Cidade,Estado,Cep,Perfil")] Usuario usuario, [Bind("professorFormacao")] string professorFormacao, [Bind("professorNivel")] NivelDoProfessorEnum professorNivel)
         {
             usuario = FormatarInputs(usuario);
-            List<string> listarErrosDeValidacao = isValidCustomizado(usuario);
+            List<string> listarErrosDeValidacao = IsValidCustomizado(usuario);
             
-            Professor professor = new Professor();
+            Professor professor = new();
             if (usuario.Perfil.ToString().Equals("Professor"))
             {   
                 professor.Usuario = usuario;
@@ -186,7 +186,7 @@ namespace App_comunicacao_escolar.Controllers
             usuario.Cep = usuarioNovasInformacoes.Cep;
 
             usuario = FormatarInputs(usuario);
-            List<string> listarErrosDeValidacao = isValidCustomizado(usuario, usuario.Id);
+            List<string> listarErrosDeValidacao = IsValidCustomizado(usuario, usuario.Id);
             while (listarErrosDeValidacao.Count > 0)
             {
                 ViewData["Error"] = "Error";
@@ -293,7 +293,7 @@ namespace App_comunicacao_escolar.Controllers
             }
 
             usuario = FormatarInputs(usuario);
-            List<string> listarErrosDeValidacao = isValidCustomizado(usuario, usuario.Id);
+            List<string> listarErrosDeValidacao = IsValidCustomizado(usuario, usuario.Id);
             while (listarErrosDeValidacao.Count > 0)
             {
                 ViewData["Error"] = "Error";
@@ -374,9 +374,9 @@ namespace App_comunicacao_escolar.Controllers
             return usuario;
         }
 
-        private List<string> isValidCustomizado(Usuario usuario, int idUsuarioSendoAtualizado = 0)
+        private List<string> IsValidCustomizado(Usuario usuario, int idUsuarioSendoAtualizado = 0)
         {
-            List<string> errorMessage = new List<string>();
+            List<string> errorMessage = new();
             if (_context.Usuarios.Any(x => x.NomeDeUsuario == usuario.NomeDeUsuario && x.Id != idUsuarioSendoAtualizado))
             {
                 errorMessage.Add("NomeDeUsuario");

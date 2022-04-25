@@ -1,0 +1,132 @@
+﻿@model App_comunicacao_escolar.Models.Disciplina
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Cadastrar informações</h1>
+
+<h4>Nova disciplina</h4>
+<hr />
+
+@if (@ViewData["Error"] != null){
+      // Usada para que o Javascript saiba se o backend retornou error após a submissão do formulário
+     <div hidden id="validation-error">@ViewData["Error"]</div>
+}
+
+@if (@ViewData["Error"] != null){
+      // Usada para que o Javascript saiba se o backend retornou error após a submissão do formulário
+     <div hidden id="validation-error">@ViewData["Error"]</div>
+}
+
+<div class="row">
+    <div >
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <h5>Informações da disciplina</h5>
+            <div class="form-group input-size-standard">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group input-size-standard">
+                <label asp-for="Codigo" class="control-label"></label>
+                <input asp-for="Codigo" class="form-control" />
+                <span asp-validation-for="Codigo" class="text-danger"></span>
+            </div>
+            <hr />
+            <h5>Professores da disciplina</h5>
+            <div class="form-group input-size-2x">
+                <label asp-for="Professores" class="control-label"></label>
+                <select id="destinatarioId" asp-for="Professores" class ="form-control" asp-items="ViewBag.ProfessorId" readonly>
+                </select>
+                 <span asp-validation-for="Professores" data-valmsg-for="listaDeDestinatariosPorId" class="text-danger"></span>
+                <button type="button" class="btn btn-primary m-2" onclick="adicionarDestinatarioALista()">Adicionar professor</button>
+                <br />
+                <div class="d-flex flex-wrap m-1" id="exibirDestinatariosSelecionados"></div>
+                <input onkeyup="checkError(listaDeDestinatariosPorId, listaDeDestinatariosPorIdError)" type="hidden" asp-for="Professores" id="listaDeDestinatariosPorId" name="listaDeProfessoresDaDisciplinaPorId"/>
+                <div class="text-danger mb-2" id="listaDeDestinatariosPorIdError">@ViewData["listaDeDestinatariosPorIdError"]</div>
+            </div>
+            <hr />
+            <h5>
+                <label asp-for="HorariosDaDisciplina" class="control-label"></label>
+            </h5>
+            <div asp-for="HorariosDaDisciplina">
+                <span asp-validation-for="HorariosDaDisciplina" class="text-danger"></span>
+                <div class="d-flex">
+                    <div>
+                        Dia da semana<br />
+                        <select id="diaDaSemana" class="form-control input-size-half"
+                        asp-items="Html.GetEnumSelectList<DiaDaSemanaEnum>()">
+                        </select>
+                    </div>
+                    <div class="mx-3">
+                    Início da aula
+                        <div class="selecionar-horario">
+                            <input onkeyup="limitarInputHoras(horasInicio)" onchange="doisDigitosInputHorario(horasInicio)" type="number" min="0" max="23" class="m-1" id="horasInicio" value="00"/>
+                            <div class="selecionar-horario-text">h</div>
+                            <input onkeyup="limitarInputMinutos(minutosInicio)" onchange="doisDigitosInputHorario(minutosInicio)" type="number" min="0" max="59" class="m-1" id="minutosInicio" value="00"/>
+                            <div class="selecionar-horario-text">min</div>
+                        </div>
+                    </div>
+                    <div>
+                        Fim da aula
+                        <div class="selecionar-horario">
+                            <input onkeyup="limitarInputHoras(horasFim)" onchange="doisDigitosInputHorario(horasFim)" type="number" min="0" max="23" class="m-1" id="horasFim" value="00"/> 
+                            <div class="selecionar-horario-text">h</div>
+                            <input onkeyup="limitarInputMinutos(minutosFim)" onchange="doisDigitosInputHorario(minutosFim)" type="number" min="0" max="59" class="m-1" id="minutosFim" value="00"/>
+                            <div class="selecionar-horario-text">min</div>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="adicionarHorarioAula()" type="button" class="btn btn-primary my-2">Adicionar horário</button>
+                <br />
+                <table class="table input-size-2halfx text-center">
+                    <thead>
+                        <tr>
+                            <th>
+                                Dia da semana
+                            </th>
+                            <th>
+                                Início da aula
+                            </th>
+                            <th>
+                                Fim da aula
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="mostrarHorariosAulas">
+                        
+                    </tbody>
+                </table>
+                <div id="listaHorariosWarning" class="alert-warning p-2 text-center input-size-2halfx">Nenhum horário cadastrado</div>
+                <div hidden>
+                    <div class="form-group">
+                        <label for="horarioInicioList" class="control-label"></label><br />
+                        <input type="text" class="m-1" id="horarioInicioLista" name="horarioInicioLista"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="horarioFimList" class="control-label"></label><br />
+                        <input type="text" class="m-1" id="horarioFimLista" name="horarioFimLista"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="diaDaSemanaList" class="control-label"></label><br />
+                        <input type="text" class="m-1" id="diaDaSemanaLista" name="diaDaSemanaLista"/>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="form-group">
+                <input type="submit" value="Cadastrar disciplina" class="btn btn-primary my-2"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+    <script src="~/js/selecionardestinatarios.js" asp-append-version="true"></script>
+    <script src="~/js/criar-horarios-aula.js" asp-append-version="true"></script>
+</div>
+

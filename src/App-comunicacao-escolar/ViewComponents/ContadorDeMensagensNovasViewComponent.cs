@@ -16,11 +16,13 @@ namespace App_comunicacao_escolar.ViewComponents
         }
         public async Task<IViewComponentResult> InvokeAsync(int idUsuarioLogado = -1)
         {
-            var mensagensNaoLidasDoUsuarioAtual = _context.NumeroDeNovasMensagensNaConversa.Where(n => n.UsuarioId == idUsuarioLogado);
             int numeroDeNovasMensagensNaConversa = 0;
-            foreach (var item in mensagensNaoLidasDoUsuarioAtual)
-            {
-                numeroDeNovasMensagensNaConversa += item.NumeroDeMensagensNaoLidas;
+            if (_context.NumeroDeNovasMensagensNaConversa != null) { 
+                var mensagensNaoLidasDoUsuarioAtual = _context.NumeroDeNovasMensagensNaConversa.Where(n => n.UsuarioId == idUsuarioLogado);
+                foreach (var item in mensagensNaoLidasDoUsuarioAtual)
+                {
+                    numeroDeNovasMensagensNaConversa += item.NumeroDeMensagensNaoLidas;
+                }
             }
             ViewBag.NumeroDeMensagensNovas = numeroDeNovasMensagensNaConversa;
             

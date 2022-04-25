@@ -4,6 +4,7 @@ using App_comunicacao_escolar.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App_comunicacao_escolar.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220425044202_M19")]
+    partial class M19
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -76,35 +78,6 @@ namespace App_comunicacao_escolar.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Disciplinas");
-                });
-
-            modelBuilder.Entity("App_comunicacao_escolar.Models.HorariosDaDisciplina", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("DiaDaSemana")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DisciplinaId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("HorarioFim")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("HorarioInicio")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DisciplinaId");
-
-                    b.ToTable("HorariosDasDisciplinas");
                 });
 
             modelBuilder.Entity("App_comunicacao_escolar.Models.Mensagem", b =>
@@ -373,15 +346,6 @@ namespace App_comunicacao_escolar.Migrations
                     b.ToTable("MensagemUsuario");
                 });
 
-            modelBuilder.Entity("App_comunicacao_escolar.Models.HorariosDaDisciplina", b =>
-                {
-                    b.HasOne("App_comunicacao_escolar.Models.Disciplina", "Disciplina")
-                        .WithMany("HorariosDaDisciplina")
-                        .HasForeignKey("DisciplinaId");
-
-                    b.Navigation("Disciplina");
-                });
-
             modelBuilder.Entity("App_comunicacao_escolar.Models.Mensagem", b =>
                 {
                     b.HasOne("App_comunicacao_escolar.Models.Conversa", "Conversa")
@@ -498,11 +462,6 @@ namespace App_comunicacao_escolar.Migrations
                     b.Navigation("NumeroDeNovasMensagensNaConversa");
 
                     b.Navigation("UsuariosQueArquivaramConversa");
-                });
-
-            modelBuilder.Entity("App_comunicacao_escolar.Models.Disciplina", b =>
-                {
-                    b.Navigation("HorariosDaDisciplina");
                 });
 
             modelBuilder.Entity("App_comunicacao_escolar.Models.Mensagem", b =>

@@ -13,8 +13,8 @@ namespace App_comunicacao_escolar.Models
         public string? RemetenteNome { get; set; }
         public int? RemetenteId { get; set; }
         [Display(Name = "Destinatários")]
-        public string? listaDestinatarios { get; set; }
-        public string? listaDestinatariosNome { get; set; }
+        public string? ListaDestinatarios { get; set; }
+        public string? ListaDestinatariosNome { get; set; }
         [Display(Name = "Conteúdo")]
         [MaxLength(10000)]
         public string? Conteudo { get; set; }
@@ -29,12 +29,16 @@ namespace App_comunicacao_escolar.Models
         public ICollection<Mensagem>? Respostas { get; set; }
         public ICollection<MensagemArquivosAnexados>? Anexos { get; set; }
 
-        public string converterDataParaDDMMYYYY(DateTime? dataEnvio)
+        public string ConverterDataParaDDMMYYYY(DateTime? dataEnvio)
         {
-            string dataEnvioString = dataEnvio.ToString();
-            List<string> separarData = dataEnvioString.Split("/").ToList();
-            dataEnvioString = separarData[1] + "/" + separarData[0] + "/" + separarData[2];
-            return dataEnvioString;
+            if (dataEnvio != null) { 
+                string dataEnvioString = dataEnvio!.ToString()!;
+                List<string> separarData = dataEnvioString.Split("/").ToList();
+                dataEnvioString = separarData[1] + "/" + separarData[0] + "/" + separarData[2];
+                return dataEnvioString;
+            }
+            return "";
+            
         }
     }
 }

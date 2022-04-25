@@ -15,48 +15,51 @@
 }
 
 <div>
-    @foreach(Mensagem mensagem in Model.Mensagens)
-    {
-        var dataEnvio = mensagem.converterDataParaDDMMYYYY(mensagem.DataEnvio);
-        <div class="mensagem-email">
-        <b>@Html.DisplayFor(modelItem => mensagem.RemetenteNome)</b>
-        <div class="d-flex justify-content-between">
-            <p>Para: @Html.DisplayFor(modelItem => mensagem.listaDestinatariosNome)</p>
-            <span>@dataEnvio</span>
-        </div>
-        <div class="border-bottom col-12 m-2"></div>
-        <div class="word-wrap-break-anywhere">
-        @Html.DisplayFor(modelItem => mensagem.Conteudo)
-        </div>
-        <!-- Exibir anexos -->
-        @if (mensagem.Anexos.Count > 0){
-            <div class="border-bottom col-12 m-2"></div>
-            <text>Arquivos anexados:</text> <br>
-            <div class="d-flex flex-wrap m-1">
-                @foreach (MensagemArquivosAnexados anexo in mensagem.Anexos)
-                {
-                        <span class="caixa-itens-listados">@anexo.NomeOriginalDoArquivo 
-                            <span>@Html.ActionLink("Download", "DownloadFile", anexo)</span></span>
-                }
+    @if (Model.Mensagens != null) {
+        foreach(Mensagem mensagem in Model.Mensagens)
+        {
+            var dataEnvio = mensagem.ConverterDataParaDDMMYYYY(mensagem.DataEnvio);
+            <div class="mensagem-email">
+            <b>@Html.DisplayFor(modelItem => mensagem.RemetenteNome)</b>
+            <div class="d-flex justify-content-between">
+                <p>Para: @Html.DisplayFor(modelItem => mensagem.ListaDestinatariosNome)</p>
+                <span>@dataEnvio</span>
             </div>
-        }
-        <!------------------->
+            <div class="border-bottom col-12 m-2"></div>
+            <div class="word-wrap-break-anywhere">
+            @Html.DisplayFor(modelItem => mensagem.Conteudo)
+            </div>
+            <!-- Exibir anexos -->
+            @if (mensagem.Anexos != null) { 
+                @if (mensagem.Anexos.Count > 0){
+                    <div class="border-bottom col-12 m-2"></div>
+                    <text>Arquivos anexados:</text> <br>
+                    <div class="d-flex flex-wrap m-1">
+                        @foreach (MensagemArquivosAnexados anexo in mensagem.Anexos)
+                        {
+                                <span class="caixa-itens-listados">@anexo.NomeOriginalDoArquivo 
+                                    <span>@Html.ActionLink("Download", "DownloadFile", anexo)</span></span>
+                        }
+                    </div>
+                }
+            }
+            <!------------------->
 
-        <div class="border-bottom col-12 m-2"></div>
+            <div class="border-bottom col-12 m-2"></div>
 
-        <input type="hidden" class="remetenteId" name="remetenteId" value=@mensagem.RemetenteId />
-        <input type="hidden" class="remetenteNome" name="remetenteNome" value=@mensagem.RemetenteNome />
-        <input type="hidden" class="listaDeDestinatariosPorId" name="listaDeDestinatariosPorId" value=@mensagem.listaDestinatarios />
-        <textarea name="listaDeDestinatariosPorNome" class="listaDeDestinatariosPorNome" hidden> @Html.DisplayFor(modelItem => mensagem.listaDestinatariosNome) </textarea>
-        <input type="hidden" class="mensagemRespondidaId" name="mensagemRespondidaId" value=@mensagem.Id />
-        <button type="button" class="btn btn-primary" onclick="abrirTelaDeResponderMensagem(@contarNumeroDeMensagens)">Responder</button>
-        <button type="button" class="btn btn-primary" onclick="abrirTelaDeResponderMensagemParaTodosOsParticipantes(@contarNumeroDeMensagens, @mensagem.RemetenteId)">Responder a todos</button>
+            <input type="hidden" class="remetenteId" name="remetenteId" value=@mensagem.RemetenteId />
+            <input type="hidden" class="remetenteNome" name="remetenteNome" value=@mensagem.RemetenteNome />
+            <input type="hidden" class="listaDeDestinatariosPorId" name="listaDeDestinatariosPorId" value=@mensagem.ListaDestinatarios />
+            <textarea name="listaDeDestinatariosPorNome" class="listaDeDestinatariosPorNome" hidden> @Html.DisplayFor(modelItem => mensagem.ListaDestinatariosNome) </textarea>
+            <input type="hidden" class="mensagemRespondidaId" name="mensagemRespondidaId" value=@mensagem.Id />
+            <button type="button" class="btn btn-primary" onclick="abrirTelaDeResponderMensagem(@contarNumeroDeMensagens)">Responder</button>
+            <button type="button" class="btn btn-primary" onclick="abrirTelaDeResponderMensagemParaTodosOsParticipantes(@contarNumeroDeMensagens, @mensagem.RemetenteId)">Responder a todos</button>
         
-        @{
-             contarNumeroDeMensagens += 1;
+            @{
+                 contarNumeroDeMensagens += 1;
+            }
+        </div>
         }
-    </div>
-
     }
     <div id="tela-responder-mensagem">
         <form asp-action="CreateResposta" enctype="multipart/form-data">

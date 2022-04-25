@@ -16,11 +16,13 @@ namespace App_comunicacao_escolar.Controllers
         public IActionResult UpdateMsg()
         {
             int idUsuarioLogado = GetIdUsuarioLogado();
-            var mensagensNaoLidasDoUsuarioAtual = _context.NumeroDeNovasMensagensNaConversa.Where(n => n.UsuarioId == idUsuarioLogado);
             int numeroDeNovasMensagensNaConversa = 0;
-            foreach (var item in mensagensNaoLidasDoUsuarioAtual)
-            {
-                numeroDeNovasMensagensNaConversa += item.NumeroDeMensagensNaoLidas;
+            if (_context.NumeroDeNovasMensagensNaConversa != null) { 
+                var mensagensNaoLidasDoUsuarioAtual = _context.NumeroDeNovasMensagensNaConversa.Where(n => n.UsuarioId == idUsuarioLogado);
+                foreach (var item in mensagensNaoLidasDoUsuarioAtual)
+                {
+                    numeroDeNovasMensagensNaConversa += item.NumeroDeMensagensNaoLidas;
+                }
             }
             ViewBag.NumeroDeMensagensNovas = numeroDeNovasMensagensNaConversa;
             ViewData["idUsuarioLogado"] = idUsuarioLogado;
@@ -29,7 +31,10 @@ namespace App_comunicacao_escolar.Controllers
 
         public FileResult DownloadFile(MensagemArquivosAnexados anexo)
         {
-            string fileName = anexo.NomeUnicoDoArquivo;
+            string fileName = "";
+            if (anexo.NomeUnicoDoArquivo != null) { 
+                fileName = anexo.NomeUnicoDoArquivo;
+            }
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Arquivos", "UploadsUsuarios", fileName);
             try { 
                 byte[] bytes = System.IO.File.ReadAllBytes(filePath);
@@ -37,7 +42,8 @@ namespace App_comunicacao_escolar.Controllers
             }
             catch
             {
-                return null;
+                byte[] bytes = Array.Empty<byte>();
+                return File(bytes, "application/octet-stream", anexo.NomeOriginalDoArquivo);
             }
         }
 
@@ -49,27 +55,33 @@ namespace App_comunicacao_escolar.Controllers
         // Metodos comuns
         public int GetIdUsuarioLogado()
         {
-            if (User.Identity.IsAuthenticated)
-            {
-                ClaimsPrincipal currentUser = User;
-                return Int32.Parse(currentUser.FindFirst(ClaimTypes.NameIdentifier).Value);
+            if (User.Identity != null) { 
+                if (User.Identity.IsAuthenticated)
+                {
+                    ClaimsPrincipal currentUser = User;
+                    int? IdUsuarioLogado = Int32.Parse(currentUser.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+                    if (IdUsuarioLogado != null) { 
+                        return Int32.Parse(currentUser.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+                    }
+                }
             }
             return -1;
+
         }
 
-        public void getCustomErrorMessagesFromTempData()
+        public void GetCustomErrorMessagesFromTempData()
         {
             if (TempData.ContainsKey("Error"))
-                @ViewData["Error"] = TempData["Error"].ToString();
+                @ViewData["Error"] = TempData["Error"]!.ToString();
 
             if (TempData.ContainsKey("NomeDosErrosDeValidacao"))
             {
-                string NomeDosErrosDeValidacao = TempData["NomeDosErrosDeValidacao"].ToString();
-                List<string> listarErrosDeValidacao = NomeDosErrosDeValidacao.Split(";").ToList();
+                string NomeDosErrosDeValidacao = TempData["NomeDosErrosDeValidacao"]!.ToString()!;
+                List<string> listarErrosDeValidacao = NomeDosErrosDeValidacao!.Split(";").ToList();
                 listarErrosDeValidacao.RemoveAt(listarErrosDeValidacao.Count - 1);
                 foreach (string error in listarErrosDeValidacao)
                 {
-                    ViewData[error] = TempData[error].ToString();
+                    ViewData[error] = TempData[error]!.ToString();
                 }
             }
 

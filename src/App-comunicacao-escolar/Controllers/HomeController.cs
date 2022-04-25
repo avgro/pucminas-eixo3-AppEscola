@@ -15,11 +15,12 @@ namespace App_comunicacao_escolar.Controllers
 
         public IActionResult Index()
         {
-            if (User.Identity.IsAuthenticated)
-            {
-                return RedirectToAction("AreaDoUsuario");
+            if (User.Identity != null) { 
+                if (User.Identity.IsAuthenticated)
+                {
+                    return RedirectToAction("AreaDoUsuario");
+                }
             }
-            else;
             return View();
         }
 

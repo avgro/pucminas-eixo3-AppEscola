@@ -14,7 +14,9 @@ if (document.getElementById("validation-error")) {
     if (document.getElementById("validation-error").innerHTML.length > 0) {
         listaDestinatariosId = JSON.parse(localStorage.getItem("listaDestinatariosId"));
         listaDestinatariosNome = JSON.parse(localStorage.getItem("listaDestinatariosNome"));
-        document.getElementById("tela-responder-mensagem").style.display = "block";
+        if (document.getElementById("tela-responder-mensagem") != null) {
+            document.getElementById("tela-responder-mensagem").style.display = "block";
+        }
     }
 }
 

@@ -49,7 +49,7 @@
 }
 <body>
     <header id="header">
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow">
             <div class="container container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/logo.svg" class="img-fluid" id="logo" /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -65,16 +65,16 @@
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="FaleConosco">Fale Conosco</a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav hidden-xs">
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item d-flex flex-row-reverse">
                                 <div>
-                                  <button id="botaoMenuUsuario" onclick="showDropDown(botaoMenuUsuario, menuUsuario)" class="btn btn-transparent p-0 dropdown-toggle">
+                                  <button id="botaoMenuUsuario_xs" onclick="showDropDown(botaoMenuUsuario_xs, menuUsuario_xs)" class="btn btn-transparent p-0 dropdown-toggle">
                                     Olá, @User.Identity.Name
                                   </button>
                                 </div>
-                                 <div id="menuUsuario" class="dropdown-fix" hidden>
+                                 <div id="menuUsuario_xs" class="dropdown-fix" hidden>
                                      <div class="dropdown-menu-fix">
                                        <a class="dropdown-item" asp-area="" asp-controller="Usuarios" asp-action="AlterarDados" asp-route-id="@GetIdUsuarioLogado()">Alterar Dados</a>
                                        <a class="dropdown-item" asp-area="" asp-controller="Usuarios" asp-action="Logout">Sair</a>
@@ -92,7 +92,33 @@
                 </div>
             </div>
         </nav>
+        <ul class="navbar-nav show-xs mx-3">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <li class="nav-item d-flex flex-row-reverse">
+                <div>
+                    <button id="botaoMenuUsuario" onclick="showDropDown(botaoMenuUsuario, menuUsuario)" class="btn btn-transparent p-0 dropdown-toggle">
+                    Olá, @User.Identity.Name
+                    </button>
+                </div>
+                <div id="menuUsuario" class="dropdown-fix" hidden>
+                    <div class="dropdown-menu-fix">
+                    <a class="dropdown-item" asp-area="" asp-controller="Usuarios" asp-action="AlterarDados" asp-route-id="@GetIdUsuarioLogado()">Alterar Dados</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Usuarios" asp-action="Logout">Sair</a>
+                    </div>
+                </div>
+            </li>
+            }
+        else
+        {
+            <li class="nav-item">
+                <a class="btn btn-primary me-md-2 d-md-inline-block d-block" id="login-btn" asp-area="" asp-controller="Usuarios" asp-action="Login">Login</a>
+            </li>
+        }
+        </ul>
+        <div class="border-bottom p-0 mb-3"></div>
     </header>
+
     <a hidden id="refreshPartial" class="btn btn-primary" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#msgupdate" href="/Home/UpdateMsg"></a>
     <div class="container" >
         <main role="main" class="pb-3 ">
@@ -119,12 +145,24 @@
                                 @if(ViewData["Controller"].Equals("Usuarios"))
                                 {
                                     <li class="p-0 item-menu item-menu-selecionado">
-                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">Cadastrar usuários</a>
+                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">Gerenciar usuários</a>
                                     </li>
                                 }
                                 else{
                                     <li class="p-0 item-menu">
-                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">Cadastrar usuários</a>
+                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">Gerenciar usuários</a>
+                                    </li>
+                                }
+
+                                @if(ViewData["Controller"].Equals("Disciplinas"))
+                                {
+                                    <li class="p-0 item-menu item-menu-selecionado">
+                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Disciplinas" asp-action="Index">Gerenciar disciplinas</a>
+                                    </li>
+                                }
+                                else{
+                                    <li class="p-0 item-menu">
+                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Disciplinas" asp-action="Index">Gerenciar disciplinas</a>
                                     </li>
                                 }
 

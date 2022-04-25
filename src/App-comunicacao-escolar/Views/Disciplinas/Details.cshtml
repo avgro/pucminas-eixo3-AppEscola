@@ -1,0 +1,40 @@
+﻿@model App_comunicacao_escolar.Models.Disciplina
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Disciplina</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Codigo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Codigo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Professores)
+        </dt>
+        <dd class = "col-sm-10">
+            @foreach (var professor in Model.Professores) {
+                <div>
+                    @Html.DisplayFor(modelProfessor => professor.Usuario.NomeDisplayLista)
+                </div>
+            }
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

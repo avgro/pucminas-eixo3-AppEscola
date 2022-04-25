@@ -1,25 +1,23 @@
-﻿@model IEnumerable<App_comunicacao_escolar.Models.Usuario>
+﻿@model IEnumerable<App_comunicacao_escolar.Models.Disciplina>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Lista de Usuários</h1>
+<h1>Index</h1>
+
 
 <div class="d-flex justify-content-between my-4">
-    <a class="btn btn-primary" asp-action="Create">Cadastrar novo usuário</a>
+    <a class="btn btn-primary" asp-action="Create">Cadastrar nova disciplina</a>
 </div>
-<table class="table word-wrap-break-anywhere">
+<table class="table">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
-                <span class="whitespace-nowrap">Nome de</span> Usuário
-            </th>
-            <th>
-                <span class="whitespace-nowrap">Tipo de</span> Usuário
+                @Html.DisplayNameFor(model => model.Codigo)
             </th>
             <th></th>
         </tr>
@@ -29,13 +27,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Nome)
-                @Html.DisplayFor(modelItem => item.Sobrenome)
-            </td>
-            <td class="nome-de-usuario">
-                @Html.DisplayFor(modelItem => item.NomeDeUsuario)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Perfil)
+                @Html.DisplayFor(modelItem => item.Codigo)
             </td>
             <td class="mais-informacoes">
                 <span class="text-center">
@@ -43,15 +37,15 @@
                 </span>
                 <span class="whitespace-nowrap mx-1">
                     <a asp-action="Edit" asp-route-id="@item.Id">Editar</a>              
-                    @if (item.Perfil != 0) {
-                       <text>|</text> <a asp-action="Delete" asp-route-id="@item.Id">Apagar</a>
-                    }
-                    else {
-                       <text></text> <span class="opacity-0">| Apagar</span>
-                    }
+                    <a asp-action="Delete" asp-route-id="@item.Id">Apagar</a>
                 </span>
             </td>
         </tr>
 }
+
     </tbody>
 </table>
+@if (Model.Count() == 0)
+{   
+    <div class="col-12 m-2 alert-warning p-3 text-center">Nenhuma disciplina encontrada</div>
+}

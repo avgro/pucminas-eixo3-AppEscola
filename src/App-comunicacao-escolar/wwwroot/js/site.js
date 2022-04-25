@@ -54,3 +54,31 @@ function showDropDown(dropdownButton, dropdownDiv) {
 }
 
 // ----------------------------------------------------------------------------- //
+
+function limitarInputHoras(idInput) {
+    if (idInput.value > 23) {
+        idInput.value = 23;
+    }
+    if (idInput.value < 0) {
+        idInput.value = 0;
+    }
+}
+
+function limitarInputMinutos(idInput) {
+    if (idInput.value > 59) {
+        idInput.value = 59;
+    }
+    if (idInput.value < 0) {
+        idInput.value = 0;
+    }
+}
+
+function doisDigitosInputHorario(idInput) {
+    if (idInput.value.length < 2) {
+        idInput.value = "0" + idInput.value;
+    }
+    if (idInput.value.length == 0) {
+        idInput.value = "00";
+    }
+    idInput.value = idInput.value.substring(0, 2);
+}

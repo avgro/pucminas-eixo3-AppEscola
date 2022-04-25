@@ -16,6 +16,7 @@ namespace App_comunicacao_escolar.Models
         [Display(Name = "Nível")]
         public NivelDoProfessorEnum Nivel { get; set; }
         public virtual Usuario? Usuario { get; set; }
+        public ICollection<Disciplina>? Disciplinas { get; set; }
     }
 
     public enum NivelDoProfessorEnum

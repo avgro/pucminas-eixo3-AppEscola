@@ -7,7 +7,7 @@
 }
 
 <h1>@ViewData["TituloDaSecao"]</h1>
-<a asp-action="Index" asp-route-secao="@ViewData["TituloDaSecao"]" asp-route-pagina="@ViewData["pagina"]" asp-route-secao="@ViewData["searchString"]" id="refreshConversas" hidden>Refresh</a>
+<a asp-action="Index" asp-route-secao="@ViewData["TituloDaSecao"]" asp-route-pagina="@ViewData["pagina"]" asp-route-searchString="@ViewData["searchString"]" id="refreshConversas" hidden>Refresh</a>
 
 <div class="d-flex justify-content-between my-4">
     <a class="btn btn-primary" asp-action="Create">Nova mensagem</a>
@@ -15,20 +15,22 @@
         <label for="selecionar-secao">Selecionar seção:</label>
         <select onchange="mudarsecao()" id="selecionar-secao">
             <option>Caixa de entrada</option>
-            @if (ViewData["TituloDaSecao"].Equals("Enviados"))
-            {
-                <option selected="true">Enviados</option>
-                <option>Arquivados</option>
-            }
-            else if (ViewData["TituloDaSecao"].Equals("Arquivados"))
-            {
-                <option>Enviados</option>
-                <option selected="true">Arquivados</option>
-            }
-            else
-            {
-                <option>Enviados</option>
-                <option>Arquivados</option>
+            @if (ViewData["TituloDaSecao"] != null) {
+                if (ViewData["TituloDaSecao"]!.Equals("Enviados"))
+                {
+                    <option selected="true">Enviados</option>
+                    <option>Arquivados</option>
+                }
+                else if (ViewData["TituloDaSecao"]!.Equals("Arquivados"))
+                {
+                    <option>Enviados</option>
+                    <option selected="true">Arquivados</option>
+                }
+                else
+                {
+                    <option>Enviados</option>
+                    <option>Arquivados</option>
+                }
             }
         </select>
     </div>
@@ -40,94 +42,104 @@
         <input id="Submit1" type="submit" value="Filtrar"/>
     </div>
 }
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Remetente
-            </th>
-            <th>
-                Mensagem
-            </th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model) {
-            ViewData["Mensagem"] = item.PrimeiraMensagem;
+<div class="max-width-100">
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    <b>@Html.DisplayFor(modelItem => item.RemetenteNome)</b>
-                </td>
-                <td class="pr-0 mr-0">
-                    <div class="pr-0 mr-0 mensagem-table-space word-wrap-break-anywhere">
-                        @if (item.PrimeiraMensagem != null && item.PrimeiraMensagem.Length > 29)
-                        {
-                            ViewData["Mensagem"] = item.PrimeiraMensagem.Substring(0, 30);
-                        }
-                        <b>@Html.DisplayFor(modelItem => item.Assunto)</b> - @ViewData["Mensagem"]...
-                    </div>
-                </td>  
-                <td class="px-0 mx-0">
-                    @* Exibir número de mensagens não lidas da conversa *@
-                    @{
-                        ViewData["NumeroMensagensNaoLidas"] = 0;
-                        var numeroDeNovasMensagensNaConversa = await Task.Run(() => item.NumeroDeNovasMensagensNaConversa.FirstOrDefault(n => n.UsuarioId == ViewBag.IdUsuarioLogado && n.ConversaId == item.Id));
-                        if (numeroDeNovasMensagensNaConversa != null)
-                        {
-                            ViewData["NumeroMensagensNaoLidas"] = numeroDeNovasMensagensNaConversa.NumeroDeMensagensNaoLidas;
-                        }
-
-                    }
-                    
-                    <div class="nao-lido-spacer">
-                        <b>
-                            @if (ViewData["NumeroMensagensNaoLidas"].Equals(1))
+                <th>
+                    Remetente
+                </th>
+                <th>
+                    Mensagem
+                </th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) {
+                ViewData["Mensagem"] = item.PrimeiraMensagem;
+                <tr>
+                    <td>
+                        <b>@Html.DisplayFor(modelItem => item.RemetenteNome)</b>
+                    </td>
+                    <td class="pr-0 mr-0">
+                        <div class="pr-0 mr-0 mensagem-table-space word-wrap-break-anywhere">
+                            @if (item.PrimeiraMensagem != null && item.PrimeiraMensagem.Length > 29)
                             {
-                                <text>(1 mensagem nova)</text>
+                                ViewData["Mensagem"] = item.PrimeiraMensagem.Substring(0, 30);
                             }
-                            else if (!ViewData["NumeroMensagensNaoLidas"].Equals(0)) {
-                                <text>(@ViewData["NumeroMensagensNaoLidas"] mensagens novas)</text>
-                            }
-                        </b>
-                    </div>
-                    @* ------------------------------------------------ *@
-                </td>
-                <td>
-                    <div class="botoes-conversa">
-                        <div class="nao-lido-minimizado">
-                            <b>
-                                @if (ViewData["NumeroMensagensNaoLidas"].Equals(1)){
-                                    <text>(@ViewData["NumeroMensagensNaoLidas"] Não lida)</text>
+                            <b>@Html.DisplayFor(modelItem => item.Assunto)</b> - @ViewData["Mensagem"]...
+                        </div>
+                    </td>  
+                    <td class="px-0 mx-0">
+                        @* Exibir número de mensagens não lidas da conversa *@
+                        @{
+                            ViewData["NumeroMensagensNaoLidas"] = 0;
+                            if (item.NumeroDeNovasMensagensNaConversa != null) {
+                                var numeroDeNovasMensagensNaConversa = await Task.Run(() => item.NumeroDeNovasMensagensNaConversa.FirstOrDefault(n => n.UsuarioId == ViewBag.IdUsuarioLogado && n.ConversaId == item.Id));
+                                if (numeroDeNovasMensagensNaConversa != null)
+                                {
+                                    ViewData["NumeroMensagensNaoLidas"] = numeroDeNovasMensagensNaConversa.NumeroDeMensagensNaoLidas;
                                 }
-                                else if (!ViewData["NumeroMensagensNaoLidas"].Equals(0)){
-                                    <text>(@ViewData["NumeroMensagensNaoLidas"] Não lidas)</text>
+                            }
+
+                        }
+                    
+                        <div class="nao-lido-spacer">
+                            <b>
+                                @if (ViewData["NumeroMensagensNaoLidas"] != null) {
+                                    if (ViewData["NumeroMensagensNaoLidas"]!.Equals(1))
+                                    {
+                                        <text>(1 Não lida)</text>
+                                    }
+                                    else if (!ViewData["NumeroMensagensNaoLidas"]!.Equals(0)) {
+                                        <text>(@ViewData["NumeroMensagensNaoLidas"] Não lidas)</text>
+                                    }
                                 }
                             </b>
                         </div>
-                        <a class="btn btn-primary mx-1" asp-action="Visualizar" asp-route-id="@item.Id" asp-route-secao="@ViewData["TituloDaSecao"]">Visualizar</a>
-                        @if ((ViewData["TituloDaSecao"].Equals("Arquivados")))
-                        {
-                            @using (Html.BeginForm("Desarquivar", "Conversas", FormMethod.Post))
-                            {
-                                <input type="hidden" name="conversaId" value=@item.Id>
-                                <button type="submit" class="btn btn-secondary mx-1">Desarquivar</button>
+                        @* ------------------------------------------------ *@
+                    </td>
+                    <td>
+                        <div class="botoes-conversa">
+                            <div class="nao-lido-minimizado">
+                                <b>
+                                    @if (ViewData["NumeroMensagensNaoLidas"] != null){
+                                        if (ViewData["NumeroMensagensNaoLidas"]!.Equals(1)){
+                                            <text>(@ViewData["NumeroMensagensNaoLidas"] Não lida)</text>
+                                        }
+                                        else if (!ViewData["NumeroMensagensNaoLidas"]!.Equals(0)){
+                                            <text>(@ViewData["NumeroMensagensNaoLidas"] Não lidas)</text>
+                                        }
+                                    }
+                                </b>
+                            </div>
+                            <a class="btn btn-primary mx-1" asp-action="Visualizar" asp-route-id="@item.Id" asp-route-secao="@ViewData["TituloDaSecao"]">Visualizar</a>
+                            @if (ViewData["TituloDaSecao"] != null) {
+                                if (ViewData["TituloDaSecao"]!.Equals("Arquivados"))
+                                {
+                                    @using (Html.BeginForm("Desarquivar", "Conversas", FormMethod.Post))
+                                    {
+                                        <input type="hidden" name="conversaId" value=@item.Id>
+                                        <button type="submit" class="btn btn-secondary mx-1">Desarquivar</button>
+                                    }
+                                }
+                                else {
+                                    @using (Html.BeginForm("Arquivar", "Conversas", FormMethod.Post))
+                                    {
+                                        <input type="hidden" name="conversaId" value=@item.Id>
+                                        <button type="submit" class="btn btn-secondary mx-1">Arquivar</button>
+                                    }
+                                }
                             }
-                        }
-                        else {
-                            @using (Html.BeginForm("Arquivar", "Conversas", FormMethod.Post))
-                            {
-                                <input type="hidden" name="conversaId" value=@item.Id>
-                                <button type="submit" class="btn btn-secondary mx-1">Arquivar</button>
-                            }
-                        }
-                    </div>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 @if (Model.Count() == 0)
 {   
     <div class="col-12 m-2 alert-warning p-3 text-center">Nenhuma conversa encontrada</div>

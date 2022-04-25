@@ -22,7 +22,7 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: Conversas
-        public async Task<IActionResult> Index(string? searchString, string? secao = "Caixa de entrada", int pagina = 1)
+        public async Task<IActionResult> Index(string searchString, string secao = "Caixa de entrada", int pagina = 1)
         {
             int idDoUsuarioLogado = GetIdUsuarioLogado();
 
@@ -63,7 +63,7 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: Conversas/Visualizar/5
-        public async Task<IActionResult> Visualizar(int? id, string? secao)
+        public async Task<IActionResult> Visualizar(int? id, string secao)
         {
             if (id == null)
             {
@@ -96,7 +96,7 @@ namespace App_comunicacao_escolar.Controllers
             }
             await _context.SaveChangesAsync();
 
-            getCustomErrorMessagesFromTempData();
+            GetCustomErrorMessagesFromTempData();
 
             if (TempData.ContainsKey("Conteudo"))
                 @ViewData["Conteudo"] = TempData["Conteudo"].ToString();
@@ -116,9 +116,11 @@ namespace App_comunicacao_escolar.Controllers
             var usuariosQueArquivaramConversa = await _context.UsuariosQueArquivaramConversa.FirstOrDefaultAsync(n => n.UsuarioId == idDoUsuarioLogado && n.ConversaId == conversaId);
             if (usuariosQueArquivaramConversa == null)
             {
-                UsuariosQueArquivaramConversa novoUsuarioqueArquivouConversa = new UsuariosQueArquivaramConversa();
-                novoUsuarioqueArquivouConversa.UsuarioId = idDoUsuarioLogado;
-                novoUsuarioqueArquivouConversa.ConversaId = conversaId;
+                UsuariosQueArquivaramConversa novoUsuarioqueArquivouConversa = new()
+                {
+                    UsuarioId = idDoUsuarioLogado,
+                    ConversaId = conversaId
+                };
                 _context.Add(novoUsuarioqueArquivouConversa);
                 await _context.SaveChangesAsync();
             }
@@ -165,10 +167,10 @@ namespace App_comunicacao_escolar.Controllers
 
             conversa.RemetenteNome = mensagem.RemetenteNome;
             conversa.RemetenteId = mensagem.RemetenteId;
-            mensagem.listaDestinatarios = listaDeDestinatariosPorId;
+            mensagem.ListaDestinatarios = listaDeDestinatariosPorId;
 
             // Faz validação dos atributos que não podem ser diretamente validados pelo Entity Framework e retorna as mensagens de erro como ViewData ou TempData.
-            List<string> listarErrosDeValidacao = isValidCustomizadoCreate(conversa, mensagem, arquivos);
+            List<string> listarErrosDeValidacao = IsValidCustomizadoCreate(mensagem, arquivos);
             while (listarErrosDeValidacao.Count > 0)
             {
                 ViewData["Error"] = "Error";
@@ -184,7 +186,7 @@ namespace App_comunicacao_escolar.Controllers
                 conversa.NumeroDeNovasMensagensNaConversa = new List<NumeroDeNovasMensagensNaConversa>();
                 mensagem.Participantes = new List<Usuario>();
 
-                mensagem = fazerUploadDosArquivosAnexados(mensagem, arquivos);
+                mensagem = FazerUploadDosArquivosAnexados(mensagem, arquivos);
 
                 // Converte a string "listaDeDesinatariosPorId" em uma lista e realiza todas as operações necessárias para cada destinatário
                 List<string> listaRemetentes = listaDeDestinatariosPorId.Split(";").ToList();
@@ -196,14 +198,16 @@ namespace App_comunicacao_escolar.Controllers
                     conversa.Participantes.Add(usuario);
                     mensagem.Participantes.Add(usuario);
 
-                    NumeroDeNovasMensagensNaConversa numeroDeNovasMensagensNaConversa = new NumeroDeNovasMensagensNaConversa();
-                    numeroDeNovasMensagensNaConversa.UsuarioId = usuario.Id;
-                    numeroDeNovasMensagensNaConversa.NumeroDeMensagensNaoLidas = 1;
+                    NumeroDeNovasMensagensNaConversa numeroDeNovasMensagensNaConversa = new()
+                    {
+                        UsuarioId = usuario.Id,
+                        NumeroDeMensagensNaoLidas = 1
+                    };
                     conversa.NumeroDeNovasMensagensNaConversa.Add(numeroDeNovasMensagensNaConversa);
 
                     listaDeDestinatariosPorNome += usuario.Nome + "; ";
                 }
-                mensagem.listaDestinatariosNome = listaDeDestinatariosPorNome;
+                mensagem.ListaDestinatariosNome = listaDeDestinatariosPorNome;
                 // -----------------------------------------------------------------------------------------
 
                 conversa.Mensagens.Add(mensagem);
@@ -231,7 +235,7 @@ namespace App_comunicacao_escolar.Controllers
             mensagem.MensagemRespondidaId = mensagemRespondidaId;
             mensagem.DataEnvio = DateTime.Now;
             mensagem.Conteudo = conteudoMensagem;
-            mensagem.listaDestinatarios = listaDeDestinatariosPorId;
+            mensagem.ListaDestinatarios = listaDeDestinatariosPorId;
             mensagem.RemetenteId = idDoUsuarioLogado;
             mensagem.RemetenteNome = _context.Usuarios.FirstOrDefault(u => u.Id == idDoUsuarioLogado).Nome;
 
@@ -242,7 +246,7 @@ namespace App_comunicacao_escolar.Controllers
 
 
             // Faz validação dos atributos que não podem ser diretamente validados pelo Entity Framework e retorna as mensagens de erro como ViewData ou TempData.
-            List<string> listarErrosDeValidacao = isValidCustomizadoCreateResposta(mensagem, arquivos);
+            List<string> listarErrosDeValidacao = IsValidCustomizadoCreateResposta(mensagem, arquivos);
             while (listarErrosDeValidacao.Count > 0)
             {
                 TempData["Error"] = "Error";
@@ -257,7 +261,7 @@ namespace App_comunicacao_escolar.Controllers
             {
                 mensagem.Participantes = new List<Usuario>();
 
-                mensagem = fazerUploadDosArquivosAnexados(mensagem, arquivos);
+                mensagem = FazerUploadDosArquivosAnexados(mensagem, arquivos);
 
                 // Converte a string "listaDeDesinatariosPorId" em uma lista e realiza todas as operações necessárias para cada destinatário
                 List<string> listaRemetentes = listaDeDestinatariosPorId.Split(";").ToList();
@@ -278,10 +282,12 @@ namespace App_comunicacao_escolar.Controllers
                         NumeroDeNovasMensagensNaConversa numeroDeNovasMensagensNaConversa = await _context.NumeroDeNovasMensagensNaConversa.FirstOrDefaultAsync(n => n.UsuarioId == usuario.Id && n.ConversaId == conversaId);
                         if (numeroDeNovasMensagensNaConversa == null)
                         {
-                            numeroDeNovasMensagensNaConversa = new NumeroDeNovasMensagensNaConversa();
-                            numeroDeNovasMensagensNaConversa.UsuarioId = usuario.Id;
-                            numeroDeNovasMensagensNaConversa.ConversaId = conversaId;
-                            numeroDeNovasMensagensNaConversa.NumeroDeMensagensNaoLidas = 1;
+                            numeroDeNovasMensagensNaConversa = new()
+                            {
+                                UsuarioId = usuario.Id,
+                                ConversaId = conversaId,
+                                NumeroDeMensagensNaoLidas = 1
+                            };
                             conversa.NumeroDeNovasMensagensNaConversa.Add(numeroDeNovasMensagensNaConversa);
                         }
                         else
@@ -295,7 +301,7 @@ namespace App_comunicacao_escolar.Controllers
                 }
                 // -----------------------------------------------------------------------------------------
 
-                mensagem.listaDestinatariosNome = listaDeDestinatariosPorNome;
+                mensagem.ListaDestinatariosNome = listaDeDestinatariosPorNome;
                 _context.Add(mensagem);
                 _context.Update(conversa);
                 await _context.SaveChangesAsync();
@@ -314,7 +320,7 @@ namespace App_comunicacao_escolar.Controllers
 
         // Metodos
 
-        private Mensagem fazerUploadDosArquivosAnexados(Mensagem mensagem, List<IFormFile> arquivos)
+        private Mensagem FazerUploadDosArquivosAnexados(Mensagem mensagem, List<IFormFile> arquivos)
         {
 
             mensagem.Anexos = new List<MensagemArquivosAnexados>();
@@ -325,9 +331,11 @@ namespace App_comunicacao_escolar.Controllers
             {
                 if (formFile.Length > 0)
                 {
-                    MensagemArquivosAnexados anexo = new MensagemArquivosAnexados();
-                    anexo.NomeOriginalDoArquivo = formFile.FileName;
-                    anexo.NomeUnicoDoArquivo = idDoUsuarioLogado + "-" + DateTime.Now.Ticks;
+                    MensagemArquivosAnexados anexo = new()
+                    {
+                        NomeOriginalDoArquivo = formFile.FileName,
+                        NomeUnicoDoArquivo = idDoUsuarioLogado + "-" + DateTime.Now.Ticks
+                    };
                     var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Arquivos", "UploadsUsuarios", anexo.NomeUnicoDoArquivo);
                     filePaths.Add(filePath);
                     using (var stream = new FileStream(filePath, FileMode.Create))
@@ -342,10 +350,10 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // Metodos - Validação de atributos cuja validação não é diretamente coberta pelo Entity Framework
-        private List<string> isValidCustomizadoCreate(Conversa conversa, Mensagem mensagem, List<IFormFile> arquivos)
+        private List<string> IsValidCustomizadoCreate(Mensagem mensagem, List<IFormFile> arquivos)
         {
-            List<string> errorMessage = new List<string>();
-            if (mensagem.listaDestinatarios == null)
+            List<string> errorMessage = new();
+            if (mensagem.ListaDestinatarios == null)
             {
                 errorMessage.Add("listaDeDestinatariosPorIdError");
                 errorMessage.Add("Selecione pelo menos um destinatário!");
@@ -362,10 +370,10 @@ namespace App_comunicacao_escolar.Controllers
             };
             return errorMessage;
         }
-        private List<string> isValidCustomizadoCreateResposta(Mensagem mensagem, List<IFormFile> arquivos)
+        private List<string> IsValidCustomizadoCreateResposta(Mensagem mensagem, List<IFormFile> arquivos)
         {
-            List<string> errorMessage = new List<string>();
-            if (mensagem.listaDestinatarios == null)
+            List<string> errorMessage = new();
+            if (mensagem.ListaDestinatarios == null)
             {
                 errorMessage.Add("listaDeDestinatariosPorIdError");
                 errorMessage.Add("Selecione pelo menos um destinatário!");
