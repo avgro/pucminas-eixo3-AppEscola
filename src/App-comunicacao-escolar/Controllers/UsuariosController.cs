@@ -90,7 +90,7 @@ namespace App_comunicacao_escolar.Controllers
                 return NotFound();
             }
 
-            var usuario = await _context.Usuarios.Include(u => u.Professor)
+            var usuario = await _context.Usuarios.Include(u => u.Professor).ThenInclude(p => p.Disciplinas)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (usuario == null)
             {
@@ -123,6 +123,13 @@ namespace App_comunicacao_escolar.Controllers
                 professor.Formacao = professorFormacao;
                 professor.Nivel = professorNivel;
             }
+
+            Responsavel responsavel = new();
+            if (usuario.Perfil.ToString().Equals("ResponsavelAluno"))
+            {
+                responsavel.Usuario = usuario;
+            }
+
             while (listarErrosDeValidacao.Count > 0)
             {
                 ViewData["Error"] = "Error";
@@ -138,6 +145,10 @@ namespace App_comunicacao_escolar.Controllers
                 if (usuario.Perfil.ToString().Equals("Professor"))
                 {
                     _context.Add(professor);
+                }
+                if (usuario.Perfil.ToString().Equals("ResponsavelAluno"))
+                {
+                    _context.Add(responsavel);
                 }
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

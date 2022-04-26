@@ -4,6 +4,7 @@ using App_comunicacao_escolar.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App_comunicacao_escolar.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220426063727_M21")]
+    partial class M21
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,12 +75,7 @@ namespace App_comunicacao_escolar.Migrations
                     b.Property<string>("NomeComCodigoEntreParenteses")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("TurmaId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("TurmaId");
 
                     b.ToTable("Disciplinas");
                 });
@@ -233,32 +230,6 @@ namespace App_comunicacao_escolar.Migrations
                     b.ToTable("Responsaveis");
                 });
 
-            modelBuilder.Entity("App_comunicacao_escolar.Models.Turma", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Codigo")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("NomeComCodigoEntreParenteses")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Turmas");
-                });
-
             modelBuilder.Entity("App_comunicacao_escolar.Models.Usuario", b =>
                 {
                     b.Property<int>("Id")
@@ -404,22 +375,11 @@ namespace App_comunicacao_escolar.Migrations
                     b.ToTable("MensagemUsuario");
                 });
 
-            modelBuilder.Entity("App_comunicacao_escolar.Models.Disciplina", b =>
-                {
-                    b.HasOne("App_comunicacao_escolar.Models.Turma", "Turma")
-                        .WithMany("Disciplinas")
-                        .HasForeignKey("TurmaId")
-                        .OnDelete(DeleteBehavior.SetNull);
-
-                    b.Navigation("Turma");
-                });
-
             modelBuilder.Entity("App_comunicacao_escolar.Models.HorariosDaDisciplina", b =>
                 {
                     b.HasOne("App_comunicacao_escolar.Models.Disciplina", "Disciplina")
                         .WithMany("HorariosDaDisciplina")
-                        .HasForeignKey("DisciplinaId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("DisciplinaId");
 
                     b.Navigation("Disciplina");
                 });
@@ -552,11 +512,6 @@ namespace App_comunicacao_escolar.Migrations
                     b.Navigation("Anexos");
 
                     b.Navigation("Respostas");
-                });
-
-            modelBuilder.Entity("App_comunicacao_escolar.Models.Turma", b =>
-                {
-                    b.Navigation("Disciplinas");
                 });
 
             modelBuilder.Entity("App_comunicacao_escolar.Models.Usuario", b =>

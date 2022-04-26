@@ -19,6 +19,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Codigo)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Turma)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -31,12 +34,21 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Codigo)
             </td>
+            <td>
+                @if (item.Turma != null) {
+                        <text>@Html.DisplayFor(modelItem => item.Turma.NomeComCodigoEntreParenteses)</text>
+                    }
+                    else
+                    {
+                        <a asp-controller="Turmas" asp-action="Index">Selecionar turma</a> 
+                    }
+            </td>
             <td class="mais-informacoes">
                 <span class="text-center">
                     <a class="btn btn-primary mb-2 p-1" asp-action="Details" asp-route-id="@item.Id">Mais Informações</a>
                 </span>
                 <span class="whitespace-nowrap mx-1">
-                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a>              
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |              
                     <a asp-action="Delete" asp-route-id="@item.Id">Apagar</a>
                 </span>
             </td>

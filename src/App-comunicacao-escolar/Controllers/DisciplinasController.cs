@@ -22,7 +22,7 @@ namespace App_comunicacao_escolar.Controllers
         // GET: Disciplinas
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Disciplinas.ToListAsync());
+            return View(await _context.Disciplinas.Include(d => d.Turma).ToListAsync());
         }
 
         // GET: Disciplinas/Details/5
@@ -34,6 +34,8 @@ namespace App_comunicacao_escolar.Controllers
             }
 
             var disciplina = await _context.Disciplinas.Include(d => d.Professores).ThenInclude(p => p.Usuario)
+                .Include(d => d.HorariosDaDisciplina)
+                .Include(d => d.Turma)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (disciplina == null)
             {
@@ -59,14 +61,14 @@ namespace App_comunicacao_escolar.Controllers
             [Bind("listaDeProfessoresDaDisciplinaPorId")] string listaDeProfessoresDaDisciplinaPorId,
             [Bind("horarioInicioLista")] string horarioInicioLista,
             [Bind("horarioFimLista")] string horarioFimLista,
-            [Bind("diaDaSemanaLista")] string diaDaSemanaLista)
+            [Bind("diaDaSemanaListaNumber")] string diaDaSemanaListaNumber)
         {
             if (listaDeProfessoresDaDisciplinaPorId == null)
             {
                 ModelState.AddModelError("Professores", "Selecionar pelo menos um professor para a disciplina!");
             }
 
-            List<string> listarErrosDeValidacao = IsValidCustomizadoHorarios(horarioInicioLista, horarioFimLista, diaDaSemanaLista);
+            List<string> listarErrosDeValidacao = IsValidCustomizadoHorarios(horarioInicioLista, horarioFimLista, diaDaSemanaListaNumber);
 
             while (listarErrosDeValidacao.Count > 0)
             {
@@ -87,6 +89,19 @@ namespace App_comunicacao_escolar.Controllers
                     Professor professor = await _context.Professores.FirstOrDefaultAsync(s => s.ProfessorId == professorId);
                     disciplina.Professores.Add(professor);
                 }
+
+                disciplina.HorariosDaDisciplina = new List<HorariosDaDisciplina>();
+
+                List<string> horarioInicioToList = horarioInicioLista.Split(";").ToList();
+                List<string> horarioFimToList = horarioFimLista.Split(";").ToList();
+                List<string> diaDaSemanaToList = diaDaSemanaListaNumber.Split(";").ToList();
+                for (int i = 0; i < (diaDaSemanaToList.Count() - 1); i++) {
+                    HorariosDaDisciplina horario = new();
+                    horario.DiaDaSemana = Int32.Parse(diaDaSemanaToList[i]);
+                    horario.HorarioInicio = horarioInicioToList[i];
+                    horario.HorarioFim = horarioFimToList[i];
+                    disciplina.HorariosDaDisciplina.Add(horario);
+                }
                 _context.Add(disciplina);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -104,7 +119,8 @@ namespace App_comunicacao_escolar.Controllers
                 return NotFound();
             }
 
-            var disciplina = await _context.Disciplinas.FindAsync(id);
+            var disciplina = await _context.Disciplinas.Include(d => d.Professores).ThenInclude(p => p.Usuario)
+                .FirstOrDefaultAsync(d => d.Id == id);
             if (disciplina == null)
             {
                 return NotFound();
@@ -180,18 +196,87 @@ namespace App_comunicacao_escolar.Controllers
         {
             return _context.Disciplinas.Any(e => e.Id == id);
         }
-        private List<string> IsValidCustomizadoHorarios(string horarioInicioLista, string horarioFimLista, string diaDaSemanaLista)
+        private List<string> IsValidCustomizadoHorarios(string horarioInicioLista, string horarioFimLista, string diaDaSemanaListaNumber)
         {
             List<string> errorMessage = new();
-            if (horarioInicioLista == null || horarioFimLista == null || diaDaSemanaLista == null)
+            if (horarioInicioLista == null || horarioFimLista == null || diaDaSemanaListaNumber == null)
             {
                 errorMessage.Add("HorariosDaDisciplina");
                 errorMessage.Add("Informar horários das disciplinas!");
+                return errorMessage;
             }
-            else
-            {
 
+            List<string> horarioInicioToList = horarioInicioLista.Split(";").ToList();
+            List<string> horarioFimToList = horarioFimLista.Split(";").ToList();
+            List<string> diaDaSemanaToList = diaDaSemanaListaNumber.Split(";").ToList();
+
+            if (horarioFimToList.Count != horarioFimToList.Count && horarioInicioToList.Count != diaDaSemanaToList.Count)
+            {
+                errorMessage.Add("HorariosDaDisciplina");
+                errorMessage.Add("Informar horários das disciplinas!");
+                return errorMessage;
             }
+
+            // Checar se há conflito de horários 
+
+            List<int> conflitosInicioParaChecar = new();
+            List<int> conflitosFimParaChecar = new();
+
+            bool horariosEmConflito = false;
+            for (int i = 0; i < (diaDaSemanaToList.Count - 1); i++)
+            {
+                try { 
+                    int horasInicio = Int32.Parse(horarioInicioToList[i].Substring(0, 2));
+                    int minutosInicio = Int32.Parse(horarioInicioToList[i].Substring(3,2));
+                    int horasFim = Int32.Parse(horarioFimToList[i].Substring(0, 2));
+                    int minutosFim = Int32.Parse(horarioFimToList[i].Substring(3, 2));
+                    var diaDaSemana = Int32.Parse(diaDaSemanaToList[i]);
+
+                    int converterHorarioInicioParaMinutos = minutosInicio + horasInicio * 60 + diaDaSemana * 1440;
+                    int converterHorarioFimParaMinutos = minutosFim + horasFim * 60 + diaDaSemana * 1440;
+
+                    // Se o horário de fim da aula for maior que o de inicio, considerar que a aula acaba no dia seguinte.
+                    if (converterHorarioInicioParaMinutos > converterHorarioFimParaMinutos)
+                    {
+                        errorMessage.Add("HorariosDaDisciplina");
+                        errorMessage.Add("Horário de fim da disciplina não pode ser antes que o horário de início!");
+                        return errorMessage;
+                    }
+
+
+                    for (int j = 0; j < conflitosInicioParaChecar.Count(); j++) {
+                        if (converterHorarioInicioParaMinutos >= conflitosInicioParaChecar[j] && converterHorarioInicioParaMinutos < conflitosFimParaChecar[j]) {
+                            horariosEmConflito = true;
+                        }
+                        if (converterHorarioFimParaMinutos > conflitosInicioParaChecar[j] && converterHorarioFimParaMinutos <= conflitosFimParaChecar[j])
+                        {
+                            horariosEmConflito = true;
+                        }
+
+                        if (converterHorarioInicioParaMinutos < conflitosFimParaChecar[j] && converterHorarioFimParaMinutos > conflitosInicioParaChecar[j])
+                        {
+                            horariosEmConflito = true;
+                        }
+                    }
+                    conflitosInicioParaChecar.Add(converterHorarioInicioParaMinutos);
+                    conflitosFimParaChecar.Add(converterHorarioFimParaMinutos);
+
+                    if (horariosEmConflito) {
+                        errorMessage.Add("HorariosDaDisciplina");
+                        errorMessage.Add("Horários da disciplina entram em conflito!");
+                        return errorMessage;
+                    }
+                    
+                }
+                catch
+                {
+                    errorMessage.Add("HorariosDaDisciplina");
+                    errorMessage.Add("Informar horários das disciplinas!");
+                    return errorMessage;
+                }
+                // -----------------------------------------------------------------
+            }
+
 
             return errorMessage;
         }

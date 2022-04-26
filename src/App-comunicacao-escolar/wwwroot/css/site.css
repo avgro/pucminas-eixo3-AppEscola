@@ -66,6 +66,10 @@ li.active.page-item .page-link {
     font-size: 12px;
 }
 
+.font-size-14px {
+    font-size: 14px;
+}
+
 .whitespace-nowrap {
     white-space: nowrap;
 }
@@ -245,6 +249,7 @@ max-width-100 {
     .menu-lateral ul {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         margin: auto;
         justify-content: center;
     }
@@ -256,7 +261,6 @@ max-width-100 {
         list-style: none;
         padding: 4px;
         border-radius: 4px;
-        border-left: none;
     }
 }
 

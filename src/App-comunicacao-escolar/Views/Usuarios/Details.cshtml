@@ -31,16 +31,27 @@
         @if (Model.Professor != null)
         {
             <dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => model.Professor.Formacao)
+                @Html.DisplayNameFor(model => model.Professor!.Formacao)
             </dt>
             <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.Professor.Formacao)
+                @Html.DisplayFor(model => model.Professor!.Formacao)
             </dd>
             <dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => model.Professor.Nivel)
+                @Html.DisplayNameFor(model => model.Professor!.Nivel)
             </dt>
             <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.Professor.Nivel)
+                @Html.DisplayFor(model => model.Professor!.Nivel)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Professor!.Disciplinas)
+            </dt>
+            <dd class = "col-sm-10">
+                @if (Model.Professor.Disciplinas != null) {
+                    foreach (var disciplina in Model.Professor.Disciplinas)
+                    {
+                        <text>@Html.DisplayFor(modelProfessorDisciplinas => disciplina.NomeComCodigoEntreParenteses); </text>
+                    } 
+                }
             </dd>
         }
         <dt class = "col-sm-2">

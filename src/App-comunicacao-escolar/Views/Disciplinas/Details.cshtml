@@ -4,10 +4,10 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Detalhes da Disciplina</h1>
 
 <div>
-    <h4>Disciplina</h4>
+    <h4>@Model.Nome (@Model.Codigo)</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -23,18 +23,78 @@
             @Html.DisplayFor(model => model.Codigo)
         </dd>
         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Turma)
+        </dt>
+        <dd class = "col-sm-10">
+            @if(Model.Turma != null) {
+                <text>@Html.DisplayFor(model => model.Turma!.NomeComCodigoEntreParenteses)</text>
+            }
+        </dd>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Professores)
         </dt>
         <dd class = "col-sm-10">
-            @foreach (var professor in Model.Professores) {
-                <div>
-                    @Html.DisplayFor(modelProfessor => professor.Usuario.NomeDisplayLista)
-                </div>
+            @if (Model.Professores != null) {
+                foreach (var professor in Model.Professores) {
+                    if (professor.Usuario != null) {
+                        <span>
+                            @Html.DisplayFor(modelProfessor => professor.Usuario.NomeDisplayLista); 
+                        </span>
+                    }
+                }
             }
+        </dd>
+        <dt class = "col-sm-2 whitespace-nowrap">
+            @Html.DisplayNameFor(model => model.HorariosDaDisciplina)
+        </dt>
+        <dd class = "col-sm-10">
+            <br />
+             <table class="table input-size-2halfx text-center">
+                 <thead>
+                     <tr>
+                          <th>
+                              Dia da semana
+                          </th>
+                          <th>
+                              Início
+                          </th>
+                          <th>
+                              Fim
+                          </th>
+                         </tr>
+                     </thead>
+                 <tbody>
+                 @if (Model.HorariosDaDisciplina != null) {
+                     foreach (var horario in Model.HorariosDaDisciplina) {
+                            {
+                                if(horario.DiaDaSemana != null)
+                                {
+                                    ViewData["DiaDaSemana"] = (DiaDaSemanaEnum)horario.DiaDaSemana;    
+                                }
+                                else
+                                {
+                                    ViewData["DiaDaSemana"] = "";
+                                }
+                            } 
+                            <tr>
+                              <td>
+                                  @ViewData["DiaDaSemana"]
+                              </td>
+                              <td>
+                                  @Html.DisplayFor(modelHorario => horario.HorarioInicio)
+                              </td>
+                              <td>
+                                  @Html.DisplayFor(modelHorario => horario.HorarioFim)
+                              </td>
+                          </tr>
+                     }
+                 }
+                 </tbody>
+              </table>
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Editar" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Voltar</a>
 </div>

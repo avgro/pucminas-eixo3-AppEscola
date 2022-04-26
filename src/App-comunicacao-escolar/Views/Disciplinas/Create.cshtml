@@ -41,7 +41,7 @@
                 <select id="destinatarioId" asp-for="Professores" class ="form-control" asp-items="ViewBag.ProfessorId" readonly>
                 </select>
                  <span asp-validation-for="Professores" data-valmsg-for="listaDeDestinatariosPorId" class="text-danger"></span>
-                <button type="button" class="btn btn-primary m-2" onclick="adicionarDestinatarioALista()">Adicionar professor</button>
+                <button type="button" class="btn btn-primary my-2" onclick="adicionarDestinatarioALista()">Adicionar professor</button>
                 <br />
                 <div class="d-flex flex-wrap m-1" id="exibirDestinatariosSelecionados"></div>
                 <input onkeyup="checkError(listaDeDestinatariosPorId, listaDeDestinatariosPorIdError)" type="hidden" asp-for="Professores" id="listaDeDestinatariosPorId" name="listaDeProfessoresDaDisciplinaPorId"/>
@@ -52,7 +52,6 @@
                 <label asp-for="HorariosDaDisciplina" class="control-label"></label>
             </h5>
             <div asp-for="HorariosDaDisciplina">
-                <span asp-validation-for="HorariosDaDisciplina" class="text-danger"></span>
                 <div class="d-flex">
                     <div>
                         Dia da semana<br />
@@ -101,6 +100,7 @@
                     </tbody>
                 </table>
                 <div id="listaHorariosWarning" class="alert-warning p-2 text-center input-size-2halfx">Nenhum horário cadastrado</div>
+                <span asp-validation-for="HorariosDaDisciplina" class="text-danger"></span>
                 <div hidden>
                     <div class="form-group">
                         <label for="horarioInicioList" class="control-label"></label><br />
@@ -111,8 +111,12 @@
                         <input type="text" class="m-1" id="horarioFimLista" name="horarioFimLista"/>
                     </div>
                     <div class="form-group">
-                        <label for="diaDaSemanaList" class="control-label"></label><br />
+                        <label for="diaDaSemanaLista" class="control-label"></label><br />
                         <input type="text" class="m-1" id="diaDaSemanaLista" name="diaDaSemanaLista"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="diaDaSemanaListaNumber" class="control-label"></label><br />
+                        <input type="text" class="m-1" id="diaDaSemanaListaNumber" name="diaDaSemanaListaNumber"/>
                     </div>
                 </div>
             </div>

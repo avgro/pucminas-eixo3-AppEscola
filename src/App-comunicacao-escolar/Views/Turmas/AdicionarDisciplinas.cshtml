@@ -1,0 +1,115 @@
+﻿@model App_comunicacao_escolar.Models.Turma
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Associar disciplinas</h1>
+
+<h4>@Html.DisplayFor(model => model.NomeComCodigoEntreParenteses)</h4>
+<hr />
+<div class="row">
+    <div>
+        <form asp-action="AdicionarDisciplinas">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group input-size-standard">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group input-size-standard">
+                <label asp-for="Codigo" class="control-label"></label>
+                <input asp-for="Codigo" class="form-control" />
+                <span asp-validation-for="Codigo" class="text-danger"></span>
+            </div>
+            <div class="form-group input-size-2x">
+                <label for="disciplinasId" class="control-label">Adicionar disciplinas</label>
+                <select id="disciplinasId" asp-for="Disciplinas" class ="form-control" asp-items="ViewBag.DisciplinaId">
+                </select>
+                <span asp-validation-for="Disciplinas" class="text-danger"></span><br />
+                <!-- SelectLists contendo os outros atributos além do nome -->
+                <button type="button" class="btn btn-primary my-2" onclick="selecionarDisciplina()">Adicionar</button>
+                <br />
+                <div hidden>
+                    <input type="text" id="adicionarDisciplinasList" name="adicionarDisciplinasList" />
+                    <input type="text" id="adicionarOuRemover" name="adicionarOuRemover" />
+                </div>
+            </div>
+            <div class="form-group">
+                <input id="botaoSubmeter" type="submit" value="Submeter" class="btn btn-primary" hidden />
+            </div>
+        </form>
+        <h5>Disciplinas associadas</h5>
+        <div class="d-flex">
+        @if(Model.Disciplinas != null){
+            foreach(var disciplina in Model.Disciplinas)
+            {
+                <div class="border p-2 m-2">
+                     <b>@Html.DisplayFor(modelDisciplina => disciplina.NomeComCodigoEntreParenteses)</b>
+                     <button onclick="removerDisciplina(@disciplina.Id)" type="button" class="btn btn-primary float-end">Remover</button>
+                     <table class="table input-size-2halfx text-center">
+                         <thead>
+                             <tr>
+                                  <th>
+                                      Dia da semana
+                                  </th>
+                                  <th>
+                                      Início
+                                  </th>
+                                  <th>
+                                      Fim
+                                  </th>
+                                 </tr>
+                             </thead>
+                         <tbody>
+                         @if (disciplina.HorariosDaDisciplina != null) {
+                             foreach (var horario in disciplina.HorariosDaDisciplina) {
+                                    {
+                                        if(horario.DiaDaSemana != null)
+                                        {
+                                            ViewData["DiaDaSemana"] = (DiaDaSemanaEnum)horario.DiaDaSemana;    
+                                        }
+                                        else
+                                        {
+                                            ViewData["DiaDaSemana"] = "";
+                                        }
+                                    } 
+                                    <tr>
+                                      <td>
+                                          @ViewData["DiaDaSemana"]
+                                      </td>
+                                      <td>
+                                          @Html.DisplayFor(modelHorario => horario.HorarioInicio)
+                                      </td>
+                                      <td>
+                                          @Html.DisplayFor(modelHorario => horario.HorarioFim)
+                                      </td>
+                                  </tr>
+                             }
+                         }
+                         </tbody>
+                  </table>
+                    </div>
+                }
+                if (Model.Disciplinas.Count == 0)
+                {
+                    <div class="alert-warning text-center p-2 input-size-2halfx">A turma não possui nenhuma disciplina associada!</div>
+                }
+            }
+            else
+            {
+                <div class="alert-warning text-center p-2 input-size-2halfx">A turma não possui nenhuma disciplina associada!</div>
+            }
+        </div>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-primary my-2"asp-action="Index">Finalizar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/selecionar-disciplinas.js" asp-append-version="true"></script>
+}

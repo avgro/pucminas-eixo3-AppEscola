@@ -16,6 +16,9 @@ namespace App_comunicacao_escolar.Models
         [MaxLength(20)]
         public string? Codigo { get; set; }
         public string? NomeComCodigoEntreParenteses { get; set; }
+        public int? TurmaId { get; set; }
+        [ForeignKey("TurmaId")]
+        public Turma? Turma { get; set; }
         public ICollection<Professor>? Professores { get; set; }
         [Display(Name ="Horários da disciplina")]
         public ICollection<HorariosDaDisciplina>? HorariosDaDisciplina { get; set; }

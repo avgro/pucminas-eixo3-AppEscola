@@ -1,4 +1,4 @@
-﻿@model App_comunicacao_escolar.Models.Disciplina
+﻿@model App_comunicacao_escolar.Models.Turma
 
 @{
     ViewData["Title"] = "Edit";
@@ -6,7 +6,7 @@
 
 <h1>Edit</h1>
 
-<h4>Disciplina</h4>
+<h4>Turma</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -18,18 +18,11 @@
                 <input asp-for="Nome" class="form-control" />
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
-            @{
-                string listaDeProfessores = "";
-                if (Model.Professores != null) {
-                    foreach (var professor in Model.Professores)
-                    {
-                        if (professor.Usuario != null) {
-                            listaDeProfessores += professor.Usuario.NomeDisplayLista + ";";
-                        }
-                    }
-                }
-            }
-            <input type="text" value="@listaDeProfessores"/>
+            <div class="form-group">
+                <label asp-for="Codigo" class="control-label"></label>
+                <input asp-for="Codigo" class="form-control" />
+                <span asp-validation-for="Codigo" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
@@ -41,3 +34,7 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/selecionar-disciplinas.js" asp-append-version="true"></script>
+}

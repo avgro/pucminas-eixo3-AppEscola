@@ -91,10 +91,10 @@
                                 @if (ViewData["NumeroMensagensNaoLidas"] != null) {
                                     if (ViewData["NumeroMensagensNaoLidas"]!.Equals(1))
                                     {
-                                        <text>(1 Não lida)</text>
+                                        <span class="font-size-14px">(1 Não lida)</span>
                                     }
                                     else if (!ViewData["NumeroMensagensNaoLidas"]!.Equals(0)) {
-                                        <text>(@ViewData["NumeroMensagensNaoLidas"] Não lidas)</text>
+                                        <span class="font-size-14px">(@ViewData["NumeroMensagensNaoLidas"] Não lidas)</span>
                                     }
                                 }
                             </b>

@@ -13,7 +13,7 @@ namespace App_comunicacao_escolar.Models
 
         [Required(ErrorMessage = "Inserir horário do fim da aula!")]
         public string? HorarioFim { get; set; }
-        public DiaDaSemanaEnum DiaDaSemana { get; set; }
+        public int? DiaDaSemana { get; set; }
         public int? DisciplinaId { get; set; }
         [ForeignKey("DisciplinaId")]
         public Disciplina? Disciplina { get; set; }
@@ -23,13 +23,11 @@ namespace App_comunicacao_escolar.Models
     {
         Domingo,
         Segunda,
-        [Display(Name = "Terça")]
-        Terca,
+        Terça,
         Quarta,
         Quinta,
         Sexta,
-        [Display(Name ="Sábado")]
-        Sabado
+        Sábado
 
     }
 }

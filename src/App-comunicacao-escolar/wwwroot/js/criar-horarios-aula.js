@@ -4,10 +4,12 @@ if (document.getElementById("validation-error")) {
         let horarioInicioLista = JSON.parse(localStorage.getItem("horarioInicioLista"));
         let horarioFimLista = JSON.parse(localStorage.getItem("horarioFimLista"));
         let diaDaSemanaLista = JSON.parse(localStorage.getItem("diaDaSemanaLista"));
+        let diaDaSemanaListaNumber = JSON.parse(localStorage.getItem("diaDaSemanaListaNumber"));
 
         document.getElementById("horarioInicioLista").value = horarioInicioLista;
         document.getElementById("horarioFimLista").value = horarioFimLista;
         document.getElementById("diaDaSemanaLista").value = diaDaSemanaLista;
+        document.getElementById("diaDaSemanaListaNumber").value = diaDaSemanaListaNumber;
     }  
 }
 
@@ -68,18 +70,26 @@ function adicionarHorarioAula() {
 
     let horarioFim = horasFim + ":" + minutosFim + ";";
 
-    let diaDaSemana = document.getElementById("diaDaSemana");
-    diaDaSemana = diaDaSemana.options[diaDaSemana.selectedIndex].innerText;
+    let diaDaSemanaSelect = document.getElementById("diaDaSemana");
+    let diaDaSemana = diaDaSemanaSelect.options[diaDaSemanaSelect.selectedIndex].innerText;
+    let diaDaSemanaNumber = diaDaSemanaSelect.selectedIndex;
+
+    
 
     if (diaDaSemana == "") {
         diaDaSemana = "Domingo";
     }
+    if (diaDaSemanaNumber == "") {
+        diaDaSemanaNumber = "0";
+    }
 
     diaDaSemana = diaDaSemana + ";";
+    diaDaSemanaNumber = diaDaSemanaNumber + ";";
 
     document.getElementById("horarioInicioLista").value += horarioInicio;
     document.getElementById("horarioFimLista").value += horarioFim;
     document.getElementById("diaDaSemanaLista").value += diaDaSemana;
+    document.getElementById("diaDaSemanaListaNumber").value += diaDaSemanaNumber;
 
     desenharHorariosAula();
 }
@@ -88,10 +98,12 @@ function desenharHorariosAula() {
     let horarioInicioLista = document.getElementById("horarioInicioLista").value;  
     let horarioFimLista = document.getElementById("horarioFimLista").value;
     let diaDaSemanaLista = document.getElementById("diaDaSemanaLista").value;
+    let diaDaSemanaListaNumber = document.getElementById("diaDaSemanaListaNumber").value;
 
     localStorage.setItem("horarioInicioLista", JSON.stringify(horarioInicioLista));
     localStorage.setItem("horarioFimLista", JSON.stringify(horarioFimLista));
     localStorage.setItem("diaDaSemanaLista", JSON.stringify(diaDaSemanaLista));
+    localStorage.setItem("diaDaSemanaListaNumber", JSON.stringify(diaDaSemanaListaNumber));
 
     horarioInicioLista = horarioInicioLista.split(";");
     horarioFimLista = horarioFimLista.split(";");
@@ -131,14 +143,18 @@ function removerHorario(numeroNaLista) {
     horarioFimLista = horarioFimLista.split(";");
     let diaDaSemanaLista = document.getElementById("diaDaSemanaLista").value;
     diaDaSemanaLista = diaDaSemanaLista.split(";");
+    let diaDaSemanaListaNumber = document.getElementById("diaDaSemanaListaNumber").value;
+    diaDaSemanaListaNumber = diaDaSemanaListaNumber.split(";");
 
     let horarioInicioListaSubstituir = "";
     let horarioFimListaSubstituir = "";
     let diaDaSemanaListaSubstituir = "";
+    let diaDaSemanaListaNumberSubstituir = "";
     if (horarioInicioLista.length != horarioFimLista.length || horarioInicioLista.length != diaDaSemanaLista.length) {
         document.getElementById("horarioInicioLista").value = "";
         document.getElementById("horarioFimLista").value = "";
         document.getElementById("diaDaSemanaLista").value = "";
+        document.getElementById("diaDaSemanaListaNumber").value = "";
     }
     else {
         for (i = 0; i < (diaDaSemanaLista.length - 1); i++) {
@@ -146,11 +162,13 @@ function removerHorario(numeroNaLista) {
                 horarioInicioListaSubstituir += horarioInicioLista[i] + ";";
                 horarioFimListaSubstituir += horarioFimLista[i] + ";";
                 diaDaSemanaListaSubstituir += diaDaSemanaLista[i] + ";";
+                diaDaSemanaListaNumberSubstituir += diaDaSemanaListaNumber[i] + ";";
             }
         }
         document.getElementById("horarioInicioLista").value = horarioInicioListaSubstituir;
         document.getElementById("horarioFimLista").value = horarioFimListaSubstituir;
         document.getElementById("diaDaSemanaLista").value = diaDaSemanaListaSubstituir;
+        document.getElementById("diaDaSemanaListaNumber").value = diaDaSemanaListaNumberSubstituir;
         desenharHorariosAula();
     }  
 }
