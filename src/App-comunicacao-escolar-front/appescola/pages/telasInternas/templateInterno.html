@@ -7,23 +7,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet"> 
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/templateInterno.css" />
 
     <!--Bootstrap Icons-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
     <title>App Escola</title>
-    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../../images/favicon.png" type="image/x-icon">
   </head>
   <body>
-    <!--Header-->
+     <!--Header-->
     <div id="header">
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navbar" >
          
             <a class="navbar-brand" href="index.html">
-              <img src="./images/logo.svg" class="img-fluid" id="logo" />
+              <img src="../../images/logo.svg" class="img-fluid" id="logo" />
             </a>
             <button
               class="navbar-toggler" 
@@ -41,23 +41,22 @@
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
                 <li class="nav-item"> 
-                  <a class="nav-link active" aria-current="page" href="index.html">Página Principal</a>                 
+                  <a class="nav-link active" aria-current="page" href="#">Painel Principal</a>                 
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="./pages/solucoes.html">Soluções</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="./pages/faleConosco.html">Fale Conosco</a>
-                </li>
+                  <a class="nav-link " href="#">Notificações</a>
+                </li>                
               </ul>
-                   <button class="btn btn-primary me-md-2 d-md-inline-block d-block" type="button" onclick="window.location.href='./pages/login.html'" id="login-btn">Login</button>
+                  
+              <button class="btn btn-primary me-md-2 d-md-inline-block d-block " type="button" onclick="window.location.href='#'" id="perfil-btn">Perfil</button>
             </div>            
           </div>
         </nav>
       </div>
     </div>
     <!--/Header-->
-    <!--Slider-->
+    <!--Slider--> 
+    
     <div id="slider">
         <div class="container pt-5">
           <div class="row">
@@ -67,54 +66,21 @@
                   <h4 class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, excepturi.</h4>
               </div>
 
-              <div class="carousel slide col-md-6 align-self-center text-center" data-ride="carousel" id="mainSlider" >
-                  <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#mainSlider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#mainSlider" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#mainSlider" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                  <!--Imagens Slider-->  
-                  </div>
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img src="./images/Cruise-Mexico-2015-055-scaled.jpg" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                      <img src="./images/Cruise-Mexico-2015-055-scaled.jpg"class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                      <img src="./images/Cruise-Mexico-2015-055-scaled.jpg"class="d-block w-100" alt="...">
-                    </div>
-                  </div>
-                  
-                  <button class="carousel-control-prev" type="button" data-bs-target="#mainSlider" data-bs-slide="prev">
-                    <i class="bi bi-chevron-compact-left" ></i>                    
-                    <span class="visually-hidden">Previous</span>
-                  </button>
-                  
-                  <button class="carousel-control-next" type="button" data-bs-target="#mainSlider" data-bs-slide="next">
-                    <i class="bi bi-chevron-compact-right"></i>
-                    <span class="visually-hidden">Next</span>
-                  </button>
-                </div>     
+              <div class="col-md-6 align-self-center" >
+                  <h1>Lorem ipsum dolor sit.</h1>
+                  <h4 class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, excepturi.</h4>
               </div>
           </div>  
         </div>
     </div>
+
     <!--/Slider-->
 
-    <div class="container" id="info-container">
-      <div class="col-12">
-        <h2 class="title primary-color">Saiba Mais</h2>
-        <p class="subtitle secondary-color">
-          Saiba mais sobre a nossa plataforma
-        </p>
-      </div>
+    <div class="container" id="info-container">     
       <div class="col-12">
         <div class="row">
-          <div class="col-12 col-md-5" id="info-banner">
-            <img src="./images/iStock-585609744.jpg" alt="Informações" class="img-fluid" />
-          </div>
-          <div class="col-12 col-md-7" id="info-content">
+         
+          <div class="col-12 col-md-12" id="info-content">
             <div class="row">
               <div class="col-12">
                 <h2 class="title">Estes dados fazem a diferença:</h2>
@@ -141,16 +107,14 @@
                   </div>
                 </div>
               </div>
-              <div class="col-12">
-                <a class="btn btn-dark">Saber Mais</a>
-              </div>
+              
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    
+  
    <!-- FOOTER -->
     <footer class="container-fluid bg-dark-color" id="footer">
       <div class="container">
@@ -221,6 +185,6 @@
       integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
       crossorigin="anonymous"
     ></script>
-    <script src="./js/bootstrap.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
   </body>
 </html>
