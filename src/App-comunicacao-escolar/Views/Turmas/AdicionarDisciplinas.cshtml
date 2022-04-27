@@ -32,7 +32,7 @@
                 <button type="button" class="btn btn-primary my-2" onclick="selecionarDisciplina()">Adicionar</button>
                 <br />
                 <div hidden>
-                    <input type="text" id="adicionarDisciplinasList" name="adicionarDisciplinasList" />
+                    <input type="text" id="numeroDaDisciplinaQueDesejaAdicionar" name="numeroDaDisciplinaQueDesejaAdicionar" />
                     <input type="text" id="adicionarOuRemover" name="adicionarOuRemover" />
                 </div>
             </div>
@@ -41,56 +41,32 @@
             </div>
         </form>
         <h5>Disciplinas associadas</h5>
-        <div class="d-flex">
+        <div class="d-flex flex-wrap">
+        @{
+            int counter = 0;
+            int counterHorario = 0;
+        }
+        
         @if(Model.Disciplinas != null){
-            foreach(var disciplina in Model.Disciplinas)
-            {
-                <div class="border p-2 m-2">
-                     <b>@Html.DisplayFor(modelDisciplina => disciplina.NomeComCodigoEntreParenteses)</b>
-                     <button onclick="removerDisciplina(@disciplina.Id)" type="button" class="btn btn-primary float-end">Remover</button>
-                     <table class="table input-size-2halfx text-center">
-                         <thead>
-                             <tr>
-                                  <th>
-                                      Dia da semana
-                                  </th>
-                                  <th>
-                                      Início
-                                  </th>
-                                  <th>
-                                      Fim
-                                  </th>
-                                 </tr>
-                             </thead>
-                         <tbody>
-                         @if (disciplina.HorariosDaDisciplina != null) {
-                             foreach (var horario in disciplina.HorariosDaDisciplina) {
-                                    {
-                                        if(horario.DiaDaSemana != null)
-                                        {
-                                            ViewData["DiaDaSemana"] = (DiaDaSemanaEnum)horario.DiaDaSemana;    
-                                        }
-                                        else
-                                        {
-                                            ViewData["DiaDaSemana"] = "";
-                                        }
-                                    } 
-                                    <tr>
-                                      <td>
-                                          @ViewData["DiaDaSemana"]
-                                      </td>
-                                      <td>
-                                          @Html.DisplayFor(modelHorario => horario.HorarioInicio)
-                                      </td>
-                                      <td>
-                                          @Html.DisplayFor(modelHorario => horario.HorarioFim)
-                                      </td>
-                                  </tr>
-                             }
-                         }
-                         </tbody>
-                  </table>
+                foreach (var disciplina in Model.Disciplinas)
+                {
+                    counter++;
+                    counterHorario = 0;
+                    string idDisciplina = "nomeDisciplina" + counter.ToString();
+                    <div class="d-flex caixa-itens-listados">
+                        <div id="@idDisciplina" class="mt-1">@Html.DisplayFor(modelDisciplina => disciplina.NomeComCodigoEntreParenteses)</div>
+                     <button onclick="removerDisciplina(@disciplina.Id)" type="button" class="float-end mx-1">X</button>
                     </div>
+                    if (disciplina.HorariosDaDisciplina != null)
+                    {
+                        foreach (var horario in disciplina.HorariosDaDisciplina)
+                        {
+                            counterHorario++;
+                            string idHorario = "horarioDisciplina" + counter.ToString() + "-" + counterHorario.ToString();
+                            string conteudoHorario = disciplina.Nome + ";" + disciplina.Codigo + ";" + horario.DiaDaSemana + ";" + horario.HorarioInicio + ";" + horario.HorarioFim;
+                            <div hidden id="@idHorario">@conteudoHorario</div>
+                        }
+                    }
                 }
                 if (Model.Disciplinas.Count == 0)
                 {
@@ -101,6 +77,46 @@
             {
                 <div class="alert-warning text-center p-2 input-size-2halfx">A turma não possui nenhuma disciplina associada!</div>
             }
+
+        </div>
+        <h5>Quadro de horários</h5>
+        <div class="container-horarios">
+            <div class="container-horarios-dias">
+                <div class="container-horarios-dias-item"><div class="diaDaSemanaLabel">Domingo</div></div>
+                <div class="container-horarios-dias-item"><div class="diaDaSemanaLabel">Segunda</div></div>
+                <div class="container-horarios-dias-item"><div class="diaDaSemanaLabel">Terça</div></div>
+                <div class="container-horarios-dias-item"><div class="diaDaSemanaLabel">Quarta</div></div>
+                <div class="container-horarios-dias-item"><div class="diaDaSemanaLabel">Quinta</div></div>
+                <div class="container-horarios-dias-item"><div class="diaDaSemanaLabel">Sexta</div></div>
+                <div class="container-horarios-dias-item"><div class="diaDaSemanaLabel">Sábado</div></div>
+            </div>
+            <div class="container-horarios-horas"> 
+                <div class="container-horarios-horas-item"><span class="container-horarios-horas-item-label">&nbsp 0h</span></div>
+                <div class="container-horarios-horas-item"><span class="container-horarios-horas-item-label">&nbsp 1h</span></div>
+                <div class="container-horarios-horas-item"><span class="container-horarios-horas-item-label">&nbsp 2h</span></div>
+                <div class="container-horarios-horas-item"><span class="container-horarios-horas-item-label">&nbsp 3h</span></div>
+                <div class="container-horarios-horas-item"><span class="container-horarios-horas-item-label">&nbsp 4h</span></div>
+                <div class="container-horarios-horas-item"><span class="container-horarios-horas-item-label">&nbsp 5h</span></div>
+                <div class="container-horarios-horas-item"><span class="container-horarios-horas-item-label">&nbsp 6h</span></div>
+                <div class="container-horarios-horas-item"><span class="container-horarios-horas-item-label">&nbsp 7h</span></div>
+                <div class="container-horarios-horas-item"><span class="container-horarios-horas-item-label">&nbsp 8h</span></div>
+                <div class="container-horarios-horas-item"><span class="container-horarios-horas-item-label">&nbsp 9h</span></div>
+                <div class="container-horarios-horas-item"><span class="container-horarios-horas-item-label">10h</span></div>
+                <div class="container-horarios-horas-item"><span class="container-horarios-horas-item-label">11h</span></div>
+                <div class="container-horarios-horas-item"><span class="container-horarios-horas-item-label">12h</span></div>
+                <div class="container-horarios-horas-item"><span class="container-horarios-horas-item-label">13h</span></div>
+                <div class="container-horarios-horas-item"><span class="container-horarios-horas-item-label">14h</span></div>
+                <div class="container-horarios-horas-item"><span class="container-horarios-horas-item-label">15h</span></div>
+                <div class="container-horarios-horas-item"><span class="container-horarios-horas-item-label">16h</span></div>
+                <div class="container-horarios-horas-item"><span class="container-horarios-horas-item-label">17h</span></div>
+                <div class="container-horarios-horas-item"><span class="container-horarios-horas-item-label">18h</span></div>
+                <div class="container-horarios-horas-item"><span class="container-horarios-horas-item-label">19h</span></div>
+                <div class="container-horarios-horas-item"><span class="container-horarios-horas-item-label">20h</span></div>
+                <div class="container-horarios-horas-item"><span class="container-horarios-horas-item-label">21h</span></div>
+                <div class="container-horarios-horas-item"><span class="container-horarios-horas-item-label">22h</span></div>
+                <div class="container-horarios-horas-item border-0"><span class="container-horarios-horas-item-label">23h</span></div>
+            </div>
+            <div id="inserirCardsHorariosDisciplinas"></div>
         </div>
     </div>
 </div>
@@ -111,5 +127,7 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/manter-posicao-y.js" asp-append-version="true"></script>
     <script src="~/js/selecionar-disciplinas.js" asp-append-version="true"></script>
+    <script src="~/js/posicionar-disciplinas-calendario.js" asp-append-version="true"></script>
 }

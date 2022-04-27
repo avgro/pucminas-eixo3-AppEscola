@@ -10,11 +10,11 @@ using App_comunicacao_escolar.Models;
 
 namespace App_comunicacao_escolar.Controllers
 {
-    public class DisciplinasController : Controller
+    public class DisciplinasController : CommonController
     {
         private readonly ApplicationDbContext _context;
 
-        public DisciplinasController(ApplicationDbContext context)
+        public DisciplinasController(ApplicationDbContext context) : base(context)
         {
             _context = context;
         }
@@ -48,7 +48,8 @@ namespace App_comunicacao_escolar.Controllers
         // GET: Disciplinas/Create
         public IActionResult Create()
         {
-            ViewData["ProfessorId"] = new SelectList(_context.Professores.Include(p => p.Usuario), "ProfessorId", "Usuario.NomeDisplayLista");
+            ViewData["ProfessorId"] = new SelectList(_context.Professores.Include(p => p.Usuario).OrderBy(p => p.Usuario.NomeDisplayLista), "ProfessorId", "Usuario.NomeDisplayLista");
+            ViewData["TurmaId"] = new SelectList(_context.Turmas.OrderBy(d => d.NomeComCodigoEntreParenteses), "Id", "NomeComCodigoEntreParenteses");
             return View();
         }
 
@@ -61,7 +62,8 @@ namespace App_comunicacao_escolar.Controllers
             [Bind("listaDeProfessoresDaDisciplinaPorId")] string listaDeProfessoresDaDisciplinaPorId,
             [Bind("horarioInicioLista")] string horarioInicioLista,
             [Bind("horarioFimLista")] string horarioFimLista,
-            [Bind("diaDaSemanaListaNumber")] string diaDaSemanaListaNumber)
+            [Bind("diaDaSemanaListaNumber")] string diaDaSemanaListaNumber,
+            [Bind("tentarCadastrarTurmaId")] int tentarCadastrarTurmaId)
         {
             if (listaDeProfessoresDaDisciplinaPorId == null)
             {
@@ -70,7 +72,7 @@ namespace App_comunicacao_escolar.Controllers
 
             List<string> listarErrosDeValidacao = IsValidCustomizadoHorarios(horarioInicioLista, horarioFimLista, diaDaSemanaListaNumber);
 
-            while (listarErrosDeValidacao.Count > 0)
+                while (listarErrosDeValidacao.Count > 0)
             {
                 ViewData["Error"] = "Error";
                 ModelState.AddModelError(listarErrosDeValidacao[0], listarErrosDeValidacao[1]);
@@ -80,7 +82,7 @@ namespace App_comunicacao_escolar.Controllers
 
             if (ModelState.IsValid)
             {
-                disciplina.NomeComCodigoEntreParenteses = disciplina.Nome + "(" + disciplina.Codigo + ")";
+                disciplina.NomeComCodigoEntreParenteses = disciplina.Nome + " (" + disciplina.Codigo + ")";
                 disciplina.Professores = new List<Professor>();
                 List<string> listaProfessores = listaDeProfessoresDaDisciplinaPorId.Split(";").ToList();
                 for (int i = 0; i < (listaProfessores.Count - 1); i++)
@@ -104,10 +106,18 @@ namespace App_comunicacao_escolar.Controllers
                 }
                 _context.Add(disciplina);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (tentarCadastrarTurmaId == 0)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    return RedirectToAction("AdicionarDisciplinas", "Turmas", new { id = tentarCadastrarTurmaId, tentarAssociarDisciplina = disciplina.Id });
+                }
             }
             ViewData["Error"] = "Error";
-            ViewData["ProfessorId"] = new SelectList(_context.Professores.Include(p => p.Usuario), "ProfessorId", "Usuario.NomeDisplayLista");
+            ViewData["ProfessorId"] = new SelectList(_context.Professores.Include(p => p.Usuario).OrderBy(p => p.Usuario.NomeDisplayLista), "ProfessorId", "Usuario.NomeDisplayLista");
+            ViewData["TurmaId"] = new SelectList(_context.Turmas.OrderBy(d => d.NomeComCodigoEntreParenteses), "Id", "NomeComCodigoEntreParenteses");
             return View(disciplina);
         }
 
@@ -196,89 +206,6 @@ namespace App_comunicacao_escolar.Controllers
         {
             return _context.Disciplinas.Any(e => e.Id == id);
         }
-        private List<string> IsValidCustomizadoHorarios(string horarioInicioLista, string horarioFimLista, string diaDaSemanaListaNumber)
-        {
-            List<string> errorMessage = new();
-            if (horarioInicioLista == null || horarioFimLista == null || diaDaSemanaListaNumber == null)
-            {
-                errorMessage.Add("HorariosDaDisciplina");
-                errorMessage.Add("Informar horários das disciplinas!");
-                return errorMessage;
-            }
 
-            List<string> horarioInicioToList = horarioInicioLista.Split(";").ToList();
-            List<string> horarioFimToList = horarioFimLista.Split(";").ToList();
-            List<string> diaDaSemanaToList = diaDaSemanaListaNumber.Split(";").ToList();
-
-            if (horarioFimToList.Count != horarioFimToList.Count && horarioInicioToList.Count != diaDaSemanaToList.Count)
-            {
-                errorMessage.Add("HorariosDaDisciplina");
-                errorMessage.Add("Informar horários das disciplinas!");
-                return errorMessage;
-            }
-
-            // Checar se há conflito de horários 
-
-            List<int> conflitosInicioParaChecar = new();
-            List<int> conflitosFimParaChecar = new();
-
-            bool horariosEmConflito = false;
-            for (int i = 0; i < (diaDaSemanaToList.Count - 1); i++)
-            {
-                try { 
-                    int horasInicio = Int32.Parse(horarioInicioToList[i].Substring(0, 2));
-                    int minutosInicio = Int32.Parse(horarioInicioToList[i].Substring(3,2));
-                    int horasFim = Int32.Parse(horarioFimToList[i].Substring(0, 2));
-                    int minutosFim = Int32.Parse(horarioFimToList[i].Substring(3, 2));
-                    var diaDaSemana = Int32.Parse(diaDaSemanaToList[i]);
-
-                    int converterHorarioInicioParaMinutos = minutosInicio + horasInicio * 60 + diaDaSemana * 1440;
-                    int converterHorarioFimParaMinutos = minutosFim + horasFim * 60 + diaDaSemana * 1440;
-
-                    // Se o horário de fim da aula for maior que o de inicio, considerar que a aula acaba no dia seguinte.
-                    if (converterHorarioInicioParaMinutos > converterHorarioFimParaMinutos)
-                    {
-                        errorMessage.Add("HorariosDaDisciplina");
-                        errorMessage.Add("Horário de fim da disciplina não pode ser antes que o horário de início!");
-                        return errorMessage;
-                    }
-
-
-                    for (int j = 0; j < conflitosInicioParaChecar.Count(); j++) {
-                        if (converterHorarioInicioParaMinutos >= conflitosInicioParaChecar[j] && converterHorarioInicioParaMinutos < conflitosFimParaChecar[j]) {
-                            horariosEmConflito = true;
-                        }
-                        if (converterHorarioFimParaMinutos > conflitosInicioParaChecar[j] && converterHorarioFimParaMinutos <= conflitosFimParaChecar[j])
-                        {
-                            horariosEmConflito = true;
-                        }
-
-                        if (converterHorarioInicioParaMinutos < conflitosFimParaChecar[j] && converterHorarioFimParaMinutos > conflitosInicioParaChecar[j])
-                        {
-                            horariosEmConflito = true;
-                        }
-                    }
-                    conflitosInicioParaChecar.Add(converterHorarioInicioParaMinutos);
-                    conflitosFimParaChecar.Add(converterHorarioFimParaMinutos);
-
-                    if (horariosEmConflito) {
-                        errorMessage.Add("HorariosDaDisciplina");
-                        errorMessage.Add("Horários da disciplina entram em conflito!");
-                        return errorMessage;
-                    }
-                    
-                }
-                catch
-                {
-                    errorMessage.Add("HorariosDaDisciplina");
-                    errorMessage.Add("Informar horários das disciplinas!");
-                    return errorMessage;
-                }
-                // -----------------------------------------------------------------
-            }
-
-
-            return errorMessage;
-        }
     }
 }

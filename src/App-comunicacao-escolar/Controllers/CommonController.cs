@@ -86,6 +86,105 @@ namespace App_comunicacao_escolar.Controllers
             }
 
         }
+        public List<string> IsValidCustomizadoHorarios(string horarioInicioLista, string horarioFimLista, string diaDaSemanaListaNumber, string nomeDisciplinaLista = "none;")
+        {
+            List<string> errorMessage = new();
+            if (horarioInicioLista == null || horarioFimLista == null || diaDaSemanaListaNumber == null)
+            {
+                errorMessage.Add("HorariosDaDisciplina");
+                errorMessage.Add("Informar horários das disciplinas!");
+                return errorMessage;
+            }
+
+            List<string> horarioInicioToList = horarioInicioLista.Split(";").ToList();
+            List<string> horarioFimToList = horarioFimLista.Split(";").ToList();
+            List<string> diaDaSemanaToList = diaDaSemanaListaNumber.Split(";").ToList();
+            if (nomeDisciplinaLista == null)
+            {
+                nomeDisciplinaLista = "none;";
+            }
+            List<string> nomeDisciplinaToList = nomeDisciplinaLista.Split(";").ToList();
+
+            if (horarioFimToList.Count != horarioFimToList.Count && horarioInicioToList.Count != diaDaSemanaToList.Count)
+            {
+                errorMessage.Add("HorariosDaDisciplina");
+                errorMessage.Add("Informar horários das disciplinas!");
+                return errorMessage;
+            }
+
+            // Checar se há conflito de horários 
+
+            List<int> conflitosInicioParaChecar = new();
+            List<int> conflitosFimParaChecar = new();
+
+            bool horariosEmConflito = false;
+            for (int i = 0; i < (diaDaSemanaToList.Count - 1); i++)
+            {
+                try
+                {
+                    int horasInicio = Int32.Parse(horarioInicioToList[i].Substring(0, 2));
+                    int minutosInicio = Int32.Parse(horarioInicioToList[i].Substring(3, 2));
+                    int horasFim = Int32.Parse(horarioFimToList[i].Substring(0, 2));
+                    int minutosFim = Int32.Parse(horarioFimToList[i].Substring(3, 2));
+                    var diaDaSemana = Int32.Parse(diaDaSemanaToList[i]);
+
+                    int converterHorarioInicioParaMinutos = minutosInicio + horasInicio * 60 + diaDaSemana * 1440;
+                    int converterHorarioFimParaMinutos = minutosFim + horasFim * 60 + diaDaSemana * 1440;
+
+                    // Se o horário de fim da aula for maior que o de inicio, considerar que a aula acaba no dia seguinte.
+                    if (converterHorarioInicioParaMinutos > converterHorarioFimParaMinutos)
+                    {
+                        errorMessage.Add("HorariosDaDisciplina");
+                        errorMessage.Add("Horário de fim da disciplina não pode ser antes que o horário de início!");
+                        return errorMessage;
+                    }
+
+                    bool encontrouPrimeiroConflito = false;
+                    for (int j = 0; j < conflitosInicioParaChecar.Count(); j++)
+                    {
+                        if (converterHorarioInicioParaMinutos >= conflitosInicioParaChecar[j] && converterHorarioInicioParaMinutos < conflitosFimParaChecar[j])
+                        {
+                            horariosEmConflito = true;
+                        }
+                        if (converterHorarioFimParaMinutos > conflitosInicioParaChecar[j] && converterHorarioFimParaMinutos <= conflitosFimParaChecar[j])
+                        {
+                            horariosEmConflito = true;
+                        }
+
+                        if (converterHorarioInicioParaMinutos < conflitosFimParaChecar[j] && converterHorarioFimParaMinutos > conflitosInicioParaChecar[j])
+                        {
+                            horariosEmConflito = true;
+                        }
+                        if (horariosEmConflito && !encontrouPrimeiroConflito)
+                        {
+                            encontrouPrimeiroConflito = true;
+                            TempData["NomeDaDisciplinaEmConflito1"] = nomeDisciplinaToList[i];
+                            TempData["NomeDaDisciplinaEmConflito2"] = nomeDisciplinaToList[j];
+                        }
+                    }
+                    conflitosInicioParaChecar.Add(converterHorarioInicioParaMinutos);
+                    conflitosFimParaChecar.Add(converterHorarioFimParaMinutos);
+
+                    if (horariosEmConflito)
+                    {
+                        errorMessage.Add("HorariosDaDisciplina");
+                        errorMessage.Add("Horários da disciplina entram em conflito!");
+                        return errorMessage;
+                    }
+
+                }
+                catch
+                {
+                    errorMessage.Add("HorariosDaDisciplina");
+                    errorMessage.Add("Informar horários das disciplinas!");
+                    return errorMessage;
+                }
+                // -----------------------------------------------------------------
+            }
+
+
+            return errorMessage;
+        }
 
     }
 }

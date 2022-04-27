@@ -38,7 +38,7 @@
             <h5>Professores da disciplina</h5>
             <div class="form-group input-size-2x">
                 <label asp-for="Professores" class="control-label"></label>
-                <select id="destinatarioId" asp-for="Professores" class ="form-control" asp-items="ViewBag.ProfessorId" readonly>
+                <select id="destinatarioId" asp-for="Professores" class ="form-control" asp-items="ViewBag.ProfessorId">
                 </select>
                  <span asp-validation-for="Professores" data-valmsg-for="listaDeDestinatariosPorId" class="text-danger"></span>
                 <button type="button" class="btn btn-primary my-2" onclick="adicionarDestinatarioALista()">Adicionar professor</button>
@@ -119,6 +119,14 @@
                         <input type="text" class="m-1" id="diaDaSemanaListaNumber" name="diaDaSemanaListaNumber"/>
                     </div>
                 </div>
+            </div>
+            <h5>Selecionar turma</h5>
+            <div class="form-group input-size-2x">
+                <label asp-for="TurmaId" class="control-label"></label>
+                <select id="destinatarioId" asp-for="TurmaId" name="tentarCadastrarTurmaId" class ="form-control" asp-items="ViewBag.TurmaId">
+                    <option value=0>Nenhuma</option>
+                </select>
+                 <span asp-validation-for="TurmaId"></span>
             </div>
             <hr />
             <div class="form-group">

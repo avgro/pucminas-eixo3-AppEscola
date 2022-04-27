@@ -480,3 +480,102 @@ max-width-100 {
 .selecionar-horario-text {
     margin-top: 12px;
 }
+
+.container-horarios {
+    position: relative;
+    border-radius: 5px;
+    width: 97%;
+    height: 606px;
+    padding: 0;
+    min-width: 433px;
+    margin-left: 28px;
+}
+
+.container-horarios-dias {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    width: 100%;
+}
+
+.container-horarios-dias-item {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    width: 100%;
+    height: 604px;
+}
+
+.container-horarios-horas {
+    position: absolute;
+    margin: 0;
+    margin-top: 28px;
+    padding: 0;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    width: 100%;
+}
+
+.container-horarios-horas-item {
+    border-bottom: 1px solid lightgray;
+    width: 100%;
+    height: 24px;
+}
+
+.container-horarios-horas-item-label {
+    position: absolute;
+    font-size: 14px;
+    margin-top: -3px;
+    margin-left: -28px;
+}
+
+.cardHorarios {
+    color: white;
+    font-weight: 500;
+    background-color: mediumpurple;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    overflow: hidden;
+    text-align: center;
+}
+@media (max-width: 768px) {
+    .cardHorarios {
+        font-size: 12px;
+    }
+    .container-horarios {
+        height: 438px;
+        margin-left: 22px;
+    }
+    .container-horarios-dias-item {
+        height: 436px;
+    }
+    .container-horarios-horas-item {
+        height: 17px;
+    }
+    .container-horarios-horas-item-label {
+        font-size: 12px;
+        margin-top: -2px;
+        margin-left: -22px;
+    }
+}
+@media (max-width: 567px) {
+    .container-horarios {
+        margin-left: 0px;
+    }
+}
+.cardHorarios:hover, .cardHorariosactive {
+    max-height: fit-content !important;
+    background-color: cornflowerblue;
+}
+
+.diaDaSemanaLabel {
+    height: 28px;
+    text-align: center;
+    padding: 2px;
+    font-weight: 500;
+    border-bottom: 1px solid lightgray;
+}
