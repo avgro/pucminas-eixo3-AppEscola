@@ -37,12 +37,14 @@
             <hr />
             <h5>Professores da disciplina</h5>
             <div class="form-group input-size-2x">
-                <label asp-for="Professores" class="control-label"></label>
-                <select id="destinatarioId" asp-for="Professores" class ="form-control" asp-items="ViewBag.ProfessorId">
+                <label for="destinatarioId" class="control-label">Selecionar professor(es)</label>
+                <select id="destinatarioId" name="Professores" class ="form-control" asp-items="ViewBag.ProfessorId">
+                    <option value=0>Selecionar professor...</option>
                 </select>
                  <span asp-validation-for="Professores" data-valmsg-for="listaDeDestinatariosPorId" class="text-danger"></span>
                 <button type="button" class="btn btn-primary my-2" onclick="adicionarDestinatarioALista()">Adicionar professor</button>
                 <br />
+                Lista de professores:
                 <div class="d-flex flex-wrap m-1" id="exibirDestinatariosSelecionados"></div>
                 <input onkeyup="checkError(listaDeDestinatariosPorId, listaDeDestinatariosPorIdError)" type="hidden" asp-for="Professores" id="listaDeDestinatariosPorId" name="listaDeProfessoresDaDisciplinaPorId"/>
                 <div class="text-danger mb-2" id="listaDeDestinatariosPorIdError">@ViewData["listaDeDestinatariosPorIdError"]</div>
@@ -120,6 +122,7 @@
                     </div>
                 </div>
             </div>
+            <hr />
             <h5>Selecionar turma</h5>
             <div class="form-group input-size-2x">
                 <label asp-for="TurmaId" class="control-label"></label>

@@ -10,27 +10,16 @@
 <hr />
 <div class="row">
     <div>
+        <h5>Adicionar disciplina</h5>
         <form asp-action="AdicionarDisciplinas">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
-            <div class="form-group input-size-standard">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
-            </div>
-            <div class="form-group input-size-standard">
-                <label asp-for="Codigo" class="control-label"></label>
-                <input asp-for="Codigo" class="form-control" />
-                <span asp-validation-for="Codigo" class="text-danger"></span>
-            </div>
-            <div class="form-group input-size-2x">
-                <label for="disciplinasId" class="control-label">Adicionar disciplinas</label>
-                <select id="disciplinasId" asp-for="Disciplinas" class ="form-control" asp-items="ViewBag.DisciplinaId">
+            <div class="form-group input-size-1halfx">
+                <label for="disciplinasId" class="control-label">Selecionar disciplina sem turma</label>
+                <select onchange="hideDisciplinasError()" id="disciplinasId" name="Disciplinas" class ="form-control" asp-items="ViewBag.DisciplinaId">
+                    <option value=0>Selecionar disciplina...</option>
                 </select>
-                <span asp-validation-for="Disciplinas" class="text-danger"></span><br />
-                <!-- SelectLists contendo os outros atributos além do nome -->
                 <button type="button" class="btn btn-primary my-2" onclick="selecionarDisciplina()">Adicionar</button>
-                <br />
                 <div hidden>
                     <input type="text" id="numeroDaDisciplinaQueDesejaAdicionar" name="numeroDaDisciplinaQueDesejaAdicionar" />
                     <input type="text" id="adicionarOuRemover" name="adicionarOuRemover" />
@@ -39,9 +28,10 @@
             <div class="form-group">
                 <input id="botaoSubmeter" type="submit" value="Submeter" class="btn btn-primary" hidden />
             </div>
+        <span id="disciplinasError" asp-validation-for="Disciplinas" class="text-danger"></span>
         </form>
         <h5>Disciplinas associadas</h5>
-        <div class="d-flex flex-wrap">
+        <div class="d-flex flex-wrap w-100">
         @{
             int counter = 0;
             int counterHorario = 0;
@@ -53,9 +43,9 @@
                     counter++;
                     counterHorario = 0;
                     string idDisciplina = "nomeDisciplina" + counter.ToString();
-                    <div class="d-flex caixa-itens-listados">
-                        <div id="@idDisciplina" class="mt-1">@Html.DisplayFor(modelDisciplina => disciplina.NomeComCodigoEntreParenteses)</div>
-                     <button onclick="removerDisciplina(@disciplina.Id)" type="button" class="float-end mx-1">X</button>
+                    <div class="d-flex caixa-itens-listados p-2">
+                        <div id="@idDisciplina">@Html.DisplayFor(modelDisciplina => disciplina.NomeComCodigoEntreParenteses) &nbsp;</div>
+                     <button onclick="removerDisciplina(@disciplina.Id)" type="button" class="btn btn-link p-0 float-end">Remover</button>
                     </div>
                     if (disciplina.HorariosDaDisciplina != null)
                     {
@@ -70,12 +60,12 @@
                 }
                 if (Model.Disciplinas.Count == 0)
                 {
-                    <div class="alert-warning text-center p-2 input-size-2halfx">A turma não possui nenhuma disciplina associada!</div>
+                    <div class="alert-warning text-center p-2 w-100">A turma não possui nenhuma disciplina associada!</div>
                 }
             }
             else
             {
-                <div class="alert-warning text-center p-2 input-size-2halfx">A turma não possui nenhuma disciplina associada!</div>
+                <div class="alert-warning text-center p-2 w-100">A turma não possui nenhuma disciplina associada!</div>
             }
 
         </div>
@@ -88,7 +78,7 @@
                 <div class="container-horarios-dias-item"><div class="diaDaSemanaLabel">Quarta</div></div>
                 <div class="container-horarios-dias-item"><div class="diaDaSemanaLabel">Quinta</div></div>
                 <div class="container-horarios-dias-item"><div class="diaDaSemanaLabel">Sexta</div></div>
-                <div class="container-horarios-dias-item"><div class="diaDaSemanaLabel">Sábado</div></div>
+                <div class="container-horarios-dias-item border-end"><div class="diaDaSemanaLabel">Sábado</div></div>
             </div>
             <div class="container-horarios-horas"> 
                 <div class="container-horarios-horas-item"><span class="container-horarios-horas-item-label">&nbsp 0h</span></div>
@@ -122,7 +112,7 @@
 </div>
 
 <div>
-    <a class="btn btn-primary my-2"asp-action="Index">Finalizar</a>
+    <a class="btn btn-primary my-2"asp-action="Index">Voltar</a>
 </div>
 
 @section Scripts {

@@ -53,11 +53,14 @@ function desenharCardsHorarios() {
         }
 
         criarCardInnerHtml += `
-    <div class="cardHorarios" style="margin-left: ${marginLeft}px; margin-top: ${marginTop}px; max-height: ${height}px; width: ${width}px">
+    <div class="cardHorarios" style="margin-left: ${marginLeft}px; margin-top: ${marginTop}px; height: ${height}px; width: ${width}px">
+
+    </div>
+    <div class="cardHorarios" style="margin-left: ${marginLeft}px; margin-top: ${marginTop}px; height: ${height}px; width: ${width}px">
     ${separarElementosCardHorario[0]}<br>
     (${separarElementosCardHorario[1]})<br>
     ${separarElementosCardHorario[3]} - ${separarElementosCardHorario[4]}
-    </div>                
+    </div>
     `
     }
     document.getElementById("inserirCardsHorariosDisciplinas").innerHTML = criarCardInnerHtml;

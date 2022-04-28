@@ -77,8 +77,8 @@ function doisDigitosInputHorario(idInput) {
     if (idInput.value.length < 2) {
         idInput.value = "0" + idInput.value;
     }
-    if (idInput.value.length == 0) {
+    if (idInput.value == 0) {
         idInput.value = "00";
     }
-    idInput.value = idInput.value.substring(0, 2);
+    idInput.value = idInput.value.substring(idInput.value.length - 2, idInput.value.length);
 }

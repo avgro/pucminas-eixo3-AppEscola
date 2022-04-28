@@ -28,15 +28,20 @@ function adicionarDestinatarioALista() {
     let destinatarioId = document.getElementById("destinatarioId").value;
     let destinatarioNome = document.getElementById("destinatarioId");
 
-    destinatarioNome = destinatarioNome.options[destinatarioNome.selectedIndex].innerText;
-    if (!listaDestinatariosId.includes(destinatarioId) && destinatarioId != -1) {
+    if (destinatarioId > 0) {
+        destinatarioNome = destinatarioNome.options[destinatarioNome.selectedIndex].innerText;
+        if (!listaDestinatariosId.includes(destinatarioId) && destinatarioId != -1) {
 
-        listaDestinatariosId.push(destinatarioId);
+            listaDestinatariosId.push(destinatarioId);
 
-        listaDestinatariosNome.push(destinatarioNome);
+            listaDestinatariosNome.push(destinatarioNome);
+        }
+
+        exibirDestinatariosNaTela();
     }
-    
-    exibirDestinatariosNaTela();
+    else {
+        document.getElementById("destinatarioId").focus();
+    }
 }
 
 function removerDestinatarioDaLista(posicaoRemover){

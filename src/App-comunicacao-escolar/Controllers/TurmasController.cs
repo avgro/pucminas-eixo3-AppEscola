@@ -80,7 +80,7 @@ namespace App_comunicacao_escolar.Controllers
             {
                 return NotFound();
             }
-            ViewData["DisciplinaId"] = new SelectList(_context.Disciplinas.OrderBy(d => d.NomeComCodigoEntreParenteses), "Id", "NomeComCodigoEntreParenteses");
+            ViewData["DisciplinaId"] = new SelectList(_context.Disciplinas.Where(d => d.TurmaId == null).OrderBy(d => d.NomeComCodigoEntreParenteses), "Id", "NomeComCodigoEntreParenteses");
             return View(turma);
         }
 
@@ -135,7 +135,7 @@ namespace App_comunicacao_escolar.Controllers
             {
                 return NotFound();
             }
-            ViewData["DisciplinaId"] = new SelectList(_context.Disciplinas.OrderBy(d => d.NomeComCodigoEntreParenteses), "Id", "NomeComCodigoEntreParenteses");
+            ViewData["DisciplinaId"] = new SelectList(_context.Disciplinas.Where(d => d.TurmaId == null).OrderBy(d => d.NomeComCodigoEntreParenteses), "Id", "NomeComCodigoEntreParenteses");
             return View(turma);
         }
 
@@ -150,7 +150,7 @@ namespace App_comunicacao_escolar.Controllers
 
             {
 
-            Turma turma = await _context.Turmas.Include(t => t.Disciplinas).ThenInclude(d => d.HorariosDaDisciplina).FirstOrDefaultAsync(t => t.Id == id);
+            Turma turma = await _context.Turmas.Include(t => t.Disciplinas.OrderBy(d => d.NomeComCodigoEntreParenteses)).ThenInclude(d => d.HorariosDaDisciplina).FirstOrDefaultAsync(t => t.Id == id);
 
             string horarioInicioLista = "";
             string horarioFimLista = "";
@@ -163,16 +163,17 @@ namespace App_comunicacao_escolar.Controllers
                     horarioInicioLista += horarioCadastrado.HorarioInicio + ";";
                     horarioFimLista += horarioCadastrado.HorarioFim + ";";
                     diaDaSemanaListaNumber += horarioCadastrado.DiaDaSemana + ";";
-                    nomeDisciplinaLista += disciplinaCadastrada.Nome + ";";
+                    nomeDisciplinaLista += disciplinaCadastrada.NomeComCodigoEntreParenteses + ";";
                 }
             }
 
-            ViewData["DisciplinaId"] = new SelectList(_context.Disciplinas.OrderBy(d => d.NomeComCodigoEntreParenteses), "Id", "NomeComCodigoEntreParenteses");
+            ViewData["DisciplinaId"] = new SelectList(_context.Disciplinas.Where(d => d.TurmaId == null).OrderBy(d => d.NomeComCodigoEntreParenteses), "Id", "NomeComCodigoEntreParenteses");
 
             Disciplina disciplina = await _context.Disciplinas.Include(d => d.HorariosDaDisciplina).FirstOrDefaultAsync(d => d.Id == numeroDaDisciplinaQueDesejaAdicionar);
             if (disciplina.TurmaId != null && adicionarOuRemover.Equals("adicionar"))
             {
-                ModelState.AddModelError("Disciplinas", "Disciplina já associada a uma turma!");
+                string errorMessage = "Disciplina \"" + disciplina.NomeComCodigoEntreParenteses + "\" já está associada a uma turma!";
+                ModelState.AddModelError("Disciplinas", errorMessage);
             }
 
             if (adicionarOuRemover.Equals("adicionar")) { 
@@ -195,7 +196,7 @@ namespace App_comunicacao_escolar.Controllers
                         disciplinaEmConflito1 = TempData["NomeDaDisciplinaEmConflito1"].ToString();
                     if (TempData.ContainsKey("NomeDaDisciplinaEmConflito2"))
                         disciplinaEmConflito2 = TempData["NomeDaDisciplinaEmConflito2"].ToString();
-                    string errorMessage = "Horários da disciplina " + disciplinaEmConflito1 +" entram em conflito com os da disciplina " + disciplinaEmConflito2 +"!";
+                    string errorMessage = "Horários da disciplina \"" + disciplinaEmConflito1 + "\" entram em conflito com os da disciplina \"" + disciplinaEmConflito2 + "\"!";
                     ModelState.AddModelError("Disciplinas", errorMessage);
                     listarErrosDeValidacao.RemoveRange(0, 2);
                 }

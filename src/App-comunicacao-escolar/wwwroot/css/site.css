@@ -98,6 +98,9 @@ max-width-100 {
     width: 200px;
 }
 
+.input-size-1halfx {
+    width: 300px;
+}
 .input-size-2x {
     width: 400px;
 }
@@ -401,7 +404,7 @@ max-width-100 {
 }
 
 .dropdown-menu-fix {
-    z-index: 1;
+    z-index: 2;
     position: relative;
     right: 0;
     margin: 0px;
@@ -485,7 +488,7 @@ max-width-100 {
     position: relative;
     border-radius: 5px;
     width: 97%;
-    height: 606px;
+    height: 1038px;
     padding: 0;
     min-width: 433px;
     margin-left: 28px;
@@ -503,8 +506,9 @@ max-width-100 {
 .container-horarios-dias-item {
     border: 1px solid lightgray;
     border-radius: 5px;
+    border-right: none;
     width: 100%;
-    height: 604px;
+    height: 1036px;
 }
 
 .container-horarios-horas {
@@ -520,7 +524,7 @@ max-width-100 {
 .container-horarios-horas-item {
     border-bottom: 1px solid lightgray;
     width: 100%;
-    height: 24px;
+    height: 42px;
 }
 
 .container-horarios-horas-item-label {
@@ -547,14 +551,14 @@ max-width-100 {
         font-size: 12px;
     }
     .container-horarios {
-        height: 438px;
-        margin-left: 22px;
+        height: 798px;
+        margin-left: 11px;
     }
     .container-horarios-dias-item {
-        height: 436px;
+        height: 796px;
     }
     .container-horarios-horas-item {
-        height: 17px;
+        height: 32px;
     }
     .container-horarios-horas-item-label {
         font-size: 12px;
@@ -568,7 +572,8 @@ max-width-100 {
     }
 }
 .cardHorarios:hover, .cardHorariosactive {
-    max-height: fit-content !important;
+    z-index: 1;
+    height: fit-content !important;
     background-color: cornflowerblue;
 }
 

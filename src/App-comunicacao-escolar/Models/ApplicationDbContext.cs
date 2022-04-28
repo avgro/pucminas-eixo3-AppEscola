@@ -35,7 +35,7 @@ namespace App_comunicacao_escolar.Models
             modelBuilder.Entity<Turma>()
             .HasMany(t => t.Disciplinas)
             .WithOne(d => d.Turma)
-            .OnDelete(DeleteBehavior.SetNull);
+            .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
