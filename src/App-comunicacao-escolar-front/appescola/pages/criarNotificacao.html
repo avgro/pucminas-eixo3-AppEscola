@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet"> 
+
+    <!-- Bootstrap CSS -->    
+    <link rel="stylesheet" href="../css/main.css" />    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">    
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!--Bootstrap Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+    <title>App Escola</title>
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+  </head>
+  <body>
+    <!--Header-->
+    <div id="header">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navbar" >         
+            <a class="navbar-brand" href="index.html">
+              <img src="../images/logo.svg" class="img-fluid" id="logo" />
+            </a>                        
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item"> 
+                  <a class="nav-link active" aria-current="page" href="../index.html">Página Principal</a>                 
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./pages/solucoes.html">Soluções</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./pages/faleConosco.html">Fale Conosco</a>
+                </li>
+              </ul>
+                   <button class="btn btn-primary me-md-2 d-md-inline-block d-block" type="button" onclick="window.location.href='../index.html'" id="login-btn">Home</button>
+            </div>            
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!--/Header-->
+   
+    <!-- Conteudo -->
+    <div class="container">
+      <section class="ftco-section">      
+        <div class="row">
+          <div class="col">
+            <div class="btn-group-vertical border">                          
+                <button type="button" class="btn btn-dark" onclick="window.location.href='../index.html'">Todos os usuários</button>
+                <button type="button" class="btn btn-dark" onclick="window.location.href='../index.html'">Agenda</button>
+                <button type="button" class="btn btn-dark" onclick="window.location.href='../index.html'">Mensagens</button>
+                <button type="button" class="btn btn-dark" onclick="window.location.href='../index.html'">Cadastrar usuário</button>
+                <button type="button" class="btn btn-dark" onclick="window.location.href='../index.html'">Cadastar aluno</button>
+                <button type="button" class="btn btn-dark" onclick="window.location.href='../index.html'">Cadastar turma</button>
+                <button type="button" class="btn btn-dark" onclick="window.location.href='../index.html'">Cadastar disciplina</button>            
+            </div>
+          </div>
+          <div class="col">
+            <div class="mb">
+              <label for="textassunto" class="form-label">Assunto</label>
+              <input type="text" class="form-control" id="textassunto" placeholder="Assunto">
+            </div>
+            <div class="mb">
+              <label for="textmsg" class="form-label">Mensagem</label>
+              <textarea class="form-control" id="textmsg" rows="3"></textarea>
+            </div>
+            <div class="mb">
+              <br>
+              <form>
+                <button class="btn btn-dark" type="submit">Lançar notificação</button> 
+                <button class="btn btn-dark" type="submit">Fechar</button> 
+              </form>
+            </div>
+          </div>
+        </div>      
+      </section>
+    </div>    
+
+    <!--/Conteudo-->
+
+    
+   <!-- FOOTER -->
+    <footer class="container-fluid bg-dark-color" id="footer">
+      <div class="container">
+        <div class="row">
+          
+          <!-- FOOTER DETAILS -->
+          <div class="col-12" id="footer-details">
+            <div class="row">
+              <div class="col-12 col-md-4" id="news-container">
+                <h4>Fique por dentro das novidades</h4>
+                <p class="secondary-color">
+                  Inscreva-se para saber em primeira mão
+                </p>
+                <form>
+                  <div class="mb-3">
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="Digite o seu e-mail"
+                    />
+                  </div>
+                  <button class="btn btn-dark" type="submit">Inscrever</button>
+                </form>
+              </div>
+              <div class="col-12 col-md-4" id="contact-container">
+                <h4>Formas de contato</h4>
+                <p class="secondary-color">(31)9999-9999</p>
+                <p class="secondary-color">contato@appescola.com</p>
+              </div>
+              <div class="col-12 col-md-4" id="links-container">
+                <div class="row">
+                  <h4>Você pode estar buscando por:</h4>
+                 
+                  <div class="col-6">
+                    <ul class="list-unstyled">
+                      <li><a href="#" class="secondary-color">Contratar</a></li>
+                      <li>
+                        <a href="#" class="secondary-color">Trabalhe conosco</a>
+                      </li>
+                      <li><a href="#" class="secondary-color">Contato</a></li>
+                      <li><a href="#" class="secondary-color">Privacidade</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- FOOTER BOTTOM -->
+          <div class="col-12" id="footer-bottom">
+            <div class="row justify-content-between">
+              <div class="col-12 col-md-3">
+                <p class="secondary-color">AppEscola &copy; 2022</p>
+              </div>
+              <div class="col-12 col-md-3">
+                <p class="secondary-color">
+                  Seus filhos cuidados com 
+                  <i class="bi bi-heart"></i>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--/Footer-->    
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.js"></script>    
+    <script src="../js/main.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+  </body>
+</html>
