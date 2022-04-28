@@ -164,7 +164,7 @@ namespace App_comunicacao_escolar.Controllers
                 return NotFound();
             }
 
-            var usuario = await _context.Usuarios.FindAsync(id);
+            var usuario = await _context.Usuarios.Include(u => u.Professor).FirstOrDefaultAsync(u => u.Id == id);
             if (usuario == null)
             {
                 return NotFound();
@@ -177,7 +177,9 @@ namespace App_comunicacao_escolar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Sobrenome,NomeDeUsuario,Senha,Email,TelefoneMovel,TelefoneFixo,Logradouro,Cidade,Estado,Cep,Perfil")] Usuario usuarioNovasInformacoes)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Sobrenome,NomeDeUsuario,Senha,Email,TelefoneMovel,TelefoneFixo,Logradouro,Cidade,Estado,Cep,Perfil")] Usuario usuarioNovasInformacoes, 
+            [Bind("professorFormacao")] string professorFormacao, 
+            [Bind("professorNivel")] NivelDoProfessorEnum professorNivel)
         {
             if (id != usuarioNovasInformacoes.Id)
             {
@@ -185,9 +187,10 @@ namespace App_comunicacao_escolar.Controllers
             }
 
             // Manter mesmo perfil e senha
-            Usuario usuario = await _context.Usuarios.FindAsync(id);
+            Usuario usuario = await _context.Usuarios.Include(u => u.Professor).FirstOrDefaultAsync(u => u.Id == id);
             usuario.Nome = usuarioNovasInformacoes.Nome;
             usuario.Sobrenome = usuarioNovasInformacoes.Sobrenome;
+            usuario.NomeDeUsuario = usuarioNovasInformacoes.NomeDeUsuario;
             usuario.Email = usuarioNovasInformacoes.Email;
             usuario.TelefoneMovel = usuarioNovasInformacoes.TelefoneMovel;
             usuario.TelefoneFixo = usuarioNovasInformacoes.TelefoneFixo;
@@ -195,6 +198,11 @@ namespace App_comunicacao_escolar.Controllers
             usuario.Cidade = usuarioNovasInformacoes.Cidade;
             usuario.Estado = usuarioNovasInformacoes.Estado;
             usuario.Cep = usuarioNovasInformacoes.Cep;
+            if (usuario.Professor != null)
+            {
+                usuario.Professor.Nivel = professorNivel;
+                usuario.Professor.Formacao = professorFormacao;
+            }
 
             usuario = FormatarInputs(usuario);
             List<string> listarErrosDeValidacao = IsValidCustomizado(usuario, usuario.Id);

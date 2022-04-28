@@ -110,6 +110,10 @@ max-width-100 {
     max-width: 100%;
 }
 
+.input-size-3quarters {
+    width: 150px;
+}
+
 .input-size-half {
     width: 100px;
 }

@@ -14,10 +14,6 @@
      <div hidden id="validation-error">@ViewData["Error"]</div>
 }
 
-@if (@ViewData["Error"] != null){
-      // Usada para que o Javascript saiba se o backend retornou error após a submissão do formulário
-     <div hidden id="validation-error">@ViewData["Error"]</div>
-}
 
 <div class="row">
     <div >
@@ -141,7 +137,11 @@
 
 <div>
     <a asp-action="Index">Voltar</a>
-    <script src="~/js/selecionardestinatarios.js" asp-append-version="true"></script>
-    <script src="~/js/criar-horarios-aula.js" asp-append-version="true"></script>
+    
 </div>
 
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/selecionardestinatarios.js" asp-append-version="true"></script>
+    <script src="~/js/criar-horarios-aula.js" asp-append-version="true"></script>
+}

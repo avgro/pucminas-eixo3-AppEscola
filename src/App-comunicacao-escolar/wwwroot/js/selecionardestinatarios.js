@@ -4,11 +4,22 @@
 // Write your JavaScript code.
 
 
-let listaDestinatariosId = [];
+listaDestinatariosId = [];
 let listaDestinatariosNome = [];
 
-let startRefreshCount = false;
-
+try {
+    let listaRecuperarInformacoes = document.getElementById("recuperarInformacoesDestinatarios").innerHTML;
+    listaRecuperarInformacoes = listaRecuperarInformacoes.split(";;");
+    listaDestinatariosId = listaRecuperarInformacoes[0];
+    listaDestinatariosNome = listaRecuperarInformacoes[1];
+    listaDestinatariosId = listaDestinatariosId.split(";");
+    listaDestinatariosNome = listaDestinatariosNome.split(";");
+    listaDestinatariosId = listaDestinatariosId.splice(0, listaDestinatariosId.length - 1);
+    listaDestinatariosNome = listaDestinatariosNome.splice(0, listaDestinatariosNome.length - 1);
+}
+catch {
+    
+}
 
 if (document.getElementById("validation-error")) {
     if (document.getElementById("validation-error").innerHTML.length > 0) {

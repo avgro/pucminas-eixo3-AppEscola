@@ -129,7 +129,10 @@ namespace App_comunicacao_escolar.Controllers
                 return NotFound();
             }
 
-            var disciplina = await _context.Disciplinas.Include(d => d.Professores).ThenInclude(p => p.Usuario)
+            ViewData["ProfessorId"] = new SelectList(_context.Professores.Include(p => p.Usuario).OrderBy(p => p.Usuario.NomeDisplayLista), "ProfessorId", "Usuario.NomeDisplayLista");
+            ViewData["TurmaId"] = new SelectList(_context.Turmas.OrderBy(d => d.NomeComCodigoEntreParenteses), "Id", "NomeComCodigoEntreParenteses");
+
+            var disciplina = await _context.Disciplinas.Include(d => d.Professores).ThenInclude(p => p.Usuario).Include(d => d.HorariosDaDisciplina)
                 .FirstOrDefaultAsync(d => d.Id == id);
             if (disciplina == null)
             {
@@ -143,34 +146,90 @@ namespace App_comunicacao_escolar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome")] Disciplina disciplina)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Codigo")] Disciplina disciplinaAtualizar,
+            [Bind("listaDeProfessoresDaDisciplinaPorId")] string listaDeProfessoresDaDisciplinaPorId,
+            [Bind("horarioInicioLista")] string horarioInicioLista,
+            [Bind("horarioFimLista")] string horarioFimLista,
+            [Bind("diaDaSemanaListaNumber")] string diaDaSemanaListaNumber,
+            [Bind("tentarCadastrarTurmaId")] int tentarCadastrarTurmaId)
         {
-            if (id != disciplina.Id)
-            {
-                return NotFound();
-            }
+            try { 
+                var disciplina = await _context.Disciplinas.Include(d => d.Professores).ThenInclude(p => p.Usuario).Include(d => d.HorariosDaDisciplina)
+                    .FirstOrDefaultAsync(d => d.Id == id);
 
-            if (ModelState.IsValid)
-            {
-                try
+                disciplina.Nome = disciplinaAtualizar.Nome;
+                disciplina.Codigo = disciplinaAtualizar.Codigo;
+
+                if (listaDeProfessoresDaDisciplinaPorId == null)
                 {
-                    _context.Update(disciplina);
-                    await _context.SaveChangesAsync();
+                    ModelState.AddModelError("Professores", "Selecionar pelo menos um professor para a disciplina!");
                 }
-                catch (DbUpdateConcurrencyException)
+
+                List<string> listarErrosDeValidacao = IsValidCustomizadoHorarios(horarioInicioLista, horarioFimLista, diaDaSemanaListaNumber);
+
+                while (listarErrosDeValidacao.Count > 0)
                 {
-                    if (!DisciplinaExists(disciplina.Id))
+                    ViewData["Error"] = "Error";
+                    ModelState.AddModelError(listarErrosDeValidacao[0], listarErrosDeValidacao[1]);
+                    ViewData[listarErrosDeValidacao[0]] = listarErrosDeValidacao[1];
+                    listarErrosDeValidacao.RemoveRange(0, 2);
+                }
+
+                if (ModelState.IsValid)
+                {
+                    try
+                    {
+                        disciplina.NomeComCodigoEntreParenteses = disciplina.Nome + " (" + disciplina.Codigo + ")";
+                        disciplina.Professores = new List<Professor>();
+                        List<string> listaProfessores = listaDeProfessoresDaDisciplinaPorId.Split(";").ToList();
+                        for (int i = 0; i < (listaProfessores.Count - 1); i++)
+                        {
+                            int professorId = int.Parse(listaProfessores[i]);
+                            Professor professor = await _context.Professores.FirstOrDefaultAsync(s => s.ProfessorId == professorId);
+                            disciplina.Professores.Add(professor);
+                        }
+
+                        disciplina.HorariosDaDisciplina = new List<HorariosDaDisciplina>();
+
+                        List<string> horarioInicioToList = horarioInicioLista.Split(";").ToList();
+                        List<string> horarioFimToList = horarioFimLista.Split(";").ToList();
+                        List<string> diaDaSemanaToList = diaDaSemanaListaNumber.Split(";").ToList();
+                        for (int i = 0; i < (diaDaSemanaToList.Count() - 1); i++)
+                        {
+                            HorariosDaDisciplina horario = new();
+                            horario.DiaDaSemana = Int32.Parse(diaDaSemanaToList[i]);
+                            horario.HorarioInicio = horarioInicioToList[i];
+                            horario.HorarioFim = horarioFimToList[i];
+                            disciplina.HorariosDaDisciplina.Add(horario);
+                        }
+
+                        disciplina.TurmaId = null;
+
+                        _context.Update(disciplina);
+                        await _context.SaveChangesAsync();
+                        if (tentarCadastrarTurmaId == 0)
+                        {
+                            return RedirectToAction(nameof(Index));
+                        }
+                        else
+                        {
+                            return RedirectToAction("AdicionarDisciplinas", "Turmas", new { id = tentarCadastrarTurmaId, tentarAssociarDisciplina = disciplina.Id });
+                        }
+                    }
+                    catch
                     {
                         return NotFound();
                     }
-                    else
-                    {
-                        throw;
-                    }
                 }
-                return RedirectToAction(nameof(Index));
+                ViewData["Error"] = "Error";
+                ViewData["ProfessorId"] = new SelectList(_context.Professores.Include(p => p.Usuario).OrderBy(p => p.Usuario.NomeDisplayLista), "ProfessorId", "Usuario.NomeDisplayLista");
+                ViewData["TurmaId"] = new SelectList(_context.Turmas.OrderBy(d => d.NomeComCodigoEntreParenteses), "Id", "NomeComCodigoEntreParenteses");
+                return View(disciplina);
             }
-            return View(disciplina);
+            catch
+            {
+                return NotFound();
+            }
         }
 
         // GET: Disciplinas/Delete/5

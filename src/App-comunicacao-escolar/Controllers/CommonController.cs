@@ -144,7 +144,7 @@ namespace App_comunicacao_escolar.Controllers
                         return errorMessage;
                     }
 
-                    for (int j = 0; j < conflitosInicioParaChecar.Count(); j++)
+                    for (int j = 0; j < conflitosInicioParaChecar.Count; j++)
                     {
                         if (converterHorarioInicioParaMinutos >= conflitosInicioParaChecar[j] && converterHorarioInicioParaMinutos < conflitosFimParaChecar[j])
                         {
@@ -161,8 +161,14 @@ namespace App_comunicacao_escolar.Controllers
                         }
                         if (horariosEmConflito)
                         {
+                            try { 
                             TempData["NomeDaDisciplinaEmConflito1"] = nomeDisciplinaToList[i];
                             TempData["NomeDaDisciplinaEmConflito2"] = nomeDisciplinaToList[j];
+                            }
+                            catch
+                            {
+
+                            }
                             break;
                         }
                     }

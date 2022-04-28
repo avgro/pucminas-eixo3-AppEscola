@@ -75,7 +75,7 @@
                     <input asp-for="Estado" class="form-control" />
                     <span asp-validation-for="Estado" class="text-danger"></span>
                 </div>
-                <div class="form-group input-size-half">
+                <div class="form-group input-size-3quarters">
                     <label asp-for="Cep" class="control-label"></label>
                     <input onkeyup="formatarCep(Cep)" asp-for="Cep" class="form-control" />
                     <span asp-validation-for="Cep" class="text-danger"></span>
@@ -83,18 +83,24 @@
             </div>
             <div id="infoProfessor">
                 <h5 class="mt-2">Informações do Professor</h5>
+                @try {
                 <div class="form-group input-size-standard">
-                    <label asp-for="Professor.Formacao" class="control-label"></label>
-                    <input asp-for="Professor.Formacao" name="professorFormacao" class="form-control" value="Nenhuma" />
-                    <span asp-validation-for="Professor.Formacao" data-valmsg-for="professorFormacao" class="text-danger"></span>
+                    <label asp-for="Professor!.Formacao" class="control-label"></label>
+                    <input asp-for="Professor!.Formacao" name="professorFormacao" class="form-control" value="Nenhuma" />
+                    <span asp-validation-for="Professor!.Formacao" data-valmsg-for="professorFormacao" class="text-danger"></span>
                 </div>
                 <div class="form-group input-size-standard">
-                    <label asp-for="Professor.Nivel" class="control-label">Nível</label>
-                    <select asp-for="Professor.Nivel" name="professorNivel" class="form-control"
+                    <label asp-for="Professor!.Nivel" class="control-label">Nível</label>
+                    <select asp-for="Professor!.Nivel" name="professorNivel" class="form-control"
                     asp-items="Html.GetEnumSelectList<NivelDoProfessorEnum>()">
                     </select>
-                    <span asp-validation-for="Professor.Nivel" data-valmsg-for="professorNivel" class="text-danger"></span>
-                </div>
+                    <span asp-validation-for="Professor!.Nivel" data-valmsg-for="professorNivel" class="text-danger"></span>
+                    </div>
+                }
+                catch
+                {
+                    
+                }
             </div>
             <hr />
             <div class="form-group my-2">
