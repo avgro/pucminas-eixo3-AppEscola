@@ -8,7 +8,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet"> 
     <title>@ViewData["Title"] - App_comunicacao_escolar</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+     <!--Bootstrap Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/App_comunicacao_escolar.styles.css" asp-append-version="true" />
 
 </head>
@@ -19,30 +24,46 @@
         if (User.Identity.IsAuthenticated)
         {
             ClaimsPrincipal currentUser = User;
-            return Int32.Parse(currentUser.FindFirst(ClaimTypes.NameIdentifier).Value);
+            try {
+                return Int32.Parse(currentUser.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+            }
+            catch
+            {
+                return -1;
+            }
         }
         return -1;
     }
-    ViewData["Controller"] = ViewContext.RouteData.Values["controller"].ToString();
-    ViewData["Action"] = ViewContext.RouteData.Values["action"].ToString();
+
+    if (ViewContext.RouteData.Values["controller"] != null){ 
+        ViewData["Controller"] = ViewContext.RouteData.Values["controller"]!.ToString();
+    }
+    if (ViewContext.RouteData.Values["action"] != null){ 
+        ViewData["Action"] = ViewContext.RouteData.Values["action"]!.ToString();
+    }
 
     bool layoutNaoTemMenuLateral()
     {
-        if (ViewData["Controller"].Equals("Usuarios") && ViewData["Action"].Equals("Login"))
-        {
-            return true;
+        try {
+            if (ViewData["Controller"]!.Equals("Usuarios") && ViewData["Action"]!.Equals("Login"))
+            {
+                return true;
+            }
+            if (ViewData["Controller"]!.Equals("Home") && !ViewData["Action"]!.Equals("AreaDoUsuario"))
+            {
+                return true;
+            }
+            if (ViewData["Controller"]!.Equals("Usuarios") && ViewData["Action"]!.Equals("AlterarDados"))
+            {
+                return true;
+            }
+            if (ViewData["Action"]!.Equals("AccessDenied"))
+            {
+                return true;
+            }
         }
-        if (ViewData["Controller"].Equals("Home") && !ViewData["Action"].Equals("AreaDoUsuario"))
-        {
-            return true;
-        }
-        if (ViewData["Controller"].Equals("Usuarios") && ViewData["Action"].Equals("AlterarDados"))
-        {
-            return true;
-        }
-        if (ViewData["Action"].Equals("AccessDenied"))
-        {
-            return true;
+        catch {
+            return false;
         }
         return false;
     }
@@ -205,11 +226,71 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - App_comunicacao_escolar - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+   <!-- FOOTER -->
+    <footer class="container-fluid bg-dark-color" id="footer">
+      <div class="container">
+        <div class="row">
+          
+          <!-- FOOTER DETAILS -->
+          <div class="col-12" id="footer-details">
+            <div class="row">
+              <div class="col-12 col-md-4" id="news-container">
+                <h4>Fique por dentro das novidades</h4>
+                <p class="secondary-color">
+                  Inscreva-se para saber em primeira mão
+                </p>
+                <form>
+                  <div class="mb-3">
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="Digite o seu e-mail"
+                    />
+                  </div>
+                  <button class="btn btn-dark" type="submit">Inscrever</button>
+                </form>
+              </div>
+              <div class="col-12 col-md-4" id="contact-container">
+                <h4>Formas de contato</h4>
+                <p class="secondary-color">(31)9999-9999</p>
+                <p class="secondary-color">contato@appescola.com</p>
+              </div>
+              <div class="col-12 col-md-4" id="links-container">
+                <div class="row">
+                  <h4>Você pode estar buscando por:</h4>
+                 
+                  <div class="col-6">
+                    <ul class="list-unstyled">
+                      <li><a href="#" class="secondary-color">Contratar</a></li>
+                      <li>
+                        <a href="#" class="secondary-color">Trabalhe conosco</a>
+                      </li>
+                      <li><a href="#" class="secondary-color">Contato</a></li>
+                      <li><a href="#" class="secondary-color">Privacidade</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- FOOTER BOTTOM -->
+          <div class="col-12" id="footer-bottom">
+            <div class="row justify-content-between">
+              <div class="col-12 col-md-3">
+                <p class="secondary-color">AppEscola &copy; 2022</p>
+              </div>
+              <div class="col-12 col-md-3">
+                <p class="secondary-color">
+                  Seus filhos cuidados com 
+                  <i class="bi bi-heart"></i>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </footer>
+    <!--/Footer-->
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

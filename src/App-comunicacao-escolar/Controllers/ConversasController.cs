@@ -205,7 +205,7 @@ namespace App_comunicacao_escolar.Controllers
                     };
                     conversa.NumeroDeNovasMensagensNaConversa.Add(numeroDeNovasMensagensNaConversa);
 
-                    listaDeDestinatariosPorNome += usuario.Nome + "; ";
+                    listaDeDestinatariosPorNome += usuario.Nome.Replace(";",":") + "; ";
                 }
                 mensagem.ListaDestinatariosNome = listaDeDestinatariosPorNome;
                 // -----------------------------------------------------------------------------------------
@@ -296,7 +296,7 @@ namespace App_comunicacao_escolar.Controllers
                             _context.Update(numeroDeNovasMensagensNaConversa);
                         }
 
-                        listaDeDestinatariosPorNome += usuario.Nome + "; ";
+                        listaDeDestinatariosPorNome += usuario.Nome.Replace(";", ":") + "; ";
                     }
                 }
                 // -----------------------------------------------------------------------------------------

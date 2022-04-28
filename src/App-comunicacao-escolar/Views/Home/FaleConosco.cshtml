@@ -1,40 +1,94 @@
 ﻿@{
-    ViewData["Title"] = "Fale Conosco";
+    ViewData["Title"] = "Home Page";
 }
-    <!--Slider-->
+
     <div id="slider">
         <div class="container pt-5">
           <div class="row">
+            
               <div class="col-md-6 align-self-center" >
-                  <h1>
-                      Lorem ipsum dolor sit.
-                  </h1>
+                  <h1>Lorem ipsum dolor sit.</h1>
                   <h4 class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, excepturi.</h4>
-                 
               </div>
-              <div class="col-md-6 align-self-center text-center">
-                  <img src="../images/logo.svg" class="img-fluid">
+
+              <div class="carousel slide col-md-6 align-self-center text-center" data-ride="carousel" id="mainSlider">
+                  <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#mainSlider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#mainSlider" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#mainSlider" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  </div>
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="~/images/Cruise-Mexico-2015-055-scaled.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="~/images/iStock-585609744.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="~/images/logo.jpeg" class="d-block w-100" alt="...">
+                    </div>
+                  </div>
+                  
+                  <button class="carousel-control-prev" type="button" data-bs-target="#mainSlider" data-bs-slide="prev">
+                    <i class="bi bi-chevron-compact-left" ></i>                    
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  
+                  <button class="carousel-control-next" type="button" data-bs-target="#mainSlider" data-bs-slide="next">
+                    <i class="bi bi-chevron-compact-right"></i>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>     
               </div>
           </div>  
         </div>
     </div>
     <!--/Slider-->
 
-     <!--Sobre-->
-    <div id="slider">
-        <div class="container pt-5">
-          <div class="row">
-              <div class="col-md-6 align-self-center text-center">
-                  <img src="../images/logo.svg" class="img-fluid">
+    <div class="container" id="info-container">
+      <div class="col-12">
+        <h2 class="title primary-color">Saiba Mais</h2>
+        <p class="subtitle secondary-color">
+          Saiba mais sobre a nossa plataforma
+        </p>
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12 col-md-5" id="info-banner">
+            <img src="~/images/iStock-585609744.jpg" alt="Informações" class="img-fluid" />
+          </div>
+          <div class="col-12 col-md-7" id="info-content">
+            <div class="row">
+              <div class="col-12">
+                <h2 class="title">Estes dados fazem a diferença:</h2>
+                <p class="subtitle primary-color">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Praesentium tempore fugit et iusto quisquam beatae impedit
+                  nobis quas doloribus, atque, ut id similique eligendi, ab
+                  soluta magnam maxime cum debitis.
+                </p>
               </div>
-              <div class="col-md-6 align-self-center" >
-                  <h1>
-                      Lorem ipsum dolor sit.
-                  </h1>
-                  <h4 class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, excepturi.</h4>
-                  
-              </div>              
-          </div>  
+              <div class="col-12" id="info-numbers">
+                <div class="row">
+                  <div class="col-4">
+                    <h3 class="primary-color">+20</h3>
+                    <p class="secondary-color">Escolas atendidas</p>
+                  </div>
+                  <div class="col-4">
+                    <h3 class="primary-color">+900</h3>
+                    <p class="secondary-color">Alunos cadastrados</p>
+                  </div>
+                  <div class="col-4">
+                    <h3 class="primary-color">+250</h3>
+                    <p class="secondary-color">Pais satisfeitos</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <a class="btn btn-dark">Saber Mais</a>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-    <!--/Sobre-->

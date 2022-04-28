@@ -8,6 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\images\Cruise-Mexico-2015-055-scaled.jpg" />
+    <Content Remove="wwwroot\images\favicon.png" />
+    <Content Remove="wwwroot\images\imagem1appescola.png" />
+    <Content Remove="wwwroot\images\imagem2appescola.png" />
+    <Content Remove="wwwroot\images\imagem3appescola.png" />
+    <Content Remove="wwwroot\images\imagem4appescola.png" />
+    <Content Remove="wwwroot\images\iStock-585609744.jpg" />
+    <Content Remove="wwwroot\images\índice.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.4" />
@@ -24,6 +35,17 @@
 
   <ItemGroup>
     <Folder Include="Arquivos\UploadsUsuarios\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\Cruise-Mexico-2015-055-scaled.jpg" />
+    <None Include="wwwroot\images\favicon.png" />
+    <None Include="wwwroot\images\imagem1appescola.png" />
+    <None Include="wwwroot\images\imagem2appescola.png" />
+    <None Include="wwwroot\images\imagem3appescola.png" />
+    <None Include="wwwroot\images\imagem4appescola.png" />
+    <None Include="wwwroot\images\iStock-585609744.jpg" />
+    <None Include="wwwroot\images\índice.jpg" />
   </ItemGroup>
 
 </Project>

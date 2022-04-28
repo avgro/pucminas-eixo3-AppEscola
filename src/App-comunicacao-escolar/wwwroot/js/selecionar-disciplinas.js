@@ -1,9 +1,22 @@
-﻿//destinatarioNome = destinatarioNome.options[destinatarioNome.selectedIndex].innerText;
+﻿// Manter posição da barra de rolagem em atualização automática
+
+if (document.getElementById("disciplinasErrorMessage").innerText != "") {
+    if (localStorage.getItem("scrollY")) {
+        localStorage.removeItem("scrollY");
+    }
+    document.getElementById("disciplinasError").hidden = false;
+}
+
+
+if (localStorage.getItem("scrollY")) {
+    let scrollY = JSON.parse(localStorage.getItem("scrollY"));
+    window.scrollTo({ top: scrollY, behavior: 'instant' });
+    localStorage.removeItem("scrollY");
+}
+
 
 var url = new URL(window.location.href);
 var tentarAssociarDisciplina = url.searchParams.get("tentarAssociarDisciplina");
-
-
 
 
 window.addEventListener('load', function () {
@@ -40,8 +53,4 @@ function removerDisciplina(idDisciplina) {
     let scrollY = window.scrollY;
     localStorage.setItem("scrollY", JSON.parse(scrollY));
     document.getElementById("botaoSubmeter").click();
-}
-
-function hideDisciplinasError() {
-    document.getElementById("disciplinasError").hidden = true;
 }

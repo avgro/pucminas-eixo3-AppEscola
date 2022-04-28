@@ -69,6 +69,11 @@ namespace App_comunicacao_escolar.Controllers
 
         }
 
+        public string ReplaceSemiColon(string input)
+        {
+            return input.Replace(";", ":");
+        }
+
         public void GetCustomErrorMessagesFromTempData()
         {
             if (TempData.ContainsKey("Error"))
@@ -139,7 +144,6 @@ namespace App_comunicacao_escolar.Controllers
                         return errorMessage;
                     }
 
-                    bool encontrouPrimeiroConflito = false;
                     for (int j = 0; j < conflitosInicioParaChecar.Count(); j++)
                     {
                         if (converterHorarioInicioParaMinutos >= conflitosInicioParaChecar[j] && converterHorarioInicioParaMinutos < conflitosFimParaChecar[j])
@@ -155,11 +159,11 @@ namespace App_comunicacao_escolar.Controllers
                         {
                             horariosEmConflito = true;
                         }
-                        if (horariosEmConflito && !encontrouPrimeiroConflito)
+                        if (horariosEmConflito)
                         {
-                            encontrouPrimeiroConflito = true;
                             TempData["NomeDaDisciplinaEmConflito1"] = nomeDisciplinaToList[i];
                             TempData["NomeDaDisciplinaEmConflito2"] = nomeDisciplinaToList[j];
+                            break;
                         }
                     }
                     conflitosInicioParaChecar.Add(converterHorarioInicioParaMinutos);

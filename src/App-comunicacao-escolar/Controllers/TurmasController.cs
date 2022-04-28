@@ -149,96 +149,102 @@ namespace App_comunicacao_escolar.Controllers
             [Bind("adicionarOuRemover")] string adicionarOuRemover)
 
             {
+            try { 
+                Turma turma = await _context.Turmas.Include(t => t.Disciplinas.OrderBy(d => d.NomeComCodigoEntreParenteses)).ThenInclude(d => d.HorariosDaDisciplina).FirstOrDefaultAsync(t => t.Id == id);
 
-            Turma turma = await _context.Turmas.Include(t => t.Disciplinas.OrderBy(d => d.NomeComCodigoEntreParenteses)).ThenInclude(d => d.HorariosDaDisciplina).FirstOrDefaultAsync(t => t.Id == id);
-
-            string horarioInicioLista = "";
-            string horarioFimLista = "";
-            string diaDaSemanaListaNumber = "";
-            string nomeDisciplinaLista = "";
-            foreach (var disciplinaCadastrada in turma.Disciplinas)
-            {
-                foreach (var horarioCadastrado in disciplinaCadastrada.HorariosDaDisciplina)
+                string horarioInicioLista = "";
+                string horarioFimLista = "";
+                string diaDaSemanaListaNumber = "";
+                string nomeDisciplinaLista = "";
+                foreach (var disciplinaCadastrada in turma.Disciplinas)
                 {
-                    horarioInicioLista += horarioCadastrado.HorarioInicio + ";";
-                    horarioFimLista += horarioCadastrado.HorarioFim + ";";
-                    diaDaSemanaListaNumber += horarioCadastrado.DiaDaSemana + ";";
-                    nomeDisciplinaLista += disciplinaCadastrada.NomeComCodigoEntreParenteses + ";";
+                    foreach (var horarioCadastrado in disciplinaCadastrada.HorariosDaDisciplina)
+                    {
+                        horarioInicioLista += horarioCadastrado.HorarioInicio + ";";
+                        horarioFimLista += horarioCadastrado.HorarioFim + ";";
+                        diaDaSemanaListaNumber += horarioCadastrado.DiaDaSemana + ";";
+                        nomeDisciplinaLista += disciplinaCadastrada.NomeComCodigoEntreParenteses.Replace(";",":") + ";";
+                    }
                 }
-            }
 
-            ViewData["DisciplinaId"] = new SelectList(_context.Disciplinas.Where(d => d.TurmaId == null).OrderBy(d => d.NomeComCodigoEntreParenteses), "Id", "NomeComCodigoEntreParenteses");
+                ViewData["DisciplinaId"] = new SelectList(_context.Disciplinas.Where(d => d.TurmaId == null).OrderBy(d => d.NomeComCodigoEntreParenteses), "Id", "NomeComCodigoEntreParenteses");
 
-            Disciplina disciplina = await _context.Disciplinas.Include(d => d.HorariosDaDisciplina).FirstOrDefaultAsync(d => d.Id == numeroDaDisciplinaQueDesejaAdicionar);
-            if (disciplina.TurmaId != null && adicionarOuRemover.Equals("adicionar"))
-            {
-                string errorMessage = "Disciplina \"" + disciplina.NomeComCodigoEntreParenteses + "\" já está associada a uma turma!";
-                ModelState.AddModelError("Disciplinas", errorMessage);
-            }
-
-            if (adicionarOuRemover.Equals("adicionar")) { 
-                foreach (var horario in disciplina.HorariosDaDisciplina)
+                Disciplina disciplina = await _context.Disciplinas.Include(d => d.HorariosDaDisciplina).FirstOrDefaultAsync(d => d.Id == numeroDaDisciplinaQueDesejaAdicionar);
+             
+                if (disciplina.TurmaId != null && adicionarOuRemover.Equals("adicionar"))
                 {
-                    horarioInicioLista += horario.HorarioInicio + ";";
-                    horarioFimLista += horario.HorarioFim + ";";
-                    diaDaSemanaListaNumber += horario.DiaDaSemana + ";";
-                    nomeDisciplinaLista += disciplina.NomeComCodigoEntreParenteses + ";";
-
-                }
-                List<string> listarErrosDeValidacao = IsValidCustomizadoHorarios(horarioInicioLista, horarioFimLista, diaDaSemanaListaNumber, nomeDisciplinaLista);
-
-                while (listarErrosDeValidacao.Count > 0)
-                {
-                    ViewData["Error"] = "Error";
-                    string disciplinaEmConflito1 = "";
-                    string disciplinaEmConflito2 = "";
-                    if (TempData.ContainsKey("NomeDaDisciplinaEmConflito1"))
-                        disciplinaEmConflito1 = TempData["NomeDaDisciplinaEmConflito1"].ToString();
-                    if (TempData.ContainsKey("NomeDaDisciplinaEmConflito2"))
-                        disciplinaEmConflito2 = TempData["NomeDaDisciplinaEmConflito2"].ToString();
-                    string errorMessage = "Horários da disciplina \"" + disciplinaEmConflito1 + "\" entram em conflito com os da disciplina \"" + disciplinaEmConflito2 + "\"!";
+                    string errorMessage = "Disciplina \"" + disciplina.NomeComCodigoEntreParenteses + "\" já está associada a uma turma!";
                     ModelState.AddModelError("Disciplinas", errorMessage);
-                    listarErrosDeValidacao.RemoveRange(0, 2);
                 }
-            }
-            if (ModelState.IsValid)
-            {
-                try
-                {     
-                    if (turma.Disciplinas == null)
+
+                if (adicionarOuRemover.Equals("adicionar")) { 
+                    foreach (var horario in disciplina.HorariosDaDisciplina)
                     {
-                        turma.Disciplinas = new List<Disciplina>();
+                        horarioInicioLista += horario.HorarioInicio + ";";
+                        horarioFimLista += horario.HorarioFim + ";";
+                        diaDaSemanaListaNumber += horario.DiaDaSemana + ";";
+                        nomeDisciplinaLista += disciplina.NomeComCodigoEntreParenteses.Replace(";", ":") + ";";
+
                     }
-                    if (adicionarOuRemover.Equals("adicionar")) { 
-                        turma.Disciplinas.Add(disciplina);
-                    }
-                    else if (adicionarOuRemover.Equals("remover"))
+                    List<string> listarErrosDeValidacao = IsValidCustomizadoHorarios(horarioInicioLista, horarioFimLista, diaDaSemanaListaNumber, nomeDisciplinaLista);
+
+                    while (listarErrosDeValidacao.Count > 0)
                     {
-                        disciplina.TurmaId = null;
-                        _context.Update(disciplina);
+                        ViewData["Error"] = "Error";
+                        string disciplinaEmConflito1 = "";
+                        string disciplinaEmConflito2 = "";
+                        if (TempData.ContainsKey("NomeDaDisciplinaEmConflito1"))
+                            disciplinaEmConflito1 = TempData["NomeDaDisciplinaEmConflito1"].ToString();
+                        if (TempData.ContainsKey("NomeDaDisciplinaEmConflito2"))
+                            disciplinaEmConflito2 = TempData["NomeDaDisciplinaEmConflito2"].ToString();
+                        string errorMessage = "Horários da disciplina \"" + disciplinaEmConflito1 + "\" entram em conflito com os da disciplina \"" + disciplinaEmConflito2 + "\"!";
+                        ModelState.AddModelError("Disciplinas", errorMessage);
+                        listarErrosDeValidacao.RemoveRange(0, 2);
                     }
-                    _context.Update(turma);
-                    await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
+                if (ModelState.IsValid)
                 {
-                    if (!TurmaExists(turma.Id))
-                    {
-                        return NotFound();
+                    try
+                    {     
+                        if (turma.Disciplinas == null)
+                        {
+                            turma.Disciplinas = new List<Disciplina>();
+                        }
+                        if (adicionarOuRemover.Equals("adicionar")) { 
+                            turma.Disciplinas.Add(disciplina);
+                        }
+                        else if (adicionarOuRemover.Equals("remover"))
+                        {
+                            disciplina.TurmaId = null;
+                            _context.Update(disciplina);
+                        }
+                        _context.Update(turma);
+                        await _context.SaveChangesAsync();
                     }
-                    else
+                    catch (DbUpdateConcurrencyException)
                     {
-                        throw;
+                        if (!TurmaExists(turma.Id))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
                     }
+                    return RedirectToAction(nameof(AdicionarDisciplinas));
                 }
-                return RedirectToAction(nameof(AdicionarDisciplinas));
+                turma = await _context.Turmas.Include(t => t.Disciplinas.OrderBy(d => d.NomeComCodigoEntreParenteses)).ThenInclude(d => d.HorariosDaDisciplina).FirstOrDefaultAsync(t => t.Id == id);
+                if (turma == null)
+                {
+                    return NotFound();
+                }
+                return View(turma);
             }
-            turma = await _context.Turmas.Include(t => t.Disciplinas.OrderBy(d => d.NomeComCodigoEntreParenteses)).ThenInclude(d => d.HorariosDaDisciplina).FirstOrDefaultAsync(t => t.Id == id);
-            if (turma == null)
+            catch
             {
                 return NotFound();
             }
-            return View(turma);
         }
 
         // GET: Turmas/Delete/5

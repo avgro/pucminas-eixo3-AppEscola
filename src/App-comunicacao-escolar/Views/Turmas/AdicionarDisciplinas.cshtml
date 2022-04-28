@@ -14,9 +14,12 @@
         <form asp-action="AdicionarDisciplinas">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
+            <div id="disciplinasError" class="alert-danger p-4 my-2 w-100 text-center" hidden>
+               <span id="disciplinasErrorMessage" asp-validation-for="Disciplinas"></span>
+            </div>
             <div class="form-group input-size-1halfx">
                 <label for="disciplinasId" class="control-label">Selecionar disciplina sem turma</label>
-                <select onchange="hideDisciplinasError()" id="disciplinasId" name="Disciplinas" class ="form-control" asp-items="ViewBag.DisciplinaId">
+                <select id="disciplinasId" name="Disciplinas" class ="form-control" asp-items="ViewBag.DisciplinaId">
                     <option value=0>Selecionar disciplina...</option>
                 </select>
                 <button type="button" class="btn btn-primary my-2" onclick="selecionarDisciplina()">Adicionar</button>
@@ -28,7 +31,6 @@
             <div class="form-group">
                 <input id="botaoSubmeter" type="submit" value="Submeter" class="btn btn-primary" hidden />
             </div>
-        <span id="disciplinasError" asp-validation-for="Disciplinas" class="text-danger"></span>
         </form>
         <h5>Disciplinas associadas</h5>
         <div class="d-flex flex-wrap w-100">
@@ -53,8 +55,10 @@
                         {
                             counterHorario++;
                             string idHorario = "horarioDisciplina" + counter.ToString() + "-" + counterHorario.ToString();
-                            string conteudoHorario = disciplina.Nome + ";" + disciplina.Codigo + ";" + horario.DiaDaSemana + ";" + horario.HorarioInicio + ";" + horario.HorarioFim;
-                            <div hidden id="@idHorario">@conteudoHorario</div>
+                            if (disciplina.Nome != null && disciplina.Codigo != null) {
+                                string conteudoHorario = disciplina.Nome.Replace(";",":") + ";" + disciplina.Codigo.Replace(";", ":") + ";" + horario.DiaDaSemana + ";" + horario.HorarioInicio + ";" + horario.HorarioFim;
+                                <div hidden id="@idHorario">@conteudoHorario</div>
+                            }
                         }
                     }
                 }
@@ -117,7 +121,6 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script src="~/js/manter-posicao-y.js" asp-append-version="true"></script>
     <script src="~/js/selecionar-disciplinas.js" asp-append-version="true"></script>
     <script src="~/js/posicionar-disciplinas-calendario.js" asp-append-version="true"></script>
 }

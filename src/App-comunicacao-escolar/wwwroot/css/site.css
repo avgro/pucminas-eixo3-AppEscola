@@ -18,8 +18,8 @@ html {
     min-height: 100%;
 }
 
-body {
-    margin-bottom: 60px;
+main {
+    min-height: 585px;
 }
 
 .btn {
