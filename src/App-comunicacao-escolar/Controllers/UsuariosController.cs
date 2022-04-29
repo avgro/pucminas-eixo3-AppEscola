@@ -23,9 +23,9 @@ namespace App_comunicacao_escolar.Controllers
         public async Task<IActionResult> Login()
         {
             // Cria usuário do tipo "Administrador" caso não haja nenhum registrado no sistema (para facilitar a realização dos testes)
-            try {  
+            try {
                 var usuarioAdmin = await _context.Usuarios.FirstOrDefaultAsync(u => u.Perfil == 0);
-                if (usuarioAdmin == null) {  
+                if (usuarioAdmin == null) {
                     Usuario usuario = new();
 
                     usuario.Perfil = 0;
@@ -33,9 +33,9 @@ namespace App_comunicacao_escolar.Controllers
                     usuario.Nome = "Administrador";
                     usuario.Sobrenome = "do Sistema";
                     usuario.NomeDeUsuario = "admin";
-                    
+
                     usuario.NomeDisplayLista = usuario.Nome + " (" + usuario.NomeDeUsuario + ")";
-                    
+
                     usuario.Logradouro = "Vazio";
                     usuario.Cidade = "Vazio";
                     usuario.Estado = "XX";
@@ -50,7 +50,7 @@ namespace App_comunicacao_escolar.Controllers
                 }
             }
             catch {
-                return NotFound();
+                return BadRequest();
             };
             // --------------------------------------------------------------------------------------------------------------------------
             return View();
@@ -108,27 +108,68 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: Usuarios
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString, string tipoUsuario)
         {
-            return View(await _context.Usuarios.ToListAsync());
+            try { 
+                var applicationDbContext = _context.Usuarios;
+
+                var usuarios = from u in applicationDbContext select u;
+
+                usuarios = usuarios.OrderByDescending(u => u.Perfil == 0).ThenBy(u => u.NomeDisplayLista);
+
+                if (searchString != null)
+                {
+                    usuarios = usuarios.Where(d => d.NomeDisplayLista.Contains(searchString));
+                }
+                if (tipoUsuario != null) {
+                    int tipoUsuarioNumero = -1;
+                    if (tipoUsuario.ToString().Equals("ResponsavelAluno"))
+                        tipoUsuarioNumero = 1;
+                    if (tipoUsuario.ToString().Equals("Professor"))
+                        tipoUsuarioNumero = 2;
+                    if (tipoUsuario.ToString().Equals("Outros"))
+                        tipoUsuarioNumero = 3;
+                    if (tipoUsuarioNumero != -1) { 
+                        usuarios = usuarios.Where(d => d.Perfil == (PerfilUsuarioEnum) tipoUsuarioNumero);
+                    }
+                    ViewData["TipoDeUsuario"] = tipoUsuario.ToString();
+                }
+                else
+                {
+                    ViewData["TipoDeUsuario"] = "";
+                }
+                return View(await usuarios.ToListAsync());
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         // GET: Usuarios/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? id, string tipoUsuario)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            try { 
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
-            var usuario = await _context.Usuarios.Include(u => u.Professor).ThenInclude(p => p.Disciplinas)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (usuario == null)
-            {
-                return NotFound();
+                var usuario = await _context.Usuarios.Include(u => u.Professor).ThenInclude(p => p.Disciplinas)
+                    .FirstOrDefaultAsync(m => m.Id == id);
+                if (usuario == null)
+                {
+                    return NotFound();
+                }
+                if (tipoUsuario != null) { 
+                    ViewData["TipoUsuario"] = tipoUsuario.ToString();
+                }
+                return View(usuario);
             }
-
-            return View(usuario);
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         // GET: Usuarios/Create

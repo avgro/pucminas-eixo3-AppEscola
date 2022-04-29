@@ -85,5 +85,5 @@
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.Id">Editar informações</a> |
-    <a asp-action="Index">Voltar</a>
+    <a asp-action="Index" asp-route-tipoUsuario=@ViewData["TipoUsuario"]>Voltar</a>
 </div>

@@ -218,7 +218,7 @@ namespace App_comunicacao_escolar.Controllers
                     }
                     catch
                     {
-                        return NotFound();
+                        return BadRequest();
                     }
                 }
                 ViewData["Error"] = "Error";
@@ -228,7 +228,7 @@ namespace App_comunicacao_escolar.Controllers
             }
             catch
             {
-                return NotFound();
+                return BadRequest();
             }
         }
 

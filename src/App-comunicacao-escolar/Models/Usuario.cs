@@ -76,7 +76,7 @@ namespace App_comunicacao_escolar.Models
         [Display(Name = "Professor")]
         Professor = 2,
         [Display(Name = "Outros")]
-        Outro = 3
+        Outros = 3
 
     }
 }

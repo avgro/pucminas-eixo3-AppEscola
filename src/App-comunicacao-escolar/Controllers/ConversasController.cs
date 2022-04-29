@@ -163,7 +163,7 @@ namespace App_comunicacao_escolar.Controllers
             mensagem.DataEnvio = DateTime.Now;
             mensagem.Conteudo = conversa.PrimeiraMensagem;
             mensagem.RemetenteId = idDoUsuarioLogado;
-            mensagem.RemetenteNome = _context.Usuarios.FirstOrDefault(u => u.Id == idDoUsuarioLogado).Nome;
+            mensagem.RemetenteNome = _context.Usuarios.FirstOrDefault(u => u.Id == idDoUsuarioLogado).NomeDisplayLista;
 
             conversa.RemetenteNome = mensagem.RemetenteNome;
             conversa.RemetenteId = mensagem.RemetenteId;
@@ -205,7 +205,7 @@ namespace App_comunicacao_escolar.Controllers
                     };
                     conversa.NumeroDeNovasMensagensNaConversa.Add(numeroDeNovasMensagensNaConversa);
 
-                    listaDeDestinatariosPorNome += usuario.Nome.Replace(";",":") + "; ";
+                    listaDeDestinatariosPorNome += usuario.NomeDisplayLista.Replace(";",":") + "; ";
                 }
                 mensagem.ListaDestinatariosNome = listaDeDestinatariosPorNome;
                 // -----------------------------------------------------------------------------------------

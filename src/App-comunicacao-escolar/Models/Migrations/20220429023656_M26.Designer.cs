@@ -4,6 +4,7 @@ using App_comunicacao_escolar.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App_comunicacao_escolar.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220429023656_M26")]
+    partial class M26
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -445,8 +447,7 @@ namespace App_comunicacao_escolar.Migrations
                 {
                     b.HasOne("App_comunicacao_escolar.Models.Mensagem", "MensagemDosAnexos")
                         .WithMany("Anexos")
-                        .HasForeignKey("MensagemDosAnexosId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("MensagemDosAnexosId");
 
                     b.Navigation("MensagemDosAnexos");
                 });
@@ -455,8 +456,7 @@ namespace App_comunicacao_escolar.Migrations
                 {
                     b.HasOne("App_comunicacao_escolar.Models.Conversa", "Conversa")
                         .WithMany("NumeroDeNovasMensagensNaConversa")
-                        .HasForeignKey("ConversaId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("ConversaId");
 
                     b.Navigation("Conversa");
                 });
@@ -487,8 +487,7 @@ namespace App_comunicacao_escolar.Migrations
                 {
                     b.HasOne("App_comunicacao_escolar.Models.Conversa", "Conversa")
                         .WithMany("UsuariosQueArquivaramConversa")
-                        .HasForeignKey("ConversaId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("ConversaId");
 
                     b.Navigation("Conversa");
                 });

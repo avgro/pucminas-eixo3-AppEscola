@@ -56,7 +56,9 @@
                     {
                         listaRecuperarProfessoresId += professorListado.ProfessorId + "; ";
                         if (professorListado.Usuario != null) {
-                            listaRecuperarProfessoresNome += professorListado.Usuario.NomeDisplayLista + "; ";
+                            if (professorListado.Usuario.NomeDisplayLista != null){
+                                listaRecuperarProfessoresNome += professorListado.Usuario.NomeDisplayLista.Replace(";", ":") + "; ";
+                            }
                         }
                     }
                     ViewData["RecuperarProfessores"] = listaRecuperarProfessoresId + ";;" + listaRecuperarProfessoresNome;

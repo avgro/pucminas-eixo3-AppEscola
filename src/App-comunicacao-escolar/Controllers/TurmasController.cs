@@ -243,7 +243,7 @@ namespace App_comunicacao_escolar.Controllers
             }
             catch
             {
-                return NotFound();
+                return BadRequest();
             }
         }
 

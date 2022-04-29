@@ -13,7 +13,7 @@
     <a class="btn btn-primary" asp-action="Create">Nova mensagem</a>
     <div class="px-3">
         <label for="selecionar-secao">Selecionar seção:</label>
-        <select onchange="mudarsecao()" id="selecionar-secao">
+        <select onchange="mudarsecao()" id="selecionar-secao" class="input-size-3quarters">
             <option>Caixa de entrada</option>
             @if (ViewData["TituloDaSecao"] != null) {
                 if (ViewData["TituloDaSecao"]!.Equals("Enviados"))
