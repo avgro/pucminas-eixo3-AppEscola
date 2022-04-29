@@ -134,6 +134,7 @@ max-width-100 {
     border-color: lightgray;
     padding: 4px 6px 4px 6px;
     margin: 4px;
+    white-space: nowrap;
 }
 
 .mensagem-email {
@@ -167,6 +168,7 @@ max-width-100 {
 }
 
 .contador-circular {
+    font-size: 16px;
     display: inline-block;
     position: relative;
     text-align: center;
@@ -308,7 +310,6 @@ max-width-100 {
 }
 
 #login-btn {
-    display: inline-block;
     width: fit-content;
     font-weight: 500;
     margin: auto;
@@ -372,31 +373,6 @@ max-width-100 {
             list-style-type: none;
             margin-left: 25px;
         }
-
-@media (max-width: 991.98px) {
-    #header .navbar-collapse {
-        width: 100%;
-        margin: 0;
-    }
-
-    #login-btn {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .login-btn-center {
-        display: block;
-        margin-right: auto;
-        width: 100px;
-    }
-
-    #contato ul {
-        display: block;
-        list-style-type: none;
-        margin-left: 25px;
-    }
-}
 
 /* */
 
@@ -539,6 +515,7 @@ max-width-100 {
 }
 
 .cardHorarios {
+    font-size: 14px;
     color: white;
     font-weight: 500;
     background-color: mediumpurple;
@@ -552,7 +529,7 @@ max-width-100 {
 }
 @media (max-width: 768px) {
     .cardHorarios {
-        font-size: 12px;
+        font-size: 11px;
     }
     .container-horarios {
         height: 798px;
@@ -578,7 +555,7 @@ max-width-100 {
 .cardHorarios:hover, .cardHorariosactive {
     z-index: 1;
     height: fit-content !important;
-    background-color: cornflowerblue;
+    background-color: cornflowerblue !important;
 }
 
 .diaDaSemanaLabel {

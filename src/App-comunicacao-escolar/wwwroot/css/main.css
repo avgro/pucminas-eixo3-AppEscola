@@ -55,10 +55,10 @@ html {
     border-color: blueviolet;
 }
 
-    #login-btn:hover {
-        background-color: blue;
-        border-color: blue;
-    }
+#login-btn:hover {
+    background-color: blue;
+    border-color: blue;
+}
 
 #slider {
     background-color: transparent;
@@ -165,15 +165,15 @@ html {
     }
 
     #login-btn {
-        display: block;
+        display: inline-block;
+        float: right;
         margin-left: auto;
-        margin-right: auto;
+        margin-right: -3px;
+        margin-bottom: 8px;
     }
 
-    .login-btn-center {
-        display: block;
-        margin-right: auto;
-        width: 100px;
+    #botaoMenuUsuario {
+        margin-bottom: 8px;
     }
 
     #contato ul {

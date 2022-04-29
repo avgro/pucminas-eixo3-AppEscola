@@ -20,11 +20,11 @@
         {
             var dataEnvio = mensagem.ConverterDataParaDDMMYYYY(mensagem.DataEnvio);
             <div class="mensagem-email">
-            <b>@Html.DisplayFor(modelItem => mensagem.RemetenteNome)</b>
-            <div class="d-flex justify-content-between">
-                <p>Para: @Html.DisplayFor(modelItem => mensagem.ListaDestinatariosNome)</p>
+            <div class="d-flex justify-content-between mb-1">
+                <b>@Html.DisplayFor(modelItem => mensagem.RemetenteNome)</b>
                 <span>@dataEnvio</span>
             </div>
+            <p>Para: @Html.DisplayFor(modelItem => mensagem.ListaDestinatariosNome)</p>
             <div class="border-bottom col-12 m-2"></div>
             <div class="word-wrap-break-anywhere">
             @Html.DisplayFor(modelItem => mensagem.Conteudo)
@@ -48,7 +48,7 @@
             <div class="border-bottom col-12 m-2"></div>
 
             <input type="hidden" class="remetenteId" name="remetenteId" value=@mensagem.RemetenteId />
-            <input type="hidden" class="remetenteNome" name="remetenteNome" value=@mensagem.RemetenteNome />
+            <input type="hidden" class="remetenteNome" name="remetenteNome" value="@mensagem.RemetenteNome" />
             <input type="hidden" class="listaDeDestinatariosPorId" name="listaDeDestinatariosPorId" value=@mensagem.ListaDestinatarios />
             <textarea name="listaDeDestinatariosPorNome" class="listaDeDestinatariosPorNome" hidden> @Html.DisplayFor(modelItem => mensagem.ListaDestinatariosNome) </textarea>
             <input type="hidden" class="mensagemRespondidaId" name="mensagemRespondidaId" value=@mensagem.Id />
@@ -67,11 +67,11 @@
                 <b>Responder mensagem</b>
                 <br />
                 <label for="destinatarioId" class="control-label">Destinatários:</label>
-                <select id="destinatarioId" asp-for="Participantes" class ="form-control" asp-items="ViewBag.ParticipanteId" readonly>
+                <select id="destinatarioId" asp-for="Participantes" class ="form-control" asp-items="ViewBag.ParticipanteId">
                 </select>
                 <button type="button" class="btn btn-primary m-1" onclick="adicionarDestinatarioALista()">Adicionar destinatário</button>
                 <br />
-                <div class="d-flex text-wrap m-1" id="exibirDestinatariosSelecionados"></div>
+                <div class="d-flex flex-wrap m-1 input-size-2halfx" id="exibirDestinatariosSelecionados"></div>
                 <div class="text-danger mb-2" id="listaDeDestinatariosPorIdError">@ViewData["listaDeDestinatariosPorIdError"]</div>
                 <span asp-validation-for="Assunto" class="text-danger"></span>
                 <textarea onchange, onkeyup="checkError(conteudoMensagem, conteudoMensagemError)" id="conteudoMensagem" name="conteudoMensagem" class="form-control conteudo-textarea" placeholder="Inserir conteúdo da mensagem...">@ViewData["Conteudo"]</textarea>

@@ -4,10 +4,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Lista de Usuários</h1>
+<h1>Lista de usuários</h1>
 
-<div class="d-flex justify-content-between my-4">
-    <a class="btn btn-primary" asp-action="Create">Cadastrar novo usuário</a>
+<div class="d-flex justify-content-between my-4 whitespace-nowrap">
+    <a class="btn btn-primary" asp-action="Create">Cadastrar usuário</a>
     <div class="px-3">
         <label for="selecionar-tipo-usuario">Tipo de usuário:</label>
         <select onchange="mudarTipoUsuario()" id="selecionar-tipo-usuario" class="input-size-3quarters">

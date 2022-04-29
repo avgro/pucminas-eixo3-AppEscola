@@ -87,54 +87,59 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav hidden-xs">
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            <li class="nav-item d-flex flex-row-reverse">
-                                <div>
-                                  <button id="botaoMenuUsuario_xs" onclick="showDropDown(botaoMenuUsuario_xs, menuUsuario_xs)" class="btn btn-transparent p-0 dropdown-toggle">
-                                    Olá, @User.Identity.Name
-                                  </button>
-                                </div>
-                                 <div id="menuUsuario_xs" class="dropdown-fix" hidden>
-                                     <div class="dropdown-menu-fix">
-                                       <a class="dropdown-item" asp-area="" asp-controller="Usuarios" asp-action="AlterarDados" asp-route-id="@GetIdUsuarioLogado()">Alterar Dados</a>
-                                       <a class="dropdown-item" asp-area="" asp-controller="Usuarios" asp-action="Logout">Sair</a>
+                        @if (User.Identity != null) {
+                            if (User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item d-flex flex-row-reverse">
+                                    <div>
+                                      <button id="botaoMenuUsuario_xs" onclick="showDropDown(botaoMenuUsuario_xs, menuUsuario_xs)" class="btn btn-transparent p-0 dropdown-toggle">
+                                        Olá, @User.Identity.Name
+                                      </button>
+                                    </div>
+                                     <div id="menuUsuario_xs" class="dropdown-fix" hidden>
+                                         <div class="dropdown-menu-fix">
+                                           <a class="dropdown-item" asp-area="" asp-controller="Usuarios" asp-action="AlterarDados" asp-route-id="@GetIdUsuarioLogado()">Alterar Dados</a>
+                                           <a class="dropdown-item" asp-area="" asp-controller="Usuarios" asp-action="Logout">Sair</a>
+                                         </div>
                                      </div>
-                                 </div>
-                            </li>
+                                </li>
+                            }
+                           else
+                            {
+                                <li class="nav-item d-flex flex-row-reverse">
+                                    <a class="btn btn-primary me-md-2" id="login-btn" asp-area="" asp-controller="Usuarios" asp-action="Login">Login</a>
+                               </li>
+                            }
                         }
-                        else
-                        {
-                            <li class="nav-item">
-                                <a class="btn btn-primary me-md-2 d-md-inline-block d-block" id="login-btn" asp-area="" asp-controller="Usuarios" asp-action="Login">Login</a>
-                            </li>
-                        }
+
                     </ul>
                 </div>
             </div>
         </nav>
         <ul class="navbar-nav show-xs mx-3">
-        @if (User.Identity.IsAuthenticated)
-        {
-            <li class="nav-item d-flex flex-row-reverse">
-                <div>
-                    <button id="botaoMenuUsuario" onclick="showDropDown(botaoMenuUsuario, menuUsuario)" class="btn btn-transparent p-0 dropdown-toggle">
-                    Olá, @User.Identity.Name
-                    </button>
-                </div>
-                <div id="menuUsuario" class="dropdown-fix" hidden>
-                    <div class="dropdown-menu-fix">
-                    <a class="dropdown-item" asp-area="" asp-controller="Usuarios" asp-action="AlterarDados" asp-route-id="@GetIdUsuarioLogado()">Alterar Dados</a>
-                    <a class="dropdown-item" asp-area="" asp-controller="Usuarios" asp-action="Logout">Sair</a>
+        @if (User.Identity != null) {
+        if (User.Identity.IsAuthenticated)
+            {
+                <li class="nav-item d-flex flex-row-reverse">
+                    <div>
+                        <button id="botaoMenuUsuario" onclick="showDropDown(botaoMenuUsuario, menuUsuario)" class="btn btn-transparent p-0 dropdown-toggle">
+                        Olá, @User.Identity.Name
+                        </button>
                     </div>
-                </div>
-            </li>
+                    <div id="menuUsuario" class="dropdown-fix" hidden>
+                        <div class="dropdown-menu-fix">
+                        <a class="dropdown-item" asp-area="" asp-controller="Usuarios" asp-action="AlterarDados" asp-route-id="@GetIdUsuarioLogado()">Alterar Dados</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Usuarios" asp-action="Logout">Sair</a>
+                        </div>
+                    </div>
+                </li>
+                }
+            else
+            {
+                <li class="nav-item d-flex flex-row-reverse">
+                    <a class="btn btn-primary me-md-2" id="login-btn" asp-area="" asp-controller="Usuarios" asp-action="Login">Login</a>
+                </li>
             }
-        else
-        {
-            <li class="nav-item">
-                <a class="btn btn-primary me-md-2 d-md-inline-block d-block" id="login-btn" asp-area="" asp-controller="Usuarios" asp-action="Login">Login</a>
-            </li>
         }
         </ul>
         <div class="border-bottom p-0 mb-3"></div>

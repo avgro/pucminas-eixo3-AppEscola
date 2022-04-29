@@ -15,18 +15,28 @@ namespace App_comunicacao_escolar.Controllers
         }
         public IActionResult UpdateMsg()
         {
+            try { 
             int idUsuarioLogado = GetIdUsuarioLogado();
             int numeroDeNovasMensagensNaConversa = 0;
             if (_context.NumeroDeNovasMensagensNaConversa != null) { 
                 var mensagensNaoLidasDoUsuarioAtual = _context.NumeroDeNovasMensagensNaConversa.Where(n => n.UsuarioId == idUsuarioLogado);
+                var mensagensArquivadasDoUsuarioAtual = _context.UsuariosQueArquivaramConversa.Where(u => u.UsuarioId == idUsuarioLogado);
                 foreach (var item in mensagensNaoLidasDoUsuarioAtual)
                 {
-                    numeroDeNovasMensagensNaConversa += item.NumeroDeMensagensNaoLidas;
+                    if (!mensagensArquivadasDoUsuarioAtual.Any(m => m.ConversaId == item.ConversaId)) {
+                        numeroDeNovasMensagensNaConversa += item.NumeroDeMensagensNaoLidas;
+                    }
                 }
             }
+            numeroDeNovasMensagensNaConversa = 9;
             ViewBag.NumeroDeMensagensNovas = numeroDeNovasMensagensNaConversa;
             ViewData["idUsuarioLogado"] = idUsuarioLogado;
             return PartialView("ContadorMsg");
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         public FileResult DownloadFile(MensagemArquivosAnexados anexo)

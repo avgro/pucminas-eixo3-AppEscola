@@ -19,9 +19,14 @@ namespace App_comunicacao_escolar.ViewComponents
             int numeroDeNovasMensagensNaConversa = 0;
             if (_context.NumeroDeNovasMensagensNaConversa != null) { 
                 var mensagensNaoLidasDoUsuarioAtual = _context.NumeroDeNovasMensagensNaConversa.Where(n => n.UsuarioId == idUsuarioLogado);
+                
+                var mensagensArquivadasDoUsuarioAtual = _context.UsuariosQueArquivaramConversa.Where(u => u.UsuarioId == idUsuarioLogado);
                 foreach (var item in mensagensNaoLidasDoUsuarioAtual)
                 {
-                    numeroDeNovasMensagensNaConversa += item.NumeroDeMensagensNaoLidas;
+                    if (!mensagensArquivadasDoUsuarioAtual.Any(m => m.ConversaId == item.ConversaId))
+                    {
+                        numeroDeNovasMensagensNaConversa += item.NumeroDeMensagensNaoLidas;
+                    }
                 }
             }
             ViewBag.NumeroDeMensagensNovas = numeroDeNovasMensagensNaConversa;

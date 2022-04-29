@@ -34,20 +34,15 @@ namespace App_comunicacao_escolar.Controllers
 
             if (secao.Equals("Enviados"))
             {
-                conversas = conversas.Where(d => d.RemetenteId == idDoUsuarioLogado);
+                conversas = conversas.Where(d => d.RemetenteId == idDoUsuarioLogado && !d.UsuariosQueArquivaramConversa.Any(u => u.UsuarioId == idDoUsuarioLogado));
             }
-            else
-            {
-                conversas = conversas.Where(d => d.Participantes.Any(p => p.Id == idDoUsuarioLogado));
-            }
-
-            if (secao.Equals("Arquivados"))
+            else if (secao.Equals("Arquivados"))
             {
                 conversas = conversas.Where(d => d.UsuariosQueArquivaramConversa.Any(u => u.UsuarioId == idDoUsuarioLogado));
             }
             else
             {
-                conversas = conversas.Where(d => !d.UsuariosQueArquivaramConversa.Any(u => u.UsuarioId == idDoUsuarioLogado));
+                conversas = conversas.Where(d => d.Participantes.Any(p => p.Id == idDoUsuarioLogado && !d.UsuariosQueArquivaramConversa.Any(u => u.UsuarioId == idDoUsuarioLogado)));
             }
 
             if (searchString != null)
@@ -86,7 +81,7 @@ namespace App_comunicacao_escolar.Controllers
             {
                 return NotFound();
             }
-            ViewData["ParticipanteId"] = new SelectList(_context.Usuarios, "Id", "NomeDisplayLista");
+            ViewData["ParticipanteId"] = new SelectList(_context.Usuarios.OrderBy(u => u.NomeDisplayLista), "Id", "NomeDisplayLista");
 
             // Zerar contador de mensagens da conversa
             var numeroDeNovasMensagensNaConversa = await _context.NumeroDeNovasMensagensNaConversa.FirstOrDefaultAsync(n => n.UsuarioId == idDoUsuarioLogado && n.ConversaId == conversa.Id);
@@ -144,7 +139,7 @@ namespace App_comunicacao_escolar.Controllers
         // GET: Conversas/Create
         public IActionResult Create()
         {
-            ViewData["ParticipanteId"] = new SelectList(_context.Usuarios, "Id", "NomeDisplayLista");
+            ViewData["ParticipanteId"] = new SelectList(_context.Usuarios.OrderBy(u => u.NomeDisplayLista), "Id", "NomeDisplayLista");
 
             return View();
         }
@@ -216,7 +211,7 @@ namespace App_comunicacao_escolar.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ParticipanteId"] = new SelectList(_context.Usuarios, "Id", "NomeDisplayLista");
+            ViewData["ParticipanteId"] = new SelectList(_context.Usuarios.OrderBy(u => u.NomeDisplayLista), "Id", "NomeDisplayLista");
             return View(conversa);
         }
 
@@ -237,7 +232,7 @@ namespace App_comunicacao_escolar.Controllers
             mensagem.Conteudo = conteudoMensagem;
             mensagem.ListaDestinatarios = listaDeDestinatariosPorId;
             mensagem.RemetenteId = idDoUsuarioLogado;
-            mensagem.RemetenteNome = _context.Usuarios.FirstOrDefault(u => u.Id == idDoUsuarioLogado).Nome;
+            mensagem.RemetenteNome = _context.Usuarios.FirstOrDefault(u => u.Id == idDoUsuarioLogado).NomeDisplayLista;
 
             Conversa conversa = _context.Conversas.Include(c => c.Participantes).Include(c => c.NumeroDeNovasMensagensNaConversa).FirstOrDefault(u => u.Id == conversaId);
 
@@ -296,7 +291,7 @@ namespace App_comunicacao_escolar.Controllers
                             _context.Update(numeroDeNovasMensagensNaConversa);
                         }
 
-                        listaDeDestinatariosPorNome += usuario.Nome.Replace(";", ":") + "; ";
+                        listaDeDestinatariosPorNome += usuario.NomeDisplayLista.Replace(";", ":") + "; ";
                     }
                 }
                 // -----------------------------------------------------------------------------------------
