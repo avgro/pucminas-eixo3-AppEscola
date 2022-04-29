@@ -20,8 +20,39 @@ namespace App_comunicacao_escolar.Controllers
         {
             _context = context;
         }
-        public IActionResult Login()
+        public async Task<IActionResult> Login()
         {
+            // Cria usuário do tipo "Administrador" caso não haja nenhum registrado no sistema (para facilitar a realização dos testes)
+            try {  
+                var usuarioAdmin = await _context.Usuarios.FirstOrDefaultAsync(u => u.Perfil == 0);
+                if (usuarioAdmin == null) {  
+                    Usuario usuario = new();
+
+                    usuario.Perfil = 0;
+
+                    usuario.Nome = "Administrador";
+                    usuario.Sobrenome = "do Sistema";
+                    usuario.NomeDeUsuario = "admin";
+                    
+                    usuario.NomeDisplayLista = usuario.Nome + " (" + usuario.NomeDeUsuario + ")";
+                    
+                    usuario.Logradouro = "Vazio";
+                    usuario.Cidade = "Vazio";
+                    usuario.Estado = "XX";
+                    usuario.Email = "Vazio";
+                    usuario.Cep = "00000-000";
+
+                    usuario.Senha = "admin";
+                    usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
+
+                    _context.Add(usuario);
+                    await _context.SaveChangesAsync();
+                }
+            }
+            catch {
+                return NotFound();
+            };
+            // --------------------------------------------------------------------------------------------------------------------------
             return View();
         }
 
@@ -410,6 +441,11 @@ namespace App_comunicacao_escolar.Controllers
             {
                 errorMessage.Add("Perfil");
                 errorMessage.Add("Não é permitido criar um novo usuário do tipo \"Administrador\"!");
+            }
+            if (usuario.NomeDeUsuario == "admin" && !usuario.Perfil.ToString().Equals("Admin"))
+            {
+                errorMessage.Add("NomeDeUsuario");
+                errorMessage.Add("Nome reservado!");
             }
 
             return errorMessage;
