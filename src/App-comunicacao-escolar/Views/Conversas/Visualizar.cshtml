@@ -18,11 +18,10 @@
     @if (Model.Mensagens != null) {
         foreach(Mensagem mensagem in Model.Mensagens)
         {
-            var dataEnvio = mensagem.ConverterDataParaDDMMYYYY(mensagem.DataEnvio);
             <div class="mensagem-email">
             <div class="d-flex justify-content-between mb-1">
                 <b>@Html.DisplayFor(modelItem => mensagem.RemetenteNome)</b>
-                <span>@dataEnvio</span>
+                <span>@mensagem.DataEnvio</span>
             </div>
             <p>Para: @Html.DisplayFor(modelItem => mensagem.ListaDestinatariosNome)</p>
             <div class="border-bottom col-12 m-2"></div>

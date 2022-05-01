@@ -4,39 +4,53 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Cadastrar</h1>
 
-<h4>Aluno</h4>
+<h4>Novo aluno</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div>
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <h5 class="mt-2">Informações do aluno</h5>
+            <div class="form-group input-size-standard">
                 <label asp-for="Nome" class="control-label"></label>
                 <input asp-for="Nome" class="form-control" />
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="SobreNome" class="control-label"></label>
-                <input asp-for="SobreNome" class="form-control" />
-                <span asp-validation-for="SobreNome" class="text-danger"></span>
+            <div class="form-group input-size-standard">
+                <label asp-for="Sobrenome" class="control-label"></label>
+                <input asp-for="Sobrenome" class="form-control" />
+                <span asp-validation-for="Sobrenome" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group input-size-standard">
                 <label asp-for="CodigoDoAluno" class="control-label"></label>
                 <input asp-for="CodigoDoAluno" class="form-control" />
                 <span asp-validation-for="CodigoDoAluno" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group input-size-standard">
                 <label asp-for="DataDeNascimento" class="control-label"></label>
                 <input type ="date" asp-for="DataDeNascimento" class="form-control" />
                 <span asp-validation-for="DataDeNascimento" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="TurmaId" class="control-label"></label>
-                <select asp-for="TurmaId" class ="form-control" asp-items="ViewBag.TurmaId">
-                    <option value=0>Nenhuma</option>
+            <h5 class="mt-2">Responsaveis do aluno</h5>
+            <div class="form-group input-size-2x">
+                <label for="pessoaId" class="control-label">Selecionar responsaveis do aluno</label>
+                <select id="pessoaId" name="Responsaveis" class ="form-control form-select" asp-items="ViewBag.ResponsavelId">
                 </select>
+                <button type="button" class="btn btn-primary my-2" onclick="adicionarPessoaNaLista()">Adicionar responsável</button>
+                <br />
+                Lista de responsáveis:
+                <div class="d-flex flex-wrap m-1" id="exibirPessoasSelecionadas"></div>
+                <input onkeyup="checkError(listaDePessoasPorId, listaDePessoasPorIdError)" type="hidden" asp-for="Responsaveis" id="listaDePessoasPorId" name="listaDeResponsaveisDoAlunoPorId"/>
+                <span asp-validation-for="Responsaveis" data-valmsg-for="listaDePessoasPorId" class="text-danger"></span>
+            </div>
+            <h5 class="mt-2">Selecionar turma</h5>
+            <div class="form-group input-size-standard">
+                <label asp-for="TurmaId" class="control-label"></label>
+                <select asp-for="TurmaId" class ="form-control form-select" asp-items="ViewBag.TurmaId">
+                </select>
+                <span asp-validation-for="TurmaId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary my-2" />
@@ -46,6 +60,10 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Voltar</a>
 </div>
 
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/selecionar-pessoas.js" asp-append-version="true"></script>
+}

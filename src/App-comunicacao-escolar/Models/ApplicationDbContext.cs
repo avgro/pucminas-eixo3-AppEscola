@@ -28,6 +28,15 @@ namespace App_comunicacao_escolar.Models
             modelBuilder.Entity<Usuario>()
             .HasIndex(d => d.Email).IsUnique();
 
+            modelBuilder.Entity<Disciplina>()
+            .HasIndex(d => d.Codigo).IsUnique();
+
+            modelBuilder.Entity<Turma>()
+            .HasIndex(d => d.Codigo).IsUnique();
+
+            modelBuilder.Entity<Aluno>()
+            .HasIndex(d => d.CodigoDoAluno).IsUnique();
+
             modelBuilder.Entity<Conversa>()
             .HasMany(c => c.Mensagens)
             .WithOne(m => m.Conversa)
@@ -62,6 +71,11 @@ namespace App_comunicacao_escolar.Models
             .HasMany(t => t.Disciplinas)
             .WithOne(d => d.Turma)
             .OnDelete(DeleteBehavior.Cascade);
+
+             modelBuilder.Entity<Turma>()
+            .HasMany(t => t.Alunos)
+            .WithOne(d => d.Turma)
+            .OnDelete(DeleteBehavior.SetNull);
         }
     }
 }

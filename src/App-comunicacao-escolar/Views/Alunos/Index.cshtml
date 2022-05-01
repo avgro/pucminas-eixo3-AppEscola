@@ -16,9 +16,6 @@
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SobreNome)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.CodigoDoAluno)
             </th>
             <th>
@@ -31,10 +28,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SobreNome)
+                @Html.DisplayFor(modelItem => item.Nome) @Html.DisplayFor(modelItem => item.Sobrenome)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CodigoDoAluno)
@@ -48,10 +42,14 @@
                         <text>Nenhuma</text>
                     }
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            <td class="mais-informacoes">
+                <span class="text-center">
+                    <a class="btn btn-primary mb-2 p-1" asp-action="Details" asp-route-id="@item.Id">Mais Informações</a>
+                </span>
+                <span class="whitespace-nowrap mx-1">
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |              
+                    <a asp-action="Delete" asp-route-id="@item.Id">Apagar</a>
+                </span>
             </td>
         </tr>
 }
@@ -61,3 +59,4 @@
 {   
     <div class="col-12 m-2 alert-warning p-3 text-center">Nenhum aluno encontrado</div>
 }
+

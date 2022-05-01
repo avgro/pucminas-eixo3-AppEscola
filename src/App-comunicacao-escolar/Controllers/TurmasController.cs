@@ -22,7 +22,7 @@ namespace App_comunicacao_escolar.Controllers
         // GET: Turmas
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Turmas.ToListAsync());
+            return View(await _context.Turmas.OrderBy(t => t.NomeComCodigoEntreParenteses).ToListAsync());
         }
 
         // GET: Turmas/Details/5
@@ -33,7 +33,7 @@ namespace App_comunicacao_escolar.Controllers
                 return NotFound();
             }
 
-            var turma = await _context.Turmas
+            var turma = await _context.Turmas.Include(t => t.Disciplinas.OrderBy(d => d.NomeComCodigoEntreParenteses)).Include(t => t.Alunos.OrderBy(a => a.NomeAlunoComCodigoEntreParenteses))
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (turma == null)
             {
@@ -57,12 +57,11 @@ namespace App_comunicacao_escolar.Controllers
         public async Task<IActionResult> Create([Bind("Id,Nome,Codigo,NomeComCodigoEntreParenteses")] Turma turma)
         {
             turma.NomeComCodigoEntreParenteses = turma.Nome + " (" + turma.Codigo + ")";
-            
             if (ModelState.IsValid)
             {
                 _context.Add(turma);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("GerenciarDisciplinas", new {id = turma.Id});
             }
             return View(turma);
         }
@@ -116,14 +115,14 @@ namespace App_comunicacao_escolar.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("GerenciarDisciplinas", new { id = turma.Id });
             }
             return View(turma);
         }
 
 
-        // GET: Turmas/AdicionarDisciplinas/5
-        public async Task<IActionResult> AdicionarDisciplinas(int? id, int? tentarAssociarDisciplina)
+        // GET: Turmas/GerenciarDisciplinas/5
+        public async Task<IActionResult> GerenciarDisciplinas(int? id, int? tentarAssociarDisciplina)
         {
             if (id == null)
             {
@@ -139,12 +138,12 @@ namespace App_comunicacao_escolar.Controllers
             return View(turma);
         }
 
-        // POST: Turmas/AdicionarDisciplinas/5
+        // POST: Turmas/GerenciarDisciplinas/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AdicionarDisciplinas(int id, 
+        public async Task<IActionResult> GerenciarDisciplinas(int id, 
             [Bind("numeroDaDisciplinaQueDesejaAdicionar")] int numeroDaDisciplinaQueDesejaAdicionar,
             [Bind("adicionarOuRemover")] string adicionarOuRemover)
 
@@ -232,7 +231,7 @@ namespace App_comunicacao_escolar.Controllers
                             throw;
                         }
                     }
-                    return RedirectToAction(nameof(AdicionarDisciplinas));
+                    return RedirectToAction(nameof(GerenciarDisciplinas));
                 }
                 turma = await _context.Turmas.Include(t => t.Disciplinas.OrderBy(d => d.NomeComCodigoEntreParenteses)).ThenInclude(d => d.HorariosDaDisciplina).FirstOrDefaultAsync(t => t.Id == id);
                 if (turma == null)
@@ -255,7 +254,7 @@ namespace App_comunicacao_escolar.Controllers
                 return NotFound();
             }
 
-            var turma = await _context.Turmas
+            var turma = await _context.Turmas.Include(t => t.Disciplinas.OrderBy(d => d.NomeComCodigoEntreParenteses)).Include(t => t.Alunos.OrderBy(a => a.NomeAlunoComCodigoEntreParenteses))
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (turma == null)
             {

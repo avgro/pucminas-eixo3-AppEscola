@@ -4,14 +4,14 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Associar disciplinas</h1>
+<h1>Quadro de disciplinas</h1>
 
 <h4>@Html.DisplayFor(model => model.NomeComCodigoEntreParenteses)</h4>
 <hr />
 <div class="row">
     <div>
         <h5>Adicionar disciplina</h5>
-        <form asp-action="AdicionarDisciplinas">
+        <form asp-action="GerenciarDisciplinas">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div id="disciplinasError" class="alert-danger p-4 my-2 w-100 text-center" hidden>
@@ -116,7 +116,7 @@
 </div>
 
 <div>
-    <a class="btn btn-primary my-2"asp-action="Index">Voltar</a>
+    <a class="btn btn-primary my-2"asp-action="Index">Finalizar</a>
 </div>
 
 @section Scripts {

@@ -4,6 +4,7 @@ using App_comunicacao_escolar.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App_comunicacao_escolar.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220501191520_M32")]
+    partial class M32
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,12 +69,10 @@ namespace App_comunicacao_escolar.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<int?>("TurmaId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CodigoDoAluno")
-                        .IsUnique();
 
                     b.HasIndex("TurmaId");
 
@@ -134,9 +134,6 @@ namespace App_comunicacao_escolar.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("Codigo")
-                        .IsUnique();
 
                     b.HasIndex("TurmaId");
 
@@ -316,9 +313,6 @@ namespace App_comunicacao_escolar.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Codigo")
-                        .IsUnique();
-
                     b.ToTable("Turmas");
                 });
 
@@ -487,7 +481,8 @@ namespace App_comunicacao_escolar.Migrations
                     b.HasOne("App_comunicacao_escolar.Models.Turma", "Turma")
                         .WithMany("Alunos")
                         .HasForeignKey("TurmaId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Turma");
                 });

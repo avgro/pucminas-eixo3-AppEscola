@@ -159,8 +159,13 @@ namespace App_comunicacao_escolar.Controllers
                     return NotFound();
                 }
 
-                var usuario = await _context.Usuarios.Include(u => u.Professor).ThenInclude(p => p.Disciplinas)
+                var usuario = await _context.Usuarios
+                    .Include(u => u.Professor)
+                    .ThenInclude(p => p.Disciplinas.OrderBy(d => d.NomeComCodigoEntreParenteses))
+                    .Include(u => u.Responsavel)
+                    .ThenInclude(r => r.Alunos.OrderBy(a => a.NomeAlunoComCodigoEntreParenteses))
                     .FirstOrDefaultAsync(m => m.Id == id);
+
                 if (usuario == null)
                 {
                     return NotFound();
@@ -564,7 +569,12 @@ namespace App_comunicacao_escolar.Controllers
                 return NotFound();
             }
 
-            var usuario = await _context.Usuarios.Include(u => u.Professor).ThenInclude(p => p.Disciplinas).FirstOrDefaultAsync(u => u.Id == id);
+            var usuario = await _context.Usuarios
+                .Include(u => u.Professor)
+                .ThenInclude(p => p.Disciplinas.OrderBy(d => d.NomeComCodigoEntreParenteses))
+                .Include(u => u.Responsavel)
+                .ThenInclude(r => r.Alunos.OrderBy(a => a.NomeAlunoComCodigoEntreParenteses))
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             if (usuario == null)
             {

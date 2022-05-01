@@ -112,7 +112,7 @@ namespace App_comunicacao_escolar.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("AdicionarDisciplinas", "Turmas", new { id = tentarCadastrarTurmaId, tentarAssociarDisciplina = disciplina.Id });
+                    return RedirectToAction("GerenciarDisciplinas", "Turmas", new { id = tentarCadastrarTurmaId, tentarAssociarDisciplina = disciplina.Id });
                 }
             }
             ViewData["Error"] = "Error";
@@ -213,7 +213,7 @@ namespace App_comunicacao_escolar.Controllers
                         }
                         else
                         {
-                            return RedirectToAction("AdicionarDisciplinas", "Turmas", new { id = tentarCadastrarTurmaId, tentarAssociarDisciplina = disciplina.Id });
+                            return RedirectToAction("GerenciarDisciplinas", "Turmas", new { id = tentarCadastrarTurmaId, tentarAssociarDisciplina = disciplina.Id });
                         }
                     }
                     catch

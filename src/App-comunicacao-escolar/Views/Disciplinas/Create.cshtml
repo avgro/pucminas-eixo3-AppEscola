@@ -19,7 +19,7 @@
     <div >
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <h5>Informações da disciplina</h5>
+            <h5 class="mt-2">Informações da disciplina</h5>
             <div class="form-group input-size-standard">
                 <label asp-for="Nome" class="control-label"></label>
                 <input asp-for="Nome" class="form-control" />
@@ -30,8 +30,7 @@
                 <input asp-for="Codigo" class="form-control" />
                 <span asp-validation-for="Codigo" class="text-danger"></span>
             </div>
-            <hr />
-            <h5>Professores da disciplina</h5>
+            <h5 class="mt-2">Professores da disciplina</h5>
             <div class="form-group input-size-2x">
                 <label for="pessoaId" class="control-label">Selecionar professor(es)</label>
                 <select id="pessoaId" name="Professores" class ="form-control form-select" asp-items="ViewBag.ProfessorId">
@@ -42,11 +41,9 @@
                 Lista de professores:
                 <div class="d-flex flex-wrap m-1" id="exibirPessoasSelecionadas"></div>
                 <input onkeyup="checkError(listaDePessoasPorId, listaDePessoasPorIdError)" type="hidden" asp-for="Professores" id="listaDePessoasPorId" name="listaDeProfessoresDaDisciplinaPorId"/>
-                <div class="text-danger mb-2" id="listaDePessoasPorIdError">@ViewData["listaDePessoasPorIdError"]</div>
                 <span asp-validation-for="Professores" data-valmsg-for="listaDePessoasPorId" class="text-danger"></span>
             </div>
-            <hr />
-            <h5>
+            <h5 class="mt-2">
                 <label asp-for="HorariosDaDisciplina" class="control-label"></label>
             </h5>
             <div asp-for="HorariosDaDisciplina">
@@ -118,8 +115,7 @@
                     </div>
                 </div>
             </div>
-            <hr />
-            <h5>Selecionar turma</h5>
+            <h5 class="mt-2">Selecionar turma</h5>
             <div class="form-group input-size-2x">
                 <label asp-for="TurmaId" class="control-label"></label>
                 <select id="pessoaId" asp-for="TurmaId" name="tentarCadastrarTurmaId" class ="form-control form-select" asp-items="ViewBag.TurmaId">

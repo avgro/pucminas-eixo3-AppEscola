@@ -23,10 +23,38 @@
             @Html.DisplayFor(model => model.Codigo)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NomeComCodigoEntreParenteses)
+            @Html.DisplayNameFor(model => model.Disciplinas)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NomeComCodigoEntreParenteses)
+            @if (Model.Disciplinas != null) {
+                foreach (var disciplina in Model.Disciplinas)
+                {
+                    <text>@Html.DisplayFor(modelTurmaDisciplinas => disciplina.NomeComCodigoEntreParenteses); </text>
+                }
+                if (Model.Disciplinas.Count == 0)
+                {
+                    <text> Nenhuma </text>
+                }
+                else
+                {
+                    <a class="btn btn-link p-1" asp-action="GerenciarDisciplinas" asp-route-id="@Model?.Id">Ver quadro de horários</a>
+                }
+            }
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Alunos)
+        </dt>
+        <dd class = "col-sm-10">
+            @if (Model.Alunos != null) {
+                foreach (var aluno in Model.Alunos)
+                {
+                    <text>@Html.DisplayFor(modelTurmaAlunos => aluno.NomeAlunoComCodigoEntreParenteses); </text>
+                }
+                if (Model.Alunos.Count == 0)
+                {
+                    <text> Nenhum </text>
+                }
+            }
         </dd>
     </dl>
 </div>

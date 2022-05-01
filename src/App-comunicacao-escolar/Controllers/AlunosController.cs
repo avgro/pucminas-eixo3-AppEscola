@@ -35,6 +35,8 @@ namespace App_comunicacao_escolar.Controllers
             }
 
             var aluno = await _context.Alunos
+                .Include(a => a.Responsaveis.OrderBy(r => r.Usuario.NomeDisplayLista))
+                .ThenInclude(r => r.Usuario)
                 .Include(a => a.Turma)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (aluno == null)
@@ -49,6 +51,7 @@ namespace App_comunicacao_escolar.Controllers
         public IActionResult Create()
         {
             ViewData["TurmaId"] = new SelectList(_context.Turmas, "Id", "Codigo");
+            ViewData["ResponsavelId"] = new SelectList(_context.Responsaveis.Include(p => p.Usuario).OrderBy(p => p.Usuario.NomeDisplayLista), "ResponsavelId", "Usuario.NomeDisplayLista");
             return View();
         }
 
@@ -57,20 +60,35 @@ namespace App_comunicacao_escolar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,SobreNome,CodigoDoAluno,DataDeNascimento,NomeAlunoComCodigoEntreParenteses,TurmaId")] Aluno aluno)
-        {
-            if (aluno.TurmaId == 0)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Sobrenome,CodigoDoAluno,DataDeNascimento,NomeAlunoComCodigoEntreParenteses,TurmaId")] Aluno aluno, [Bind("listaDeResponsaveisDoAlunoPorId")] string listaDeResponsaveisDoAlunoPorId)
+        {       
+            List<string> listarErrosDeValidacao = IsValidCustomizado(aluno, listaDeResponsaveisDoAlunoPorId);
+
+            while (listarErrosDeValidacao.Count > 0)
             {
-                aluno.TurmaId = null;
+                ViewData["Error"] = "Error";
+                ModelState.AddModelError(listarErrosDeValidacao[0], listarErrosDeValidacao[1]);
+                ViewData[listarErrosDeValidacao[0]] = listarErrosDeValidacao[1];
+                listarErrosDeValidacao.RemoveRange(0, 2);
             }
-            aluno.NomeAlunoComCodigoEntreParenteses = aluno.Nome + "" + aluno.SobreNome + " (" + aluno.CodigoDoAluno + ")";
+
             if (ModelState.IsValid)
             {
+                aluno.NomeAlunoComCodigoEntreParenteses = aluno.Nome + "" + aluno.Sobrenome + " (" + aluno.CodigoDoAluno + ")";
+                aluno.Responsaveis= new List<Responsavel>();
+                List<string> listaResponsaveis = listaDeResponsaveisDoAlunoPorId.Split(";").ToList();
+                for (int i = 0; i < (listaResponsaveis.Count - 1); i++)
+                {
+                    int responsavelId = int.Parse(listaResponsaveis[i]);
+                    var responsavel = await _context.Responsaveis.FirstOrDefaultAsync(r => r.ResponsavelId == responsavelId);
+                    aluno.Responsaveis.Add(responsavel);
+                }
                 _context.Add(aluno);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             ViewData["TurmaId"] = new SelectList(_context.Turmas, "Id", "Codigo", aluno.TurmaId);
+            ViewData["ResponsavelId"] = new SelectList(_context.Responsaveis.Include(p => p.Usuario).OrderBy(p => p.Usuario.NomeDisplayLista), "ResponsavelId", "Usuario.NomeDisplayLista");
             return View(aluno);
         }
 
@@ -82,12 +100,17 @@ namespace App_comunicacao_escolar.Controllers
                 return NotFound();
             }
 
-            var aluno = await _context.Alunos.FindAsync(id);
+            var aluno = await _context.Alunos
+                .Include(a => a.Responsaveis.OrderBy(r => r.Usuario.NomeDisplayLista))
+                .ThenInclude(r => r.Usuario)
+                .FirstOrDefaultAsync(u => u.Id == id);
+
             if (aluno == null)
             {
                 return NotFound();
             }
             ViewData["TurmaId"] = new SelectList(_context.Turmas, "Id", "Codigo", aluno.TurmaId);
+            ViewData["ResponsavelId"] = new SelectList(_context.Responsaveis.Include(p => p.Usuario).OrderBy(p => p.Usuario.NomeDisplayLista), "ResponsavelId", "Usuario.NomeDisplayLista");
             return View(aluno);
         }
 
@@ -96,17 +119,43 @@ namespace App_comunicacao_escolar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,SobreNome,CodigoDoAluno,DataDeNascimento,NomeAlunoComCodigoEntreParenteses,TurmaId")] Aluno aluno)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Sobrenome,CodigoDoAluno,DataDeNascimento,NomeAlunoComCodigoEntreParenteses,TurmaId")] Aluno alunoAtualizar,
+            [Bind("listaDeResponsaveisDoAlunoPorId")] string listaDeResponsaveisDoAlunoPorId)
         {
-            if (id != aluno.Id)
+            var aluno = await _context.Alunos
+                .Include(a => a.Responsaveis)
+                .ThenInclude(r => r.Usuario)
+                .FirstOrDefaultAsync(d => d.Id == id);
+
+            aluno.Nome = alunoAtualizar.Nome;
+            aluno.Sobrenome = alunoAtualizar.Sobrenome;
+            aluno.CodigoDoAluno = alunoAtualizar.CodigoDoAluno;
+            aluno.DataDeNascimento = alunoAtualizar.DataDeNascimento;
+            aluno.TurmaId = alunoAtualizar.TurmaId;
+
+            List<string> listarErrosDeValidacao = IsValidCustomizado(aluno, listaDeResponsaveisDoAlunoPorId);
+
+            while (listarErrosDeValidacao.Count > 0)
             {
-                return NotFound();
+                ViewData["Error"] = "Error";
+                ModelState.AddModelError(listarErrosDeValidacao[0], listarErrosDeValidacao[1]);
+                ViewData[listarErrosDeValidacao[0]] = listarErrosDeValidacao[1];
+                listarErrosDeValidacao.RemoveRange(0, 2);
             }
 
             if (ModelState.IsValid)
             {
                 try
                 {
+                    aluno.NomeAlunoComCodigoEntreParenteses = aluno.Nome + "" + aluno.Sobrenome + " (" + aluno.CodigoDoAluno + ")";
+                    aluno.Responsaveis = new List<Responsavel>();
+                    List<string> listaResponsaveis = listaDeResponsaveisDoAlunoPorId.Split(";").ToList();
+                    for (int i = 0; i < (listaResponsaveis.Count - 1); i++)
+                    {
+                        int responsavelId = int.Parse(listaResponsaveis[i]);
+                        var responsavel = await _context.Responsaveis.FirstOrDefaultAsync(r => r.ResponsavelId == responsavelId);
+                        aluno.Responsaveis.Add(responsavel);
+                    }
                     _context.Update(aluno);
                     await _context.SaveChangesAsync();
                 }
@@ -124,6 +173,7 @@ namespace App_comunicacao_escolar.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["TurmaId"] = new SelectList(_context.Turmas, "Id", "Codigo", aluno.TurmaId);
+            ViewData["ResponsavelId"] = new SelectList(_context.Responsaveis.Include(p => p.Usuario).OrderBy(p => p.Usuario.NomeDisplayLista), "ResponsavelId", "Usuario.NomeDisplayLista");
             return View(aluno);
         }
 
@@ -136,8 +186,11 @@ namespace App_comunicacao_escolar.Controllers
             }
 
             var aluno = await _context.Alunos
+                .Include(a => a.Responsaveis.OrderBy(r => r.Usuario.NomeDisplayLista))
+                .ThenInclude(r => r.Usuario)
                 .Include(a => a.Turma)
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (aluno == null)
             {
                 return NotFound();
@@ -160,6 +213,24 @@ namespace App_comunicacao_escolar.Controllers
         private bool AlunoExists(int id)
         {
             return _context.Alunos.Any(e => e.Id == id);
+        }
+
+        public List<string> IsValidCustomizado(Aluno aluno, string listaDeResponsaveisDoAlunoPorId)
+        {
+            List<string> errorMessage = new();
+            if (listaDeResponsaveisDoAlunoPorId == null)
+            {
+                errorMessage.Add("Responsaveis");
+                errorMessage.Add("Selecionar ao menos um responsável para o aluno!");
+
+            }
+            if (aluno.TurmaId == null)
+            {
+                errorMessage.Add("TurmaId");
+                errorMessage.Add("Selecionar turma do aluno!");
+
+            }
+            return errorMessage;
         }
     }
 }

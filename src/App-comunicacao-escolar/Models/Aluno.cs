@@ -13,7 +13,7 @@ namespace App_comunicacao_escolar.Models
         public string? Nome { get; set; }
         [Required(ErrorMessage = "Inserir sobrenome do aluno!")]
         [MaxLength(50)]
-        public string? SobreNome { get; set; }
+        public string? Sobrenome { get; set; }
         [Display(Name = "Código do aluno")]
         [Required(ErrorMessage = "Inserir o código do aluno!")]
         [MaxLength(20)]
