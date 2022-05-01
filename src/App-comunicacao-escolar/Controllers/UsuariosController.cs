@@ -9,6 +9,10 @@ using Microsoft.EntityFrameworkCore;
 using App_comunicacao_escolar.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
+using System.Net.Mail;
+using FluentEmail.Core;
+using System.Text;
+using FluentEmail.Razor;
 
 namespace App_comunicacao_escolar.Controllers
 {
@@ -211,6 +215,18 @@ namespace App_comunicacao_escolar.Controllers
             }
             if (ModelState.IsValid)
             {
+                // Preparar conteudo do email com credenciais do usuário
+
+                TempData["enderecoEmail"] = usuario.Email;
+                TempData["nomeCompleto"] = usuario.Nome + " " + usuario.Sobrenome;
+                TempData["nomeDeUsuario"] = usuario.NomeDeUsuario;
+                TempData["senhaMandarEmail"] = usuario.Senha;
+                TempData["assuntoEmailCredenciais"] = "Sua conta de usuário do AppEscola foi criada!";
+                TempData["mensagemEmailCredenciais"] = "Sua conta no AppEscola foi criada pelo Administrador, utilize as credenciais de acesso abaixo para realizar seu login: </p>";
+                TempData["sucessoViewCredenciais"] = "Usuário criado com sucesso!";
+
+                // -----------------------------------------------------
+
                 usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
                 usuario.NomeDisplayLista = usuario.Nome + " " + usuario.Sobrenome + " (" + usuario.NomeDeUsuario + ")";
                 _context.Add(usuario);
@@ -223,10 +239,95 @@ namespace App_comunicacao_escolar.Controllers
                     _context.Add(responsavel);
                 }
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                return RedirectToAction(nameof(EnviarCredenciais));
             }
             return View(usuario);
         }
+
+
+        // GET: Usuarios/EnviarCredenciais
+        public IActionResult EnviarCredenciais()
+        {
+            if (TempData.ContainsKey("sucessoViewCredenciais"))
+            {
+                ViewData["sucessoViewCredenciais"] = TempData["sucessoViewCredenciais"].ToString();
+            }
+            else
+            {
+                return Forbid();
+            }
+
+            if (TempData.ContainsKey("enderecoEmail")) 
+ 
+                ViewData["enderecoEmail"] = TempData["enderecoEmail"].ToString();
+
+            if (TempData.ContainsKey("nomeCompleto"))
+                ViewData["nomeCompleto"] = TempData["nomeCompleto"].ToString();
+
+            if (TempData.ContainsKey("nomeDeUsuario"))
+                ViewData["nomeDeUsuario"] = TempData["nomeDeUsuario"].ToString();
+
+            if (TempData.ContainsKey("senhaMandarEmail"))
+                ViewData["senhaMandarEmail"] = TempData["senhaMandarEmail"].ToString();
+
+            if (TempData.ContainsKey("assuntoEmailCredenciais"))
+                ViewData["assuntoEmailCredenciais"] = TempData["assuntoEmailCredenciais"].ToString();
+
+            if (TempData.ContainsKey("mensagemEmailCredenciais"))
+                ViewData["mensagemEmailCredenciais"] = TempData["mensagemEmailCredenciais"].ToString();
+
+            return View();
+        }
+
+        // POST: Usuarios/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EnviarCredenciais([Bind("nomeCompleto")] string nomeCompleto, [Bind("enderecoEmail")] string enderecoEmail, [Bind("nomeDeUsuario")] string nomeDeUsuario, [Bind("senhaMandarEmail")] string senhaMandarEmail, [Bind("assuntoEmailCredenciais")] string assuntoEmailCredenciais, [Bind("mensagemEmailCredenciais")] string mensagemEmailCredenciais)
+        {
+            try { 
+                // Mandar email
+
+                var sender = new FluentEmail.Smtp.SmtpSender(() => new SmtpClient("localhost")
+                {
+                    EnableSsl = false,
+                    DeliveryMethod = SmtpDeliveryMethod.SpecifiedPickupDirectory,
+                    PickupDirectoryLocation = @"C:\AppEscolaMail"
+                });
+
+                StringBuilder template = new();
+                template.AppendLine("Olá, @Model.NomeCompleto! <br>");
+                template.AppendLine(mensagemEmailCredenciais);
+                template.AppendLine("<h2>Nome de usuário: @Model.NomeDeUsuario</h2>");
+                template.AppendLine("<h2>Senha: @Model.Senha</h2>");
+                template.AppendLine("<p>Recomendamos que troque sua senha após acessar o sistema, a alteração da senha pode ser realizada clicando na opção \"Alterar dados\" no menu do usuário. </p>");
+
+                Email.DefaultSender = sender;
+                Email.DefaultRenderer = new RazorRenderer();
+
+                var email = await Email
+                    .From("cadastrodeusuarios@appescola.com.br")
+                    .To("teste@teste.com", enderecoEmail)
+                    .Subject(assuntoEmailCredenciais)
+                    .UsingTemplate(template.ToString(), new
+                    {
+                        NomeCompleto = nomeCompleto,
+                        NomeDeUsuario = nomeDeUsuario,
+                        Senha = senhaMandarEmail
+                    })
+                    .SendAsync();
+
+                //
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch {
+                return BadRequest();
+            }
+        }
+
 
         // GET: Usuarios/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -258,11 +359,25 @@ namespace App_comunicacao_escolar.Controllers
                 return NotFound();
             }
 
-            // Manter mesmo perfil e senha
+
             Usuario usuario = await _context.Usuarios.Include(u => u.Professor).FirstOrDefaultAsync(u => u.Id == id);
+
+            // Verificar se nome de usuario ou senha foram alterados
+            bool nomeDeUsuarioOuSenhaAlterados = false;
+            if (!usuario.NomeDeUsuario.Equals(usuarioNovasInformacoes.NomeDeUsuario))
+            {
+                nomeDeUsuarioOuSenhaAlterados = true;
+            }
+            if (!BCrypt.Net.BCrypt.Verify(usuarioNovasInformacoes.Senha, usuario.Senha))
+            {
+                nomeDeUsuarioOuSenhaAlterados = true;
+            }
+
+            // Manter mesmo perfil
             usuario.Nome = usuarioNovasInformacoes.Nome;
             usuario.Sobrenome = usuarioNovasInformacoes.Sobrenome;
             usuario.NomeDeUsuario = usuarioNovasInformacoes.NomeDeUsuario;
+            usuario.Senha = usuarioNovasInformacoes.Senha;
             usuario.Email = usuarioNovasInformacoes.Email;
             usuario.TelefoneMovel = usuarioNovasInformacoes.TelefoneMovel;
             usuario.TelefoneFixo = usuarioNovasInformacoes.TelefoneFixo;
@@ -270,6 +385,7 @@ namespace App_comunicacao_escolar.Controllers
             usuario.Cidade = usuarioNovasInformacoes.Cidade;
             usuario.Estado = usuarioNovasInformacoes.Estado;
             usuario.Cep = usuarioNovasInformacoes.Cep;
+            
             if (usuario.Professor != null)
             {
                 usuario.Professor.Nivel = professorNivel;
@@ -289,7 +405,22 @@ namespace App_comunicacao_escolar.Controllers
             {
                 try
                 {
+                    if (nomeDeUsuarioOuSenhaAlterados) { 
+                        // Preparar conteudo do email com credenciais do usuário
+
+                        TempData["enderecoEmail"] = usuario.Email;
+                        TempData["nomeCompleto"] = usuario.Nome + " " + usuario.Sobrenome;
+                        TempData["nomeDeUsuario"] = usuario.NomeDeUsuario;
+                        TempData["senhaMandarEmail"] = usuarioNovasInformacoes.Senha;
+                        TempData["assuntoEmailCredenciais"] = "Suas credenciais de acesso do AppEscola foram modificadas pelo Administrador!";
+                        TempData["mensagemEmailCredenciais"] = "Sua conta no AppEscola foi modificada pelo Administrador, seguem suas novas credenciais de acesso: </p>";
+                        TempData["sucessoViewCredenciais"] = "Usuário alterado com sucesso!";
+
+                        // -----------------------------------------------------
+                    }
                     usuario.NomeDisplayLista = usuario.Nome + " " + usuario.Sobrenome + " (" + usuario.NomeDeUsuario + ")";
+                    usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
+
                     _context.Update(usuario);
                     await _context.SaveChangesAsync();
                 }
@@ -304,7 +435,13 @@ namespace App_comunicacao_escolar.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                if (nomeDeUsuarioOuSenhaAlterados)
+                {
+                    return RedirectToAction(nameof(EnviarCredenciais));
+                }
+                else { 
+                    return RedirectToAction(nameof(Index));
+                }
             }
             return View(usuario);
         }
@@ -427,8 +564,8 @@ namespace App_comunicacao_escolar.Controllers
                 return NotFound();
             }
 
-            var usuario = await _context.Usuarios
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var usuario = await _context.Usuarios.Include(u => u.Professor).ThenInclude(p => p.Disciplinas).FirstOrDefaultAsync(u => u.Id == id);
+
             if (usuario == null)
             {
                 return NotFound();

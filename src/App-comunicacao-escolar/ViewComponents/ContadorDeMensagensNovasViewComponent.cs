@@ -17,7 +17,7 @@ namespace App_comunicacao_escolar.ViewComponents
         public async Task<IViewComponentResult> InvokeAsync(int idUsuarioLogado = -1)
         {
             int numeroDeNovasMensagensNaConversa = 0;
-            if (_context.NumeroDeNovasMensagensNaConversa != null) { 
+            if (_context.NumeroDeNovasMensagensNaConversa != null && _context.UsuariosQueArquivaramConversa != null) { 
                 var mensagensNaoLidasDoUsuarioAtual = _context.NumeroDeNovasMensagensNaConversa.Where(n => n.UsuarioId == idUsuarioLogado);
                 
                 var mensagensArquivadasDoUsuarioAtual = _context.UsuariosQueArquivaramConversa.Where(u => u.UsuarioId == idUsuarioLogado);

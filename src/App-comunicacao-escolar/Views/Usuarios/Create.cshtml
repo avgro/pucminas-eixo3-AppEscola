@@ -13,9 +13,9 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             
-            <div class="form-group input-size-standard">
+            <div class="form-group input-size-1halfx">
                 <h5 class="mt-2"><label asp-for="Perfil" class="control-label"></label></h5>
-                <select onchange="mostrarCamposAdicionaisPorUsuario()" asp-for="Perfil" class="form-control"
+                <select onchange="mostrarCamposAdicionaisPorUsuario()" asp-for="Perfil" class="form-control form-select"
                 asp-items="Html.GetEnumSelectList<PerfilUsuarioSelecionavelEnum>()">
                 </select>
                 <span asp-validation-for="Perfil" class="text-danger"></span>
@@ -91,7 +91,7 @@
                 </div>
                 <div class="form-group input-size-standard">
                     <label asp-for="Professor!.Nivel" class="control-label">Nível</label>
-                    <select asp-for="Professor!.Nivel" name="professorNivel" class="form-control"
+                    <select asp-for="Professor!.Nivel" name="professorNivel" class="form-control form-select"
                     asp-items="Html.GetEnumSelectList<NivelDoProfessorEnum>()">
                     </select>
                     <span asp-validation-for="Professor!.Nivel" data-valmsg-for="professorNivel" class="text-danger"></span>

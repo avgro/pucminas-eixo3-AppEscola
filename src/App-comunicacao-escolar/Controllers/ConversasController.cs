@@ -150,7 +150,7 @@ namespace App_comunicacao_escolar.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Assunto,PrimeiraMensagem,RemetenteNome,RemetenteId")] Conversa conversa,
-            [Bind("listaDeDestinatariosPorId")] string listaDeDestinatariosPorId,
+            [Bind("listaDePessoasPorId")] string listaDePessoasPorId,
             List<IFormFile> arquivos,
             Mensagem mensagem)
         {
@@ -162,7 +162,7 @@ namespace App_comunicacao_escolar.Controllers
 
             conversa.RemetenteNome = mensagem.RemetenteNome;
             conversa.RemetenteId = mensagem.RemetenteId;
-            mensagem.ListaDestinatarios = listaDeDestinatariosPorId;
+            mensagem.ListaDestinatarios = listaDePessoasPorId;
 
             // Faz validação dos atributos que não podem ser diretamente validados pelo Entity Framework e retorna as mensagens de erro como ViewData ou TempData.
             List<string> listarErrosDeValidacao = IsValidCustomizadoCreate(mensagem, arquivos);
@@ -184,8 +184,8 @@ namespace App_comunicacao_escolar.Controllers
                 mensagem = FazerUploadDosArquivosAnexados(mensagem, arquivos);
 
                 // Converte a string "listaDeDesinatariosPorId" em uma lista e realiza todas as operações necessárias para cada destinatário
-                List<string> listaRemetentes = listaDeDestinatariosPorId.Split(";").ToList();
-                string listaDeDestinatariosPorNome = "";
+                List<string> listaRemetentes = listaDePessoasPorId.Split(";").ToList();
+                string listaDePessoasPorNome = "";
                 for (int i = 0; i < (listaRemetentes.Count - 1); i++)
                 {
                     int remetenteId = int.Parse(listaRemetentes[i]);
@@ -200,9 +200,9 @@ namespace App_comunicacao_escolar.Controllers
                     };
                     conversa.NumeroDeNovasMensagensNaConversa.Add(numeroDeNovasMensagensNaConversa);
 
-                    listaDeDestinatariosPorNome += usuario.NomeDisplayLista.Replace(";",":") + "; ";
+                    listaDePessoasPorNome += usuario.NomeDisplayLista.Replace(";",":") + "; ";
                 }
-                mensagem.ListaDestinatariosNome = listaDeDestinatariosPorNome;
+                mensagem.ListaDestinatariosNome = listaDePessoasPorNome;
                 // -----------------------------------------------------------------------------------------
 
                 conversa.Mensagens.Add(mensagem);
@@ -223,14 +223,14 @@ namespace App_comunicacao_escolar.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateResposta(Mensagem mensagem, [Bind("conteudoMensagem")] string conteudoMensagem,
             [Bind("conversaId")] int conversaId, [Bind("mensagemRespondidaId")] int mensagemRespondidaId,
-            [Bind("listaDeDestinatariosPorId")] string listaDeDestinatariosPorId, List<IFormFile> arquivos)
+            [Bind("listaDePessoasPorId")] string listaDePessoasPorId, List<IFormFile> arquivos)
         {
             int idDoUsuarioLogado = GetIdUsuarioLogado();
             mensagem.ConversaId = conversaId;
             mensagem.MensagemRespondidaId = mensagemRespondidaId;
             mensagem.DataEnvio = DateTime.Now;
             mensagem.Conteudo = conteudoMensagem;
-            mensagem.ListaDestinatarios = listaDeDestinatariosPorId;
+            mensagem.ListaDestinatarios = listaDePessoasPorId;
             mensagem.RemetenteId = idDoUsuarioLogado;
             mensagem.RemetenteNome = _context.Usuarios.FirstOrDefault(u => u.Id == idDoUsuarioLogado).NomeDisplayLista;
 
@@ -259,8 +259,8 @@ namespace App_comunicacao_escolar.Controllers
                 mensagem = FazerUploadDosArquivosAnexados(mensagem, arquivos);
 
                 // Converte a string "listaDeDesinatariosPorId" em uma lista e realiza todas as operações necessárias para cada destinatário
-                List<string> listaRemetentes = listaDeDestinatariosPorId.Split(";").ToList();
-                string listaDeDestinatariosPorNome = "";
+                List<string> listaRemetentes = listaDePessoasPorId.Split(";").ToList();
+                string listaDePessoasPorNome = "";
                 for (int i = 0; i < (listaRemetentes.Count - 1); i++)
                 {
                     int remetenteId = int.Parse(listaRemetentes[i]);
@@ -291,12 +291,12 @@ namespace App_comunicacao_escolar.Controllers
                             _context.Update(numeroDeNovasMensagensNaConversa);
                         }
 
-                        listaDeDestinatariosPorNome += usuario.NomeDisplayLista.Replace(";", ":") + "; ";
+                        listaDePessoasPorNome += usuario.NomeDisplayLista.Replace(";", ":") + "; ";
                     }
                 }
                 // -----------------------------------------------------------------------------------------
 
-                mensagem.ListaDestinatariosNome = listaDeDestinatariosPorNome;
+                mensagem.ListaDestinatariosNome = listaDePessoasPorNome;
                 _context.Add(mensagem);
                 _context.Update(conversa);
                 await _context.SaveChangesAsync();
@@ -350,7 +350,7 @@ namespace App_comunicacao_escolar.Controllers
             List<string> errorMessage = new();
             if (mensagem.ListaDestinatarios == null)
             {
-                errorMessage.Add("listaDeDestinatariosPorIdError");
+                errorMessage.Add("listaDePessoasPorIdError");
                 errorMessage.Add("Selecione pelo menos um destinatário!");
             };
             long formFileTotalSyzeKb = 0;
@@ -370,7 +370,7 @@ namespace App_comunicacao_escolar.Controllers
             List<string> errorMessage = new();
             if (mensagem.ListaDestinatarios == null)
             {
-                errorMessage.Add("listaDeDestinatariosPorIdError");
+                errorMessage.Add("listaDePessoasPorIdError");
                 errorMessage.Add("Selecione pelo menos um destinatário!");
             };
             long formFileTotalSyzeKb = 0;

@@ -24,15 +24,15 @@
                 <span asp-validation-for="Assunto" class="text-danger"></span>
             </div>
             <div class="form-group input-size-2x">
-                <label for="destinatarioId" class="control-label">Selecionar destinatários</label>
-                <select id="destinatarioId" asp-for="Participantes" class ="form-control" asp-items="ViewBag.ParticipanteId">
+                <label for="pessoaId" class="control-label">Selecionar destinatários</label>
+                <select id="pessoaId" asp-for="Participantes" class ="form-control form-select" asp-items="ViewBag.ParticipanteId">
                 </select>
-                <button type="button" class="btn btn-primary m-1" onclick="adicionarDestinatarioALista()">Adicionar destinatário</button>
+                <button type="button" class="btn btn-primary m-1" onclick="adicionarPessoaNaLista()">Adicionar destinatário</button>
                 <br />
             </div>
-            <div class="d-flex flex-wrap m-1 input-size-2halfx" id="exibirDestinatariosSelecionados"></div>
-            <input onkeyup="checkError(listaDeDestinatariosPorId, listaDeDestinatariosPorIdError)" type="hidden" id="listaDeDestinatariosPorId" name="listaDeDestinatariosPorId"/>
-            <div class="text-danger mb-2" id="listaDeDestinatariosPorIdError">@ViewData["listaDeDestinatariosPorIdError"]</div>
+            <div class="d-flex flex-wrap m-1 input-size-2halfx" id="exibirPessoasSelecionadas"></div>
+            <input onkeyup="checkError(listaDePessoasPorId, listaDePessoasPorIdError)" type="hidden" id="listaDePessoasPorId" name="listaDePessoasPorId"/>
+            <div class="text-danger mb-2" id="listaDePessoasPorIdError">@ViewData["listaDePessoasPorIdError"]</div>
 
             <div class="form-group input-size-2halfx">
                 <label asp-for="PrimeiraMensagem" class="control-label">Conteúdo</label>
@@ -57,5 +57,5 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script src="~/js/selecionardestinatarios.js" asp-append-version="true"></script>
+    <script src="~/js/selecionar-pessoas.js" asp-append-version="true"></script>
 }

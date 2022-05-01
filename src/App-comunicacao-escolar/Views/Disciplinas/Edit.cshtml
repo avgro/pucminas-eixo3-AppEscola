@@ -38,16 +38,16 @@
             <hr />
             <h5>Professores da disciplina</h5>
             <div class="form-group input-size-2x">
-                <label for="destinatarioId" class="control-label">Selecionar professor(es)</label>
-                <select id="destinatarioId" name="Professores" class ="form-control" asp-items="ViewBag.ProfessorId">
+                <label for="pessoaId" class="control-label">Selecionar professor(es)</label>
+                <select id="pessoaId" name="Professores" class ="form-control form-select" asp-items="ViewBag.ProfessorId">
                     <option value=0>Selecionar professor...</option>
                 </select>
-                <button type="button" class="btn btn-primary my-2" onclick="adicionarDestinatarioALista()">Adicionar professor</button>
+                <button type="button" class="btn btn-primary my-2" onclick="adicionarPessoaNaLista()">Adicionar professor</button>
                 <br />
                 Lista de professores:
-                <div class="d-flex flex-wrap m-1" id="exibirDestinatariosSelecionados"></div>
+                <div class="d-flex flex-wrap m-1" id="exibirPessoasSelecionadas"></div>
                 
-                <input onkeyup="checkError(listaDeDestinatariosPorId, listaDeDestinatariosPorIdError)" type="hidden" asp-for="Professores" id="listaDeDestinatariosPorId" name="listaDeProfessoresDaDisciplinaPorId"/>
+                <input onkeyup="checkError(listaDePessoasPorId, listaDePessoasPorIdError)" type="hidden" asp-for="Professores" id="listaDePessoasPorId" name="listaDeProfessoresDaDisciplinaPorId"/>
                 @if(Model.Professores != null)
                 {
                     string listaRecuperarProfessoresId = "";
@@ -63,10 +63,10 @@
                     }
                     ViewData["RecuperarProfessores"] = listaRecuperarProfessoresId + ";;" + listaRecuperarProfessoresNome;
                  }
-                <div id="recuperarInformacoesDestinatarios" hidden>@ViewData["RecuperarProfessores"]</div>
+                <div id="recuperarInformacoesPessoasListadas" hidden>@ViewData["RecuperarProfessores"]</div>
 
-                <div class="text-danger mb-2" id="listaDeDestinatariosPorIdError">@ViewData["listaDeDestinatariosPorIdError"]</div>
-                <span asp-validation-for="Professores" data-valmsg-for="listaDeDestinatariosPorId" class="text-danger"></span>
+                <div class="text-danger mb-2" id="listaDePessoasPorIdError">@ViewData["listaDePessoasPorIdError"]</div>
+                <span asp-validation-for="Professores" data-valmsg-for="listaDePessoasPorId" class="text-danger"></span>
             </div>
             <hr />
             <h5>
@@ -76,7 +76,7 @@
                 <div class="d-flex">
                     <div>
                         Dia da semana<br />
-                        <select id="diaDaSemana" class="form-control input-size-half"
+                        <select id="diaDaSemana" class="form-control form-select input-size-half"
                         asp-items="Html.GetEnumSelectList<DiaDaSemanaEnum>()">
                         </select>
                     </div>
@@ -165,7 +165,7 @@
             <h5>Selecionar turma</h5>
             <div class="form-group input-size-2x">
                 <label asp-for="TurmaId" class="control-label"></label>
-                <select id="destinatarioId" asp-for="TurmaId" name="tentarCadastrarTurmaId" class ="form-control" asp-items="ViewBag.TurmaId">
+                <select id="pessoaId" asp-for="TurmaId" name="tentarCadastrarTurmaId" class ="form-control form-select" asp-items="ViewBag.TurmaId">
                     <option value=0>Nenhuma</option>
                 </select>
                  <span asp-validation-for="TurmaId"></span>
@@ -182,5 +182,5 @@
     <a asp-action="Index">Voltar</a>
 </div>
 
-<script src="~/js/selecionardestinatarios.js" asp-append-version="true"></script>
+<script src="~/js/selecionar-pessoas.js" asp-append-version="true"></script>
     <script src="~/js/criar-horarios-aula.js" asp-append-version="true"></script>

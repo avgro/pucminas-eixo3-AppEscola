@@ -18,14 +18,16 @@ namespace App_comunicacao_escolar.Controllers
             try { 
             int idUsuarioLogado = GetIdUsuarioLogado();
             int numeroDeNovasMensagensNaConversa = 0;
-            if (_context.NumeroDeNovasMensagensNaConversa != null) { 
+            if (_context.NumeroDeNovasMensagensNaConversa != null && _context.UsuariosQueArquivaramConversa != null) { 
                 var mensagensNaoLidasDoUsuarioAtual = _context.NumeroDeNovasMensagensNaConversa.Where(n => n.UsuarioId == idUsuarioLogado);
+                if (mensagensNaoLidasDoUsuarioAtual.Any()) {
                 var mensagensArquivadasDoUsuarioAtual = _context.UsuariosQueArquivaramConversa.Where(u => u.UsuarioId == idUsuarioLogado);
                 foreach (var item in mensagensNaoLidasDoUsuarioAtual)
                 {
                     if (!mensagensArquivadasDoUsuarioAtual.Any(m => m.ConversaId == item.ConversaId)) {
                         numeroDeNovasMensagensNaConversa += item.NumeroDeMensagensNaoLidas;
                     }
+                }
                 }
             }
             numeroDeNovasMensagensNaConversa = 9;

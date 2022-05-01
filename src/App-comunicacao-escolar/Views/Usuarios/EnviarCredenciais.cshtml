@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Enviar credenciais";
+}
+
+<h1>@ViewData["sucessoViewCredenciais"]</h1>
+
+<h4>@ViewData["nomeCompleto"] (@ViewData["nomeDeUsuario"])</h4>
+<hr />
+
+@if (@ViewData["Error"] != null){
+      // Usada para que o Javascript saiba se o backend retornou error após a submissão do formulário
+     <div hidden id="validation-error">@ViewData["Error"]</div>
+}
+
+<div class="row">
+    <div>
+        <form asp-action="EnviarCredenciais" onsubmit="disableSubmitButtonAfterSubmission(submeterEmail)">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <h5>Enviar email com credenciais de acesso para o usuário</h5>
+            <div class="form-group input-size-standard">
+                <label for="nomeCompleto" class="control-label">Nome</label>
+                <input id="nomeCompleto" name="nomeCompleto" class="form-control" value="@ViewData["nomeCompleto"]" required readonly/>
+            </div>
+            <div class="form-group input-size-standard">
+                <label for="nomeDeUsuario" class="control-label">Nome de usuário</label>
+                <input id="nomeDeUsuario" name="nomeDeUsuario" class="form-control" value="@ViewData["nomeDeUsuario"]" required readonly/>
+            </div>
+            <div class="form-group input-size-standard">
+                <label for="nomeDeUsuario" class="control-label">Senha</label>
+                <input type ="password" id="senhaMandarEmail" name="senhaMandarEmail" class="form-control" value="@ViewData["senhaMandarEmail"]" required readonly/>
+            </div>
+            <div class="form-group input-size-standard">
+                <label for="enderecoEmail" class="control-label">Email</label>
+                <input id="enderecoEmail" name="enderecoEmail" class="form-control" value="@ViewData["enderecoEmail"]" required readonly/>
+            </div>
+            <div class="form-group input-size-standard" hidden>
+                <input name="assuntoEmailCredenciais" class="form-control" value="@ViewData["assuntoEmailCredenciais"]" required readonly/>
+            </div>
+            <div class="form-group input-size-standard" hidden>
+                <input name="mensagemEmailCredenciais" class="form-control" value="@ViewData["mensagemEmailCredenciais"]" required readonly/>
+            </div>
+            <div class="form-group">
+                <input type="submit" id="submeterEmail" value="Enviar email" class="btn btn-primary my-2"/>
+            </div>
+        </form>
+    </div>
+</div>

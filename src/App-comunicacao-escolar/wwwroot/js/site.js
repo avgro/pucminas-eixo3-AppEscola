@@ -82,3 +82,8 @@ function doisDigitosInputHorario(idInput) {
     }
     idInput.value = idInput.value.substring(idInput.value.length - 2, idInput.value.length);
 }
+
+function disableSubmitButtonAfterSubmission(idSubmitButton) {
+    idSubmitButton.disabled = true;
+    
+}

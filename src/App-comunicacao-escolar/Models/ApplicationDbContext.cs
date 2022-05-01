@@ -17,6 +17,7 @@ namespace App_comunicacao_escolar.Models
         public DbSet<UsuariosQueArquivaramConversa>? UsuariosQueArquivaramConversa { get; set; }
         public DbSet<MensagemArquivosAnexados>? Anexos { get; set; }
         public DbSet<Disciplina>? Disciplinas { get; set; }
+        public DbSet<Aluno>? Alunos { get; set; }
         public DbSet<HorariosDaDisciplina>? HorariosDasDisciplinas { get; set; }
         public DbSet<Turma>? Turmas { get; set; }
 

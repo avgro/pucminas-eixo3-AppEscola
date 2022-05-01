@@ -8,7 +8,7 @@ namespace App_comunicacao_escolar.Models
     {
         [ForeignKey("Usuario")]
         public int ResponsavelId { get; set; }
-
         public virtual Usuario? Usuario { get; set; }
+        public ICollection<Aluno>? Alunos { get; set; }
     }
 }
