@@ -4,7 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Criar</h1>
 
 <h4>Conversa</h4>
 <hr />
@@ -15,37 +15,37 @@
 }
 
 <div class="row">
-    <div class="col-md-4">
+    <div>
         <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div class="form-group input-size-2x">
                 <label asp-for="Assunto" class="control-label"></label>
                 <input asp-for="Assunto" class="form-control" />
                 <span asp-validation-for="Assunto" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label for="destinatarioId" class="control-label">Selecionar destinatários</label>
-                <select id="destinatarioId" asp-for="Participantes" class ="form-control" asp-items="ViewBag.ParticipanteId" readonly>
+            <div class="form-group input-size-2x">
+                <label for="pessoaId" class="control-label">Selecionar destinatários</label>
+                <select id="pessoaId" asp-for="Participantes" class ="form-control form-select" asp-items="ViewBag.ParticipanteId">
                 </select>
-                <button type="button" class="btn btn-primary m-1" onclick="adicionarDestinatarioALista()">Adicionar destinatário</button>
+                <button type="button" class="btn btn-primary m-1" onclick="adicionarPessoaNaLista()">Adicionar destinatário</button>
                 <br />
-                <div class="d-flex flex-wrap m-1" id="exibirDestinatariosSelecionados"></div>
-                <input onkeyup="checkError(listaDeDestinatariosPorId, listaDeDestinatariosPorIdError)" type="hidden" id="listaDeDestinatariosPorId" name="listaDeDestinatariosPorId"/>
-                <div class="text-danger mb-2" id="listaDeDestinatariosPorIdError">@ViewData["listaDeDestinatariosPorIdError"]</div>
             </div>
-            <div class="form-group">
+            <div class="d-flex flex-wrap m-1 input-size-2halfx" id="exibirPessoasSelecionadas"></div>
+            <input onkeyup="checkError(listaDePessoasPorId, listaDePessoasPorIdError)" type="hidden" id="listaDePessoasPorId" name="listaDePessoasPorId"/>
+            <div class="text-danger mb-2" id="listaDePessoasPorIdError">@ViewData["listaDePessoasPorIdError"]</div>
+
+            <div class="form-group input-size-2halfx">
                 <label asp-for="PrimeiraMensagem" class="control-label">Conteúdo</label>
                 <textarea asp-for="PrimeiraMensagem" class="form-control conteudo-textarea" placeholder="Inserir conteúdo da mensagem..."></textarea>
                 <span asp-validation-for="PrimeiraMensagem" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group input-size-2x">
                 <label for="arquivos" class="control-label">Anexar arquivos (Tamanho máximo: 25 MB):</label><br />
                 <input onchange="checkError(arquivos, arquivosError)" type="file" class="m-1" id="arquivos" name="arquivos" multiple/>
                 <div class="text-danger" id="arquivosError">@ViewData["arquivosError"]</div>
-                <br />
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary"/>
+                <input type="submit" value="Enviar" class="btn btn-primary my-2"/>
             </div>
         </form>
     </div>
@@ -57,5 +57,5 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script src="~/js/selecionardestinatarios.js" asp-append-version="true"></script>
+    <script src="~/js/selecionar-pessoas.js" asp-append-version="true"></script>
 }

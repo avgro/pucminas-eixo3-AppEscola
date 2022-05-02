@@ -7,18 +7,14 @@
 
 // Inicializa o contador após o carregamento da página
 
-let windowLoaded = false;
 
 window.addEventListener('load', function () {
     jQrefresh();
-    windowLoaded = true;
+    var intervalId = setInterval(function () {
+        jQrefresh();
+    }, 5000);
 })
 
-var intervalId = setInterval(function () {
-    if (windowLoaded) {
-    jQrefresh();
-    }
-}, 5000);
 
 // Atualiza o contador de mensagens
 function jQrefresh() {
@@ -36,4 +32,58 @@ function checkError(elementInput, divErrorMessage) {
     if (elementInput.type == "file") {
         divErrorMessage.hidden = true;
     }
+}
+
+// Menu dropdown customizado (dropdown do Boostrap incompativel com Asp.Net.Core.MVC)
+
+function showDropDown(dropdownButton, dropdownDiv) {
+    if (dropdownDiv.hidden == true) {
+        dropdownDiv.hidden = false;
+
+    }
+    else {
+        dropdownDiv.hidden = true;
+    }
+    document.addEventListener('click', function (event) {
+        const ignoreRefreshPartial = document.getElementById("refreshPartial");
+        if (!dropdownButton.contains(event.target) && !dropdownDiv.contains(event.target) && !ignoreRefreshPartial.contains(event.target)) {
+            dropdownDiv.hidden = true;
+        }
+    });
+
+}
+
+// ----------------------------------------------------------------------------- //
+
+function limitarInputHoras(idInput) {
+    if (idInput.value > 23) {
+        idInput.value = 23;
+    }
+    if (idInput.value < 0) {
+        idInput.value = 0;
+    }
+}
+
+function limitarInputMinutos(idInput) {
+    if (idInput.value > 59) {
+        idInput.value = 59;
+    }
+    if (idInput.value < 0) {
+        idInput.value = 0;
+    }
+}
+
+function doisDigitosInputHorario(idInput) {
+    if (idInput.value.length < 2) {
+        idInput.value = "0" + idInput.value;
+    }
+    if (idInput.value == 0) {
+        idInput.value = "00";
+    }
+    idInput.value = idInput.value.substring(idInput.value.length - 2, idInput.value.length);
+}
+
+function disableSubmitButtonAfterSubmission(idSubmitButton) {
+    idSubmitButton.disabled = true;
+    
 }

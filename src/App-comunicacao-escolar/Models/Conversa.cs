@@ -23,5 +23,6 @@ namespace App_comunicacao_escolar.Models
         public ICollection<Mensagem>? Mensagens { get; set; }
         public ICollection<NumeroDeNovasMensagensNaConversa>? NumeroDeNovasMensagensNaConversa { get; set; }
         public ICollection<UsuariosQueArquivaramConversa>? UsuariosQueArquivaramConversa { get; set; }
+
     }
 }

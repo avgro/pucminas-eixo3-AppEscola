@@ -1,43 +1,68 @@
-﻿@model IEnumerable<App_comunicacao_escolar.Models.Usuario>
+﻿@using X.PagedList.Mvc;
+@using X.PagedList.Mvc.Core
+@model X.PagedList.StaticPagedList<App_comunicacao_escolar.Models.Usuario>
+
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Lista de usuários</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+<div class="d-flex justify-content-between my-4 whitespace-nowrap">
+    <a class="btn btn-primary" asp-action="Create">Cadastrar usuário</a>
+    <div class="px-3">
+        <label for="selecionar-tipo-usuario">Tipo de usuário:</label>
+        <select onchange="mudarTipoUsuario()" id="selecionar-tipo-usuario" class="input-size-3quarters">
+            <option value="Todos">Todos</option>
+            @if (ViewData["TipoDeUsuario"] != null) {
+                if (ViewData["TipoDeUsuario"]!.Equals("ResponsavelAluno"))
+                {
+                    <option value="ResponsavelAluno" selected="true">Responsáveis de aluno</option>
+                    <option value="Professor">Professores</option>
+                    <option value="Outros">Outros</option>
+                }
+                else if (ViewData["TipoDeUsuario"]!.Equals("Professor"))
+                {
+                    <option value="ResponsavelAluno">Responsáveis de aluno</option>
+                    <option value="Professor" selected="true">Professores</option>
+                    <option value="Outros">Outros</option>
+                }
+                else if (ViewData["TipoDeUsuario"]!.Equals("Outros"))
+                {
+                    <option value="ResponsavelAluno">Responsáveis de aluno</option>
+                    <option value="Professor">Professores</option>
+                    <option value="Outros" selected="true">Outros</option>
+                }
+                else
+                {
+                    <option value="ResponsavelAluno">Responsáveis de aluno</option>
+                    <option value="Professor">Professores</option>
+                    <option value="Outros">Outros</option>
+                }
+            }
+        </select>
+    </div>
+</div>
+@using (Html.BeginForm("Index", "Usuarios", new { secao = @ViewData["TituloDaSecao"] }, FormMethod.Post))
+{
+    <div>
+        Buscar usuario por nome ou código:<br> @Html.TextBox("searchString")
+        <input id="Submit1" type="submit" value="Buscar"/>
+    </div>
+}
+
+<table class="table word-wrap-break-anywhere">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nome)
+                Nome
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Sobrenome)
+                <span class="whitespace-nowrap">Nome de</span> Usuário
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NomeDeUsuario)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Logradouro)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cidade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Estado)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cep)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Perfil)
+                <span class="whitespace-nowrap">Tipo de</span> Usuário
             </th>
             <th></th>
         </tr>
@@ -47,37 +72,52 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Sobrenome)
             </td>
-            <td>
+            <td class="nome-de-usuario">
                 @Html.DisplayFor(modelItem => item.NomeDeUsuario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Logradouro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cidade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cep)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Perfil)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            <td class="mais-informacoes">
+                <span class="text-center">
+                    <a class="btn btn-primary mb-2 p-1" asp-action="Details" asp-route-id="@item.Id" asp-route-tipoUsuario="@ViewData["TipoUsuario"]">Mais Informações</a>
+                </span>
+                <span class="whitespace-nowrap mx-1">
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a>              
+                    @if (item.Perfil != 0) {
+                       <text>|</text> <a asp-action="Delete" asp-route-id="@item.Id">Apagar</a>
+                    }
+                    else {
+                       <text></text> <span class="opacity-0">| Apagar</span>
+                    }
+                </span>
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+@if (Model.Count() == 0)
+{   
+    <div class="col-12 m-2 alert-warning p-3 text-center">Nenhum usuário encontrado</div>
+}
+<div class="row">
+    <div class="col-md-8">
+        @Html.PagedListPager(Model, pagina => Url.Action("Index", new {pagina, secao = @ViewData["TituloDaSecao"]}), new X.PagedList.Web.Common.PagedListRenderOptions
+               {                       
+                        DisplayLinkToIndividualPages = true,
+                        DisplayPageCountAndCurrentLocation = false,
+                        LiElementClasses = new string[] { "page-item" },
+                   PageClasses = new string[] { "page-link" },
+                   
+                    })
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/lista-usuarios.js" asp-append-version="true"></script>
+}
+

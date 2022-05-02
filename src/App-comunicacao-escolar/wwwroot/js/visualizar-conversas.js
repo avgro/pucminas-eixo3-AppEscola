@@ -26,10 +26,10 @@ window.addEventListener('load', function () {
 
 function abrirTelaDeResponderMensagem(idMensagemASerRespondida) {
     let transferirListaDeDestinatariosId = document.getElementsByClassName("remetenteId")[idMensagemASerRespondida].value + ";";
-    document.getElementById("listaDeDestinatariosPorId").value = transferirListaDeDestinatariosId;
+    document.getElementById("listaDePessoasPorId").value = transferirListaDeDestinatariosId;
 
     let transferirListaDeDestinatariosNome = document.getElementsByClassName("remetenteNome")[idMensagemASerRespondida].value + "; ";
-    document.getElementById("listaDeDestinatariosPorNome").value = transferirListaDeDestinatariosNome;
+    document.getElementById("listaDePessoasPorNome").value = transferirListaDeDestinatariosNome;
 
     document.getElementById("mensagemRespondidaId").value = document.getElementsByClassName("mensagemRespondidaId")[idMensagemASerRespondida].value;
 
@@ -37,13 +37,13 @@ function abrirTelaDeResponderMensagem(idMensagemASerRespondida) {
 }
 
 function abrirTelaDeResponderMensagemParaTodosOsParticipantes(idMensagemASerRespondida, idRemetente = -1) {
-    let transferirListaDeDestinatariosId = document.getElementsByClassName("listaDeDestinatariosPorId")[idMensagemASerRespondida].value;
-    transferirListaDeDestinatariosId = document.getElementsByClassName("remetenteId")[idMensagemASerRespondida].value + ";" + transferirListaDeDestinatariosId;
-    document.getElementById("listaDeDestinatariosPorId").value = transferirListaDeDestinatariosId;
+    let transferirListaDeDestinatariosId = document.getElementsByClassName("listaDePessoasPorId")[idMensagemASerRespondida].value;
+    transferirListaDeDestinatariosId = document.getElementsByClassName("remetenteId")[idMensagemASerRespondida].value.replaceAll(";", ":") + ";" + transferirListaDeDestinatariosId;
+    document.getElementById("listaDePessoasPorId").value = transferirListaDeDestinatariosId;
 
-    let transferirListaDeDestinatariosNome = document.getElementsByClassName("listaDeDestinatariosPorNome")[idMensagemASerRespondida].value;
-    transferirListaDeDestinatariosNome = document.getElementsByClassName("remetenteNome")[idMensagemASerRespondida].value + "; " + transferirListaDeDestinatariosNome;
-    document.getElementById("listaDeDestinatariosPorNome").value = transferirListaDeDestinatariosNome;
+    let transferirListaDeDestinatariosNome = document.getElementsByClassName("listaDePessoasPorNome")[idMensagemASerRespondida].value;
+    transferirListaDeDestinatariosNome = document.getElementsByClassName("remetenteNome")[idMensagemASerRespondida].value.replaceAll(";", ":") + "; " + transferirListaDeDestinatariosNome;
+    document.getElementById("listaDePessoasPorNome").value = transferirListaDeDestinatariosNome;
 
     document.getElementById("mensagemRespondidaId").value = document.getElementsByClassName("mensagemRespondidaId")[idMensagemASerRespondida].value;
 
@@ -55,28 +55,30 @@ function fecharTelaDeResponderMensagem() {
 }
 
 function copiarValoresDaPaginaParaAsListasJavascript(idRemetente = -1) {
-    listaDestinatariosId = [];
-    listaDestinatariosNome = [];
+    listaPessoasId = [];
+    listaPessoasNome = [];
 
-    let selectListaDeDestinatariosPorId = document.getElementById("listaDeDestinatariosPorId").value;
-    let selectListaDeDestinatariosPorNome = document.getElementById("listaDeDestinatariosPorNome").value;
-    if (selectListaDeDestinatariosPorId != null && selectListaDeDestinatariosPorNome != null) {
-        let selectListaDeDestinatariosPorIdSplit = selectListaDeDestinatariosPorId.split(";");
-        let selectListaDeDestinatariosPorNomeSplit = selectListaDeDestinatariosPorNome.split(";");
+    let selectlistaDePessoasPorId = document.getElementById("listaDePessoasPorId").value;
+    let selectlistaDePessoasPorNome = document.getElementById("listaDePessoasPorNome").value;
+    if (selectlistaDePessoasPorId != null && selectlistaDePessoasPorNome != null) {
+        let selectlistaDePessoasPorIdSplit = selectlistaDePessoasPorId.split(";");
+        let selectlistaDePessoasPorNomeSplit = selectlistaDePessoasPorNome.split(";");
         let remetentePresenteNosDestinatarios = false;
-        for (i = 0; i < (selectListaDeDestinatariosPorIdSplit.length - 1); i++) {
-            if (selectListaDeDestinatariosPorIdSplit[i+1] == idRemetente) {
+        for (i = 0; i < (selectlistaDePessoasPorIdSplit.length - 1); i++) {
+            if (selectlistaDePessoasPorIdSplit[i+1] == idRemetente) {
                 remetentePresenteNosDestinatarios = true;
             }
-            listaDestinatariosId[i] = selectListaDeDestinatariosPorIdSplit[i];
-            listaDestinatariosNome[i] = selectListaDeDestinatariosPorNomeSplit[i];
+            listaPessoasId[i] = selectlistaDePessoasPorIdSplit[i];
+            listaPessoasNome[i] = selectlistaDePessoasPorNomeSplit[i];
         }
         if (remetentePresenteNosDestinatarios) {
-            removerDestinatarioDaLista(0);
+            removerPessoaDaLista(0);
         }
         document.getElementById("tela-responder-mensagem").style.display = "block";
 
-        exibirDestinatariosNaTela();
+        document.getElementById("conteudoMensagem").focus();
+
+        exibirListaDePessoasNaTela();
     }
 }
 

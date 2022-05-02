@@ -15,10 +15,25 @@ namespace App_comunicacao_escolar.Controllers
 
         public IActionResult Index()
         {
+            if (User.Identity != null) { 
+                if (User.Identity.IsAuthenticated)
+                {
+                    return RedirectToAction("AreaDoUsuario");
+                }
+            }
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult FaleConosco()
+        {
+            return View();
+        }
+
+        public IActionResult Solucoes()
+        {
+            return View();
+        }
+        public IActionResult AreaDoUsuario()
         {
             return View();
         }
@@ -31,7 +46,6 @@ namespace App_comunicacao_escolar.Controllers
 
         public IActionResult MsgUpdate()
         {
-           
             return PartialView("ContadorMsg");
         }
     }

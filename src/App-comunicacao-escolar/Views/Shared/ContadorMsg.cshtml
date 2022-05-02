@@ -1,1 +1,6 @@
-﻿@await Component.InvokeAsync("ContadorDeMensagensNovas", @ViewData["idUsuarioLogado"])
+﻿<!DOCTYPE html>
+<head>
+    <script src="~/js/updateMsg-check.js" asp-append-version="true"></script>
+</head>
+
+@await Component.InvokeAsync("ContadorDeMensagensNovas", @ViewData["idUsuarioLogado"])

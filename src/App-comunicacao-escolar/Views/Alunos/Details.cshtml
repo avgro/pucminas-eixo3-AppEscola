@@ -1,0 +1,63 @@
+﻿@model App_comunicacao_escolar.Models.Aluno
+
+@{
+    ViewData["Title"] = "Details";
+    string DataDeNascimento = Model.RemoverHorasDeDateTime(Model.DataDeNascimento);
+}
+
+<h1>Detalhes do aluno</h1>
+
+<div>
+    <h4>@Model.NomeAlunoComCodigoEntreParenteses</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome) @Html.DisplayFor(model => model.Sobrenome) 
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CodigoDoAluno)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CodigoDoAluno)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataDeNascimento)
+        </dt>
+        <dd class = "col-sm-10">
+            @DataDeNascimento
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Responsaveis)
+        </dt>
+        <dd class = "col-sm-10">
+            @if (Model.Responsaveis!= null) {
+                foreach (var responsavel in Model.Responsaveis) {
+                    if (responsavel.Usuario != null) {
+                        <span>
+                            @Html.DisplayFor(modelProfessor => responsavel.Usuario.NomeDisplayLista); 
+                        </span>
+                    }
+                }
+            }
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Turma)
+        </dt>
+        <dd class = "col-sm-10">
+            @if(Model.Turma != null) {
+                <text>@Html.DisplayFor(model => model.Turma!.NomeComCodigoEntreParenteses)</text>
+            }
+            else 
+            {
+                 <text>Nenhuma</text>
+            }
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Editar</a> |
+    <a asp-action="Index">Voltar</a>
+</div>
