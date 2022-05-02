@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using App_comunicacao_escolar.Models;
 using X.PagedList;
+using Microsoft.AspNetCore.Authorization;
 
 namespace App_comunicacao_escolar.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AlunosController : Controller
     {
         private readonly ApplicationDbContext _context;

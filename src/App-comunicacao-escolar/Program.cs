@@ -47,10 +47,9 @@ app.UseRouting();
 
 app.UseCookiePolicy();
 
-app.UseAuthorization();
-
 app.UseAuthentication();
 
+app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",

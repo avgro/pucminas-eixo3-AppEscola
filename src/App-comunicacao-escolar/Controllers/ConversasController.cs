@@ -9,9 +9,11 @@ using Microsoft.EntityFrameworkCore;
 using App_comunicacao_escolar.Models;
 using System.Security.Claims;
 using X.PagedList;
+using Microsoft.AspNetCore.Authorization;
 
 namespace App_comunicacao_escolar.Controllers
 {
+    [Authorize]
     public class ConversasController : CommonController
     {
         private readonly ApplicationDbContext _context;

@@ -37,7 +37,8 @@
                         @foreach (MensagemArquivosAnexados anexo in mensagem.Anexos)
                         {
                                 <span class="caixa-itens-listados">@anexo.NomeOriginalDoArquivo 
-                                    <span>@Html.ActionLink("Download", "DownloadFile", anexo)</span></span>
+                                    <span>&nbsp @Html.ActionLink("Download", "DownloadFile", anexo) &nbsp</span>
+                                </span>
                         }
                     </div>
                 }

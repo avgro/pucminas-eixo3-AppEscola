@@ -14,9 +14,10 @@ using FluentEmail.Core;
 using System.Text;
 using FluentEmail.Razor;
 using X.PagedList;
+using Microsoft.AspNetCore.Authorization;
 
 namespace App_comunicacao_escolar.Controllers
-{
+{  
     public class UsuariosController : CommonController
     {
         private readonly ApplicationDbContext _context;
@@ -115,12 +116,14 @@ namespace App_comunicacao_escolar.Controllers
             await HttpContext.SignOutAsync();
             return RedirectToAction("Login", "Usuarios");
         }
+        [AllowAnonymous]
         public IActionResult AccessDenied()
         {
             return View();
         }
 
         // GET: Usuarios
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index(string searchString, string tipoUsuario, int pagina = 1)
         {
             try { 
@@ -161,6 +164,7 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: Usuarios/Details/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Details(int? id, string tipoUsuario)
         {
             try { 
@@ -192,6 +196,7 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: Usuarios/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create(string tipoDeUsuario)
         {
             return View();
@@ -267,8 +272,8 @@ namespace App_comunicacao_escolar.Controllers
             }
         }
 
-
         // GET: Usuarios/EnviarCredenciais
+        [Authorize(Roles = "Admin")]
         public IActionResult EnviarCredenciais()
         {
             try
@@ -313,6 +318,7 @@ namespace App_comunicacao_escolar.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EnviarCredenciais([Bind("nomeCompleto")] string nomeCompleto, [Bind("enderecoEmail")] string enderecoEmail, [Bind("nomeDeUsuario")] string nomeDeUsuario, [Bind("senhaMandarEmail")] string senhaMandarEmail, [Bind("assuntoEmailCredenciais")] string assuntoEmailCredenciais, [Bind("mensagemEmailCredenciais")] string mensagemEmailCredenciais)
         {
@@ -359,6 +365,7 @@ namespace App_comunicacao_escolar.Controllers
 
 
         // GET: Usuarios/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             try
@@ -386,6 +393,7 @@ namespace App_comunicacao_escolar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Sobrenome,NomeDeUsuario,Senha,Email,TelefoneMovel,TelefoneFixo,Logradouro,Cidade,Estado,Cep,Perfil")] Usuario usuarioNovasInformacoes, 
             [Bind("professorFormacao")] string professorFormacao, 
             [Bind("professorNivel")] NivelDoProfessorEnum professorNivel)
@@ -492,6 +500,7 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: Usuarios/Edit/5
+        [Authorize]
         public async Task<IActionResult> AlterarDados(int? id)
         {
             try
@@ -527,6 +536,7 @@ namespace App_comunicacao_escolar.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AlterarDados(int id, [Bind("Id,Nome,Sobrenome,NomeDeUsuario,Senha,Email,TelefoneMovel,TelefoneFixo,Logradouro,Cidade,Estado,Cep,Perfil")] Usuario usuarioNovasInformacoes,
             [Bind("NovaSenha")] string novaSenha, [Bind("NovaSenha")] string novaSenhaRepetir)
@@ -618,6 +628,7 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: Usuarios/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             try
@@ -649,6 +660,7 @@ namespace App_comunicacao_escolar.Controllers
 
         // POST: Usuarios/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {

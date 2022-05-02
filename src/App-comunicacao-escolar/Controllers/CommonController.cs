@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace App_comunicacao_escolar.Controllers
 {
@@ -40,7 +41,7 @@ namespace App_comunicacao_escolar.Controllers
                 return BadRequest();
             }
         }
-
+        [Authorize]
         public FileResult DownloadFile(MensagemArquivosAnexados anexo)
         {
             string fileName = "";

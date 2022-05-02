@@ -190,6 +190,7 @@
                                         </a>
                                     </li>
                                 }
+                                @if(User.IsInRole("Admin")){
                                     @if(ViewData["Controller"]!.Equals("Usuarios"))
                                     {
                                         <li class="p-0 item-menu item-menu-selecionado">
@@ -234,7 +235,7 @@
                                             <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Alunos" asp-action="Index">Gerenciar alunos</a>
                                         </li>
                                     }           
-
+                                }
                             </ul>
                         </div>
                     </div>
