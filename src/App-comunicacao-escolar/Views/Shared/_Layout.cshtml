@@ -171,50 +171,6 @@
                                         <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AreaDoUsuario">Painel inicial</a>
                                     </li>
                                 }
-                                @if(ViewData["Controller"]!.Equals("Usuarios"))
-                                {
-                                    <li class="p-0 item-menu item-menu-selecionado">
-                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">Gerenciar usuários</a>
-                                    </li>
-                                }
-                                else{
-                                    <li class="p-0 item-menu">
-                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">Gerenciar usuários</a>
-                                    </li>
-                                }
-                                @if(ViewData["Controller"]!.Equals("Disciplinas"))
-                                {
-                                    <li class="p-0 item-menu item-menu-selecionado">
-                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Disciplinas" asp-action="Index">Gerenciar disciplinas</a>
-                                    </li>
-                                }
-                                else{
-                                    <li class="p-0 item-menu">
-                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Disciplinas" asp-action="Index">Gerenciar disciplinas</a>
-                                    </li>
-                                }
-                                @if(ViewData["Controller"]!.Equals("Turmas"))
-                                {
-                                    <li class="p-0 item-menu item-menu-selecionado">
-                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Turmas" asp-action="Index">Gerenciar turmas</a>
-                                    </li>
-                                }
-                                else{
-                                    <li class="p-0 item-menu">
-                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Turmas" asp-action="Index">Gerenciar turmas</a>
-                                    </li>
-                                }
-                                @if(ViewData["Controller"]!.Equals("Alunos"))
-                                {
-                                    <li class="p-0 item-menu item-menu-selecionado">
-                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Alunos" asp-action="Index">Gerenciar alunos</a>
-                                    </li>
-                                }
-                                else{
-                                    <li class="p-0 item-menu">
-                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Alunos" asp-action="Index">Gerenciar alunos</a>
-                                    </li>
-                                }
                                 @if(ViewData["Controller"]!.Equals("Conversas"))
                                 {
                                     <li class="p-0 item-menu item-menu-selecionado )">
@@ -234,7 +190,50 @@
                                         </a>
                                     </li>
                                 }
-                                
+                                    @if(ViewData["Controller"]!.Equals("Usuarios"))
+                                    {
+                                        <li class="p-0 item-menu item-menu-selecionado">
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">Gerenciar usuários</a>
+                                        </li>
+                                    }
+                                    else{
+                                        <li class="p-0 item-menu">
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">Gerenciar usuários</a>
+                                        </li>
+                                    }
+                                    @if(ViewData["Controller"]!.Equals("Disciplinas"))
+                                    {
+                                        <li class="p-0 item-menu item-menu-selecionado">
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Disciplinas" asp-action="Index">Gerenciar disciplinas</a>
+                                        </li>
+                                    }
+                                    else{
+                                        <li class="p-0 item-menu">
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Disciplinas" asp-action="Index">Gerenciar disciplinas</a>
+                                        </li>
+                                    }
+                                    @if(ViewData["Controller"]!.Equals("Turmas"))
+                                    {
+                                        <li class="p-0 item-menu item-menu-selecionado">
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Turmas" asp-action="Index">Gerenciar turmas</a>
+                                        </li>
+                                    }
+                                    else{
+                                        <li class="p-0 item-menu">
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Turmas" asp-action="Index">Gerenciar turmas</a>
+                                        </li>
+                                    }
+                                    @if(ViewData["Controller"]!.Equals("Alunos"))
+                                    {
+                                        <li class="p-0 item-menu item-menu-selecionado">
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Alunos" asp-action="Index">Gerenciar alunos</a>
+                                        </li>
+                                    }
+                                    else{
+                                        <li class="p-0 item-menu">
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Alunos" asp-action="Index">Gerenciar alunos</a>
+                                        </li>
+                                    }           
 
                             </ul>
                         </div>

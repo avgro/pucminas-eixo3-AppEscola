@@ -8,34 +8,40 @@
 
 <h4>Novo aluno</h4>
 <hr />
+
+@if (@ViewData["Error"] != null){
+      // Usada para que o Javascript saiba se o backend retornou error após a submissão do formulário
+     <div hidden id="validation-error">@ViewData["Error"]</div>
+}
+
 <div class="row">
     <div>
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <h5 class="mt-2">Informações do aluno</h5>
             <div class="form-group input-size-standard">
-                <label asp-for="Nome" class="control-label"></label>
+                <label asp-for="Nome" class="control-label"></label> *
                 <input asp-for="Nome" class="form-control" />
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
             <div class="form-group input-size-standard">
-                <label asp-for="Sobrenome" class="control-label"></label>
+                <label asp-for="Sobrenome" class="control-label"></label> *
                 <input asp-for="Sobrenome" class="form-control" />
                 <span asp-validation-for="Sobrenome" class="text-danger"></span>
             </div>
             <div class="form-group input-size-standard">
-                <label asp-for="CodigoDoAluno" class="control-label"></label>
+                <label asp-for="CodigoDoAluno" class="control-label"></label> *
                 <input asp-for="CodigoDoAluno" class="form-control" />
                 <span asp-validation-for="CodigoDoAluno" class="text-danger"></span>
             </div>
             <div class="form-group input-size-standard">
-                <label asp-for="DataDeNascimento" class="control-label"></label>
+                <label asp-for="DataDeNascimento" class="control-label"></label> *
                 <input type ="date" asp-for="DataDeNascimento" class="form-control" />
                 <span asp-validation-for="DataDeNascimento" class="text-danger"></span>
             </div>
             <h5 class="mt-2">Responsaveis do aluno</h5>
             <div class="form-group input-size-2x">
-                <label for="pessoaId" class="control-label">Selecionar responsaveis do aluno</label>
+                <label for="pessoaId" class="control-label">Selecionar responsaveis do aluno</label> *
                 <select id="pessoaId" name="Responsaveis" class ="form-control form-select" asp-items="ViewBag.ResponsavelId">
                 </select>
                 <button type="button" class="btn btn-primary my-2" onclick="adicionarPessoaNaLista()">Adicionar responsável</button>
@@ -47,13 +53,15 @@
             </div>
             <h5 class="mt-2">Selecionar turma</h5>
             <div class="form-group input-size-standard">
-                <label asp-for="TurmaId" class="control-label"></label>
+                <label asp-for="TurmaId" class="control-label"></label> *
                 <select asp-for="TurmaId" class ="form-control form-select" asp-items="ViewBag.TurmaId">
                 </select>
                 <span asp-validation-for="TurmaId" class="text-danger"></span>
             </div>
+            <hr />
+            <i>Campos marcados com "*" são obrigatórios</i>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary my-2" />
+                <input type="submit" value="Cadastrar aluno" class="btn btn-primary my-2" />
             </div>
         </form>
     </div>

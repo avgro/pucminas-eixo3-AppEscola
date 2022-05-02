@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using App_comunicacao_escolar.Models;
+using X.PagedList;
 
 namespace App_comunicacao_escolar.Controllers
 {
@@ -20,27 +21,52 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: Turmas
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString, int pagina = 1)
         {
-            return View(await _context.Turmas.OrderBy(t => t.NomeComCodigoEntreParenteses).ToListAsync());
+            try
+            {
+                var applicationDbContext = _context.Turmas.OrderBy(t => t.NomeComCodigoEntreParenteses);
+
+                var turmas = from t in applicationDbContext select t;
+
+                turmas = turmas.OrderBy(t => t.NomeComCodigoEntreParenteses);
+
+                if (searchString != null)
+                {
+                    turmas = turmas.Where(t => t.NomeComCodigoEntreParenteses.Contains(searchString));
+                }
+
+                return View(await turmas.ToPagedListAsync(pagina, 50));
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         // GET: Turmas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
+            try
             {
-                return NotFound();
-            }
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
-            var turma = await _context.Turmas.Include(t => t.Disciplinas.OrderBy(d => d.NomeComCodigoEntreParenteses)).Include(t => t.Alunos.OrderBy(a => a.NomeAlunoComCodigoEntreParenteses))
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (turma == null)
+                var turma = await _context.Turmas.Include(t => t.Disciplinas.OrderBy(d => d.NomeComCodigoEntreParenteses)).Include(t => t.Alunos.OrderBy(a => a.NomeAlunoComCodigoEntreParenteses))
+                    .FirstOrDefaultAsync(m => m.Id == id);
+                if (turma == null)
+                {
+                    return NotFound();
+                }
+
+                return View(turma);
+            }
+            catch
             {
-                return NotFound();
+                return BadRequest();
             }
-
-            return View(turma);
         }
 
         // GET: Turmas/Create
@@ -56,31 +82,55 @@ namespace App_comunicacao_escolar.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nome,Codigo,NomeComCodigoEntreParenteses")] Turma turma)
         {
-            turma.NomeComCodigoEntreParenteses = turma.Nome + " (" + turma.Codigo + ")";
-            if (ModelState.IsValid)
+            try
             {
-                _context.Add(turma);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("GerenciarDisciplinas", new {id = turma.Id});
+                turma.Codigo = turma.Codigo.Trim();
+                List<string> listarErrosDeValidacao = IsValidCustomizado(turma);
+                while (listarErrosDeValidacao.Count > 0)
+                {
+                    ViewData["Error"] = "Error";
+                    ModelState.AddModelError(listarErrosDeValidacao[0], listarErrosDeValidacao[1]);
+                    ViewData[listarErrosDeValidacao[0]] = listarErrosDeValidacao[1];
+                    listarErrosDeValidacao.RemoveRange(0, 2);
+                }
+
+                if (ModelState.IsValid)
+                {
+                    turma.NomeComCodigoEntreParenteses = turma.Nome + " (" + turma.Codigo + ")";
+                    _context.Add(turma);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("GerenciarDisciplinas", new { id = turma.Id });
+                }
+                return View(turma);
             }
-            return View(turma);
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         // GET: Turmas/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
+            try
             {
-                return NotFound();
-            }
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
-            var turma = await _context.Turmas.FindAsync(id);
-            if (turma == null)
-            {
-                return NotFound();
+                var turma = await _context.Turmas.FindAsync(id);
+                if (turma == null)
+                {
+                    return NotFound();
+                }
+                ViewData["DisciplinaId"] = new SelectList(_context.Disciplinas.Where(d => d.TurmaId == null).OrderBy(d => d.NomeComCodigoEntreParenteses), "Id", "NomeComCodigoEntreParenteses");
+                return View(turma);
             }
-            ViewData["DisciplinaId"] = new SelectList(_context.Disciplinas.Where(d => d.TurmaId == null).OrderBy(d => d.NomeComCodigoEntreParenteses), "Id", "NomeComCodigoEntreParenteses");
-            return View(turma);
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         // POST: Turmas/Edit/5
@@ -90,52 +140,74 @@ namespace App_comunicacao_escolar.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Codigo,NomeComCodigoEntreParenteses")] Turma turma)
         {
-            if (id != turma.Id)
+            try
             {
-                return NotFound();
-            }
+                if (id != turma.Id)
+                {
+                    return NotFound();
+                }
 
-            turma.NomeComCodigoEntreParenteses = turma.Nome + " (" + turma.Codigo + ")";
-            
-            if (ModelState.IsValid)
-            {
-                try
+                turma.Codigo = turma.Codigo.Trim();
+                List<string> listarErrosDeValidacao = IsValidCustomizado(turma, turma.Id);
+                while (listarErrosDeValidacao.Count > 0)
                 {
-                    _context.Update(turma);
-                    await _context.SaveChangesAsync();
+                    ViewData["Error"] = "Error";
+                    ModelState.AddModelError(listarErrosDeValidacao[0], listarErrosDeValidacao[1]);
+                    ViewData[listarErrosDeValidacao[0]] = listarErrosDeValidacao[1];
+                    listarErrosDeValidacao.RemoveRange(0, 2);
                 }
-                catch (DbUpdateConcurrencyException)
+                if (ModelState.IsValid)
                 {
-                    if (!TurmaExists(turma.Id))
+                    try
                     {
-                        return NotFound();
+                        turma.NomeComCodigoEntreParenteses = turma.Nome + " (" + turma.Codigo + ")";
+                        _context.Update(turma);
+                        await _context.SaveChangesAsync();
                     }
-                    else
+                    catch (DbUpdateConcurrencyException)
                     {
-                        throw;
+                        if (!TurmaExists(turma.Id))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
                     }
+                    return RedirectToAction("GerenciarDisciplinas", new { id = turma.Id });
                 }
-                return RedirectToAction("GerenciarDisciplinas", new { id = turma.Id });
+                return View(turma);
             }
-            return View(turma);
+            catch
+            {
+                return BadRequest();
+            }
         }
 
 
         // GET: Turmas/GerenciarDisciplinas/5
         public async Task<IActionResult> GerenciarDisciplinas(int? id, int? tentarAssociarDisciplina)
         {
-            if (id == null)
+            try
             {
-                return NotFound();
-            }
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
-            var turma = await _context.Turmas.Include(t => t.Disciplinas.OrderBy(d => d.NomeComCodigoEntreParenteses)).ThenInclude(d => d.HorariosDaDisciplina).FirstOrDefaultAsync(t => t.Id == id);
-            if (turma == null)
-            {
-                return NotFound();
+                var turma = await _context.Turmas.Include(t => t.Disciplinas.OrderBy(d => d.NomeComCodigoEntreParenteses)).ThenInclude(d => d.HorariosDaDisciplina).FirstOrDefaultAsync(t => t.Id == id);
+                if (turma == null)
+                {
+                    return NotFound();
+                }
+                ViewData["DisciplinaId"] = new SelectList(_context.Disciplinas.Where(d => d.TurmaId == null).OrderBy(d => d.NomeComCodigoEntreParenteses), "Id", "NomeComCodigoEntreParenteses");
+                return View(turma);
             }
-            ViewData["DisciplinaId"] = new SelectList(_context.Disciplinas.Where(d => d.TurmaId == null).OrderBy(d => d.NomeComCodigoEntreParenteses), "Id", "NomeComCodigoEntreParenteses");
-            return View(turma);
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         // POST: Turmas/GerenciarDisciplinas/5
@@ -249,19 +321,26 @@ namespace App_comunicacao_escolar.Controllers
         // GET: Turmas/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
+            try
             {
-                return NotFound();
-            }
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
-            var turma = await _context.Turmas.Include(t => t.Disciplinas.OrderBy(d => d.NomeComCodigoEntreParenteses)).Include(t => t.Alunos.OrderBy(a => a.NomeAlunoComCodigoEntreParenteses))
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (turma == null)
+                var turma = await _context.Turmas.Include(t => t.Disciplinas.OrderBy(d => d.NomeComCodigoEntreParenteses)).Include(t => t.Alunos.OrderBy(a => a.NomeAlunoComCodigoEntreParenteses))
+                    .FirstOrDefaultAsync(m => m.Id == id);
+                if (turma == null)
+                {
+                    return NotFound();
+                }
+
+                return View(turma);
+            }
+            catch
             {
-                return NotFound();
+                return BadRequest();
             }
-
-            return View(turma);
         }
 
         // POST: Turmas/Delete/5
@@ -269,15 +348,33 @@ namespace App_comunicacao_escolar.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var turma = await _context.Turmas.FindAsync(id);
-            _context.Turmas.Remove(turma);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                var turma = await _context.Turmas.FindAsync(id);
+                _context.Turmas.Remove(turma);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         private bool TurmaExists(int id)
         {
             return _context.Turmas.Any(e => e.Id == id);
+        }
+        private List<string> IsValidCustomizado(Turma turma, int idTurmaSendoAtualizada = 0)
+        {
+            List<string> errorMessage = new();
+            if (_context.Turmas.Any(t => t.Codigo == turma.Codigo && t.Id != idTurmaSendoAtualizada))
+            {
+                errorMessage.Add("Codigo");
+                errorMessage.Add("Código já utilizado por outra turma!");
+            }
+
+            return errorMessage;
         }
     }
 }

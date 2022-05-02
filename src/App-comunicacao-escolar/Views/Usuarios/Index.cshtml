@@ -1,4 +1,7 @@
-﻿@model IEnumerable<App_comunicacao_escolar.Models.Usuario>
+﻿@using X.PagedList.Mvc;
+@using X.PagedList.Mvc.Core
+@model X.PagedList.StaticPagedList<App_comunicacao_escolar.Models.Usuario>
+
 
 @{
     ViewData["Title"] = "Index";
@@ -45,7 +48,7 @@
 {
     <div>
         Buscar usuario por nome ou código:<br> @Html.TextBox("searchString")
-        <input id="Submit1" type="submit" value="Filtrar"/>
+        <input id="Submit1" type="submit" value="Buscar"/>
     </div>
 }
 
@@ -53,7 +56,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nome)
+                Nome
             </th>
             <th>
                 <span class="whitespace-nowrap">Nome de</span> Usuário
@@ -95,6 +98,23 @@
 }
     </tbody>
 </table>
+
+@if (Model.Count() == 0)
+{   
+    <div class="col-12 m-2 alert-warning p-3 text-center">Nenhum usuário encontrado</div>
+}
+<div class="row">
+    <div class="col-md-8">
+        @Html.PagedListPager(Model, pagina => Url.Action("Index", new {pagina, secao = @ViewData["TituloDaSecao"]}), new X.PagedList.Web.Common.PagedListRenderOptions
+               {                       
+                        DisplayLinkToIndividualPages = true,
+                        DisplayPageCountAndCurrentLocation = false,
+                        LiElementClasses = new string[] { "page-item" },
+                   PageClasses = new string[] { "page-link" },
+                   
+                    })
+    </div>
+</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -8,6 +8,7 @@ namespace App_comunicacao_escolar.Models
     {
         [Key]
         public int Id { get; set; }
+        [Display(Name = "Nome da turma")]
         [Required(ErrorMessage = "Inserir nome da turma!")]
         [MaxLength(50)]
         public string? Nome { get; set; }

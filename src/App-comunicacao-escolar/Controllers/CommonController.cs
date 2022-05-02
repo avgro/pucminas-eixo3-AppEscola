@@ -59,11 +59,6 @@ namespace App_comunicacao_escolar.Controllers
             }
         }
 
-        public void Upload()
-        {
-            
-        }
-
         // Metodos comuns
         public int GetIdUsuarioLogado()
         {

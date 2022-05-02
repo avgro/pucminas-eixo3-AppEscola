@@ -46,7 +46,6 @@ namespace App_comunicacao_escolar.Controllers
 
         public IActionResult MsgUpdate()
         {
-           
             return PartialView("ContadorMsg");
         }
     }

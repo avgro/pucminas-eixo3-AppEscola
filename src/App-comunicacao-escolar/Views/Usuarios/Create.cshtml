@@ -14,7 +14,8 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             
             <div class="form-group input-size-1halfx">
-                <h5 class="mt-2"><label asp-for="Perfil" class="control-label"></label></h5>
+                <h5 class="mt-2">Tipo de usuário</h5>
+                <label asp-for="Perfil" class="control-label"></label> *
                 <select onchange="mostrarCamposAdicionaisPorUsuario()" asp-for="Perfil" class="form-control form-select"
                 asp-items="Html.GetEnumSelectList<PerfilUsuarioSelecionavelEnum>()">
                 </select>
@@ -22,29 +23,29 @@
             </div>
             <h5 class="mt-2">Nome completo</h5>
             <div class="form-group input-size-standard">
-                <label asp-for="Nome" class="control-label"></label>
+                <label asp-for="Nome" class="control-label"></label> *
                 <input asp-for="Nome" class="form-control" />
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
             <div class="form-group input-size-standard">
-                <label asp-for="Sobrenome" class="control-label"></label>
+                <label asp-for="Sobrenome" class="control-label"></label> *
                 <input asp-for="Sobrenome" class="form-control" />
                 <span asp-validation-for="Sobrenome" class="text-danger"></span>
             </div>
             <h5 class="mt-2">Informações de login</h5>
             <div class="form-group input-size-standard">
-                <label asp-for="NomeDeUsuario" class="control-label"></label>
+                <label asp-for="NomeDeUsuario" class="control-label"></label> *
                 <input asp-for="NomeDeUsuario" class="form-control" />
                 <span asp-validation-for="NomeDeUsuario" class="text-danger"></span>
             </div>
             <div class="form-group input-size-standard">
-                <label asp-for="Senha" class="control-label"></label>
+                <label asp-for="Senha" class="control-label"></label> *
                 <input asp-for="Senha" class="form-control" />
                 <span asp-validation-for="Senha" class="text-danger"></span>
             </div>
             <h5 class="mt-2">Informações de contato</h5>
             <div class="form-group input-size-standard">
-                <label asp-for="Email" class="control-label"></label>
+                <label asp-for="Email" class="control-label"></label> *
                 <input asp-for="Email" class="form-control" placeholder="email@email.com.br" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
@@ -60,23 +61,23 @@
             </div>
             <h5 class="mt-2">Endereço</h5>
             <div class="form-group input-size-2halfx">
-                <label asp-for="Logradouro" class="control-label"></label>
+                <label asp-for="Logradouro" class="control-label"></label> *
                 <input asp-for="Logradouro" class="form-control" />
                 <span asp-validation-for="Logradouro" class="text-danger"></span>
             </div>
             <div class="d-flex">
                 <div class="form-group input-size-standard">
-                    <label asp-for="Cidade" class="control-label"></label>
+                    <label asp-for="Cidade" class="control-label"></label> *
                     <input asp-for="Cidade" class="form-control" />
                     <span asp-validation-for="Cidade" class="text-danger"></span>
                 </div>
-                <div class="form-group input-size-quarter mx-3">
-                    <label asp-for="Estado" class="control-label"></label>
+                <div class="form-group input-size-quarter mx-4">
+                    <span class="whitespace-nowrap"><label asp-for="Estado" class="control-label"></label> *</span>
                     <input asp-for="Estado" class="form-control" />
                     <span asp-validation-for="Estado" class="text-danger"></span>
                 </div>
                 <div class="form-group input-size-3quarters">
-                    <label asp-for="Cep" class="control-label"></label>
+                    <label asp-for="Cep" class="control-label"></label> *
                     <input onkeyup="formatarCep(Cep)" asp-for="Cep" class="form-control" />
                     <span asp-validation-for="Cep" class="text-danger"></span>
                 </div>
@@ -85,12 +86,12 @@
                 <h5 class="mt-2">Informações do Professor</h5>
                 @try {
                 <div class="form-group input-size-standard">
-                    <label asp-for="Professor!.Formacao" class="control-label"></label>
+                    <label asp-for="Professor!.Formacao" class="control-label"></label> *
                     <input asp-for="Professor!.Formacao" name="professorFormacao" class="form-control" value="Nenhuma" />
                     <span asp-validation-for="Professor!.Formacao" data-valmsg-for="professorFormacao" class="text-danger"></span>
                 </div>
                 <div class="form-group input-size-standard">
-                    <label asp-for="Professor!.Nivel" class="control-label">Nível</label>
+                    <label asp-for="Professor!.Nivel" class="control-label">Nível</label> *
                     <select asp-for="Professor!.Nivel" name="professorNivel" class="form-control form-select"
                     asp-items="Html.GetEnumSelectList<NivelDoProfessorEnum>()">
                     </select>
@@ -103,8 +104,9 @@
                 }
             </div>
             <hr />
+            <i>Campos marcados com "*" são obrigatórios</i>
             <div class="form-group my-2">
-                <input type="submit" value="Criar novo usuário" class="btn btn-primary" />
+                <input type="submit" value="Cadastrar novo usuário" class="btn btn-primary" />
             </div>
         </form>
     </div>

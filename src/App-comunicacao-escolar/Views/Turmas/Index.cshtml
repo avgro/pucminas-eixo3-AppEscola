@@ -1,4 +1,6 @@
-﻿@model IEnumerable<App_comunicacao_escolar.Models.Turma>
+﻿@using X.PagedList.Mvc;
+@using X.PagedList.Mvc.Core
+@model X.PagedList.StaticPagedList<App_comunicacao_escolar.Models.Turma>
 
 @{
     ViewData["Title"] = "Index";
@@ -6,17 +8,24 @@
 
 <h1>Lista de turmas</h1>
 
-<div class="d-flex justify-content-between my-4">
+<div class="d-flex justify-content-between my-4 whitespace-nowrap">
     <a class="btn btn-primary" asp-action="Create">Cadastrar turma</a>
 </div>
+@using (Html.BeginForm("Index", "Turmas", new { secao = @ViewData["TituloDaSecao"] }, FormMethod.Post))
+{
+    <div>
+        Buscar turma por nome ou código:<br> @Html.TextBox("searchString")
+        <input id="Submit1" type="submit" value="Buscar"/>
+    </div>
+}
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nome)
+                Nome
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Codigo)
+                Código
             </th>
             <th>
                 Disciplinas
@@ -53,3 +62,15 @@
 {   
     <div class="col-12 m-2 alert-warning p-3 text-center">Nenhuma turma encontrada</div>
 }
+<div class="row">
+    <div class="col-md-8">
+        @Html.PagedListPager(Model, pagina => Url.Action("Index", new {pagina, secao = @ViewData["TituloDaSecao"]}), new X.PagedList.Web.Common.PagedListRenderOptions
+               {                       
+                        DisplayLinkToIndividualPages = true,
+                        DisplayPageCountAndCurrentLocation = false,
+                        LiElementClasses = new string[] { "page-item" },
+                   PageClasses = new string[] { "page-link" },
+                   
+                    })
+    </div>
+</div>

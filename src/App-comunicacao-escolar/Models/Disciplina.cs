@@ -8,6 +8,7 @@ namespace App_comunicacao_escolar.Models
     {
         [Key]
         public int Id { get; set; }
+        [Display(Name = "Nome da disciplina")]
         [Required(ErrorMessage = "Inserir nome da disciplina!")]
         [MaxLength(50)]
         public string? Nome { get; set; }

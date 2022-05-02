@@ -13,6 +13,7 @@ using System.Net.Mail;
 using FluentEmail.Core;
 using System.Text;
 using FluentEmail.Razor;
+using X.PagedList;
 
 namespace App_comunicacao_escolar.Controllers
 {
@@ -63,44 +64,52 @@ namespace App_comunicacao_escolar.Controllers
         [HttpPost]
         public async Task<IActionResult> Login([Bind("NomeDeUsuario,Senha")] Usuario usuario)
         {
-            var user = await _context.Usuarios
-                .FirstOrDefaultAsync(m => m.NomeDeUsuario == usuario.NomeDeUsuario);
-            if (user == null)
+            try
             {
-                ViewBag.Message = "Usuário e/ou Senha inválidos!";
-                return View();
-            }
+                var user = await _context.Usuarios
+                    .FirstOrDefaultAsync(m => m.NomeDeUsuario == usuario.NomeDeUsuario);
+                if (user == null)
+                {
+                    ViewBag.Message = "Usuário e/ou Senha inválidos!";
+                    return View();
+                }
 
-            bool isSenhaOk = BCrypt.Net.BCrypt.Verify(usuario.Senha, user.Senha);
+                bool isSenhaOk = BCrypt.Net.BCrypt.Verify(usuario.Senha, user.Senha);
 
-            if (isSenhaOk)
-            {
-                var claims = new List<Claim>
+                if (isSenhaOk)
+                {
+                    var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.Name, user.Nome),
                     new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                     new Claim(ClaimTypes.Role, user.Perfil.ToString())
                 };
 
-                var userIdentity = new ClaimsIdentity(claims, "login");
+                    var userIdentity = new ClaimsIdentity(claims, "login");
 
-                ClaimsPrincipal principal = new(userIdentity);
+                    ClaimsPrincipal principal = new(userIdentity);
 
-                var props = new AuthenticationProperties
-                {
-                    AllowRefresh = true,
-                    ExpiresUtc = DateTime.UtcNow.ToLocalTime().AddDays(7),
-                    IsPersistent = true
-                };
+                    var props = new AuthenticationProperties
+                    {
+                        AllowRefresh = true,
+                        ExpiresUtc = DateTime.UtcNow.ToLocalTime().AddDays(7),
+                        IsPersistent = true
+                    };
 
-                await HttpContext.SignInAsync(principal, props);
+                    await HttpContext.SignInAsync(principal, props);
 
-                return Redirect("/");
+                    return Redirect("/");
+                }
+
+                ViewBag.Message = "Usuário e/ou Senha inválidos!";
+                return View();
             }
-
-            ViewBag.Message = "Usuário e/ou Senha inválidos!";
-            return View();
+            catch
+            {
+                return BadRequest();
+            }
         }
+
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
@@ -112,7 +121,7 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: Usuarios
-        public async Task<IActionResult> Index(string searchString, string tipoUsuario)
+        public async Task<IActionResult> Index(string searchString, string tipoUsuario, int pagina = 1)
         {
             try { 
                 var applicationDbContext = _context.Usuarios;
@@ -142,7 +151,8 @@ namespace App_comunicacao_escolar.Controllers
                 {
                     ViewData["TipoDeUsuario"] = "";
                 }
-                return View(await usuarios.ToListAsync());
+
+                return View(await usuarios.ToPagedListAsync(pagina, 50));
             }
             catch
             {
@@ -194,95 +204,109 @@ namespace App_comunicacao_escolar.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nome,Sobrenome,NomeDeUsuario,Senha,Email,TelefoneMovel,TelefoneFixo,Logradouro,Cidade,Estado,Cep,Perfil")] Usuario usuario, [Bind("professorFormacao")] string professorFormacao, [Bind("professorNivel")] NivelDoProfessorEnum professorNivel)
         {
-            usuario = FormatarInputs(usuario);
-            List<string> listarErrosDeValidacao = IsValidCustomizado(usuario);
-            
-            Professor professor = new();
-            if (usuario.Perfil.ToString().Equals("Professor"))
-            {   
-                professor.Usuario = usuario;
-                professor.Formacao = professorFormacao;
-                professor.Nivel = professorNivel;
-            }
-
-            Responsavel responsavel = new();
-            if (usuario.Perfil.ToString().Equals("ResponsavelAluno"))
+            try
             {
-                responsavel.Usuario = usuario;
-            }
+                usuario = FormatarInputs(usuario);
+                List<string> listarErrosDeValidacao = IsValidCustomizado(usuario);
 
-            while (listarErrosDeValidacao.Count > 0)
-            {
-                ViewData["Error"] = "Error";
-                ModelState.AddModelError(listarErrosDeValidacao[0], listarErrosDeValidacao[1]);
-                ViewData[listarErrosDeValidacao[0]] = listarErrosDeValidacao[1];
-                listarErrosDeValidacao.RemoveRange(0, 2);
-            }
-            if (ModelState.IsValid)
-            {
-                // Preparar conteudo do email com credenciais do usuário
-
-                TempData["enderecoEmail"] = usuario.Email;
-                TempData["nomeCompleto"] = usuario.Nome + " " + usuario.Sobrenome;
-                TempData["nomeDeUsuario"] = usuario.NomeDeUsuario;
-                TempData["senhaMandarEmail"] = usuario.Senha;
-                TempData["assuntoEmailCredenciais"] = "Sua conta de usuário do AppEscola foi criada!";
-                TempData["mensagemEmailCredenciais"] = "Sua conta no AppEscola foi criada pelo Administrador, utilize as credenciais de acesso abaixo para realizar seu login: </p>";
-                TempData["sucessoViewCredenciais"] = "Usuário criado com sucesso!";
-
-                // -----------------------------------------------------
-
-                usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
-                usuario.NomeDisplayLista = usuario.Nome + " " + usuario.Sobrenome + " (" + usuario.NomeDeUsuario + ")";
-                _context.Add(usuario);
+                Professor professor = new();
                 if (usuario.Perfil.ToString().Equals("Professor"))
                 {
-                    _context.Add(professor);
+                    professor.Usuario = usuario;
+                    professor.Formacao = professorFormacao;
+                    professor.Nivel = professorNivel;
                 }
+
+                Responsavel responsavel = new();
                 if (usuario.Perfil.ToString().Equals("ResponsavelAluno"))
                 {
-                    _context.Add(responsavel);
+                    responsavel.Usuario = usuario;
                 }
-                await _context.SaveChangesAsync();
 
-                return RedirectToAction(nameof(EnviarCredenciais));
+                while (listarErrosDeValidacao.Count > 0)
+                {
+                    ViewData["Error"] = "Error";
+                    ModelState.AddModelError(listarErrosDeValidacao[0], listarErrosDeValidacao[1]);
+                    ViewData[listarErrosDeValidacao[0]] = listarErrosDeValidacao[1];
+                    listarErrosDeValidacao.RemoveRange(0, 2);
+                }
+                if (ModelState.IsValid)
+                {
+                    // Preparar conteudo do email com credenciais do usuário
+
+                    TempData["enderecoEmail"] = usuario.Email;
+                    TempData["nomeCompleto"] = usuario.Nome + " " + usuario.Sobrenome;
+                    TempData["nomeDeUsuario"] = usuario.NomeDeUsuario;
+                    TempData["senhaMandarEmail"] = usuario.Senha;
+                    TempData["assuntoEmailCredenciais"] = "Sua conta de usuário do AppEscola foi criada!";
+                    TempData["mensagemEmailCredenciais"] = "Sua conta no AppEscola foi criada pelo Administrador, utilize as credenciais de acesso abaixo para realizar seu login: </p>";
+                    TempData["sucessoViewCredenciais"] = "Usuário criado com sucesso!";
+
+                    // -----------------------------------------------------
+
+                    usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
+                    usuario.NomeDisplayLista = usuario.Nome + " " + usuario.Sobrenome + " (" + usuario.NomeDeUsuario + ")";
+                    _context.Add(usuario);
+                    if (usuario.Perfil.ToString().Equals("Professor"))
+                    {
+                        _context.Add(professor);
+                    }
+                    if (usuario.Perfil.ToString().Equals("ResponsavelAluno"))
+                    {
+                        _context.Add(responsavel);
+                    }
+                    await _context.SaveChangesAsync();
+
+                    return RedirectToAction(nameof(EnviarCredenciais));
+                }
+                return View(usuario);
             }
-            return View(usuario);
+            catch
+            {
+                return BadRequest();
+            }
         }
 
 
         // GET: Usuarios/EnviarCredenciais
         public IActionResult EnviarCredenciais()
         {
-            if (TempData.ContainsKey("sucessoViewCredenciais"))
+            try
             {
-                ViewData["sucessoViewCredenciais"] = TempData["sucessoViewCredenciais"].ToString();
+                if (TempData.ContainsKey("sucessoViewCredenciais"))
+                {
+                    ViewData["sucessoViewCredenciais"] = TempData["sucessoViewCredenciais"].ToString();
+                }
+                else
+                {
+                    return Forbid();
+                }
+
+                if (TempData.ContainsKey("enderecoEmail"))
+
+                    ViewData["enderecoEmail"] = TempData["enderecoEmail"].ToString();
+
+                if (TempData.ContainsKey("nomeCompleto"))
+                    ViewData["nomeCompleto"] = TempData["nomeCompleto"].ToString();
+
+                if (TempData.ContainsKey("nomeDeUsuario"))
+                    ViewData["nomeDeUsuario"] = TempData["nomeDeUsuario"].ToString();
+
+                if (TempData.ContainsKey("senhaMandarEmail"))
+                    ViewData["senhaMandarEmail"] = TempData["senhaMandarEmail"].ToString();
+
+                if (TempData.ContainsKey("assuntoEmailCredenciais"))
+                    ViewData["assuntoEmailCredenciais"] = TempData["assuntoEmailCredenciais"].ToString();
+
+                if (TempData.ContainsKey("mensagemEmailCredenciais"))
+                    ViewData["mensagemEmailCredenciais"] = TempData["mensagemEmailCredenciais"].ToString();
+
+                return View();
             }
-            else
+            catch
             {
-                return Forbid();
+                return BadRequest();
             }
-
-            if (TempData.ContainsKey("enderecoEmail")) 
- 
-                ViewData["enderecoEmail"] = TempData["enderecoEmail"].ToString();
-
-            if (TempData.ContainsKey("nomeCompleto"))
-                ViewData["nomeCompleto"] = TempData["nomeCompleto"].ToString();
-
-            if (TempData.ContainsKey("nomeDeUsuario"))
-                ViewData["nomeDeUsuario"] = TempData["nomeDeUsuario"].ToString();
-
-            if (TempData.ContainsKey("senhaMandarEmail"))
-                ViewData["senhaMandarEmail"] = TempData["senhaMandarEmail"].ToString();
-
-            if (TempData.ContainsKey("assuntoEmailCredenciais"))
-                ViewData["assuntoEmailCredenciais"] = TempData["assuntoEmailCredenciais"].ToString();
-
-            if (TempData.ContainsKey("mensagemEmailCredenciais"))
-                ViewData["mensagemEmailCredenciais"] = TempData["mensagemEmailCredenciais"].ToString();
-
-            return View();
         }
 
         // POST: Usuarios/Create
@@ -337,17 +361,24 @@ namespace App_comunicacao_escolar.Controllers
         // GET: Usuarios/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
+            try
             {
-                return NotFound();
-            }
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
-            var usuario = await _context.Usuarios.Include(u => u.Professor).FirstOrDefaultAsync(u => u.Id == id);
-            if (usuario == null)
-            {
-                return NotFound();
+                var usuario = await _context.Usuarios.Include(u => u.Professor).FirstOrDefaultAsync(u => u.Id == id);
+                if (usuario == null)
+                {
+                    return NotFound();
+                }
+                return View(usuario);
             }
-            return View(usuario);
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         // POST: Usuarios/Edit/5
@@ -359,121 +390,137 @@ namespace App_comunicacao_escolar.Controllers
             [Bind("professorFormacao")] string professorFormacao, 
             [Bind("professorNivel")] NivelDoProfessorEnum professorNivel)
         {
-            if (id != usuarioNovasInformacoes.Id)
+            try
             {
-                return NotFound();
-            }
-
-
-            Usuario usuario = await _context.Usuarios.Include(u => u.Professor).FirstOrDefaultAsync(u => u.Id == id);
-
-            // Verificar se nome de usuario ou senha foram alterados
-            bool nomeDeUsuarioOuSenhaAlterados = false;
-            if (!usuario.NomeDeUsuario.Equals(usuarioNovasInformacoes.NomeDeUsuario))
-            {
-                nomeDeUsuarioOuSenhaAlterados = true;
-            }
-            if (!BCrypt.Net.BCrypt.Verify(usuarioNovasInformacoes.Senha, usuario.Senha))
-            {
-                nomeDeUsuarioOuSenhaAlterados = true;
-            }
-
-            // Manter mesmo perfil
-            usuario.Nome = usuarioNovasInformacoes.Nome;
-            usuario.Sobrenome = usuarioNovasInformacoes.Sobrenome;
-            usuario.NomeDeUsuario = usuarioNovasInformacoes.NomeDeUsuario;
-            usuario.Senha = usuarioNovasInformacoes.Senha;
-            usuario.Email = usuarioNovasInformacoes.Email;
-            usuario.TelefoneMovel = usuarioNovasInformacoes.TelefoneMovel;
-            usuario.TelefoneFixo = usuarioNovasInformacoes.TelefoneFixo;
-            usuario.Logradouro = usuarioNovasInformacoes.Logradouro;
-            usuario.Cidade = usuarioNovasInformacoes.Cidade;
-            usuario.Estado = usuarioNovasInformacoes.Estado;
-            usuario.Cep = usuarioNovasInformacoes.Cep;
-            
-            if (usuario.Professor != null)
-            {
-                usuario.Professor.Nivel = professorNivel;
-                usuario.Professor.Formacao = professorFormacao;
-            }
-
-            usuario = FormatarInputs(usuario);
-            List<string> listarErrosDeValidacao = IsValidCustomizado(usuario, usuario.Id);
-            while (listarErrosDeValidacao.Count > 0)
-            {
-                ViewData["Error"] = "Error";
-                ModelState.AddModelError(listarErrosDeValidacao[0], listarErrosDeValidacao[1]);
-                ViewData[listarErrosDeValidacao[0]] = listarErrosDeValidacao[1];
-                listarErrosDeValidacao.RemoveRange(0, 2);
-            }
-            if (ModelState.IsValid)
-            {
-                try
+                if (id != usuarioNovasInformacoes.Id)
                 {
-                    if (nomeDeUsuarioOuSenhaAlterados) { 
-                        // Preparar conteudo do email com credenciais do usuário
-
-                        TempData["enderecoEmail"] = usuario.Email;
-                        TempData["nomeCompleto"] = usuario.Nome + " " + usuario.Sobrenome;
-                        TempData["nomeDeUsuario"] = usuario.NomeDeUsuario;
-                        TempData["senhaMandarEmail"] = usuarioNovasInformacoes.Senha;
-                        TempData["assuntoEmailCredenciais"] = "Suas credenciais de acesso do AppEscola foram modificadas pelo Administrador!";
-                        TempData["mensagemEmailCredenciais"] = "Sua conta no AppEscola foi modificada pelo Administrador, seguem suas novas credenciais de acesso: </p>";
-                        TempData["sucessoViewCredenciais"] = "Usuário alterado com sucesso!";
-
-                        // -----------------------------------------------------
-                    }
-                    usuario.NomeDisplayLista = usuario.Nome + " " + usuario.Sobrenome + " (" + usuario.NomeDeUsuario + ")";
-                    usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
-
-                    _context.Update(usuario);
-                    await _context.SaveChangesAsync();
+                    return NotFound();
                 }
-                catch (DbUpdateConcurrencyException)
+
+
+                Usuario usuario = await _context.Usuarios.Include(u => u.Professor).FirstOrDefaultAsync(u => u.Id == id);
+
+                // Verificar se nome de usuario ou senha foram alterados
+                bool nomeDeUsuarioOuSenhaAlterados = false;
+                if (!usuario.NomeDeUsuario.Equals(usuarioNovasInformacoes.NomeDeUsuario))
                 {
-                    if (!UsuarioExists(usuario.Id))
+                    nomeDeUsuarioOuSenhaAlterados = true;
+                }
+                if (!BCrypt.Net.BCrypt.Verify(usuarioNovasInformacoes.Senha, usuario.Senha))
+                {
+                    nomeDeUsuarioOuSenhaAlterados = true;
+                }
+
+                // Manter mesmo perfil
+                usuario.Nome = usuarioNovasInformacoes.Nome;
+                usuario.Sobrenome = usuarioNovasInformacoes.Sobrenome;
+                usuario.NomeDeUsuario = usuarioNovasInformacoes.NomeDeUsuario;
+                usuario.Senha = usuarioNovasInformacoes.Senha;
+                usuario.Email = usuarioNovasInformacoes.Email;
+                usuario.TelefoneMovel = usuarioNovasInformacoes.TelefoneMovel;
+                usuario.TelefoneFixo = usuarioNovasInformacoes.TelefoneFixo;
+                usuario.Logradouro = usuarioNovasInformacoes.Logradouro;
+                usuario.Cidade = usuarioNovasInformacoes.Cidade;
+                usuario.Estado = usuarioNovasInformacoes.Estado;
+                usuario.Cep = usuarioNovasInformacoes.Cep;
+
+                if (usuario.Professor != null)
+                {
+                    usuario.Professor.Nivel = professorNivel;
+                    usuario.Professor.Formacao = professorFormacao;
+                }
+
+                usuario = FormatarInputs(usuario);
+                List<string> listarErrosDeValidacao = IsValidCustomizado(usuario, usuario.Id);
+                while (listarErrosDeValidacao.Count > 0)
+                {
+                    ViewData["Error"] = "Error";
+                    ModelState.AddModelError(listarErrosDeValidacao[0], listarErrosDeValidacao[1]);
+                    ViewData[listarErrosDeValidacao[0]] = listarErrosDeValidacao[1];
+                    listarErrosDeValidacao.RemoveRange(0, 2);
+                }
+                if (ModelState.IsValid)
+                {
+                    try
                     {
-                        return NotFound();
+                        if (nomeDeUsuarioOuSenhaAlterados)
+                        {
+                            // Preparar conteudo do email com credenciais do usuário
+
+                            TempData["enderecoEmail"] = usuario.Email;
+                            TempData["nomeCompleto"] = usuario.Nome + " " + usuario.Sobrenome;
+                            TempData["nomeDeUsuario"] = usuario.NomeDeUsuario;
+                            TempData["senhaMandarEmail"] = usuarioNovasInformacoes.Senha;
+                            TempData["assuntoEmailCredenciais"] = "Suas credenciais de acesso do AppEscola foram modificadas pelo Administrador!";
+                            TempData["mensagemEmailCredenciais"] = "Sua conta no AppEscola foi modificada pelo Administrador, seguem suas novas credenciais de acesso: </p>";
+                            TempData["sucessoViewCredenciais"] = "Usuário alterado com sucesso!";
+
+                            // -----------------------------------------------------
+                        }
+                        usuario.NomeDisplayLista = usuario.Nome + " " + usuario.Sobrenome + " (" + usuario.NomeDeUsuario + ")";
+                        usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
+
+                        _context.Update(usuario);
+                        await _context.SaveChangesAsync();
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (!UsuarioExists(usuario.Id))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
+                    if (nomeDeUsuarioOuSenhaAlterados)
+                    {
+                        return RedirectToAction(nameof(EnviarCredenciais));
                     }
                     else
                     {
-                        throw;
+                        return RedirectToAction(nameof(Index));
                     }
                 }
-                if (nomeDeUsuarioOuSenhaAlterados)
-                {
-                    return RedirectToAction(nameof(EnviarCredenciais));
-                }
-                else { 
-                    return RedirectToAction(nameof(Index));
-                }
+                return View(usuario);
             }
-            return View(usuario);
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         // GET: Usuarios/Edit/5
         public async Task<IActionResult> AlterarDados(int? id)
         {
-            if (id == null)
+            try
             {
-                return NotFound();
-            }
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
-            if (id != GetIdUsuarioLogado())
+                if (id != GetIdUsuarioLogado())
+                {
+                    return Forbid();
+                }
+
+                var usuario = await _context.Usuarios.FindAsync(id);
+                if (usuario == null)
+                {
+                    return NotFound();
+                }
+
+                if (TempData.ContainsKey("MensagemDeSucesso"))
+                    ViewData["MensagemDeSucesso"] = TempData["MensagemDeSucesso"].ToString();
+
+                return View(usuario);
+            }
+            catch
             {
-                return Forbid();
+                return BadRequest();
             }
-
-            var usuario = await _context.Usuarios.FindAsync(id);
-            if (usuario == null)
-            {
-                return NotFound();
-            }
-
-            if (TempData.ContainsKey("MensagemDeSucesso"))
-                ViewData["MensagemDeSucesso"] = TempData["MensagemDeSucesso"].ToString();
-
-            return View(usuario);
         }
 
         // POST: Usuarios/AlterarDados/5
@@ -484,104 +531,120 @@ namespace App_comunicacao_escolar.Controllers
         public async Task<IActionResult> AlterarDados(int id, [Bind("Id,Nome,Sobrenome,NomeDeUsuario,Senha,Email,TelefoneMovel,TelefoneFixo,Logradouro,Cidade,Estado,Cep,Perfil")] Usuario usuarioNovasInformacoes,
             [Bind("NovaSenha")] string novaSenha, [Bind("NovaSenha")] string novaSenhaRepetir)
         {
-            if (id != GetIdUsuarioLogado())
+            try
             {
-                return Forbid();
-            }
-
-            Usuario usuario = await _context.Usuarios.FindAsync(id);
-
-            var user = await _context.Usuarios
-                .FirstOrDefaultAsync(m => m.NomeDeUsuario == usuario.NomeDeUsuario);
-
-            bool isSenhaOk = false;
-            if (usuarioNovasInformacoes.Senha != null) {
-                isSenhaOk = BCrypt.Net.BCrypt.Verify(usuarioNovasInformacoes.Senha, user.Senha);
-            }
-            if (isSenhaOk)
-            {
-                usuario.Email = usuarioNovasInformacoes.Email;
-                usuario.TelefoneMovel = usuarioNovasInformacoes.TelefoneMovel;
-                usuario.TelefoneFixo = usuarioNovasInformacoes.TelefoneFixo;
-                usuario.Logradouro = usuarioNovasInformacoes.Logradouro;
-                usuario.Cidade = usuarioNovasInformacoes.Cidade;
-                usuario.Estado = usuarioNovasInformacoes.Estado;
-                usuario.Cep = usuarioNovasInformacoes.Cep;
-
-            }
-            else
-            {
-                ModelState.AddModelError("", "");
-            }
-
-            if (novaSenha != null) {
-                if (novaSenha.Equals(novaSenhaRepetir) && isSenhaOk)
+                if (id != GetIdUsuarioLogado())
                 {
-                    usuario.Senha = BCrypt.Net.BCrypt.HashPassword(novaSenha);
+                    return Forbid();
+                }
+
+                Usuario usuario = await _context.Usuarios.FindAsync(id);
+
+                var user = await _context.Usuarios
+                    .FirstOrDefaultAsync(m => m.NomeDeUsuario == usuario.NomeDeUsuario);
+
+                bool isSenhaOk = false;
+                if (usuarioNovasInformacoes.Senha != null)
+                {
+                    isSenhaOk = BCrypt.Net.BCrypt.Verify(usuarioNovasInformacoes.Senha, user.Senha);
+                }
+                if (isSenhaOk)
+                {
+                    usuario.Email = usuarioNovasInformacoes.Email;
+                    usuario.TelefoneMovel = usuarioNovasInformacoes.TelefoneMovel;
+                    usuario.TelefoneFixo = usuarioNovasInformacoes.TelefoneFixo;
+                    usuario.Logradouro = usuarioNovasInformacoes.Logradouro;
+                    usuario.Cidade = usuarioNovasInformacoes.Cidade;
+                    usuario.Estado = usuarioNovasInformacoes.Estado;
+                    usuario.Cep = usuarioNovasInformacoes.Cep;
+
                 }
                 else
                 {
                     ModelState.AddModelError("", "");
                 }
-            }
 
-            usuario = FormatarInputs(usuario);
-            List<string> listarErrosDeValidacao = IsValidCustomizado(usuario, usuario.Id);
-            while (listarErrosDeValidacao.Count > 0)
-            {
-                ViewData["Error"] = "Error";
-                ModelState.AddModelError(listarErrosDeValidacao[0], listarErrosDeValidacao[1]);
-                ViewData[listarErrosDeValidacao[0]] = listarErrosDeValidacao[1];
-                listarErrosDeValidacao.RemoveRange(0, 2);
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
+                if (novaSenha != null)
                 {
-                    usuario.NomeDisplayLista = usuario.Nome + " " + usuario.Sobrenome + " (" + usuario.NomeDeUsuario + ")";
-                    _context.Update(usuario);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!UsuarioExists(usuario.Id))
+                    if (novaSenha.Equals(novaSenhaRepetir) && isSenhaOk)
                     {
-                        return NotFound();
+                        usuario.Senha = BCrypt.Net.BCrypt.HashPassword(novaSenha);
                     }
                     else
                     {
-                        throw;
+                        ModelState.AddModelError("", "");
                     }
                 }
-                TempData["MensagemDeSucesso"] = "Dados alterados com sucesso!";
-                return RedirectToAction(nameof(AlterarDados));
+
+                usuario = FormatarInputs(usuario);
+                List<string> listarErrosDeValidacao = IsValidCustomizado(usuario, usuario.Id);
+                while (listarErrosDeValidacao.Count > 0)
+                {
+                    ViewData["Error"] = "Error";
+                    ModelState.AddModelError(listarErrosDeValidacao[0], listarErrosDeValidacao[1]);
+                    ViewData[listarErrosDeValidacao[0]] = listarErrosDeValidacao[1];
+                    listarErrosDeValidacao.RemoveRange(0, 2);
+                }
+
+                if (ModelState.IsValid)
+                {
+                    try
+                    {
+                        usuario.NomeDisplayLista = usuario.Nome + " " + usuario.Sobrenome + " (" + usuario.NomeDeUsuario + ")";
+                        _context.Update(usuario);
+                        await _context.SaveChangesAsync();
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (!UsuarioExists(usuario.Id))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
+                    TempData["MensagemDeSucesso"] = "Dados alterados com sucesso!";
+                    return RedirectToAction(nameof(AlterarDados));
+                }
+                ViewData["MensagemDeErro"] = "Dados não foram alterados!";
+                return View(usuario);
             }
-            ViewData["MensagemDeErro"] = "Dados não foram alterados!";
-            return View(usuario);
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         // GET: Usuarios/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
+            try
             {
-                return NotFound();
+                if (id == null)
+                {
+                    return NotFound();
+                }
+
+                var usuario = await _context.Usuarios
+                    .Include(u => u.Professor)
+                    .ThenInclude(p => p.Disciplinas.OrderBy(d => d.NomeComCodigoEntreParenteses))
+                    .Include(u => u.Responsavel)
+                    .ThenInclude(r => r.Alunos.OrderBy(a => a.NomeAlunoComCodigoEntreParenteses))
+                    .FirstOrDefaultAsync(m => m.Id == id);
+
+                if (usuario == null)
+                {
+                    return NotFound();
+                }
+
+                return View(usuario);
             }
-
-            var usuario = await _context.Usuarios
-                .Include(u => u.Professor)
-                .ThenInclude(p => p.Disciplinas.OrderBy(d => d.NomeComCodigoEntreParenteses))
-                .Include(u => u.Responsavel)
-                .ThenInclude(r => r.Alunos.OrderBy(a => a.NomeAlunoComCodigoEntreParenteses))
-                .FirstOrDefaultAsync(m => m.Id == id);
-
-            if (usuario == null)
+            catch
             {
-                return NotFound();
+                return BadRequest();
             }
-
-            return View(usuario);
         }
 
         // POST: Usuarios/Delete/5
@@ -589,14 +652,21 @@ namespace App_comunicacao_escolar.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var usuario = await _context.Usuarios.FindAsync(id);
-            if (usuario.Perfil.ToString().Equals("Admin"))
+            try
             {
-                return Forbid("Não é permitido deletar a conta de usuário do Adminisrador!");
+                var usuario = await _context.Usuarios.FindAsync(id);
+                if (usuario.Perfil.ToString().Equals("Admin"))
+                {
+                    return Forbid("Não é permitido deletar a conta de usuário do Adminisrador!");
+                }
+                _context.Usuarios.Remove(usuario);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
             }
-            _context.Usuarios.Remove(usuario);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         // Métodos
@@ -615,12 +685,12 @@ namespace App_comunicacao_escolar.Controllers
         private List<string> IsValidCustomizado(Usuario usuario, int idUsuarioSendoAtualizado = 0)
         {
             List<string> errorMessage = new();
-            if (_context.Usuarios.Any(x => x.NomeDeUsuario == usuario.NomeDeUsuario && x.Id != idUsuarioSendoAtualizado))
+            if (_context.Usuarios.Any(u => u.NomeDeUsuario == usuario.NomeDeUsuario && u.Id != idUsuarioSendoAtualizado))
             {
                 errorMessage.Add("NomeDeUsuario");
                 errorMessage.Add("Nome de usuário já utilizado por outro usuário!");
             }
-            if (_context.Usuarios.Any(x => x.Email == usuario.Email && x.Id != idUsuarioSendoAtualizado))
+            if (_context.Usuarios.Any(u => u.Email == usuario.Email && u.Id != idUsuarioSendoAtualizado))
             {
                 errorMessage.Add("Email");
                 errorMessage.Add("E-mail já utilizado por outro usuário!");

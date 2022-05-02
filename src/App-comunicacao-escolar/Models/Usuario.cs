@@ -26,6 +26,7 @@ namespace App_comunicacao_escolar.Models
         [MaxLength(100)]
         public string? Senha { get; set; }
         [MaxLength(320)]
+        [Required(ErrorMessage = "Obrigatório informar o email!")]
         [Display(Name = "E-mail")]
         public string? Email { get; set; }
         [MaxLength(14)]
