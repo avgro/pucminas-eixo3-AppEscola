@@ -21,6 +21,7 @@ namespace App_comunicacao_escolar.Models
         public DbSet<HorariosDaDisciplina>? HorariosDasDisciplinas { get; set; }
         public DbSet<Turma>? Turmas { get; set; }
         public DbSet<Agenda>? Agendas { get; set; }
+        public DbSet<EventoDaAgenda>? EventosDaAgenda { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

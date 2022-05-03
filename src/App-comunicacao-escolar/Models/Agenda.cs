@@ -12,5 +12,6 @@ namespace App_comunicacao_escolar.Models
         [Required(ErrorMessage = "Inserir nome da agenda!")]
         [MaxLength(50)]
         public string? Nome { get; set; }
+        public ICollection<EventoDaAgenda>? EventosDaAgenda { get; set; }
     }
 }

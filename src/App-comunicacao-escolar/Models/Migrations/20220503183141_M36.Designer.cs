@@ -4,6 +4,7 @@ using App_comunicacao_escolar.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App_comunicacao_escolar.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220503183141_M36")]
+    partial class M36
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -169,9 +171,6 @@ namespace App_comunicacao_escolar.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("AgendaId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime?>("FimDoEvento")
                         .IsRequired()
                         .HasColumnType("datetime2");
@@ -186,8 +185,6 @@ namespace App_comunicacao_escolar.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AgendaId");
 
                     b.ToTable("EventosDaAgenda");
                 });
@@ -551,15 +548,6 @@ namespace App_comunicacao_escolar.Migrations
                     b.Navigation("Turma");
                 });
 
-            modelBuilder.Entity("App_comunicacao_escolar.Models.EventoDaAgenda", b =>
-                {
-                    b.HasOne("App_comunicacao_escolar.Models.Agenda", "Agenda")
-                        .WithMany("EventosDaAgenda")
-                        .HasForeignKey("AgendaId");
-
-                    b.Navigation("Agenda");
-                });
-
             modelBuilder.Entity("App_comunicacao_escolar.Models.HorariosDaDisciplina", b =>
                 {
                     b.HasOne("App_comunicacao_escolar.Models.Disciplina", "Disciplina")
@@ -682,11 +670,6 @@ namespace App_comunicacao_escolar.Migrations
                         .HasForeignKey("ParticipantesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("App_comunicacao_escolar.Models.Agenda", b =>
-                {
-                    b.Navigation("EventosDaAgenda");
                 });
 
             modelBuilder.Entity("App_comunicacao_escolar.Models.Conversa", b =>

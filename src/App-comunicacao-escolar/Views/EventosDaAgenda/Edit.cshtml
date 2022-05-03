@@ -1,0 +1,46 @@
+﻿@model App_comunicacao_escolar.Models.EventoDaAgenda
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>EventoDaAgenda</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InicioDoEvento" class="control-label"></label>
+                <input asp-for="InicioDoEvento" class="form-control" />
+                <span asp-validation-for="InicioDoEvento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FimDoEvento" class="control-label"></label>
+                <input asp-for="FimDoEvento" class="form-control" />
+                <span asp-validation-for="FimDoEvento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AgendaId" class="control-label"></label>
+                <select asp-for="AgendaId" class="form-control" asp-items="ViewBag.AgendaId"></select>
+                <span asp-validation-for="AgendaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

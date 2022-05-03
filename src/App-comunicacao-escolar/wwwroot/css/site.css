@@ -748,5 +748,73 @@ max-width-100 {
     margin-left: 0.3em;
 }
 
+/* -------------- Agenda -------------- */
+
+.agenda-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 32px 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.agenda-nome-dias-da-semana {
+    width: 1fr;
+    text-align: center;
+    font-weight: 500;
+}
+.agenda-dia {
+    border: 1px solid lightgray;
+    border-radius: 2px;
+    margin: 2px;
+    min-height: 128px;
+}
+
+.agenda-dia-content {
+    padding-top: 1.5rem;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.agenda-numero-dia {
+    font-weight: 500;
+    position: absolute;
+    right: 6px;
+    top: 2px;
+}
+
+.agenda-content-fora-do-mes {
+    background-color: lightgray;
+}
+
+.agenda-content-dia-atual {
+    background-color: pink;
+}
+
+.mostrarMesAnoAtual{
+    margin-bottom: 12px;
+    margin-left: 12px;
+    margin-right: 12px;
+    width: 240px;
+    text-align: center;
+}
+
+.cardEvento {
+    border: 1px solid lightgray;
+    border-radius: 2px;
+    text-align: center;
+    background-color: rgb(240,240,240);
+    margin-bottom: 2px;
+    cursor: pointer;
+    word-wrap: anywhere;
+}
+
+.cardEvento:hover {
+    background-color: wheat;
+}
+
+@media (max-width: 768px) {
+    .agenda-dia {
+        min-height: 80px;
+    }
+}
+
 /* --------------   -------------- */
-@import url(./bootstrap.min.css);
