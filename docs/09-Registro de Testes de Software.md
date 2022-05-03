@@ -14,3 +14,12 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 | Objetivo do teste| Verificar se o sistema permite visualizar os usuários cadastrados no sistema.|
 |Resultado| O administrador consegue visualizar a lista de todos os usuários cadastros no sistema.|
 
+|Caso de Teste 03 | CT- 03 - Criar Conta de Usuário|
+|-------|-------------------------
+| Objetivo do teste| Verificar e testar se o sistema está cadastrando um Usuário Corretamente.|
+| Resultado| O administrador consegue verificar e testar o cadastro dos Usuários.|
+
+|Caso de Teste 16| CT- 16 - Realizar trocas de mensagens e documentos|
+|-------|-------------------------
+|Objetivo do teste| Verificar a funcionalidade de troca de mensagens, documentos, fotos e vídeos.|
+|Resultado| Os Usuários conseguem efetuar todas as atividades das trocas de mensagens e documentos.|
