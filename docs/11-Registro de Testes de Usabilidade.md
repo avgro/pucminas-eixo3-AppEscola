@@ -48,7 +48,7 @@
   <th>---------------------------------------</th></tr>
   </table>
   
-    <table> 
+   <table> 
 <tr><th>Caso de Teste </th>
 <th> CT - 05  – Testar uso de sistemas de trocas de Mensagens e Documentos pelo usuário </th></tr>
 <tr><th>Objetivo do teste</th>
@@ -60,6 +60,84 @@
 <tr><th>Melhoria</th>	
   <th>---------------------------------------</th></tr>
   </table>
+  
+  <table> 
+<tr><th>Caso de Teste </th>
+<th> CT - 06  –  Testar o uso da funcionalidade de busca de mensagens no sistema pelo usuário
+</th></tr>
+<tr><th>Objetivo do teste</th>
+  <th>Verificar se o usuário é capaz de localizar uma mensagem utilizando a barra de busca.</th></tr>
+<tr><th>Resultado</th>
+  <th>Usuários localizaram a barra de busca com facilidade e procura por mensagem foi concluída com sucesso.<br>
+  </th></tr>
+<tr><th>Melhoria</th>	
+  <th>---------------------------------------</th></tr>
+  </table>
+  
+  
+  <table> 
+<tr><th>Caso de Teste </th>
+<th> CT - 07  – Visualizar e cadastrar eventos na agenda escolar </th></tr>
+<tr><th>Objetivo do teste</th>
+  <th>Verificar se o usuário acessando uma conta do tipo "Responsável pelo aluno" é capaz de visualizar a agenda. Verificar se o usuário acessando uma conta do tipo "Administrador" ou "Professor" é capaz de adicionar eventos à agenda.</th></tr>
+<tr><th>Resultado</th>
+  <th> Teste será feito na quarta etapa<br>
+  </th></tr>
+<tr><th>Melhoria</th>	
+  <th>---------------------------------------</th></tr>
+  </table>
+  
+   <table> 
+<tr><th>Caso de Teste </th>
+<th> CT - 08  – Assinar autorização para participação do filho em evento </th></tr>
+<tr><th>Objetivo do teste</th>
+  <th>Verificar se o usuário acessando uma conta do tipo "Responsável pelo aluno" é capaz de autorizar a participação do filho em um evento escolar</th></tr>
+<tr><th>Resultado</th>
+  <th>Teste será feito na quarta etapa.<br>
+  </th></tr>
+<tr><th>Melhoria</th>	
+  <th>---------------------------------------</th></tr>
+  </table>
+  
+  <table> 
+<tr><th>Caso de Teste </th>
+<th> CT - 09  – Visualizar, cadastrar e comentar publicação na linha do tempo </th></tr>
+<tr><th>Objetivo do teste</th>
+  <th>Verificar se o usuário acessando uma conta do tipo "Responsável pelo aluno" é capaz de visualizar e comentar eventos na linha do tempo do filho.</th></tr>
+<tr><th>Resultado</th>
+  <th>Teste será feito na quarta etapa.<br>
+  </th></tr>
+<tr><th>Melhoria</th>	
+  <th>---------------------------------------</th></tr>
+  </table>
+  
+  <table> 
+<tr><th>Caso de Teste </th>
+<th> CT - 10  – Lançar e visualizar notificações no sistema. </th></tr>
+<tr><th>Objetivo do teste</th>
+  <th>Verificar se o usuário acessando uma conta do tipo "Administrador" é capaz de lançar e visualizar notificações no sistema. Verificar se o usuário logado nos demais tipos de conta são capazes de visualizar as notificações..</th></tr>
+<tr><th>Resultado</th>
+  <th>Tanto administrador como os outros usuários receberam as notificações.<br>
+  </th></tr>
+<tr><th>Melhoria</th>	
+  <th>---------------------------------------</th></tr>
+  </table>
+  
+  <table> 
+<tr><th>Caso de Teste </th>
+<th> CT - 11  – Alterar dados pessoais no sistema </th></tr>
+<tr><th>Objetivo do teste</th>
+  <th>Verificar se o usuário consegue acessar sua conta e alterar seus dados.</th></tr>
+<tr><th>Resultado</th>
+  <th>Teste será feito na quarta etapa.<br>
+  </th></tr>
+<tr><th>Melhoria</th>	
+  <th>---------------------------------------</th></tr>
+  </table>
+  
+  
+  
+  
   
   
     
