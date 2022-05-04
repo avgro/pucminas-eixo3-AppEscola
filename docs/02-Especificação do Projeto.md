@@ -83,7 +83,7 @@
 |RF-02|	A aplicação deve oferecer ao administrador do sistema a funcionalidade de criar contas de usuário para responsáveis do aluno, professores e outros funcionários, enviando as informações de login através de e-mail para os mesmos após a criação|	Alta|
 |RF-03|	A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis.|	Alta|
 |RF-04|	A aplicação deve permitir que o administrador do sistema associe um ou mais professores para cada disciplina cadastrada com um código distinto, sendo que disciplinas com o mesmo conteúdo podem ter códigos distintos em casos de múltiplas turmas com professores diferentes para cada uma.|	Alta|
-|RF-05|	A aplicação deve permitir que o administrador do sistema adicione ou remova alunos das turmas disponíveis, além de selecionar as disciplinas que serão ministradas para aquela turma|	Média|
+|RF-05|	A aplicação deve permitir que o administrador do sistema associe e troque alunos entre as turmas disponíveis, além de selecionar as disciplinas que serão ministradas para aquela turma|	Média|
 |RF-06|	A aplicação deve permitir que usuários que acessem suas contas alterem suas informações de contato, endereço e senha|	Alta|
 |RF-07|	A aplicação deve permitir a troca de mensagens online pelo aplicativo entre os responsáveis do aluno e os professores de seus filhos, além de outros contatos relevantes como funcionários da secretaria e setor financeiro|	Alta|
 |RF-08|	A aplicação deve permitir envio de documentos, fotos, vídeos e autorizações para eventos e passeios (que podem ser aceitos dentro do próprio aplicativo) para os responsáveis do aluno pelos funcionários da escola|	Média|
