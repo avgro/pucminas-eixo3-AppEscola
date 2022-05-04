@@ -1,6 +1,6 @@
 # Registro de Testes de Usabilidade
 
-<p align="justify">O teste de usabilidade foi executado por um integrante do grupo, o facilitador, e seis participantes com perfis semelhantes as personas descritas em nosso projeto. O teste foi executado de forma presencial, qualitativo, visando coletar insights, descobertas e anedotas sobre como as pessoas usam o site. Objetivando identificar problemas no projeto, descobrir oportunidades e aprender sobre o comportamento e as preferências do usuário - alvo..</p>
+<p align="justify">O teste de usabilidade foi executado por um integrante do grupo, o facilitador, e seis participantes com perfis semelhantes as personas descritas em nosso projeto. O teste foi executado de forma presencial, qualitativo, visando coletar insights, descobertas e anedotas sobre como as pessoas usam o site. Objetivando identificar problemas no projeto, descobrir oportunidades e aprender sobre o comportamento e as preferências do usuário - alvo.</p>
 
 Os participantes escolhidos foram:
 
@@ -89,41 +89,6 @@ Os resultados obtidos nos testes de usabilidade realizados são descritos na tab
   </table>
   
   
-  <table> 
-<tr><th>Caso de Teste </th>
-<th> CT - 07  – Visualizar e cadastrar eventos na agenda escolar </th></tr>
-<tr><th>Objetivo do teste</th>
-  <th>Verificar se o usuário acessando uma conta do tipo "Responsável pelo aluno" é capaz de visualizar a agenda. Verificar se o usuário acessando uma conta do tipo "Administrador" ou "Professor" é capaz de adicionar eventos à agenda.</th></tr>
-<tr><th>Resultado</th>
-  <th> Teste será feito na quarta etapa<br>
-  </th></tr>
-<tr><th>Melhoria</th>	
-  <th>---------------------------------------</th></tr>
-  </table>
-  
-   <table> 
-<tr><th>Caso de Teste </th>
-<th> CT - 08  – Assinar autorização para participação do filho em evento </th></tr>
-<tr><th>Objetivo do teste</th>
-  <th>Verificar se o usuário acessando uma conta do tipo "Responsável pelo aluno" é capaz de autorizar a participação do filho em um evento escolar</th></tr>
-<tr><th>Resultado</th>
-  <th>Teste será feito na quarta etapa.<br>
-  </th></tr>
-<tr><th>Melhoria</th>	
-  <th>---------------------------------------</th></tr>
-  </table>
-  
-  <table> 
-<tr><th>Caso de Teste </th>
-<th> CT - 09  – Visualizar, cadastrar e comentar publicação na linha do tempo </th></tr>
-<tr><th>Objetivo do teste</th>
-  <th>Verificar se o usuário acessando uma conta do tipo "Responsável pelo aluno" é capaz de visualizar e comentar eventos na linha do tempo do filho.</th></tr>
-<tr><th>Resultado</th>
-  <th>Teste será feito na quarta etapa.<br>
-  </th></tr>
-<tr><th>Melhoria</th>	
-  <th>---------------------------------------</th></tr>
-  </table>
   
   <table> 
 <tr><th>Caso de Teste </th>
@@ -137,17 +102,7 @@ Os resultados obtidos nos testes de usabilidade realizados são descritos na tab
   <th>---------------------------------------</th></tr>
   </table>
   
-  <table> 
-<tr><th>Caso de Teste </th>
-<th> CT - 11  – Alterar dados pessoais no sistema </th></tr>
-<tr><th>Objetivo do teste</th>
-  <th>Verificar se o usuário consegue acessar sua conta e alterar seus dados.</th></tr>
-<tr><th>Resultado</th>
-  <th>Teste será feito na quarta etapa.<br>
-  </th></tr>
-<tr><th>Melhoria</th>	
-  <th>---------------------------------------</th></tr>
-  </table>
+
   
   
   
