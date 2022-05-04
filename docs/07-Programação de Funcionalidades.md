@@ -29,7 +29,7 @@ A funcionalidade de login é acessada ao clicar no botão "Login" do cabeçalho 
 1. Faça o download do arquivo do projeto (ZIP) ou clone do projeto no GitHub;
 2. Abra o arquivo "App-comunicacao-escolar.sln" no Visual Studio;
 3. Execute o comando "update-database" no console do Package Manager para criar as tabelas do banco de dados localmente através dos arquivos "migrations" do Entity Framework Core;
-4. Rode o projeto no localhost:7060 utilizando o Visual Studio;
+5. Rode o projeto no Visual Studio, que abrirá uma janela do browser no endereço localhost:7060;
 5. Visualize a tela inicial/homepage do projeto;
 6. Clique no botão "Login" presente no canto direito do cabeçalho;
 7. Informe suas credenciais de login (caso nenhum usuário tenha sido cadastrado, utilizar nome de usuário "admin" e senha "admin" para acessar a conta do administrador);
@@ -78,7 +78,7 @@ A funcionalidade de cadastrar novos usuários no sistema é exclusiva para a con
 2. Abra o arquivo "App-comunicacao-escolar.sln" no Visual Studio;
 3. Execute o comando "update-database" no console do Package Manager para criar as tabelas do banco de dados localmente através dos arquivos "migrations" do Entity Framework Core;
 4. Criar uma pasta no diretório C: do seu computador chamada "AppEscolaMail" para recebimento local dos emails;
-5. Rode o projeto no localhost:7060 utilizando o Visual Studio;
+5. Rode o projeto no Visual Studio, que abrirá uma janela do browser no endereço localhost:7060;
 6. Visualize a tela inicial/homepage do projeto;
 7. Realizar login na conta de administrador (conforme as instruções da funcionalidade "Login e autenticação" contida nesta seção);
 8. Clicar na opção "Gerenciar usuários" do menu lateral;
