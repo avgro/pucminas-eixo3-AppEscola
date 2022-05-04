@@ -6,130 +6,152 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet"> 
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../css/main.css" />
+    <!-- Bootstrap CSS -->    
+    <link rel="stylesheet" href="../css/main.css" />    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">    
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!--Bootstrap Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
     <title>App Escola</title>
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
   </head>
   <body>
     <!--Header-->
     <div id="header">
       <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light " >
-         
-            <a class="navbar-brand" href="#">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navbar" >         
+            <a class="navbar-brand" href="index.html">
               <img src="../images/logo.svg" class="img-fluid" id="logo" />
-            </a>
-            <button
-              class="navbar-toggler" 
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNav"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">                                                                                     
-                <button class="btn btn-primary me-md-2 d-md-inline-block d-block" type="button" onclick="window.location.href='../pages/perfil.html'" id="perfil-btn">Página Inicial</button>                              
-                <button class="btn btn-primary me-md-2 d-md-inline-block d-block" type="button" onclick="window.location.href='../pages/perfil.html'" id="perfil-btn">Notificações</button>                              
-            </div>            
-            <div>               
-                <a href="#" class="mb-2" role="button"> 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
-                        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
-                    </svg>                    
-                </a>
-                <button class="btn btn-primary me-md-2 d-md-inline-block d-block" type="button" onclick="window.location.href='../pages/perfil.html'" id="perfil-btn">Perfil</button>                        
+            </a>                        
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item"> 
+                  <a class="nav-link active" aria-current="page" href="../index.html">Página Principal</a>                 
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./pages/solucoes.html">Soluções</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./pages/faleConosco.html">Fale Conosco</a>
+                </li>
+              </ul>
+                   <button class="btn btn-primary me-md-2 d-md-inline-block d-block" type="button" onclick="window.location.href='../index.html'" id="login-btn">Home</button>
             </div>            
           </div>
         </nav>
       </div>
     </div>
     <!--/Header-->
-    
-    <!--Conteudo-->
+   
+    <!-- Conteudo -->
     <div class="container">
+      <section class="ftco-section">      
         <div class="row">
-          <div class="col-sm-2 bg-secondary">
-                <div class="btn-group-vertical" role="group">
-                    </br>
-                    <a href="#" class="mb-2 btn btn-secondary rounded text-body bg-light" tabindex="-1" role="button" aria-disabled="false">Todos os usuários</a>                    
-                    <a href="#" class="mb-2 btn btn-secondary rounded text-body bg-light" tabindex="-1" role="button" aria-disabled="false">Agenda</a>                    
-                    <a href="#" class="mb-2 btn btn-secondary rounded text-body bg-light" tabindex="-1" role="button" aria-disabled="false">Mensagens</a>                    
-                    <a href="#" class="mb-2 btn btn-secondary rounded text-body bg-light" tabindex="-1" role="button" aria-disabled="false">Cadastar Usuário</a>                    
-                    <a href="#" class="mb-2 btn btn-secondary rounded text-body bg-light" tabindex="-1" role="button" aria-disabled="false">Cadastrar Aluno</a>                    
-                    <a href="#" class="mb-2 btn btn-secondary rounded text-body bg-light" tabindex="-1" role="button" aria-disabled="false">Cadastrar Turma</a>                    
-                    <a href="#" class="mb-2 btn btn-secondary rounded text-body bg-light" tabindex="-1" role="button" aria-disabled="false">Cadastrar Disciplina</a>                                       
-              </div>
-          </div>
-          <div class="col-sm">            
-                <div id="conteudo" class="row">
-                    
-                    <div class="rounded text-body bg-light border border-secondary">                    
-                        <form>
-                            </br>
-                            <div class="mb-2 form-group">
-                              <label for="imputassunto">Assunto</label>
-                              <input type="text" class="form-control" id="imputassunto"  placeholder="Assunto relacionado com a notificação">                              
-                            </div>
-                            <div class="mb-2 form-group">
-                              <label for="mesagemAenviar">Mensagem</label>                              
-                              <textarea class="form-control" id="mesagemAenviar" rows="3" placeholder="Mensagen a ser enviada"></textarea>
-                            </div>                            
-                            <div>                          
-                                <button type="submit" class="mb-2 btn btn-secondary rounded text-body bg-light float-right">Enviar notificação</button>
-                                <button type="submit" class="mb-2 btn btn-secondary rounded text-body bg-light float-right">Fechar</button>
-                            </div>
-                        </form>
-                    </div>  
-                    </br>
-                    <div class="rounded text-body bg-light border"></div>                       
-                    <div  class="rounded text-body bg-light border border-secondary d-flex justify-content-center">                    
-                        </br>
-                        </br>         
-                        <h4>Agenda</h4>
-                        </br>
-                        </br>
-                        </br>
-                    </div>  
-                </div>
-            </div>         
-        </div>
-    </div>
-    <!--/Conteudo-->
-    
-
-
-    <!--Footer-->
-    <footer id="contato">
-        <div class="container">
-            <div class="rodape py-4">
-                <div class="row">
-                    <div class="col-md-6 align-self-center logo-footer">
-                        <img src="../images/logo.svg" class="img-fluid" alt="">
-                    </div>
-                    <div class="col-md-6 contato-footer">
-                        <ul>
-                            <li><a href="#">Contato</a></li>
-                            <li><a href="#">Privacidade</a></li>
-                            <li><a href="#">Endereço</a></li>
-                            
-                        </ul>
-                    </div>
-                </div>
-
+          <div class="col">
+            <div class="btn-group-vertical border">                          
+                <button type="button" class="btn btn-dark" onclick="window.location.href='../index.html'">Todos os usuários</button>
+                <button type="button" class="btn btn-dark" onclick="window.location.href='../index.html'">Agenda</button>
+                <button type="button" class="btn btn-dark" onclick="window.location.href='../index.html'">Mensagens</button>
+                <button type="button" class="btn btn-dark" onclick="window.location.href='../index.html'">Cadastrar usuário</button>
+                <button type="button" class="btn btn-dark" onclick="window.location.href='../index.html'">Cadastar aluno</button>
+                <button type="button" class="btn btn-dark" onclick="window.location.href='../index.html'">Cadastar turma</button>
+                <button type="button" class="btn btn-dark" onclick="window.location.href='../index.html'">Cadastar disciplina</button>            
             </div>
+          </div>
+          <div class="col">
+            <div class="mb">
+              <label for="textassunto" class="form-label">Assunto</label>
+              <input type="text" class="form-control" id="textassunto" placeholder="Assunto">
+            </div>
+            <div class="mb">
+              <label for="textmsg" class="form-label">Mensagem</label>
+              <textarea class="form-control" id="textmsg" rows="3"></textarea>
+            </div>
+            <div class="mb">
+              <br>
+              <form>
+                <button class="btn btn-dark" type="submit">Lançar notificação</button> 
+                <button class="btn btn-dark" type="submit">Fechar</button> 
+              </form>
+            </div>
+          </div>
+        </div>      
+      </section>
+    </div>    
 
+    <!--/Conteudo-->
+
+    
+   <!-- FOOTER -->
+    <footer class="container-fluid bg-dark-color" id="footer">
+      <div class="container">
+        <div class="row">
+          
+          <!-- FOOTER DETAILS -->
+          <div class="col-12" id="footer-details">
+            <div class="row">
+              <div class="col-12 col-md-4" id="news-container">
+                <h4>Fique por dentro das novidades</h4>
+                <p class="secondary-color">
+                  Inscreva-se para saber em primeira mão
+                </p>
+                <form>
+                  <div class="mb-3">
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="Digite o seu e-mail"
+                    />
+                  </div>
+                  <button class="btn btn-dark" type="submit">Inscrever</button>
+                </form>
+              </div>
+              <div class="col-12 col-md-4" id="contact-container">
+                <h4>Formas de contato</h4>
+                <p class="secondary-color">(31)9999-9999</p>
+                <p class="secondary-color">contato@appescola.com</p>
+              </div>
+              <div class="col-12 col-md-4" id="links-container">
+                <div class="row">
+                  <h4>Você pode estar buscando por:</h4>
+                 
+                  <div class="col-6">
+                    <ul class="list-unstyled">
+                      <li><a href="#" class="secondary-color">Contratar</a></li>
+                      <li>
+                        <a href="#" class="secondary-color">Trabalhe conosco</a>
+                      </li>
+                      <li><a href="#" class="secondary-color">Contato</a></li>
+                      <li><a href="#" class="secondary-color">Privacidade</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- FOOTER BOTTOM -->
+          <div class="col-12" id="footer-bottom">
+            <div class="row justify-content-between">
+              <div class="col-12 col-md-3">
+                <p class="secondary-color">AppEscola &copy; 2022</p>
+              </div>
+              <div class="col-12 col-md-3">
+                <p class="secondary-color">
+                  Seus filhos cuidados com 
+                  <i class="bi bi-heart"></i>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </footer>
-    <!--/Footer-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-      crossorigin="anonymous"
-    ></script>
+    <!--/Footer-->    
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.js"></script>    
+    <script src="../js/main.js"></script>
     <script src="../js/bootstrap.min.js"></script>
   </body>
 </html>
