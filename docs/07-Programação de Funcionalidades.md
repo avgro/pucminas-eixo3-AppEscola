@@ -43,7 +43,7 @@ A funcionalidade de cadastrar novos usuários no sistema é exclusiva para a con
 ### Requisitos atendidos
 - RF-02
 - RF-03
-- 
+
 ### Artefatos da funcionalidade
 - Usuario.cs
 - Professor.cs
