@@ -54,8 +54,7 @@
 <tr><th>Objetivo do teste</th>
   <th>Verificar a trocas de mensagens, documentos, fotos e vídeos.</th></tr>
 <tr><th>Resultado</th>
-  <th>Usuário administrador conseguiu cadastrar alunos e associa lo a um ou mais responsáveis e turma
------------------.<br>
+  <th>Todos usuários testados conseguiram enviar mensagens e documentos.<br>
   </th></tr>
 <tr><th>Melhoria</th>	
   <th>---------------------------------------</th></tr>
