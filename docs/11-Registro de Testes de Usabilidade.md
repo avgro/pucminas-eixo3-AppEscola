@@ -1,5 +1,15 @@
 # Registro de Testes de Usabilidade
 
+<p align="justify">O teste de usabilidade foi executado por um integrante do grupo, o facilitador, e seis participantes com perfis semelhantes as personas descritas em nosso projeto. O teste foi executado de forma presencial, qualitativo, visando coletar insights, descobertas e anedotas sobre como as pessoas usam o site. Objetivando identificar problemas no projeto, descobrir oportunidades e aprender sobre o comportamento e as preferências do usuário - alvo..</p>
+
+Os participantes escolhidos foram:
+
+* APR, 38 anos, Arquiteto de Soluções;
+* CN, 36 anos, Administradora de Empresas;
+* ES, 24 anos, Publicitária;
+* KS, 30 anos, Professora PEB II Rede Estadual;
+* AMS, 27 anos, Enfermeira;
+* HG, 34 anos, Jornalista;
 
 
 
