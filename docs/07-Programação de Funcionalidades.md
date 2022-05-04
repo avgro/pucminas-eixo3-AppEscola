@@ -13,6 +13,8 @@ A funcionalidade de login é acessada ao clicar no botão "Login" do cabeçalho 
 ### Artefatos da funcionalidade
 #### Models
 - Usuario.cs
+- ErrorViewModel.cs
+
 #### Controllers
 - UsuariosController.cs
 #### Views
