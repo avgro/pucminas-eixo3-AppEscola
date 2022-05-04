@@ -1,5 +1,10 @@
 # Registro de Testes de Usabilidade
 
+
+
+
+Os resultados obtidos nos testes de usabilidade realizados são descritos na tabela a seguir:
+  
   <table> 
 <tr><th>Caso de Teste </th>
 <th> CT - 01  – Realização de Login </th></tr>
