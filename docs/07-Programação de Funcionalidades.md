@@ -11,10 +11,17 @@ A funcionalidade de login é acessada ao clicar no botão "Login" do cabeçalho 
 - RF-01
 
 ### Artefatos da funcionalidade
+#### Models
 - Usuario.cs
+#### Controllers
 - UsuariosController.cs
+#### Views
 - Usuarios/Login.cshtml
 - Usuarios/AccessDenied.cshtml
+#### Outros
+- site.css
+- site.js
+- updateMsg-check.js
 
 ### Instruções de acesso
 1. Faça o download do arquivo do projeto (ZIP) ou clone do projeto no GitHub;
@@ -27,7 +34,7 @@ A funcionalidade de login é acessada ao clicar no botão "Login" do cabeçalho 
 8. Caso as credenciais tenham sido validadas, a sessão será iniciada e o usuário redirecionado para a página inicial do usuário.
 
 ## Cadastro de novos usuários e envio de email com credenciais de acesso pelo administrador (RF-02 e RF-03)
-A funcionalidade de cadastrar novos usuários no sistema é exclusiva para a conta do administrador, uma vez que o cadastro na plataforma deve ser exclusiva para responsaveis de alunos e funcionários da escola. Após acessar sua conta, o administrador pode visualizar e editar as informações de todos os usuários cadastrados, bem como escolher cadastrar um novo usuário do tipo "Responsável de aluno", "Professor" ou "Outros" (tipo de conta genérica utilizada por funcionários que não sejam professores). Após a criação da conta, o administrador poderá enviar um email para o e-mail do novo usuário contendo suas credenciais de acesso para a plataforma. Na versão local do projeto (executada via localhost), esse e-mail é enviado para uma pasta no diretório C: com o nome "AppEscolaMail". Na versão que será hospedade online, o email será de fato enviado para a conta de email informada durante o cadastro. Essa funcionalidade também atende parcialmente o RF-03, uma vez que o cadastro de professores ocorre nela.
+A funcionalidade de cadastrar novos usuários no sistema é exclusiva para a conta do administrador, uma vez que o cadastro na plataforma deve ser exclusiva para responsaveis de alunos e funcionários da escola. Após acessar sua conta, o administrador pode visualizar e editar as informações de todos os usuários cadastrados, bem como escolher cadastrar um novo usuário do tipo "Responsável de aluno", "Professor" ou "Outros" (tipo de conta genérica utilizada por funcionários que não sejam professores). Após a criação da conta, o administrador poderá enviar um email para o e-mail do novo usuário contendo suas credenciais de acesso para a plataforma. Na versão local do projeto (executada via localhost), esse e-mail é enviado para uma pasta no diretório C: com o nome "AppEscolaMail". Na versão que será hospedade online, o email será de fato enviado para a conta de email informada durante o cadastro. Essa funcionalidade também atende parcialmente o RF-03, uma vez que o cadastro de responsáveis e professores ocorre nela junto a criação de suas respectivas contas de usuário.
 
 ### Visualizar usuários cadastrados
 ![CadastrarUsuarioA](https://user-images.githubusercontent.com/74699119/166832672-13641ae8-3d5e-4e97-b008-938b7bc39082.png)
@@ -45,12 +52,24 @@ A funcionalidade de cadastrar novos usuários no sistema é exclusiva para a con
 - RF-03
 
 ### Artefatos da funcionalidade
+#### Models
 - Usuario.cs
 - Professor.cs
+- Responsavel.cs
+#### Controllers
 - UsuariosController.cs
+#### Views
 - Usuarios/Index.cshtml
 - Usuarios/Create.cshtml
 - Usuarios/EnviarCredenciais.cshtml
+#### Outros
+- site.css
+- site.js
+- updateMsg-check.js
+- usuario-create.js
+- list-usuarios.js
+- formatar-telefone.js
+- formatar-cep.js
 
 ### Instruções de acesso
 1. Faça o download do arquivo do projeto (ZIP) ou clone do projeto no GitHub;
