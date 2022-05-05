@@ -137,7 +137,7 @@ A funcionalidade de cadastrar novas turmas no sistema é exclusiva para a conta 
 ### Quadro de disciplinas associadas à turma
 ![CadastrarTurmaC](https://user-images.githubusercontent.com/74699119/167016798-e2982340-4d44-494d-80f0-a26a2e7329ba.png)
 ### Quadro de disciplinas associadas à turma (turma com disciplinas associadas)
-![CadastrarTurmaD](https://user-images.githubusercontent.com/74699119/167017345-301a6c0a-47cf-4758-a765-2029f633c17c.png)
+![CadastrarTurmaD](https://user-images.githubusercontent.com/74699119/167017413-49bd958f-37ff-4f3e-aaad-b5c7524d27a5.png)
 
 ### Requisitos atendidos
 - RF-03
