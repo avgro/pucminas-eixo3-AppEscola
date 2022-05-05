@@ -104,7 +104,6 @@ A funcionalidade de cadastrar novas disciplinas no sistema é exclusiva para a c
 #### Models
 - Disciplina.cs
 - Professor.cs
-- Turma.cs
 #### Controllers
 - DisciplinasController.cs
 #### Views
@@ -113,7 +112,6 @@ A funcionalidade de cadastrar novas disciplinas no sistema é exclusiva para a c
 #### Outros
 - site.css
 - site.js
-- selecionar-disciplinas.js
 - selecionar-pessoas.js
 
 ### Instruções de acesso
@@ -127,4 +125,48 @@ A funcionalidade de cadastrar novas disciplinas no sistema é exclusiva para a c
 8. Clicar na opção "Gerenciar disciplinas" do menu lateral;
 9. Clicar em "Cadastrar disciplina";
 10. Preencher as informações do formulário de cadastro de disciplina e então clicar em "Cadastrar nova disciplina";
-11. Após o cadastro da disciplina, caso uma turma tenha sido selecionada, o usuário será redirecionado para o quadro de disciplinas daquela turma, aonde a disciplina aparecerá cadastrada ou uma mensagem de erro aparecerá em caso de conflito de horário com outra disciplina. Não tendo sido selecionada uma turma, o usuário será redirecionado para a tela de visualizar disciplinas, aonde a nova disciplina deverá aparecer;
+11. Após o cadastro da disciplina, caso uma turma tenha sido selecionada, o usuário será redirecionado para o quadro de disciplinas daquela turma (descrita na funcionalidade "Cadastro de novas turmas"), aonde a disciplina aparecerá cadastrada ou uma mensagem de erro aparecerá em caso de conflito de horário com outra disciplina. Não tendo sido selecionada uma turma, o usuário será redirecionado para a tela de visualizar disciplinas, aonde a nova disciplina deverá aparecer;
+
+## Cadastro de novas turmas (RF-03, RF-04 e RF-05)
+A funcionalidade de cadastrar novas turmas no sistema é exclusiva para a conta do administrador. Após acessar sua conta, o administrador pode visualizar e editar as informações de todas as turmas cadastradas, incluindo as disciplinas associadas a aquela turma clicando em "Editar" na tela de visualizar turmas ou indo diretamente para o quadro de disciplinas da turma clicando em "Ver quadro de disciplinas". O usuário pode também visualizar quais alunos estão associados a turma ao clicar em "Mais informações" na lista de turmas, embora a associação ou remoção de um aluno a uma turma não seja feita nesta tela, mas sim no próprio cadastro/edição de alunos.
+
+### Visualizar turmas cadastradas
+![CadastrarTurmaA](https://user-images.githubusercontent.com/74699119/167016782-1a7f3ee6-6d6f-4f62-b46e-80a905a1cda3.png)
+### Formulário de cadastro de nova turma
+![CadastrarTurmaB](https://user-images.githubusercontent.com/74699119/167016788-d6568cee-6de0-4438-8b52-1d8a8ba1cc52.png)
+### Quadro de disciplinas associadas à turma
+![CadastrarTurmaC](https://user-images.githubusercontent.com/74699119/167016798-e2982340-4d44-494d-80f0-a26a2e7329ba.png)
+
+### Requisitos atendidos
+- RF-03
+- RF-04
+- RF-05
+
+### Artefatos da funcionalidade
+#### Models
+- Turma.cs
+#### Controllers
+- TurmasController.cs
+#### Views
+- Turmas/Index.cshtml
+- Turmas/Create.cshtml
+- Turmas/GerenciarDisciplinas.cshtml
+#### Outros
+- site.css
+- site.js
+- selecionar-disciplinas.js
+- posicionar-disciplinas-calendario.js
+
+### Instruções de acesso
+1. Faça o download do arquivo do projeto (ZIP) ou clone do projeto no GitHub;
+2. Abra o arquivo "App-comunicacao-escolar.sln" no Visual Studio;
+3. Execute o comando "update-database" no console do Package Manager para criar as tabelas do banco de dados localmente através dos arquivos "migrations" do Entity Framework Core;
+4. Criar uma pasta no diretório C: do seu computador chamada "AppEscolaMail" para recebimento local dos emails;
+5. Rode o projeto no Visual Studio, que abrirá uma janela do browser no endereço localhost:7060;
+6. Visualize a tela inicial/homepage do projeto;
+7. Realizar login na conta de administrador (conforme as instruções da funcionalidade "Login e autenticação" contida nesta seção);
+8. Clicar na opção "Gerenciar turmas" do menu lateral;
+9. Clicar em "Cadastrar turmas";
+10. Preencher as informações do formulário de cadastro de turmas e então clicar em "Cadastrar nova turma";
+11. Após o cadastro da turma, o usuário será redirecionado para a tela de gerenciamento de disciplinas da turma, aonde poderá adicionar disciplinas previamente cadastradas que não estejam associadas a nenhuma turma ao quadro de disciplinas da turma. Caso o usuário tente adicionar uma disciplina que entre em conflito de horário com uma disciplina já associada, uma mensagem de erro será exibida e a disciplina não será cadastrada.
+12. Após o cadastro da turma, a nova turma cadastrada deverá aparecer na lista de turmas.
