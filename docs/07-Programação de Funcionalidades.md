@@ -200,7 +200,7 @@ A funcionalidade de cadastrar novos alunos no sistema é exclusiva para a conta 
 - site.css
 - site.js
 - selecionar-pessoas.js
-- 
+
 ### Instruções de acesso
 1. Faça o download do arquivo do projeto (ZIP) ou clone do projeto no GitHub;
 2. Abra o arquivo "App-comunicacao-escolar.sln" no Visual Studio;
@@ -212,3 +212,46 @@ A funcionalidade de cadastrar novos alunos no sistema é exclusiva para a conta 
 9. Clicar em "Cadastrar aluno";
 10. Preencher as informações do formulário de cadastro de aluno e então clicar em "Cadastrar novo aluno", selecionando um ou mais responsáveis e uma turma para o aluno;
 12. Após o cadastro do aluno, o novo aluno cadastrado deverá aparecer na lista de alunos.
+
+## Alterar informações pessoais (RF-06)
+A funcionalidade de alterar dados pessoais é disponibilizada para todos os usuários do sistema através do menu do usuário. Esta funcionalidade permite que o usuário logado no sistema altere seu email, telefones, endereço e senha, não podendo alterar seu nome ou nome de usuário. Para alterar suas informações pessoais, incluindo a senha o usuário deve informar sua senha atual, com a troca de informações sendo bem sucedida apenas mediante a senha correta.
+
+### Opção no menu do usuário
+![AlterarDadosA](https://user-images.githubusercontent.com/74699119/167035256-50b9aec9-c3bf-403b-94ec-fb7c99f40cf0.png)
+### Tela de alterar informações
+![AlterarDadosB](https://user-images.githubusercontent.com/74699119/167035267-fdf4070d-843c-48c4-b094-f30ae34f94a2.png)
+### Tela de alterar informações (após selecionar campo para alterar)
+![AlterarDadosC](https://user-images.githubusercontent.com/74699119/167035272-d88157fc-83aa-47f2-aa22-aa91303b7689.png)
+### Tela de alterar informações (após alteração)
+![AlterarDadosD](https://user-images.githubusercontent.com/74699119/167035277-830bdd29-7274-4e2b-a375-84c43d89e623.png)
+
+### Requisitos atendidos
+- RF-06
+
+### Artefatos da funcionalidade
+#### Models
+- Usuario.cs
+#### Controllers
+- UsuariosController.cs
+#### Views
+- Usuarios/AlterarDados.cshtml
+#### Outros
+- site.css
+- site.js
+- alterar-dados.js.js
+- formatar-telefonejs
+- formatar-cep.js
+
+### Instruções de acesso
+1. Faça o download do arquivo do projeto (ZIP) ou clone do projeto no GitHub;
+2. Abra o arquivo "App-comunicacao-escolar.sln" no Visual Studio;
+3. Execute o comando "update-database" no console do Package Manager para criar as tabelas do banco de dados localmente através dos arquivos "migrations" do Entity Framework Core;
+5. Rode o projeto no Visual Studio, que abrirá uma janela do browser no endereço localhost:7060;
+6. Visualize a tela inicial/homepage do projeto;
+7. Realizar login em qualquer conta de usuário;
+8. Clicar sobre o nome do usuário no canto direito do cabeçalho para abrir o menu do usuário;
+9. Selecionar a opção "Alterar dados";
+10. Selecionar a informação que deseja alterar;
+11. Preencher o formulário com as novas informações e informar a senha atual;
+12. Clicar em "Alterar dados";
+13. Caso a alteração seja bem sucedida, uma mensagem de sucesso será mostrada, caso alguma informação solicitada não seja aceita, uma mensagem de erro será mostrada.
