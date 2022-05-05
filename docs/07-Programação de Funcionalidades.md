@@ -39,15 +39,15 @@ A funcionalidade de login é acessada ao clicar no botão "Login" do cabeçalho 
 A funcionalidade de cadastrar novos usuários no sistema é exclusiva para a conta do administrador, uma vez que o cadastro na plataforma deve ser exclusiva para responsaveis de alunos e funcionários da escola. Após acessar sua conta, o administrador pode visualizar e editar as informações de todos os usuários cadastrados, bem como escolher cadastrar um novo usuário do tipo "Responsável de aluno", "Professor" ou "Outros" (tipo de conta genérica utilizada por funcionários que não sejam professores). Após a criação da conta, o administrador poderá enviar um email para o e-mail do novo usuário contendo suas credenciais de acesso para a plataforma. Na versão local do projeto (executada via localhost), esse e-mail é enviado para uma pasta no diretório C: com o nome "AppEscolaMail". Na versão que será hospedade online, o email será de fato enviado para a conta de email informada durante o cadastro. Essa funcionalidade também atende parcialmente o RF-03, uma vez que o cadastro de responsáveis e professores ocorre nela junto a criação de suas respectivas contas de usuário.
 
 ### Visualizar usuários cadastrados
-![CadastrarUsuarioA](https://user-images.githubusercontent.com/74699119/166832672-13641ae8-3d5e-4e97-b008-938b7bc39082.png)
+![CadastrarUsuarioA](https://user-images.githubusercontent.com/74699119/166859983-735ab572-6baf-4614-a482-7e26d034a4a0.png)
 ### Formulário de cadastro de novo usuário
-![CadastrarUsuarioB](https://user-images.githubusercontent.com/74699119/166833197-6557d333-62ac-458f-8a57-3175a5af14e6.png)
+![CadastrarUsuarioB](https://user-images.githubusercontent.com/74699119/166859988-452b62a7-21f6-439f-b3d5-80981e8daa81.png)
 #### (Informações adicionais solicitadas para cadastro de professor)
-![CadastrarUsuarioBextra](https://user-images.githubusercontent.com/74699119/166834036-5a84a0be-8819-4136-8df5-3000fc75031c.png)
+![CadastrarUsuarioBextra](https://user-images.githubusercontent.com/74699119/166859992-a1794085-458b-4b65-8189-7e805a26d36b.png)
 ### Tela de envio de email de confirmação
-![CadastrarUsuarioC](https://user-images.githubusercontent.com/74699119/166832685-88670bac-cf64-4a0d-a142-fe3b5f134c79.png)
+![CadastrarUsuarioC](https://user-images.githubusercontent.com/74699119/166859994-14d03792-69d4-4c15-9468-aa043df9fad1.png)
 ### Tela de visualizar usuários com novo usuário cadastrado
-![CadastrarUsuarioD](https://user-images.githubusercontent.com/74699119/166832692-beaec89e-eea2-49ef-b673-867d85645da1.png)
+![CadastrarUsuarioD](https://user-images.githubusercontent.com/74699119/166859998-59bdb63f-071f-40d2-96a3-84eb8c4bc441.png)
 
 ### Requisitos atendidos
 - RF-02
