@@ -38,7 +38,7 @@ A funcionalidade de login é acessada ao clicar no botão "Login" do cabeçalho 
 7. Informe suas credenciais de login (caso nenhum usuário tenha sido cadastrado, utilizar nome de usuário "admin" e senha "admin" para acessar a conta do administrador);
 8. Caso as credenciais tenham sido validadas, a sessão será iniciada e o usuário redirecionado para a página inicial do usuário.
 
-## Cadastro de novos usuários e envio de email com credenciais de acesso pelo administrador (RF-02 e RF-03)
+## Cadastro/Edição de usuários e envio de email com credenciais de acesso pelo administrador (RF-02 e RF-03)
 A funcionalidade de cadastrar novos usuários no sistema é exclusiva para a conta do administrador, uma vez que o cadastro na plataforma deve ser exclusiva para responsaveis de alunos e funcionários da escola. Após acessar sua conta, o administrador pode visualizar e editar as informações de todos os usuários cadastrados, bem como escolher cadastrar um novo usuário do tipo "Responsável de aluno", "Professor" ou "Outros" (tipo de conta genérica utilizada por funcionários que não sejam professores). Após a criação da conta, o administrador poderá enviar um email para o e-mail do novo usuário contendo suas credenciais de acesso para a plataforma. Na versão local do projeto (executada via localhost), esse e-mail é enviado para uma pasta no diretório C: com o nome "AppEscolaMail". Na versão que será hospedade online, o email será de fato enviado para a conta de email informada durante o cadastro. O administrador pode ainda apagar um usuário do sistema clicando na opção "Apagar" na tela de lista de usuários e confirmando a ação na tela seguinte, excetuando-se a própria conta de administrador, que não pode ser apagada do sistema.Essa funcionalidade também atende parcialmente o RF-03, uma vez que o cadastro de responsáveis e professores ocorre nela junto a criação de suas respectivas contas de usuário. 
 
 ### Visualizar usuários cadastrados
@@ -91,7 +91,7 @@ A funcionalidade de cadastrar novos usuários no sistema é exclusiva para a con
 12. Após o envio do email, o usuário será redirecionado para a tela de visualizar usuários cadastrados, aonde o novo usuário deverá aparecer;
 13. Abrir o arquivo .eml gerado na pasta C:/AppEscolaMail para visualizar o email enviado;
 
-## Cadastro de novas disciplinas (RF-03 e RF-04)
+## Cadastro/Edição de disciplinas (RF-03 e RF-04)
 A funcionalidade de cadastrar novas disciplinas no sistema é exclusiva para a conta do administrador. Após acessar sua conta, o administrador pode visualizar e editar as informações de todas as disciplinas cadastradas, bem como escolher cadastrar novas disciplinas. Durante o cadastro da disciplina, o administrador deve selecionar um ou mais professores e uma turma para a disciplina, além de informar os horários em que a disciplina será ministrada durante a semana. Caso o administrador deseje trocar os professores, horário ou turmas da disciplina mais tarde, essa troca pode ser feita clicando em "Editar" na tela de visualização de disciplinas. 
 
 ### Visualizar disciplinas cadastradas
@@ -129,7 +129,7 @@ A funcionalidade de cadastrar novas disciplinas no sistema é exclusiva para a c
 10. Preencher as informações do formulário de cadastro de disciplina e então clicar em "Cadastrar nova disciplina";
 11. Após o cadastro da disciplina, caso uma turma tenha sido selecionada, o usuário será redirecionado para o quadro de disciplinas daquela turma (descrita na funcionalidade "Cadastro de novas turmas"), aonde a disciplina aparecerá cadastrada ou uma mensagem de erro aparecerá em caso de conflito de horário com outra disciplina. Não tendo sido selecionada uma turma, o usuário será redirecionado para a tela de visualizar disciplinas, aonde a nova disciplina deverá aparecer;
 
-## Cadastro de novas turmas (RF-03, RF-04 e RF-05)
+## Cadastro/Edição de turmas (RF-03, RF-04 e RF-05)
 A funcionalidade de cadastrar novas turmas no sistema é exclusiva para a conta do administrador. Após acessar sua conta, o administrador pode visualizar e editar as informações de todas as turmas cadastradas, incluindo as disciplinas associadas a aquela turma clicando em "Editar" na tela de visualizar turmas ou indo diretamente para o quadro de disciplinas da turma clicando em "Ver quadro de disciplinas". O usuário pode também visualizar quais alunos estão associados a turma ao clicar em "Mais informações" na lista de turmas, embora a associação ou remoção de um aluno a uma turma não seja feita nesta tela, mas sim no próprio cadastro/edição de alunos.
 
 ### Visualizar turmas cadastradas
