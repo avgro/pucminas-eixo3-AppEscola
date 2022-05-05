@@ -88,4 +88,43 @@ A funcionalidade de cadastrar novos usuários no sistema é exclusiva para a con
 12. Após o envio do email, o usuário será redirecionado para a tela de visualizar usuários cadastrados, aonde o novo usuário deverá aparecer;
 13. Abrir o arquivo .eml gerado na pasta C:/AppEscolaMail para visualizar o email enviado;
 
+## Cadastro de novas disciplinas (RF-03 e RF-04)
+A funcionalidade de cadastrar novas disciplinas no sistema é exclusiva para a conta do administrador. Após acessar sua conta, o administrador pode visualizar e editar as informações de todas as disciplinas cadastradas, bem como escolher cadastrar novas disciplinas. Durante o cadastro da disciplina, o administrador deve selecionar um ou mais professores e uma turma para a disciplina, além de informar os horários em que a disciplina será ministrada durante a semana. Caso o administrador deseje trocar os professores, horário ou turmas da disciplina mais tarde, essa troca pode ser feita clicando em "Editar" na tela de visualização de disciplinas.
 
+### Visualizar disciplinas cadastradas
+![CadastrarDisciplinaA](https://user-images.githubusercontent.com/74699119/166860547-498bf430-692d-452d-b820-3b865d2b0bf1.png)
+### Formulário de cadastro de nova disciplina
+![CadastrarDisciplinaB](https://user-images.githubusercontent.com/74699119/166860548-d0f9138e-5f28-4c8a-b51c-8aeb02ba56bf.png)
+
+### Requisitos atendidos
+- RF-03
+- RF-04
+
+### Artefatos da funcionalidade
+#### Models
+- Disciplina.cs
+- Professor.cs
+- Turma.cs
+#### Controllers
+- DisciplinasController.cs
+#### Views
+- Disciplinas/Index.cshtml
+- Disciplinas/Create.cshtml
+#### Outros
+- site.css
+- site.js
+- selecionar-disciplinas.js
+- selecionar-pessoas.js
+
+### Instruções de acesso
+1. Faça o download do arquivo do projeto (ZIP) ou clone do projeto no GitHub;
+2. Abra o arquivo "App-comunicacao-escolar.sln" no Visual Studio;
+3. Execute o comando "update-database" no console do Package Manager para criar as tabelas do banco de dados localmente através dos arquivos "migrations" do Entity Framework Core;
+4. Criar uma pasta no diretório C: do seu computador chamada "AppEscolaMail" para recebimento local dos emails;
+5. Rode o projeto no Visual Studio, que abrirá uma janela do browser no endereço localhost:7060;
+6. Visualize a tela inicial/homepage do projeto;
+7. Realizar login na conta de administrador (conforme as instruções da funcionalidade "Login e autenticação" contida nesta seção);
+8. Clicar na opção "Gerenciar disciplinas" do menu lateral;
+9. Clicar em "Cadastrar disciplina";
+10. Preencher as informações do formulário de cadastro de disciplina e então clicar em "Cadastrar nova disciplina";
+11. Após o cadastro da disciplina, caso uma turma tenha sido selecionada, o usuário será redirecionado para o quadro de disciplinas daquela turma, aonde a disciplina aparecerá cadastrada ou uma mensagem de erro aparecerá em caso de conflito de horário com outra disciplina. Não tendo sido selecionada uma turma, o usuário será redirecionado para a tela de visualizar disciplinas, aonde a nova disciplina deverá aparecer;
