@@ -217,7 +217,7 @@ A funcionalidade de cadastrar novos alunos no sistema é exclusiva para a conta 
 A funcionalidade de alterar dados pessoais é disponibilizada para todos os usuários do sistema através do menu do usuário. Esta funcionalidade permite que o usuário logado no sistema altere seu email, telefones, endereço e senha, não podendo alterar seu nome ou nome de usuário. Para alterar suas informações pessoais, incluindo a senha o usuário deve informar sua senha atual, com a troca de informações sendo bem sucedida apenas mediante a senha correta.
 
 ### Opção no menu do usuário
-![AlterarDadosA](https://user-images.githubusercontent.com/74699119/167035256-50b9aec9-c3bf-403b-94ec-fb7c99f40cf0.png)
+![AlterarDadosA](https://user-images.githubusercontent.com/74699119/167036042-89e46c70-b4a2-4b0d-a891-bcd1235368c5.png)
 ### Tela de alterar informações
 ![AlterarDadosB](https://user-images.githubusercontent.com/74699119/167035267-fdf4070d-843c-48c4-b094-f30ae34f94a2.png)
 ### Tela de alterar informações (após selecionar campo para alterar)
