@@ -51,14 +51,14 @@ Os testes funcionais a serem realizados no aplicativo são descritos a seguir:
 |Requisitos Associados | 	 RF-03 A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis.
 |Objetivo do teste| Verificar se a funcionalidade de editar informações dos alunos cadastrados no sistema esta funcionando adequadamente |
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login como administrador 4) Clicar na opção "Cadastrar Aluno" 5) Na tela de "Visualizar alunos cadastrados", clicar na opção "Editar" ao lado do nome do aluno 6) Inserir novas informações e clicar em "Salvar". 7) A tela de "Visualizar alunos cadastrados" será atualizada e o aluno selecionado deve ter desaparecido da lista |
-|Critérios de êxito| O aluno deve ser deletado e desaparecer da lista de alunos cadastrados |
+|Critérios de êxito| As informações do aluno devem ser atualizadas e aparecer na lista de alunos cadastrados|
 
 |Caso de teste 07     | CT 07 -  Excluir aluno |
 |-------|-------------------------
 |Requisitos Associados | 	 RF-03 A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis.
 |Objetivo do teste| Verificar se a funcionalidade de excluir alunos cadastrados no sistema esta funcionando adequadamente. |
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login como administrador 4) Clicar na opção "Cadastrar Aluno" 5) Na tela de "Visualizar alunos cadastrados", clicar na opção "Editar" ao lado do nome do aluno 6) A tela de "Visualizar alunos cadastrados" será atualizada e as informações do aluno selecionado devem ter sido atualizadas |
-|Critérios de êxito| As informações do aluno devem ser atualizadas e aparecer na lista de alunos cadastrados |
+|Critérios de êxito|  O aluno deve ser deletado e desaparecer da lista de alunos cadastrados |
 
 
 |Caso de teste 08     | CT 08 -  Cadastrar turma |
