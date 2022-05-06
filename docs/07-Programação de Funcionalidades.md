@@ -238,7 +238,7 @@ A funcionalidade de alterar dados pessoais é disponibilizada para todos os usu�
 #### Outros
 - site.css
 - site.js
-- alterar-dados.js.js
+- alterar-dados.js
 - formatar-telefonejs
 - formatar-cep.js
 
@@ -255,3 +255,62 @@ A funcionalidade de alterar dados pessoais é disponibilizada para todos os usu�
 11. Preencher o formulário com as novas informações e informar a senha atual;
 12. Clicar em "Alterar dados";
 13. Caso a alteração seja bem sucedida, uma mensagem de sucesso será mostrada, caso alguma informação solicitada não seja aceita, uma mensagem de erro será mostrada.
+
+## Troca de mensagens entre usuários (RF-07)
+A funcionalidade de troca de mensagens é disponibilizada para todos os usuários do sistema através do menu do usuário. Esta funcionalidade permite que o usuário logado no sistema envie mensagens para um ou mais usuários destinatários, além de poder responder mensagens que sejam enviadas para ele. O usuário pode visualizar as mensagens que recebeu em sua caixa de entrada, tela inicial da seção "mensagens" do menu do usuário, e visualizar o conteúdo da conversa clicando no botão "Visualizar" da conversa, podendo ainda dentro dessa tela selecionar as opções "responder" ou "responder a todos" em uma mensagem individual da conversa para responde-la. O número total de mensagens não lidas presente em sua caixa de entrada é exibido em um contador presente ao lado da opção "mensagens" do menu. O usuário também pode visualizar as mensagens que enviou selecionando a seção "Enviados" na caixa de seleção presente no canto superior direito da caixa de entrada. 
+
+### Caixa de entrada
+![MensagensA](https://user-images.githubusercontent.com/74699119/167215994-2ecabc20-6f3e-41a6-8a57-e1719a4307fa.png)
+### Criar nova conversa
+![MensagensB](https://user-images.githubusercontent.com/74699119/167215998-09414e47-365d-4f51-a04c-5fdf8cb72b16.png)
+### Caixa de entrada de um dos destinatários da mensagem (Observar que o usuário logado mudou de "Usuário" para "Ana", uma das destinatárias)
+![MensagensC](https://user-images.githubusercontent.com/74699119/167216013-8b978bad-219a-4cbd-8959-d11975d7a65a.png)
+### Tela de visualizar mensagens da conversa/Caixa de responder mensagem (Usuário "Ana")
+![MensagensD](https://user-images.githubusercontent.com/74699119/167216230-d9cabde2-cdc3-4c8f-afe6-fd18d02e4c3f.png)
+### Caixa de entrada do usuário respondido (Logado como usuário que foi respondido na imagem anterior)
+![MensagensE](https://user-images.githubusercontent.com/74699119/167216352-0c4dc1df-c971-4d39-b772-a30b4dd2f585.png)
+### Tela de visualizar mensagens da conversa/Caixa de responder mensagem (Usuário "Usuário")
+![MensagensF](https://user-images.githubusercontent.com/74699119/167216498-3a5df0f0-69e2-42fa-9bcc-da92f4cce680.png)
+
+### Requisitos atendidos
+- RF-07
+
+### Artefatos da funcionalidade
+#### Models
+- Conversa.cs
+- Mensagem.cs
+- MensagemArquivosAnexados.cs
+- NumeroDeNovasMensagensNaConversa.cs
+- UsuariosQueArquivaramAConversa.cs
+#### Controllers
+- ConversasController.cs
+#### Views
+- Conversas/Index.cshtml
+- Conversas/Create.cshtml
+- Conversas/Visualizar.cshtml
+#### Outros
+- site.css
+- site.js
+- caixa-de-mensagens.js
+- selecionar-pessoas.js
+- visualizar-conversas.js
+
+### Instruções de acesso
+1. Faça o download do arquivo do projeto (ZIP) ou clone do projeto no GitHub;
+2. Abra o arquivo "App-comunicacao-escolar.sln" no Visual Studio;
+3. Execute o comando "update-database" no console do Package Manager para criar as tabelas do banco de dados localmente através dos arquivos "migrations" do Entity Framework Core;
+5. Rode o projeto no Visual Studio, que abrirá uma janela do browser no endereço localhost:7060;
+6. Visualize a tela inicial/homepage do projeto;
+7. Realizar login em qualquer conta de usuário;
+8. Clicar na opção "Mensagens" do menu lateral;
+9. Selecionar a opção "Nova mensagem";
+10. Preencher o Assunto e conteúdo da mensagem e selecionar os destinatários;
+11. Clicar em "Enviar";
+12. Fazer logout da conta atual e fazer login na conta de um dos destinatários da mensagem.
+13. Clicar na opção "Mensagens" do menu lateral para acessar a caixa de entrada, a conversa deve constar na lista de conversas e o número de mensagens não lidas mostrada no contador ao lado da opção "Mensagens" deve ser pelo menos 1;
+14. Clicar no botão "Visualizar" ao lado direito da conversa listada para ir para a tela de visualizar mensagens da conversa;
+15. Clicar em "Responder" ou "Responder a todos" na mensagem para criar uma resposta.
+16. Clicar em "Responder".
+17. Fazer logout da conta atual e fazer login na conta de um dos destinatários da resposta.
+18. Clicar na opção "Mensagens" do menu lateral para acessar a caixa de entrada e clicar em "Visualizar";
+19. Visualizar resposta enviada.
