@@ -39,6 +39,11 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 | Objetivo do teste| 	Verificar se a funcionalidade de excluir alunos cadastrados no sistema esta funcionando adequadamente.|
 | Resultado| A Funcionalidade esta efetuando a exclusão do cadastro do aluno corretamente.|
 
+|Caso de Teste 08| CT- 08 - Cadastrar Turma|
+|-------|-------------------------
+| Objetivo do teste| 	Verificar se a funcionalidade de excluir alunos cadastrados no sistema esta funcionando adequadamente.|
+| Resultado| A Funcionalidade esta efetuando a exclusão do cadastro do aluno corretamente.|
+
 |Caso de Teste 16| CT- 16 - Realizar trocas de mensagens e documentos|
 |-------|-------------------------
 |Objetivo do teste| Verificar a funcionalidade de troca de mensagens, documentos, fotos e vídeos.|
