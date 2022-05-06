@@ -51,8 +51,8 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 
 |Caso de Teste 10| CT- 10 - Cadastrar disciplina e associar disciplina a professor e turma|
 |-------|-------------------------
-| Objetivo do teste| Verificar se a opção de apagar turmas cadastradas no sistema está funcionando adequadamente.|
-| Resultado| A opção de apagar as turmas cadastradas esta funcionando.|
+| Objetivo do teste| Verificar se o a funcionalidade de cadastrar novas disciplinas no sistema está funcionando corretamente e se a mesma permite vincular a disciplina a um professor e uma turma.|
+| Resultado| Ao cadastrar uma nova disciplina é possivel relacionar com algum professor e turmas cadastrados no sistemas.|
 
 |Caso de Teste 16| CT- 16 - Realizar trocas de mensagens e documentos|
 |-------|-------------------------
