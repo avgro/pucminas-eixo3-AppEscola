@@ -44,6 +44,11 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 | Objetivo do teste| 	Verificar se a funcionalidade de cadastrar novas turmas no sistema está funcionando adequadamente.|
 | Resultado| A Funcionalidade esta funcionando de acordo com o planejado.|
 
+|Caso de Teste 09| CT- 09 - Apagar Turma|
+|-------|-------------------------
+| Objetivo do teste| Verificar se a opção de apagar turmas cadastradas no sistema está funcionando adequadamente.|
+| Resultado| A opção de apagar as turmas cadastradas esta funcionando.|
+
 |Caso de Teste 16| CT- 16 - Realizar trocas de mensagens e documentos|
 |-------|-------------------------
 |Objetivo do teste| Verificar a funcionalidade de troca de mensagens, documentos, fotos e vídeos.|
