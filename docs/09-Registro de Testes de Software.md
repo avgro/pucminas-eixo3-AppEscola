@@ -48,3 +48,8 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 |-------|-------------------------
 |Objetivo do teste| Verificar a funcionalidade de troca de mensagens, documentos, fotos e vídeos.|
 |Resultado| Os Usuários conseguem efetuar todas as atividades das trocas de mensagens e documentos.|
+
+|Caso de Teste 27| CT- 27 - Testa a responsividade do sistema em diferentes dispositivos.|
+|-------|-------------------------
+|Objetivo do teste| Verificar a funcionalidade de troca de mensagens, documentos, fotos e vídeos.|
+|Resultado| Os Usuários conseguem efetuar todas as atividades das trocas de mensagens e documentos.|
