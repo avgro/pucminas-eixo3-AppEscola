@@ -29,7 +29,7 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 | Objetivo do teste| Verificar se a funcionalidade de cadastrar alunos no sistema esta funcionando adequadamente.|
 | Resultado| A funcionalidade funcionando corretamente.|
 
-|Caso de Teste 06| CT- 06 - Editar informações do aluno|
+|Caso de Teste 06 | CT- 06 - Editar informações do aluno|
 |-------|-------------------------
 | Objetivo do teste| Verificar se a funcionalidade de editar informações dos alunos cadastrados no sistema esta funcionando adequadamente.|
 | Resultado| A Funcionalidade de editar as informações do aluno, esta funcionado corretamento e atualizando as informações cadastradas.|
