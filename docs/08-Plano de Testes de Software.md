@@ -85,7 +85,7 @@ Os testes funcionais a serem realizados no aplicativo são descritos a seguir:
 |Caso de teste 11     | CT 11 -  Editar disciplina |
 |-------|-------------------------
 |Requisitos Associados | 	 RF-03 A aplicação deve permitir ao administrador do sistema cadastrar ou deletar professores, disciplinas e turmas, além de alunos e seus respectivos responsáveis.<br>RF-04 A aplicação deve permitir que o administrador do sistema associe um ou mais professores para cada disciplina cadastrada com um código distinto, sendo que disciplinas com o mesmo conteúdo podem ter códigos distintos em casos de múltiplas turmas com professores diferentes para cada uma.<br>RF-05 A aplicação deve permitir que o administrador do sistema adicione ou remova alunos das turmas disponíveis, além de selecionar as disciplinas que serão ministradas para aquela turma |
-|Objetivo do teste| Verificar se o a funcionalidade de editar disciplinas cadastradas no sistema está funcionando corretamente |
+|Objetivo do teste| Verificar se a funcionalidade de editar disciplinas cadastradas no sistema está funcionando corretamente |
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login como administrador 4) Clicar na aba "Cadastrar disciplina" 5) Selecionar a opção "Editar disciplina" 6) Selecionar a disciplina que deseja alterar e inserir as novas informações da disciplina. 7) Clicar em "Salvar" 8) Clicar em "Gerenciar associações" e verificar se a disciplina aparece listada com os novos dados. |
 |Critérios de êxito| A disciplina deve ser editada com sucesso e as novas informações devem aparecer no sistema. |
 
