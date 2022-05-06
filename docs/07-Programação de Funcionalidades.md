@@ -262,11 +262,11 @@ A funcionalidade de troca de mensagens é disponibilizada para todos os usuário
 ### Caixa de entrada
 ![MensagensA](https://user-images.githubusercontent.com/74699119/167215994-2ecabc20-6f3e-41a6-8a57-e1719a4307fa.png)
 ### Criar nova conversa
-![MensagensB](https://user-images.githubusercontent.com/74699119/167215998-09414e47-365d-4f51-a04c-5fdf8cb72b16.png)
+![MensagensB](https://user-images.githubusercontent.com/74699119/167218845-b3cb7f26-1250-468e-a094-7cbd1e9fbbd7.png)
 ### Caixa de entrada de um dos destinatários da mensagem (Observar que o usuário logado mudou de "Usuário" para "Ana", uma das destinatárias)
 ![MensagensC](https://user-images.githubusercontent.com/74699119/167216013-8b978bad-219a-4cbd-8959-d11975d7a65a.png)
 ### Tela de visualizar mensagens da conversa/Caixa de responder mensagem (Usuário "Ana")
-![MensagensD](https://user-images.githubusercontent.com/74699119/167216230-d9cabde2-cdc3-4c8f-afe6-fd18d02e4c3f.png)
+![MensagensD](https://user-images.githubusercontent.com/74699119/167218842-c29952ea-a240-4119-a45b-655d4c56eb34.png)
 ### Caixa de entrada do usuário respondido (Logado como usuário que foi respondido na imagem anterior)
 ![MensagensE](https://user-images.githubusercontent.com/74699119/167216352-0c4dc1df-c971-4d39-b772-a30b4dd2f585.png)
 ### Tela de visualizar mensagens da conversa/Caixa de responder mensagem (Usuário "Usuário")
