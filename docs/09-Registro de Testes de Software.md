@@ -26,8 +26,8 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 
 |Caso de Teste 05 | CT- 05 - Cadastrar Aluno|
 |-------|-------------------------
-| Objetivo do teste| Verificar se o sistema exclui contas de usuários pelo administrador.|
-| Resultado| O administrador consegue efetuar a exclusão.|
+| Objetivo do teste| Verificar se a funcionalidade de cadastrar alunos no sistema esta funcionando adequadamente.|
+| Resultado| A funcionalidade funcionando corretamente.|
 
 |Caso de Teste 16| CT- 16 - Realizar trocas de mensagens e documentos|
 |-------|-------------------------
