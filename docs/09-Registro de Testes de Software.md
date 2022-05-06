@@ -54,6 +54,11 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 | Objetivo do teste| Verificar se o a funcionalidade de cadastrar novas disciplinas no sistema está funcionando corretamente e se a mesma permite vincular a disciplina a um professor e uma turma.|
 | Resultado| Ao cadastrar uma nova disciplina é possivel relacionar com algum professor e turmas cadastrados no sistemas.|
 
+|Caso de Teste 11| CT- 11 - Editar Disciplina|
+|-------|-------------------------
+| Objetivo do teste| Verificar se a funcionalidade de editar disciplinas cadastradas no sistema está funcionando corretamente.|
+| Resultado| A funcionalidade esta editando as disciplinas cadastradas no sistema corretamente.|
+
 |Caso de Teste 16| CT- 16 - Realizar trocas de mensagens e documentos|
 |-------|-------------------------
 |Objetivo do teste| Verificar a funcionalidade de troca de mensagens, documentos, fotos e vídeos.|
