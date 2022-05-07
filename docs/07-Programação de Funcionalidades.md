@@ -310,7 +310,7 @@ A funcionalidade de troca de mensagens é disponibilizada para todos os usuário
 13. Clicar na opção "Mensagens" do menu lateral para acessar a caixa de entrada, a conversa deve constar na lista de conversas e o número de mensagens não lidas mostrada no contador ao lado da opção "Mensagens" deve ser pelo menos 1;
 14. Clicar no botão "Visualizar" ao lado direito da conversa listada para ir para a tela de visualizar mensagens da conversa;
 15. Clicar em "Responder" ou "Responder a todos" na mensagem para criar uma resposta.
-16. Clicar em "Responder".
+16. Clicar no botão "Responder" da janela de escrever resposta.
 17. Fazer logout da conta atual e fazer login na conta de um dos destinatários da resposta.
 18. Clicar na opção "Mensagens" do menu lateral para acessar a caixa de entrada e clicar em "Visualizar";
 19. Visualizar resposta enviada.
