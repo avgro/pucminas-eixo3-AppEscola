@@ -64,6 +64,11 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 | Objetivo do teste| 	Verificar se a funcionalidade de apagar disciplinas cadastradas no sistema está funcionando corretamente|
 | Resultado| A funcionalidades de apagar disciplinas funciona corretamente.|
 
+|Caso de Teste 13| CT- 13 - Adicionar Aluno a uma turma|
+|-------|-------------------------
+| Objetivo do teste| 	Verificar se a funcionalidade de apagar disciplinas cadastradas no sistema está funcionando corretamente|
+| Resultado| A funcionalidades de apagar disciplinas funciona corretamente.|
+
 |Caso de Teste 16| CT- 16 - Realizar trocas de mensagens e documentos|
 |-------|-------------------------
 |Objetivo do teste| Verificar a funcionalidade de troca de mensagens, documentos, fotos e vídeos.|
