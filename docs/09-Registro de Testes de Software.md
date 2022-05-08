@@ -74,6 +74,11 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 | Objetivo do teste| Verificar se o administrador do sistema consegue remover alunos de uma turma cadastrada.|
 | Resultado| ERRO: O administrador não tem opção de remover o aluno da turma, de acordo do passo a passo publicado no plano testes de software.|
 
+|Caso de Teste 15| CT- 15 - Alterar Dados do usuário|
+|-------|-------------------------
+| Objetivo do teste| Verificar se o usuário consegue acessar sua conta e alterar seus dados.|
+| Resultado| Usuário consegue alterar seus dados cadastrados no sistema.|
+
 |Caso de Teste 16| CT- 16 - Realizar trocas de mensagens e documentos|
 |-------|-------------------------
 |Objetivo do teste| Verificar a funcionalidade de troca de mensagens, documentos, fotos e vídeos.|
