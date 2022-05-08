@@ -59,6 +59,11 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 | Objetivo do teste| Verificar se a funcionalidade de editar disciplinas cadastradas no sistema está funcionando corretamente.|
 | Resultado| A funcionalidade esta editando as disciplinas cadastradas no sistema corretamente.|
 
+|Caso de Teste 12| CT- 12 - Editar Disciplina|
+|-------|-------------------------
+| Objetivo do teste| Verificar se a funcionalidade de editar disciplinas cadastradas no sistema está funcionando corretamente.|
+| Resultado| A funcionalidade esta editando as disciplinas cadastradas no sistema corretamente.|
+
 |Caso de Teste 16| CT- 16 - Realizar trocas de mensagens e documentos|
 |-------|-------------------------
 |Objetivo do teste| Verificar a funcionalidade de troca de mensagens, documentos, fotos e vídeos.|
