@@ -69,6 +69,11 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 | Objetivo do teste| Verificar se o administrador do sistema consegue adicionar alunos a uma turma cadastrada.|
 | Resultado| O Administrador consegue adicionar um aluno já cadastrado em uma turma também cadastrada.|
 
+|Caso de Teste 14| CT- 14 - Remover aluno de uma turma|
+|-------|-------------------------
+| Objetivo do teste| Verificar se o administrador do sistema consegue remover alunos de uma turma cadastrada.|
+| Resultado| O Administrador consegue adicionar um aluno já cadastrado em uma turma também cadastrada.|
+
 |Caso de Teste 16| CT- 16 - Realizar trocas de mensagens e documentos|
 |-------|-------------------------
 |Objetivo do teste| Verificar a funcionalidade de troca de mensagens, documentos, fotos e vídeos.|
