@@ -66,8 +66,8 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 
 |Caso de Teste 13| CT- 13 - Adicionar Aluno a uma turma|
 |-------|-------------------------
-| Objetivo do teste| 	Verificar se a funcionalidade de apagar disciplinas cadastradas no sistema está funcionando corretamente|
-| Resultado| A funcionalidades de apagar disciplinas funciona corretamente.|
+| Objetivo do teste| Verificar se o administrador do sistema consegue adicionar alunos a uma turma cadastrada.|
+| Resultado| O Administrador consegue adicionar um aluno já cadastrado em uma turma também cadastrada.|
 
 |Caso de Teste 16| CT- 16 - Realizar trocas de mensagens e documentos|
 |-------|-------------------------
