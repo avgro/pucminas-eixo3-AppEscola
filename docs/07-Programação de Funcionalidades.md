@@ -279,9 +279,8 @@ A funcionalidade de troca de mensagens é disponibilizada para todos os usuário
 #### Models
 - Conversa.cs
 - Mensagem.cs
-- MensagemArquivosAnexados.cs
 - NumeroDeNovasMensagensNaConversa.cs
-- UsuariosQueArquivaramAConversa.cs
+
 #### Controllers
 - ConversasController.cs
 #### Views
@@ -314,3 +313,131 @@ A funcionalidade de troca de mensagens é disponibilizada para todos os usuário
 17. Fazer logout da conta atual e fazer login na conta de um dos destinatários da resposta.
 18. Clicar na opção "Mensagens" do menu lateral para acessar a caixa de entrada e clicar em "Visualizar";
 19. Visualizar resposta enviada.
+
+## Arquivar mensagens (RF-07)
+A funcionalidade de arquivar mensagens é disponibilizada para todos os usuários do sistema através do menu do usuário. Esta funcionalidade permite que o usuário logado no sistema selecione as mensagens que deseja arquivar clicando no botão "Arquivar" da mensagem presente na caixa de entrada ou na seção "enviados". A mensagem será movida para a seção "Arquivados" e as mensagens não lidas daquela conversa não serão mais contabilizadas no número total de mensagens não lidas mostrada pra o usuário. Para mover uma mensagem de volta para a caixa de entrada/seção de "enviados" o usuário deve ir na seção de de mensagens arquivadas e clicar no botão "Desarquivar" ao lado da mensagem.
+ 
+### Caixa de mensagens
+![ArquivarMensagensA](https://user-images.githubusercontent.com/74699119/167326868-ab05dc75-5dd5-40d7-ada1-ec99de67ba97.png)
+![ArquivarMensagensB](https://user-images.githubusercontent.com/74699119/167326869-4fbf7743-8317-4529-a75a-1559319b71d8.png)
+### Seção de mensagens arquivadas
+![ArquivarMensagensC](https://user-images.githubusercontent.com/74699119/167326873-2bd253f1-a0e4-4c5b-a0d9-073190eebac1.png)
+
+### Requisitos atendidos
+- RF-07
+
+### Artefatos da funcionalidade
+#### Models
+- Conversa.cs
+- Mensagem.cs
+- NumeroDeNovasMensagensNaConversa.cs
+- UsuariosQueArquivaramAConversa.cs
+#### Controllers
+- ConversasController.cs
+#### Views
+- Conversas/Index.cshtml
+- Conversas/Visualizar.cshtml
+#### Outros
+- site.css
+- site.js
+- caixa-de-mensagens.js
+- visualizar-conversas.js
+
+### Instruções de acesso
+1. Faça o download do arquivo do projeto (ZIP) ou clone do projeto no GitHub;
+2. Abra o arquivo "App-comunicacao-escolar.sln" no Visual Studio;
+3. Execute o comando "update-database" no console do Package Manager para criar as tabelas do banco de dados localmente através dos arquivos "migrations" do Entity Framework Core;
+5. Rode o projeto no Visual Studio, que abrirá uma janela do browser no endereço localhost:7060;
+6. Visualize a tela inicial/homepage do projeto;
+7. Realizar login em qualquer conta de usuário;
+8. Clicar na opção "Mensagens" do menu lateral;
+9. Clicar no botão "Arquivar" ao lado da mensagem que deseja arquivar;
+10. Trocar a seção de "Caixa de entrada" para "Arquivados" selecionado a opção na caixa de seleção presente no canto superior direito da caixa de entrada.
+12. Visualizar mensagem arquivada na seção "Arquivados";
+13. Clicar no botão "Desarquivar";
+14. Voltar para a seção original da mensagem e verificar que a mensagem se encontra novamente nela;
+
+## Envio e download de arquivos via mensagem (RF-08)
+A funcionalidade de envio e download de arquivos é disponibilizada para todos os usuários do sistema através do menu do usuário. Esta funcionalidade permite que o usuário logado no sistema anexe arquivos junto as mensagens enviadas para os destinatários, que podem realizar o download dos arquivos ao clicar na opção "Fazer download" ao lado do nome de arquivo na lista de anexos da mensagem.
+
+### Janela de seleção de arquivos na tela de criar mensagem
+![EnviarArquivoA](https://user-images.githubusercontent.com/74699119/167326337-bfd15d93-4b5b-46ea-a56c-f021f11307ae.png)
+### Mensagem enviada contendo lista de anexos com opção de download do arquivo
+![EnviarArquivoB](https://user-images.githubusercontent.com/74699119/167326344-cdbd0b9d-6495-4b75-859b-f20a3ca9c2e2.png)
+
+### Requisitos atendidos
+- RF-08
+
+### Artefatos da funcionalidade
+#### Models
+- Conversa.cs
+- Mensagem.cs
+#### Controllers
+- ConversasController.cs
+#### Views
+- Conversas/Index.cshtml
+- Conversas/Visualizar.cshtml
+#### Outros
+- site.css
+- site.js
+- caixa-de-mensagens.js
+- visualizar-conversas.js
+
+### Instruções de acesso
+1. Faça o download do arquivo do projeto (ZIP) ou clone do projeto no GitHub;
+2. Abra o arquivo "App-comunicacao-escolar.sln" no Visual Studio;
+3. Execute o comando "update-database" no console do Package Manager para criar as tabelas do banco de dados localmente através dos arquivos "migrations" do Entity Framework Core;
+5. Rode o projeto no Visual Studio, que abrirá uma janela do browser no endereço localhost:7060;
+6. Visualize a tela inicial/homepage do projeto;
+7. Realizar login em qualquer conta de usuário;
+8. Clicar na opção "Mensagens" do menu lateral;
+9. Selecionar a opção "Nova mensagem";
+10. Preencher o Assunto e conteúdo da mensagem e selecionar os destinatários;
+11. Clicar no botão "Escolher arquivos" e escolher os arquivos que deseja anexar a mensagem.
+12. Clicar em "Enviar";
+13. Fazer logout da conta atual e fazer login na conta de um dos destinatários da mensagem.
+14. Clicar na opção "Mensagens" do menu lateral para acessar a caixa de entrada, a conversa deve constar na lista de conversas e o número de mensagens não lidas mostrada no contador ao lado da opção "Mensagens" deve ser pelo menos 1;
+15. Clicar no botão "Visualizar" ao lado direito da conversa listada para ir para a tela de visualizar mensagens da conversa;
+16. Clicar em "Fazer download" ao lado do nome do arquivo presente na lista de anexos.
+17. O download do arquivo em questão será iniciado pelo browser para o computador do usuário.
+
+## Busca de conversas e mensagens por assunto ou conteúdo (RF-09)
+A funcionalidade de busca de conversas e mensagens por assunto o conteúdo é disponibilizada para todos os usuários do sistema através do menu do usuário. Esta funcionalidade permite que o usuário logado no sistema busque conversas e mensagens presentes em sua caixa de mensagens em qualquer uma de suas seções (Caixa de entrada, Enviados e Arquivados). Para realizar a busca, basta digitar os termos que deseja buscar no campo "Buscar conversa por assunto o conteúdo das mensagens" e clicar em "Buscar". A página deverá ser atualizada e mostrar apenas os resultados da busca.
+
+### Caixa de mensagens
+![BuscarMensagensA](https://user-images.githubusercontent.com/74699119/167327389-5cda89ad-c0b0-4f00-b213-27c4db351a29.png)
+### Caixa de mensagens (Após realização da busca)
+![BuscarMensagensB](https://user-images.githubusercontent.com/74699119/167327409-9b2822de-8661-4a90-905a-6779547c5c1a.png)
+
+### Requisitos atendidos
+- RF-09
+
+### Artefatos da funcionalidade
+#### Models
+- Conversa.cs
+- Mensagem.cs
+- MensagemArquivosAnexados.cs
+
+#### Controllers
+- ConversasController.cs
+- CommonController.cs
+#### Views
+- Conversas/Index.cshtml
+- Conversas/Create.cshtml
+- Conversas/Visualizar.cshtml
+#### Outros
+- site.css
+- site.js
+- caixa-de-mensagens.js
+
+### Instruções de acesso
+1. Faça o download do arquivo do projeto (ZIP) ou clone do projeto no GitHub;
+2. Abra o arquivo "App-comunicacao-escolar.sln" no Visual Studio;
+3. Execute o comando "update-database" no console do Package Manager para criar as tabelas do banco de dados localmente através dos arquivos "migrations" do Entity Framework Core;
+5. Rode o projeto no Visual Studio, que abrirá uma janela do browser no endereço localhost:7060;
+6. Visualize a tela inicial/homepage do projeto;
+7. Realizar login em qualquer conta de usuário;
+8. Clicar na opção "Mensagens" do menu lateral;
+9. Preencher o campo "Buscar conversa por assunto o conteúdo das mensagens" com os termos que deseja utilizar na busca, sendo que os termos serão buscados no assunto da conversa e no conteúdo de todas as mensagens da mesma;
+10. Clicar em "Buscar";
+11. Visualizar as mensagens filtradas pela busca;
