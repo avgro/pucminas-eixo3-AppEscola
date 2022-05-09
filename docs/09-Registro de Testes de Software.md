@@ -24,21 +24,6 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 | Objetivo do teste| Verificar se o sistema exclui contas de usuários pelo administrador.|
 | Resultado| O administrador consegue efetuar a exclusão.|
 
-|Caso de Teste 10 | CT- 10 - Cadastrar Aluno|
-|-------|-------------------------
-| Objetivo do teste| Verificar se a funcionalidade de cadastrar alunos no sistema esta funcionando adequadamente.|
-| Resultado| A funcionalidade funcionando corretamente.|
-
-|Caso de Teste 11 | CT- 11 - Editar informações do aluno|
-|-------|-------------------------
-| Objetivo do teste| Verificar se a funcionalidade de editar informações dos alunos cadastrados no sistema esta funcionando adequadamente.|
-| Resultado| A Funcionalidade de editar as informações do aluno, esta funcionado corretamento e atualizando as informações cadastradas.|
-
-|Caso de Teste 12| CT- 12 - Excluir Aluno|
-|-------|-------------------------
-| Objetivo do teste| 	Verificar se a funcionalidade de excluir alunos cadastrados no sistema esta funcionando adequadamente.|
-| Resultado| A Funcionalidade esta efetuando a exclusão do cadastro do aluno corretamente.|
-
 |Caso de Teste 05| CT- 05 - Cadastrar Turma|
 |-------|-------------------------
 | Objetivo do teste| 	Verificar se a funcionalidade de cadastrar novas turmas no sistema está funcionando adequadamente.|
@@ -63,6 +48,21 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 |-------|-------------------------
 | Objetivo do teste| 	Verificar se a funcionalidade de apagar disciplinas cadastradas no sistema está funcionando corretamente|
 | Resultado| A funcionalidades de apagar disciplinas funciona corretamente.|
+
+|Caso de Teste 10 | CT- 10 - Cadastrar Aluno|
+|-------|-------------------------
+| Objetivo do teste| Verificar se a funcionalidade de cadastrar alunos no sistema esta funcionando adequadamente.|
+| Resultado| A funcionalidade funcionando corretamente.|
+
+|Caso de Teste 11 | CT- 11 - Editar informações do aluno|
+|-------|-------------------------
+| Objetivo do teste| Verificar se a funcionalidade de editar informações dos alunos cadastrados no sistema esta funcionando adequadamente.|
+| Resultado| A Funcionalidade de editar as informações do aluno, esta funcionado corretamento e atualizando as informações cadastradas.|
+
+|Caso de Teste 12| CT- 12 - Excluir Aluno|
+|-------|-------------------------
+| Objetivo do teste| 	Verificar se a funcionalidade de excluir alunos cadastrados no sistema esta funcionando adequadamente.|
+| Resultado| A Funcionalidade esta efetuando a exclusão do cadastro do aluno corretamente.|
 
 |Caso de Teste 13| CT- 13 - Adicionar Aluno a uma turma|
 |-------|-------------------------
