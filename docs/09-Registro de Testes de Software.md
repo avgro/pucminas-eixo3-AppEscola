@@ -74,22 +74,22 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 | Objetivo do teste| Verificar se o administrador do sistema consegue remover alunos de uma turma cadastrada.|
 | Resultado| ERRO: O administrador não tem opção de remover o aluno da turma, de acordo do passo a passo publicado no plano testes de software.|
 
-|Caso de Teste 15| CT- 15 - Alterar Dados do usuário|
+|Caso de Teste 14| CT- 14 - Alterar Dados do usuário|
 |-------|-------------------------
 | Objetivo do teste| Verificar se o usuário consegue acessar sua conta e alterar seus dados.|
 | Resultado| Usuário consegue alterar seus dados cadastrados no sistema.|
 
-|Caso de Teste 16| CT- 16 - Realizar trocas de mensagens e documentos|
+|Caso de Teste 15| CT- 15 - Realizar trocas de mensagens e documentos|
 |-------|-------------------------
 |Objetivo do teste| Verificar a funcionalidade de troca de mensagens, documentos, fotos e vídeos.|
 |Resultado| Os Usuários conseguem efetuar todas as atividades das trocas de mensagens e documentos.|
 
-|Caso de Teste 17| CT- 17 - Buscar Mensagens|
+|Caso de Teste 16| CT- 16 - Buscar Mensagens|
 |-------|-------------------------
 |Objetivo do teste| Verificar se o site faz a busca por mensagens dentro do caixa de mensagens.|
 |Resultado| A Funcionalidade de buscar mensagens e localizar a conversa esta funcionando corretamente.|
 
-|Caso de Teste 27| CT- 27 - Testa a responsividade do sistema em diferentes dispositivos.|
+|Caso de Teste 26| CT- 26 - Testa a responsividade do sistema em diferentes dispositivos.|
 |-------|-------------------------
 |Objetivo do teste| Verificar a responsividade do site.|
 |Resultado| A responsividade funciona corretamente em diferentes dispositivos testados.|
