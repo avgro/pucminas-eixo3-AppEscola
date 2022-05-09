@@ -64,7 +64,7 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 | Objetivo do teste| 	Verificar se a funcionalidade de excluir alunos cadastrados no sistema esta funcionando adequadamente.|
 | Resultado| A Funcionalidade esta efetuando a exclusão do cadastro do aluno corretamente.|
 
-|Caso de Teste 13| CT- 13 - Adicionar Aluno a uma turma|
+|Caso de Teste 13| CT- 13 - Trocar aluno de turma|
 |-------|-------------------------
 | Objetivo do teste| Verificar se o administrador do sistema consegue adicionar alunos a uma turma cadastrada.|
 | Resultado| O Administrador consegue adicionar um aluno já cadastrado em uma turma também cadastrada.|
