@@ -44,7 +44,7 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 | Objetivo do teste| 	Verificar se a funcionalidade de cadastrar novas turmas no sistema está funcionando adequadamente.|
 | Resultado| A Funcionalidade esta funcionando de acordo com o planejado.|
 
-|Caso de Teste 09| CT- 09 - Apagar Turma|
+|Caso de Teste 06| CT- 06 - Apagar Turma|
 |-------|-------------------------
 | Objetivo do teste| Verificar se a opção de apagar turmas cadastradas no sistema está funcionando adequadamente.|
 | Resultado| A opção de apagar as turmas cadastradas esta funcionando.|
@@ -59,7 +59,7 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 | Objetivo do teste| Verificar se a funcionalidade de editar disciplinas cadastradas no sistema está funcionando corretamente.|
 | Resultado| A funcionalidade esta editando as disciplinas cadastradas no sistema corretamente.|
 
-|Caso de Teste 12| CT- 12 - Apagar Disciplina|
+|Caso de Teste 09| CT- 09 - Apagar Disciplina|
 |-------|-------------------------
 | Objetivo do teste| 	Verificar se a funcionalidade de apagar disciplinas cadastradas no sistema está funcionando corretamente|
 | Resultado| A funcionalidades de apagar disciplinas funciona corretamente.|
