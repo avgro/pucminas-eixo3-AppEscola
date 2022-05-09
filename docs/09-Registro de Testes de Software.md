@@ -66,13 +66,8 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 
 |Caso de Teste 13| CT- 13 - Trocar aluno de turma|
 |-------|-------------------------
-| Objetivo do teste| Verificar se o administrador do sistema consegue adicionar alunos a uma turma cadastrada.|
+| Objetivo do teste| Verificar se o administrador do sistema consegue adicionar ou alterar aluno de turma.|
 | Resultado| O Administrador consegue adicionar um aluno já cadastrado em uma turma também cadastrada.|
-
-|Caso de Teste 14| CT- 14 - Remover aluno de uma turma|
-|-------|-------------------------
-| Objetivo do teste| Verificar se o administrador do sistema consegue remover alunos de uma turma cadastrada.|
-| Resultado| ERRO: O administrador não tem opção de remover o aluno da turma, de acordo do passo a passo publicado no plano testes de software.|
 
 |Caso de Teste 14| CT- 14 - Alterar Dados do usuário|
 |-------|-------------------------
