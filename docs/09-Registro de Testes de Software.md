@@ -34,7 +34,7 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 | Objetivo do teste| Verificar se a funcionalidade de editar informações dos alunos cadastrados no sistema esta funcionando adequadamente.|
 | Resultado| A Funcionalidade de editar as informações do aluno, esta funcionado corretamento e atualizando as informações cadastradas.|
 
-|Caso de Teste 07| CT- 07 - Excluir Aluno|
+|Caso de Teste 12| CT- 12 - Excluir Aluno|
 |-------|-------------------------
 | Objetivo do teste| 	Verificar se a funcionalidade de excluir alunos cadastrados no sistema esta funcionando adequadamente.|
 | Resultado| A Funcionalidade esta efetuando a exclusão do cadastro do aluno corretamente.|
@@ -49,7 +49,7 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 | Objetivo do teste| Verificar se a opção de apagar turmas cadastradas no sistema está funcionando adequadamente.|
 | Resultado| A opção de apagar as turmas cadastradas esta funcionando.|
 
-|Caso de Teste 10| CT- 10 - Cadastrar disciplina e associar disciplina a professor e turma|
+|Caso de Teste 07| CT- 07 - Cadastrar disciplina e associar disciplina a professor e turma|
 |-------|-------------------------
 | Objetivo do teste| Verificar se o a funcionalidade de cadastrar novas disciplinas no sistema está funcionando corretamente e se a mesma permite vincular a disciplina a um professor e uma turma.|
 | Resultado| Ao cadastrar uma nova disciplina é possivel relacionar com algum professor e turmas cadastrados no sistemas.|
