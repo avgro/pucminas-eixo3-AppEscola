@@ -29,7 +29,7 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 | Objetivo do teste| Verificar se a funcionalidade de cadastrar alunos no sistema esta funcionando adequadamente.|
 | Resultado| A funcionalidade funcionando corretamente.|
 
-|Caso de Teste 06 | CT- 06 - Editar informações do aluno|
+|Caso de Teste 11 | CT- 11 - Editar informações do aluno|
 |-------|-------------------------
 | Objetivo do teste| Verificar se a funcionalidade de editar informações dos alunos cadastrados no sistema esta funcionando adequadamente.|
 | Resultado| A Funcionalidade de editar as informações do aluno, esta funcionado corretamento e atualizando as informações cadastradas.|
@@ -54,7 +54,7 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 | Objetivo do teste| Verificar se o a funcionalidade de cadastrar novas disciplinas no sistema está funcionando corretamente e se a mesma permite vincular a disciplina a um professor e uma turma.|
 | Resultado| Ao cadastrar uma nova disciplina é possivel relacionar com algum professor e turmas cadastrados no sistemas.|
 
-|Caso de Teste 11| CT- 11 - Editar Disciplina|
+|Caso de Teste 08| CT- 08 - Editar Disciplina|
 |-------|-------------------------
 | Objetivo do teste| Verificar se a funcionalidade de editar disciplinas cadastradas no sistema está funcionando corretamente.|
 | Resultado| A funcionalidade esta editando as disciplinas cadastradas no sistema corretamente.|
