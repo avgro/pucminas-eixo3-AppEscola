@@ -1,6 +1,13 @@
 
 # Plano de Testes de Software
 Os requisitos para realização dos testes de software são:
+
+Antes da hospedagem da aplicação na internet.
+- Visual Studio 2022 instalado e própriamente configurado na máquina da pessoa que vai realizar os testes;
+- Clone do repositório do projeto;
+- Navegador da internet - Chrome, Firefox ou Edge;
+
+Após hospedagem da aplicação na internet.
 - Site publicado na internet;
 - Navegador da internet - Chrome, Firefox ou Edge;
 - Conectividade de internet para acesso às plataformas.
