@@ -9,6 +9,21 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 | Objetivo do teste| Verificar o funcionamento da funcionalidade de Autenticação e Login do sistema.|
 | Resultado | O funcionamento está de acordo com o objetivo.| 
 
+|Caso de Teste 01.1 | CT- 01.1 – Autenticação e Login |
+|-------|-------------------------
+| Objetivo do teste| Verificar a funcionalidade de login por algum responsável do aluno cadastrado no sistema.|
+| Resultado | O funcionamento está de acordo com o objetivo.| 
+
+|Caso de Teste 01.2 | CT- 01.2 – Autenticação e Login |
+|-------|-------------------------
+| Objetivo do teste| Verificar a funcionalidade de login por algum professor cadastrado no sistema.|
+| Resultado | O funcionamento está de acordo com o objetivo.| 
+
+|Caso de Teste 01.3 | CT- 01.3 – Autenticação e Login |
+|-------|-------------------------
+| Objetivo do teste| Verificar a funcionalidade de login por algum outro usuário cadastrado no sistema.|
+| Resultado | O funcionamento está de acordo com o objetivo.| 
+
 |Caso de Teste 02 | CT- 02 - Visualizar os Usuários cadastrados no sistema|
 |-------|-------------------------
 | Objetivo do teste| Verificar se o sistema permite visualizar os usuários cadastrados no sistema.|
