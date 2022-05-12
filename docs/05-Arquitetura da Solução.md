@@ -51,7 +51,7 @@ Outras tecnologias:
 
 A figura abaixo demonstra como as tecnologias empregadas se relacionam dentro do sistema e como ocorre a interação do usuário com o sistema até que ele retorne uma resposta ao usuário.
 
-![Tecnologias Diagrama](https://user-images.githubusercontent.com/74699119/167976921-84aa62af-9e1e-47c7-b84e-176365ad63f6.png)
+![Tecnologias Diagrama](https://user-images.githubusercontent.com/74699119/167978528-71abe26b-4789-4c34-b83b-36ee749b3ed8.png)
 <p align="center"><b>Figura 8</b> - Tecnologias empregadas no sistema e retorno de resposta do sistema mediante requisição feita pelo usuário</p>
 <br>
 
