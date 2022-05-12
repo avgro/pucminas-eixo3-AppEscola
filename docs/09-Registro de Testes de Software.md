@@ -94,6 +94,26 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 |Objetivo do teste| Verificar a funcionalidade de troca de mensagens, documentos, fotos e vídeos.|
 |Resultado| Os Usuários conseguem efetuar todas as atividades das trocas de mensagens e documentos.|
 
+|Caso de Teste 15.1| CT- 15.1 - Realizar trocas de mensagens e documentos|
+|-------|-------------------------
+|Objetivo do teste| Verificar a funcionalidade de troca de mensagens de forma particular a usuário apenas.|
+|Resultado| O funcionamento esta de acordo com o que foi planejado.|
+
+|Caso de Teste 15.2| CT- 15.2 - Realizar trocas de mensagens e documentos|
+|-------|-------------------------
+|Objetivo do teste| Verificar a funcionalidade de envio de mensagens de forma particular com algum arquivo anexado no corpo da mensagem.|
+|Resultado| O funcionamento esta de acordo com o que foi planejado.|
+
+|Caso de Teste 15.3| CT- 15.3 - Realizar trocas de mensagens e documentos|
+|-------|-------------------------
+|Objetivo do teste| Verificar a funcionalidade de troca de mensagens em grupo.|
+|Resultado| O funcionamento esta de acordo com o que foi planejado.|
+
+|Caso de Teste 15.4| CT- 15.4 - Realizar trocas de mensagens e documentos|
+|-------|-------------------------
+|Objetivo do teste| Verificar a funcionalidade de troca de mensagens em grupo com algum arquivo anexado no corpo da mensagem.|
+|Resultado| O funcionamento esta de acordo com o que foi planejado.|
+
 |Caso de Teste 16| CT- 16 - Buscar Mensagens|
 |-------|-------------------------
 |Objetivo do teste| Verificar se o site faz a busca por mensagens dentro do caixa de mensagens.|
