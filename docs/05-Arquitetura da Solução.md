@@ -4,20 +4,20 @@ São apresentados nesta seção os detalhes técnicos da solução desenvolvida,
 
 ## Diagrama de Classes
 
-![Diagrama de Classes ADS 2022_1](https://user-images.githubusercontent.com/74699119/162635543-7bc38991-6b57-41e4-a14d-8c24d2e5b7c2.png)
+![Diagrama de classes](https://user-images.githubusercontent.com/74699119/167976888-d3397216-d1e9-49c9-b7de-aeb9eeb4227e.png)
 <p align="center"><b>Figura 5</b> - Diagrama de classes do projeto</p>
 <br>
 
 
 ## Modelo ER
 
-![Diagrama ER ADS 2022_1](https://user-images.githubusercontent.com/74699119/162635473-51679df0-6ec5-401a-9022-0262ee26aa39.png)
+![Modelo ER](https://user-images.githubusercontent.com/74699119/167976902-4a5f9a93-c1f2-4e8c-b8c4-2efca7ad4a0b.png)
 <p align="center"><b>Figura 6</b> - Modelo de entidade/relacionamento do projeto</p>
 <br>
 
 ## Esquema Relacional
 
-![Esquema Relacional ADS 2022_1](https://user-images.githubusercontent.com/74699119/161871528-dd3a133a-2ded-4955-ada7-43c69ddfb13e.png)
+![Esquema Relacional](https://user-images.githubusercontent.com/74699119/167976911-2349cde9-21ff-4941-8300-83064dcc11c4.png)
 <p align="center"><b>Figura 7</b> - Esquema relacional do projeto</p>
 <br>
 
@@ -48,7 +48,7 @@ Outras tecnologias:
 
 A figura abaixo demonstra como as tecnologias empregadas se relacionam dentro do sistema e como ocorre a interação do usuário com o sistema até que ele retorne uma resposta ao usuário.
 
-![Figura Tecnologias e Resposta ADS 2022_1](https://user-images.githubusercontent.com/74699119/162551814-41649e37-208d-4efc-a24b-4fbc8d2e1cce.png)
+![Tecnologias Diagrama](https://user-images.githubusercontent.com/74699119/167976921-84aa62af-9e1e-47c7-b84e-176365ad63f6.png)
 <p align="center"><b>Figura 8</b> - Tecnologias empregadas no sistema e retorno de resposta do sistema mediante requisição feita pelo usuário</p>
 <br>
 
