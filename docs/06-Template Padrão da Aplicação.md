@@ -12,6 +12,7 @@ O layout padrão que será utilizado na aplicação segue o modelo mostrado na s
 ![template_mobile](https://user-images.githubusercontent.com/74699119/168379968-52234657-925a-47aa-a90f-52a0d6c8dae9.png)
 
 <p align="center"><b>Figura 10</b> - Template da tela principal da aplicação em tamanho Mobile, com as opções presentes no header colapsadas</p>
+
 ### Opções do header a mostra
 ![template_mobile_toggle](https://user-images.githubusercontent.com/74699119/168379972-040ef1d8-5b2a-4602-818a-f40c2064854c.png)
 
@@ -31,10 +32,12 @@ O layout padrão que será utilizado na aplicação segue o modelo mostrado na s
 ![template_menu_mobile](https://user-images.githubusercontent.com/74699119/168380418-bdf3fe54-791e-4512-bf2a-b317d9299be3.png)
 
 <p align="center"><b>Figura 14</b> - Template da tela principal da aplicação em tamanho Mobile com menu lateral de navegação presente e com as opções presentes no header colapsadas</p>
+
 ### Opções do header a mostra
 ![template_menu_mobile_toggle](https://user-images.githubusercontent.com/74699119/168380358-d2f13727-448f-4360-a42e-3ebac4f5b58b.png)
 
 <p align="center"><b>Figura 15</b> - Template da tela principal da aplicação em tamanho Mobile com menu lateral de navegação presente e com as opções presentes no header sendo exibidas após clicar no icone "Toggle" presente no header</p>
+
 ## Menu dropdown de opções da conta do usuário
 ![template_opcoes_usuario](https://user-images.githubusercontent.com/74699119/168380528-adf9e908-675b-4d3d-836a-fbb4654d64c2.png)
 
