@@ -1,0 +1,12 @@
+﻿@if (ViewBag.NumeroDeMensagensNovas > 0) {
+<div class="contador-circular">
+    @if (ViewBag.NumeroDeMensagensNovas < 100)
+    {
+            @ViewBag.NumeroDeMensagensNovas
+        }
+        else
+        {
+            <span class="font-size-12px">+99</span>
+        }
+    </div>
+}

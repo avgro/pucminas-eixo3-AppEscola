@@ -1,0 +1,103 @@
+﻿@model App_comunicacao_escolar.Models.Usuario
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalhes do usuário</h1>
+
+<div>
+    <h4>@Model.NomeDisplayLista</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Perfil)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Perfil)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome) @Html.DisplayFor(model => model.Sobrenome) 
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NomeDeUsuario)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NomeDeUsuario)
+        </dd>
+        @if (Model.Professor != null)
+        {
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Professor!.Formacao)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Professor!.Formacao)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Professor!.Nivel)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Professor!.Nivel)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Professor!.Disciplinas)
+            </dt>
+            <dd class = "col-sm-10">
+                @if (Model.Professor.Disciplinas != null) {
+                    foreach (var disciplina in Model.Professor.Disciplinas)
+                    {
+                        <text>@Html.DisplayFor(modelProfessorDisciplinas => disciplina.NomeComCodigoEntreParenteses); </text>
+                    } 
+                }
+            </dd>
+        }
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TelefoneMovel)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TelefoneMovel)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TelefoneFixo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TelefoneFixo)
+        </dd>
+        <dt class = "col-sm-2">
+            Endereço
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Logradouro),
+            @Html.DisplayFor(model => model.Cidade),
+            @Html.DisplayFor(model => model.Estado) -
+            CEP: @Html.DisplayFor(model => model.Cep)
+        </dd>
+        @if (Model.Responsavel!= null)
+        {
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Responsavel!.Alunos)
+            </dt>
+            <dd class = "col-sm-10">
+                @if (Model.Responsavel.Alunos != null) {
+                    foreach (var aluno in Model.Responsavel.Alunos)
+                    {
+                        <text>@Html.DisplayFor(modelResponsavelAluno => aluno.NomeAlunoComCodigoEntreParenteses); </text>
+                    } 
+                }
+            </dd>
+        }
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Editar informações</a> |
+    <a asp-action="Index" asp-route-tipoUsuario=@ViewData["TipoUsuario"]>Voltar</a>
+</div>

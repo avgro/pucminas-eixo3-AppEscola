@@ -1,0 +1,167 @@
+﻿@model App_comunicacao_escolar.Models.Usuario
+
+@{
+    ViewData["Title"] = "AlterarDados";
+
+}
+
+<div class="center-pagina-sem-menu">
+    <h1>Dados pessoais</h1>
+    <div class="row">
+        <hr />
+        <div>
+            @if(ViewData["MensagemDeSucesso"] != null) {
+                <div class="alert-success text-center p-4">@ViewData["MensagemDeSucesso"]</div>
+            }
+            @if(ViewData["MensagemDeErro"] != null) {
+                <div class="alert-danger text-center p-4">@ViewData["MensagemDeErro"]</div>
+            }
+            <form asp-action="AlterarDados">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <h5>Nome </h5>
+                @Model.Nome @Model.Sobrenome<br />
+                <hr />
+                <h5>Nome de usuário</h5>
+                @Model.NomeDeUsuario<br />
+                <input type="hidden" asp-for="Id" />
+                <div hidden>
+                    <div class="d-flex">
+                        <div class="form-group input-size-standard">
+                            <label asp-for="Nome" class="control-label"></label>
+                            <input asp-for="Nome" class="form-control" readonly />
+                            <span asp-validation-for="Nome" class="text-danger"></span>
+                        </div>
+                        <div class="form-group input-size-standard mx-2">
+                            <label asp-for="Sobrenome" class="control-label"></label>
+                            <input asp-for="Sobrenome" class="form-control" readonly />
+                            <span asp-validation-for="Sobrenome" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group input-size-standard">
+                            <label asp-for="NomeDeUsuario" class="control-label"></label>
+                            <input asp-for="NomeDeUsuario" class="form-control" readonly />
+                            <span asp-validation-for="NomeDeUsuario" class="text-danger"></span>
+                    </div>
+                </div>
+                <hr />
+                <h5>Informações de contato</h5>
+                <span id="emailAtual">
+                    <b>Email:</b> @Model.Email
+                    <button onclick="formularioTrocar(emailAtual, emailTrocar)" type="button" class="btn btn-link">Trocar email</button>
+                </span>
+                <div id="emailTrocar" hidden>
+                    <div class="form-group input-size-standard">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control" placeholder="email@email.com.br" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <span id="telefoneAtual">
+                    <br />
+                    <b>Móvel:</b> @Model.TelefoneMovel
+                    <button onclick="formularioTrocar(telefoneAtual, telefoneTrocar)" type="button" class="btn btn-link">Trocar telefone</button>
+                    <br />
+                    <b>Fixo: </b> @Model.TelefoneFixo
+                    <button onclick="formularioTrocar(telefoneAtual, telefoneTrocar)" type="button" class="btn btn-link">Trocar telefone</button>
+                </span>
+                <div id="telefoneTrocar" hidden>
+                    <div class="form-group input-size-standard">
+                        <label asp-for="TelefoneMovel" class="control-label"></label>
+                        <input onkeyup="formatarTelefone(TelefoneMovel)" asp-for="TelefoneMovel" class="form-control" placeholder="(XX)XXXXX-XXXX" />
+                        <span asp-validation-for="TelefoneMovel" class="text-danger"></span>
+                    </div>
+                    <div class="form-group input-size-standard">
+                        <label asp-for="TelefoneFixo" class="control-label"></label>
+                        <input onkeyup="formatarTelefone(TelefoneFixo)" asp-for="TelefoneFixo" class="form-control" placeholder="(XX)XXXX-XXXX" />
+                        <span asp-validation-for="TelefoneFixo" class="text-danger"></span>
+                    </div>
+                </div>
+                <br />
+                <hr />
+                <h5>Endereço</h5>
+                <span id="enderecoAtual">
+                    @Model.Logradouro, @Model.Cidade, @Model.Estado - CEP: @Model.Cep 
+                    <button onclick="formularioTrocar(enderecoAtual, enderecoTrocar)" type="button" class="btn btn-link">Trocar endereço</button>
+                </span>
+            
+                <div id="enderecoTrocar" hidden>
+                    <div class="form-group input-size-2halfx">
+                        <label asp-for="Logradouro" class="control-label"></label>
+                        <input asp-for="Logradouro" class="form-control" />
+                        <span asp-validation-for="Logradouro" class="text-danger"></span>
+                    </div>
+                    <div class="d-flex">
+                       <div class="form-group input-size-standard">
+                            <label asp-for="Cidade" class="control-label"></label>
+                            <input asp-for="Cidade" class="form-control" />
+                            <span asp-validation-for="Cidade" class="text-danger"></span>
+                        </div>
+                        <div class="form-group input-size-quarter mx-3">
+                            <label asp-for="Estado" class="control-label"></label>
+                            <input asp-for="Estado" class="form-control" />
+                            <span asp-validation-for="Estado" class="text-danger"></span>
+                        </div>
+                        <div class="form-group input-size-half">
+                            <label asp-for="Cep" class="control-label"></label>
+                            <input onkeyup="formatarCep(Cep)" asp-for="Cep" class="form-control" />
+                            <span asp-validation-for="Cep" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" hidden>
+                    <label asp-for="Perfil" class="control-label"></label>
+                    <select asp-for="Perfil" class="form-control readonly"
+                    asp-items="Html.GetEnumSelectList<PerfilUsuarioEnum>()">
+                    </select>
+                    <span asp-validation-for="Perfil" class="text-danger"></span>
+                </div>
+                <br />
+                <hr />
+                <h5>
+                    Senha 
+                    <span id="senhaAtual">
+                        <button onclick="formularioTrocar(senhaAtual, senhaTrocar); trocarSenha()" type="button" class="btn btn-link">Trocar senha</button>
+                    </span>
+                </h5>
+            
+                    <div id="senhaTrocar" hidden>
+                    <div class="form-group col-4">
+                        <label for="NovaSenha" class="control-label">Nova senha</label>
+                        <input onkeyup="checarNovaSenhaRepetir()" type="password" id="NovaSenha" name="NovaSenha" class="form-control" />
+                    </div>
+                    <div class="form-group col-4">
+                        <label for="NovaSenhaRepetir" class="control-label">Repetir nova senha</label>
+                        <input onkeyup="checarNovaSenhaRepetir()" type="password" id="NovaSenhaRepetir" name="NovaSenhaRepetir" class="form-control" />
+                    </div>
+                    <span id="mensagemSenhasConferem" class="text-success" hidden>Senhas conferem!</span>
+                    <span id="mensagemSenhasNaoConferem" class="text-danger" hidden>Senhas não conferem!</span>
+                    <br />
+                    <h5>Confirmar senha atual</h5>
+                </div>
+                <div id="senhaNecessaria" hidden>
+                    <div class="form-group col-4">
+                    <label for="Senha" class="control-label">Inserir senha atual</label>
+                        <input asp-for="Senha" class="form-control" />
+                    </div>
+                    <span asp-validation-for="Senha" class="text-danger"></span>
+                    <div class="form-group my-4">
+                        <input type="submit" value="Alterar dados" class="btn btn-primary" />
+                    </div>
+                </div>
+                <hr />
+            </form>
+
+        </div>
+    </div>
+    <div>
+       <a asp-controller="Home" asp-action="AreaDoUsuario">Voltar</a>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/alterar-dados.js" asp-append-version="true"></script>
+    <script src="~/js/formatar-telefone.js" asp-append-version="true"></script>
+    <script src="~/js/formatar-cep.js" asp-append-version="true"></script>
+}
