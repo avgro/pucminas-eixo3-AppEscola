@@ -6,7 +6,7 @@ O layout padrão que será utilizado na aplicação segue o modelo mostrado na s
 Após a realização do login pelo usuário, a maior parte das telas visitadas apresentará também um menu lateral de navegação (localizado à esquerda do conteúdo da página), que permitirá a navegação entre as diversas seções correspondentes a cada funcionalidades disponível para o usuário (caixa de mensagens, agenda escolar, etc). Outra mudança que ocorre após o login é a substituição do botão de login presente no header por um botão com a mensagem "Olá, "Nome do Usuário" ", que pode ser clicado para abrir um menu dropdown contendo opções relativas a conta do usuário. 
 <br>
 
-A nível de código, este layout é implementado no arquivo <a href="../src/App-comunicacao-escolar/Views/Shared/_Layout.cshtml">_Layout.cshtml</a>, que contém o código para a apresentação do header, footer e menu lateral (além da função que controla quando ele deverá ser exibido) e uma seção contendo a função *@RenderBody()*, que é responsável por renderizar o conteúdo da página apresentado de acordo com a seção que o usuário se encontra dentro da aplicação.
+A nível de código, este layout é implementado no arquivo <a href="../src/App-comunicacao-escolar/Views/Shared/_Layout.cshtml">_Layout.cshtml</a>, que contém o código para a apresentação do header, footer e menu lateral (além da função que controla quando ele deverá ser exibido) e uma seção contendo a função *@RenderBody()*, que é responsável por renderizar o conteúdo da página apresentado de acordo com a seção em que o usuário se encontra dentro da aplicação.
 <br>
 
 O projeto utiliza o Bootstrap em conjunto com media queries customizadas no CSS para a responsividade.
