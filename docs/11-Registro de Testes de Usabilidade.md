@@ -90,17 +90,7 @@ Os resultados obtidos nos testes de usabilidade realizados são descritos na tab
   
   
   
-  <table> 
-<tr><th>Caso de Teste </th>
-<th> CT - 10  – Lançar e visualizar notificações no sistema. </th></tr>
-<tr><th>Objetivo do teste</th>
-  <th>Verificar se o usuário acessando uma conta do tipo "Administrador" é capaz de lançar e visualizar notificações no sistema. Verificar se o usuário logado nos demais tipos de conta são capazes de visualizar as notificações..</th></tr>
-<tr><th>Resultado</th>
-  <th>Tanto administrador como os outros usuários receberam as notificações.<br>
-  </th></tr>
-<tr><th>Melhoria</th>	
-  <th>---------------------------------------</th></tr>
-  </table>
+  
   
 
   
