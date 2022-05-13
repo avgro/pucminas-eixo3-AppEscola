@@ -55,7 +55,7 @@ Na etapa atual, o projeto ainda não foi hospedado em nenhum serviço de hospeda
 
 # Código
 
-<li><a href="src/README.md"> Código Fonte</a></li>
+<li><a href="src/App-comunicacao-escolar"> Código Fonte</a></li>
 
 # Apresentação
 
