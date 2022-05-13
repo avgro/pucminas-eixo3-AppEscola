@@ -1,6 +1,6 @@
 # Template Padrão da Aplicação
 
-O layout padrão que será utilizado no site segue o modelo mostrado na seçaõ Projeto de Interface, sendo que todas as páginas compartilham o mesmo "header" e "footer", sendo o conteúdo presente entre eles variável de acordo com a seção do site que está sendo visualizada. Após a realização do login pelo usuário, a maior parte das telas visitadas apresentará também um menu lateral de navegação à esquerda que permitirá a navegação entre as diversas seções correspondentes a cada funcionalidades disponível para o usuário (caixa de mensagens, agenda escolar, etc).
+O layout padrão que será utilizado no site segue o modelo mostrado na seção <a href="04-Projeto%20de%20Interface.md"> Projeto de Interface</a>, sendo que todas as páginas compartilham o mesmo "header" e "footer", sendo o conteúdo presente entre eles variável de acordo com a seção do site que está sendo visualizada. Após a realização do login pelo usuário, a maior parte das telas visitadas apresentará também um menu lateral de navegação à esquerda que permitirá a navegação entre as diversas seções correspondentes a cada funcionalidades disponível para o usuário (caixa de mensagens, agenda escolar, etc).
 
 ## Tela principal (Desktop)
 ![template_desktop](https://user-images.githubusercontent.com/74699119/168379726-bec9bec6-5aea-4478-98b9-fe054e50a9ca.png)
