@@ -4,6 +4,9 @@ O layout padrão que será utilizado na aplicação segue o modelo mostrado na s
 <br>
 
 O projeto utiliza o Bootstrap em conjunto com media queries customizadas no CSS para a responsividade, sendo a classe "container" do Bootstrap aplicada ao conteúdo central da página.
+<br>
+
+Nas figuras abaixo, segue o layout padrão conforme será exibido dentro da aplicação: 
 
 ## Tela principal (Desktop)
 ![template_desktop](https://user-images.githubusercontent.com/74699119/168379726-bec9bec6-5aea-4478-98b9-fe054e50a9ca.png)
