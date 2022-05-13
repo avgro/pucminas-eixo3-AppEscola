@@ -1,6 +1,9 @@
 # Template Padrão da Aplicação
 
 O layout padrão que será utilizado na aplicação segue o modelo mostrado na seção <a href="04-Projeto%20de%20Interface.md"> Projeto de Interface</a>, sendo que todas as páginas da aplicação apresentam as mesmas seções "header" e "footer", que acabam assim definindo a maior parte da identidade visual da aplicação. A seção "Conteúdo da página" presente nas figuras desta seção demarca o conteúdo variável presente entre estas duas seções fixas, que muda de acordo com a seção do site que está sendo visualizada. Após a realização do login pelo usuário, a maior parte das telas visitadas apresentará também um menu lateral de navegação (localizado à esquerda do conteúdo da página), que permitirá a navegação entre as diversas seções correspondentes a cada funcionalidades disponível para o usuário (caixa de mensagens, agenda escolar, etc). Outra mudança que ocorre após o login é a substituição do botão de login presente no header por um botão com a mensagem "Olá, "Nome do Usuário" ", que pode ser clicado para abrir um menu dropdown contendo opções relativas a conta do usuário. A nível de código, isso é implementado no arquivo <a href="../src/App-comunicacao-escolar/Views/Shared/_Layout.cshtml">_Layout.cshtml</a>, que contém o código para a apresentação do header, footer e menu lateral (além da função que controla quando ele deverá ser exibido). Para a apresentação do conteúdo, a função *@RenderBody()* é responsável por renderizar o conteúdo apresentado de acordo com a seção atual do site.
+<br>
+
+O projeto utiliza o Bootstrap em conjunto com media queries customizadas no CSS para a responsividade, sendo a classe "container" do Bootstrap aplicada ao conteúdo central da página.
 
 ## Tela principal (Desktop)
 ![template_desktop](https://user-images.githubusercontent.com/74699119/168379726-bec9bec6-5aea-4478-98b9-fe054e50a9ca.png)
@@ -43,7 +46,3 @@ O layout padrão que será utilizado na aplicação segue o modelo mostrado na s
 ![template_opcoes_usuario](https://user-images.githubusercontent.com/74699119/168380528-adf9e908-675b-4d3d-836a-fbb4654d64c2.png)
 
 <p align="center"><b>Figura 16</b> - Menu dropdown contendo as opções da conta do usuário. Acessado clicando em "Olá, "Nome do usuário" " no canto direito do header após o login</p>
-
-<hr>
-
-O projeto utiliza o Bootstrap em conjunto com media queries customizadas no CSS para a responsividade, sendo a classe "container" do Bootstrap aplicada ao conteúdo central da página.
