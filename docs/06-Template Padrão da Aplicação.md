@@ -44,4 +44,6 @@ O layout padrão que será utilizado na aplicação segue o modelo mostrado na s
 
 <p align="center"><b>Figura 16</b> - Menu dropdown contendo as opções da conta do usuário. Acessado clicando em "Olá, "Nome do usuário" " no canto direito do header após o login</p>
 
+<hr>
+
 O projeto utiliza o Bootstrap em conjunto com media queries customizadas no CSS para a responsividade, sendo a classe "container" do Bootstrap aplicada ao conteúdo central da página.
