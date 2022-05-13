@@ -4,12 +4,12 @@
 
 Os participantes escolhidos foram:
 
-* APR, 38 anos, Arquiteto de Soluções;
-* CN, 36 anos, Administradora de Empresas;
-* ES, 24 anos, Publicitária;
-* KS, 30 anos, Professora PEB II Rede Estadual;
-* AMS, 27 anos, Enfermeira;
-* HG, 34 anos, Jornalista;
+* APR, 38 anos, arquiteto de Soluções, pai de um aluno de 7 anos;
+* CN, 36 anos, administradora de Empresas, responsável por uma criança de 6 anos;
+* ES, 24 anos, publicitária e mãe de uma aluna do ensino fundamental;
+* KS, 30 anos, professora PEB II Rede Estadual, mãe de uma criança de 12 anos;
+* AMS, 27 anos, enfermeira, responsável por uma criança de 6 anos;
+* HG, 34 anos, jornalista e mãe de uma menina de 8 anos;
 
 
 
