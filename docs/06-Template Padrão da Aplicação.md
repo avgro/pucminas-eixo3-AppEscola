@@ -22,6 +22,7 @@ O layout padrão que será utilizado na aplicação segue o modelo mostrado na s
 ![template_menu_desktop](https://user-images.githubusercontent.com/74699119/168380271-e773d24a-0602-4719-8762-3752def1bdae.png)
 
 <p align="center"><b>Figura 12</b> - Template da tela principal da aplicação em tamanho Desktop com menu lateral de navegação presente</p>
+
 ## Tela principal com menu lateral (Desktop, largura < 1200 px)
 ![template_menu_1199px](https://user-images.githubusercontent.com/74699119/168384920-eb1b90bf-d318-4f34-a094-820d1a23c2f8.png)
 
