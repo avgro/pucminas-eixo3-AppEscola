@@ -47,7 +47,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
  
 > - **Área para login de usuários:** são solicitadas as informações de e-mail e senha para que o login seja efetuado. O usuário possui disponível também a opção de recuperação de senha.</p>
 
-![Login](https://user-images.githubusercontent.com/74699119/168446516-3c701b0d-b14e-4f8c-9ee6-7350ec18bbf9.png)
+![Login](https://user-images.githubusercontent.com/74699119/168448419-e40fef96-69b0-483f-91eb-ba978def3879.png)
 
  ### Tela - Tela inicial (pós login do usuário)
  
@@ -104,7 +104,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
  <p align="justify">  Será permitido aos usuários modificarem suas informações básicas, como email, telefone, senha e endereço ao preencher o formulário solicitando as novas informações e clicando em "Salvar".</p>
  
-![alterardados](https://user-images.githubusercontent.com/74699119/168447224-ecfaf12a-626c-40b4-8f13-4ee59c8467c8.png)
+![alterardados](https://user-images.githubusercontent.com/74699119/168448436-f64c0ff3-2a6e-4f1c-917d-0c2ff52eb7b9.png)
 
 ### Tela - Agenda escolar
  
@@ -125,8 +125,8 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 ### Tela - Criar nova mensagem
 
  <p align="justify">  Será permitido aos usuários receber e enviar mensagens contendo texto, imagens e video. Esta tela mostra a tela de criação de nova mensagem, onde o usuário pode enviar uma mensagem para uma lista de destinatários, iniciando assim uma nova conversa.</p>
-  
-![visualizarconversa](https://user-images.githubusercontent.com/74699119/168448195-8303c44e-8f29-45f6-9ece-411fa897ba77.png)
+
+![criarmensagens](https://user-images.githubusercontent.com/74699119/168448423-a37bd641-cc16-492d-a743-3e0103932680.png)
 
 ### Tela - Visualizar mensagens da conversa
 
