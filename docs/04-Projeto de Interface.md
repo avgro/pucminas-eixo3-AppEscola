@@ -39,7 +39,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
  
  <p align="justify"> A tela de Soluções apresenta através de imagens ilustrativas e textos explicativos, as funcionalidades do sistema. Está tela proporciona ao usuário o acesso à tela de Login e homepage, como também as informações de contato.</p>
  
-![Solucoes](https://user-images.githubusercontent.com/74699119/162334174-b2def755-07c6-43ef-9b74-ad1275951866.png)
+![Solucoes](https://user-images.githubusercontent.com/74699119/168446518-3e93ab29-8785-48ee-9c85-e093cb949d16.png)
 
  ### Tela - Login
  
@@ -47,7 +47,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
  
 > - **Área para login de usuários:** são solicitadas as informações de e-mail e senha para que o login seja efetuado. O usuário possui disponível também a opção de recuperação de senha.</p>
 
-![Login](https://user-images.githubusercontent.com/74699119/162334186-8bc32fd8-8a8e-413e-959e-324fbcd9b6e5.png)
+![Login](https://user-images.githubusercontent.com/74699119/168448419-e40fef96-69b0-483f-91eb-ba978def3879.png)
 
  ### Tela - Tela inicial (pós login do usuário)
  
@@ -76,7 +76,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
 <b>Tipo de usuário - Outros</b><br>
 
-![InicialOutros](https://user-images.githubusercontent.com/74699119/162333489-bfc29083-5e9c-4f47-bbf6-9f65edf7ea93.png)
+![InicialOutros](https://user-images.githubusercontent.com/74699119/168446693-b6b322af-55f3-40ce-95bf-e7e9dfa8da4e.png)
  
 ### Tela - Mostrar notificações 
 
@@ -103,24 +103,42 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 ### Tela - Alterar informações da conta
 
  <p align="justify">  Será permitido aos usuários modificarem suas informações básicas, como email, telefone, senha e endereço ao preencher o formulário solicitando as novas informações e clicando em "Salvar".</p>
-  
-![alterardados](https://user-images.githubusercontent.com/74699119/162345769-fe3d5b97-29cf-481a-879c-7396f0df221a.png)
  
+![alterardados](https://user-images.githubusercontent.com/74699119/168448436-f64c0ff3-2a6e-4f1c-917d-0c2ff52eb7b9.png)
+
 ### Tela - Agenda escolar
  
  <p align="justify">  Será permitido aos usuários visualizar um calendário contendo os eventos da escola de acordo com a data em que estão marcados. Os usuários do tipo "Professor" e Administrador" poderão não só visualizar, como também cadastrar eventos na agenda.</p>
  
 <b> Tipo de usuário: Responsável do aluno ou "Outro"</b>
-![agenda](https://user-images.githubusercontent.com/74699119/162344162-f914e94e-aa09-43d2-8717-b30a745d7454.png)
+![agenda](https://user-images.githubusercontent.com/74699119/168447225-0cca8ea1-0d70-413f-afdc-cc302d02953f.png)
 
 <b> Tipo de usuário: Administrador ou Professor</b>
 ![agendaprof](https://user-images.githubusercontent.com/74699119/162601923-507c7a98-f458-466a-b34b-82866fd46886.png)
 
 ### Tela - Caixa de mensagens
 
- <p align="justify">  Será permitido aos usuários receber e enviar mensagens contendo texto, imagens e video. Esta tela mostra a caixa de entrada de mensagens, bem como a área para compor uma nova mensagem.</p>
+ <p align="justify">  Será permitido aos usuários receber e enviar mensagens contendo texto, imagens e video. Esta tela mostra a caixa de entrada de mensagens.</p>
   
-![mensagens](https://user-images.githubusercontent.com/74699119/162601595-b868f4d4-7209-4cd4-b477-56887cd76a0d.png)
+![mensagens](https://user-images.githubusercontent.com/74699119/168448174-a6d76a8f-4fbc-4c96-b771-6be6791b0b04.png)
+
+### Tela - Criar nova mensagem
+
+ <p align="justify">  Será permitido aos usuários receber e enviar mensagens contendo texto, imagens e video. Esta tela mostra a tela de criação de nova mensagem, onde o usuário pode enviar uma mensagem para uma lista de destinatários, iniciando assim uma nova conversa.</p>
+
+![criarmensagens](https://user-images.githubusercontent.com/74699119/168448423-a37bd641-cc16-492d-a743-3e0103932680.png)
+
+### Tela - Visualizar mensagens da conversa
+
+ <p align="justify">  Será permitido aos usuários receber e enviar mensagens contendo texto, imagens e video. Esta tela é acessada ao clicar na opção "Visualizar" em uma conversa presente na caixa de mensagens, nesta tela, o usuário pode visualizar todas as mensagens da conversa (isto é, a mensagem original e as respostas à mensagem original e a outras respostas da conversa). O usuário pode também criar uma resposta a uma das mensagens clicando na opção "Responder" ou "Responder a todos" no corpo da mensagem desejada.</p>
+  
+![visualizarconversa](https://user-images.githubusercontent.com/74699119/168448244-bc25663d-1e0f-4a72-9e05-6e462e3d1897.png)
+
+### Janela - Responder mensagem da conversa
+
+ <p align="justify">  Será permitido aos usuários receber e enviar mensagens contendo texto, imagens e video. Esta tela é acessada ao clicar na opção "Responder" ou "Responder a todos" em uma mensagem presente na conversa. Nesta tela, o usuário pode compor sua resposta de forma similar ao que é realizado na tela de "Criar nova mensagem" e envia-la clicando em "Responder" dentro da janela de responder mensagem da conversa.</p>
+
+![respondermensagem](https://user-images.githubusercontent.com/74699119/168448308-e0bf71cb-38b0-4af5-af8a-5a814fd21101.png)
 
 ### Tela - Linha do tempo
  <b>Tipo de usuário - Responsável do Aluno</b><br>
