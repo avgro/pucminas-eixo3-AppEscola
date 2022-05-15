@@ -17,8 +17,16 @@ São apresentados nesta seção os detalhes técnicos da solução desenvolvida,
 
 ## Esquema Relacional
 
+### Com entidades fracas
 ![Esquema Relacional](https://user-images.githubusercontent.com/74699119/167976911-2349cde9-21ff-4941-8300-83064dcc11c4.png)
-<p align="center"><b>Figura 7</b> - Esquema relacional do projeto</p>
+<p align="center"><b>Figura 7</b> - Esquema relacional do projeto com entidades fracas</p>
+<br>
+
+### Sem entidades fracas
+Embora algumas entidades do projeto façam mais sentido como entidades fracas (por exemplo: a lista de destinatários de uma conversa, que depende da conversa para fazer sentido), a criação de chaves compostas para entidades fracas no Entity Framework Core precisa ser configurada manualmente utilizando a Fluent API. Embora já tenhamos configurado essas relações como "ON DELETE CASCADE" para garantir a manutenção da integridade referencial quando a tupla à qual elas se referem é deletada, essas entidades ainda possuem chaves primárias próprias, e não chaves compostas. Tendo isso em vista o modelo relacional abaixo (onde estas entidades são entidades fortes com chaves estrangeiras comuns) reflete melhor o estado atual do projeto. 
+
+![Esquema Relacional - Sem entidade fraca](https://user-images.githubusercontent.com/74699119/168461015-103697e7-f4cb-4267-8ae8-b244e72a9c94.png)
+<p align="center"><b>Figura 7</b> - Esquema relacional do projeto sem entidades fracas</p>
 <br>
 
 ## Tecnologias Utilizadas
