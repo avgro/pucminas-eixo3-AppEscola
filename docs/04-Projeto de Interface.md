@@ -64,7 +64,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
 <b>Tipo de usuário - Responsável do Aluno</b><br>
 
-![InicialProfessor](https://user-images.githubusercontent.com/74699119/162334270-59eb5755-c46a-4fd5-8d24-cbc4a4b826c1.png)
+![InicialResp](https://user-images.githubusercontent.com/74699119/168451920-2409456b-f2c5-4d78-9fe3-091d320f758c.png)
 
 <b>Tipo de usuário - Professor</b><br>
 
@@ -145,7 +145,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
   
   > - **Responsável do aluno:** Será permitido ao usuário visualizar imagens adicionadas de seus filhos. Este usuário poderá ver todas as fotos adicionadas e interagir através de comentários.
   
-![linhadotemporesp](https://user-images.githubusercontent.com/74699119/162608351-595dad44-6185-4f26-b40c-e5745458403f.png)
+![linhadotemporesp](https://user-images.githubusercontent.com/74699119/168451933-ab9e096e-ed23-4d5d-b8d7-9859f5c04808.png)
  
  <b>Tipo de usuário - Professor</b><br>
   
@@ -158,7 +158,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
 <p align="justify">  Será permitido aos usuários do tipo "Responsável do aluno" visualizarem notificações de eventos que necessitam de sua autorização, assinalando se autorizam ou não que seu filho participe. Ao usuário será apresentada uma mensagem informando o conteúdo necessário de autorização, que pode ser um evento, excursão etc.</p>
  
-![assinarautorizacao](https://user-images.githubusercontent.com/74699119/162346531-1ce86e36-7f85-4efe-b65e-e858b299e290.png)
+![assinarautorizacao](https://user-images.githubusercontent.com/74699119/168451938-43cf4e6d-2bb8-49b1-a1e6-f8f58f775d58.png)
  
 ### Tela - Visualizar turmas do professor
  
