@@ -98,7 +98,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
  <p align="justify">  Será permitido aos usuários acessarem o submenu de opções da conta, que possui as funcionalidades de "Alterar dados", que direciona o usuário para a tela de "Alterar informações da conta" e "Sair", que finaliza a sessão do usuário realiznado logoff.</p>
 
-![perfil](https://user-images.githubusercontent.com/74699119/168452610-e9c0e48a-0d61-4cce-93a5-44cb28eb57e5.png)
+![perfil](https://user-images.githubusercontent.com/74699119/168452702-d73fecb4-a437-4e2d-a029-6c10332b010c.png)
  
 ### Tela - Alterar informações da conta
 
