@@ -110,7 +110,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
  
  <p align="justify">  Será permitido aos usuários visualizar um calendário contendo os eventos da escola de acordo com a data em que estão marcados. Os usuários do tipo "Professor" e Administrador" poderão não só visualizar, como também cadastrar eventos na agenda.</p>
  
-<b> Tipo de usuário: Responsável do aluno ou "Outro"</b>
+<b> Tipo de usuário: Responsável do aluno ou "Outros"</b>
 ![agenda](https://user-images.githubusercontent.com/74699119/168447225-0cca8ea1-0d70-413f-afdc-cc302d02953f.png)
 
 <b> Tipo de usuário: Administrador ou Professor</b>
@@ -167,7 +167,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
  
 ### Tela - Visualizar todos os usuários do sistema
 
-<p align="justify">  Será permitido aos usuários do tipo Administrador visualizar todos os usuários cadastrados no sistema, vendo suas informações básicas de ID, nome, e-mail e tipo de usuário. Poderão também deletar contas de usuários a partir desta tela.</p>
+<p align="justify">  Será permitido aos usuários do tipo Administrador visualizar todos os usuários cadastrados no sistema, vendo suas informações básicas de nome completo, nome de usuário e tipo de usuário. Poderão também editar ou deletar contas de usuários.</p>
  
 ![listausuarios](https://user-images.githubusercontent.com/74699119/168459995-aae046ca-1564-4099-b53c-2ad2018aea68.png)
 
@@ -208,7 +208,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
 ### Tela - Cadastrar aluno
 
-<p align="justify">  Será permitido aos usuários do tipo Administrador cadastrar um novo aluno ao sistema, adicionando informações previamente apresentadas, bem como atrelar ele ao seu usuário do tipo Responsável, previamente cadastrado e também a uma turma.</p>
+<p align="justify">  Será permitido aos usuários do tipo Administrador cadastrar um novo aluno ao sistema, atrelando este ele a seus responsáveis (previamente cadastrados como usuários do tipo "Responsável de aluno") e também a uma turma.</p>
 
 ![cadastroalunos](https://user-images.githubusercontent.com/74699119/168460378-18ca681d-54d8-44c4-bd86-d7f16dddb3ec.png)
 
