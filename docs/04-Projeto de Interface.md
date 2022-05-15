@@ -68,33 +68,33 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
 <b>Tipo de usuário - Professor</b><br>
 
-![InicialProfessor](https://user-images.githubusercontent.com/74699119/162332931-935dd871-c045-4242-a640-d5c940eb541b.png)
- 
+![InicialProfessor](https://user-images.githubusercontent.com/74699119/168452555-7045b395-9b68-4e59-8bb8-102e39d12ff8.png)
+
 <b>Tipo de usuário - Administrador</b><br>
 
- ![InicialAdmin](https://user-images.githubusercontent.com/74699119/162332939-cfbc70e6-2803-46b9-afe0-334ea8afcb76.png)
+![InicialAdmin](https://user-images.githubusercontent.com/74699119/168452536-10eb8a2d-72ab-4104-9f48-70340a78cec1.png)
 
 <b>Tipo de usuário - Outros</b><br>
 
 ![InicialOutros](https://user-images.githubusercontent.com/74699119/168446693-b6b322af-55f3-40ce-95bf-e7e9dfa8da4e.png)
  
-### Tela - Mostrar notificações 
+### Janela - Mostrar notificações 
 
 <p align="justify"> Na tela de notificações, são mostrados avisos para os usuários, sejam notificações do sistema ou notificações lançadas diretamente pelo administrador. Será mostrado aos usuários um resumo das notificações no botão "Notificação" na parte superior da tela, bem como em um painel centralizado na página. Usuários do tipo "Administrador" poderão criar novas notificações que serão enviadas para os demais usuários clicando na opção "Criar notificação". </p>
 
 <b>Tipo de usuário: Professor, Responsável do Aluno e "Outros"</b>
-![notificacoes](https://user-images.githubusercontent.com/74699119/162345763-f1844ad3-58aa-4192-afb1-ca4bfca99739.png)
- 
- <b>Tipo de usuário: Administrador</b>
-![notificacoesadministrador](https://user-images.githubusercontent.com/74699119/162607878-76ee7c49-42f7-4828-8e87-ce566b7dedf5.png)
+![notificacoes](https://user-images.githubusercontent.com/74699119/168452539-8329bc84-c45b-43c8-8ff6-99242bb39125.png)
 
-### Tela - Criar notificação
+ <b>Tipo de usuário: Administrador</b>
+![notificacoesadministrador](https://user-images.githubusercontent.com/74699119/168452548-82457fa5-1078-4773-8517-f9de4c75578b.png)
+
+### Janela - Criar notificação
 
  <p align="justify"> Tela acessada pelo Administrador ao clicar em "Criar notificação" no menu de notificações. Permite criar uma nova notificação e lança-la no sistema.</p>
- 
-![telacriarnotificacao](https://user-images.githubusercontent.com/74699119/162607969-b59b5d7c-eb61-4129-8e98-90050d820d51.png)
 
-### Tela - Opções da conta
+![telacriarnotificacao](https://user-images.githubusercontent.com/74699119/168452542-63b3f739-288a-4c36-8756-ec9cf490dd86.png)
+
+### Janela - Opções da conta
 
  <p align="justify">  Será permitido aos usuários acessarem o submenu de opções da conta, que possui as funcionalidades de "Alterar dados", que direciona o usuário para a tela de "Alterar informações da conta" e "Sair", que finaliza a sessão do usuário realiznado logoff.</p>
 
@@ -151,8 +151,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
   
   > - **Professor:** Este usuário poderá criar postagens adicionando texto e imagens de um determinado aluno, bem como interagir com a publicação por meio de comentários.
   
-![linhadotempoprofessor](https://user-images.githubusercontent.com/74699119/162608349-7fa1c508-1324-4314-947f-7521ec0db4ef.png)
-
+![linhadotempoprofessor](https://user-images.githubusercontent.com/74699119/168452561-d65717ba-de2d-4e7f-abdf-66f9798021a0.png)
  
 ### Tela - Assinar autorização
 
@@ -164,7 +163,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
  
 <p align="justify">  Será permitido aos usuários do tipo "Professor" visualizar todas as turmas que estão sob sua responsabilidade e os alunos atrelados a elas. Ele poderá realizar pesquisas para filtragem das turmas por nome do aluno ou disciplina lecionada.</p>
  
-![minhasturmas](https://user-images.githubusercontent.com/74699119/162491880-52bf44c1-04e5-441c-8cf9-d477e3da42b0.png)
+![minhasturmas](https://user-images.githubusercontent.com/74699119/168452574-42efd1c0-a600-462a-bfb9-a76a11b2b398.png)
  
 ### Tela - Visualizar todos os usuários do sistema
 
