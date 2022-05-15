@@ -91,8 +91,8 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 ### Janela - Criar notificação
 
  <p align="justify"> Tela acessada pelo Administrador ao clicar em "Criar notificação" no menu de notificações. Permite criar uma nova notificação e lança-la no sistema.</p>
-
-![telacriarnotificacao](https://user-images.githubusercontent.com/74699119/168452542-63b3f739-288a-4c36-8756-ec9cf490dd86.png)
+ 
+![telacriarnotificacao](https://user-images.githubusercontent.com/74699119/168452664-7d2eede5-8d7e-4ba9-9cf6-794f807c1c60.png)
 
 ### Janela - Opções da conta
 
