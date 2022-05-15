@@ -39,7 +39,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
  
  <p align="justify"> A tela de Soluções apresenta através de imagens ilustrativas e textos explicativos, as funcionalidades do sistema. Está tela proporciona ao usuário o acesso à tela de Login e homepage, como também as informações de contato.</p>
  
-![Solucoes](https://user-images.githubusercontent.com/74699119/168446518-3e93ab29-8785-48ee-9c85-e093cb949d16.png)
+![Solucoes](https://user-images.githubusercontent.com/74699119/168452622-178dd5e4-321f-4558-b5d5-a8a65bca94b2.png)
 
  ### Tela - Login
  
