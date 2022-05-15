@@ -120,7 +120,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
  <p align="justify">  Será permitido aos usuários receber e enviar mensagens contendo texto, imagens e video. Esta tela mostra a caixa de entrada de mensagens.</p>
   
-![mensagens](https://user-images.githubusercontent.com/74699119/168448174-a6d76a8f-4fbc-4c96-b771-6be6791b0b04.png)
+![mensagens](https://user-images.githubusercontent.com/74699119/168452690-b59c8604-7961-48ca-98bb-fdd18f830eee.png)
 
 ### Tela - Criar nova mensagem
 
@@ -138,7 +138,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
  <p align="justify">  Será permitido aos usuários receber e enviar mensagens contendo texto, imagens e video. Esta tela é acessada ao clicar na opção "Responder" ou "Responder a todos" em uma mensagem presente na conversa. Nesta tela, o usuário pode compor sua resposta de forma similar ao que é realizado na tela de "Criar nova mensagem" e envia-la clicando em "Responder" dentro da janela de responder mensagem da conversa.</p>
 
-![respondermensagem](https://user-images.githubusercontent.com/74699119/168448308-e0bf71cb-38b0-4af5-af8a-5a814fd21101.png)
+![respondermensagem](https://user-images.githubusercontent.com/74699119/168452692-0b506039-4110-4cc5-9109-84ece879dc7a.png)
 
 ### Tela - Linha do tempo
  <b>Tipo de usuário - Responsável do Aluno</b><br>
