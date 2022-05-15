@@ -68,7 +68,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
 <b>Tipo de usuário - Professor</b><br>
 
-![InicialProfessor](https://user-images.githubusercontent.com/74699119/168452555-7045b395-9b68-4e59-8bb8-102e39d12ff8.png)
+![InicialProfessor](https://user-images.githubusercontent.com/74699119/168460288-59b9b253-a227-4dd7-9652-2f6a11afff67.png)
 
 <b>Tipo de usuário - Administrador</b><br>
 
@@ -151,7 +151,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
   
   > - **Professor:** Este usuário poderá criar postagens adicionando texto e imagens de um determinado aluno, bem como interagir com a publicação por meio de comentários.
   
-![linhadotempoprofessor](https://user-images.githubusercontent.com/74699119/168452561-d65717ba-de2d-4e7f-abdf-66f9798021a0.png)
+![linhadotempoprofessor](https://user-images.githubusercontent.com/74699119/168460330-b12c2a91-c2d6-4456-814a-e83005af452b.png)
  
 ### Tela - Assinar autorização
 
@@ -193,7 +193,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
 <p align="justify">  Será permitido aos usuários do tipo Administrador visualizar a lista de turmas cadastradas no sistema, bem como apagar ou editar informações das turmas cadastradas e visualizar/editar o quadro de horários contendo as disciplinas associadas a turma.</p>
 
-![listaturmas](https://user-images.githubusercontent.com/74699119/168460163-97822abb-3112-42ee-9cfa-373c20f7ee1f.png)
+![listaturmas](https://user-images.githubusercontent.com/74699119/168460342-a666b616-4e4b-41d4-b861-5ed29595a560.png)
 
 ### Tela - Cadastrar turma
 
@@ -204,13 +204,13 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 ### Tela - Visualizar alunos cadastrados
 <p align="justify">  Será permitido aos usuários do tipo Administrador visualizar a lista de alunos cadastrados no sistema, bem como remover alunos cadastrados ou editar suas informações para situações nas quais seja necessário trocar sua turma ou adicionar mais responsáveis.</p>
 
-![listaalunos](https://user-images.githubusercontent.com/74699119/168460010-66399496-50bd-4934-864d-3ebc6bca3fd5.png)
+![listaalunos](https://user-images.githubusercontent.com/74699119/168460362-ddc54bab-3ae8-4a3a-8e02-cdc071dcc407.png)
 
 ### Tela - Cadastrar aluno
 
 <p align="justify">  Será permitido aos usuários do tipo Administrador cadastrar um novo aluno ao sistema, adicionando informações previamente apresentadas, bem como atrelar ele ao seu usuário do tipo Responsável, previamente cadastrado e também a uma turma.</p>
- 
-![cadastroalunos](https://user-images.githubusercontent.com/74699119/168460028-ff2c486f-04cf-4c21-b7b8-c2d704d46cc9.png)
+
+![cadastroalunos](https://user-images.githubusercontent.com/74699119/168460378-18ca681d-54d8-44c4-bd86-d7f16dddb3ec.png)
 
 ### Tela - Ver quadro de horários/Associar disciplinas à turma
  
