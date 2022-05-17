@@ -1,6 +1,4 @@
-﻿@model App_comunicacao_escolar.Models.Agenda
-
-@{
+﻿@{
     ViewData["Title"] = "Details";
 
     var diaAtual = 0;
@@ -24,27 +22,40 @@
 }
 
 
-<h1>Details</h1>
+<h1>Agenda escolar</h1>
 
 <div>
-    <h4>Agenda</h4>
+    <div class="d-flex justify-content-between">
+        <h4>@ViewData["AgendaNome"]</h4>
+        <div>
+        <label for="selecionar-agenda" class="control-label">Selecionar agenda</label>
+            <select selectedindex="2" onchange="mudarAgenda()" id="selecionar-agenda" class ="form-control form-select" asp-items="ViewBag.AgendaId">
+                <option value="">Todas as agendas</option>
+            </select>
+        </div>
+    </div>
     <hr />
-    <div class="d-flex">
-        @if(mesNumero != 1) {
-            <a onclick="manterScrollY()" asp-action="Visualizar" asp-route-selecionarMes=@(mesNumero - 1) asp-route-selecionarAno=@anoSelecionado><i class="bi bi-1halfx bi-caret-left"></i></a>
-        }
-        else
-        {
-            <a onclick="manterScrollY()" asp-action="Visualizar" asp-route-selecionarMes=12 asp-route-selecionarAno=@(anoSelecionado - 1)><i class="bi bi-1halfx bi-caret-left"></i></a>
-        }
-        <h3 class="mostrarMesAnoAtual">@ViewData["mesNome"] de @ViewData["anoSelecionado"]</h3>
-        @if(mesNumero != 12) {
-            <a onclick="manterScrollY()" asp-action="Visualizar" asp-route-selecionarMes=@(mesNumero + 1) asp-route-selecionarAno=@anoSelecionado><i class="bi bi-1halfx bi-caret-right"></i></a>
-        }
-        else
-        {
-            <a onclick="manterScrollY()" asp-action="Visualizar" asp-route-selecionarMes=1 asp-route-selecionarAno=@(anoSelecionado + 1)><i class="bi bi-1halfx bi-caret-right"></i></a>
-        }
+    <div class="d-flex justify-content-between">
+        <div class="d-flex">
+            @if(mesNumero != 1) {
+                <a onclick="manterScrollY()" asp-action="Visualizar" asp-route-selecionarMes=@(mesNumero - 1) asp-route-selecionarAno=@anoSelecionado><i class="bi bi-1halfx bi-caret-left"></i></a>
+            }
+            else
+            {
+                <a onclick="manterScrollY()" asp-action="Visualizar" asp-route-selecionarMes=12 asp-route-selecionarAno=@(anoSelecionado - 1)><i class="bi bi-1halfx bi-caret-left"></i></a>
+            }
+            <h3 class="mostrarMesAnoAtual">@ViewData["mesNome"] de @ViewData["anoSelecionado"]</h3>
+            @if(mesNumero != 12) {
+                <a onclick="manterScrollY()" asp-action="Visualizar" asp-route-selecionarMes=@(mesNumero + 1) asp-route-selecionarAno=@anoSelecionado><i class="bi bi-1halfx bi-caret-right"></i></a>
+            }
+            else
+            {
+                <a onclick="manterScrollY()" asp-action="Visualizar" asp-route-selecionarMes=1 asp-route-selecionarAno=@(anoSelecionado + 1)><i class="bi bi-1halfx bi-caret-right"></i></a>
+            }
+        </div>
+        <div>
+            <a asp-controller="EventosDaAgenda" asp-action="Create" class="btn btn-primary">Cadastrar novo evento</a>
+        </div>
     </div>
     <br />
     <div class="agenda-grid"> 
@@ -112,7 +123,6 @@
 </div>
 
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
     <a asp-action="Index">Voltar</a>
 </div>
 

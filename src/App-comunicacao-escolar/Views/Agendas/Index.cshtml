@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Lista de agendas</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -19,6 +19,16 @@
         </tr>
     </thead>
     <tbody>
+
+        <tr>
+            <td>
+                <b>Todas as agendas</b>
+            </td>
+            <td>
+                <a asp-action="Visualizar">Visualizar</a>
+            </td>
+        </tr>
+
 @foreach (var item in Model) {
         <tr>
             <td>

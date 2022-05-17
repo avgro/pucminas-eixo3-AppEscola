@@ -8,7 +8,7 @@ namespace App_comunicacao_escolar.Models
     {
         [Key]
         public int Id { get; set; }
-        [Display(Name = "Nome da disciplina")]
+        [Display(Name = "Nome da agenda")]
         [Required(ErrorMessage = "Inserir nome da agenda!")]
         [MaxLength(50)]
         public string? Nome { get; set; }

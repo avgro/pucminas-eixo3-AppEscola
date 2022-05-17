@@ -47,28 +47,18 @@ namespace App_comunicacao_escolar.Controllers
         // GET: Agendas/Visualizar/5
         public async Task<object> Visualizar(int? id, int? selecionarMes = -1, int? selecionarAno = -1)
         {
-            try { 
-                if (id == null)
-                {
-                    return NotFound();
-                }
-
-                var agenda = await _context.Agendas
-                    .Include(a => a.EventosDaAgenda)
-                    .FirstOrDefaultAsync(m => m.Id == id);
-                if (agenda == null)
-                {
-                    return NotFound();
-                }
-
+            try
+            {
                 var dataSelecionada = DateTime.Now;
                 int diaAtual = dataSelecionada.Day;
 
-                if (selecionarMes != -1 && selecionarAno != -1) {
-                    if (dataSelecionada.Month != selecionarMes || dataSelecionada.Year != selecionarAno) {
+                if (selecionarMes != -1 && selecionarAno != -1)
+                {
+                    if (dataSelecionada.Month != selecionarMes || dataSelecionada.Year != selecionarAno)
+                    {
                         diaAtual = -1;
                     }
-                    dataSelecionada = new DateTime((int) selecionarAno, (int) selecionarMes, 1);
+                    dataSelecionada = new DateTime((int)selecionarAno, (int)selecionarMes, 1);
                 }
 
                 string mesSelecionadoNome = dataSelecionada.ToString("MMMM");
@@ -79,14 +69,15 @@ namespace App_comunicacao_escolar.Controllers
                 var inicioMes = new DateTime(anoSelecionado, mesSelecionadoNumero, 1);
                 var fimMes = new DateTime(anoSelecionado, mesSelecionadoNumero, numeroDeDiasDoMesSelecionado);
 
-                int inicioMesDiaDaSemana = (int) inicioMes.DayOfWeek;
+                int inicioMesDiaDaSemana = (int)inicioMes.DayOfWeek;
 
                 int numeroDeDiasDoMesAnterior = 0;
                 if (mesSelecionadoNumero == 1)
                 {
                     numeroDeDiasDoMesAnterior = DateTime.DaysInMonth((anoSelecionado - 1), 12);
                 }
-                else { 
+                else
+                {
                     numeroDeDiasDoMesAnterior = DateTime.DaysInMonth(anoSelecionado, (mesSelecionadoNumero - 1));
                 }
 
@@ -98,7 +89,22 @@ namespace App_comunicacao_escolar.Controllers
                 ViewData["numeroDeDiasDoMesSelecionado"] = numeroDeDiasDoMesSelecionado;
                 ViewData["numeroDeDiasDoMesAnterior"] = numeroDeDiasDoMesAnterior;
 
-                var eventos = _context.EventosDaAgenda.Where(e => e.AgendaId == agenda.Id && e.InicioDoEvento >= inicioMes && e.FimDoEvento <= fimMes).OrderBy(e => e.InicioDoEvento);
+                var eventos = _context.EventosDaAgenda.Where(e => e.InicioDoEvento >= inicioMes && e.FimDoEvento <= fimMes).OrderBy(e => e.InicioDoEvento);
+
+                var agendaSelectList = new SelectList(_context.Agendas.OrderBy(a => a.Nome), "Id", "Nome");
+
+                string agendaNome = "Todas as agendas";
+                if (id != null) {
+                    agendaNome = _context.Agendas.FirstOrDefault(a => a.Id == id).Nome;
+
+                    var agendaSelected = agendaSelectList.Where(a => a.Text == agendaNome).First();
+                    agendaSelected.Selected = true;
+                    int[] idAgendasSelecionadas = { (int)id };
+                    eventos = (IOrderedQueryable<EventoDaAgenda>)eventos.Where(e => idAgendasSelecionadas.Contains((int)e.AgendaId));
+                }
+
+                ViewData["AgendaNome"] = agendaNome.ToString();
+                ViewData["AgendaId"] = agendaSelectList;
 
                 string[] eventosDoMes = new string[42];
                 foreach (var evento in eventos)
@@ -116,7 +122,7 @@ namespace App_comunicacao_escolar.Controllers
 
                 ViewBag.EventosDoMes = eventosDoMes;
 
-                return View(agenda);
+                return View();
             }
             catch
             {
