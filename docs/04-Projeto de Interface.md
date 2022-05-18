@@ -39,7 +39,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
  
  <p align="justify"> A tela de Soluções apresenta através de imagens ilustrativas e textos explicativos, as funcionalidades do sistema. Está tela proporciona ao usuário o acesso à tela de Login e homepage, como também as informações de contato.</p>
  
-![Solucoes](https://user-images.githubusercontent.com/74699119/162334174-b2def755-07c6-43ef-9b74-ad1275951866.png)
+![Solucoes](https://user-images.githubusercontent.com/74699119/168452622-178dd5e4-321f-4558-b5d5-a8a65bca94b2.png)
 
  ### Tela - Login
  
@@ -47,7 +47,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
  
 > - **Área para login de usuários:** são solicitadas as informações de e-mail e senha para que o login seja efetuado. O usuário possui disponível também a opção de recuperação de senha.</p>
 
-![Login](https://user-images.githubusercontent.com/74699119/162334186-8bc32fd8-8a8e-413e-959e-324fbcd9b6e5.png)
+![Login](https://user-images.githubusercontent.com/74699119/168448419-e40fef96-69b0-483f-91eb-ba978def3879.png)
 
  ### Tela - Tela inicial (pós login do usuário)
  
@@ -64,163 +64,156 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
 <b>Tipo de usuário - Responsável do Aluno</b><br>
 
-![InicialProfessor](https://user-images.githubusercontent.com/74699119/162334270-59eb5755-c46a-4fd5-8d24-cbc4a4b826c1.png)
+![InicialResp](https://user-images.githubusercontent.com/74699119/168451920-2409456b-f2c5-4d78-9fe3-091d320f758c.png)
 
 <b>Tipo de usuário - Professor</b><br>
 
-![InicialProfessor](https://user-images.githubusercontent.com/74699119/162332931-935dd871-c045-4242-a640-d5c940eb541b.png)
- 
+![InicialProfessor](https://user-images.githubusercontent.com/74699119/168460288-59b9b253-a227-4dd7-9652-2f6a11afff67.png)
+
 <b>Tipo de usuário - Administrador</b><br>
 
- ![InicialAdmin](https://user-images.githubusercontent.com/74699119/162332939-cfbc70e6-2803-46b9-afe0-334ea8afcb76.png)
+![InicialAdmin](https://user-images.githubusercontent.com/74699119/168452536-10eb8a2d-72ab-4104-9f48-70340a78cec1.png)
 
 <b>Tipo de usuário - Outros</b><br>
 
-![InicialOutros](https://user-images.githubusercontent.com/74699119/162333489-bfc29083-5e9c-4f47-bbf6-9f65edf7ea93.png)
+![InicialOutros](https://user-images.githubusercontent.com/74699119/168446693-b6b322af-55f3-40ce-95bf-e7e9dfa8da4e.png)
  
-### Tela - Mostrar notificações 
+### Janela - Mostrar notificações 
 
 <p align="justify"> Na tela de notificações, são mostrados avisos para os usuários, sejam notificações do sistema ou notificações lançadas diretamente pelo administrador. Será mostrado aos usuários um resumo das notificações no botão "Notificação" na parte superior da tela, bem como em um painel centralizado na página. Usuários do tipo "Administrador" poderão criar novas notificações que serão enviadas para os demais usuários clicando na opção "Criar notificação". </p>
 
 <b>Tipo de usuário: Professor, Responsável do Aluno e "Outros"</b>
-![notificacoes](https://user-images.githubusercontent.com/74699119/162345763-f1844ad3-58aa-4192-afb1-ca4bfca99739.png)
- 
- <b>Tipo de usuário: Administrador</b>
-![notificacoesadministrador](https://user-images.githubusercontent.com/74699119/162607878-76ee7c49-42f7-4828-8e87-ce566b7dedf5.png)
+![notificacoes](https://user-images.githubusercontent.com/74699119/168452539-8329bc84-c45b-43c8-8ff6-99242bb39125.png)
 
-### Tela - Criar notificação
+ <b>Tipo de usuário: Administrador</b>
+![notificacoesadministrador](https://user-images.githubusercontent.com/74699119/168452548-82457fa5-1078-4773-8517-f9de4c75578b.png)
+
+### Janela - Criar notificação
 
  <p align="justify"> Tela acessada pelo Administrador ao clicar em "Criar notificação" no menu de notificações. Permite criar uma nova notificação e lança-la no sistema.</p>
  
-![telacriarnotificacao](https://user-images.githubusercontent.com/74699119/162607969-b59b5d7c-eb61-4129-8e98-90050d820d51.png)
+![telacriarnotificacao](https://user-images.githubusercontent.com/74699119/168452664-7d2eede5-8d7e-4ba9-9cf6-794f807c1c60.png)
 
-### Tela - Opções da conta
+### Janela - Opções da conta
 
  <p align="justify">  Será permitido aos usuários acessarem o submenu de opções da conta, que possui as funcionalidades de "Alterar dados", que direciona o usuário para a tela de "Alterar informações da conta" e "Sair", que finaliza a sessão do usuário realiznado logoff.</p>
 
-![perfil](https://user-images.githubusercontent.com/74699119/162345487-94dad779-b01c-487f-b845-f3022f3ce7ce.png)
+![perfil](https://user-images.githubusercontent.com/74699119/168452702-d73fecb4-a437-4e2d-a029-6c10332b010c.png)
  
 ### Tela - Alterar informações da conta
 
  <p align="justify">  Será permitido aos usuários modificarem suas informações básicas, como email, telefone, senha e endereço ao preencher o formulário solicitando as novas informações e clicando em "Salvar".</p>
-  
-![alterardados](https://user-images.githubusercontent.com/74699119/162345769-fe3d5b97-29cf-481a-879c-7396f0df221a.png)
  
+![alterardados](https://user-images.githubusercontent.com/74699119/168448436-f64c0ff3-2a6e-4f1c-917d-0c2ff52eb7b9.png)
+
 ### Tela - Agenda escolar
  
  <p align="justify">  Será permitido aos usuários visualizar um calendário contendo os eventos da escola de acordo com a data em que estão marcados. Os usuários do tipo "Professor" e Administrador" poderão não só visualizar, como também cadastrar eventos na agenda.</p>
  
-<b> Tipo de usuário: Responsável do aluno ou "Outro"</b>
-![agenda](https://user-images.githubusercontent.com/74699119/162344162-f914e94e-aa09-43d2-8717-b30a745d7454.png)
+<b> Tipo de usuário: Responsável do aluno ou "Outros"</b>
+![agenda](https://user-images.githubusercontent.com/74699119/168447225-0cca8ea1-0d70-413f-afdc-cc302d02953f.png)
 
 <b> Tipo de usuário: Administrador ou Professor</b>
 ![agendaprof](https://user-images.githubusercontent.com/74699119/162601923-507c7a98-f458-466a-b34b-82866fd46886.png)
 
 ### Tela - Caixa de mensagens
 
- <p align="justify">  Será permitido aos usuários receber e enviar mensagens contendo texto, imagens e video. Esta tela mostra a caixa de entrada de mensagens, bem como a área para compor uma nova mensagem.</p>
+ <p align="justify">  Será permitido aos usuários receber e enviar mensagens contendo texto, imagens e video. Esta tela mostra a caixa de entrada de mensagens.</p>
   
-![mensagens](https://user-images.githubusercontent.com/74699119/162601595-b868f4d4-7209-4cd4-b477-56887cd76a0d.png)
+![mensagens](https://user-images.githubusercontent.com/74699119/168452690-b59c8604-7961-48ca-98bb-fdd18f830eee.png)
+
+### Tela - Criar nova mensagem
+
+ <p align="justify">  Será permitido aos usuários receber e enviar mensagens contendo texto, imagens e video. Esta tela mostra a tela de criação de nova mensagem, onde o usuário pode enviar uma mensagem para uma lista de destinatários, iniciando assim uma nova conversa.</p>
+
+![criarmensagens](https://user-images.githubusercontent.com/74699119/168448423-a37bd641-cc16-492d-a743-3e0103932680.png)
+
+### Tela - Visualizar mensagens da conversa
+
+ <p align="justify">  Será permitido aos usuários receber e enviar mensagens contendo texto, imagens e video. Esta tela é acessada ao clicar na opção "Visualizar" em uma conversa presente na caixa de mensagens, nesta tela, o usuário pode visualizar todas as mensagens da conversa (isto é, a mensagem original e as respostas à mensagem original e a outras respostas da conversa). O usuário pode também criar uma resposta a uma das mensagens clicando na opção "Responder" ou "Responder a todos" no corpo da mensagem desejada.</p>
+  
+![visualizarconversa](https://user-images.githubusercontent.com/74699119/168448244-bc25663d-1e0f-4a72-9e05-6e462e3d1897.png)
+
+### Janela - Responder mensagem da conversa
+
+ <p align="justify">  Será permitido aos usuários receber e enviar mensagens contendo texto, imagens e video. Esta tela é acessada ao clicar na opção "Responder" ou "Responder a todos" em uma mensagem presente na conversa. Nesta tela, o usuário pode compor sua resposta de forma similar ao que é realizado na tela de "Criar nova mensagem" e envia-la clicando em "Responder" dentro da janela de responder mensagem da conversa.</p>
+
+![respondermensagem](https://user-images.githubusercontent.com/74699119/168452692-0b506039-4110-4cc5-9109-84ece879dc7a.png)
 
 ### Tela - Linha do tempo
  <b>Tipo de usuário - Responsável do Aluno</b><br>
   
   > - **Responsável do aluno:** Será permitido ao usuário visualizar imagens adicionadas de seus filhos. Este usuário poderá ver todas as fotos adicionadas e interagir através de comentários.
   
-![linhadotemporesp](https://user-images.githubusercontent.com/74699119/162608351-595dad44-6185-4f26-b40c-e5745458403f.png)
+![linhadotemporesp](https://user-images.githubusercontent.com/74699119/168451933-ab9e096e-ed23-4d5d-b8d7-9859f5c04808.png)
  
  <b>Tipo de usuário - Professor</b><br>
   
   > - **Professor:** Este usuário poderá criar postagens adicionando texto e imagens de um determinado aluno, bem como interagir com a publicação por meio de comentários.
   
-![linhadotempoprofessor](https://user-images.githubusercontent.com/74699119/162608349-7fa1c508-1324-4314-947f-7521ec0db4ef.png)
-
+![linhadotempoprofessor](https://user-images.githubusercontent.com/74699119/168460330-b12c2a91-c2d6-4456-814a-e83005af452b.png)
  
 ### Tela - Assinar autorização
 
 <p align="justify">  Será permitido aos usuários do tipo "Responsável do aluno" visualizarem notificações de eventos que necessitam de sua autorização, assinalando se autorizam ou não que seu filho participe. Ao usuário será apresentada uma mensagem informando o conteúdo necessário de autorização, que pode ser um evento, excursão etc.</p>
  
-![assinarautorizacao](https://user-images.githubusercontent.com/74699119/162346531-1ce86e36-7f85-4efe-b65e-e858b299e290.png)
+![assinarautorizacao](https://user-images.githubusercontent.com/74699119/168451938-43cf4e6d-2bb8-49b1-a1e6-f8f58f775d58.png)
  
 ### Tela - Visualizar turmas do professor
  
 <p align="justify">  Será permitido aos usuários do tipo "Professor" visualizar todas as turmas que estão sob sua responsabilidade e os alunos atrelados a elas. Ele poderá realizar pesquisas para filtragem das turmas por nome do aluno ou disciplina lecionada.</p>
  
-![minhasturmas](https://user-images.githubusercontent.com/74699119/162491880-52bf44c1-04e5-441c-8cf9-d477e3da42b0.png)
+![minhasturmas](https://user-images.githubusercontent.com/74699119/168452574-42efd1c0-a600-462a-bfb9-a76a11b2b398.png)
  
 ### Tela - Visualizar todos os usuários do sistema
 
-<p align="justify">  Será permitido aos usuários do tipo Administrador visualizar todos os usuários cadastrados no sistema, vendo suas informações básicas de ID, nome, e-mail e tipo de usuário. Poderão também deletar contas de usuários a partir desta tela.</p>
+<p align="justify">  Será permitido aos usuários do tipo Administrador visualizar todos os usuários cadastrados no sistema, vendo suas informações básicas de nome completo, nome de usuário e tipo de usuário. Poderão também editar ou deletar contas de usuários.</p>
  
-![usuariosadmin](https://user-images.githubusercontent.com/74699119/162587514-d7a4bd72-41fe-4163-8dd3-b7303ee4146c.png)
+![listausuarios](https://user-images.githubusercontent.com/74699119/168459995-aae046ca-1564-4099-b53c-2ad2018aea68.png)
 
 ### Tela - Cadastrar usuário
 
 <p align="justify">  Será permitido aos usuários do tipo Administrador cadastrar um novo usuário ao sistema, adicionando informações previamente apresentadas, bem como selecionar o tipo de usuário atrelado aquele novo usuário.</p>
  
-![cadastrarusuario](https://user-images.githubusercontent.com/74699119/162492785-8c1b148e-a2d1-4b9d-aafd-734d9cfacbde.png)
+![cadastrousuarios](https://user-images.githubusercontent.com/74699119/168460002-493807f9-69b9-44d5-8dcd-d45a755758b8.png)
+
+### Tela - Visualizar disciplinas cadastradas
+
+<p align="justify">  Será permitido aos usuários do tipo Administrador visualizar a lista de disciplinas cadastradas no sistema, bem como apagar disciplinas cadastradas ou editar suas informações, incluindo horário das aulas e turma da qual faz parte.</p>
+
+![listadisciplinas](https://user-images.githubusercontent.com/74699119/168460037-80f0a27c-032b-4534-9585-7c8502b64704.png)
+
+### Tela - Cadastrar disciplina
+
+<p align="justify">  Será permitido aos usuários do tipo Administrador cadastrar novas disciplinas no sistema, definindo seus horários na semana e podendo escolher a turma da qual faz parte. O usuário deverá clicar nas opções desejadas e seguir o fluxo de preenchimento apresentado pelo sistema.</p>
+ 
+![cadastrodisciplinas](https://user-images.githubusercontent.com/74699119/168460080-5be5da2b-2f81-417a-942f-e10690faaf0f.png)
+
+### Tela - Visualizar turmas cadastradas
+
+<p align="justify">  Será permitido aos usuários do tipo Administrador visualizar a lista de turmas cadastradas no sistema, bem como apagar ou editar informações das turmas cadastradas e visualizar/editar o quadro de horários contendo as disciplinas associadas a turma.</p>
+
+![listaturmas](https://user-images.githubusercontent.com/74699119/168460342-a666b616-4e4b-41d4-b861-5ed29595a560.png)
+
+### Tela - Cadastrar turma
+
+<p align="justify">  Será permitido aos usuários do tipo Administrador cadastrar uma nova turma, em que lhe será apresentada uma opção de inserir o nome e código de uma nova turma e salvar no sistema. Após o cadastro da turma, o Administrador será direcionado para o quadro de disciplinas da turma, aonde poderá selecionar as disciplinas que compõe o quadro de horários semanal da turma.</p>
+ 
+![cadastrarturma](https://user-images.githubusercontent.com/74699119/162493089-dc857d3e-56e8-42b4-a22e-e4d160b2c45e.png)
 
 ### Tela - Visualizar alunos cadastrados
 <p align="justify">  Será permitido aos usuários do tipo Administrador visualizar a lista de alunos cadastrados no sistema, bem como remover alunos cadastrados ou editar suas informações para situações nas quais seja necessário trocar sua turma ou adicionar mais responsáveis.</p>
 
-![listaalunos](https://user-images.githubusercontent.com/74699119/162586613-1a1db82f-c39c-4a58-b735-2a37356a886c.png)
+![listaalunos](https://user-images.githubusercontent.com/74699119/168460362-ddc54bab-3ae8-4a3a-8e02-cdc071dcc407.png)
 
 ### Tela - Cadastrar aluno
 
-<p align="justify">  Será permitido aos usuários do tipo Administrador cadastrar um novo aluno ao sistema, adicionando informações previamente apresentadas, bem como atrelar ele ao seu usuário do tipo Responsável, previamente cadastrado.</p>
+<p align="justify">  Será permitido aos usuários do tipo Administrador cadastrar um novo aluno ao sistema, atrelando este ele a seus responsáveis (previamente cadastrados como usuários do tipo "Responsável de aluno") e também a uma turma.</p>
+
+![cadastroalunos](https://user-images.githubusercontent.com/74699119/168460378-18ca681d-54d8-44c4-bd86-d7f16dddb3ec.png)
+
+### Tela - Ver quadro de horários/Associar disciplinas à turma
  
- ![cadastraraluno](https://user-images.githubusercontent.com/74699119/162492772-0fbc75b3-7c3e-4b36-9b3d-1a9e5e1d246f.png)
- 
-### Tela - Cadastrar turmas e disciplinas
+<p align="justify">  Será permitido aos usuários do tipo Administrador associar disciplinas cadastrada à uma turma cadastrada, vinculando essas informações. Nesta tela também é possível visualizar o quadro de horários correspondente às disciplinas atualmente associadas àquela turma.</p>
 
-<p align="justify">  Será permitido aos usuários do tipo Administrador cadastrar uma nova turma e disciplina ao sistema, bem como gerenciar os detalhes de tais dados, como associação de alunos. O usuário deverá clicar nas opções desejadas e seguir o fluxo de preenchimento apresentado pelo sistema.</p>
- 
-![cadastrarturmadisciplina](https://user-images.githubusercontent.com/74699119/162493055-f54e6516-c464-4d10-b0d8-00e15df2fe13.png)
- 
-### Tela - Cadastrar turma
-
-<p align="justify">  Será permitido aos usuários do tipo Administrador cadastrar uma nova turma, em que lhe será apresentada uma opção de inserir o nome de uma nova turma e salvar no sistema.</p>
- 
-![cadastrarturma](https://user-images.githubusercontent.com/74699119/162493089-dc857d3e-56e8-42b4-a22e-e4d160b2c45e.png)
-
-### Tela - Associar aluno à turma
-
-<p align="justify">  Será permitido aos usuários do tipo Administrador associar uma turma cadastrada a alunos cadastrados, vinculando essas informações.</p>
- 
-![associaralunoturma](https://user-images.githubusercontent.com/74699119/162499619-a4e93ba0-ed13-487f-986f-efe454ee843c.png)
-
-### Tela - Associar disciplina à turma
- 
-<p align="justify">  Será permitido aos usuários do tipo Administrador associar uma disciplina cadastrada a uma turma cadastrada, vinculando essas informações.</p>
- 
-![associaralunodisciplina](https://user-images.githubusercontent.com/74699119/162499613-0b0bd1a4-70a8-4916-9183-5ffe1ff8682c.png)
-
-### Tela - Gerenciar alunos e disciplinas associados à turma
- 
-<p align="justify">  Será permitido aos usuários do tipo Administrador visualizar todas as associações de alunos e disciplinas, podendo editar as informações cadastradas.</p>
- 
-![gerenciarassociacao](https://user-images.githubusercontent.com/74699119/162499638-d8a68a01-e834-499d-8cc2-70bced69f119.png)
-
-### Tela - Apagar turma
-
-<p align="justify"> Está tela possui uma funcionalidade que tem como objetivo apagar uma turma cadastrada no sistema. O usuário administrador irá selecionar uma turma para poder exclui-la.</p>
-
-![apagarturma](https://user-images.githubusercontent.com/74699119/162499604-f287a930-760d-4e38-a973-2fb2a408d537.png)
-
-### Tela - Cadastrar disciplina
-
-<p align="justify"> Nesta tela, o usuário administrador poderá cadastrar a disciplina e vincular os professores e as turmas da mesma.<p>
-
-![cadastrardisciplina](https://user-images.githubusercontent.com/74699119/162499995-782aea1b-eee0-45ba-b755-d375d78728fe.png)
-
-### Tela - Editar disciplina
-
-<p align="justify"> A funcionalidade presente nesta tela possui o objetivo de possibilitar a edição de uma disciplina já cadastrada no sistema. O usuário administrador irá selecionar uma disciplina existente no sistema e, assim, poder alterar o nome da disciplina, o vínculo da turma e professor. Podendo salvar ou cancelar o processo de edição.</p>
-
-![editardisciplina](https://user-images.githubusercontent.com/74699119/162500005-62896a90-f8fe-40b7-85ae-150b733a3be2.png)
-
-### Tela - Apagar disciplina
-
-<p align="justify"> A funcionalidade presente nesta tela tem como objetivo apagar uma disciplina cadastrada no sistema. O usuário administrador irá selecionar uma disciplina para poder exclui-la.</p>
-
-![apagardisciplina](https://user-images.githubusercontent.com/74699119/162500017-ce9d88a1-d107-47dd-97a2-301506aeb982.png)
+![quadrodisciplinasturma](https://user-images.githubusercontent.com/74699119/168460199-f8ce9e56-5d1d-4c6d-9b21-0099c9240ec7.png)

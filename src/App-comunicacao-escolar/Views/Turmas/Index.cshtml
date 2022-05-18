@@ -1,0 +1,76 @@
+﻿@using X.PagedList.Mvc;
+@using X.PagedList.Mvc.Core
+@model X.PagedList.StaticPagedList<App_comunicacao_escolar.Models.Turma>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de turmas</h1>
+
+<div class="d-flex justify-content-between my-4 whitespace-nowrap">
+    <a class="btn btn-primary" asp-action="Create">Cadastrar turma</a>
+</div>
+@using (Html.BeginForm("Index", "Turmas", new { secao = @ViewData["TituloDaSecao"] }, FormMethod.Post))
+{
+    <div>
+        Buscar turma por nome ou código:<br> @Html.TextBox("searchString")
+        <input id="Submit1" type="submit" value="Buscar"/>
+    </div>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                Código
+            </th>
+            <th>
+                Disciplinas
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td class="word-wrap-break-anywhere">
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td class="word-wrap-break-anywhere">
+                @Html.DisplayFor(modelItem => item.Codigo)
+            </td>
+            <td>
+                <a class="btn btn-link p-1" asp-action="GerenciarDisciplinas" asp-route-id="@item.Id">Ver quadro de disciplinas</a>
+            </td>
+            <td class="mais-informacoes">
+                <span class="text-center">
+                    <a class="btn btn-primary mb-2 p-1" asp-action="Details" asp-route-id="@item.Id">Mais Informações</a>
+                </span>
+                <span class="whitespace-nowrap mx-1">
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |              
+                    <a asp-action="Delete" asp-route-id="@item.Id">Apagar</a>
+                </span>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@if (Model.Count() == 0)
+{   
+    <div class="col-12 m-2 alert-warning p-3 text-center">Nenhuma turma encontrada</div>
+}
+<div class="row">
+    <div class="col-md-8">
+        @Html.PagedListPager(Model, pagina => Url.Action("Index", new {pagina, secao = @ViewData["TituloDaSecao"]}), new X.PagedList.Web.Common.PagedListRenderOptions
+               {                       
+                        DisplayLinkToIndividualPages = true,
+                        DisplayPageCountAndCurrentLocation = false,
+                        LiElementClasses = new string[] { "page-item" },
+                   PageClasses = new string[] { "page-link" },
+                   
+                    })
+    </div>
+</div>
