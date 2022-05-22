@@ -20,10 +20,19 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: EventosDaAgenda
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? id)
         {
             var applicationDbContext = _context.EventosDaAgenda.Include(e => e.Agenda);
-            return View(await applicationDbContext.ToListAsync());
+
+            string agendaNome = "Todas as agendas";
+            ViewData["Id"] = id;
+            if (id != null) {
+                agendaNome = _context.Agendas.FirstOrDefault(a => a.Id == id).Nome;
+                ViewData["AgendaNome"] = agendaNome;
+                return View(await applicationDbContext.Where(a => a.AgendaId == id).OrderBy(a => a.InicioDoEvento).ToListAsync());
+            }
+            ViewData["AgendaNome"] = agendaNome;
+            return View(await applicationDbContext.OrderBy(a => a.InicioDoEvento).ToListAsync());
         }
 
         // GET: EventosDaAgenda/Details/5
@@ -41,14 +50,27 @@ namespace App_comunicacao_escolar.Controllers
             {
                 return NotFound();
             }
-
+            @ViewData["IdVoltarAgenda"] = eventoDaAgenda.AgendaId;
             return View(eventoDaAgenda);
         }
 
         // GET: EventosDaAgenda/Create
-        public IActionResult Create()
+        public IActionResult Create(int? id)
         {
-            ViewData["AgendaId"] = new SelectList(_context.Agendas, "Id", "Nome");
+            var agendaSelectList = new SelectList(_context.Agendas.OrderBy(a => a.Nome), "Id", "Nome");
+
+            string agendaNome = "Todas as agendas";
+            if (id != null)
+            {
+                agendaNome = _context.Agendas.FirstOrDefault(a => a.Id == id).Nome;
+
+                var agendaSelected = agendaSelectList.Where(a => a.Text == agendaNome).First();
+                agendaSelected.Selected = true;
+            }
+
+            ViewData["AgendaId"] = agendaSelectList;
+            ViewData["AgendaNome"] = agendaNome;
+            ViewData["Id"] = id;
             return View();
         }
 
@@ -59,12 +81,15 @@ namespace App_comunicacao_escolar.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nome,InicioDoEvento,FimDoEvento,AgendaId")] EventoDaAgenda eventoDaAgenda)
         {
+            eventoDaAgenda.Id = 0;
+
             if (ModelState.IsValid)
             {
                 _context.Add(eventoDaAgenda);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToRoute(new { controller = "Agendas", action = "Visualizar", id = eventoDaAgenda.AgendaId });
             }
+
             ViewData["AgendaId"] = new SelectList(_context.Agendas, "Id", "Nome", eventoDaAgenda.AgendaId);
             return View(eventoDaAgenda);
         }
@@ -83,6 +108,7 @@ namespace App_comunicacao_escolar.Controllers
                 return NotFound();
             }
             ViewData["AgendaId"] = new SelectList(_context.Agendas, "Id", "Nome", eventoDaAgenda.AgendaId);
+            @ViewData["IdVoltarAgenda"] = eventoDaAgenda.AgendaId;
             return View(eventoDaAgenda);
         }
 
@@ -119,6 +145,7 @@ namespace App_comunicacao_escolar.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["AgendaId"] = new SelectList(_context.Agendas, "Id", "Nome", eventoDaAgenda.AgendaId);
+            @ViewData["IdVoltarAgenda"] = eventoDaAgenda.AgendaId;
             return View(eventoDaAgenda);
         }
 
@@ -137,7 +164,7 @@ namespace App_comunicacao_escolar.Controllers
             {
                 return NotFound();
             }
-
+            @ViewData["IdVoltarAgenda"] = eventoDaAgenda.AgendaId;
             return View(eventoDaAgenda);
         }
 
@@ -149,6 +176,7 @@ namespace App_comunicacao_escolar.Controllers
             var eventoDaAgenda = await _context.EventosDaAgenda.FindAsync(id);
             _context.EventosDaAgenda.Remove(eventoDaAgenda);
             await _context.SaveChangesAsync();
+            @ViewData["IdVoltarAgenda"] = eventoDaAgenda.AgendaId;
             return RedirectToAction(nameof(Index));
         }
 

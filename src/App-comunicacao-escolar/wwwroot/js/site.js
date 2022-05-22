@@ -87,3 +87,9 @@ function disableSubmitButtonAfterSubmission(idSubmitButton) {
     idSubmitButton.disabled = true;
     
 }
+
+function resetarDataAgenda() {
+    if (localStorage.getItem("agendaParametros")) {
+        localStorage.removeItem("agendaParametros");
+    }
+}

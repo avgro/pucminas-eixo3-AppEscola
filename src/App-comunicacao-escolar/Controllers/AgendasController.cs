@@ -117,11 +117,11 @@ namespace App_comunicacao_escolar.Controllers
                     string inicioDoEventoHoras = inicioDoEvento.TimeOfDay.ToString().Substring(0,5);
                     string fimDoEventoHoras = fimDoEvento.TimeOfDay.ToString().Substring(0, 5);
 
-                    eventosDoMes[diaDoEvento - 1] += evento.Nome.ToString() + ";" + dataDoEvento + ";" + inicioDoEventoHoras + ";" + fimDoEventoHoras + ";;";
+                    eventosDoMes[diaDoEvento - 1] += evento.Nome.ToString() + ";" + dataDoEvento + ";" + inicioDoEventoHoras + ";" + fimDoEventoHoras + ";" + evento.Id + ";;";
                 }
 
                 ViewBag.EventosDoMes = eventosDoMes;
-
+                ViewData["Id"] = id;
                 return View();
             }
             catch

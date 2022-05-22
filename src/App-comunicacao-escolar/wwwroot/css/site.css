@@ -98,6 +98,11 @@ li.active.page-item .page-link {
     white-space: nowrap;
 }
 
+.link-no-style {
+    text-decoration: inherit;
+    color: inherit;
+}
+
 max-width-100 {
     max-width: 100%;
 }

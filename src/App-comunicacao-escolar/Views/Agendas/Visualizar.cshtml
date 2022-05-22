@@ -28,10 +28,18 @@
     <div class="d-flex justify-content-between">
         <h4>@ViewData["AgendaNome"]</h4>
         <div>
-        <label for="selecionar-agenda" class="control-label">Selecionar agenda</label>
+            <label for="selecionar-agenda" class="control-label">Selecionar agenda</label>
             <select selectedindex="2" onchange="mudarAgenda()" id="selecionar-agenda" class ="form-control form-select" asp-items="ViewBag.AgendaId">
                 <option value="">Todas as agendas</option>
             </select>
+                <div class="d-flex my-2">
+                    <div class="mx-1">
+                        <a onclick="guardarParametros()" asp-controller="EventosDaAgenda" asp-action="Index" asp-route-id=@ViewData["Id"] class="btn btn-primary">Lista de eventos</a>
+                    </div>
+                    <div class="mx-1">
+                        <a onclick="guardarParametros()" asp-controller="EventosDaAgenda" asp-action="Create" asp-route-id=@ViewData["Id"] class="btn btn-primary">Cadastrar evento</a>
+                    </div>
+            </div>
         </div>
     </div>
     <hr />
@@ -52,9 +60,6 @@
             {
                 <a onclick="manterScrollY()" asp-action="Visualizar" asp-route-selecionarMes=1 asp-route-selecionarAno=@(anoSelecionado + 1)><i class="bi bi-1halfx bi-caret-right"></i></a>
             }
-        </div>
-        <div>
-            <a asp-controller="EventosDaAgenda" asp-action="Create" class="btn btn-primary">Cadastrar novo evento</a>
         </div>
     </div>
     <br />
@@ -87,7 +92,9 @@
                                 if (eventoInformacoes.Count() >= 3) {
                                     string nomeDoEvento = eventoInformacoes[0];
                                     string titleEvento = eventoInformacoes[0] + "\n" + eventoInformacoes[1] + "\n" + eventoInformacoes[2] + "-" + eventoInformacoes[3];
-                                    <div class="cardEvento" title="@titleEvento">@nomeDoEvento</div>
+                                    <a onclick="guardarParametros()" class="link-no-style" asp-controller="EventosDaAgenda" asp-action="Details" asp-route-id=@eventoInformacoes[4]>
+                                        <div class="cardEvento" title="@titleEvento">@nomeDoEvento</div>
+                                    </a>
                                }
                                 
                                }

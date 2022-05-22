@@ -25,7 +25,7 @@
                 <b>Todas as agendas</b>
             </td>
             <td>
-                <a asp-action="Visualizar">Visualizar</a>
+                <a onclick="resetarDataAgenda()" asp-action="Visualizar">Visualizar</a>
             </td>
         </tr>
 
@@ -35,8 +35,7 @@
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>
             <td>
-                <a asp-action="Visualizar" asp-route-id="@item.Id">Visualizar</a> |
-                <a asp-controller="EventosDaAgenda" asp-action="Index" asp-route-id="@item.Id">Cadastrar evento</a> |
+                <a onclick="resetarDataAgenda()" asp-action="Visualizar" asp-route-id="@item.Id">Visualizar</a> |
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>

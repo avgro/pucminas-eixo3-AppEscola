@@ -18,6 +18,7 @@ namespace App_comunicacao_escolar.Models
         [Display(Name = "Fim do evento")]
         [Required(ErrorMessage = "Inserir horário do fim do evento!")]
         public DateTime? FimDoEvento { get; set; }
+        [Display(Name = "Agenda")]
         public int? AgendaId { get; set; }
         [ForeignKey("AgendaId")]
         public Agenda? Agenda { get; set; }

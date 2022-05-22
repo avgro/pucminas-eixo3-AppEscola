@@ -4,11 +4,9 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Lista de eventos</h1>
+<h4>@ViewData["AgendaNome"]</h4>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -40,7 +38,13 @@
                 @Html.DisplayFor(modelItem => item.FimDoEvento)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Agenda.Nome)
+                @if (item.Agenda == null)
+                {
+                    <text>Todas as agendas</text>       
+                }
+                else {
+                    @Html.DisplayFor(modelItem => item.Agenda.Nome)
+                }
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
@@ -51,3 +55,7 @@
 }
     </tbody>
 </table>
+
+<div>
+    <a asp-controller="Agendas" asp-action="Visualizar" asp-route-id=@ViewData["Id"]>Voltar</a>
+</div>

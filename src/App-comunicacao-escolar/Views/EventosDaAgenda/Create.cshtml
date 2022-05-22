@@ -4,14 +4,20 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Cadastrar evento</h1>
 
-<h4>EventoDaAgenda</h4>
+<h4>@ViewData["AgendaNome"]</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AgendaId" class="control-label"></label>
+                <select onchange="mudarAgenda()" asp-for="AgendaId" class ="form-control" asp-items="ViewBag.AgendaId">
+                    <option value="">Todas as agendas</option>
+                </select>
+            </div>
             <div class="form-group">
                 <label asp-for="Nome" class="control-label"></label>
                 <input asp-for="Nome" class="form-control" />
@@ -28,17 +34,17 @@
                 <span asp-validation-for="FimDoEvento" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AgendaId" class="control-label"></label>
-                <select asp-for="AgendaId" class ="form-control" asp-items="ViewBag.AgendaId"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Cadastrar evento" class="btn btn-primary my-2" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-controller="Agendas" asp-action="Visualizar" asp-route-id=@ViewData["Id"]>Voltar</a>
 </div>
 
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/cadastrar-evento.js" asp-append-version="true"></script>
+}

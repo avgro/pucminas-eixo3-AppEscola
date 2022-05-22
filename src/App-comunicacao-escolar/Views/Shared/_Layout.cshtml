@@ -190,7 +190,7 @@
                                         </a>
                                     </li>
                                 }
-                                @if(ViewData["Controller"]!.Equals("Agendas"))
+                                @if(ViewData["Controller"]!.Equals("Agendas") || ViewData["Controller"]!.Equals("EventosDaAgenda"))
                                 {
                                     <li class="p-0 item-menu item-menu-selecionado )">
                                         <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Index">Agenda escolar
