@@ -787,10 +787,20 @@ max-width-100 {
 }
 
 .agenda-content-fora-do-mes {
+    z-index: -1;
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    width: 100%;
     background-color: lightgray;
 }
 
 .agenda-content-dia-atual {
+    z-index: -1;
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    width: 100%;
     background-color: pink;
 }
 

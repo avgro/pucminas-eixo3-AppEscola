@@ -142,7 +142,7 @@ namespace App_comunicacao_escolar.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToRoute(new { controller = "Agendas", action = "Visualizar", id = eventoDaAgenda.AgendaId });
             }
             ViewData["AgendaId"] = new SelectList(_context.Agendas, "Id", "Nome", eventoDaAgenda.AgendaId);
             @ViewData["IdVoltarAgenda"] = eventoDaAgenda.AgendaId;
@@ -177,7 +177,7 @@ namespace App_comunicacao_escolar.Controllers
             _context.EventosDaAgenda.Remove(eventoDaAgenda);
             await _context.SaveChangesAsync();
             @ViewData["IdVoltarAgenda"] = eventoDaAgenda.AgendaId;
-            return RedirectToAction(nameof(Index));
+            return RedirectToRoute(new { controller = "Agendas", action = "Visualizar", id = eventoDaAgenda.AgendaId });
         }
 
         private bool EventoDaAgendaExists(int id)

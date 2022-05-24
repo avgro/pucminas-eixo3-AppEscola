@@ -190,26 +190,47 @@
                                         </a>
                                     </li>
                                 }
-                                @if(ViewData["Controller"]!.Equals("Agendas") || ViewData["Controller"]!.Equals("EventosDaAgenda"))
-                                {
-                                    <li class="p-0 item-menu item-menu-selecionado )">
-                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Index">Agenda escolar
-                                            <span id="msgupdate">
-                                                @await Component.InvokeAsync("ContadorDeMensagensNovas", GetIdUsuarioLogado())
-                                            </span>
-                                        </a>
-                                    </li>
-                                }
-                                else{
-                                    <li class="p-0 item-menu )">
-                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Index">Agenda escolar
-                                            <span id="msgupdate">
-                                                @await Component.InvokeAsync("ContadorDeMensagensNovas", GetIdUsuarioLogado())
-                                            </span>
-                                        </a>
-                                    </li>
+                                @if(!User.IsInRole("Admin")){
+                                    @if(ViewData["Controller"]!.Equals("Agendas") || ViewData["Controller"]!.Equals("EventosDaAgenda"))
+                                    {
+                                        <li class="p-0 item-menu item-menu-selecionado )">
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Visualizar">Agenda escolar
+                                                <span id="msgupdate">
+                                                    @await Component.InvokeAsync("ContadorDeMensagensNovas", GetIdUsuarioLogado())
+                                                </span>
+                                            </a>
+                                        </li>
+                                    }
+                                    else{
+                                        <li class="p-0 item-menu )">
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Visualizar">Agenda escolar
+                                                <span id="msgupdate">
+                                                    @await Component.InvokeAsync("ContadorDeMensagensNovas", GetIdUsuarioLogado())
+                                                </span>
+                                            </a>
+                                        </li>
+                                    }
                                 }
                                 @if(User.IsInRole("Admin")){
+                                    @if(ViewData["Controller"]!.Equals("Agendas") || ViewData["Controller"]!.Equals("EventosDaAgenda"))
+                                    {
+                                        <li class="p-0 item-menu item-menu-selecionado )">
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Index">Agenda escolar
+                                                <span id="msgupdate">
+                                                    @await Component.InvokeAsync("ContadorDeMensagensNovas", GetIdUsuarioLogado())
+                                                </span>
+                                            </a>
+                                        </li>
+                                    }
+                                    else{
+                                        <li class="p-0 item-menu )">
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Index">Agenda escolar
+                                                <span id="msgupdate">
+                                                    @await Component.InvokeAsync("ContadorDeMensagensNovas", GetIdUsuarioLogado())
+                                                </span>
+                                            </a>
+                                        </li>
+                                    }
                                     @if(ViewData["Controller"]!.Equals("Usuarios"))
                                     {
                                         <li class="p-0 item-menu item-menu-selecionado">

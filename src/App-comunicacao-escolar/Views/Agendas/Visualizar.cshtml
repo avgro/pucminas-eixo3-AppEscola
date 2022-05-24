@@ -7,7 +7,8 @@
     var numeroDeDiasDoMesAnterior = 0;
     var anoSelecionado = 0;
     var mesNumero = 0;
-    try {
+    try
+    {
         diaAtual = Int32.Parse(ViewData["diaAtual"].ToString());
         inicioMesDiaDaSemana = Int32.Parse(ViewData["inicioMesDiaDaSemana"].ToString());
         numeroDeDiasDoMesSelecionado = Int32.Parse(ViewData["numeroDeDiasDoMesSelecionado"].ToString());
@@ -17,7 +18,7 @@
     }
     catch
     {
-        
+
     }
 }
 
@@ -27,11 +28,13 @@
 <div>
     <div class="d-flex justify-content-between">
         <h4>@ViewData["AgendaNome"]</h4>
-        <div>
-            <label for="selecionar-agenda" class="control-label">Selecionar agenda</label>
-            <select selectedindex="2" onchange="mudarAgenda()" id="selecionar-agenda" class ="form-control form-select" asp-items="ViewBag.AgendaId">
-                <option value="">Todas as agendas</option>
-            </select>
+        @if (User.IsInRole("Admin"))
+        {
+            <div>
+                <label for="selecionar-agenda" class="control-label">Selecionar agenda</label>
+                <select selectedindex="2" onchange="mudarAgenda()" id="selecionar-agenda" class="form-control form-select" asp-items="ViewBag.AgendaId">
+                    <option value="">Todas as agendas</option>
+                </select>
                 <div class="d-flex my-2">
                     <div class="mx-1">
                         <a onclick="guardarParametros()" asp-controller="EventosDaAgenda" asp-action="Index" asp-route-id=@ViewData["Id"] class="btn btn-primary">Lista de eventos</a>
@@ -39,13 +42,15 @@
                     <div class="mx-1">
                         <a onclick="guardarParametros()" asp-controller="EventosDaAgenda" asp-action="Create" asp-route-id=@ViewData["Id"] class="btn btn-primary">Cadastrar evento</a>
                     </div>
+                </div>
             </div>
-        </div>
+        }
     </div>
     <hr />
     <div class="d-flex justify-content-between">
         <div class="d-flex">
-            @if(mesNumero != 1) {
+            @if (mesNumero != 1)
+            {
                 <a onclick="manterScrollY()" asp-action="Visualizar" asp-route-selecionarMes=@(mesNumero - 1) asp-route-selecionarAno=@anoSelecionado><i class="bi bi-1halfx bi-caret-left"></i></a>
             }
             else
@@ -53,7 +58,8 @@
                 <a onclick="manterScrollY()" asp-action="Visualizar" asp-route-selecionarMes=12 asp-route-selecionarAno=@(anoSelecionado - 1)><i class="bi bi-1halfx bi-caret-left"></i></a>
             }
             <h3 class="mostrarMesAnoAtual">@ViewData["mesNome"] de @ViewData["anoSelecionado"]</h3>
-            @if(mesNumero != 12) {
+            @if (mesNumero != 12)
+            {
                 <a onclick="manterScrollY()" asp-action="Visualizar" asp-route-selecionarMes=@(mesNumero + 1) asp-route-selecionarAno=@anoSelecionado><i class="bi bi-1halfx bi-caret-right"></i></a>
             }
             else
@@ -63,7 +69,7 @@
         </div>
     </div>
     <br />
-    <div class="agenda-grid"> 
+    <div class="agenda-grid">
         <div class="agenda-nome-dias-da-semana">Domingo</div>
         <div class="agenda-nome-dias-da-semana">Segunda</div>
         <div class="agenda-nome-dias-da-semana">Terça</div>
@@ -74,66 +80,71 @@
 
         @for (int i = 1; i < 43; i++)
         {
-            @if (i - inicioMesDiaDaSemana > 0 && (i - inicioMesDiaDaSemana) <= numeroDeDiasDoMesSelecionado) {
+            @if (i > 0 && i <= 42)
+            {
                 <div class="agenda-dia">
-                    @if(i - inicioMesDiaDaSemana != diaAtual){
-                        <div class="agenda-dia-content">
-                            <div class="agenda-numero-dia">@(i - inicioMesDiaDaSemana)</div>
-                            @{
-                                string listarEvento = ViewBag.EventosDoMes[i - inicioMesDiaDaSemana - 1];
-                                string[] listarEventoList = new string[12];
-                                if (listarEvento != null) {
-                                    listarEventoList = listarEvento.Split(";;");
+                    <div class="agenda-dia-content">
+                        @if ((i - inicioMesDiaDaSemana) <= numeroDeDiasDoMesSelecionado)
+                        {
+                            if (i - inicioMesDiaDaSemana > 0)
+                            {
+                                if (i - inicioMesDiaDaSemana == diaAtual && diaAtual > 0)
+                                {
+                                    <div class="agenda-content-dia-atual"></div>
                                 }
+                                <div class="agenda-numero-dia">@(i - inicioMesDiaDaSemana)</div>
                             }
-                            @foreach (var evento in listarEventoList) {
-                                if (evento != null) {
+                            else
+                            {
+                                <div class="agenda-content-fora-do-mes"></div>
+                                <div class="agenda-numero-dia">@(numeroDeDiasDoMesAnterior + (i - inicioMesDiaDaSemana))</div>
+                            }
+
+                        }
+                        else
+                        {
+                            <div class="agenda-content-fora-do-mes"></div>
+                            <div class="agenda-numero-dia">@(i - inicioMesDiaDaSemana - numeroDeDiasDoMesSelecionado)</div>
+                        }
+                        @{
+                            string listarEvento = ViewBag.EventosDoMes[i - 1];
+                            string[] listarEventoList = new string[12];
+                            if (listarEvento != null)
+                            {
+                                listarEventoList = listarEvento.Split(";;");
+                            }
+                        }
+                        @foreach (var evento in listarEventoList)
+                        {
+                            if (evento != null)
+                            {
                                 string[] eventoInformacoes = evento.Split(";");
-                                if (eventoInformacoes.Count() >= 3) {
+                                if (eventoInformacoes.Count() >= 3)
+                                {
                                     string nomeDoEvento = eventoInformacoes[0];
                                     string titleEvento = eventoInformacoes[0] + "\n" + eventoInformacoes[1] + "\n" + eventoInformacoes[2] + "-" + eventoInformacoes[3];
                                     <a onclick="guardarParametros()" class="link-no-style" asp-controller="EventosDaAgenda" asp-action="Details" asp-route-id=@eventoInformacoes[4]>
                                         <div class="cardEvento" title="@titleEvento">@nomeDoEvento</div>
                                     </a>
-                               }
-                                
-                               }
+                                }
                             }
-                        </div>
-                    }
-                    else
-                    {
-                        <div class="agenda-dia-content agenda-content-dia-atual">
-                            <div class="agenda-numero-dia">@(i - inicioMesDiaDaSemana)</div>
-                        </div>
-                    }
-                </div>
-            }
-            else if (i - inicioMesDiaDaSemana <= 0)
-            {
-                <div class="agenda-dia agenda-content-fora-do-mes">
-                    <div class="agenda-dia-content">
-                        <div class="agenda-numero-dia">@(i - inicioMesDiaDaSemana + numeroDeDiasDoMesAnterior)</div>
-                    </div>
-                </div>
-            }
-            else if (i - inicioMesDiaDaSemana > numeroDeDiasDoMesSelecionado)
-            {
-                <div class="agenda-dia agenda-content-fora-do-mes">
-                    <div class="agenda-dia-content">
-                        <div class="agenda-numero-dia">@(i - inicioMesDiaDaSemana - numeroDeDiasDoMesSelecionado)</div>
+                        }
                     </div>
                 </div>
             }
         }
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Voltar</a>
-</div>
+@if (User.IsInRole("Admin"))
+{
+    <div>
+        <a asp-action="Index">Voltar</a>
+    </div>
+}
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script src="~/js/agenda-escolar.js" asp-append-version="true"></script>
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+<script src="~/js/agenda-escolar.js" asp-append-version="true"></script>
 }
