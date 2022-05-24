@@ -1,0 +1,749 @@
+/* -------------- Configurações gerais -------------- */
+
+body,
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+html {
+  font-size: 16px;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+main {
+  min-height: 585px;
+}
+
+.btn {
+  font-weight: 500;
+}
+.btn-primary {
+  background-color: blueviolet;
+  border-color: blueviolet;
+}
+
+.btn-primary:hover {
+  background-color: blue;
+  border-color: blue;
+}
+
+.btn-transparent {
+  background-color: none;
+  border: 0px;
+}
+
+.btn-transparent:hover {
+  background-color: none;
+  border: 0px;
+}
+
+li.active.page-item .page-link {
+  background-color: blueviolet;
+  border-color: blueviolet;
+}
+
+.bg-primary-color {
+  background-color: rgb(225, 199, 250);
+}
+
+.bg-secondary-color {
+  background-color: rgb(210, 165, 252);
+}
+
+.primary-color {
+  color: #050505;
+}
+
+.secondary-color {
+  color: rgb(127, 15, 231);
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* -------------- Estilos -------------- */
+
+.word-wrap-break-anywhere {
+  word-wrap: anywhere;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.font-size-12px {
+  font-size: 12px;
+}
+
+.font-size-14px {
+  font-size: 14px;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
+}
+
+max-width-100 {
+  max-width: 100%;
+}
+
+.show-xs {
+  display: none !important;
+}
+
+.input-size-standard {
+  width: 200px;
+}
+
+.input-size-1halfx {
+  width: 300px;
+}
+.input-size-2x {
+  width: 400px;
+}
+
+.input-size-2halfx {
+  width: 500px;
+  max-width: 100%;
+}
+
+.input-size-3quarters {
+  width: 150px;
+}
+
+.input-size-half {
+  width: 100px;
+}
+
+.input-size-quarter {
+  width: 50px;
+}
+
+.bi-1halfx {
+  font-size: 1.4rem;
+}
+.bi-fill-white {
+  fill: white;
+}
+
+@media (max-width: 575px) {
+  .hidden-xs {
+    display: none !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .show-xs {
+    display: block !important;
+  }
+}
+
+/* -------------- Header CSS -------------- */
+
+#header {
+  width: 100%;
+  background-color: rgb(225, 199, 250);
+}
+
+#header .navbar-collapse {
+  width: auto;
+}
+
+#header .nav-link {
+  font-weight: 500;
+  padding: 0;
+  color: black;
+  margin: 15px;
+}
+
+#header .nav-link:hover {
+  color: rgb(127, 15, 231);
+}
+
+#navbar {
+  width: 100%;
+  background-color: rgb(225, 199, 250);
+}
+
+#logo {
+  width: 100px;
+  height: 80px;
+}
+
+#login-btn {
+  width: fit-content;
+  font-weight: 500;
+  margin: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  background-color: blueviolet;
+  border-color: blueviolet;
+}
+
+#login-btn:hover {
+  background-color: blue;
+  border-color: blue;
+}
+
+.login-btn-center {
+  font-weight: 500;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-left: 50px;
+  background-color: blueviolet;
+  border-color: blueviolet;
+}
+
+@media (max-width: 991.98px) {
+  #header .navbar-collapse {
+    width: 100%;
+    margin: 0;
+  }
+
+  #login-btn {
+    display: inline-block;
+    float: right;
+    margin-left: auto;
+    margin-right: -3px;
+    margin-bottom: 8px;
+  }
+
+  #botaoMenuUsuario {
+    margin-bottom: 8px;
+  }
+
+  #contato ul {
+    display: block;
+    list-style-type: none;
+    margin-left: 25px;
+  }
+}
+
+/* > Bootstrap dropdown fix < */
+
+.dropdown-fix {
+  position: absolute;
+  margin-top: 21px;
+}
+
+.dropdown-menu-fix {
+  z-index: 2;
+  position: relative;
+  right: 0;
+  margin: 0px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  padding: 4px;
+}
+
+.nav-tabs .dropdown-menu,
+.nav-pills .dropdown-menu,
+.navbar .dropdown-menu {
+  position: relative;
+  right: 0;
+  margin-top: 0;
+  width: 64px;
+}
+
+.dropdown-item {
+  display: flex;
+}
+
+.dropdown-text {
+  margin-top: 4px;
+  margin-left: 9px;
+}
+
+/* -------------- Barra lateral CSS -------------- */
+
+.menu-content-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+}
+
+.menu-lateral {
+  position: sticky;
+  margin-top: 32px;
+  top: 16px;
+  background-color: white;
+}
+
+.menu-lateral li:hover {
+  background-color: lightgray;
+  transition-duration: 0.25s;
+}
+
+.item-menu-first {
+  border: 1px solid lightgray;
+  list-style: none;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.item-menu {
+  border: 1px solid lightgray;
+  list-style: none;
+  padding: 4px;
+  border-radius: 4px;
+  border-top: none;
+}
+
+.item-menu-selecionado {
+  background-color: wheat;
+}
+
+.contador-circular {
+  font-size: 16px;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  color: white;
+  background-color: dodgerblue;
+  padding-top: 1px;
+  height: 25px;
+  width: 25px;
+  margin: 0;
+  border-radius: 100%;
+}
+
+@media (max-width: 1199px) {
+  .menu-content-layout {
+    display: block;
+    margin: auto;
+  }
+
+  .menu-lateral ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;
+  }
+
+  .menu-lateral li {
+    display: inline;
+  }
+
+  .item-menu {
+    border: 1px solid lightgray;
+    list-style: none;
+    padding: 4px;
+    border-radius: 4px;
+  }
+}
+
+/* -------------- Home Page CSS -------------- */
+
+#slider {
+  background-color: transparent;
+  margin-top: 8em;
+  margin-bottom: 5em;
+}
+
+#slider h1 {
+  font-weight: 900;
+}
+
+#slider h4 {
+  font-size: 18px;
+}
+
+#mainSlider {
+  margin-top: 15px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  color: #111;
+  font-size: 3em;
+  cursor: pointer;
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: #222;
+  opacity: 0.8;
+}
+
+.carousel-indicators .active {
+  background-color: rgb(225, 199, 250);
+}
+
+#info-content {
+  margin-bottom: 4em;
+  padding: 3.5em;
+}
+
+#info-numbers {
+  margin: 1.5em 0;
+}
+
+#info-numbers h3 {
+  font-size: 2.5em;
+}
+
+#info-banner {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.5em;
+}
+
+#contato {
+  background-color: rgb(225, 199, 250);
+}
+
+#contato .logo-footer {
+  width: 100px;
+}
+
+#contato .contato-footer {
+  display: flex;
+  width: auto;
+  justify-content: flex-end;
+}
+
+#contato ul {
+  margin-left: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#contato ul li {
+  display: flex;
+  list-style-type: none;
+  margin-left: 25px;
+}
+
+/* -------------- Login CSS -------------- */
+
+.login-box {
+  margin: auto;
+  margin-top: 90px;
+  margin-bottom: 270px;
+  width: 360px;
+  padding: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  box-shadow: 10px 5px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+.center-pagina-sem-menu {
+  width: 600px;
+  max-width: 100%;
+  margin: auto;
+}
+
+.botoes-conversa {
+  display: flex;
+}
+@media (max-width: 768px) {
+  .botoes-conversa {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  .botoes-conversa a,
+  .botoes-conversa button {
+    width: 90px;
+    margin: 0px;
+    padding: 2px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+}
+
+/* -------------- Conversas CSS -------------- */
+
+.conteudo-textarea {
+  width: 100%;
+  height: 240px;
+}
+
+.caixa-itens-listados {
+  display: flex;
+  border: 1px solid;
+  border-radius: 6px;
+  background-color: #f0f0f0;
+  border-color: lightgray;
+  padding: 4px 3px 3px 10px;
+  margin: 4px;
+  white-space: nowrap;
+}
+
+.caixa-itens-listados-texto {
+  margin-top: 5px;
+  margin-right: 2px;
+}
+
+.mensagem-email {
+  border: 1px solid lightgray;
+  border-radius: 6px;
+  padding: 12px;
+  margin: 6px;
+  max-width: 100%;
+}
+
+@media (max-width: 1199px) {
+  .mensagem-email {
+    min-width: 70vw;
+    margin: auto;
+    margin-bottom: 6px;
+    margin-top: 6px;
+  }
+}
+
+#tela-responder-mensagem {
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 6px;
+  padding: 12px;
+  position: fixed;
+  bottom: 0px;
+  right: 3.25vw;
+  width: 640px;
+  display: none;
+  max-width: 90vw;
+}
+
+.mensagem-table-space {
+  white-space: nowrap;
+  width: 1fr;
+  overflow: hidden;
+}
+
+.nao-lido-spacer {
+  text-align: center;
+  width: 90px;
+}
+
+.nao-lido-minimizado {
+  display: none;
+}
+
+@media (max-width: 1599px) {
+  .mensagem-table-space {
+    white-space: initial;
+  }
+}
+
+@media (max-width: 768px) {
+  .nao-lido-spacer {
+    width: 1px;
+    display: none;
+  }
+
+  .nao-lido-minimizado {
+    text-align: center;
+    display: block;
+    margin-bottom: 4px;
+  }
+}
+
+/* -------------- Usuários CSS -------------- */
+
+.mais-informacoes {
+  width: 160px;
+}
+
+@media (max-width: 567px) {
+  .mais-informacoes {
+    width: 60px;
+    margin: 0px;
+    padding: 0px;
+  }
+  .mais-informacoes button {
+    margin: 0px;
+    padding: 0px;
+  }
+  .nome-de-usuario {
+    max-width: 20px;
+  }
+}
+
+/* -------------- Disciplinas CSS -------------- */
+
+.selecionar-horario {
+  display: flex;
+  flex-direction: row;
+  vertical-align: bottom;
+}
+.selecionar-horario input {
+  width: 48px;
+}
+
+.selecionar-horario-text {
+  margin-top: 12px;
+}
+
+/* -------------- Turmas CSS -------------- */
+
+/* Tabela de horários das disciplinas associadas */
+.container-horarios {
+  position: relative;
+  border-radius: 5px;
+  width: 97%;
+  height: 1038px;
+  padding: 0;
+  min-width: 433px;
+  margin-left: 28px;
+}
+
+.container-horarios-dias {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  width: 100%;
+}
+
+.container-horarios-dias-item {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  border-right: none;
+  width: 100%;
+  height: 1036px;
+}
+
+.container-horarios-horas {
+  position: absolute;
+  margin: 0;
+  margin-top: 28px;
+  padding: 0;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  width: 100%;
+}
+
+.container-horarios-horas-item {
+  border-bottom: 1px solid lightgray;
+  width: 100%;
+  height: 42px;
+}
+
+.container-horarios-horas-item-label {
+  position: absolute;
+  font-size: 14px;
+  margin-top: -3px;
+  margin-left: -28px;
+}
+
+.cardHorarios {
+  font-size: 14px;
+  color: white;
+  font-weight: 500;
+  background-color: mediumpurple;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  overflow: hidden;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .cardHorarios {
+    font-size: 11px;
+  }
+  .container-horarios {
+    height: 798px;
+    margin-left: 11px;
+  }
+  .container-horarios-dias-item {
+    height: 796px;
+  }
+  .container-horarios-horas-item {
+    height: 32px;
+  }
+  .container-horarios-horas-item-label {
+    font-size: 12px;
+    margin-top: -2px;
+    margin-left: -22px;
+  }
+}
+@media (max-width: 567px) {
+  .container-horarios {
+    margin-left: 0px;
+  }
+}
+.cardHorarios:hover,
+.cardHorariosactive {
+  z-index: 1;
+  height: fit-content !important;
+  background-color: cornflowerblue !important;
+}
+
+.diaDaSemanaLabel {
+  height: 28px;
+  text-align: center;
+  padding: 2px;
+  font-weight: 500;
+  border-bottom: 1px solid lightgray;
+}
+
+/* --------------  Footer CSS -------------- */
+
+#footer {
+  background-color: rgb(225, 199, 250);
+  color: #050505;
+  padding-top: 1.5em;
+}
+
+#footer-details {
+  margin-bottom: 1.5em;
+}
+
+#news-container,
+#contact-container,
+#links-container {
+  padding: 0;
+  border: 0;
+}
+
+#news-container input {
+  border-radius: 2px;
+  border: none;
+  width: 21em;
+}
+
+#links-container li {
+  margin-bottom: 0.5em;
+}
+
+#links-container a {
+  text-decoration: none;
+}
+
+#links-container a:hover {
+  color: #050505;
+}
+
+#footer-bottom {
+  padding: 0;
+  border: 0;
+}
+
+#footer-bottom i {
+  color: #050505;
+  margin-left: 0.3em;
+}
+
+/* --------------   -------------- */
+@import url(./bootstrap.min.css);

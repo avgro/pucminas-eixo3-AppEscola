@@ -109,6 +109,8 @@ html {
   background-color: rgb(225, 199, 250);
   color: #050505;
   padding-top: 1.5em;
+  left: 0;
+  bottom: 0;
 }
 
 #footer-details {
@@ -148,6 +150,12 @@ html {
 #footer-bottom i {
   color: #050505;
   margin-left: 0.3em;
+}
+
+/*CSS FALE CONOSCO*/
+#contact {
+  margin-top: 10em;
+  margin-bottom: 8em;
 }
 
 @media (max-width: 991.98px) {
