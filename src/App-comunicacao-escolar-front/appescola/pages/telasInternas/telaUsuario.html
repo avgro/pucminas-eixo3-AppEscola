@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <title>App_comunicacao_escolar</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+
+    <!--Bootstrap Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="../../css/main.css" />
+
+
+</head>
+
+<body>
+    <header id="header">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow">
+            <div class=" container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img
+                        src="../../images/logo.svg" class="img-fluid" id="logo" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Solucoes">Soluções</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="FaleConosco">Fale
+                                Conosco</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav hidden-xs">
+
+                        <li class="nav-item d-flex flex-row-reverse">
+                            <div>
+                                <button id="botaoMenuUsuario_xs"
+                                    onclick="showDropDown(botaoMenuUsuario_xs, menuUsuario_xs)"
+                                    class="btn btn-transparent p-0 dropdown-toggle">
+
+                                </button>
+                            </div>
+                            <div id="menuUsuario_xs" class="dropdown-fix" hidden>
+                                <div class="dropdown-menu-fix">
+                                    <a class="dropdown-item" asp-area="" asp-controller="Usuarios"
+                                        asp-action="AlterarDados" asp-route-id="@GetIdUsuarioLogado()"><i
+                                            class="bi bi-person-circle bi-1halfx"></i>
+                                        <div class="dropdown-text">Alterar Dados</div>
+                                    </a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Usuarios"
+                                        asp-action="Logout"><i class="bi bi-x-circle bi-1halfx"></i>
+                                        <div class="dropdown-text">Sair</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="nav-item d-flex flex-row-reverse">
+                            <a class="btn btn-primary me-md-2" id="login-btn" asp-area="" asp-controller="Usuarios"
+                                asp-action="Login">Login</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <ul class="navbar-nav show-xs mx-3">
+
+            <li class="nav-item d-flex flex-row-reverse">
+                <div>
+                    <button id="botaoMenuUsuario" onclick="showDropDown(botaoMenuUsuario, menuUsuario)"
+                        class="btn btn-transparent p-0 dropdown-toggle">
+                    </button>
+                </div>
+                <div id="menuUsuario" class="dropdown-fix" hidden>
+                    <div class="dropdown-menu-fix">
+                        <a class="dropdown-item" asp-area="" asp-controller="Usuarios" asp-action="AlterarDados"
+                            asp-route-id="@GetIdUsuarioLogado()"><i class="bi bi-person-circle bi-1halfx"></i>
+                            <div class="dropdown-text">Alterar Dados</div>
+                        </a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Usuarios" asp-action="Logout"><i
+                                class="bi bi-x-circle bi-1halfx"></i>
+                            <div class="dropdown-text">Sair</div>
+                        </a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item d-flex flex-row-reverse">
+                <a class="btn btn-primary me-md-2" id="login-btn" asp-area="" asp-controller="Usuarios"
+                    asp-action="Login">Login</a>
+            </li>
+
+        </ul>
+        <div class="border-bottom p-0 mb-3"></div>
+    </header>
+
+    <a hidden id="refreshPartial" class="btn btn-primary" data-ajax="true" data-ajax-mode="replace"
+        data-ajax-update="#msgupdate" href="/Home/UpdateMsg"></a>
+
+    <!--Ínicio Barra Lateral-->
+    <div class="container-fluid">
+        <main role="main" class="pb-3 ">
+            <div class="menu-content-layout">
+                <div>
+                    <div class="menu-lateral">
+                        <ul class="list-group">
+
+                            <li class="p-0 item-menu-first mb-2">
+                                <div class="input-group">
+                                    <span class="input-group-text input-group-sm" id="inputGroup-sizing-sm">
+                                        <i class="bi bi-house-fill"></i>
+                                    </span>
+                                    <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Home"
+                                        asp-action="AreaDoUsuario">Painel inicial</a>
+                                </div>
+                            </li>
+
+
+                            <li class="p-0 item-menu mb-2">
+                                <div class="input-group">
+                                    <span class="input-group-text input-group-sm">
+                                        <i class="bi bi-envelope-fill"></i>
+                                    </span>
+                                    <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Conversas"
+                                        asp-action="Index">Mensagens
+                                        <span id="msgupdate">
+
+                                        </span>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="p-0 item-menu mb-2">
+                                <div class="input-group">
+                                    <span class="input-group-text input-group-sm">
+                                        <i class="bi bi-people-fill"></i>
+                                    </span>
+                                    <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Usuarios"
+                                        asp-action="Index">Gerenciar usuários</a>
+                                </div>
+                            </li>
+
+                            <li class="p-0 item-menu mb-2">
+                                <div class="input-group">
+                                    <span class="input-group-text input-group-sm">
+                                        <i class="bi bi-book"></i>
+                                    </span>
+                                    <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Disciplinas"
+                                        asp-action="Index">Gerenciar disciplinas</a>
+                                </div>
+                            </li>
+
+                            <li class="p-0 item-menu mb-2">
+                                <div class="input-group">
+                                    <span class="input-group-text input-group-sm">
+                                        <i class="bi bi-apple"></i>
+                                    </span>
+                                    <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Turmas"
+                                        asp-action="Index">Gerenciar turmas</a>
+                                </div>
+                            </li>
+
+                            <li class="p-0 item-menu mb-2">
+                                <div class="input-group">
+                                    <span class="input-group-text input-group-sm">
+                                        <i class="bi bi-person-video3"></i>
+                                    </span>
+                                    <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Alunos"
+                                        asp-action="Index">Gerenciar alunos</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!--//Fim Barra Lateral-->
+    <!-- FOOTER -->
+    <footer class="container-fluid bg-dark-color" id="footer">
+        <div class="container">
+            <div class="row">
+
+                <!-- FOOTER DETAILS -->
+                <div class="col-12" id="footer-details">
+                    <div class="row">
+                        <div class="col-12 col-md-4" id="news-container">
+                            <h4>Fique por dentro das novidades</h4>
+                            <p class="secondary-color">
+                                Inscreva-se para saber em primeira mão
+                            </p>
+                            <form>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" placeholder="Digite o seu e-mail" />
+                                </div>
+                                <button class="btn btn-dark" type="submit">Inscrever</button>
+                            </form>
+                        </div>
+                        <div class="col-12 col-md-4" id="contact-container">
+                            <h4>Formas de contato</h4>
+                            <p class="secondary-color">(31)9999-9999</p>
+                            <p class="secondary-color">contato@appescola.com</p>
+                        </div>
+                        <div class="col-12 col-md-4" id="links-container">
+                            <div class="row">
+                                <h4>Você pode estar buscando por:</h4>
+
+                                <div class="col-6">
+                                    <ul class="list-unstyled">
+
+                                        <li>
+                                            <a href="#" class="secondary-color">Termos de Uso</a>
+                                        </li>
+                                        <li><a href="#" class="secondary-color">Privacidade</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FOOTER BOTTOM -->
+                <div class="col-12" id="footer-bottom">
+                    <div class="row justify-content-between">
+                        <div class="col-12 col-md-3">
+                            <p class="secondary-color">AppEscola &copy; 2022</p>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <p class="secondary-color">
+                                Seus filhos cuidados com
+                                <i class="bi bi-heart"></i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--/Footer-->
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-unobtrusive-ajax/jquery.unobtrusive-ajax.js"></script>
+
+</body>
+
+</html>
