@@ -4,6 +4,7 @@ using App_comunicacao_escolar.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App_comunicacao_escolar.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220525190436_M38")]
+    partial class M38
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,12 +52,7 @@ namespace App_comunicacao_escolar.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int?>("TurmaId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("TurmaId");
 
                     b.ToTable("Agendas");
                 });
@@ -194,9 +191,6 @@ namespace App_comunicacao_escolar.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
-
-                    b.Property<bool?>("RequerAutorizacao")
-                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -544,15 +538,6 @@ namespace App_comunicacao_escolar.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("App_comunicacao_escolar.Models.Agenda", b =>
-                {
-                    b.HasOne("App_comunicacao_escolar.Models.Turma", "Turma")
-                        .WithMany("Agendas")
-                        .HasForeignKey("TurmaId");
-
-                    b.Navigation("Turma");
-                });
-
             modelBuilder.Entity("App_comunicacao_escolar.Models.Aluno", b =>
                 {
                     b.HasOne("App_comunicacao_escolar.Models.Turma", "Turma")
@@ -734,8 +719,6 @@ namespace App_comunicacao_escolar.Migrations
 
             modelBuilder.Entity("App_comunicacao_escolar.Models.Turma", b =>
                 {
-                    b.Navigation("Agendas");
-
                     b.Navigation("Alunos");
 
                     b.Navigation("Disciplinas");

@@ -12,6 +12,12 @@ namespace App_comunicacao_escolar.Models
         [Required(ErrorMessage = "Inserir nome do evento!")]
         [MaxLength(50)]
         public string? Nome { get; set; }
+        [Display(Name = "Descrição do evento")]
+        [Required(ErrorMessage = "Inserir descrição do evento!")]
+        [MaxLength(2000)]
+        public string? Descricao { get; set; }
+        [Display(Name = "Requer autorização dos responsáveis")]
+        public bool? RequerAutorizacao { get; set; }
         [Display(Name = "Início do evento")]
         [Required(ErrorMessage = "Inserir horário de início do evento!")]
         public DateTime? InicioDoEvento { get; set; }

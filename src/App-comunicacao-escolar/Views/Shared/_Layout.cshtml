@@ -148,7 +148,9 @@
         <div class="border-bottom p-0 mb-3"></div>
     </header>
 
-    <a hidden id="refreshPartial" class="btn btn-primary" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#msgupdate" href="/Home/UpdateMsg"></a>
+    <a hidden id="refreshPartial" class="btn btn-primary" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#msgUpdate" href="/Home/UpdateMsg"></a>
+    <a hidden id="refreshPartialAutorizacao" class="btn btn-primary" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#autorizacaoUpdate" href="/Home/UpdateAutorizacao"></a>
+
     <div class="container" >
         <main role="main" class="pb-3 ">
             @if (layoutNaoTemMenuLateral()) {
@@ -175,7 +177,7 @@
                                 {
                                     <li class="p-0 item-menu item-menu-selecionado )">
                                         <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Conversas" asp-action="Index">Mensagens
-                                            <span id="msgupdate">
+                                            <span id="msgUpdate">
                                                 @await Component.InvokeAsync("ContadorDeMensagensNovas", GetIdUsuarioLogado())
                                             </span>
                                         </a>
@@ -184,7 +186,7 @@
                                 else{
                                     <li class="p-0 item-menu )">
                                         <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Conversas" asp-action="Index">Mensagens
-                                            <span id="msgupdate">
+                                            <span id="msgUpdate">
                                                 @await Component.InvokeAsync("ContadorDeMensagensNovas", GetIdUsuarioLogado())
                                             </span>
                                         </a>
@@ -195,17 +197,32 @@
                                     {
                                         <li class="p-0 item-menu item-menu-selecionado )">
                                             <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Visualizar">Agenda escolar
-                                                <span id="msgupdate">
-                                                    @await Component.InvokeAsync("ContadorDeMensagensNovas", GetIdUsuarioLogado())
-                                                </span>
                                             </a>
                                         </li>
                                     }
                                     else{
                                         <li class="p-0 item-menu )">
                                             <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Visualizar">Agenda escolar
-                                                <span id="msgupdate">
-                                                    @await Component.InvokeAsync("ContadorDeMensagensNovas", GetIdUsuarioLogado())
+                                            </a>
+                                        </li>
+                                    }
+                                }
+                                @if(User.IsInRole("ResponsavelAluno")){
+                                    @if(ViewData["Controller"]!.Equals("Autorizacoes"))
+                                    {
+                                        <li class="p-0 item-menu item-menu-selecionado )">
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Visualizar">Assinar autorização
+                                                <span id="autorizacaoUpdate">
+                                                    @await Component.InvokeAsync("ContadorDeAutorizacoesNovas", GetIdUsuarioLogado())
+                                                </span>
+                                            </a>
+                                        </li>
+                                    }
+                                    else{
+                                        <li class="p-0 item-menu )">
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Visualizar">Assinar autorização
+                                                <span id="autorizacaoUpdate">
+                                                    @await Component.InvokeAsync("ContadorDeAutorizacoesNovas", GetIdUsuarioLogado())
                                                 </span>
                                             </a>
                                         </li>
@@ -216,18 +233,12 @@
                                     {
                                         <li class="p-0 item-menu item-menu-selecionado )">
                                             <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Index">Agenda escolar
-                                                <span id="msgupdate">
-                                                    @await Component.InvokeAsync("ContadorDeMensagensNovas", GetIdUsuarioLogado())
-                                                </span>
                                             </a>
                                         </li>
                                     }
                                     else{
                                         <li class="p-0 item-menu )">
                                             <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Index">Agenda escolar
-                                                <span id="msgupdate">
-                                                    @await Component.InvokeAsync("ContadorDeMensagensNovas", GetIdUsuarioLogado())
-                                                </span>
                                             </a>
                                         </li>
                                     }

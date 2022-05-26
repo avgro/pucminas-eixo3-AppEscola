@@ -19,6 +19,7 @@ window.addEventListener('load', function () {
 // Atualiza o contador de mensagens
 function jQrefresh() {
     document.getElementById("refreshPartial").click();
+    document.getElementById("refreshPartialAutorizacao").click();
 }
 
 // Suporte à validação customizada. Esconde mensagens de erro ao digitar valor nos campos a serem validados.
@@ -46,7 +47,8 @@ function showDropDown(dropdownButton, dropdownDiv) {
     }
     document.addEventListener('click', function (event) {
         const ignoreRefreshPartial = document.getElementById("refreshPartial");
-        if (!dropdownButton.contains(event.target) && !dropdownDiv.contains(event.target) && !ignoreRefreshPartial.contains(event.target)) {
+        const ignoreRefreshPartialAutorizacao = document.getElementById("refreshPartialAutorizacao");
+        if (!dropdownButton.contains(event.target) && !dropdownDiv.contains(event.target) && !ignoreRefreshPartial.contains(event.target) && !ignoreRefreshPartialAutorizacao.contains(event.target)) {
             dropdownDiv.hidden = true;
         }
     });

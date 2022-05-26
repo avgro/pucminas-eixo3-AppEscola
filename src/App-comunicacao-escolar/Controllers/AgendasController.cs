@@ -11,11 +11,11 @@ using System.Globalization;
 
 namespace App_comunicacao_escolar.Controllers
 {
-    public class AgendasController : Controller
+    public class AgendasController : CommonController
     {
         private readonly ApplicationDbContext _context;
 
-        public AgendasController(ApplicationDbContext context)
+        public AgendasController(ApplicationDbContext context) : base(context)
         {
             _context = context;
         }
@@ -107,8 +107,21 @@ namespace App_comunicacao_escolar.Controllers
                         var agendaSelected = agendaSelectList.Where(a => a.Text == agendaNome).First();
                         agendaSelected.Selected = true;
                         int[] idAgendasSelecionadas = { (int)id };
-                        eventos = (IOrderedQueryable<EventoDaAgenda>)eventos.Where(e => idAgendasSelecionadas.Contains((int)e.AgendaId));
+                        eventos = (IOrderedQueryable<EventoDaAgenda>)eventos.Where(e => e.AgendaId == id);
                     }
+                }
+                if (User.IsInRole("ResponsavelAluno"))
+                {
+                    List<int> idAgendasSelecionadas = new();
+                    int responsavelId = GetIdUsuarioLogado();
+                    var responsavel = _context.Responsaveis.Include(r => r.Alunos).FirstOrDefault(r => r.ResponsavelId == responsavelId);
+                    foreach (var dependente in responsavel.Alunos)
+                    {
+                        if (dependente.TurmaId != null) { 
+                            idAgendasSelecionadas.Add((int) dependente.TurmaId);
+                        }
+                    }
+                    eventos = (IOrderedQueryable<EventoDaAgenda>)eventos.Where(e => idAgendasSelecionadas.Contains((int)e.Agenda.TurmaId) || e.Agenda == null);
                 }
                 ViewData["AgendaNome"] = agendaNome.ToString();
                 ViewData["AgendaId"] = agendaSelectList;
@@ -167,6 +180,7 @@ namespace App_comunicacao_escolar.Controllers
         // GET: Agendas/Create
         public IActionResult Create()
         {
+            ViewData["TurmaId"] = new SelectList(_context.Turmas.OrderBy(d => d.NomeComCodigoEntreParenteses), "Id", "NomeComCodigoEntreParenteses");
             return View();
         }
 
@@ -175,14 +189,19 @@ namespace App_comunicacao_escolar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome")] Agenda agenda)
+        public async Task<IActionResult> Create([Bind("Id,Nome,TurmaId")] Agenda agenda)
         {
+            if (agenda.TurmaId == 0)
+            {
+                agenda.TurmaId = null;
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(agenda);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["TurmaId"] = new SelectList(_context.Turmas.OrderBy(d => d.NomeComCodigoEntreParenteses), "Id", "NomeComCodigoEntreParenteses");
             return View(agenda);
         }
 
@@ -199,6 +218,7 @@ namespace App_comunicacao_escolar.Controllers
             {
                 return NotFound();
             }
+            ViewData["TurmaId"] = new SelectList(_context.Turmas.OrderBy(d => d.NomeComCodigoEntreParenteses), "Id", "NomeComCodigoEntreParenteses");
             return View(agenda);
         }
 
@@ -207,11 +227,16 @@ namespace App_comunicacao_escolar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome")] Agenda agenda)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,TurmaId")] Agenda agenda)
         {
             if (id != agenda.Id)
             {
                 return NotFound();
+            }
+
+            if (agenda.TurmaId == 0)
+            {
+                agenda.TurmaId = null;
             }
 
             if (ModelState.IsValid)
@@ -234,6 +259,7 @@ namespace App_comunicacao_escolar.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["TurmaId"] = new SelectList(_context.Turmas.OrderBy(d => d.NomeComCodigoEntreParenteses), "Id", "NomeComCodigoEntreParenteses");
             return View(agenda);
         }
 

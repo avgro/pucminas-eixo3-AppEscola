@@ -24,6 +24,11 @@
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Descricao" class="control-label"></label>
+                <textarea asp-for="Descricao" class="form-control" placeholder="Descrição do evento..."></textarea>
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="InicioDoEvento" class="control-label"></label>
                 <input asp-for="InicioDoEvento" class="form-control" />
                 <span asp-validation-for="InicioDoEvento" class="text-danger"></span>
@@ -32,6 +37,11 @@
                 <label asp-for="FimDoEvento" class="control-label"></label>
                 <input asp-for="FimDoEvento" class="form-control" />
                 <span asp-validation-for="FimDoEvento" class="text-danger"></span>
+            </div>
+            <div class="form-group increase-checkbox mt-2">
+                @Html.CheckBox("RequerAutorizacao", false)
+                <label asp-for="RequerAutorizacao" class="control-label mx-1"></label>
+                <span asp-validation-for="RequerAutorizacao" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Cadastrar evento" class="btn btn-primary my-2" />

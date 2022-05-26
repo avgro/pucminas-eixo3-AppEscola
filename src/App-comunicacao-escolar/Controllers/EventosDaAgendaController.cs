@@ -79,9 +79,18 @@ namespace App_comunicacao_escolar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,InicioDoEvento,FimDoEvento,AgendaId")] EventoDaAgenda eventoDaAgenda)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Descricao,InicioDoEvento,FimDoEvento,AgendaId,RequerAutorizacao")] EventoDaAgenda eventoDaAgenda)
         {
             eventoDaAgenda.Id = 0;
+
+            List<string> listarErrosDeValidacao = IsValidCustomizado(eventoDaAgenda);
+            while (listarErrosDeValidacao.Count > 0)
+            {
+                ViewData["Error"] = "Error";
+                ModelState.AddModelError(listarErrosDeValidacao[0], listarErrosDeValidacao[1]);
+                ViewData[listarErrosDeValidacao[0]] = listarErrosDeValidacao[1];
+                listarErrosDeValidacao.RemoveRange(0, 2);
+            }
 
             if (ModelState.IsValid)
             {
@@ -117,11 +126,20 @@ namespace App_comunicacao_escolar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,InicioDoEvento,FimDoEvento,AgendaId")] EventoDaAgenda eventoDaAgenda)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Descricao,InicioDoEvento,FimDoEvento,AgendaId,RequerAutorizacao")] EventoDaAgenda eventoDaAgenda)
         {
             if (id != eventoDaAgenda.Id)
             {
                 return NotFound();
+            }
+
+            List<string> listarErrosDeValidacao = IsValidCustomizado(eventoDaAgenda);
+            while (listarErrosDeValidacao.Count > 0)
+            {
+                ViewData["Error"] = "Error";
+                ModelState.AddModelError(listarErrosDeValidacao[0], listarErrosDeValidacao[1]);
+                ViewData[listarErrosDeValidacao[0]] = listarErrosDeValidacao[1];
+                listarErrosDeValidacao.RemoveRange(0, 2);
             }
 
             if (ModelState.IsValid)
@@ -183,6 +201,27 @@ namespace App_comunicacao_escolar.Controllers
         private bool EventoDaAgendaExists(int id)
         {
             return _context.EventosDaAgenda.Any(e => e.Id == id);
+        }
+
+        // Metodos - Validação de atributos cuja validação não é diretamente coberta pelo Entity Framework
+        private List<string> IsValidCustomizado(EventoDaAgenda eventoDaAgenda)
+        {
+            List<string> errorMessage = new();
+            DateTime inicioEvento = (DateTime) eventoDaAgenda.InicioDoEvento;
+            DateTime fimEvento = (DateTime) eventoDaAgenda.FimDoEvento;
+
+            if (!(inicioEvento.Day == fimEvento.Day && inicioEvento.Month == fimEvento.Month && inicioEvento.Year == fimEvento.Year))
+            {
+                errorMessage.Add("FimDoEvento");
+                errorMessage.Add("Evento deve começar e terminar no mesmo dia!");
+            };
+
+            if (inicioEvento >= fimEvento)
+            {
+                errorMessage.Add("FimDoEvento");
+                errorMessage.Add("Fim do evento deve ocorrer após o início do evento!");
+            };
+            return errorMessage;
         }
     }
 }

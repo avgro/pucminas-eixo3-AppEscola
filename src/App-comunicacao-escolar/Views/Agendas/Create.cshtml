@@ -17,6 +17,13 @@
                 <input asp-for="Nome" class="form-control" />
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
+            <div class="form-group input-size-2x">
+                <label asp-for="TurmaId" class="control-label"></label> *
+                <select id="pessoaId" asp-for="TurmaId" class ="form-control form-select input-size-standard" asp-items="ViewBag.TurmaId">
+                    <option value=0>Nenhuma</option>
+                </select>
+                 <span asp-validation-for="TurmaId"></span>
+            </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

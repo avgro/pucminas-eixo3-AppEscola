@@ -13,5 +13,9 @@ namespace App_comunicacao_escolar.Models
         [MaxLength(50)]
         public string? Nome { get; set; }
         public ICollection<EventoDaAgenda>? EventosDaAgenda { get; set; }
+        [Display(Name = "Turma")]
+        public int? TurmaId { get; set; }
+        [ForeignKey("TurmaId")]
+        public Turma? Turma { get; set; }
     }
 }

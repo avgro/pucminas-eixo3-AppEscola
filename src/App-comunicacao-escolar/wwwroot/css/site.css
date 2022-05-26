@@ -107,6 +107,10 @@ max-width-100 {
     max-width: 100%;
 }
 
+.increase-checkbox input {
+    transform: scale(1.25);
+}
+
 .show-xs {
     display: none !important;
 }
