@@ -2,6 +2,7 @@
 using App_comunicacao_escolar.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
+using Microsoft.EntityFrameworkCore;
 
 namespace App_comunicacao_escolar.ViewComponents
 {
@@ -16,22 +17,30 @@ namespace App_comunicacao_escolar.ViewComponents
         }
         public async Task<IViewComponentResult> InvokeAsync(int idUsuarioLogado = -1)
         {
-            int numeroDeNovasMensagensNaConversa = 0;
-            if (_context.NumeroDeNovasMensagensNaConversa != null && _context.UsuariosQueArquivaramConversa != null) { 
-                var mensagensNaoLidasDoUsuarioAtual = _context.NumeroDeNovasMensagensNaConversa.Where(n => n.UsuarioId == idUsuarioLogado);
-                
-                var mensagensArquivadasDoUsuarioAtual = _context.UsuariosQueArquivaramConversa.Where(u => u.UsuarioId == idUsuarioLogado);
-                foreach (var item in mensagensNaoLidasDoUsuarioAtual)
-                {
-                    if (!mensagensArquivadasDoUsuarioAtual.Any(m => m.ConversaId == item.ConversaId))
+            int numeroContador = 0;
+            try {  
+                var applicationDbContext = _context.AutorizacoesEventos!.Include(a => a.Aluno).Include(a => a.Evento);
+                var autorizacoes = from a in applicationDbContext select a;
+                var responsavel = await _context.Responsaveis!.Include(r => r.Alunos).FirstOrDefaultAsync(r => r.ResponsavelId == idUsuarioLogado);
+                var listaIdDependentes = new List<int>();
+                if (responsavel != null) { 
+                    if (responsavel.Alunos != null)
                     {
-                        numeroDeNovasMensagensNaConversa += item.NumeroDeMensagensNaoLidas;
+                        foreach (var aluno in responsavel.Alunos)
+                        {
+                            listaIdDependentes.Add(aluno.Id);
+                        }
                     }
                 }
+                autorizacoes = autorizacoes.Where(a => listaIdDependentes.Contains((int)a.AlunoId!) && a.Autorizado == null);
+
+                numeroContador = autorizacoes.Count();
             }
-            numeroDeNovasMensagensNaConversa += 7;
-            ViewBag.NumeroDeMensagensNovas = numeroDeNovasMensagensNaConversa;
-            
+            catch
+            {
+
+            }
+            ViewBag.NumeroContador = numeroContador;
             return View();
         }
 

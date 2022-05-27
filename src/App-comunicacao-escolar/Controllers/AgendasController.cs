@@ -1,4 +1,5 @@
 ﻿#nullable disable
+#nullable disable
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace App_comunicacao_escolar.Controllers
         // GET: Agendas
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Agendas.ToListAsync());
+            return View(await _context.Agendas.Include(a => a.Turma).ToListAsync());
         }
 
         // GET: Agendas/Details/5
@@ -34,7 +35,7 @@ namespace App_comunicacao_escolar.Controllers
                 return NotFound();
             }
 
-            var agenda = await _context.Agendas
+            var agenda = await _context.Agendas.Include(a => a.Turma)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (agenda == null)
             {
@@ -121,7 +122,11 @@ namespace App_comunicacao_escolar.Controllers
                             idAgendasSelecionadas.Add((int) dependente.TurmaId);
                         }
                     }
-                    eventos = (IOrderedQueryable<EventoDaAgenda>)eventos.Where(e => idAgendasSelecionadas.Contains((int)e.Agenda.TurmaId) || e.Agenda == null);
+                    eventos = (IOrderedQueryable<EventoDaAgenda>)eventos.Where(e => 
+                        (idAgendasSelecionadas.Contains((int)e.Agenda.TurmaId) || e.Agenda == null)
+                        &&
+                        ((int)e.Agenda.Perfil == 0 || (int)e.Agenda.Perfil == 1)
+                        );
                 }
                 ViewData["AgendaNome"] = agendaNome.ToString();
                 ViewData["AgendaId"] = agendaSelectList;
@@ -189,7 +194,7 @@ namespace App_comunicacao_escolar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,TurmaId")] Agenda agenda)
+        public async Task<IActionResult> Create([Bind("Id,Nome,TurmaId","Perfil")] Agenda agenda)
         {
             if (agenda.TurmaId == 0)
             {
@@ -227,7 +232,7 @@ namespace App_comunicacao_escolar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,TurmaId")] Agenda agenda)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,TurmaId", "Perfil")] Agenda agenda)
         {
             if (id != agenda.Id)
             {

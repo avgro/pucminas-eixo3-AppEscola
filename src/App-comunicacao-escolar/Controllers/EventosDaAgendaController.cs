@@ -94,6 +94,24 @@ namespace App_comunicacao_escolar.Controllers
 
             if (ModelState.IsValid)
             {
+                if (eventoDaAgenda.RequerAutorizacao == true)
+                {
+                    var alunos = _context.Alunos;
+                    var selecionarAlunos = from a in alunos select a;
+                    int? turmaDaAgendaId = _context.Agendas.FirstOrDefault(a => a.Id == eventoDaAgenda.AgendaId)?.TurmaId;
+                    if (turmaDaAgendaId != null)
+                    {
+                        selecionarAlunos = selecionarAlunos.Where(a => a.TurmaId == turmaDaAgendaId);
+                    } 
+                    eventoDaAgenda.Autorizacoes = new List<AutorizacaoEvento>();
+                    foreach (var aluno in selecionarAlunos)
+                    {
+                        var autorizacaoEvento = new AutorizacaoEvento();
+                        autorizacaoEvento.AlunoId = aluno.Id;
+                        _context.Add(autorizacaoEvento);
+                        eventoDaAgenda.Autorizacoes.Add(autorizacaoEvento);
+                    }
+                }
                 _context.Add(eventoDaAgenda);
                 await _context.SaveChangesAsync();
                 return RedirectToRoute(new { controller = "Agendas", action = "Visualizar", id = eventoDaAgenda.AgendaId });

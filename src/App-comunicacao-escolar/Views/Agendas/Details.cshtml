@@ -4,10 +4,10 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Detalhes da agenda</h1>
 
 <div>
-    <h4>Agenda</h4>
+    <h4>@Model.Nome</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -15,6 +15,25 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Turma)
+        </dt>
+        <dd class = "col-sm-10">
+            @if (Model.Turma == null)
+            {
+                <text>Todas as turmas</text>            
+            }
+            else
+            {
+                @Html.DisplayFor(model => model.Turma!.NomeComCodigoEntreParenteses)                
+            }
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Perfil)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Perfil)
         </dd>
     </dl>
 </div>

@@ -17,5 +17,16 @@ namespace App_comunicacao_escolar.Models
         public int? TurmaId { get; set; }
         [ForeignKey("TurmaId")]
         public Turma? Turma { get; set; }
+        [Display(Name = "Tipo de usuário")]
+        public PerfilUsuarioAgendaEnum Perfil { get; set; }
+    }
+    public enum PerfilUsuarioAgendaEnum
+    {
+        [Display(Name = "Todos")]
+        Todos = 0,
+        [Display(Name = "Responsável de aluno")]
+        ResponsavelAluno = 1,
+        [Display(Name = "Professor")]
+        Professor = 2
     }
 }

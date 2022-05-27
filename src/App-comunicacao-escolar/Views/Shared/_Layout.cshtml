@@ -208,10 +208,10 @@
                                     }
                                 }
                                 @if(User.IsInRole("ResponsavelAluno")){
-                                    @if(ViewData["Controller"]!.Equals("Autorizacoes"))
+                                    @if(ViewData["Controller"]!.Equals("AutorizacoesEventos"))
                                     {
                                         <li class="p-0 item-menu item-menu-selecionado )">
-                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Visualizar">Assinar autorização
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="AutorizacoesEventos" asp-action="Index">Assinar autorização
                                                 <span id="autorizacaoUpdate">
                                                     @await Component.InvokeAsync("ContadorDeAutorizacoesNovas", GetIdUsuarioLogado())
                                                 </span>
@@ -220,7 +220,7 @@
                                     }
                                     else{
                                         <li class="p-0 item-menu )">
-                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Visualizar">Assinar autorização
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="AutorizacoesEventos" asp-action="Index">Assinar autorização
                                                 <span id="autorizacaoUpdate">
                                                     @await Component.InvokeAsync("ContadorDeAutorizacoesNovas", GetIdUsuarioLogado())
                                                 </span>
@@ -232,13 +232,13 @@
                                     @if(ViewData["Controller"]!.Equals("Agendas") || ViewData["Controller"]!.Equals("EventosDaAgenda"))
                                     {
                                         <li class="p-0 item-menu item-menu-selecionado )">
-                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Index">Agenda escolar
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Index">Gerenciar agendas
                                             </a>
                                         </li>
                                     }
                                     else{
                                         <li class="p-0 item-menu )">
-                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Index">Agenda escolar
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Index">Gerenciar agendas
                                             </a>
                                         </li>
                                     }

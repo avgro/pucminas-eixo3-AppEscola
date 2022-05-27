@@ -16,7 +16,7 @@ namespace App_comunicacao_escolar.ViewComponents
         }
         public async Task<IViewComponentResult> InvokeAsync(int idUsuarioLogado = -1)
         {
-            int numeroDeNovasMensagensNaConversa = 0;
+            int numeroContador = 0;
             if (_context.NumeroDeNovasMensagensNaConversa != null && _context.UsuariosQueArquivaramConversa != null) { 
                 var mensagensNaoLidasDoUsuarioAtual = _context.NumeroDeNovasMensagensNaConversa.Where(n => n.UsuarioId == idUsuarioLogado);
                 
@@ -25,11 +25,11 @@ namespace App_comunicacao_escolar.ViewComponents
                 {
                     if (!mensagensArquivadasDoUsuarioAtual.Any(m => m.ConversaId == item.ConversaId))
                     {
-                        numeroDeNovasMensagensNaConversa += item.NumeroDeMensagensNaoLidas;
+                        numeroContador += item.NumeroDeMensagensNaoLidas;
                     }
                 }
             }
-            ViewBag.NumeroDeMensagensNovas = numeroDeNovasMensagensNaConversa;
+            ViewBag.NumeroContador = numeroContador;
             
             return View();
         }

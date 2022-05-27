@@ -28,5 +28,6 @@ namespace App_comunicacao_escolar.Models
         public int? AgendaId { get; set; }
         [ForeignKey("AgendaId")]
         public Agenda? Agenda { get; set; }
+        public ICollection<AutorizacaoEvento>? Autorizacoes { get; set; }
     }
 }
