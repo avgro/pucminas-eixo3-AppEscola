@@ -1,4 +1,6 @@
-﻿@model IEnumerable<App_comunicacao_escolar.Models.EventoDaAgenda>
+﻿@using X.PagedList.Mvc;
+@using X.PagedList.Mvc.Core
+@model X.PagedList.StaticPagedList<App_comunicacao_escolar.Models.EventoDaAgenda>
 
 @{
     ViewData["Title"] = "Index";
@@ -6,21 +8,27 @@
 
 <h1>Lista de eventos</h1>
 <h4>@ViewData["AgendaNome"]</h4>
-
+@using (Html.BeginForm("Index", "EventosDaAgenda", FormMethod.Post))
+{
+    <div>
+        Buscar evento por nome:<br> @Html.TextBox("searchString")
+        <input id="Submit1" type="submit" value="Buscar"/>
+    </div>
+}
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nome)
+                Nome
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.InicioDoEvento)
+                Início
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FimDoEvento)
+                Fim
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Agenda)
+                Agenda
             </th>
             <th></th>
         </tr>
@@ -55,6 +63,19 @@
 }
     </tbody>
 </table>
+
+<div class="row">
+    <div class="col-md-8">
+        @Html.PagedListPager(Model, pagina => Url.Action("Index", new {pagina, secao = @ViewData["TituloDaSecao"]}), new X.PagedList.Web.Common.PagedListRenderOptions
+               {                       
+                        DisplayLinkToIndividualPages = true,
+                        DisplayPageCountAndCurrentLocation = false,
+                        LiElementClasses = new string[] { "page-item" },
+                   PageClasses = new string[] { "page-link" },
+                   
+                    })
+    </div>
+</div>
 
 <div>
     <a asp-controller="Agendas" asp-action="Visualizar" asp-route-id=@ViewData["Id"]>Voltar</a>

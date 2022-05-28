@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using App_comunicacao_escolar.Models;
+using X.PagedList;
 
 namespace App_comunicacao_escolar.Controllers
 {
@@ -19,7 +20,7 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: AutorizacoesEventos
-        public async Task<IActionResult> Index(string secao = "")
+        public async Task<IActionResult> Index(string secao = "", int pagina = 1)
         {
             try {
                 int idDoUsuarioLogado = GetIdUsuarioLogado();
@@ -44,7 +45,7 @@ namespace App_comunicacao_escolar.Controllers
                     autorizacoes = autorizacoes.Where(a => listaIdDependentes.Contains((int)a.AlunoId!) && a.Autorizado == null);
                 }
                 ViewData["TituloDaSecao"] = secao;
-                return View(autorizacoes);
+                return View(await autorizacoes.ToPagedListAsync(pagina, 50));
             }
             catch
             {
@@ -55,44 +56,52 @@ namespace App_comunicacao_escolar.Controllers
         // GET: AutorizacoesEventos/Details/5
         public async Task<IActionResult> Visualizar(int? id, string secao = "")
         {
-            if (id == null || _context.AutorizacoesEventos == null)
+            try
             {
-                return NotFound();
-            }
-
-            int idDoUsuarioLogado = GetIdUsuarioLogado();
-            var responsavel = await _context.Responsaveis!.Include(r => r.Alunos).FirstOrDefaultAsync(r => r.ResponsavelId == idDoUsuarioLogado);
-            var listaIdDependentes = new List<int>();
-
-            if (responsavel != null)
-            {
-                if (responsavel.Alunos != null)
+                if (id == null || _context.AutorizacoesEventos == null)
                 {
-                    foreach (var aluno in responsavel.Alunos)
+                    return NotFound();
+                }
+
+                int idDoUsuarioLogado = GetIdUsuarioLogado();
+                var responsavel = await _context.Responsaveis!.Include(r => r.Alunos).FirstOrDefaultAsync(r => r.ResponsavelId == idDoUsuarioLogado);
+                var listaIdDependentes = new List<int>();
+
+                if (responsavel != null)
+                {
+                    if (responsavel.Alunos != null)
                     {
-                        listaIdDependentes.Add(aluno.Id);
+                        foreach (var aluno in responsavel.Alunos)
+                        {
+                            listaIdDependentes.Add(aluno.Id);
+                        }
                     }
                 }
-            }
 
-            var autorizacaoEvento = await _context.AutorizacoesEventos
-                .Include(a => a.Aluno)
-                .Include(a => a.Evento)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (autorizacaoEvento == null)
-            {
-                return NotFound();
-            }
-
-            // Verificar se responsável tem permissão para acessar essa URL
-            if (autorizacaoEvento.AlunoId != null) { 
-                if (!listaIdDependentes.Contains((int)autorizacaoEvento.AlunoId))
+                var autorizacaoEvento = await _context.AutorizacoesEventos
+                    .Include(a => a.Aluno)
+                    .Include(a => a.Evento)
+                    .FirstOrDefaultAsync(m => m.Id == id);
+                if (autorizacaoEvento == null)
                 {
-                    return Forbid();
+                    return NotFound();
                 }
+
+                // Verificar se responsável tem permissão para acessar essa URL
+                if (autorizacaoEvento.AlunoId != null)
+                {
+                    if (!listaIdDependentes.Contains((int)autorizacaoEvento.AlunoId))
+                    {
+                        return Forbid();
+                    }
+                }
+                ViewData["TituloDaSecao"] = secao;
+                return View(autorizacaoEvento);
             }
-            ViewData["TituloDaSecao"] = secao;
-            return View(autorizacaoEvento);
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         // POST: EventosDaAgenda/Autorizar/5
@@ -103,46 +112,46 @@ namespace App_comunicacao_escolar.Controllers
         public async Task<IActionResult> Visualizar(int id, [Bind("Autorizar")] bool autorizar)
         {
             try { 
-            var autorizarEvento = await _context.AutorizacoesEventos!.FirstOrDefaultAsync(a => a.Id == id);
-            if (autorizarEvento == null)
-            {
-                return NotFound();
-            }
-            if (autorizarEvento == null)
-            {
-                return NotFound();
-            }
+                var autorizarEvento = await _context.AutorizacoesEventos!.FirstOrDefaultAsync(a => a.Id == id);
+                if (autorizarEvento == null)
+                {
+                    return NotFound();
+                }
+                if (autorizarEvento == null)
+                {
+                    return NotFound();
+                }
 
-            int idUsuarioLogado = GetIdUsuarioLogado();
-            var usuarioLogado = await _context.Usuarios!.FirstOrDefaultAsync(u => u.Id == idUsuarioLogado);
+                int idUsuarioLogado = GetIdUsuarioLogado();
+                var usuarioLogado = await _context.Usuarios!.FirstOrDefaultAsync(u => u.Id == idUsuarioLogado);
             
-            if (usuarioLogado != null) { 
-                var nomeUsuarioLogado = usuarioLogado!.NomeDisplayLista;
-                autorizarEvento.AssinadoPor = nomeUsuarioLogado;
-            }
-            autorizarEvento.Autorizado = autorizar;
+                if (usuarioLogado != null) { 
+                    var nomeUsuarioLogado = usuarioLogado!.NomeDisplayLista;
+                    autorizarEvento.AssinadoPor = nomeUsuarioLogado;
+                }
+                autorizarEvento.Autorizado = autorizar;
         
-            if (ModelState.IsValid)
-            {
-                try
+                if (ModelState.IsValid)
                 {
-                    _context.Update(autorizarEvento);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!AutoriazacoesEventosExists(autorizarEvento.Id))
+                    try
                     {
-                        return NotFound();
+                        _context.Update(autorizarEvento);
+                        await _context.SaveChangesAsync();
                     }
-                    else
+                    catch (DbUpdateConcurrencyException)
                     {
-                        throw;
+                        if (!AutoriazacoesEventosExists(autorizarEvento.Id))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
                     }
-                }
-                return RedirectToAction(nameof(Index));
-                }
-            return View(autorizarEvento);
+                    return RedirectToAction(nameof(Index));
+                    }
+                return View(autorizarEvento);
             }
             catch { 
                 return BadRequest();
@@ -150,7 +159,10 @@ namespace App_comunicacao_escolar.Controllers
         }
         private bool AutoriazacoesEventosExists(int id)
         {
-            return _context.AutorizacoesEventos.Any(e => e.Id == id);
+            if (_context.AutorizacoesEventos != null) {
+                return _context.AutorizacoesEventos.Any(e => e.Id == id);
+            }
+            return false;
         }
 
     }

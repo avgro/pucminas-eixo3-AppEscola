@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using App_comunicacao_escolar.Models;
 using System.Globalization;
+using X.PagedList;
 
 namespace App_comunicacao_escolar.Controllers
 {
@@ -22,27 +23,50 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: Agendas
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString, int pagina = 1)
         {
-            return View(await _context.Agendas.Include(a => a.Turma).ToListAsync());
+            try
+            {
+                var applicationDbContext = _context.Agendas.Include(a => a.Turma);
+
+                var agendas = from a in applicationDbContext select a;
+
+                agendas = agendas.OrderBy(a => a.Nome);
+
+                if (searchString != null)
+                {
+                    agendas = agendas.Where(a => a.Nome.Contains(searchString));
+                }
+
+                return View(await agendas.ToPagedListAsync(pagina, 50));
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         // GET: Agendas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            try
+            {
+                var agenda = await _context.Agendas.Include(a => a.Turma)
+                    .FirstOrDefaultAsync(m => m.Id == id);
+                if (agenda == null)
+                {
+                    return NotFound();
+                }
+                return View(agenda);
+            }
+            catch
+            {
+                return BadRequest();
+            }
             if (id == null)
             {
                 return NotFound();
             }
-
-            var agenda = await _context.Agendas.Include(a => a.Turma)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (agenda == null)
-            {
-                return NotFound();
-            }
-
-            return View(agenda);
         }
 
         // GET: Agendas/Visualizar/5
@@ -185,8 +209,15 @@ namespace App_comunicacao_escolar.Controllers
         // GET: Agendas/Create
         public IActionResult Create()
         {
-            ViewData["TurmaId"] = new SelectList(_context.Turmas.OrderBy(d => d.NomeComCodigoEntreParenteses), "Id", "NomeComCodigoEntreParenteses");
-            return View();
+            try
+            {
+                ViewData["TurmaId"] = new SelectList(_context.Turmas.OrderBy(d => d.NomeComCodigoEntreParenteses), "Id", "NomeComCodigoEntreParenteses");
+                return View();
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         // POST: Agendas/Create
@@ -196,35 +227,48 @@ namespace App_comunicacao_escolar.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nome,TurmaId","Perfil")] Agenda agenda)
         {
-            if (agenda.TurmaId == 0)
+            try
             {
-                agenda.TurmaId = null;
+                if (agenda.TurmaId == 0)
+                {
+                    agenda.TurmaId = null;
+                }
+                if (ModelState.IsValid)
+                {
+                    _context.Add(agenda);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                ViewData["TurmaId"] = new SelectList(_context.Turmas.OrderBy(d => d.NomeComCodigoEntreParenteses), "Id", "NomeComCodigoEntreParenteses");
+                return View(agenda);
             }
-            if (ModelState.IsValid)
+            catch
             {
-                _context.Add(agenda);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return BadRequest();
             }
-            ViewData["TurmaId"] = new SelectList(_context.Turmas.OrderBy(d => d.NomeComCodigoEntreParenteses), "Id", "NomeComCodigoEntreParenteses");
-            return View(agenda);
         }
 
         // GET: Agendas/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            try
+            {
+                var agenda = await _context.Agendas.FindAsync(id);
+                if (agenda == null)
+                {
+                    return NotFound();
+                }
+                ViewData["TurmaId"] = new SelectList(_context.Turmas.OrderBy(d => d.NomeComCodigoEntreParenteses), "Id", "NomeComCodigoEntreParenteses");
+                return View(agenda);
+            }
+            catch
+            {
+                return BadRequest();
+            }
             if (id == null)
             {
                 return NotFound();
             }
-
-            var agenda = await _context.Agendas.FindAsync(id);
-            if (agenda == null)
-            {
-                return NotFound();
-            }
-            ViewData["TurmaId"] = new SelectList(_context.Turmas.OrderBy(d => d.NomeComCodigoEntreParenteses), "Id", "NomeComCodigoEntreParenteses");
-            return View(agenda);
         }
 
         // POST: Agendas/Edit/5
@@ -234,56 +278,69 @@ namespace App_comunicacao_escolar.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,TurmaId", "Perfil")] Agenda agenda)
         {
-            if (id != agenda.Id)
+            try
             {
-                return NotFound();
-            }
-
-            if (agenda.TurmaId == 0)
-            {
-                agenda.TurmaId = null;
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
+                if (id != agenda.Id)
                 {
-                    _context.Update(agenda);
-                    await _context.SaveChangesAsync();
+                    return NotFound();
                 }
-                catch (DbUpdateConcurrencyException)
+
+                if (agenda.TurmaId == 0)
                 {
-                    if (!AgendaExists(agenda.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    agenda.TurmaId = null;
                 }
-                return RedirectToAction(nameof(Index));
+
+                if (ModelState.IsValid)
+                {
+                    try
+                    {
+                        _context.Update(agenda);
+                        await _context.SaveChangesAsync();
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (!AgendaExists(agenda.Id))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
+                    return RedirectToAction(nameof(Index));
+                }
+                ViewData["TurmaId"] = new SelectList(_context.Turmas.OrderBy(d => d.NomeComCodigoEntreParenteses), "Id", "NomeComCodigoEntreParenteses");
+                return View(agenda);
             }
-            ViewData["TurmaId"] = new SelectList(_context.Turmas.OrderBy(d => d.NomeComCodigoEntreParenteses), "Id", "NomeComCodigoEntreParenteses");
-            return View(agenda);
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         // GET: Agendas/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            try
+            {
+                var agenda = await _context.Agendas
+                 .FirstOrDefaultAsync(m => m.Id == id);
+                if (agenda == null)
+                {
+                    return NotFound();
+                }
+
+                return View(agenda);
+            }
+            catch
+            {
+                return BadRequest();
+            }
             if (id == null)
             {
                 return NotFound();
             }
-
-            var agenda = await _context.Agendas
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (agenda == null)
-            {
-                return NotFound();
-            }
-
-            return View(agenda);
         }
 
         // POST: Agendas/Delete/5
@@ -291,10 +348,17 @@ namespace App_comunicacao_escolar.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var agenda = await _context.Agendas.FindAsync(id);
-            _context.Agendas.Remove(agenda);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                var agenda = await _context.Agendas.FindAsync(id);
+                _context.Agendas.Remove(agenda);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         private bool AgendaExists(int id)

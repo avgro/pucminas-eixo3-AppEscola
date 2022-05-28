@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using App_comunicacao_escolar.Models;
+using X.PagedList;
 
 namespace App_comunicacao_escolar.Controllers
 {
@@ -20,58 +21,90 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: EventosDaAgenda
-        public async Task<IActionResult> Index(int? id)
+        public async Task<IActionResult> Index(int? id, string searchString, int pagina = 1)
         {
-            var applicationDbContext = _context.EventosDaAgenda.Include(e => e.Agenda);
+            try
+            {
+                var applicationDbContext = _context.EventosDaAgenda.Include(e => e.Agenda);
 
-            string agendaNome = "Todas as agendas";
-            ViewData["Id"] = id;
-            if (id != null) {
-                agendaNome = _context.Agendas.FirstOrDefault(a => a.Id == id).Nome;
+                var eventosAgenda = from e in applicationDbContext select e;
+
+                string agendaNome = "Todas as agendas";
+                ViewData["Id"] = id;
+                if (id != null)
+                {
+                    agendaNome = _context.Agendas.FirstOrDefault(a => a.Id == id).Nome;
+                    eventosAgenda = eventosAgenda.Where(a => a.AgendaId == id);
+                }
                 ViewData["AgendaNome"] = agendaNome;
-                return View(await applicationDbContext.Where(a => a.AgendaId == id).OrderBy(a => a.InicioDoEvento).ToListAsync());
+
+                if (searchString != null)
+                {
+                    eventosAgenda = eventosAgenda.Where(e => e.Nome.Contains(searchString));
+                }
+
+                eventosAgenda.OrderBy(a => a.InicioDoEvento);
+
+                return View(await eventosAgenda.ToPagedListAsync(pagina, 50));
             }
-            ViewData["AgendaNome"] = agendaNome;
-            return View(await applicationDbContext.OrderBy(a => a.InicioDoEvento).ToListAsync());
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         // GET: EventosDaAgenda/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
+            try
             {
-                return NotFound();
-            }
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
-            var eventoDaAgenda = await _context.EventosDaAgenda
-                .Include(e => e.Agenda)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (eventoDaAgenda == null)
-            {
-                return NotFound();
+                var eventoDaAgenda = await _context.EventosDaAgenda
+                    .Include(e => e.Agenda)
+                    .Include(e => e.Autorizacoes).ThenInclude(a => a.Aluno)
+                    .FirstOrDefaultAsync(m => m.Id == id);
+                if (eventoDaAgenda == null)
+                {
+                    return NotFound();
+                }
+                @ViewData["IdVoltarAgenda"] = eventoDaAgenda.AgendaId;
+                return View(eventoDaAgenda);
             }
-            @ViewData["IdVoltarAgenda"] = eventoDaAgenda.AgendaId;
-            return View(eventoDaAgenda);
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         // GET: EventosDaAgenda/Create
         public IActionResult Create(int? id)
         {
-            var agendaSelectList = new SelectList(_context.Agendas.OrderBy(a => a.Nome), "Id", "Nome");
-
-            string agendaNome = "Todas as agendas";
-            if (id != null)
+            try
             {
-                agendaNome = _context.Agendas.FirstOrDefault(a => a.Id == id).Nome;
+                var agendaSelectList = new SelectList(_context.Agendas.OrderBy(a => a.Nome), "Id", "Nome");
 
-                var agendaSelected = agendaSelectList.Where(a => a.Text == agendaNome).First();
-                agendaSelected.Selected = true;
+                string agendaNome = "Todas as agendas";
+                if (id != null)
+                {
+                    agendaNome = _context.Agendas.FirstOrDefault(a => a.Id == id).Nome;
+
+                    var agendaSelected = agendaSelectList.Where(a => a.Text == agendaNome).First();
+                    agendaSelected.Selected = true;
+                }
+
+                ViewData["AgendaId"] = agendaSelectList;
+                ViewData["AgendaNome"] = agendaNome;
+                ViewData["Id"] = id;
+                return View();
             }
-
-            ViewData["AgendaId"] = agendaSelectList;
-            ViewData["AgendaNome"] = agendaNome;
-            ViewData["Id"] = id;
-            return View();
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         // POST: EventosDaAgenda/Create
@@ -81,62 +114,76 @@ namespace App_comunicacao_escolar.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nome,Descricao,InicioDoEvento,FimDoEvento,AgendaId,RequerAutorizacao")] EventoDaAgenda eventoDaAgenda)
         {
-            eventoDaAgenda.Id = 0;
-
-            List<string> listarErrosDeValidacao = IsValidCustomizado(eventoDaAgenda);
-            while (listarErrosDeValidacao.Count > 0)
+            try
             {
-                ViewData["Error"] = "Error";
-                ModelState.AddModelError(listarErrosDeValidacao[0], listarErrosDeValidacao[1]);
-                ViewData[listarErrosDeValidacao[0]] = listarErrosDeValidacao[1];
-                listarErrosDeValidacao.RemoveRange(0, 2);
-            }
+                eventoDaAgenda.Id = 0;
 
-            if (ModelState.IsValid)
-            {
-                if (eventoDaAgenda.RequerAutorizacao == true)
+                List<string> listarErrosDeValidacao = IsValidCustomizado(eventoDaAgenda);
+                while (listarErrosDeValidacao.Count > 0)
                 {
-                    var alunos = _context.Alunos;
-                    var selecionarAlunos = from a in alunos select a;
-                    int? turmaDaAgendaId = _context.Agendas.FirstOrDefault(a => a.Id == eventoDaAgenda.AgendaId)?.TurmaId;
-                    if (turmaDaAgendaId != null)
-                    {
-                        selecionarAlunos = selecionarAlunos.Where(a => a.TurmaId == turmaDaAgendaId);
-                    } 
-                    eventoDaAgenda.Autorizacoes = new List<AutorizacaoEvento>();
-                    foreach (var aluno in selecionarAlunos)
-                    {
-                        var autorizacaoEvento = new AutorizacaoEvento();
-                        autorizacaoEvento.AlunoId = aluno.Id;
-                        _context.Add(autorizacaoEvento);
-                        eventoDaAgenda.Autorizacoes.Add(autorizacaoEvento);
-                    }
+                    ViewData["Error"] = "Error";
+                    ModelState.AddModelError(listarErrosDeValidacao[0], listarErrosDeValidacao[1]);
+                    ViewData[listarErrosDeValidacao[0]] = listarErrosDeValidacao[1];
+                    listarErrosDeValidacao.RemoveRange(0, 2);
                 }
-                _context.Add(eventoDaAgenda);
-                await _context.SaveChangesAsync();
-                return RedirectToRoute(new { controller = "Agendas", action = "Visualizar", id = eventoDaAgenda.AgendaId });
-            }
 
-            ViewData["AgendaId"] = new SelectList(_context.Agendas, "Id", "Nome", eventoDaAgenda.AgendaId);
-            return View(eventoDaAgenda);
+                if (ModelState.IsValid)
+                {
+                    if (eventoDaAgenda.RequerAutorizacao == true)
+                    {
+                        var alunos = _context.Alunos;
+                        var selecionarAlunos = from a in alunos select a;
+                        int? turmaDaAgendaId = _context.Agendas.FirstOrDefault(a => a.Id == eventoDaAgenda.AgendaId)?.TurmaId;
+                        if (turmaDaAgendaId != null)
+                        {
+                            selecionarAlunos = selecionarAlunos.Where(a => a.TurmaId == turmaDaAgendaId);
+                        }
+                        eventoDaAgenda.Autorizacoes = new List<AutorizacaoEvento>();
+                        foreach (var aluno in selecionarAlunos)
+                        {
+                            var autorizacaoEvento = new AutorizacaoEvento();
+                            autorizacaoEvento.AlunoId = aluno.Id;
+                            _context.Add(autorizacaoEvento);
+                            eventoDaAgenda.Autorizacoes.Add(autorizacaoEvento);
+                        }
+                    }
+                    _context.Add(eventoDaAgenda);
+                    await _context.SaveChangesAsync();
+                    return RedirectToRoute(new { controller = "Agendas", action = "Visualizar", id = eventoDaAgenda.AgendaId });
+                }
+
+                ViewData["AgendaId"] = new SelectList(_context.Agendas, "Id", "Nome", eventoDaAgenda.AgendaId);
+                return View(eventoDaAgenda);
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         // GET: EventosDaAgenda/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
+            try
             {
-                return NotFound();
-            }
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
-            var eventoDaAgenda = await _context.EventosDaAgenda.FindAsync(id);
-            if (eventoDaAgenda == null)
-            {
-                return NotFound();
+                var eventoDaAgenda = await _context.EventosDaAgenda.FindAsync(id);
+                if (eventoDaAgenda == null)
+                {
+                    return NotFound();
+                }
+                ViewData["AgendaId"] = new SelectList(_context.Agendas, "Id", "Nome", eventoDaAgenda.AgendaId);
+                @ViewData["IdVoltarAgenda"] = eventoDaAgenda.AgendaId;
+                return View(eventoDaAgenda);
             }
-            ViewData["AgendaId"] = new SelectList(_context.Agendas, "Id", "Nome", eventoDaAgenda.AgendaId);
-            @ViewData["IdVoltarAgenda"] = eventoDaAgenda.AgendaId;
-            return View(eventoDaAgenda);
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         // POST: EventosDaAgenda/Edit/5
@@ -144,64 +191,84 @@ namespace App_comunicacao_escolar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Descricao,InicioDoEvento,FimDoEvento,AgendaId,RequerAutorizacao")] EventoDaAgenda eventoDaAgenda)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Descricao,InicioDoEvento,FimDoEvento,AgendaId,RequerAutorizacao")] EventoDaAgenda eventoDaAgendaNovasInformacoes)
         {
-            if (id != eventoDaAgenda.Id)
+            try
             {
-                return NotFound();
-            }
-
-            List<string> listarErrosDeValidacao = IsValidCustomizado(eventoDaAgenda);
-            while (listarErrosDeValidacao.Count > 0)
-            {
-                ViewData["Error"] = "Error";
-                ModelState.AddModelError(listarErrosDeValidacao[0], listarErrosDeValidacao[1]);
-                ViewData[listarErrosDeValidacao[0]] = listarErrosDeValidacao[1];
-                listarErrosDeValidacao.RemoveRange(0, 2);
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
+                if (id != eventoDaAgendaNovasInformacoes.Id)
                 {
-                    _context.Update(eventoDaAgenda);
-                    await _context.SaveChangesAsync();
+                    return NotFound();
                 }
-                catch (DbUpdateConcurrencyException)
+
+                var eventoDaAgenda = await _context.EventosDaAgenda.FirstOrDefaultAsync(e => e.Id == id);
+
+                eventoDaAgenda.Nome = eventoDaAgendaNovasInformacoes.Nome;
+                eventoDaAgenda.InicioDoEvento = eventoDaAgendaNovasInformacoes.InicioDoEvento;
+                eventoDaAgenda.FimDoEvento = eventoDaAgendaNovasInformacoes.FimDoEvento;
+
+                List<string> listarErrosDeValidacao = IsValidCustomizado(eventoDaAgenda);
+                while (listarErrosDeValidacao.Count > 0)
                 {
-                    if (!EventoDaAgendaExists(eventoDaAgenda.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    ViewData["Error"] = "Error";
+                    ModelState.AddModelError(listarErrosDeValidacao[0], listarErrosDeValidacao[1]);
+                    ViewData[listarErrosDeValidacao[0]] = listarErrosDeValidacao[1];
+                    listarErrosDeValidacao.RemoveRange(0, 2);
                 }
-                return RedirectToRoute(new { controller = "Agendas", action = "Visualizar", id = eventoDaAgenda.AgendaId });
+
+                if (ModelState.IsValid)
+                {
+                    try
+                    {
+                        _context.Update(eventoDaAgenda);
+                        await _context.SaveChangesAsync();
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (!EventoDaAgendaExists(eventoDaAgenda.Id))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
+                    return RedirectToRoute(new { controller = "Agendas", action = "Visualizar", id = eventoDaAgenda.AgendaId });
+                }
+                ViewData["AgendaId"] = new SelectList(_context.Agendas, "Id", "Nome", eventoDaAgenda.AgendaId);
+                @ViewData["IdVoltarAgenda"] = eventoDaAgenda.AgendaId;
+                return View(eventoDaAgenda);
             }
-            ViewData["AgendaId"] = new SelectList(_context.Agendas, "Id", "Nome", eventoDaAgenda.AgendaId);
-            @ViewData["IdVoltarAgenda"] = eventoDaAgenda.AgendaId;
-            return View(eventoDaAgenda);
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         // GET: EventosDaAgenda/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
+            try
             {
-                return NotFound();
-            }
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
-            var eventoDaAgenda = await _context.EventosDaAgenda
-                .Include(e => e.Agenda)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (eventoDaAgenda == null)
-            {
-                return NotFound();
+                var eventoDaAgenda = await _context.EventosDaAgenda
+                    .Include(e => e.Agenda)
+                    .FirstOrDefaultAsync(m => m.Id == id);
+                if (eventoDaAgenda == null)
+                {
+                    return NotFound();
+                }
+                @ViewData["IdVoltarAgenda"] = eventoDaAgenda.AgendaId;
+                return View(eventoDaAgenda);
             }
-            @ViewData["IdVoltarAgenda"] = eventoDaAgenda.AgendaId;
-            return View(eventoDaAgenda);
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         // POST: EventosDaAgenda/Delete/5
@@ -209,11 +276,18 @@ namespace App_comunicacao_escolar.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var eventoDaAgenda = await _context.EventosDaAgenda.FindAsync(id);
-            _context.EventosDaAgenda.Remove(eventoDaAgenda);
-            await _context.SaveChangesAsync();
-            @ViewData["IdVoltarAgenda"] = eventoDaAgenda.AgendaId;
-            return RedirectToRoute(new { controller = "Agendas", action = "Visualizar", id = eventoDaAgenda.AgendaId });
+            try
+            {
+                var eventoDaAgenda = await _context.EventosDaAgenda.FindAsync(id);
+                _context.EventosDaAgenda.Remove(eventoDaAgenda);
+                await _context.SaveChangesAsync();
+                @ViewData["IdVoltarAgenda"] = eventoDaAgenda.AgendaId;
+                return RedirectToRoute(new { controller = "Agendas", action = "Visualizar", id = eventoDaAgenda.AgendaId });
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         private bool EventoDaAgendaExists(int id)
