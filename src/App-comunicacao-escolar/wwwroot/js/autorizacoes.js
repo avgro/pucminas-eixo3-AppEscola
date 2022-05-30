@@ -3,7 +3,7 @@
 
 // Write your JavaScript code.
 
-var numeroDeMensagens = "valor inicial";
+var numeroDeAutorizacoes = "valor inicial";
 
 // Manter posição da barra de rolagem em atualização automática
 if (localStorage.getItem("scrollY")) {
@@ -15,15 +15,15 @@ if (localStorage.getItem("scrollY")) {
 function mudarsecao() {
     let secao = document.getElementById("selecionar-secao");
     let secaoNome = secao.options[secao.selectedIndex].innerText;
-    window.location.href = `/Conversas/?secao=${secaoNome}`;
+    window.location.href = `/AutorizacoesEventos/?secao=${secaoNome}`;
 }
 
-var intervalCheckNewMessagesId = setInterval(function () {
-    var novoNumeroDeMensagens = document.getElementById("msgUpdate").innerHTML;
-    if (novoNumeroDeMensagens != numeroDeMensagens && numeroDeMensagens != "valor inicial") {
+var intervalCheckNewAutorizacoesId = setInterval(function () {
+    var novoNumeroDeAutorizacoes = document.getElementById("autorizacaoUpdate").innerHTML;
+    if (novoNumeroDeAutorizacoes != numeroDeAutorizacoes && numeroDeAutorizacoes != "valor inicial") {
         let scrollY = window.scrollY;
         localStorage.setItem("scrollY", JSON.parse(scrollY));
         document.getElementById("refreshConversas").click();
     }
-    numeroDeMensagens = document.getElementById("msgUpdate").innerHTML;
+    numeroDeAutorizacoes = document.getElementById("autorizacaoUpdate").innerHTML;
 }, 1000);

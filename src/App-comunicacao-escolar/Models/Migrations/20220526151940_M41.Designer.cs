@@ -4,6 +4,7 @@ using App_comunicacao_escolar.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,13 +12,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App_comunicacao_escolar.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220526151940_M41")]
+    partial class M41
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.5")
+                .HasAnnotation("ProductVersion", "6.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -49,9 +51,6 @@ namespace App_comunicacao_escolar.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
-
-                    b.Property<int>("Perfil")
-                        .HasColumnType("int");
 
                     b.Property<int?>("TurmaId")
                         .HasColumnType("int");
@@ -230,14 +229,9 @@ namespace App_comunicacao_escolar.Migrations
                     b.Property<bool?>("RequerAutorizacao")
                         .HasColumnType("bit");
 
-                    b.Property<int>("idUsuarioQueCadastrouEvento")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("AgendaId");
-
-                    b.HasIndex("idUsuarioQueCadastrouEvento");
 
                     b.ToTable("EventosDaAgenda");
                 });
@@ -604,13 +598,11 @@ namespace App_comunicacao_escolar.Migrations
                 {
                     b.HasOne("App_comunicacao_escolar.Models.Aluno", "Aluno")
                         .WithMany("Autorizacoes")
-                        .HasForeignKey("AlunoId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("AlunoId");
 
                     b.HasOne("App_comunicacao_escolar.Models.EventoDaAgenda", "Evento")
                         .WithMany("Autorizacoes")
-                        .HasForeignKey("EventoId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("EventoId");
 
                     b.Navigation("Aluno");
 
@@ -633,15 +625,7 @@ namespace App_comunicacao_escolar.Migrations
                         .WithMany("EventosDaAgenda")
                         .HasForeignKey("AgendaId");
 
-                    b.HasOne("App_comunicacao_escolar.Models.Usuario", "Usuario")
-                        .WithMany("EventosCadastrados")
-                        .HasForeignKey("idUsuarioQueCadastrouEvento")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Agenda");
-
-                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("App_comunicacao_escolar.Models.HorariosDaDisciplina", b =>
@@ -815,8 +799,6 @@ namespace App_comunicacao_escolar.Migrations
 
             modelBuilder.Entity("App_comunicacao_escolar.Models.Usuario", b =>
                 {
-                    b.Navigation("EventosCadastrados");
-
                     b.Navigation("Professor");
 
                     b.Navigation("Responsavel");

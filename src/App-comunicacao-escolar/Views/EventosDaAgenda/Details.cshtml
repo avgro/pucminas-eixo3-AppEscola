@@ -1,0 +1,82 @@
+﻿@using System.Security.Claims
+@model App_comunicacao_escolar.Models.EventoDaAgenda
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>EventoDaAgenda</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.InicioDoEvento)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.InicioDoEvento)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FimDoEvento)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FimDoEvento)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Agenda)
+        </dt>
+        <dd class = "col-sm-10">
+            @if (Model.Agenda == null)
+            {
+                <text>Todas as agendas</text>
+            }
+            else
+            {
+                @Html.DisplayFor(model => model.Agenda!.Nome)                
+            }
+
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.idUsuarioQueCadastrouEvento)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Usuario!.NomeDisplayLista)
+        </dd>
+        @if (Model.RequerAutorizacao == true) {
+            <dt class = "col-sm-2">
+                Alunos solicitados:
+            </dt>
+            <dd class = "col-sm-10">
+                @foreach (var autorizacao in Model.Autorizacoes!)
+                {
+                    @Html.DisplayFor(modelAutorizacao => autorizacao.Aluno!.NomeAlunoComCodigoEntreParenteses);<text>;</text>
+                }
+            </dd>
+            <dt class = "col-sm-2">
+                Alunos autorizados:
+            </dt>
+            <dd class = "col-sm-10">
+                @foreach (var autorizacao in Model.Autorizacoes!)
+                {
+                    if (autorizacao.Autorizado == true)
+                    {
+                        @Html.DisplayFor(modelAutorizacao => autorizacao.Aluno!.NomeAlunoComCodigoEntreParenteses);<text>;</text>
+                    }
+                }
+            </dd>
+        }
+    </dl>
+</div>
+<div>
+    @if (Model.idUsuarioQueCadastrouEvento == ViewBag.IdUsuarioLogado) {
+        <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> <text>|</text>
+    }
+    <a asp-controller="Agendas" asp-action="Visualizar" asp-route-id=@ViewData["IdVoltarAgenda"]>Voltar</a>
+</div>

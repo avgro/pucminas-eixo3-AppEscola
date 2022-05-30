@@ -4,6 +4,7 @@ using App_comunicacao_escolar.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App_comunicacao_escolar.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220529215903_M44")]
+    partial class M44
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -236,8 +238,6 @@ namespace App_comunicacao_escolar.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AgendaId");
-
-                    b.HasIndex("idUsuarioQueCadastrouEvento");
 
                     b.ToTable("EventosDaAgenda");
                 });
@@ -633,15 +633,7 @@ namespace App_comunicacao_escolar.Migrations
                         .WithMany("EventosDaAgenda")
                         .HasForeignKey("AgendaId");
 
-                    b.HasOne("App_comunicacao_escolar.Models.Usuario", "Usuario")
-                        .WithMany("EventosCadastrados")
-                        .HasForeignKey("idUsuarioQueCadastrouEvento")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Agenda");
-
-                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("App_comunicacao_escolar.Models.HorariosDaDisciplina", b =>
@@ -815,8 +807,6 @@ namespace App_comunicacao_escolar.Migrations
 
             modelBuilder.Entity("App_comunicacao_escolar.Models.Usuario", b =>
                 {
-                    b.Navigation("EventosCadastrados");
-
                     b.Navigation("Professor");
 
                     b.Navigation("Responsavel");

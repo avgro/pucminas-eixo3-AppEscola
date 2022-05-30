@@ -19,5 +19,6 @@ namespace App_comunicacao_escolar.Models
         public string? NomeComCodigoEntreParenteses { get; set; }
         public ICollection<Disciplina>? Disciplinas { get; set; }
         public ICollection<Aluno>? Alunos { get; set; }
+        public ICollection<Agenda>? Agendas { get; set; }
     }
 }
