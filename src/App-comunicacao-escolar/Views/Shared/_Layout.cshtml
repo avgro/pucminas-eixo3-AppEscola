@@ -148,8 +148,10 @@
         <div class="border-bottom p-0 mb-3"></div>
     </header>
 
-    <a hidden id="refreshPartial" class="btn btn-primary" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#msgupdate" href="/Home/UpdateMsg"></a>
-    <div class="container-fluid" >
+    <a hidden id="refreshPartial" class="btn btn-primary" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#msgUpdate" href="/Home/UpdateMsg"></a>
+    <a hidden id="refreshPartialAutorizacao" class="btn btn-primary" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#autorizacaoUpdate" href="/Home/UpdateAutorizacao"></a>
+
+    <div class="container" >
         <main role="main" class="pb-3 ">
             @if (layoutNaoTemMenuLateral()) {
                 <div class="p-4">@RenderBody()</div>
@@ -175,7 +177,7 @@
                                 {
                                     <li class="p-0 item-menu item-menu-selecionado )">
                                         <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Conversas" asp-action="Index">Mensagens
-                                            <span id="msgupdate">
+                                            <span id="msgUpdate">
                                                 @await Component.InvokeAsync("ContadorDeMensagensNovas", GetIdUsuarioLogado())
                                             </span>
                                         </a>
@@ -184,13 +186,62 @@
                                 else{
                                     <li class="p-0 item-menu )">
                                         <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Conversas" asp-action="Index">Mensagens
-                                            <span id="msgupdate">
+                                            <span id="msgUpdate">
                                                 @await Component.InvokeAsync("ContadorDeMensagensNovas", GetIdUsuarioLogado())
                                             </span>
                                         </a>
                                     </li>
                                 }
+                                @if(!User.IsInRole("Admin")){
+                                    @if(ViewData["Controller"]!.Equals("Agendas") || ViewData["Controller"]!.Equals("EventosDaAgenda"))
+                                    {
+                                        <li class="p-0 item-menu item-menu-selecionado )">
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Visualizar">Agenda escolar
+                                            </a>
+                                        </li>
+                                    }
+                                    else{
+                                        <li class="p-0 item-menu )">
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Visualizar">Agenda escolar
+                                            </a>
+                                        </li>
+                                    }
+                                }
+                                @if(User.IsInRole("ResponsavelAluno")){
+                                    @if(ViewData["Controller"]!.Equals("AutorizacoesEventos"))
+                                    {
+                                        <li class="p-0 item-menu item-menu-selecionado )">
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="AutorizacoesEventos" asp-action="Index">Assinar autorização
+                                                <span id="autorizacaoUpdate">
+                                                    @await Component.InvokeAsync("ContadorDeAutorizacoesNovas", GetIdUsuarioLogado())
+                                                </span>
+                                            </a>
+                                        </li>
+                                    }
+                                    else{
+                                        <li class="p-0 item-menu )">
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="AutorizacoesEventos" asp-action="Index">Assinar autorização
+                                                <span id="autorizacaoUpdate">
+                                                    @await Component.InvokeAsync("ContadorDeAutorizacoesNovas", GetIdUsuarioLogado())
+                                                </span>
+                                            </a>
+                                        </li>
+                                    }
+                                }
                                 @if(User.IsInRole("Admin")){
+                                    @if(ViewData["Controller"]!.Equals("Agendas") || ViewData["Controller"]!.Equals("EventosDaAgenda"))
+                                    {
+                                        <li class="p-0 item-menu item-menu-selecionado )">
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Index">Gerenciar agendas
+                                            </a>
+                                        </li>
+                                    }
+                                    else{
+                                        <li class="p-0 item-menu )">
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Index">Gerenciar agendas
+                                            </a>
+                                        </li>
+                                    }
                                     @if(ViewData["Controller"]!.Equals("Usuarios"))
                                     {
                                         <li class="p-0 item-menu item-menu-selecionado">

@@ -27,6 +27,7 @@ namespace App_comunicacao_escolar.Models
         public int? TurmaId { get; set; }
         [ForeignKey("TurmaId")]
         public Turma? Turma { get; set; }
+        public ICollection<AutorizacaoEvento>? Autorizacoes { get; set; }
         public ICollection<Responsavel>? Responsaveis { get; set; }
 
         public string RemoverHorasDeDateTime(DateTime? dataEnvio)
