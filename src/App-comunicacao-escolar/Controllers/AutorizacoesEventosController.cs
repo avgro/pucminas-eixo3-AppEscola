@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using App_comunicacao_escolar.Models;
 using X.PagedList;
+using Microsoft.AspNetCore.Authorization;
 
 namespace App_comunicacao_escolar.Controllers
 {
+    [Authorize(Roles = "Admin, ResponsavelAluno")]
     public class AutorizacoesEventosController : CommonController
     {
         private readonly ApplicationDbContext _context;
@@ -53,7 +55,7 @@ namespace App_comunicacao_escolar.Controllers
             }
         }
 
-        // GET: AutorizacoesEventos/Details/5
+        // GET: AutorizacoesEventos/Visualizar/5
         public async Task<IActionResult> Visualizar(int? id, string secao = "")
         {
             try
@@ -104,7 +106,7 @@ namespace App_comunicacao_escolar.Controllers
             }
         }
 
-        // POST: EventosDaAgenda/Autorizar/5
+        // POST: EventosDaAgenda/Visualizar/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]

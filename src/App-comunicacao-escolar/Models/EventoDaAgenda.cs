@@ -29,5 +29,9 @@ namespace App_comunicacao_escolar.Models
         [ForeignKey("AgendaId")]
         public Agenda? Agenda { get; set; }
         public ICollection<AutorizacaoEvento>? Autorizacoes { get; set; }
+        [Display(Name = "Cadastrado por")]
+        public int idUsuarioQueCadastrouEvento { get; set; }
+        [ForeignKey("idUsuarioQueCadastrouEvento")]
+        public Usuario? Usuario { get; set; }
     }
 }

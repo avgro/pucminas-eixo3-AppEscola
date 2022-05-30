@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
 
 namespace App_comunicacao_escolar.Controllers
 {
@@ -16,11 +17,12 @@ namespace App_comunicacao_escolar.Controllers
         }
         public IActionResult UpdateMsg()
         {
-            try { 
-            int idUsuarioLogado = GetIdUsuarioLogado();
+            try
+            {
+                int idUsuarioLogado = GetIdUsuarioLogado();
 
-            ViewData["idUsuarioLogado"] = idUsuarioLogado;
-            return PartialView("ContadorMsg");
+                ViewData["idUsuarioLogado"] = idUsuarioLogado;
+                return PartialView("ContadorMsg");
             }
             catch
             {
@@ -45,11 +47,13 @@ namespace App_comunicacao_escolar.Controllers
         public FileResult DownloadFile(MensagemArquivosAnexados anexo)
         {
             string fileName = "";
-            if (anexo.NomeUnicoDoArquivo != null) { 
+            if (anexo.NomeUnicoDoArquivo != null)
+            {
                 fileName = anexo.NomeUnicoDoArquivo;
             }
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Arquivos", "UploadsUsuarios", fileName);
-            try { 
+            try
+            {
                 byte[] bytes = System.IO.File.ReadAllBytes(filePath);
                 return File(bytes, "application/octet-stream", anexo.NomeOriginalDoArquivo);
             }
@@ -63,12 +67,14 @@ namespace App_comunicacao_escolar.Controllers
         // Metodos comuns
         public int GetIdUsuarioLogado()
         {
-            if (User.Identity != null) { 
+            if (User.Identity != null)
+            {
                 if (User.Identity.IsAuthenticated)
                 {
                     ClaimsPrincipal currentUser = User;
                     int? IdUsuarioLogado = Int32.Parse(currentUser.FindFirst(ClaimTypes.NameIdentifier)!.Value);
-                    if (IdUsuarioLogado != null) { 
+                    if (IdUsuarioLogado != null)
+                    {
                         return Int32.Parse(currentUser.FindFirst(ClaimTypes.NameIdentifier)!.Value);
                     }
                 }
@@ -169,9 +175,10 @@ namespace App_comunicacao_escolar.Controllers
                         }
                         if (horariosEmConflito)
                         {
-                            try { 
-                            TempData["NomeDaDisciplinaEmConflito1"] = nomeDisciplinaToList[i];
-                            TempData["NomeDaDisciplinaEmConflito2"] = nomeDisciplinaToList[j];
+                            try
+                            {
+                                TempData["NomeDaDisciplinaEmConflito1"] = nomeDisciplinaToList[i];
+                                TempData["NomeDaDisciplinaEmConflito2"] = nomeDisciplinaToList[j];
                             }
                             catch
                             {
@@ -204,5 +211,32 @@ namespace App_comunicacao_escolar.Controllers
             return errorMessage;
         }
 
+        public List<int> ListarAgendasQueResponsavelTemAcesso(int responsavelId)
+        {
+            List<int> idAgendasSelecionadas = new();
+            var responsavel = _context.Responsaveis.Include(r => r.Alunos).FirstOrDefault(r => r.ResponsavelId == responsavelId);
+            foreach (var dependente in responsavel.Alunos)
+            {
+                if (dependente.TurmaId != null)
+                {
+                    idAgendasSelecionadas.Add((int)dependente.TurmaId);
+                }
+            }
+            return idAgendasSelecionadas;
+        }
+
+        public List<int> ListarAgendasQueProfessorTemAcesso(int professorId)
+        {
+            List<int> idAgendasSelecionadas = new();
+            var professor = _context.Professores.Include(r => r.Disciplinas).FirstOrDefault(r => r.ProfessorId == professorId);
+            foreach (var disciplina in professor.Disciplinas)
+            {
+                if (disciplina.TurmaId != null)
+                {
+                    idAgendasSelecionadas.Add((int)disciplina.TurmaId);
+                }
+            }
+            return idAgendasSelecionadas;
+        }
     }
 }

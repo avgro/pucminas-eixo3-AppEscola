@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using App_comunicacao_escolar.Models;
 using System.Globalization;
 using X.PagedList;
+using Microsoft.AspNetCore.Authorization;
 
 namespace App_comunicacao_escolar.Controllers
 {
@@ -23,6 +24,7 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: Agendas
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index(string searchString, int pagina = 1)
         {
             try
@@ -47,6 +49,7 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: Agendas/Details/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Details(int? id)
         {
             try
@@ -122,12 +125,14 @@ namespace App_comunicacao_escolar.Controllers
 
                 var agendaSelectList = new SelectList(_context.Agendas.OrderBy(a => a.Nome), "Id", "Nome");
 
+                Agenda agenda = new();
                 string agendaNome = "";
 
                 if (User.IsInRole("Admin")){
                     agendaNome = "Todas as agendas";
                     if (id != null) {
-                        agendaNome = _context.Agendas.FirstOrDefault(a => a.Id == id).Nome;
+                        agenda = await _context.Agendas.FirstOrDefaultAsync(a => a.Id == id);
+                        agendaNome = agenda.Nome;
 
                         var agendaSelected = agendaSelectList.Where(a => a.Text == agendaNome).First();
                         agendaSelected.Selected = true;
@@ -137,20 +142,37 @@ namespace App_comunicacao_escolar.Controllers
                 }
                 if (User.IsInRole("ResponsavelAluno"))
                 {
-                    List<int> idAgendasSelecionadas = new();
-                    int responsavelId = GetIdUsuarioLogado();
-                    var responsavel = _context.Responsaveis.Include(r => r.Alunos).FirstOrDefault(r => r.ResponsavelId == responsavelId);
-                    foreach (var dependente in responsavel.Alunos)
-                    {
-                        if (dependente.TurmaId != null) { 
-                            idAgendasSelecionadas.Add((int) dependente.TurmaId);
-                        }
-                    }
+                    List<int> idAgendasSelecionadas = ListarAgendasQueResponsavelTemAcesso(GetIdUsuarioLogado());
+
                     eventos = (IOrderedQueryable<EventoDaAgenda>)eventos.Where(e => 
                         (idAgendasSelecionadas.Contains((int)e.Agenda.TurmaId) || e.Agenda == null)
                         &&
-                        ((int)e.Agenda.Perfil == 0 || (int)e.Agenda.Perfil == 1)
+                        ((int)e.Agenda.Perfil == 0 || (int)e.Agenda.Perfil == 1 || e.Agenda == null)
                         );
+                }
+                if (User.IsInRole("Professor"))
+                {
+                    List<int> idAgendasSelecionadas = ListarAgendasQueProfessorTemAcesso(GetIdUsuarioLogado());
+
+                    agendaNome = "Todas as agendas";
+                    agendaSelectList = new SelectList(_context.Agendas.OrderBy(a => a.Nome).Where(a => idAgendasSelecionadas.Contains((int) a.TurmaId)), "Id", "Nome");
+                    if (id != null)
+                    {
+                        agenda = await _context.Agendas.FirstOrDefaultAsync(a => a.Id == id);
+                        agendaNome = agenda.Nome;
+
+                        var agendaSelected = agendaSelectList.Where(a => a.Text == agendaNome).First();
+                        agendaSelected.Selected = true;
+                        eventos = (IOrderedQueryable<EventoDaAgenda>)eventos.Where(e => e.AgendaId == id);
+                    }
+                    else
+                    {
+                        eventos = (IOrderedQueryable<EventoDaAgenda>)eventos.Where(e =>
+                            (idAgendasSelecionadas.Contains((int)e.Agenda.TurmaId) || e.Agenda == null)
+                            &&
+                            ((int)e.Agenda.Perfil == 0 || (int)e.Agenda.Perfil == 2 || e.Agenda == null)
+                            );
+                    }
                 }
                 ViewData["AgendaNome"] = agendaNome.ToString();
                 ViewData["AgendaId"] = agendaSelectList;
@@ -207,6 +229,7 @@ namespace App_comunicacao_escolar.Controllers
 
 
         // GET: Agendas/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             try
@@ -225,6 +248,7 @@ namespace App_comunicacao_escolar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create([Bind("Id,Nome,TurmaId","Perfil")] Agenda agenda)
         {
             try
@@ -249,6 +273,7 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: Agendas/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             try
@@ -276,6 +301,7 @@ namespace App_comunicacao_escolar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,TurmaId", "Perfil")] Agenda agenda)
         {
             try
@@ -320,6 +346,7 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: Agendas/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             try
@@ -346,6 +373,7 @@ namespace App_comunicacao_escolar.Controllers
         // POST: Agendas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             try
