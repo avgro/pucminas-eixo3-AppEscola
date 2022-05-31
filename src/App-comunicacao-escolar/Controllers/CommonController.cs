@@ -228,12 +228,14 @@ namespace App_comunicacao_escolar.Controllers
         public List<int> ListarAgendasQueResponsavelTemAcesso(int responsavelId)
         {
             List<int> idAgendasSelecionadas = new();
-            var responsavel = _context.Responsaveis.Include(r => r.Alunos).FirstOrDefault(r => r.ResponsavelId == responsavelId);
-            foreach (var dependente in responsavel.Alunos)
-            {
-                if (dependente.TurmaId != null)
+            var responsavel = _context.Responsaveis!.Include(r => r.Alunos).FirstOrDefault(r => r.ResponsavelId == responsavelId);
+            if (responsavel != null) { 
+                foreach (var dependente in responsavel.Alunos!)
                 {
-                    idAgendasSelecionadas.Add((int)dependente.TurmaId);
+                    if (dependente.TurmaId != null)
+                    {
+                        idAgendasSelecionadas.Add((int)dependente.TurmaId);
+                    }
                 }
             }
             return idAgendasSelecionadas;
@@ -242,12 +244,14 @@ namespace App_comunicacao_escolar.Controllers
         public List<int> ListarAgendasQueProfessorTemAcesso(int professorId)
         {
             List<int> idAgendasSelecionadas = new();
-            var professor = _context.Professores.Include(r => r.Disciplinas).FirstOrDefault(r => r.ProfessorId == professorId);
-            foreach (var disciplina in professor.Disciplinas)
-            {
-                if (disciplina.TurmaId != null)
+            var professor = _context.Professores!.Include(r => r.Disciplinas).FirstOrDefault(r => r.ProfessorId == professorId);
+            if (professor != null) { 
+            foreach (var disciplina in professor.Disciplinas!)
                 {
-                    idAgendasSelecionadas.Add((int)disciplina.TurmaId);
+                    if (disciplina.TurmaId != null)
+                    {
+                        idAgendasSelecionadas.Add((int)disciplina.TurmaId);
+                    }
                 }
             }
             return idAgendasSelecionadas;

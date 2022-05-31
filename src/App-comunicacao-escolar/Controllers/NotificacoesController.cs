@@ -20,46 +20,58 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: Notificacoes
-        public async Task<IActionResult> Index(string searchString, int pagina = 1)
+        public async Task<IActionResult> Index(string searchString, string secao = "", int pagina = 1)
         {
             try
             {
-                var applicationDbContext = _context.Notificacoes!.Include(n => n.Turma);
+                if(User.IsInRole("Admin")) {
+                    secao = "";
+                }
+                int idUsuarioLogado = GetIdUsuarioLogado();
+                var applicationDbContext = _context.Notificacoes!.Include(n => n.Turma).Include(n => n.NotificacoesLidas);
 
-                var agendas = from a in applicationDbContext select a;
+                var notificacoes = from n in applicationDbContext select n;
 
-                agendas = agendas.OrderByDescending(a => a.Id);
+                if (User.IsInRole("ResponsavelAluno"))
+                {
+                    List<int> idAgendasSelecionadas = ListarAgendasQueResponsavelTemAcesso(idUsuarioLogado);
+                    notificacoes = notificacoes.Where(n => idAgendasSelecionadas.Contains((int)n.TurmaId!) || n.Turma == null);
+                    notificacoes = notificacoes.Where(n => (int)n.Perfil == 1 || n.Perfil == 0);
+                }
+                else if (User.IsInRole("Professor"))
+                {
+                    List<int> idAgendasSelecionadas = ListarAgendasQueProfessorTemAcesso(idUsuarioLogado);
+                    notificacoes = notificacoes.Where(n => idAgendasSelecionadas.Contains((int)n.TurmaId!) || n.Turma == null);
+                    notificacoes = notificacoes.Where(n => (int)n.Perfil == 2 || n.Perfil == 0);
+                }
+                else if (!User.IsInRole("Admin"))
+                {
+                    notificacoes = notificacoes.Where(n => n.TurmaId == null || n.Turma == null);
+                    notificacoes = notificacoes.Where(n => n.Perfil == 0);
+                }
+
+                if (secao.Equals("Visualizadas"))
+                {
+                    notificacoes = notificacoes.Where(n => n.NotificacoesLidas!.Any(nl => nl.UsuarioId == idUsuarioLogado));
+                }
+                else
+                {
+                    notificacoes = notificacoes.Where(n => !n.NotificacoesLidas!.Any(nl => nl.UsuarioId == idUsuarioLogado));
+                }
+
+                notificacoes = notificacoes.OrderByDescending(a => a.Id);
 
                 if (searchString != null)
                 {
-                    agendas = agendas.Where(a => a.Assunto!.Contains(searchString));
+                    notificacoes = notificacoes.Where(n => n.Assunto!.Contains(searchString));
                 }
-
-                return View(await agendas.ToPagedListAsync(pagina, 50));
+                ViewData["TituloDaSecao"] = secao;
+                return View(await notificacoes.ToPagedListAsync(pagina, 50));
             }
             catch
             {
                 return BadRequest();
             }
-        }
-
-            // GET: Notificacoes/Details/5
-            public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Notificacoes == null)
-            {
-                return NotFound();
-            }
-
-            var notificacao = await _context.Notificacoes
-                .Include(n => n.Turma)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (notificacao == null)
-            {
-                return NotFound();
-            }
-
-            return View(notificacao);
         }
 
         // GET: Notificacoes/Create
@@ -76,6 +88,12 @@ namespace App_comunicacao_escolar.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Assunto,Conteudo,TurmaId,Perfil")] Notificacao notificacao)
         {
+            if (notificacao.TurmaId == 0)
+            {
+                notificacao.TurmaId = null;
+            }
+            notificacao.DataCriacao = DateTime.Now.Date;
+            notificacao.NotificacoesLidas = new List<UsuarioLeuNotificacao>();
             if (ModelState.IsValid)
             {
                 _context.Add(notificacao);
@@ -86,58 +104,32 @@ namespace App_comunicacao_escolar.Controllers
             return View(notificacao);
         }
 
-        // GET: Notificacoes/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Notificacoes == null)
-            {
-                return NotFound();
-            }
-
-            var notificacao = await _context.Notificacoes.FindAsync(id);
-            if (notificacao == null)
-            {
-                return NotFound();
-            }
-            ViewData["TurmaId"] = new SelectList(_context.Turmas, "Id", "Codigo", notificacao.TurmaId);
-            return View(notificacao);
-        }
-
-        // POST: Notificacoes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Assunto,Conteudo,TurmaId,Perfil")] Notificacao notificacao)
+        public async Task<IActionResult> MarcarComoVista([Bind("notificacaoId")] int notificacaoId)
         {
-            if (id != notificacao.Id)
+            try
             {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
+                int idDoUsuarioLogado = GetIdUsuarioLogado();
+                var usuarioLeuNotificacao = await _context.UsuarioLeuNotificacao!.FirstOrDefaultAsync(u => u.UsuarioId == idDoUsuarioLogado && u.NotificacaoId == notificacaoId);
+                if (usuarioLeuNotificacao == null)
                 {
-                    _context.Update(notificacao);
+                    UsuarioLeuNotificacao novoUsuarioLeuNotificacao = new()
+                    {
+                        UsuarioId = idDoUsuarioLogado,
+                        NotificacaoId = notificacaoId
+                    };
+                    _context.Add(novoUsuarioLeuNotificacao);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!NotificacaoExists(notificacao.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                return RedirectToRoute(new { controller = "Notificacoes", action = "Index" });
             }
-            ViewData["TurmaId"] = new SelectList(_context.Turmas, "Id", "Codigo", notificacao.TurmaId);
-            return View(notificacao);
+            catch
+            {
+                return BadRequest();
+            }
         }
+
 
         // GET: Notificacoes/Delete/5
         public async Task<IActionResult> Delete(int? id)

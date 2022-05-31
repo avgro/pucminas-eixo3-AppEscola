@@ -9,19 +9,18 @@
     var mesNumero = 0;
     try
     {
-        diaAtual = Int32.Parse(ViewData["diaAtual"].ToString());
-        inicioMesDiaDaSemana = Int32.Parse(ViewData["inicioMesDiaDaSemana"].ToString());
-        numeroDeDiasDoMesSelecionado = Int32.Parse(ViewData["numeroDeDiasDoMesSelecionado"].ToString());
-        numeroDeDiasDoMesAnterior = Int32.Parse(ViewData["numeroDeDiasDoMesAnterior"].ToString());
-        anoSelecionado = Int32.Parse(ViewData["anoSelecionado"].ToString());
-        mesNumero = Int32.Parse(ViewData["mesNumero"].ToString());
+        diaAtual = Int32.Parse(ViewData["diaAtual"]!.ToString()!);
+        inicioMesDiaDaSemana = Int32.Parse(ViewData["inicioMesDiaDaSemana"]!.ToString()!);
+        numeroDeDiasDoMesSelecionado = Int32.Parse(ViewData["numeroDeDiasDoMesSelecionado"]!.ToString()!);
+        numeroDeDiasDoMesAnterior = Int32.Parse(ViewData["numeroDeDiasDoMesAnterior"]!.ToString()!);
+        anoSelecionado = Int32.Parse(ViewData["anoSelecionado"]!.ToString()!);
+        mesNumero = Int32.Parse(ViewData["mesNumero"]!.ToString()!);
     }
     catch
     {
 
     }
 }
-
 
 <h1>Agenda escolar</h1>
 

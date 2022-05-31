@@ -24,6 +24,7 @@ namespace App_comunicacao_escolar.Models
         public DbSet<EventoDaAgenda>? EventosDaAgenda { get; set; }
         public DbSet<AutorizacaoEvento>? AutorizacoesEventos { get; set; }
         public DbSet<Notificacao>? Notificacoes { get; set; }
+        public DbSet<UsuarioLeuNotificacao>? UsuarioLeuNotificacao { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -89,6 +90,11 @@ namespace App_comunicacao_escolar.Models
             modelBuilder.Entity<Aluno>()
             .HasMany(a => a.Autorizacoes)
             .WithOne(au => au.Aluno)
+            .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Notificacao>()
+            .HasMany(n => n.NotificacoesLidas)
+            .WithOne(nl => nl.Notificacao)
             .OnDelete(DeleteBehavior.Cascade);
         }
     }

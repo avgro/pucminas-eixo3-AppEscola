@@ -21,6 +21,8 @@ namespace App_comunicacao_escolar.Models
         public Turma? Turma { get; set; }
         [Display(Name = "Tipo de usuário")]
         public PerfilUsuarioNotificacaoEnum Perfil { get; set; }
+        public DateTime? DataCriacao { get; set; }
+        public ICollection<UsuarioLeuNotificacao>? NotificacoesLidas { get; set; }
     }
     public enum PerfilUsuarioNotificacaoEnum
     {

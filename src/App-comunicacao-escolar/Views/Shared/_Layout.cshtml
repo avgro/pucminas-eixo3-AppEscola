@@ -174,25 +174,6 @@
                                         <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AreaDoUsuario">Painel inicial</a>
                                     </li>
                                 }
-                                @if(ViewData["Controller"]!.Equals("Notificacoes"))
-                                {
-                                    <li class="p-0 item-menu item-menu-selecionado )">
-                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Notificacoes" asp-action="Index">Notificações
-                                            <span id="notificacaoUpdate">
-                                                @await Component.InvokeAsync("ContadorDeNotificacoesNovas", GetIdUsuarioLogado())
-                                            </span>
-                                        </a>
-                                    </li>
-                                }
-                                else{
-                                    <li class="p-0 item-menu )">
-                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Notificacoes" asp-action="Index">Notificações
-                                            <span id="notificacaoUpdate">
-                                                @await Component.InvokeAsync("ContadorDeNotificacoesNovas", GetIdUsuarioLogado())
-                                            </span>
-                                        </a>
-                                    </li>
-                                }
                                 @if(ViewData["Controller"]!.Equals("Conversas"))
                                 {
                                     <li class="p-0 item-menu item-menu-selecionado )">
@@ -211,6 +192,46 @@
                                             </span>
                                         </a>
                                     </li>
+                                }
+                                @if (!User.IsInRole("Admin"))
+                                {
+                                    if (ViewData["Controller"]!.Equals("Notificacoes"))
+                                    {
+                                        <li class="p-0 item-menu item-menu-selecionado )">
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Notificacoes" asp-action="Index">Notificações
+                                                <span id="notificacaoUpdate">
+                                                    @await Component.InvokeAsync("ContadorDeNotificacoesNovas", GetIdUsuarioLogado())
+                                                </span>
+                                            </a>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li class="p-0 item-menu )">
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Notificacoes" asp-action="Index">Notificações
+                                                <span id="notificacaoUpdate">
+                                                    @await Component.InvokeAsync("ContadorDeNotificacoesNovas", GetIdUsuarioLogado())
+                                                </span>
+                                            </a>
+                                        </li>
+                                    }
+                                }
+                                else
+                                {
+                                    if (ViewData["Controller"]!.Equals("Notificacoes"))
+                                    {
+                                        <li class="p-0 item-menu item-menu-selecionado )">
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Notificacoes" asp-action="Index">Gerenciar notificações
+                                            </a>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li class="p-0 item-menu )">
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Notificacoes" asp-action="Index">Gerenciar notificações
+                                            </a>
+                                        </li>
+                                    }
                                 }
                                 @if(!User.IsInRole("Admin")){
                                     @if(ViewData["Controller"]!.Equals("Agendas") || ViewData["Controller"]!.Equals("EventosDaAgenda"))
