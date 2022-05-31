@@ -23,6 +23,7 @@ namespace App_comunicacao_escolar.Models
         public DbSet<Agenda>? Agendas { get; set; }
         public DbSet<EventoDaAgenda>? EventosDaAgenda { get; set; }
         public DbSet<AutorizacaoEvento>? AutorizacoesEventos { get; set; }
+        public DbSet<Notificacao>? Notificacoes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

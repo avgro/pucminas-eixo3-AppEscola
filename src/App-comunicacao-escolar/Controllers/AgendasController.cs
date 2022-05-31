@@ -54,6 +54,10 @@ namespace App_comunicacao_escolar.Controllers
         {
             try
             {
+                if (id == null)
+                {
+                    return NotFound();
+                }
                 var agenda = await _context.Agendas.Include(a => a.Turma)
                     .FirstOrDefaultAsync(m => m.Id == id);
                 if (agenda == null)
@@ -65,10 +69,6 @@ namespace App_comunicacao_escolar.Controllers
             catch
             {
                 return BadRequest();
-            }
-            if (id == null)
-            {
-                return NotFound();
             }
         }
 
@@ -278,6 +278,10 @@ namespace App_comunicacao_escolar.Controllers
         {
             try
             {
+                if (id == null)
+                {
+                    return NotFound();
+                }
                 var agenda = await _context.Agendas.FindAsync(id);
                 if (agenda == null)
                 {
@@ -289,10 +293,6 @@ namespace App_comunicacao_escolar.Controllers
             catch
             {
                 return BadRequest();
-            }
-            if (id == null)
-            {
-                return NotFound();
             }
         }
 
@@ -351,6 +351,10 @@ namespace App_comunicacao_escolar.Controllers
         {
             try
             {
+                if (id == null)
+                {
+                    return NotFound();
+                }
                 var agenda = await _context.Agendas
                  .FirstOrDefaultAsync(m => m.Id == id);
                 if (agenda == null)
@@ -363,10 +367,6 @@ namespace App_comunicacao_escolar.Controllers
             catch
             {
                 return BadRequest();
-            }
-            if (id == null)
-            {
-                return NotFound();
             }
         }
 

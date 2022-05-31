@@ -59,7 +59,7 @@
                 <span class="text-center">
                     <a class="btn btn-primary mb-2 p-1" asp-action="Details" asp-route-id="@item.Id">Mais Informações</a>
                 </span>
-                @if (item.idUsuarioQueCadastrouEvento == ViewBag.IdUsuarioLogado) {
+                @if (item.IdUsuarioQueCadastrouEvento == ViewBag.IdUsuarioLogado) {
                     <span class="whitespace-nowrap mx-1">
                         <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |              
                         <a asp-action="Delete" asp-route-id="@item.Id">Apagar</a>

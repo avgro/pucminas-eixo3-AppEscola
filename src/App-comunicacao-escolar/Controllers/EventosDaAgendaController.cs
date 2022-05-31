@@ -146,7 +146,7 @@ namespace App_comunicacao_escolar.Controllers
             {
                 eventoDaAgenda.Id = 0;
 
-                eventoDaAgenda.idUsuarioQueCadastrouEvento = GetIdUsuarioLogado();
+                eventoDaAgenda.IdUsuarioQueCadastrouEvento = GetIdUsuarioLogado();
 
                 List<string> listarErrosDeValidacao = IsValidCustomizado(eventoDaAgenda);
                 while (listarErrosDeValidacao.Count > 0)
@@ -265,7 +265,7 @@ namespace App_comunicacao_escolar.Controllers
                 eventoDaAgenda.Nome = eventoDaAgendaNovasInformacoes.Nome;
                 eventoDaAgenda.InicioDoEvento = eventoDaAgendaNovasInformacoes.InicioDoEvento;
                 eventoDaAgenda.FimDoEvento = eventoDaAgendaNovasInformacoes.FimDoEvento;
-                eventoDaAgenda.idUsuarioQueCadastrouEvento = eventoDaAgendaNovasInformacoes.idUsuarioQueCadastrouEvento;
+                eventoDaAgenda.IdUsuarioQueCadastrouEvento = eventoDaAgendaNovasInformacoes.IdUsuarioQueCadastrouEvento;
 
                 List<string> listarErrosDeValidacao = IsValidCustomizado(eventoDaAgenda);
                 while (listarErrosDeValidacao.Count > 0)
@@ -399,7 +399,7 @@ namespace App_comunicacao_escolar.Controllers
 
         private bool UsuarioNaoPodeEditarEvento(EventoDaAgenda eventoDaAgenda)
         {
-        if (eventoDaAgenda.idUsuarioQueCadastrouEvento == GetIdUsuarioLogado())
+        if (eventoDaAgenda.IdUsuarioQueCadastrouEvento == GetIdUsuarioLogado())
         {
                 return false;
         }

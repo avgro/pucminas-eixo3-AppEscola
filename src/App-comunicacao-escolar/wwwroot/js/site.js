@@ -48,7 +48,12 @@ function showDropDown(dropdownButton, dropdownDiv) {
     document.addEventListener('click', function (event) {
         const ignoreRefreshPartial = document.getElementById("refreshPartial");
         const ignoreRefreshPartialAutorizacao = document.getElementById("refreshPartialAutorizacao");
-        if (!dropdownButton.contains(event.target) && !dropdownDiv.contains(event.target) && !ignoreRefreshPartial.contains(event.target) && !ignoreRefreshPartialAutorizacao.contains(event.target)) {
+        const ignoreRefreshPartialNotificacao = document.getElementById("refreshPartialNotificacao");
+        if (!dropdownButton.contains(event.target) && !dropdownDiv.contains(event.target)
+            && !ignoreRefreshPartial.contains(event.target)
+            && !ignoreRefreshPartialAutorizacao.contains(event.target)
+            && !ignoreRefreshPartialNotificacao.contains(event.target)
+        ) {
             dropdownDiv.hidden = true;
         }
     });

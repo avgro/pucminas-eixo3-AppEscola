@@ -1,12 +1,11 @@
 ﻿@using X.PagedList.Mvc;
 @using X.PagedList.Mvc.Core
-@model X.PagedList.StaticPagedList<App_comunicacao_escolar.Models.AutorizacaoEvento>
-
+@model X.PagedList.StaticPagedList<App_comunicacao_escolar.Models.Notificacao>
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Autorizações para eventos</h1>
+<h1>Notificações</h1>
 
 <div class="d-flex justify-content-between my-4">
     <div></div>
@@ -15,27 +14,32 @@
         <select onchange="mudarsecao()" id="selecionar-secao" class="input-size-3quarters">
             <option>Em aberto</option>
             @if (ViewData["TituloDaSecao"] != null) {
-                if (ViewData["TituloDaSecao"]!.Equals("Assinados"))
+                if (ViewData["TituloDaSecao"]!.Equals("Visualizadas"))
                 {
-                    <option selected="true">Assinados</option>
+                    <option selected="true">Visualizadas</option>
                 }
                 else
                 {
-                    <option>Assinados</option>
+                    <option>Visualizadas</option>
                 }
             }
         </select>
     </div>
 </div>
-
 <table class="table">
     <thead>
         <tr>
             <th>
-                Aluno
+                Assunto
             </th>
             <th>
-                Evento
+                Mensagem
+            </th>
+            <th>
+                Turma
+            </th>
+            <th>
+                Tipo de usuário
             </th>
             <th></th>
         </tr>
@@ -44,13 +48,21 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Aluno.CodigoDoAluno)
+                @Html.DisplayFor(modelItem => item.Assunto)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Evento.Descricao)
+                @Html.DisplayFor(modelItem => item.Conteudo)
             </td>
             <td>
-                <a class="btn btn-primary" asp-action="Visualizar" asp-route-id="@item.Id" asp-route-secao=@ViewData["TituloDaSecao"]>Visualizar</a>
+                @Html.DisplayFor(modelItem => item.Turma.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Perfil)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }
@@ -77,5 +89,5 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script src="~/js/autorizacoes.js" asp-append-version="true"></script>
+    <script src="~/js/notificacoes.js" asp-append-version="true"></script>
 }

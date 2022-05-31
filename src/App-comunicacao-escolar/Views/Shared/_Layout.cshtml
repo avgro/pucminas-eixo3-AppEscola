@@ -150,6 +150,7 @@
 
     <a hidden id="refreshPartial" class="btn btn-primary" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#msgUpdate" href="/Home/UpdateMsg"></a>
     <a hidden id="refreshPartialAutorizacao" class="btn btn-primary" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#autorizacaoUpdate" href="/Home/UpdateAutorizacao"></a>
+    <a hidden id="refreshPartialNotificacao" class="btn btn-primary" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#notificacaoUpdate" href="/Home/UpdateNotificacao"></a>
 
     <div class="container" >
         <main role="main" class="pb-3 ">
@@ -171,6 +172,25 @@
                                 else{
                                     <li class="p-0 item-menu-first">
                                         <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AreaDoUsuario">Painel inicial</a>
+                                    </li>
+                                }
+                                @if(ViewData["Controller"]!.Equals("Notificacoes"))
+                                {
+                                    <li class="p-0 item-menu item-menu-selecionado )">
+                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Notificacoes" asp-action="Index">Notificações
+                                            <span id="notificacaoUpdate">
+                                                @await Component.InvokeAsync("ContadorDeNotificacoesNovas", GetIdUsuarioLogado())
+                                            </span>
+                                        </a>
+                                    </li>
+                                }
+                                else{
+                                    <li class="p-0 item-menu )">
+                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Notificacoes" asp-action="Index">Notificações
+                                            <span id="notificacaoUpdate">
+                                                @await Component.InvokeAsync("ContadorDeNotificacoesNovas", GetIdUsuarioLogado())
+                                            </span>
+                                        </a>
                                     </li>
                                 }
                                 @if(ViewData["Controller"]!.Equals("Conversas"))

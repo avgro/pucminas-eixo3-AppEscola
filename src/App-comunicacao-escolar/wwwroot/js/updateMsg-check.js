@@ -5,7 +5,7 @@
 
 var url = new URL(window.location.href);
 var msgUpdateFail = url.toString().split("/");
-if (msgUpdateFail[msgUpdateFail.length - 1] == "UpdateMsg" || msgUpdateFail[msgUpdateFail.length - 1] == "UpdateAutorizacao") {
+if (msgUpdateFail[msgUpdateFail.length - 1] == "UpdateMsg" || msgUpdateFail[msgUpdateFail.length - 1] == "UpdateAutorizacao" || msgUpdateFail[msgUpdateFail.length - 1] == "UpdateNotificacao") {
     var newHref = "";
     for (i = 0; i < (msgUpdateFail.length - 1); i++) {
         newHref += msgUpdateFail[i] + "/"

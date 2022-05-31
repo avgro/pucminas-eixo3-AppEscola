@@ -1,0 +1,12 @@
+﻿@if (ViewBag.NumeroContador  > 0) {
+<div class="contador-circular">
+    @if (ViewBag.NumeroContador  < 100)
+    {
+            @ViewBag.NumeroContador 
+        }
+        else
+        {
+            <span class="font-size-12px">+99</span>
+        }
+    </div>
+}

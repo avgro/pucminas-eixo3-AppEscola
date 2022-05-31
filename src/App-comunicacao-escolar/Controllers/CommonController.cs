@@ -43,6 +43,20 @@ namespace App_comunicacao_escolar.Controllers
                 return BadRequest();
             }
         }
+        public IActionResult UpdateNotificacao()
+        {
+            try
+            {
+                int idUsuarioLogado = GetIdUsuarioLogado();
+
+                ViewData["idUsuarioLogado"] = idUsuarioLogado;
+                return PartialView("ContadorNotificacao");
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
         [Authorize]
         public FileResult DownloadFile(MensagemArquivosAnexados anexo)
         {

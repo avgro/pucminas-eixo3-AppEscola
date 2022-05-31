@@ -4,6 +4,7 @@ using App_comunicacao_escolar.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App_comunicacao_escolar.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220531072101_M46")]
+    partial class M46
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -218,9 +220,6 @@ namespace App_comunicacao_escolar.Migrations
                         .IsRequired()
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("IdUsuarioQueCadastrouEvento")
-                        .HasColumnType("int");
-
                     b.Property<DateTime?>("InicioDoEvento")
                         .IsRequired()
                         .HasColumnType("datetime2");
@@ -233,11 +232,14 @@ namespace App_comunicacao_escolar.Migrations
                     b.Property<bool?>("RequerAutorizacao")
                         .HasColumnType("bit");
 
+                    b.Property<int>("idUsuarioQueCadastrouEvento")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AgendaId");
 
-                    b.HasIndex("IdUsuarioQueCadastrouEvento");
+                    b.HasIndex("idUsuarioQueCadastrouEvento");
 
                     b.ToTable("EventosDaAgenda");
                 });
@@ -666,7 +668,7 @@ namespace App_comunicacao_escolar.Migrations
 
                     b.HasOne("App_comunicacao_escolar.Models.Usuario", "Usuario")
                         .WithMany("EventosCadastrados")
-                        .HasForeignKey("IdUsuarioQueCadastrouEvento")
+                        .HasForeignKey("idUsuarioQueCadastrouEvento")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
