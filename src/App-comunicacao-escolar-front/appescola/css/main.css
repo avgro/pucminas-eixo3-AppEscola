@@ -272,11 +272,6 @@ max-width-100 {
 
 /* -------------- Barra lateral CSS -------------- */
 
-.menu-content-layout {
-  display: grid;
-  grid-template-columns: 240px 1fr;
-}
-
 .menu-lateral {
   position: sticky;
   margin-top: 50px;
@@ -345,6 +340,20 @@ max-width-100 {
     padding: 4px;
     border-radius: 4px;
   }
+}
+
+/*------- Conteúdo Central Telas de Usuário------------*/
+
+.badge {
+  background-color: rgb(231, 210, 255);
+  padding-top: 0.6em;
+}
+
+.lista-calendario {
+  margin: 0;
+}
+.lista-calendario a:hover {
+  background-color: rgb(243, 231, 255);
 }
 
 /* -------------- Home Page CSS -------------- */
