@@ -47,7 +47,7 @@
                 @Html.DisplayFor(modelItem => item.Aluno.CodigoDoAluno)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Evento.Descricao)
+                @Html.DisplayFor(modelItem => item.Evento.Nome)
             </td>
             <td>
                 <a class="btn btn-primary" asp-action="Visualizar" asp-route-id="@item.Id" asp-route-secao=@ViewData["TituloDaSecao"]>Visualizar</a>

@@ -18,28 +18,35 @@ namespace App_comunicacao_escolar.ViewComponents
         public async Task<IViewComponentResult> InvokeAsync(int idUsuarioLogado = -1)
         {
             int numeroContador = 0;
-            if (_context.UsuarioLeuNotificacao != null && _context.Notificacoes != null) { 
-                var notificacoes = from n in _context.Notificacoes select n;
-                if (User.IsInRole("ResponsavelAluno"))
+            try
+            {
+                if (_context.UsuarioLeuNotificacao != null && _context.Notificacoes != null)
                 {
-                    List<int> idAgendasSelecionadas = ListarAgendasQueResponsavelTemAcesso(idUsuarioLogado);
-                    notificacoes = notificacoes.Where(n => idAgendasSelecionadas.Contains((int)n.TurmaId!) || n.Turma == null);
-                    notificacoes = notificacoes.Where(n => (int)n.Perfil == 1 || n.Perfil == 0);
-                }
-                else if (User.IsInRole("Professor"))
-                {
-                    List<int> idAgendasSelecionadas = ListarAgendasQueProfessorTemAcesso(idUsuarioLogado);
-                    notificacoes = notificacoes.Where(n => idAgendasSelecionadas.Contains((int)n.TurmaId!) || n.Turma == null);
-                    notificacoes = notificacoes.Where(n => (int)n.Perfil == 2 || n.Perfil == 0);
-                }
-                else if (!User.IsInRole("Admin"))
-                {
-                    notificacoes = notificacoes.Where(n => n.TurmaId == null || n.Turma == null);
-                    notificacoes = notificacoes.Where(n => n.Perfil == 0);
-                }
+                    var notificacoes = from n in _context.Notificacoes select n;
+                    if (User.IsInRole("ResponsavelAluno"))
+                    {
+                        List<int> idAgendasSelecionadas = ListarAgendasQueResponsavelTemAcesso(idUsuarioLogado);
+                        notificacoes = notificacoes.Where(n => idAgendasSelecionadas.Contains((int)n.TurmaId!) || n.Turma == null);
+                        notificacoes = notificacoes.Where(n => (int)n.Perfil == 1 || n.Perfil == 0);
+                    }
+                    else if (User.IsInRole("Professor"))
+                    {
+                        List<int> idAgendasSelecionadas = ListarAgendasQueProfessorTemAcesso(idUsuarioLogado);
+                        notificacoes = notificacoes.Where(n => idAgendasSelecionadas.Contains((int)n.TurmaId!) || n.Turma == null);
+                        notificacoes = notificacoes.Where(n => (int)n.Perfil == 2 || n.Perfil == 0);
+                    }
+                    else if (!User.IsInRole("Admin"))
+                    {
+                        notificacoes = notificacoes.Where(n => n.TurmaId == null || n.Turma == null);
+                        notificacoes = notificacoes.Where(n => n.Perfil == 0);
+                    }
 
-                var notificacoesLidas = _context.UsuarioLeuNotificacao.Where(u => u.UsuarioId == idUsuarioLogado);
-                numeroContador = notificacoes.Count() - notificacoesLidas.Count();
+                    var notificacoesLidas = _context.UsuarioLeuNotificacao.Where(u => u.UsuarioId == idUsuarioLogado);
+                    numeroContador = notificacoes.Count() - notificacoesLidas.Count();
+                }
+            }
+            catch 
+            {
             }
             ViewBag.NumeroContador = numeroContador;
             

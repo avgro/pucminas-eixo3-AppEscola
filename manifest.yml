@@ -1,0 +1,9 @@
+---
+applications:
+- name: App-comunicacao-escolar
+  random-route: true
+  memory: 256M
+  env:
+    DOTNET_CLI_TELEMETRY_OPTOUT: 1
+    DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+    CACHE_NUGET_PACKAGES: false

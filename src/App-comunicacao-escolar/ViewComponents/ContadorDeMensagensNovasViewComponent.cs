@@ -2,6 +2,7 @@
 using App_comunicacao_escolar.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
+using Microsoft.EntityFrameworkCore;
 
 namespace App_comunicacao_escolar.ViewComponents
 {
@@ -17,17 +18,24 @@ namespace App_comunicacao_escolar.ViewComponents
         public async Task<IViewComponentResult> InvokeAsync(int idUsuarioLogado = -1)
         {
             int numeroContador = 0;
-            if (_context.NumeroDeNovasMensagensNaConversa != null && _context.UsuariosQueArquivaramConversa != null) { 
-                var mensagensNaoLidasDoUsuarioAtual = _context.NumeroDeNovasMensagensNaConversa.Where(n => n.UsuarioId == idUsuarioLogado);
-                
-                var mensagensArquivadasDoUsuarioAtual = _context.UsuariosQueArquivaramConversa.Where(u => u.UsuarioId == idUsuarioLogado);
-                foreach (var item in mensagensNaoLidasDoUsuarioAtual)
+            try
+            {
+                if (_context.NumeroDeNovasMensagensNaConversa != null && _context.UsuariosQueArquivaramConversa != null)
                 {
-                    if (!mensagensArquivadasDoUsuarioAtual.Any(m => m.ConversaId == item.ConversaId))
+                    var mensagensNaoLidasDoUsuarioAtual = _context.NumeroDeNovasMensagensNaConversa.Where(n => n.UsuarioId == idUsuarioLogado);
+
+                    var mensagensArquivadasDoUsuarioAtual = await _context.UsuariosQueArquivaramConversa.Where(u => u.UsuarioId == idUsuarioLogado).ToListAsync();
+                    foreach (var item in mensagensNaoLidasDoUsuarioAtual)
                     {
-                        numeroContador += item.NumeroDeMensagensNaoLidas;
+                        if (!mensagensArquivadasDoUsuarioAtual.Any(m => m.ConversaId == item.ConversaId))
+                        {
+                            numeroContador += item.NumeroDeMensagensNaoLidas;
+                        }
                     }
                 }
+            }
+            catch 
+            { 
             }
             ViewBag.NumeroContador = numeroContador;
             

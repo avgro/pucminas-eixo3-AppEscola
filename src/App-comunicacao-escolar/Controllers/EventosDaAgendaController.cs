@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace App_comunicacao_escolar.Controllers
 {
+    [Authorize]
     public class EventosDaAgendaController : CommonController
     {
         private readonly ApplicationDbContext _context;
