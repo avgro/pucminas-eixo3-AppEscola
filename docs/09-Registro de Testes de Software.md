@@ -134,6 +134,11 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 |Objetivo do teste| Verificar se os usuários do tipo administrador e professor conseguem remover eventos da agenda escolar.|
 |Resultado| funcionalidade de apagar um evento cadastrado na agenda está funcionando corretamente.|
 
+|Caso de Teste 20| CT- 20 - Assinar autorização para participação do filho em evento|
+|-------|-------------------------
+|Objetivo do teste| Verificar se o usuário do tipo "responsável do aluno" consegue autorizar o filho a participar de um evento que requer permissão.|
+|Resultado| O usuário do tipo "responsável do aluno" consegue efetuar a autorização ou nao, do seu filho, ou seja a funcionalidade esta funcionando.|
+
 |Caso de Teste 26| CT- 26 - Testa a responsividade do sistema em diferentes dispositivos.|
 |-------|-------------------------
 |Objetivo do teste| Verificar a responsividade do site.|
