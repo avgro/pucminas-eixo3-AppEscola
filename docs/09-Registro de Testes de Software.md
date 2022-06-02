@@ -129,6 +129,11 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 |Objetivo do teste| Verificar se todos os usuários conseguem visualizar os eventos cadastrados na agenda.|
 |Resultado| Todos os usuarios conseguem visualizar os eventos cadastrados.|
 
+|Caso de Teste 19| CT- 19 - Apagar evento na agenda escolar|
+|-------|-------------------------
+|Objetivo do teste| Verificar se os usuários do tipo administrador e professor conseguem remover eventos da agenda escolar.|
+|Resultado| funcionalidade de apagar um evento cadastrado na agenda está funcionando corretamente.|
+
 |Caso de Teste 26| CT- 26 - Testa a responsividade do sistema em diferentes dispositivos.|
 |-------|-------------------------
 |Objetivo do teste| Verificar a responsividade do site.|
