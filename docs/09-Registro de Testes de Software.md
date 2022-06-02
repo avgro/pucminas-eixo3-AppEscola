@@ -119,6 +119,11 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 |Objetivo do teste| Verificar se o site faz a busca por mensagens dentro do caixa de mensagens.|
 |Resultado| A Funcionalidade de buscar mensagens e localizar a conversa esta funcionando corretamente.|
 
+|Caso de Teste 17| CT- 17 - Cadastrar eventos na agenda escolar|
+|-------|-------------------------
+|Objetivo do teste| Verificar se os usuários do tipo administrador e professor conseguem adicionar eventos à agenda.|
+|Resultado| Tanto administrador quanto o professor conseguem adicionar eventos na agenda escolar.|
+
 |Caso de Teste 26| CT- 26 - Testa a responsividade do sistema em diferentes dispositivos.|
 |-------|-------------------------
 |Objetivo do teste| Verificar a responsividade do site.|
