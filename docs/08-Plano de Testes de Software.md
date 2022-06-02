@@ -141,7 +141,7 @@ Os testes funcionais a serem realizados no aplicativo são descritos a seguir:
 |Caso de teste 18     | CT 18 - Visualizar eventos cadastrados na agenda escolar |
 |-------|-------------------------
 |Requisitos Associados | 	 RF-10 - A aplicação deve apresentar uma agenda online que exiba para cada turma os eventos associados à rotina escolar do aluno (horário das aulas, provas, excursões e evento). Exibir também eventos associados a compromissos dos responsáveis do aluno (reunião de pais e professores).<br>RF-11-  A aplicação deve permitir aos professores adicionar eventos à agenda escolar de uma ou mais turmas, como: provas, excursões e reuniões que ficarão visíveis para os responsáveis do aluno daquela turma.|
-|Objetivo do teste| - Verificar se todos os usuários conseguem visualizar os eventos cadastrados na agenda escolar.
+|Objetivo do teste| Verificar se todos os usuários conseguem visualizar os eventos cadastrados na agenda escolar.
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login no sistema como qualquer tipo de usuário. 4) Clicar na aba "Agenda". 5) Visualizar agenda escolar e seus eventos 6) Repetir o mesmo procedimento para todos os tipos de usuário. |
 |Critérios de êxito| Evento estar disponível na agenda para todos os tipos de usuário visualizarem. |
 
