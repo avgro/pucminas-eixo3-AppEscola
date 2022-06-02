@@ -148,7 +148,7 @@ Os testes funcionais a serem realizados no aplicativo são descritos a seguir:
 |Caso de teste 19     | CT 19 - Apagar evento na agenda escolar |
 |-------|-------------------------
 |Requisitos Associados | 	 RF-10 - A aplicação deve apresentar uma agenda online que exiba para cada turma os eventos associados à rotina escolar do aluno (horário das aulas, provas, excursões e evento). Exibir também eventos associados a compromissos dos responsáveis do aluno (reunião de pais e professores).<br>RF-11-  A aplicação deve permitir aos professores adicionar eventos à agenda escolar de uma ou mais turmas, como: provas, excursões e reuniões que ficarão visíveis para os responsáveis do aluno daquela turma.|
-|Objetivo do teste| - Verificar se os usuários do tipo administrador e professor conseguem remover eventos da agenda escolar.
+|Objetivo do teste|  Verificar se os usuários do tipo administrador e professor conseguem remover eventos da agenda escolar.
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login no sistema como admnistrador ou professor. 4) Clicar na aba "Agenda". 5) Clicar em "Apagar evento". 6) Selecionar evento que se deseja apagar. 7) Clicar em "Apagar". 8) A tela de "Agenda escolar" deve ser atualizada e o evento apagado deve ter desaparecido da agenda 8) Repetir o mesmo procedimento para todos os usuários capazes de apagar eventos na agenda |
 |Critérios de êxito| O evento selecionado deve ter sido apagado e o sistema deve carregar as atualizações feitas corretamente, de modo que o evento não apareça mais na agenda. |
 
