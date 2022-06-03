@@ -374,11 +374,11 @@ namespace App_comunicacao_escolar.Controllers
         {
             if (User.IsInRole("Professor")) {
                 List<int> idAgendasSelecionadas = ListarAgendasQueProfessorTemAcesso(GetIdUsuarioLogado());
-                
+
                 // Checar instancias nulas
                 if (eventoDaAgenda.Agenda == null)
                 {
-                    return true;
+                    return false;
                 }
                 if (eventoDaAgenda.Agenda.TurmaId == null)
                 {
@@ -386,11 +386,53 @@ namespace App_comunicacao_escolar.Controllers
                 }
 
                 // Verificar se professor tem acesso a evento, caso agenda do evento não seja nula;
-
                 if (!((idAgendasSelecionadas.Contains((int)eventoDaAgenda.Agenda.TurmaId) || eventoDaAgenda.Agenda == null)
                     &&
                     ((int)eventoDaAgenda.Agenda.Perfil == 0 || (int)eventoDaAgenda.Agenda.Perfil == 2 || eventoDaAgenda.Agenda == null)
                     ))
+                {
+                    return true;
+                }
+            }
+            else if (User.IsInRole("ResponsavelAluno"))
+            {
+                List<int> idAgendasSelecionadas = ListarAgendasQueResponsavelTemAcesso(GetIdUsuarioLogado());
+
+                // Checar instancias nulas
+                if (eventoDaAgenda.Agenda == null)
+                {
+                    return false;
+                }
+                if (eventoDaAgenda.Agenda.TurmaId == null)
+                {
+                    eventoDaAgenda.Agenda.TurmaId = 0;
+                }
+
+                // Verificar se responsavel tem acesso a evento, caso agenda do evento não seja nula;
+
+                if (!((idAgendasSelecionadas.Contains((int)eventoDaAgenda.Agenda.TurmaId) || eventoDaAgenda.Agenda == null)
+                    &&
+                    ((int)eventoDaAgenda.Agenda.Perfil == 0 || (int)eventoDaAgenda.Agenda.Perfil == 1 || eventoDaAgenda.Agenda == null)
+                    ))
+                {
+                    return true;
+                }
+            }
+            else if (!User.IsInRole("Admin"))
+            {
+                // Checar instancias nulas
+                if (eventoDaAgenda.Agenda == null)
+                {
+                    return false;
+                }
+                if (eventoDaAgenda.Agenda.TurmaId == null)
+                {
+                    eventoDaAgenda.Agenda.TurmaId = 0;
+                }
+
+                // Verificar se usuario tem acesso a evento, caso agenda do evento não seja nula;
+
+                if (!(((int)eventoDaAgenda.Agenda.Perfil == 0 && (int)eventoDaAgenda.Agenda.TurmaId == 0) || eventoDaAgenda.Agenda == null))
                 {
                     return true;
                 }

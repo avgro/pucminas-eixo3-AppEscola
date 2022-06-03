@@ -93,7 +93,7 @@
                 @if (User.IsInRole("Admin")) {
                     <a asp-action="Delete" asp-route-id="@item.Id">Apagar</a>
                 }
-                else
+                else if (!ViewData["TituloDaSecao"]!.Equals("Visualizadas"))
                 {
                     @using (Html.BeginForm("MarcarComoVista", "Notificacoes", FormMethod.Post))
                             {
