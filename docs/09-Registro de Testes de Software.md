@@ -144,6 +144,11 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 |Objetivo do teste| Verificar se o usuário do tipo "responsável do aluno" consegue autorizar o filho a participar de um evento que requer permissão.|
 |Resultado| O usuário do tipo "responsável do aluno" consegue efetuar a autorização ou nao, do seu filho, ou seja a funcionalidade esta funcionando.|
 
+|Caso de Teste 24| CT- 24 - Lançar notificação no sistema|
+|-------|-------------------------
+|Objetivo do teste| Verificar se o usuário do tipo "Administrador" consegue lançar notificações no sistema.|
+|Resultado| x |
+
 |Caso de Teste 26| CT- 26 - Testa a responsividade do sistema em diferentes dispositivos.|
 |-------|-------------------------
 |Objetivo do teste| Verificar a responsividade do site.|
