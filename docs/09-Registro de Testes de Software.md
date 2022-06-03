@@ -121,8 +121,13 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 
 |Caso de Teste 17| CT- 17 - Cadastrar eventos na agenda escolar|
 |-------|-------------------------
-|Objetivo do teste| Verificar se os usuários do tipo administrador e professor conseguem adicionar eventos à agenda.|
-|Resultado| Tanto administrador quanto o professor conseguem adicionar eventos na agenda escolar.|
+|Objetivo do teste| Verificar se o usuário do tipo administrador consegue adicionar eventos à agenda.|
+|Resultado| O Administrador consegue adicionar eventos na agenda.|
+
+|Caso de Teste 17.1| CT- 17.1- Cadastrar eventos na agenda escolar|
+|-------|-------------------------
+|Objetivo do teste| Verificar se o usuário do tipo professor consegue adicionar eventos à agenda.|
+|Resultado| O usuario do tipo professor consegue adicionar evento a agenda.|
 
 |Caso de Teste 18| CT- 18 - Visualizar eventos cadastrados na agenda escolar|
 |-------|-------------------------
