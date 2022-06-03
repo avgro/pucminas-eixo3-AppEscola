@@ -149,6 +149,11 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 |Objetivo do teste| Verificar se o usuário do tipo "Administrador" consegue lançar notificações no sistema.|
 |Resultado| A funcionalidade esta funcionando corretamente. |
 
+|Caso de Teste 25| CT- 25 - Visualizar Notificações|
+|-------|-------------------------
+|Objetivo do teste| Verificar se a carga de notificações está aparecendo corretamente nas costas dos usuários.|
+|Resultado| A funcionalidade da tela de visualizar as notificações esta funcionando. |
+
 |Caso de Teste 26| CT- 26 - Testa a responsividade do sistema em diferentes dispositivos.|
 |-------|-------------------------
 |Objetivo do teste| Verificar a responsividade do site.|
