@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace App_comunicacao_escolar.Controllers
 {
+    [Authorize]
     public class AgendasController : CommonController
     {
         private readonly ApplicationDbContext _context;
@@ -54,6 +55,10 @@ namespace App_comunicacao_escolar.Controllers
         {
             try
             {
+                if (id == null)
+                {
+                    return NotFound();
+                }
                 var agenda = await _context.Agendas.Include(a => a.Turma)
                     .FirstOrDefaultAsync(m => m.Id == id);
                 if (agenda == null)
@@ -65,10 +70,6 @@ namespace App_comunicacao_escolar.Controllers
             catch
             {
                 return BadRequest();
-            }
-            if (id == null)
-            {
-                return NotFound();
             }
         }
 
@@ -128,9 +129,11 @@ namespace App_comunicacao_escolar.Controllers
                 Agenda agenda = new();
                 string agendaNome = "";
 
-                if (User.IsInRole("Admin")){
+                if (User.IsInRole("Admin"))
+                {
                     agendaNome = "Todas as agendas";
-                    if (id != null) {
+                    if (id != null)
+                    {
                         agenda = await _context.Agendas.FirstOrDefaultAsync(a => a.Id == id);
                         agendaNome = agenda.Nome;
 
@@ -140,22 +143,22 @@ namespace App_comunicacao_escolar.Controllers
                         eventos = (IOrderedQueryable<EventoDaAgenda>)eventos.Where(e => e.AgendaId == id);
                     }
                 }
-                if (User.IsInRole("ResponsavelAluno"))
+                else if (User.IsInRole("ResponsavelAluno"))
                 {
                     List<int> idAgendasSelecionadas = ListarAgendasQueResponsavelTemAcesso(GetIdUsuarioLogado());
 
-                    eventos = (IOrderedQueryable<EventoDaAgenda>)eventos.Where(e => 
+                    eventos = (IOrderedQueryable<EventoDaAgenda>)eventos.Where(e =>
                         (idAgendasSelecionadas.Contains((int)e.Agenda.TurmaId) || e.Agenda == null)
                         &&
                         ((int)e.Agenda.Perfil == 0 || (int)e.Agenda.Perfil == 1 || e.Agenda == null)
-                        );
+                    );
                 }
-                if (User.IsInRole("Professor"))
+                else if (User.IsInRole("Professor"))
                 {
                     List<int> idAgendasSelecionadas = ListarAgendasQueProfessorTemAcesso(GetIdUsuarioLogado());
 
                     agendaNome = "Todas as agendas";
-                    agendaSelectList = new SelectList(_context.Agendas.OrderBy(a => a.Nome).Where(a => idAgendasSelecionadas.Contains((int) a.TurmaId)), "Id", "Nome");
+                    agendaSelectList = new SelectList(_context.Agendas.OrderBy(a => a.Nome).Where(a => idAgendasSelecionadas.Contains((int)a.TurmaId)), "Id", "Nome");
                     if (id != null)
                     {
                         agenda = await _context.Agendas.FirstOrDefaultAsync(a => a.Id == id);
@@ -168,11 +171,15 @@ namespace App_comunicacao_escolar.Controllers
                     else
                     {
                         eventos = (IOrderedQueryable<EventoDaAgenda>)eventos.Where(e =>
-                            (idAgendasSelecionadas.Contains((int)e.Agenda.TurmaId) || e.Agenda == null)
-                            &&
                             ((int)e.Agenda.Perfil == 0 || (int)e.Agenda.Perfil == 2 || e.Agenda == null)
-                            );
+                        );
                     }
+                }
+                else
+                {
+                    eventos = (IOrderedQueryable<EventoDaAgenda>)eventos.Where(e =>
+                        (((int)e.Agenda.Perfil == 0 && e.Agenda.TurmaId == null) || e.Agenda == null)
+                    );
                 }
                 ViewData["AgendaNome"] = agendaNome.ToString();
                 ViewData["AgendaId"] = agendaSelectList;
@@ -278,6 +285,10 @@ namespace App_comunicacao_escolar.Controllers
         {
             try
             {
+                if (id == null)
+                {
+                    return NotFound();
+                }
                 var agenda = await _context.Agendas.FindAsync(id);
                 if (agenda == null)
                 {
@@ -289,10 +300,6 @@ namespace App_comunicacao_escolar.Controllers
             catch
             {
                 return BadRequest();
-            }
-            if (id == null)
-            {
-                return NotFound();
             }
         }
 
@@ -351,6 +358,10 @@ namespace App_comunicacao_escolar.Controllers
         {
             try
             {
+                if (id == null)
+                {
+                    return NotFound();
+                }
                 var agenda = await _context.Agendas
                  .FirstOrDefaultAsync(m => m.Id == id);
                 if (agenda == null)
@@ -363,10 +374,6 @@ namespace App_comunicacao_escolar.Controllers
             catch
             {
                 return BadRequest();
-            }
-            if (id == null)
-            {
-                return NotFound();
             }
         }
 

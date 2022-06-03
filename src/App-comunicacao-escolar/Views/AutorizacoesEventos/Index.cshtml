@@ -47,7 +47,7 @@
                 @Html.DisplayFor(modelItem => item.Aluno.CodigoDoAluno)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Evento.Descricao)
+                @Html.DisplayFor(modelItem => item.Evento.Nome)
             </td>
             <td>
                 <a class="btn btn-primary" asp-action="Visualizar" asp-route-id="@item.Id" asp-route-secao=@ViewData["TituloDaSecao"]>Visualizar</a>
@@ -61,10 +61,6 @@
     <div class="col-12 m-2 alert-warning p-3 text-center">Nenhum item encontrado</div>
 }
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script src="~/js/autorizacoes.js" asp-append-version="true"></script>
-}
 
 <div class="row">
     <div class="col-md-8">
@@ -78,3 +74,8 @@
                     })
     </div>
 </div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/autorizacoes.js" asp-append-version="true"></script>
+}

@@ -17,7 +17,7 @@ using X.PagedList;
 using Microsoft.AspNetCore.Authorization;
 
 namespace App_comunicacao_escolar.Controllers
-{  
+{
     public class UsuariosController : CommonController
     {
         private readonly ApplicationDbContext _context;
