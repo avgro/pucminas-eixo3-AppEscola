@@ -147,7 +147,7 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 |Caso de Teste 24| CT- 24 - Lançar notificação no sistema|
 |-------|-------------------------
 |Objetivo do teste| Verificar se o usuário do tipo "Administrador" consegue lançar notificações no sistema.|
-|Resultado| x |
+|Resultado| A funcionalidade esta funcionando corretamente. |
 
 |Caso de Teste 26| CT- 26 - Testa a responsividade do sistema em diferentes dispositivos.|
 |-------|-------------------------
