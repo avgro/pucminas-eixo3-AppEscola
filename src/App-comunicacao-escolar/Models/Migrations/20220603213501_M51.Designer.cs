@@ -4,6 +4,7 @@ using App_comunicacao_escolar.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App_comunicacao_escolar.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220603213501_M51")]
+    partial class M51
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -430,9 +432,6 @@ namespace App_comunicacao_escolar.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int?>("AutorId")
-                        .HasColumnType("int");
-
                     b.Property<string>("CodigoImagemPostada")
                         .HasColumnType("nvarchar(max)");
 
@@ -441,15 +440,10 @@ namespace App_comunicacao_escolar.Migrations
                         .HasMaxLength(1000)
                         .HasColumnType("nvarchar(1000)");
 
-                    b.Property<DateTime?>("DataCriacao")
-                        .HasColumnType("datetime2");
-
                     b.Property<int?>("LinhaDoTempoId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AutorId");
 
                     b.HasIndex("LinhaDoTempoId");
 
@@ -828,16 +822,10 @@ namespace App_comunicacao_escolar.Migrations
 
             modelBuilder.Entity("App_comunicacao_escolar.Models.PostagemLinhaDoTempo", b =>
                 {
-                    b.HasOne("App_comunicacao_escolar.Models.Usuario", "Autor")
-                        .WithMany("PostagensLinhaDoTempo")
-                        .HasForeignKey("AutorId");
-
                     b.HasOne("App_comunicacao_escolar.Models.AlunoLinhaDoTempo", "LinhaDoTempo")
                         .WithMany("Postagens")
                         .HasForeignKey("LinhaDoTempoId")
                         .OnDelete(DeleteBehavior.Cascade);
-
-                    b.Navigation("Autor");
 
                     b.Navigation("LinhaDoTempo");
                 });
@@ -999,8 +987,6 @@ namespace App_comunicacao_escolar.Migrations
                     b.Navigation("EventosCadastrados");
 
                     b.Navigation("NotificacoesLidas");
-
-                    b.Navigation("PostagensLinhaDoTempo");
 
                     b.Navigation("Professor");
 

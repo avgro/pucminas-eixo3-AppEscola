@@ -1,0 +1,36 @@
+﻿@model App_comunicacao_escolar.Models.AlunoLinhaDoTempo
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-controller= "PostagensLinhaDoTempo" asp-action="Create">Create New</a>
+</p>
+@if (Model.Postagens != null) {
+        @foreach (var item in Model.Postagens) {
+            <div class="postagem">
+                <div class="d-flex justify-content-between">
+                    <h5><b>@Html.DisplayFor(modelItem => item.Assunto)</b></h5>
+                    @Html.DisplayFor(modelItem => item.DataCriacao)
+                </div>
+                @if (item.Autor != null) {
+                    <b>Autor:</b> @Html.DisplayFor(modelItem => item.Autor.NomeDisplayLista)
+                }
+                @if(item.CodigoImagemPostada != null) {
+                    <img src="~/images/uploadsUsuarios/@item.CodigoImagemPostada" class="d-block" alt="...">
+                }
+                else
+                {
+                    <div class="mb-2"></div>
+                }
+                @Html.DisplayFor(modelItem => item.Conteudo)
+            </div>
+        }
+    @if (Model.Postagens.Count() == 0)
+    {   
+        <div class="col-12 m-2 alert-warning p-3 text-center">Nenhuma postagem encontrada</div>
+    }
+}
