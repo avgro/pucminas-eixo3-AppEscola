@@ -21,7 +21,7 @@ namespace App_comunicacao_escolar.Controllers
         // GET: PostagensLinhaDoTempo
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.PostagensLinhaDoTempo.Include(p => p.LinhaDoTempo);
+            var applicationDbContext = _context.PostagensLinhaDoTempo!.Include(p => p.LinhaDoTempo);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -44,10 +44,15 @@ namespace App_comunicacao_escolar.Controllers
             return View(postagemLinhaDoTempo);
         }
 
-        // GET: PostagensLinhaDoTempo/Create
-        public IActionResult Create()
+
+        public IActionResult Create(int? id)
         {
+            if (id == null)
+            {
+                return NotFound();
+            }
             ViewData["LinhaDoTempoId"] = new SelectList(_context.AlunosLinhaDoTempo, "Id", "Id");
+            ViewBag.linhaDoTempoId = id;
             return View();
         }
 
@@ -57,11 +62,14 @@ namespace App_comunicacao_escolar.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Assunto,Conteudo,CodigoImagemPostada,LinhaDoTempoId")] PostagemLinhaDoTempo postagemLinhaDoTempo,
-            IFormFile arquivo)
+            IFormFile? arquivo)
         {
+            postagemLinhaDoTempo.Id = 0;
             postagemLinhaDoTempo = FazerUploadDaImagem(postagemLinhaDoTempo, arquivo);
             postagemLinhaDoTempo.DataCriacao = DateTime.Now;
+            postagemLinhaDoTempo.DataAtualizacao = DateTime.Now;
             postagemLinhaDoTempo.AutorId = GetIdUsuarioLogado();
+
             if (ModelState.IsValid)
             {
                 _context.Add(postagemLinhaDoTempo);
@@ -69,6 +77,7 @@ namespace App_comunicacao_escolar.Controllers
                 return RedirectToRoute(new { controller = "AlunosLinhaDoTempo", action = "Visualizar", id = postagemLinhaDoTempo.LinhaDoTempoId });
             }
             ViewData["LinhaDoTempoId"] = new SelectList(_context.AlunosLinhaDoTempo, "Id", "Id", postagemLinhaDoTempo.LinhaDoTempoId);
+            ViewBag.linhaDoTempoId = postagemLinhaDoTempo.LinhaDoTempoId;
             return View(postagemLinhaDoTempo);
         }
 
@@ -170,7 +179,10 @@ namespace App_comunicacao_escolar.Controllers
         private PostagemLinhaDoTempo FazerUploadDaImagem(PostagemLinhaDoTempo postagem, IFormFile arquivo)
         {
             int idDoUsuarioLogado = GetIdUsuarioLogado();
-            if (arquivo.Length > 0)
+            if (arquivo == null) {
+                return postagem;
+            }
+            if (arquivo!.Length > 0)
             {
                 string NomeUnicoDoArquivo = idDoUsuarioLogado + "-" + DateTime.Now.Ticks;
                 var TipoDeArquivo = arquivo.FileName.ToString().Split(".");
@@ -182,6 +194,7 @@ namespace App_comunicacao_escolar.Controllers
                 }
                 postagem.CodigoImagemPostada = NomeUnicoDoArquivo;
             }
+
             return postagem;
         }
 

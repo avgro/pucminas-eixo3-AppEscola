@@ -4,6 +4,7 @@ using App_comunicacao_escolar.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App_comunicacao_escolar.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220605004908_M57")]
+    partial class M57
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -472,9 +474,6 @@ namespace App_comunicacao_escolar.Migrations
                         .HasMaxLength(1000)
                         .HasColumnType("nvarchar(1000)");
 
-                    b.Property<DateTime?>("DataAtualizacao")
-                        .HasColumnType("datetime2");
-
                     b.Property<DateTime?>("DataCriacao")
                         .HasColumnType("datetime2");
 
@@ -785,8 +784,7 @@ namespace App_comunicacao_escolar.Migrations
 
                     b.HasOne("App_comunicacao_escolar.Models.PostagemLinhaDoTempo", "Postagem")
                         .WithMany("Comentarios")
-                        .HasForeignKey("PostagemLinhaDoTempoId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("PostagemLinhaDoTempoId");
 
                     b.Navigation("Autor");
 

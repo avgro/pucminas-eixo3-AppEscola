@@ -174,16 +174,20 @@
                                         <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AreaDoUsuario">Painel inicial</a>
                                     </li>
                                 }
-                                @if(ViewData["Controller"]!.Equals("AlunosLinhaDoTempo"))
-                                {
-                                    <li class="p-0 item-menu-first item-menu-selecionado">
-                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="AlunosLinhaDoTempo" asp-action="Index">Painel inicial</a>
-                                    </li>
-                                }
-                                else{
-                                    <li class="p-0 item-menu-first">
-                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="AlunosLinhaDoTempo" asp-action="Index">Painel inicial</a>
-                                    </li>
+                                @if(!User.IsInRole("Admin")){
+                                    @if(ViewData["Controller"]!.Equals("Agendas") || ViewData["Controller"]!.Equals("EventosDaAgenda"))
+                                    {
+                                        <li class="p-0 item-menu item-menu-selecionado )">
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Visualizar">Agenda escolar
+                                            </a>
+                                        </li>
+                                    }
+                                    else{
+                                        <li class="p-0 item-menu )">
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Visualizar">Agenda escolar
+                                            </a>
+                                        </li>
+                                    }
                                 }
                                 @if(ViewData["Controller"]!.Equals("Conversas"))
                                 {
@@ -244,20 +248,16 @@
                                         </li>
                                     }
                                 }
-                                @if(!User.IsInRole("Admin")){
-                                    @if(ViewData["Controller"]!.Equals("Agendas") || ViewData["Controller"]!.Equals("EventosDaAgenda"))
-                                    {
-                                        <li class="p-0 item-menu item-menu-selecionado )">
-                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Visualizar">Agenda escolar
-                                            </a>
-                                        </li>
-                                    }
-                                    else{
-                                        <li class="p-0 item-menu )">
-                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Visualizar">Agenda escolar
-                                            </a>
-                                        </li>
-                                    }
+                                @if(ViewData["Controller"]!.Equals("AlunosLinhaDoTempo"))
+                                {
+                                    <li class="p-0 item-menu-first item-menu-selecionado">
+                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="AlunosLinhaDoTempo" asp-action="Index">Linha do tempo</a>
+                                    </li>
+                                }
+                                else{
+                                    <li class="p-0 item-menu-first">
+                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="AlunosLinhaDoTempo" asp-action="Index">Linha do tempo</a>
+                                    </li>
                                 }
                                 @if(User.IsInRole("ResponsavelAluno")){
                                     @if(ViewData["Controller"]!.Equals("AutorizacoesEventos"))

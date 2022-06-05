@@ -839,6 +839,7 @@ max-width-100 {
 /* -------------- Linha do Tempo -------------- */
 
 .postagem {
+    background-color: #f0f0f0;
     border: 1px solid lightgray;
     border-radius: 5px;
     word-wrap: anywhere;
@@ -854,3 +855,14 @@ max-width-100 {
     margin-top: 12px;
     margin-bottom: 12px;
  }
+
+.comentario-postagem {
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    word-wrap: anywhere;
+    padding: 12px;
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 4px;
+}

@@ -1,17 +1,32 @@
 ﻿@model App_comunicacao_escolar.Models.AlunoLinhaDoTempo
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Linha do tempo";
 }
 
-<h1>Index</h1>
+<h1>Linha do tempo</h1>
+<h2>@Model.Aluno!.NomeAlunoComCodigoEntreParenteses</h2>
 
-<p>
-    <a asp-controller= "PostagensLinhaDoTempo" asp-action="Create">Create New</a>
-</p>
+@if (User.IsInRole("Professor"))
+{
+    <a class="btn btn-primary my-2" asp-controller= "PostagensLinhaDoTempo" asp-action="Create" asp-route-id=@ViewBag.linhaDoTempoId>Criar postagem</a>    
+}
+<hr />
 @if (Model.Postagens != null) {
         @foreach (var item in Model.Postagens) {
-            <div class="postagem">
+        int comentariosCounter = 0;
+        int mostrarComentariosMax = 5;
+        string idFimDaSecaoDeComentarios = "fimDaSecaoDeComentarios" + item.Id;
+        if (item.Id == ViewBag.postId)
+        {
+            mostrarComentariosMax = ViewBag.numeroComentarios;
+            if (ViewBag.mostrarTodosComentarios && item.Comentarios != null)
+            {
+                mostrarComentariosMax = item.Comentarios!.Count();
+            }
+        }
+
+        <div class="postagem">
                 <div class="d-flex justify-content-between">
                     <h5><b>@Html.DisplayFor(modelItem => item.Assunto)</b></h5>
                     @Html.DisplayFor(modelItem => item.DataCriacao)
@@ -27,6 +42,53 @@
                     <div class="mb-2"></div>
                 }
                 @Html.DisplayFor(modelItem => item.Conteudo)
+                <hr />
+                <h6>Comentários</h6>
+                @if (item.Comentarios != null) {
+                    foreach (var comentario in item.Comentarios)
+                    {
+                        comentariosCounter++;
+                        <div class="comentario-postagem">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span><b>Autor: </b>@Html.DisplayFor(modelItemComentario => comentario.Autor!.NomeDisplayLista)</span>
+                                @Html.DisplayFor(modelItemComentario => comentario.DataCriacao)
+                            </div>
+                            @Html.DisplayFor(modelItemComentario => comentario.Conteudo)
+                        </div>
+                        @if(comentariosCounter == mostrarComentariosMax)
+                        {
+                            break;
+                        }
+                    }
+                    @if(item.Comentarios.Count() > mostrarComentariosMax)
+                    {
+                        <div>
+                            <a onclick="manterScrollY()" asp-action="Visualizar" asp-route-post=@item.Id asp-route-numeroComentarios=@ViewBag.numeroComentarios>Visualizar mais comentários</a>
+                        </div>
+                    }
+                }
+                <div class="row" id="@idFimDaSecaoDeComentarios">
+                    <div>
+                        <form asp-action="CreateComentario">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <label for="ConteudoComentario" class="control-label"></label>
+                                <textarea maxlength=999 id="ConteudoComentario" name="ConteudoComentario" class="form-control conteudo-textarea" placeholder="Escrever novo comentário..."></textarea>
+                            </div>
+                            <div class="form-group" hidden>
+                                <label for="PostagemId" class="control-label"></label>
+                                <input id="PostagemId" name="PostagemId" class="form-control" value=@item.Id />
+                            </div>
+                            <div class="form-group" hidden>
+                                <label for="LinhaDoTempoId" class="control-label"></label>
+                                <input id="LinhaDoTempoId" name="LinhaDoTempoId" class="form-control" value=@ViewData["Id"] />
+                            </div>
+                            <div class="form-group">
+                                <input onclick="scrollYFimDosComentarios(@item.Id)" type="submit" value="Create" class="btn btn-primary my-2" />
+                            </div>
+                        </form>
+                  </div>
+                </div>
             </div>
         }
     @if (Model.Postagens.Count() == 0)
@@ -34,3 +96,9 @@
         <div class="col-12 m-2 alert-warning p-3 text-center">Nenhuma postagem encontrada</div>
     }
 }
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/linha-do-tempo.js" asp-append-version="true"></script>
+}
+

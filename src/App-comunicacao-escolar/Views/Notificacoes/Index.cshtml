@@ -8,10 +8,14 @@
 <h1>Notificações</h1>
 
 <div class="d-flex justify-content-between my-4">
-    <div class="d-flex justify-content-between my-4 whitespace-nowrap">
-    <a asp-action="Create" class="btn btn-primary">Nova notificação</a>
-    </div>
-    @if(!User.IsInRole("Admin")) {
+    @if(User.IsInRole("Admin")) {
+        <div class="d-flex justify-content-between my-4 whitespace-nowrap">
+        <a asp-action="Create" class="btn btn-primary">Nova notificação</a>
+        </div>
+    }
+    else
+    {
+        <div></div>
         <div class="px-3">
             <label for="selecionar-secao">Selecionar seção:</label>
             <select onchange="mudarsecao()" id="selecionar-secao" class="input-size-3quarters">

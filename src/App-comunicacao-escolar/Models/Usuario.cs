@@ -57,6 +57,7 @@ namespace App_comunicacao_escolar.Models
         public ICollection<EventoDaAgenda>? EventosCadastrados { get; set; }
         public ICollection<UsuarioLeuNotificacao>? NotificacoesLidas { get; set; }
         public ICollection<PostagemLinhaDoTempo>? PostagensLinhaDoTempo { get; set; }
+        public ICollection<ComentarioPostagemLinhaDoTempo>? ComentariosPostagensLinhaDoTempo { get; set; }
         public virtual Responsavel? Responsavel { get; set; }
         public virtual Professor? Professor { get; set; }
     }

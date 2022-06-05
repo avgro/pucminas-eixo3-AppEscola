@@ -19,6 +19,7 @@ namespace App_comunicacao_escolar.Models
         [Display(Name = "Imagem do post")]
         public string? CodigoImagemPostada { get; set; }
         public DateTime? DataCriacao { get; set; }
+        public DateTime? DataAtualizacao { get; set; }
         public int? AutorId { get; set; }
         [ForeignKey("AutorId")]
         public Usuario? Autor { get; set; }
@@ -26,5 +27,6 @@ namespace App_comunicacao_escolar.Models
         public int? LinhaDoTempoId { get; set; }
         [ForeignKey("LinhaDoTempoId")]
         public AlunoLinhaDoTempo? LinhaDoTempo { get; set; }
+        public ICollection<ComentarioPostagemLinhaDoTempo>? Comentarios { get; set; }
     }
 }

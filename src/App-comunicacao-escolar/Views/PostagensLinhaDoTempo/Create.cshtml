@@ -17,33 +17,28 @@
                 <input asp-for="Assunto" class="form-control" />
                 <span asp-validation-for="Assunto" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Conteudo" class="control-label"></label>
-                <input asp-for="Conteudo" class="form-control" />
-                <span asp-validation-for="Conteudo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CodigoImagemPostada" class="control-label"></label>
-                <input asp-for="CodigoImagemPostada" class="form-control" />
-                <span asp-validation-for="CodigoImagemPostada" class="text-danger"></span>
-            </div>
             <div class="form-group input-size-2x">
-                <label for="arquivo" class="control-label">Anexar arquivos (Tamanho máximo: 25 MB):</label><br />
+                <label for="arquivo" class="control-label">Selecionar imagem (Tamanho máximo: 25 MB):</label><br />
                 <input onchange="checkError(arquivos, arquivosError)" type="file" class="m-1" id="arquivos" name="arquivo"/>
                 <div class="text-danger" id="arquivosError">@ViewData["arquivosError"]</div>
             </div>
             <div class="form-group">
+                <label asp-for="Conteudo" class="control-label"></label>
+                <textarea asp-for="Conteudo" class="form-control" conteudo-textarea" placeholder="Escrever conteudo da postagem..."></textarea>
+                <span asp-validation-for="Conteudo" class="text-danger"></span>
+            </div>
+            <div class="form-group" hidden>
                 <label asp-for="LinhaDoTempoId" class="control-label"></label>
-                <select asp-for="LinhaDoTempoId" class ="form-control" asp-items="ViewBag.LinhaDoTempoId"></select>
+                <input type="number" asp-for="LinhaDoTempoId" class ="form-control" value=@ViewBag.linhaDoTempoId>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Criar postagem" class="btn btn-primary my-2" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-controller="AlunosLinhaDoTempo" asp-action="Visualizar">Voltar</a>
 </div>
 
