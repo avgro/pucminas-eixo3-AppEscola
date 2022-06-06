@@ -6,14 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using App_comunicacao_escolar.Models;
+using Microsoft.AspNetCore.Authorization;
 using X.PagedList;
 
 namespace App_comunicacao_escolar.Controllers
 {
+    [Authorize(Roles = "Professor, ResponsavelAluno")]
     public class AlunosLinhaDoTempoController : CommonController
     {
         private readonly ApplicationDbContext _context;
-
         public AlunosLinhaDoTempoController(ApplicationDbContext context) : base(context)
         {
             _context = context;
@@ -22,67 +23,85 @@ namespace App_comunicacao_escolar.Controllers
         // GET: AlunosLinhaDoTempo
         public async Task<IActionResult> Index(int pagina = 1)
         {
-            int idDoUsuarioLogado = GetIdUsuarioLogado();
-            var applicationDbContext = _context.AlunosLinhaDoTempo!.Include(a => a.Aluno);
-            var linhaDoTempoAlunos = from l in applicationDbContext select l;
-            if (User.IsInRole("Professor"))
-            {
-                var professor = await _context.Professores!.Include(p => p.Disciplinas).FirstOrDefaultAsync(p => p.ProfessorId == idDoUsuarioLogado);
-                var idsTurmasDoProfessor = from d in professor!.Disciplinas select d.TurmaId;
-                linhaDoTempoAlunos = linhaDoTempoAlunos.Where(l => idsTurmasDoProfessor.Contains((int)l.Aluno!.TurmaId!));
+            try { 
+                int idDoUsuarioLogado = GetIdUsuarioLogado();
+                var applicationDbContext = _context.AlunosLinhaDoTempo!.Include(a => a.Aluno);
+                var linhaDoTempoAlunos = from l in applicationDbContext select l;
+                if (User.IsInRole("Professor"))
+                {
+                    var professor = await _context.Professores!.Include(p => p.Disciplinas).FirstOrDefaultAsync(p => p.ProfessorId == idDoUsuarioLogado);
+                    var idsTurmasDoProfessor = from d in professor!.Disciplinas select d.TurmaId;
+                    linhaDoTempoAlunos = linhaDoTempoAlunos.Where(l => idsTurmasDoProfessor.Contains((int)l.Aluno!.TurmaId!));
+                }
+                if (User.IsInRole("ResponsavelAluno"))
+                {
+                    var responsavel = await _context.Responsaveis!.Include(r => r.Alunos).FirstOrDefaultAsync(p => p.ResponsavelId == idDoUsuarioLogado);
+                    var idsDependentes = from d in responsavel!.Alunos select d.Id;
+                    linhaDoTempoAlunos = linhaDoTempoAlunos.Where(l => idsDependentes.Contains((int)l.Aluno!.Id));
+                }
+                return View(await linhaDoTempoAlunos.ToPagedListAsync(pagina, 50));
             }
-            if (User.IsInRole("ResponsavelAluno"))
+            catch
             {
-                var responsavel = await _context.Responsaveis!.Include(r => r.Alunos).FirstOrDefaultAsync(p => p.ResponsavelId == idDoUsuarioLogado);
-                var idsDependentes = from d in responsavel!.Alunos select d.Id;
-                linhaDoTempoAlunos = linhaDoTempoAlunos.Where(l => idsDependentes.Contains((int)l.Aluno!.Id));
+                return BadRequest();
             }
-            return View(await linhaDoTempoAlunos.ToPagedListAsync(pagina, 50));
         }
         public async Task<IActionResult> Visualizar(int? id, int? post, int? numeroComentarios = 0, bool mostrarTodosComentarios = false)
         {
-            if (id == null || _context.AlunosLinhaDoTempo == null)
-            {
-                return NotFound();
-            }
-            if (User.IsInRole("Professor"))
-            {
-                if (ProfessorNaoTemAcessoALinhaDoTempo((int)id))
+            try { 
+                if (id == null || _context.AlunosLinhaDoTempo == null)
                 {
-                    return Forbid();
+                    return NotFound();
                 }
-            }
-            if (User.IsInRole("ResponsavelAluno"))
-            {
-                if (ResponsavelNaoTemAcessoALinhaDoTempo((int)id))
+                if (User.IsInRole("Professor"))
                 {
-                    return Forbid();
+                    if (ProfessorNaoTemAcessoALinhaDoTempo((int)id))
+                    {
+                        return Forbid();
+                    }
                 }
-            }
-            var alunoLinhaDoTempo = await _context.AlunosLinhaDoTempo
-            .Include(a => a.Postagens!.OrderByDescending(p => p.DataAtualizacao))
-            .ThenInclude(p => p.Autor)
-            .Include(a => a.Postagens!.OrderByDescending(p => p.DataAtualizacao))
-            .ThenInclude(p => p.Comentarios!)
-            .ThenInclude(c => c.Autor)
-            .Include(a => a.Aluno)
-            .FirstOrDefaultAsync(m => m.Id == id);
-            ViewData["Id"] = id;
+                if (User.IsInRole("ResponsavelAluno"))
+                {
+                    if (ResponsavelNaoTemAcessoALinhaDoTempo((int)id))
+                    {
+                        return Forbid();
+                    }
+                }
+                var alunoLinhaDoTempo = await _context.AlunosLinhaDoTempo
+                .Include(a => a.Postagens!.OrderByDescending(p => p.DataAtualizacao))
+                .ThenInclude(p => p.Autor)
+                .Include(a => a.Postagens!.OrderByDescending(p => p.DataAtualizacao))
+                .ThenInclude(p => p.Comentarios!)
+                .ThenInclude(c => c.Autor)
+                .Include(a => a.Aluno)
+                .FirstOrDefaultAsync(m => m.Id == id);
+                ViewData["Id"] = id;
 
-            ViewBag.linhaDoTempoId = id;
-            ViewBag.postId = post;
-            ViewBag.numeroComentarios = 10;
-            ViewBag.mostrarTodosComentarios = mostrarTodosComentarios;
-            if (post != null) {
-                ViewBag.numeroComentarios = numeroComentarios + 5;
+                ViewBag.linhaDoTempoId = id;
+                ViewBag.postId = post;
+                ViewBag.numeroComentarios = 10;
+                ViewBag.mostrarTodosComentarios = mostrarTodosComentarios;
+                if (post != null) {
+                    ViewBag.numeroComentarios = numeroComentarios + 5;
+                }
+                return View(alunoLinhaDoTempo);
             }
-            return View(alunoLinhaDoTempo);
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         // GET: ComentariosPostagensLinhaDoTempo/CreateComentario
         public IActionResult CreateComentario()
         {
-            return RedirectToRoute(new { controller = "AlunosLinhaDoTempo", action = "Visualizar", id = 1 });
+            try { 
+                return RedirectToRoute(new { controller = "AlunosLinhaDoTempo", action = "Visualizar", id = 1 });
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         // POST: ComentariosPostagensLinhaDoTempo/Create
@@ -94,6 +113,7 @@ namespace App_comunicacao_escolar.Controllers
             [Bind("PostagemId")] string PostagemId,
             [Bind("LinhaDoTempoId")] string LinhaDoTempoId)
         {
+            try { 
             int linhaDoTempoId = Int32.Parse(LinhaDoTempoId);
 
             if (User.IsInRole("Professor"))
@@ -130,6 +150,11 @@ namespace App_comunicacao_escolar.Controllers
                     mostrarTodosComentarios = true });
             }
             return RedirectToRoute(new { controller = "AlunosLinhaDoTempo", action = "Visualizar", id = Int32.Parse(LinhaDoTempoId) });
+            } 
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         private bool AlunoLinhaDoTempoExists(int id)

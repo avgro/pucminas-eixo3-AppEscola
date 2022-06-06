@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using App_comunicacao_escolar.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace App_comunicacao_escolar.Controllers
 {
+    [Authorize]
     public class PostagensLinhaDoTempoController : CommonController
     {
         private readonly ApplicationDbContext _context;
@@ -18,42 +20,22 @@ namespace App_comunicacao_escolar.Controllers
             _context = context;
         }
 
-        // GET: PostagensLinhaDoTempo
-        public async Task<IActionResult> Index()
-        {
-            var applicationDbContext = _context.PostagensLinhaDoTempo!.Include(p => p.LinhaDoTempo);
-            return View(await applicationDbContext.ToListAsync());
-        }
-
-        // GET: PostagensLinhaDoTempo/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.PostagensLinhaDoTempo == null)
-            {
-                return NotFound();
-            }
-
-            var postagemLinhaDoTempo = await _context.PostagensLinhaDoTempo
-                .Include(p => p.LinhaDoTempo)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (postagemLinhaDoTempo == null)
-            {
-                return NotFound();
-            }
-
-            return View(postagemLinhaDoTempo);
-        }
-
-
+        [Authorize(Roles = "Professor")]
         public IActionResult Create(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
+            try { 
+                if (id == null)
+                {
+                    return NotFound();
+                }
+                ViewData["LinhaDoTempoId"] = new SelectList(_context.AlunosLinhaDoTempo, "Id", "Id");
+                ViewBag.linhaDoTempoId = id;
+                return View();
             }
-            ViewData["LinhaDoTempoId"] = new SelectList(_context.AlunosLinhaDoTempo, "Id", "Id");
-            ViewBag.linhaDoTempoId = id;
-            return View();
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         // POST: PostagensLinhaDoTempo/Create
@@ -61,115 +43,31 @@ namespace App_comunicacao_escolar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Professor")]
         public async Task<IActionResult> Create([Bind("Id,Assunto,Conteudo,CodigoImagemPostada,LinhaDoTempoId")] PostagemLinhaDoTempo postagemLinhaDoTempo,
             IFormFile? arquivo)
         {
-            postagemLinhaDoTempo.Id = 0;
-            postagemLinhaDoTempo = FazerUploadDaImagem(postagemLinhaDoTempo, arquivo);
-            postagemLinhaDoTempo.DataCriacao = DateTime.Now;
-            postagemLinhaDoTempo.DataAtualizacao = DateTime.Now;
-            postagemLinhaDoTempo.AutorId = GetIdUsuarioLogado();
+            try { 
+                postagemLinhaDoTempo.Id = 0;
+                postagemLinhaDoTempo = FazerUploadDaImagem(postagemLinhaDoTempo, arquivo);
+                postagemLinhaDoTempo.DataCriacao = DateTime.Now;
+                postagemLinhaDoTempo.DataAtualizacao = DateTime.Now;
+                postagemLinhaDoTempo.AutorId = GetIdUsuarioLogado();
 
-            if (ModelState.IsValid)
-            {
-                _context.Add(postagemLinhaDoTempo);
-                await _context.SaveChangesAsync();
-                return RedirectToRoute(new { controller = "AlunosLinhaDoTempo", action = "Visualizar", id = postagemLinhaDoTempo.LinhaDoTempoId });
-            }
-            ViewData["LinhaDoTempoId"] = new SelectList(_context.AlunosLinhaDoTempo, "Id", "Id", postagemLinhaDoTempo.LinhaDoTempoId);
-            ViewBag.linhaDoTempoId = postagemLinhaDoTempo.LinhaDoTempoId;
-            return View(postagemLinhaDoTempo);
-        }
-
-        // GET: PostagensLinhaDoTempo/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.PostagensLinhaDoTempo == null)
-            {
-                return NotFound();
-            }
-
-            var postagemLinhaDoTempo = await _context.PostagensLinhaDoTempo.FindAsync(id);
-            if (postagemLinhaDoTempo == null)
-            {
-                return NotFound();
-            }
-            ViewData["LinhaDoTempoId"] = new SelectList(_context.AlunosLinhaDoTempo, "Id", "Id", postagemLinhaDoTempo.LinhaDoTempoId);
-            return View(postagemLinhaDoTempo);
-        }
-
-        // POST: PostagensLinhaDoTempo/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Assunto,Conteudo,CodigoImagemPostada,LinhaDoTempoId")] PostagemLinhaDoTempo postagemLinhaDoTempo)
-        {
-            if (id != postagemLinhaDoTempo.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
+                if (ModelState.IsValid)
                 {
-                    _context.Update(postagemLinhaDoTempo);
+                    _context.Add(postagemLinhaDoTempo);
                     await _context.SaveChangesAsync();
+                    return RedirectToRoute(new { controller = "AlunosLinhaDoTempo", action = "Visualizar", id = postagemLinhaDoTempo.LinhaDoTempoId });
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!PostagemLinhaDoTempoExists(postagemLinhaDoTempo.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                ViewData["LinhaDoTempoId"] = new SelectList(_context.AlunosLinhaDoTempo, "Id", "Id", postagemLinhaDoTempo.LinhaDoTempoId);
+                ViewBag.linhaDoTempoId = postagemLinhaDoTempo.LinhaDoTempoId;
+                return View(postagemLinhaDoTempo);
             }
-            ViewData["LinhaDoTempoId"] = new SelectList(_context.AlunosLinhaDoTempo, "Id", "Id", postagemLinhaDoTempo.LinhaDoTempoId);
-            return View(postagemLinhaDoTempo);
-        }
-
-        // GET: PostagensLinhaDoTempo/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.PostagensLinhaDoTempo == null)
+            catch
             {
-                return NotFound();
+                return BadRequest();
             }
-
-            var postagemLinhaDoTempo = await _context.PostagensLinhaDoTempo
-                .Include(p => p.LinhaDoTempo)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (postagemLinhaDoTempo == null)
-            {
-                return NotFound();
-            }
-
-            return View(postagemLinhaDoTempo);
-        }
-
-        // POST: PostagensLinhaDoTempo/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.PostagensLinhaDoTempo == null)
-            {
-                return Problem("Entity set 'ApplicationDbContext.PostagensLinhaDoTempo'  is null.");
-            }
-            var postagemLinhaDoTempo = await _context.PostagensLinhaDoTempo.FindAsync(id);
-            if (postagemLinhaDoTempo != null)
-            {
-                _context.PostagensLinhaDoTempo.Remove(postagemLinhaDoTempo);
-            }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
         }
 
         private bool PostagemLinhaDoTempoExists(int id)

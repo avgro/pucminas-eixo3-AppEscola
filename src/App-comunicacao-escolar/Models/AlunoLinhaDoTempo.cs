@@ -12,5 +12,10 @@ namespace App_comunicacao_escolar.Models
         public int AlunoId { get; set; }
         public virtual Aluno? Aluno { get; set; }
         public ICollection<PostagemLinhaDoTempo>? Postagens { get; set; }
+
+        internal Task<string?> ToPagedListAsync(int pagina, int v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
