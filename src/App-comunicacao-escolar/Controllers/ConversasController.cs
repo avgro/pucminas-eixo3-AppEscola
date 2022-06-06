@@ -30,11 +30,15 @@ namespace App_comunicacao_escolar.Controllers
             {
                 int idDoUsuarioLogado = GetIdUsuarioLogado();
 
-                var applicationDbContext = _context.Conversas.Include(c => c.Participantes).Include(c => c.NumeroDeNovasMensagensNaConversa).Include(c => c.UsuariosQueArquivaramConversa);
+                var applicationDbContext = _context.Conversas
+                    .Include(c => c.Participantes)
+                    .Include(c => c.NumeroDeNovasMensagensNaConversa)
+                    .Include(c => c.UsuariosQueArquivaramConversa)
+                    .Include(c => c.Mensagens);
 
                 var conversas = from c in applicationDbContext select c;
 
-                conversas = conversas.OrderByDescending(c => c.Id);
+                conversas = conversas.OrderByDescending(c => c.Mensagens.Where(m => m.Participantes.Any(p => p.Id == idDoUsuarioLogado)).Max(m => m.DataEnvio)); ;
 
                 if (secao.Equals("Enviados"))
                 {
