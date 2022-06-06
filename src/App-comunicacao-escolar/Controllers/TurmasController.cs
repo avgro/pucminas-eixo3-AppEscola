@@ -135,6 +135,7 @@ namespace App_comunicacao_escolar.Controllers
                     return NotFound();
                 }
 
+                ViewData["NomeDaTurma"] = turma.NomeComCodigoEntreParenteses;
                 return View(await turma.Alunos.ToPagedListAsync(pagina, 50));
             }
             catch
