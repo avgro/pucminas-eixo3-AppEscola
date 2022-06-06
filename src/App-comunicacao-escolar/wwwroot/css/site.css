@@ -15,7 +15,7 @@ html {
 }
 
 main {
-    min-height: 585px;
+    min-height: 543px;
 }
 
 .btn {
@@ -288,6 +288,7 @@ max-width-100 {
 .menu-lateral {
     position: sticky;
     margin-top: 32px;
+    margin-right: 32px;
     top: 16px;
     background-color: white;
 }
