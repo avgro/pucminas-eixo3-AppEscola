@@ -254,8 +254,7 @@ namespace App_comunicacao_escolar.Controllers
         [Authorize(Roles = "Admin, Professor")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Descricao,InicioDoEvento,FimDoEvento,AgendaId,RequerAutorizacao")] EventoDaAgenda eventoDaAgendaNovasInformacoes)
         {
-            try
-            {
+            try { 
                 if (id != eventoDaAgendaNovasInformacoes.Id)
                 {
                     return NotFound();
@@ -266,7 +265,7 @@ namespace App_comunicacao_escolar.Controllers
                 eventoDaAgenda.Nome = eventoDaAgendaNovasInformacoes.Nome;
                 eventoDaAgenda.InicioDoEvento = eventoDaAgendaNovasInformacoes.InicioDoEvento;
                 eventoDaAgenda.FimDoEvento = eventoDaAgendaNovasInformacoes.FimDoEvento;
-                eventoDaAgenda.IdUsuarioQueCadastrouEvento = eventoDaAgendaNovasInformacoes.IdUsuarioQueCadastrouEvento;
+                eventoDaAgenda.IdUsuarioQueCadastrouEvento = GetIdUsuarioLogado();
 
                 List<string> listarErrosDeValidacao = IsValidCustomizado(eventoDaAgenda);
                 while (listarErrosDeValidacao.Count > 0)
