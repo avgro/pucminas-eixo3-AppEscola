@@ -118,6 +118,7 @@ namespace App_comunicacao_escolar.Controllers
                         var responsavel = await _context.Responsaveis.FirstOrDefaultAsync(r => r.ResponsavelId == responsavelId);
                         aluno.Responsaveis.Add(responsavel);
                     }
+                    aluno.AlunosLinhaDoTempo = new AlunoLinhaDoTempo();
                     _context.Add(aluno);
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));

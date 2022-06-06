@@ -65,7 +65,7 @@ namespace App_comunicacao_escolar.Controllers
             {
                 fileName = anexo.NomeUnicoDoArquivo;
             }
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Arquivos", "UploadsUsuarios", fileName);
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "uploadsUsuarios", fileName);
             try
             {
                 byte[] bytes = System.IO.File.ReadAllBytes(filePath);
@@ -255,6 +255,15 @@ namespace App_comunicacao_escolar.Controllers
                 }
             }
             return idAgendasSelecionadas;
+        }
+
+        public bool ResponsavelNaoTemAcessoALinhaDoTempo(int linhaDoTempoId)
+        {
+            return false;
+        }
+        public bool ProfessorNaoTemAcessoALinhaDoTempo(int linhaDoTempoId)
+        {
+            return false;
         }
     }
 }

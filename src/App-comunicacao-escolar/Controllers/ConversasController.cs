@@ -383,7 +383,7 @@ namespace App_comunicacao_escolar.Controllers
                         NomeOriginalDoArquivo = formFile.FileName,
                         NomeUnicoDoArquivo = idDoUsuarioLogado + "-" + DateTime.Now.Ticks
                     };
-                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Arquivos", "UploadsUsuarios", anexo.NomeUnicoDoArquivo);
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "uploadsUsuarios", anexo.NomeUnicoDoArquivo);
                     filePaths.Add(filePath);
                     using (var stream = new FileStream(filePath, FileMode.Create))
                     {

@@ -20,6 +20,7 @@ window.addEventListener('load', function () {
 function jQrefresh() {
     document.getElementById("refreshPartial").click();
     document.getElementById("refreshPartialAutorizacao").click();
+    document.getElementById("refreshPartialNotificacao").click();
 }
 
 // Suporte à validação customizada. Esconde mensagens de erro ao digitar valor nos campos a serem validados.
