@@ -77,6 +77,7 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: Notificacoes/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             ViewData["TurmaId"] = new SelectList(_context.Turmas, "Id", "Codigo");
@@ -88,6 +89,7 @@ namespace App_comunicacao_escolar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create([Bind("Id,Assunto,Conteudo,TurmaId,Perfil")] Notificacao notificacao)
         {
             if (notificacao.TurmaId == 0)
@@ -134,6 +136,7 @@ namespace App_comunicacao_escolar.Controllers
 
 
         // GET: Notificacoes/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Notificacoes == null)
@@ -155,6 +158,7 @@ namespace App_comunicacao_escolar.Controllers
         // POST: Notificacoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Notificacoes == null)

@@ -836,4 +836,33 @@ max-width-100 {
     }
 }
 
-/* --------------   -------------- */
+/* -------------- Linha do Tempo -------------- */
+
+.postagem {
+    background-color: #f0f0f0;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    word-wrap: anywhere;
+    padding: 12px;
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 48px;
+}
+.postagem img {
+    width: 100%;
+    max-height: 600px;
+    margin: auto;
+    margin-top: 12px;
+    margin-bottom: 12px;
+ }
+
+.comentario-postagem {
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    word-wrap: anywhere;
+    padding: 12px;
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 4px;
+}

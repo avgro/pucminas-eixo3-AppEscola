@@ -16,6 +16,15 @@
     <Content Remove="wwwroot\images\imagem3appescola.png" />
     <Content Remove="wwwroot\images\imagem4appescola.png" />
     <Content Remove="wwwroot\images\iStock-585609744.jpg" />
+    <Content Remove="wwwroot\images\uploadsUsuarios\2-637897199016842431" />
+    <Content Remove="wwwroot\images\uploadsUsuarios\3-637867864172022629" />
+    <Content Remove="wwwroot\images\uploadsUsuarios\3-637867870147327492" />
+    <Content Remove="wwwroot\images\uploadsUsuarios\3-637867894042225261" />
+    <Content Remove="wwwroot\images\uploadsUsuarios\3-637884139622724561" />
+    <Content Remove="wwwroot\images\uploadsUsuarios\3-637898806604520353" />
+    <Content Remove="wwwroot\images\uploadsUsuarios\71-637871067043597424" />
+    <Content Remove="wwwroot\images\uploadsUsuarios\71-637871067170736266" />
+    <Content Remove="wwwroot\images\uploadsUsuarios\73-637874559131591839" />
     <Content Remove="wwwroot\images\índice.jpg" />
   </ItemGroup>
 
@@ -48,6 +57,15 @@
     <None Include="wwwroot\images\imagem3appescola.png" />
     <None Include="wwwroot\images\imagem4appescola.png" />
     <None Include="wwwroot\images\iStock-585609744.jpg" />
+    <None Include="wwwroot\images\uploadsUsuarios\2-637897199016842431" />
+    <None Include="wwwroot\images\uploadsUsuarios\3-637867864172022629" />
+    <None Include="wwwroot\images\uploadsUsuarios\3-637867870147327492" />
+    <None Include="wwwroot\images\uploadsUsuarios\3-637867894042225261" />
+    <None Include="wwwroot\images\uploadsUsuarios\3-637884139622724561" />
+    <None Include="wwwroot\images\uploadsUsuarios\3-637898806604520353" />
+    <None Include="wwwroot\images\uploadsUsuarios\71-637871067043597424" />
+    <None Include="wwwroot\images\uploadsUsuarios\71-637871067170736266" />
+    <None Include="wwwroot\images\uploadsUsuarios\73-637874559131591839" />
     <None Include="wwwroot\images\índice.jpg" />
   </ItemGroup>
 

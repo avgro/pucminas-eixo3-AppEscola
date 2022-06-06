@@ -4,6 +4,7 @@ using App_comunicacao_escolar.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App_comunicacao_escolar.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220603225336_M54")]
+    partial class M54
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -151,37 +153,6 @@ namespace App_comunicacao_escolar.Migrations
                     b.HasIndex("EventoId");
 
                     b.ToTable("AutorizacoesEventos");
-                });
-
-            modelBuilder.Entity("App_comunicacao_escolar.Models.ComentarioPostagemLinhaDoTempo", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int?>("AutorId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Conteudo")
-                        .IsRequired()
-                        .HasMaxLength(2000)
-                        .HasColumnType("nvarchar(2000)");
-
-                    b.Property<DateTime?>("DataCriacao")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("PostagemLinhaDoTempoId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AutorId");
-
-                    b.HasIndex("PostagemLinhaDoTempoId");
-
-                    b.ToTable("ComentariosPostagensLinhaDoTempo");
                 });
 
             modelBuilder.Entity("App_comunicacao_escolar.Models.Conversa", b =>
@@ -471,9 +442,6 @@ namespace App_comunicacao_escolar.Migrations
                         .IsRequired()
                         .HasMaxLength(1000)
                         .HasColumnType("nvarchar(1000)");
-
-                    b.Property<DateTime?>("DataAtualizacao")
-                        .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DataCriacao")
                         .HasColumnType("datetime2");
@@ -777,22 +745,6 @@ namespace App_comunicacao_escolar.Migrations
                     b.Navigation("Evento");
                 });
 
-            modelBuilder.Entity("App_comunicacao_escolar.Models.ComentarioPostagemLinhaDoTempo", b =>
-                {
-                    b.HasOne("App_comunicacao_escolar.Models.Usuario", "Autor")
-                        .WithMany("ComentariosPostagensLinhaDoTempo")
-                        .HasForeignKey("AutorId");
-
-                    b.HasOne("App_comunicacao_escolar.Models.PostagemLinhaDoTempo", "Postagem")
-                        .WithMany("Comentarios")
-                        .HasForeignKey("PostagemLinhaDoTempoId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.Navigation("Autor");
-
-                    b.Navigation("Postagem");
-                });
-
             modelBuilder.Entity("App_comunicacao_escolar.Models.Disciplina", b =>
                 {
                     b.HasOne("App_comunicacao_escolar.Models.Turma", "Turma")
@@ -1033,11 +985,6 @@ namespace App_comunicacao_escolar.Migrations
                     b.Navigation("NotificacoesLidas");
                 });
 
-            modelBuilder.Entity("App_comunicacao_escolar.Models.PostagemLinhaDoTempo", b =>
-                {
-                    b.Navigation("Comentarios");
-                });
-
             modelBuilder.Entity("App_comunicacao_escolar.Models.Turma", b =>
                 {
                     b.Navigation("Agendas");
@@ -1051,8 +998,6 @@ namespace App_comunicacao_escolar.Migrations
 
             modelBuilder.Entity("App_comunicacao_escolar.Models.Usuario", b =>
                 {
-                    b.Navigation("ComentariosPostagensLinhaDoTempo");
-
                     b.Navigation("EventosCadastrados");
 
                     b.Navigation("NotificacoesLidas");

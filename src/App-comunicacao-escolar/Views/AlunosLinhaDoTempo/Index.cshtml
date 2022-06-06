@@ -1,0 +1,64 @@
+﻿@using X.PagedList.Mvc;
+@using X.PagedList.Mvc.Core
+@model X.PagedList.StaticPagedList<App_comunicacao_escolar.Models.AlunoLinhaDoTempo>
+
+
+@{
+    ViewData["Title"] = "Linhas do tempo de alunos";
+}
+
+<h1>Linhas do tempo de alunos</h1>
+<h2>Selecionar aluno</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Aluno
+            </th>
+            <th>
+                Turma
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aluno!.NomeAlunoComCodigoEntreParenteses)
+            </td>
+            <td>
+                @if(item.Aluno!.Turma == null) 
+                {
+                    <text>Nenhuma</text>
+                }
+                else 
+                {
+                    @Html.DisplayFor(modelItem => item.Aluno!.Turma.NomeComCodigoEntreParenteses)
+                }
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-action="Visualizar" asp-route-id="@item.Id">Visualizar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@if (Model.Count() == 0)
+{   
+    <div class="col-12 m-2 alert-warning p-3 text-center">Nenhuma linha do tempo encontrada</div>
+}
+
+<div class="row">
+    <div class="col-md-8">
+        @Html.PagedListPager(Model, pagina => Url.Action("Index", new {pagina, secao = @ViewData["TituloDaSecao"]}), new X.PagedList.Web.Common.PagedListRenderOptions
+               {                       
+                        DisplayLinkToIndividualPages = true,
+                        DisplayPageCountAndCurrentLocation = false,
+                        LiElementClasses = new string[] { "page-item" },
+                   PageClasses = new string[] { "page-link" },
+                   
+                    })
+    </div>
+</div>
