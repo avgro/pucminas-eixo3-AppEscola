@@ -1,4 +1,7 @@
-﻿@model IEnumerable<App_comunicacao_escolar.Models.AlunoLinhaDoTempo>
+﻿@using X.PagedList.Mvc;
+@using X.PagedList.Mvc.Core
+@model X.PagedList.StaticPagedList<App_comunicacao_escolar.Models.AlunoLinhaDoTempo>
+
 
 @{
     ViewData["Title"] = "Linhas do tempo de alunos";
@@ -11,7 +14,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Aluno)
+                Aluno
             </th>
             <th></th>
         </tr>
@@ -20,7 +23,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Aluno.NomeAlunoComCodigoEntreParenteses)
+                @Html.DisplayFor(modelItem => item.Aluno!.NomeAlunoComCodigoEntreParenteses)
             </td>
             <td>
                 <a class="btn btn-primary" asp-action="Visualizar" asp-route-id="@item.Id">Visualizar</a>
@@ -33,3 +36,16 @@
 {   
     <div class="col-12 m-2 alert-warning p-3 text-center">Nenhuma linha do tempo encontrada</div>
 }
+
+<div class="row">
+    <div class="col-md-8">
+        @Html.PagedListPager(Model, pagina => Url.Action("Index", new {pagina, secao = @ViewData["TituloDaSecao"]}), new X.PagedList.Web.Common.PagedListRenderOptions
+               {                       
+                        DisplayLinkToIndividualPages = true,
+                        DisplayPageCountAndCurrentLocation = false,
+                        LiElementClasses = new string[] { "page-item" },
+                   PageClasses = new string[] { "page-link" },
+                   
+                    })
+    </div>
+</div>

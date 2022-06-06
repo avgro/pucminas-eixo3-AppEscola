@@ -259,11 +259,48 @@ namespace App_comunicacao_escolar.Controllers
 
         public bool ResponsavelNaoTemAcessoALinhaDoTempo(int linhaDoTempoId)
         {
-            return false;
+            int idDoUsuarioLogado = GetIdUsuarioLogado();
+            var responsavel = _context.Responsaveis!.Include(r => r.Alunos)!.ThenInclude(a => a.AlunosLinhaDoTempo).FirstOrDefault(r => r.ResponsavelId == idDoUsuarioLogado);
+            if (responsavel == null) {
+                return true;
+            }
+            if (responsavel.Alunos == null)
+            {
+                return true;
+            }
+            if (responsavel.Alunos.Any(a => a.AlunosLinhaDoTempo!.Id == linhaDoTempoId))
+            {
+                return false;
+            }
+            return true;
         }
         public bool ProfessorNaoTemAcessoALinhaDoTempo(int linhaDoTempoId)
         {
-            return false;
+            int idDoUsuarioLogado = GetIdUsuarioLogado();
+            var professor = _context.Professores!.Include(p => p.Disciplinas).FirstOrDefault(p => p.ProfessorId == idDoUsuarioLogado);
+            if (professor == null)
+            {
+                return true;
+            }
+            if (professor.Disciplinas == null)
+            {
+                return true;
+            }
+            var aluno = _context.Alunos!.Include(a => a.AlunosLinhaDoTempo).FirstOrDefault(a => a.AlunosLinhaDoTempo!.Id == linhaDoTempoId);
+            if (aluno == null)
+            {
+                return true;
+            }
+            if (aluno.TurmaId == null)
+            {
+                return true;
+            }
+            if (professor.Disciplinas.Any(d => d.TurmaId == aluno.TurmaId))
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

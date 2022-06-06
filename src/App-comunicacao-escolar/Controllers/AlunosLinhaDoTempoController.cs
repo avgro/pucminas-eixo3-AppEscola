@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using App_comunicacao_escolar.Models;
+using X.PagedList;
 
 namespace App_comunicacao_escolar.Controllers
 {
@@ -19,16 +20,44 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: AlunosLinhaDoTempo
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int pagina = 1)
         {
+            int idDoUsuarioLogado = GetIdUsuarioLogado();
             var applicationDbContext = _context.AlunosLinhaDoTempo!.Include(a => a.Aluno);
-            return View(await applicationDbContext.ToListAsync());
+            var linhaDoTempoAlunos = from l in applicationDbContext select l;
+            if (User.IsInRole("Professor"))
+            {
+                var professor = await _context.Professores!.Include(p => p.Disciplinas).FirstOrDefaultAsync(p => p.ProfessorId == idDoUsuarioLogado);
+                var idsTurmasDoProfessor = from d in professor!.Disciplinas select d.TurmaId;
+                linhaDoTempoAlunos = linhaDoTempoAlunos.Where(l => idsTurmasDoProfessor.Contains((int)l.Aluno!.TurmaId!));
+            }
+            if (User.IsInRole("ResponsavelAluno"))
+            {
+                var responsavel = await _context.Responsaveis!.Include(r => r.Alunos).FirstOrDefaultAsync(p => p.ResponsavelId == idDoUsuarioLogado);
+                var idsDependentes = from d in responsavel!.Alunos select d.Id;
+                linhaDoTempoAlunos = linhaDoTempoAlunos.Where(l => idsDependentes.Contains((int)l.Aluno!.Id));
+            }
+            return View(await linhaDoTempoAlunos.ToPagedListAsync(pagina, 50));
         }
         public async Task<IActionResult> Visualizar(int? id, int? post, int? numeroComentarios = 0, bool mostrarTodosComentarios = false)
         {
             if (id == null || _context.AlunosLinhaDoTempo == null)
             {
                 return NotFound();
+            }
+            if (User.IsInRole("Professor"))
+            {
+                if (ProfessorNaoTemAcessoALinhaDoTempo((int)id))
+                {
+                    return Forbid();
+                }
+            }
+            if (User.IsInRole("ResponsavelAluno"))
+            {
+                if (ResponsavelNaoTemAcessoALinhaDoTempo((int)id))
+                {
+                    return Forbid();
+                }
             }
             var alunoLinhaDoTempo = await _context.AlunosLinhaDoTempo
             .Include(a => a.Postagens!.OrderByDescending(p => p.DataAtualizacao))
@@ -65,6 +94,23 @@ namespace App_comunicacao_escolar.Controllers
             [Bind("PostagemId")] string PostagemId,
             [Bind("LinhaDoTempoId")] string LinhaDoTempoId)
         {
+            int linhaDoTempoId = Int32.Parse(LinhaDoTempoId);
+
+            if (User.IsInRole("Professor"))
+            {
+                if (ProfessorNaoTemAcessoALinhaDoTempo(linhaDoTempoId))
+                {
+                    return Forbid();
+                }
+            }
+            if (User.IsInRole("ResponsavelAluno"))
+            {
+                if (ResponsavelNaoTemAcessoALinhaDoTempo(linhaDoTempoId))
+                {
+                    return Forbid();
+                }
+            }
+
             ComentarioPostagemLinhaDoTempo comentarioPostagemLinhaDoTempo = new();
             comentarioPostagemLinhaDoTempo.Conteudo = ConteudoComentario;
             comentarioPostagemLinhaDoTempo.DataCriacao = DateTime.Now;
