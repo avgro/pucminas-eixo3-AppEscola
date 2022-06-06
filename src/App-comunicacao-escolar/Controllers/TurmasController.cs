@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace App_comunicacao_escolar.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize]
     public class TurmasController : CommonController
     {
         private readonly ApplicationDbContext _context;
@@ -23,6 +23,7 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: Turmas
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index(string searchString, int pagina = 1)
         {
             try
@@ -46,7 +47,40 @@ namespace App_comunicacao_escolar.Controllers
             }
         }
 
+        // GET: TurmasProfessor
+        [Authorize(Roles = "Professor")]
+        public async Task<IActionResult> TurmasProfessor(string searchString, int pagina = 1)
+        {
+            try
+            {
+                int idDoUsuarioLogado = GetIdUsuarioLogado();
+                var professor = await _context.Professores.Include(p => p.Disciplinas).FirstOrDefaultAsync(p => p.ProfessorId == idDoUsuarioLogado);
+                var professorTurmas = from p in professor.Disciplinas select p.TurmaId;
+
+                var applicationDbContext = _context.Turmas
+                    .Include(t => t.Disciplinas.Where(d => d.Professores.Any(p => p.ProfessorId == idDoUsuarioLogado)))
+                    .OrderBy(t => t.NomeComCodigoEntreParenteses);
+
+                var turmas = from t in applicationDbContext select t;
+                turmas = turmas.Where(t => professorTurmas.Contains(t.Id));
+
+                turmas = turmas.OrderBy(t => t.NomeComCodigoEntreParenteses);
+
+                if (searchString != null)
+                {
+                    turmas = turmas.Where(t => t.NomeComCodigoEntreParenteses.Contains(searchString));
+                }
+
+                return View(await turmas.ToPagedListAsync(pagina, 50));
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+
         // GET: Turmas/Details/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Details(int? id)
         {
             try
@@ -71,7 +105,46 @@ namespace App_comunicacao_escolar.Controllers
             }
         }
 
+
+        // GET: Turmas/AlunosTurma/5
+        [Authorize(Roles = "Professor")]
+        public async Task<IActionResult> AlunosTurma(int? id, int pagina = 1)
+        {
+            try
+            {
+                if (id == null)
+                {
+                    return NotFound();
+                }
+                int idDoUsuarioLogado = GetIdUsuarioLogado();
+                var professor = await _context.Professores.Include(p => p.Disciplinas).FirstOrDefaultAsync(p => p.ProfessorId == idDoUsuarioLogado);
+                var professorTurmas = from p in professor.Disciplinas select p.TurmaId;
+
+                if (!professorTurmas.Contains(id))
+                {
+                    return Forbid();
+                }
+
+                var turma = await _context.Turmas
+                    .Include(t => t.Alunos.OrderBy(a => a.NomeAlunoComCodigoEntreParenteses))
+                    .ThenInclude(a => a.Responsaveis)
+                    .ThenInclude(r => r.Usuario)
+                    .FirstOrDefaultAsync(m => m.Id == id);
+                if (turma == null)
+                {
+                    return NotFound();
+                }
+
+                return View(await turma.Alunos.ToPagedListAsync(pagina, 50));
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+
         // GET: Turmas/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -82,6 +155,7 @@ namespace App_comunicacao_escolar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create([Bind("Id,Nome,Codigo,NomeComCodigoEntreParenteses")] Turma turma)
         {
             try
@@ -112,6 +186,7 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: Turmas/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             try
@@ -140,6 +215,7 @@ namespace App_comunicacao_escolar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Codigo,NomeComCodigoEntreParenteses")] Turma turma)
         {
             try
@@ -189,6 +265,7 @@ namespace App_comunicacao_escolar.Controllers
 
 
         // GET: Turmas/GerenciarDisciplinas/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GerenciarDisciplinas(int? id, int? tentarAssociarDisciplina)
         {
             try
@@ -217,6 +294,7 @@ namespace App_comunicacao_escolar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GerenciarDisciplinas(int id, 
             [Bind("numeroDaDisciplinaQueDesejaAdicionar")] int numeroDaDisciplinaQueDesejaAdicionar,
             [Bind("adicionarOuRemover")] string adicionarOuRemover)
@@ -321,6 +399,7 @@ namespace App_comunicacao_escolar.Controllers
         }
 
         // GET: Turmas/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             try
@@ -348,6 +427,7 @@ namespace App_comunicacao_escolar.Controllers
         // POST: Turmas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             try

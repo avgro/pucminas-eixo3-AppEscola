@@ -1,0 +1,79 @@
+﻿@using X.PagedList.Mvc;
+@using X.PagedList.Mvc.Core
+@model X.PagedList.StaticPagedList<App_comunicacao_escolar.Models.Aluno>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de alunos</h1>
+
+<div class="d-flex justify-content-between my-4 whitespace-nowrap">
+    <a asp-action="Create" class="btn btn-primary">Cadastrar aluno</a>
+</div>
+@using (Html.BeginForm("AlunosTurma", "Turmas", new { secao = @ViewData["TituloDaSecao"] }, FormMethod.Post))
+{
+    <div>
+        Buscar aluno por nome, código ou turma:<br> @Html.TextBox("searchString")
+        <input id="Submit1" type="submit" value="Buscar"/>
+    </div>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                Turma
+            </th>
+            <th>
+                Responsáveis
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeAlunoComCodigoEntreParenteses)
+            </td>
+            <td>
+                @if(item.Turma != null) {
+                        <text>@Html.DisplayFor(modelItem => item.Turma.NomeComCodigoEntreParenteses)</text>
+                    }
+                    else
+                    {
+                        <text>Nenhuma</text>
+                    }
+            </td>
+            <td class="mais-informacoes">
+                @if (item.Responsaveis != null) {
+                    foreach(var responsavel in item.Responsaveis) {
+                        @Html.DisplayFor(modelItemResponsavel => responsavel.Usuario.NomeDisplayLista);
+                        <text>;</text>
+                        <br />
+                    }
+                }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@if (Model.Count() == 0)
+{   
+    <div class="col-12 m-2 alert-warning p-3 text-center">Nenhum aluno encontrado</div>
+}
+
+<div class="row">
+    <div class="col-md-8">
+        @Html.PagedListPager(Model, pagina => Url.Action("Index", new {pagina, secao = @ViewData["TituloDaSecao"]}), new X.PagedList.Web.Common.PagedListRenderOptions
+               {                       
+                        DisplayLinkToIndividualPages = true,
+                        DisplayPageCountAndCurrentLocation = false,
+                        LiElementClasses = new string[] { "page-item" },
+                   PageClasses = new string[] { "page-link" },
+                   
+                    })
+    </div>
+</div>
