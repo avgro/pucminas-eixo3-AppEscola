@@ -25,7 +25,7 @@ namespace App_comunicacao_escolar.Controllers
         {
             try { 
                 int idDoUsuarioLogado = GetIdUsuarioLogado();
-                var applicationDbContext = _context.AlunosLinhaDoTempo!.Include(a => a.Aluno);
+                var applicationDbContext = _context.AlunosLinhaDoTempo!.Include(l => l.Aluno).ThenInclude(a => a.Turma);
                 var linhaDoTempoAlunos = from l in applicationDbContext select l;
                 if (User.IsInRole("Professor"))
                 {

@@ -248,16 +248,20 @@
                                         </li>
                                     }
                                 }
-                                @if(ViewData["Controller"]!.Equals("AlunosLinhaDoTempo"))
+                                @if (User.IsInRole("ResponsavelAluno") || User.IsInRole("Professor"))
                                 {
-                                    <li class="p-0 item-menu-first item-menu-selecionado">
-                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="AlunosLinhaDoTempo" asp-action="Index">Linha do tempo</a>
-                                    </li>
-                                }
-                                else{
-                                    <li class="p-0 item-menu-first">
-                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="AlunosLinhaDoTempo" asp-action="Index">Linha do tempo</a>
-                                    </li>
+                                    @if (ViewData["Controller"]!.Equals("AlunosLinhaDoTempo"))
+                                    {
+                                        <li class="p-0 item-menu-first item-menu-selecionado">
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="AlunosLinhaDoTempo" asp-action="Index">Linha do tempo</a>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li class="p-0 item-menu-first">
+                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="AlunosLinhaDoTempo" asp-action="Index">Linha do tempo</a>
+                                        </li>
+                                    }
                                 }
                                 @if(User.IsInRole("ResponsavelAluno")){
                                     @if(ViewData["Controller"]!.Equals("AutorizacoesEventos"))

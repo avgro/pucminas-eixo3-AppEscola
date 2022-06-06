@@ -16,6 +16,9 @@
             <th>
                 Aluno
             </th>
+            <th>
+                Turma
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -24,6 +27,16 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Aluno!.NomeAlunoComCodigoEntreParenteses)
+            </td>
+            <td>
+                @if(item.Aluno!.Turma == null) 
+                {
+                    <text>Nenhuma</text>
+                }
+                else 
+                {
+                    @Html.DisplayFor(modelItem => item.Aluno!.Turma.NomeComCodigoEntreParenteses)
+                }
             </td>
             <td>
                 <a class="btn btn-primary" asp-action="Visualizar" asp-route-id="@item.Id">Visualizar</a>
