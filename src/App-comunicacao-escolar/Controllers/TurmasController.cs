@@ -108,7 +108,7 @@ namespace App_comunicacao_escolar.Controllers
 
         // GET: Turmas/AlunosTurma/5
         [Authorize(Roles = "Professor")]
-        public async Task<IActionResult> AlunosTurma(int? id, int pagina = 1)
+        public async Task<IActionResult> AlunosTurma(string searchString, int? id, int pagina = 1)
         {
             try
             {
@@ -136,6 +136,13 @@ namespace App_comunicacao_escolar.Controllers
                 }
 
                 ViewData["NomeDaTurma"] = turma.NomeComCodigoEntreParenteses;
+
+                if (searchString != null)
+                {
+                    return View(await turma.Alunos
+                        .Where(a => a.NomeAlunoComCodigoEntreParenteses.Contains(searchString)).ToPagedListAsync(pagina, 50));
+                }
+
                 return View(await turma.Alunos.ToPagedListAsync(pagina, 50));
             }
             catch

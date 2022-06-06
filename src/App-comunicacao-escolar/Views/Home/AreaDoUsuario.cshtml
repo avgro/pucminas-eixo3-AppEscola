@@ -1,6 +1,73 @@
-﻿@{
+﻿@model IEnumerable<App_comunicacao_escolar.Models.EventoDaAgenda>
+
+@{
     ViewData["Title"] = "Área do usuário";
+    int contadorEventos = 0;
 }
 <h1>@ViewData["Title"]</h1>
+<br />
+<h2>Olá, @ViewData["NomeDoUsuario"]!</h2>
+<br />
 
-<p>Inserir aqui informações da página inicial do usuário.</p>
+<hr />
+<h2>Eventos próximos (30 dias)</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Evento
+            </th>
+            <th>
+                Tempo restante
+            </th>
+            <th>
+                Data do evento
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach(var evento in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelEvento => evento.Nome)
+        </td>
+        <td>
+            @if (evento.InicioDoEvento != null) {
+                var inicioDoEvento = (DateTime)evento.InicioDoEvento;
+                int diasQueFaltam = inicioDoEvento.DayOfYear - DateTime.Now.DayOfYear;
+                if (diasQueFaltam == 0) {
+                    <div class="text-danger">Evento ocorre hoje!</div>
+                }
+                else if (diasQueFaltam == 1) {
+                    <div class="text-danger">Evento ocorre amanhã!</div>
+                }
+                else {
+                    <b>Faltam <span class="text-danger">@diasQueFaltam</span> dias!</b>
+                }
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelEvento => evento.InicioDoEvento)
+        </td>
+    </tr>
+    contadorEventos++;
+    if (contadorEventos == ViewBag.numeroDeEventosQuePaginaMostra) {
+        break;
+    }
+}
+    </tbody>
+</table>
+
+@if(Model.Count() == 0) {
+     <div class="col-12 m-2 alert-warning p-3 text-center">Nenhum evento marcado para os próximos 30 dias!</div>
+}
+@if(Model.Count() > ViewBag.numeroDeEventosQuePaginaMostra) {
+    string novoNumeroDeEventosParaMostrar = (ViewBag.numeroDeEventosQuePaginaMostra + 10).ToString();
+     <a onclick="manterScrollY()" asp-route-numeroDeEventosQuePaginaMostra=@novoNumeroDeEventosParaMostrar>Mostrar mais eventos próximos</a>
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/manter-scrollY.js" asp-append-version="true"></script>
+}

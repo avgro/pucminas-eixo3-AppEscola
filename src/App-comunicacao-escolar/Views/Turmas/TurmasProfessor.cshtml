@@ -8,9 +8,6 @@
 
 <h1>Minhas turmas</h1>
 
-<div class="d-flex justify-content-between my-4 whitespace-nowrap">
-    <a class="btn btn-primary" asp-action="Create">Cadastrar turma</a>
-</div>
 @using (Html.BeginForm("TurmasProfessor", "Turmas", new { secao = @ViewData["TituloDaSecao"] }, FormMethod.Post))
 {
     <div>
