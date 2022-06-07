@@ -7,11 +7,12 @@
 }
 
 <h1>@ViewData["TituloDaSecao"]</h1>
+<hr />
 <a asp-action="Index" asp-route-secao="@ViewData["TituloDaSecao"]" asp-route-pagina="@ViewData["pagina"]" asp-route-searchString="@ViewData["searchString"]" id="refreshConversas" hidden>Refresh</a>
 
 <div class="d-flex justify-content-between my-4">
     <a class="btn btn-primary" asp-action="Create">Nova mensagem</a>
-    <div class="px-3">
+    <div>
         <label for="selecionar-secao">Selecionar seção:</label>
         <select onchange="mudarsecao()" id="selecionar-secao" class="input-size-3quarters">
             <option>Caixa de entrada</option>
