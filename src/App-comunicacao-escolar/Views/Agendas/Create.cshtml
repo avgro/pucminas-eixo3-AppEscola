@@ -1,0 +1,46 @@
+﻿@model App_comunicacao_escolar.Models.Agenda
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Cadastrar</h1>
+
+<h4>Nova agenda</h4>
+<hr />
+<div class="row">
+    <div>
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <h5 class="mt-2">Informar nome que descreva o propósito da agenda</h5>
+            <div class="form-group input-size-standard">
+                <label asp-for="Nome" class="control-label"></label> *
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <h5 class="mt-2">Para quem os eventos desta agenda devem ser exibidos?</h5>
+            <div class="form-group input-size-1halfx">
+                <label asp-for="TurmaId" class="control-label"></label>
+                <select id="pessoaId" asp-for="TurmaId" class ="form-control form-select input-size-1halfx" asp-items="ViewBag.TurmaId">
+                    <option value=0>Todas as turmas</option>
+                </select>
+                 <span asp-validation-for="TurmaId"></span>
+            </div>
+            <div class="form-group input-size-1halfx">
+                <label asp-for="Perfil" class="control-label"></label>
+                <select asp-for="Perfil" class="form-control form-select"
+                asp-items="Html.GetEnumSelectList<PerfilUsuarioAgendaEnum>()">
+                </select>
+                <span asp-validation-for="Perfil" class="text-danger"></span>
+            </div>
+            <div class="form-group my-2">
+                <input type="submit" value="Cadastrar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+

@@ -2,93 +2,54 @@
     ViewData["Title"] = "Home Page";
 }
 
-    <div id="slider">
-        <div class="container pt-5">
-          <div class="row">
-            
-              <div class="col-md-6 align-self-center" >
-                  <h1>Lorem ipsum dolor sit.</h1>
-                  <h4 class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, excepturi.</h4>
-              </div>
-
-              <div class="carousel slide col-md-6 align-self-center text-center" data-ride="carousel" id="mainSlider">
-                  <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#mainSlider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#mainSlider" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#mainSlider" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                  </div>
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img src="~/images/Cruise-Mexico-2015-055-scaled.jpg" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                      <img src="~/images/iStock-585609744.jpg" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                      <img src="~/images/logo.jpeg" class="d-block w-100" alt="...">
-                    </div>
-                  </div>
-                  
-                  <button class="carousel-control-prev" type="button" data-bs-target="#mainSlider" data-bs-slide="prev">
-                    <i class="bi bi-chevron-compact-left" ></i>                    
-                    <span class="visually-hidden">Previous</span>
-                  </button>
-                  
-                  <button class="carousel-control-next" type="button" data-bs-target="#mainSlider" data-bs-slide="next">
-                    <i class="bi bi-chevron-compact-right"></i>
-                    <span class="visually-hidden">Next</span>
-                  </button>
-                </div>     
-              </div>
-          </div>  
-        </div>
-    </div>
-    <!--/Slider-->
-
-    <div class="container" id="info-container">
-      <div class="col-12">
-        <h2 class="title primary-color">Saiba Mais</h2>
-        <p class="subtitle secondary-color">
-          Saiba mais sobre a nossa plataforma
-        </p>
+  <section id="contact">
+    <div class="container-lg">
+      <div class="text-center">
+        <h2>Entre em contato para saber mais!</h2>
+        <p class="lead">Deseja obter mais informações sobre o nosso produto? Entre em contato conosco.</p>
       </div>
-      <div class="col-12">
-        <div class="row">
-          <div class="col-12 col-md-5" id="info-banner">
-            <img src="~/images/iStock-585609744.jpg" alt="Informações" class="img-fluid" />
-          </div>
-          <div class="col-12 col-md-7" id="info-content">
-            <div class="row">
-              <div class="col-12">
-                <h2 class="title">Estes dados fazem a diferença:</h2>
-                <p class="subtitle primary-color">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Praesentium tempore fugit et iusto quisquam beatae impedit
-                  nobis quas doloribus, atque, ut id similique eligendi, ab
-                  soluta magnam maxime cum debitis.
-                </p>
-              </div>
-              <div class="col-12" id="info-numbers">
-                <div class="row">
-                  <div class="col-4">
-                    <h3 class="primary-color">+20</h3>
-                    <p class="secondary-color">Escolas atendidas</p>
-                  </div>
-                  <div class="col-4">
-                    <h3 class="primary-color">+900</h3>
-                    <p class="secondary-color">Alunos cadastrados</p>
-                  </div>
-                  <div class="col-4">
-                    <h3 class="primary-color">+250</h3>
-                    <p class="secondary-color">Pais satisfeitos</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12">
-                <a class="btn btn-dark">Saber Mais</a>
-              </div>
+      <div class="row justify-content-center my-5">
+        <div class="col-lg-6">
+          <form>
+            <label for="email" class="form-label">E-mail:</label>
+            <div class="input-group">
+              <span class="input-group-text input-group-sm mb-3">
+                <i class="bi bi-envelope-fill"></i>
+              </span>
+              <input type="email" class="form-control  mb-3" id="email" placeholder="Digite seu e-mail..." required> 
             </div>
-          </div>
+
+
+            <label for="nome" class="form-label ">Nome:</label>
+            <div class="input-group ">
+              <span class="input-group-text input-group-sm mb-3" id="inputGroup-sizing-sm">
+                <i class="bi bi-person-fill"></i>
+              </span>
+              <input type="text" class="form-control mb-3" id="nome" placeholder="Digite seu nome..." required>
+            </div>
+
+            <label for="subject" class="form-label">Sobre o que deja falar?</label>
+            <div class="input-group ">
+              <span class="input-group-text input-group-sm mb-3" id="inputGroup-sizing-sm">
+                <i class="bi bi-chat-right-dots-fill"></i>
+              </span>
+              <select class="form-select mb-3" id="subject" placeholder="Selecione o assunto" required>
+                <option value="preco" selected>Valores da plataforma</option>
+                <option value="acesso" selected>Como acessar minha conta</option>
+                <option value="contato" selected>Desejo o contato de um especialista</option>
+                <option value="presenca" selected>Em quais escolas estamos presentes</option>
+                <option value="outro" selected>Outros assuntos</option>
+              </select>
+            </div>
+            <label for="diverso">Deixe aqui sua mensagem:</label>
+            <div class="form-floating mt-1">
+              <textarea class="conteudo-textarea p-2" id="diverso" placeholder="Digite sua mensagem..." required></textarea>              
+            </div>
+            <div class="mb4 mt-4 text-center">
+              <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
+  </section>

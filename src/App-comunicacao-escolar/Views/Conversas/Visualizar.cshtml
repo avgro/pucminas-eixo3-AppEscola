@@ -7,7 +7,9 @@
 
 }
 
-<h1> @Html.DisplayFor(model => model.Assunto)</h1>
+<h1> Visualizar conversa</h1>
+<h2> @Html.DisplayFor(model => model.Assunto)</h2>
+<hr />
 
 @if (@ViewData["Error"] != null){
       // Usada para que o Javascript saiba se o backend retornou error após a submissão do formulário

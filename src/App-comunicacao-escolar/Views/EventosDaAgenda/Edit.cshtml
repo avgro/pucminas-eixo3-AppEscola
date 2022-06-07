@@ -1,0 +1,73 @@
+﻿@model App_comunicacao_escolar.Models.EventoDaAgenda
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar informações</h1>
+
+<h4>@Model.Nome</h4>
+<hr />
+
+@if (@ViewData["Error"] != null){
+      // Usada para que o Javascript saiba se o backend retornou error após a submissão do formulário
+     <div hidden id="validation-error">@ViewData["Error"]</div>
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group" hidden>
+                <label asp-for="AgendaId" class="control-label"></label>
+                <select onchange="mudarAgenda()" asp-for="AgendaId" class ="form-control" asp-items="ViewBag.AgendaId">
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <option value="">Todas as agendas</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descricao" class="control-label"></label>
+                <textarea asp-for="Descricao" class="form-control" placeholder="Descrição do evento..."></textarea>
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InicioDoEvento" class="control-label"></label>
+                <input asp-for="InicioDoEvento" class="form-control" />
+                <span asp-validation-for="InicioDoEvento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FimDoEvento" class="control-label"></label>
+                <input asp-for="FimDoEvento" class="form-control" />
+                <span asp-validation-for="FimDoEvento" class="text-danger"></span>
+            </div>
+            <div class="form-group increase-checkbox mt-2" hidden>
+                @if(Model.RequerAutorizacao == true)
+                {
+                    @Html.CheckBox("RequerAutorizacao", true)             
+                }
+                else
+                {
+                    @Html.CheckBox("RequerAutorizacao", false)                    
+                }
+                <label asp-for="RequerAutorizacao" class="control-label mx-1"></label>
+                <span asp-validation-for="RequerAutorizacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Atualizar" class="btn btn-primary my-2" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Agendas" asp-action="Visualizar" asp-route-id=@ViewData["IdVoltarAgenda"]>Voltar</a>
+</div>
+

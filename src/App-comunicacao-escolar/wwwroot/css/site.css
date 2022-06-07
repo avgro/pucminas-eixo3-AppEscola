@@ -15,7 +15,7 @@ html {
 }
 
 main {
-    min-height: 585px;
+    min-height: 543px;
 }
 
 .btn {
@@ -98,8 +98,17 @@ li.active.page-item .page-link {
     white-space: nowrap;
 }
 
+.link-no-style {
+    text-decoration: inherit;
+    color: inherit;
+}
+
 max-width-100 {
     max-width: 100%;
+}
+
+.increase-checkbox input {
+    transform: scale(1.25);
 }
 
 .show-xs {
@@ -273,14 +282,20 @@ max-width-100 {
 
 .menu-content-layout {
     display: grid;
-    grid-template-columns: 240px 1fr;
+    grid-template-columns: 262px 1fr;
 }
 
 .menu-lateral {
     position: sticky;
     margin-top: 32px;
+    margin-right: 32px;
     top: 16px;
     background-color: white;
+}
+
+.menu-lateral li {
+    height: 48px;
+    width: 230px;
 }
 
 .menu-lateral li:hover {
@@ -291,16 +306,17 @@ max-width-100 {
 .item-menu-first {
     border: 1px solid lightgray;
     list-style: none;
-    padding: 4px;
     border-radius: 4px;
+    margin-bottom: 4px;
+    margin-right: 4px;
 }
 
 .item-menu {
     border: 1px solid lightgray;
     list-style: none;
-    padding: 4px;
     border-radius: 4px;
-    border-top: none;
+    margin-bottom: 4px;
+    margin-right: 4px;
 }
 
 .item-menu-selecionado {
@@ -318,15 +334,38 @@ max-width-100 {
     height: 25px;
     width: 25px;
     margin: 0;
+    margin-left: -32px;
     border-radius: 100%;
 }
+
+.itemlista-menulateral {
+    display: grid;
+    grid-template-columns: 48px 1fr 1px;
+}
+
+.labellista-menulateral {
+    height: 100%;
+    padding-top: 11px;
+}
+
+.icon-menu-lateral {
+    border-radius: 3px 0px 0px 3px;
+    background-color: rgba(128, 128, 128, 0.25);
+    border-right: 1px solid lightgray;
+    padding: 12px 0px 10px 11px;
+    height: 46px;
+    width: 40px;
+}
+
 
 @media (max-width: 1199px) {
     .menu-content-layout {
         display: block;
         margin: auto;
     }
-
+    .menu-lateral {
+        margin-right: 0;
+    }
     .menu-lateral ul {
         display: flex;
         flex-direction: row;
@@ -336,6 +375,7 @@ max-width-100 {
     }
 
     .menu-lateral li {
+        width: 280px;
         display: inline;
     }
 
@@ -344,6 +384,12 @@ max-width-100 {
         list-style: none;
         padding: 4px;
         border-radius: 4px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-lateral li {
+        width: 205px;
     }
 }
 
@@ -748,5 +794,122 @@ max-width-100 {
     margin-left: 0.3em;
 }
 
-/* --------------   -------------- */
-@import url(./bootstrap.min.css);
+/* -------------- Agenda -------------- */
+
+.agenda-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 32px 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.agenda-nome-dias-da-semana {
+    width: 1fr;
+    text-align: center;
+    font-weight: 500;
+}
+.agenda-dia {
+    border: 1px solid lightgray;
+    border-radius: 2px;
+    margin: 2px;
+    min-height: 128px;
+}
+
+.agenda-dia-content {
+    padding-top: 1.5rem;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.agenda-numero-dia {
+    font-weight: 500;
+    position: absolute;
+    right: 6px;
+    top: 2px;
+}
+
+.agenda-content-fora-do-mes {
+    z-index: -1;
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: lightgray;
+}
+
+.agenda-content-dia-atual {
+    z-index: -1;
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: pink;
+}
+
+.mostrarMesAnoAtual{
+    margin-bottom: 12px;
+    margin-left: 12px;
+    margin-right: 12px;
+    width: 240px;
+    text-align: center;
+}
+
+.cardEvento {
+    border: 1px solid lightgray;
+    border-radius: 2px;
+    text-align: center;
+    background-color: rgb(240,240,240);
+    margin-bottom: 2px;
+    cursor: pointer;
+    word-wrap: anywhere;
+}
+
+.cardEvento:hover {
+    background-color: wheat;
+}
+
+@media (max-width: 768px) {
+    .agenda-dia {
+        min-height: 80px;
+    }
+}
+
+/* -------------- Linha do Tempo -------------- */
+
+.postagem {
+    background-color: #f0f0f0;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    word-wrap: anywhere;
+    padding: 12px;
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 48px;
+}
+.postagem img, .preview-postagem {
+    object-fit: cover;
+    min-width: 50vw;
+    max-width: 72vw;
+    max-height: 1200px;
+    margin: auto;
+    margin-top: 12px;
+    margin-bottom: 12px;
+ }
+
+.comentario-postagem {
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    word-wrap: anywhere;
+    padding: 12px;
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 4px;
+}
+@media(max-width: 1199px) {
+    .preview-postagem {
+        max-width: 88.5vw;
+    }
+    .postagem img {
+        max-width: 80vw;
+    }
+}

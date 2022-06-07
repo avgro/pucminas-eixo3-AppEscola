@@ -19,11 +19,11 @@ function mudarsecao() {
 }
 
 var intervalCheckNewMessagesId = setInterval(function () {
-    var novoNumeroDeMensagens = document.getElementById("msgupdate").innerHTML;
+    var novoNumeroDeMensagens = document.getElementById("msgUpdate").innerHTML;
     if (novoNumeroDeMensagens != numeroDeMensagens && numeroDeMensagens != "valor inicial") {
         let scrollY = window.scrollY;
         localStorage.setItem("scrollY", JSON.parse(scrollY));
         document.getElementById("refreshConversas").click();
     }
-    numeroDeMensagens = document.getElementById("msgupdate").innerHTML;
+    numeroDeMensagens = document.getElementById("msgUpdate").innerHTML;
 }, 1000);

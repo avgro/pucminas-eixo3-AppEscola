@@ -19,6 +19,8 @@ window.addEventListener('load', function () {
 // Atualiza o contador de mensagens
 function jQrefresh() {
     document.getElementById("refreshPartial").click();
+    document.getElementById("refreshPartialAutorizacao").click();
+    document.getElementById("refreshPartialNotificacao").click();
 }
 
 // Suporte à validação customizada. Esconde mensagens de erro ao digitar valor nos campos a serem validados.
@@ -46,7 +48,13 @@ function showDropDown(dropdownButton, dropdownDiv) {
     }
     document.addEventListener('click', function (event) {
         const ignoreRefreshPartial = document.getElementById("refreshPartial");
-        if (!dropdownButton.contains(event.target) && !dropdownDiv.contains(event.target) && !ignoreRefreshPartial.contains(event.target)) {
+        const ignoreRefreshPartialAutorizacao = document.getElementById("refreshPartialAutorizacao");
+        const ignoreRefreshPartialNotificacao = document.getElementById("refreshPartialNotificacao");
+        if (!dropdownButton.contains(event.target) && !dropdownDiv.contains(event.target)
+            && !ignoreRefreshPartial.contains(event.target)
+            && !ignoreRefreshPartialAutorizacao.contains(event.target)
+            && !ignoreRefreshPartialNotificacao.contains(event.target)
+        ) {
             dropdownDiv.hidden = true;
         }
     });
@@ -86,4 +94,10 @@ function doisDigitosInputHorario(idInput) {
 function disableSubmitButtonAfterSubmission(idSubmitButton) {
     idSubmitButton.disabled = true;
     
+}
+
+function resetarDataAgenda() {
+    if (localStorage.getItem("agendaParametros")) {
+        localStorage.removeItem("agendaParametros");
+    }
 }

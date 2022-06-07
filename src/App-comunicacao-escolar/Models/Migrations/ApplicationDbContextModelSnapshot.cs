@@ -17,7 +17,7 @@ namespace App_comunicacao_escolar.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.4")
+                .HasAnnotation("ProductVersion", "6.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -35,6 +35,32 @@ namespace App_comunicacao_escolar.Migrations
                     b.HasIndex("ResponsaveisResponsavelId");
 
                     b.ToTable("AlunoResponsavel");
+                });
+
+            modelBuilder.Entity("App_comunicacao_escolar.Models.Agenda", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("Perfil")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TurmaId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TurmaId");
+
+                    b.ToTable("Agendas");
                 });
 
             modelBuilder.Entity("App_comunicacao_escolar.Models.Aluno", b =>
@@ -77,6 +103,85 @@ namespace App_comunicacao_escolar.Migrations
                     b.HasIndex("TurmaId");
 
                     b.ToTable("Alunos");
+                });
+
+            modelBuilder.Entity("App_comunicacao_escolar.Models.AlunoLinhaDoTempo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("AlunoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AlunoId")
+                        .IsUnique();
+
+                    b.ToTable("AlunosLinhaDoTempo");
+                });
+
+            modelBuilder.Entity("App_comunicacao_escolar.Models.AutorizacaoEvento", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int?>("AlunoId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("AssinadoPor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("Autorizado")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("EventoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AlunoId");
+
+                    b.HasIndex("EventoId");
+
+                    b.ToTable("AutorizacoesEventos");
+                });
+
+            modelBuilder.Entity("App_comunicacao_escolar.Models.ComentarioPostagemLinhaDoTempo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int?>("AutorId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Conteudo")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<DateTime?>("DataCriacao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("PostagemLinhaDoTempoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AutorId");
+
+                    b.HasIndex("PostagemLinhaDoTempoId");
+
+                    b.ToTable("ComentariosPostagensLinhaDoTempo");
                 });
 
             modelBuilder.Entity("App_comunicacao_escolar.Models.Conversa", b =>
@@ -141,6 +246,50 @@ namespace App_comunicacao_escolar.Migrations
                     b.HasIndex("TurmaId");
 
                     b.ToTable("Disciplinas");
+                });
+
+            modelBuilder.Entity("App_comunicacao_escolar.Models.EventoDaAgenda", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int?>("AgendaId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<DateTime?>("FimDoEvento")
+                        .IsRequired()
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("IdUsuarioQueCadastrouEvento")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("InicioDoEvento")
+                        .IsRequired()
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool?>("RequerAutorizacao")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AgendaId");
+
+                    b.HasIndex("IdUsuarioQueCadastrouEvento");
+
+                    b.ToTable("EventosDaAgenda");
                 });
 
             modelBuilder.Entity("App_comunicacao_escolar.Models.HorariosDaDisciplina", b =>
@@ -241,6 +390,40 @@ namespace App_comunicacao_escolar.Migrations
                     b.ToTable("MensagemMensagemArquivosAnexados");
                 });
 
+            modelBuilder.Entity("App_comunicacao_escolar.Models.Notificacao", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Assunto")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Conteudo")
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
+                    b.Property<DateTime?>("DataCriacao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Perfil")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TurmaId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TurmaId");
+
+                    b.ToTable("Notificacoes");
+                });
+
             modelBuilder.Entity("App_comunicacao_escolar.Models.NumeroDeNovasMensagensNaConversa", b =>
                 {
                     b.Property<int>("Id")
@@ -263,6 +446,48 @@ namespace App_comunicacao_escolar.Migrations
                     b.HasIndex("ConversaId");
 
                     b.ToTable("NumeroDeNovasMensagensNaConversa");
+                });
+
+            modelBuilder.Entity("App_comunicacao_escolar.Models.PostagemLinhaDoTempo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Assunto")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int?>("AutorId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CodigoImagemPostada")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Conteudo")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<DateTime?>("DataAtualizacao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DataCriacao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("LinhaDoTempoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AutorId");
+
+                    b.HasIndex("LinhaDoTempoId");
+
+                    b.ToTable("PostagensLinhaDoTempo");
                 });
 
             modelBuilder.Entity("App_comunicacao_escolar.Models.Professor", b =>
@@ -401,6 +626,29 @@ namespace App_comunicacao_escolar.Migrations
                     b.ToTable("Usuarios");
                 });
 
+            modelBuilder.Entity("App_comunicacao_escolar.Models.UsuarioLeuNotificacao", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int?>("NotificacaoId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UsuarioId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NotificacaoId");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("UsuarioLeuNotificacao");
+                });
+
             modelBuilder.Entity("App_comunicacao_escolar.Models.UsuariosQueArquivaramConversa", b =>
                 {
                     b.Property<int>("Id")
@@ -482,6 +730,15 @@ namespace App_comunicacao_escolar.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("App_comunicacao_escolar.Models.Agenda", b =>
+                {
+                    b.HasOne("App_comunicacao_escolar.Models.Turma", "Turma")
+                        .WithMany("Agendas")
+                        .HasForeignKey("TurmaId");
+
+                    b.Navigation("Turma");
+                });
+
             modelBuilder.Entity("App_comunicacao_escolar.Models.Aluno", b =>
                 {
                     b.HasOne("App_comunicacao_escolar.Models.Turma", "Turma")
@@ -492,6 +749,50 @@ namespace App_comunicacao_escolar.Migrations
                     b.Navigation("Turma");
                 });
 
+            modelBuilder.Entity("App_comunicacao_escolar.Models.AlunoLinhaDoTempo", b =>
+                {
+                    b.HasOne("App_comunicacao_escolar.Models.Aluno", "Aluno")
+                        .WithOne("AlunosLinhaDoTempo")
+                        .HasForeignKey("App_comunicacao_escolar.Models.AlunoLinhaDoTempo", "AlunoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Aluno");
+                });
+
+            modelBuilder.Entity("App_comunicacao_escolar.Models.AutorizacaoEvento", b =>
+                {
+                    b.HasOne("App_comunicacao_escolar.Models.Aluno", "Aluno")
+                        .WithMany("Autorizacoes")
+                        .HasForeignKey("AlunoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("App_comunicacao_escolar.Models.EventoDaAgenda", "Evento")
+                        .WithMany("Autorizacoes")
+                        .HasForeignKey("EventoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("Aluno");
+
+                    b.Navigation("Evento");
+                });
+
+            modelBuilder.Entity("App_comunicacao_escolar.Models.ComentarioPostagemLinhaDoTempo", b =>
+                {
+                    b.HasOne("App_comunicacao_escolar.Models.Usuario", "Autor")
+                        .WithMany("ComentariosPostagensLinhaDoTempo")
+                        .HasForeignKey("AutorId");
+
+                    b.HasOne("App_comunicacao_escolar.Models.PostagemLinhaDoTempo", "Postagem")
+                        .WithMany("Comentarios")
+                        .HasForeignKey("PostagemLinhaDoTempoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("Autor");
+
+                    b.Navigation("Postagem");
+                });
+
             modelBuilder.Entity("App_comunicacao_escolar.Models.Disciplina", b =>
                 {
                     b.HasOne("App_comunicacao_escolar.Models.Turma", "Turma")
@@ -500,6 +801,23 @@ namespace App_comunicacao_escolar.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Turma");
+                });
+
+            modelBuilder.Entity("App_comunicacao_escolar.Models.EventoDaAgenda", b =>
+                {
+                    b.HasOne("App_comunicacao_escolar.Models.Agenda", "Agenda")
+                        .WithMany("EventosDaAgenda")
+                        .HasForeignKey("AgendaId");
+
+                    b.HasOne("App_comunicacao_escolar.Models.Usuario", "Usuario")
+                        .WithMany("EventosCadastrados")
+                        .HasForeignKey("IdUsuarioQueCadastrouEvento")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Agenda");
+
+                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("App_comunicacao_escolar.Models.HorariosDaDisciplina", b =>
@@ -539,6 +857,15 @@ namespace App_comunicacao_escolar.Migrations
                     b.Navigation("MensagemDosAnexos");
                 });
 
+            modelBuilder.Entity("App_comunicacao_escolar.Models.Notificacao", b =>
+                {
+                    b.HasOne("App_comunicacao_escolar.Models.Turma", "Turma")
+                        .WithMany("NotificacoesTurma")
+                        .HasForeignKey("TurmaId");
+
+                    b.Navigation("Turma");
+                });
+
             modelBuilder.Entity("App_comunicacao_escolar.Models.NumeroDeNovasMensagensNaConversa", b =>
                 {
                     b.HasOne("App_comunicacao_escolar.Models.Conversa", "Conversa")
@@ -547,6 +874,22 @@ namespace App_comunicacao_escolar.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Conversa");
+                });
+
+            modelBuilder.Entity("App_comunicacao_escolar.Models.PostagemLinhaDoTempo", b =>
+                {
+                    b.HasOne("App_comunicacao_escolar.Models.Usuario", "Autor")
+                        .WithMany("PostagensLinhaDoTempo")
+                        .HasForeignKey("AutorId");
+
+                    b.HasOne("App_comunicacao_escolar.Models.AlunoLinhaDoTempo", "LinhaDoTempo")
+                        .WithMany("Postagens")
+                        .HasForeignKey("LinhaDoTempoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("Autor");
+
+                    b.Navigation("LinhaDoTempo");
                 });
 
             modelBuilder.Entity("App_comunicacao_escolar.Models.Professor", b =>
@@ -567,6 +910,22 @@ namespace App_comunicacao_escolar.Migrations
                         .HasForeignKey("App_comunicacao_escolar.Models.Responsavel", "ResponsavelId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("App_comunicacao_escolar.Models.UsuarioLeuNotificacao", b =>
+                {
+                    b.HasOne("App_comunicacao_escolar.Models.Notificacao", "Notificacao")
+                        .WithMany("NotificacoesLidas")
+                        .HasForeignKey("NotificacaoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("App_comunicacao_escolar.Models.Usuario", "Usuario")
+                        .WithMany("NotificacoesLidas")
+                        .HasForeignKey("UsuarioId");
+
+                    b.Navigation("Notificacao");
 
                     b.Navigation("Usuario");
                 });
@@ -626,6 +985,23 @@ namespace App_comunicacao_escolar.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("App_comunicacao_escolar.Models.Agenda", b =>
+                {
+                    b.Navigation("EventosDaAgenda");
+                });
+
+            modelBuilder.Entity("App_comunicacao_escolar.Models.Aluno", b =>
+                {
+                    b.Navigation("AlunosLinhaDoTempo");
+
+                    b.Navigation("Autorizacoes");
+                });
+
+            modelBuilder.Entity("App_comunicacao_escolar.Models.AlunoLinhaDoTempo", b =>
+                {
+                    b.Navigation("Postagens");
+                });
+
             modelBuilder.Entity("App_comunicacao_escolar.Models.Conversa", b =>
                 {
                     b.Navigation("Mensagens");
@@ -640,6 +1016,11 @@ namespace App_comunicacao_escolar.Migrations
                     b.Navigation("HorariosDaDisciplina");
                 });
 
+            modelBuilder.Entity("App_comunicacao_escolar.Models.EventoDaAgenda", b =>
+                {
+                    b.Navigation("Autorizacoes");
+                });
+
             modelBuilder.Entity("App_comunicacao_escolar.Models.Mensagem", b =>
                 {
                     b.Navigation("Anexos");
@@ -647,15 +1028,37 @@ namespace App_comunicacao_escolar.Migrations
                     b.Navigation("Respostas");
                 });
 
+            modelBuilder.Entity("App_comunicacao_escolar.Models.Notificacao", b =>
+                {
+                    b.Navigation("NotificacoesLidas");
+                });
+
+            modelBuilder.Entity("App_comunicacao_escolar.Models.PostagemLinhaDoTempo", b =>
+                {
+                    b.Navigation("Comentarios");
+                });
+
             modelBuilder.Entity("App_comunicacao_escolar.Models.Turma", b =>
                 {
+                    b.Navigation("Agendas");
+
                     b.Navigation("Alunos");
 
                     b.Navigation("Disciplinas");
+
+                    b.Navigation("NotificacoesTurma");
                 });
 
             modelBuilder.Entity("App_comunicacao_escolar.Models.Usuario", b =>
                 {
+                    b.Navigation("ComentariosPostagensLinhaDoTempo");
+
+                    b.Navigation("EventosCadastrados");
+
+                    b.Navigation("NotificacoesLidas");
+
+                    b.Navigation("PostagensLinhaDoTempo");
+
                     b.Navigation("Professor");
 
                     b.Navigation("Responsavel");

@@ -1,0 +1,51 @@
+﻿@model App_comunicacao_escolar.Models.PostagemLinhaDoTempo
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>PostagemLinhaDoTempo</h4>
+<hr />
+<div class="row">
+    <div>
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group input-size-1halfx">
+                <label asp-for="Assunto" class="control-label"></label>
+                <input asp-for="Assunto" class="form-control" />
+                <span asp-validation-for="Assunto" class="text-danger"></span>
+            </div>
+            <div class="form-group input-size-2x my-2">
+                <label for="arquivos" class="control-label">Selecionar imagem (Tamanho máximo: 25 MB):</label><br />
+                <img class="preview-postagem" id="preview-imagem" hidden/>
+                <input onchange="previewDaImagemSelecinada()" type="file" class="m-1" id="arquivos" name="arquivo"/>
+                <div>
+                    <span asp-validation-for="CodigoImagemPostada" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group input-size-2halfx">
+                <label asp-for="Conteudo" class="control-label"></label>
+                <textarea asp-for="Conteudo" class="form-control" conteudo-textarea" placeholder="Escrever conteudo da postagem..."></textarea>
+                <span asp-validation-for="Conteudo" class="text-danger"></span>
+            </div>
+            <div class="form-group" hidden>
+                <label asp-for="LinhaDoTempoId" class="control-label"></label>
+                <input type="number" asp-for="LinhaDoTempoId" class ="form-control" value=@ViewBag.linhaDoTempoId>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Criar postagem" class="btn btn-primary my-2" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="AlunosLinhaDoTempo" asp-action="Visualizar" asp-route-id=@ViewBag.linhaDoTempoId>Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/postagem-create.js" asp-append-version="true"></script>
+}

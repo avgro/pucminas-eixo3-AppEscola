@@ -1,0 +1,49 @@
+﻿@model App_comunicacao_escolar.Models.Notificacao
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Cadastrar</h1>
+
+<h4>Nova notificação</h4>
+<hr />
+<div class="row">
+    <div>
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group input-size-2x">
+                <label asp-for="Assunto" class="control-label"></label>
+                <input asp-for="Assunto" class="form-control" />
+                <span asp-validation-for="Assunto" class="text-danger"></span>
+            </div>
+            <div class="form-group-0 input-size-2halfx">
+                <label asp-for="Conteudo" class="control-label"></label>
+                <textarea asp-for="Conteudo" class="form-control conteudo-textarea" placeholder="Conteúdo da notificação..."></textarea>
+                <span asp-validation-for="Conteudo" class="text-danger"></span>
+            </div>
+            <h5 class="my-2">Público da notificação</h5>
+            <div class="form-group input-size-1halfx">
+                <label asp-for="TurmaId" class="control-label"></label>
+                <select asp-for="TurmaId" class ="form-control" asp-items="ViewBag.TurmaId">
+                    <option value="0">Todas as turmas</option>
+                </select>
+            </div>
+            <div class="form-group input-size-1halfx">
+                <label asp-for="Perfil" class="control-label"></label>
+                <select asp-for="Perfil" class="form-control form-select"
+                asp-items="Html.GetEnumSelectList<PerfilUsuarioAgendaEnum>()">
+                </select>
+                <span asp-validation-for="Perfil" class="text-danger"></span>
+            </div>
+            <div class="form-group my-2">
+                <input type="submit" value="Cadastrar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
