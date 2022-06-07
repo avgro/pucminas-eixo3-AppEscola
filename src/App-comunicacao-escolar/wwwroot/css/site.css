@@ -885,9 +885,11 @@ max-width-100 {
     margin-top: 0px;
     margin-bottom: 48px;
 }
-.postagem img {
-    width: 100%;
-    max-height: 600px;
+.postagem img, .preview-postagem {
+    object-fit: cover;
+    min-width: 50vw;
+    max-width: 72vw;
+    max-height: 1200px;
     margin: auto;
     margin-top: 12px;
     margin-bottom: 12px;
@@ -902,4 +904,12 @@ max-width-100 {
     margin: auto;
     margin-top: 0px;
     margin-bottom: 4px;
+}
+@media(max-width: 1199px) {
+    .preview-postagem {
+        max-width: 88.5vw;
+    }
+    .postagem img {
+        max-width: 80vw;
+    }
 }
