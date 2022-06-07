@@ -76,14 +76,20 @@ namespace App_comunicacao_escolar.Controllers
         }
         private PostagemLinhaDoTempo FazerUploadDaImagem(PostagemLinhaDoTempo postagem, IFormFile arquivo)
         {
+            List<string> ImageExtensions = new List<string> { "JPG", "JPEG", "JPE", "BMP", "GIF", "PNG" };
             int idDoUsuarioLogado = GetIdUsuarioLogado();
             if (arquivo == null) {
                 return postagem;
             }
-            if (arquivo!.Length > 0)
+            if (arquivo!.Length > 0 && arquivo!.Length <= 25000000)
             {
                 string NomeUnicoDoArquivo = idDoUsuarioLogado + "-" + DateTime.Now.Ticks;
                 var TipoDeArquivo = arquivo.FileName.ToString().Split(".");
+                if (!ImageExtensions.Contains(TipoDeArquivo[TipoDeArquivo.Length - 1].ToUpperInvariant()))
+                {
+                    ModelState.AddModelError("CodigoImagemPostada", "Apenas arquivos de imagem aceitos (PNG, JPEG, BMP, GIF)!");
+                    return postagem;
+                }
                 NomeUnicoDoArquivo = NomeUnicoDoArquivo + "." + TipoDeArquivo[TipoDeArquivo.Length - 1];
                 var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "uploadsUsuarios", NomeUnicoDoArquivo);
                 using (var stream = new FileStream(filePath, FileMode.Create))
@@ -91,6 +97,10 @@ namespace App_comunicacao_escolar.Controllers
                     arquivo.CopyTo(stream);
                 }
                 postagem.CodigoImagemPostada = NomeUnicoDoArquivo;
+            }
+            else if (arquivo!.Length > 25000000)
+            {
+                ModelState.AddModelError("CodigoImagemPostada", "Tamanho da imagem não pode exceder 25 MB!");
             }
 
             return postagem;
