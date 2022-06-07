@@ -166,25 +166,51 @@
                                 @if(ViewData["Controller"]!.Equals("Home"))
                                 {
                                     <li class="p-0 item-menu-first item-menu-selecionado">
-                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AreaDoUsuario">Painel inicial</a>
+                                        <a class="p-0 nav-link text-dark itemlista-menulateral" asp-area="" asp-controller="Home" asp-action="AreaDoUsuario">
+                                            <div class="icon-menu-lateral">
+                                                <i class="bi bi-house-fill"></i>
+                                            </div>
+                                            <div class="labellista-menulateral">
+                                                Painel inicial
+                                            </div>
+                                        </a>
                                     </li>
                                 }
                                 else{
                                     <li class="p-0 item-menu-first">
-                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AreaDoUsuario">Painel inicial</a>
+                                       <a class="p-0 nav-link text-dark itemlista-menulateral" asp-area="" asp-controller="Home" asp-action="AreaDoUsuario">
+                                            <div class="icon-menu-lateral">
+                                                <i class="bi bi-house-fill"></i>
+                                            </div>
+                                            <div class="labellista-menulateral">
+                                                Painel inicial
+                                            </div>
+                                        </a>
                                     </li>
                                 }
                                 @if(!User.IsInRole("Admin")){
                                     @if(ViewData["Controller"]!.Equals("Agendas") || ViewData["Controller"]!.Equals("EventosDaAgenda"))
                                     {
                                         <li class="p-0 item-menu item-menu-selecionado )">
-                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Visualizar">Agenda escolar
+                                            <a class="p-0 nav-link text-dark itemlista-menulateral" asp-area="" asp-controller="Agendas" asp-action="Visualizar">                        
+                                                <div class="icon-menu-lateral">
+                                                    <i class="bi bi-calendar-fill"></i>
+                                                </div>
+                                                <div class="labellista-menulateral">
+                                                    Agenda escolar
+                                                </div>
                                             </a>
                                         </li>
                                     }
                                     else{
                                         <li class="p-0 item-menu )">
-                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Visualizar">Agenda escolar
+                                            <a class="p-0 nav-link text-dark itemlista-menulateral" asp-area="" asp-controller="Agendas" asp-action="Visualizar">
+                                                <div class="icon-menu-lateral">
+                                                    <i class="bi bi-calendar-fill"></i>
+                                                </div>
+                                                <div class="labellista-menulateral">
+                                                    Agenda escolar
+                                                </div>
                                             </a>
                                         </li>
                                     }
@@ -192,19 +218,31 @@
                                 @if(ViewData["Controller"]!.Equals("Conversas"))
                                 {
                                     <li class="p-0 item-menu item-menu-selecionado )">
-                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Conversas" asp-action="Index">Mensagens
-                                            <span id="msgUpdate">
+                                        <a class="p-0 nav-link text-dark itemlista-menulateral" asp-area="" asp-controller="Conversas" asp-action="Index">
+                                            <div class="icon-menu-lateral">
+                                                <i class="bi bi-envelope-fill"></i>
+                                            </div>
+                                            <div class="labellista-menulateral">
+                                                Mensagens
+                                            </div>
+                                            <div id="msgUpdate" class="labellista-menulateral">
                                                 @await Component.InvokeAsync("ContadorDeMensagensNovas", GetIdUsuarioLogado())
-                                            </span>
+                                            </div>
                                         </a>
                                     </li>
                                 }
                                 else{
                                     <li class="p-0 item-menu )">
-                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Conversas" asp-action="Index">Mensagens
-                                            <span id="msgUpdate">
+                                        <a class="p-0 nav-link text-dark itemlista-menulateral" asp-area="" asp-controller="Conversas" asp-action="Index">
+                                            <div class="icon-menu-lateral">
+                                                <i class="bi bi-envelope-fill"></i>
+                                            </div>
+                                            <div class="labellista-menulateral">
+                                                Mensagens
+                                            </div>
+                                            <div id="msgUpdate" class="labellista-menulateral">
                                                 @await Component.InvokeAsync("ContadorDeMensagensNovas", GetIdUsuarioLogado())
-                                            </span>
+                                            </div>
                                         </a>
                                     </li>
                                 }
@@ -213,20 +251,32 @@
                                     if (ViewData["Controller"]!.Equals("Notificacoes"))
                                     {
                                         <li class="p-0 item-menu item-menu-selecionado )">
-                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Notificacoes" asp-action="Index">Notificações
-                                                <span id="notificacaoUpdate">
+                                            <a class="p-0 nav-link text-dark itemlista-menulateral" asp-area="" asp-controller="Notificacoes" asp-action="Index">
+                                                <div class="icon-menu-lateral">
+                                                    <i class="bi bi-bell-fill"></i>
+                                                </div>
+                                                <div class="labellista-menulateral">
+                                                    Notificações
+                                                </div>
+                                                <div id="notificacaoUpdate" class="labellista-menulateral">
                                                     @await Component.InvokeAsync("ContadorDeNotificacoesNovas", GetIdUsuarioLogado())
-                                                </span>
+                                                </div>
                                             </a>
                                         </li>
                                     }
                                     else
                                     {
                                         <li class="p-0 item-menu )">
-                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Notificacoes" asp-action="Index">Notificações
-                                                <span id="notificacaoUpdate">
+                                            <a class="p-0 nav-link text-dark itemlista-menulateral" asp-area="" asp-controller="Notificacoes" asp-action="Index">
+                                                <div class="icon-menu-lateral">
+                                                    <i class="bi bi-bell-fill"></i>
+                                                </div>
+                                                <div class="labellista-menulateral">
+                                                    Notificações
+                                                </div>
+                                                <div id="notificacaoUpdate" class="labellista-menulateral">
                                                     @await Component.InvokeAsync("ContadorDeNotificacoesNovas", GetIdUsuarioLogado())
-                                                </span>
+                                                </div>
                                             </a>
                                         </li>
                                     }
@@ -236,14 +286,26 @@
                                     if (ViewData["Controller"]!.Equals("Notificacoes"))
                                     {
                                         <li class="p-0 item-menu item-menu-selecionado )">
-                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Notificacoes" asp-action="Index">Gerenciar notificações
+                                            <a class="p-0 nav-link text-dark itemlista-menulateral" asp-area="" asp-controller="Notificacoes" asp-action="Index">
+                                                <div class="icon-menu-lateral">
+                                                    <i class="bi bi-bell-fill"></i>
+                                                </div>
+                                                <div class="labellista-menulateral">
+                                                    Gerenciar notificações
+                                                </div>
                                             </a>
                                         </li>
                                     }
                                     else
                                     {
                                         <li class="p-0 item-menu )">
-                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Notificacoes" asp-action="Index">Gerenciar notificações
+                                            <a class="p-0 nav-link text-dark itemlista-menulateral" asp-area="" asp-controller="Notificacoes" asp-action="Index">
+                                                <div class="icon-menu-lateral">
+                                                    <i class="bi bi-bell-fill"></i>
+                                                </div>
+                                                <div class="labellista-menulateral">
+                                                    Gerenciar notificações
+                                                </div>
                                             </a>
                                         </li>
                                     }
@@ -253,13 +315,27 @@
                                     @if (ViewData["Controller"]!.Equals("AlunosLinhaDoTempo"))
                                     {
                                         <li class="p-0 item-menu-first item-menu-selecionado">
-                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="AlunosLinhaDoTempo" asp-action="Index">Linha do tempo</a>
+                                            <a class="p-0 nav-link text-dark itemlista-menulateral" asp-area="" asp-controller="AlunosLinhaDoTempo" asp-action="Index">
+                                                <div class="icon-menu-lateral">
+                                                    <i class="bi bi-image-fill"></i>
+                                                </div>
+                                                <div class="labellista-menulateral">
+                                                    Linha do tempo
+                                                </div>
+                                            </a>
                                         </li>
                                     }
                                     else
                                     {
                                         <li class="p-0 item-menu-first">
-                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="AlunosLinhaDoTempo" asp-action="Index">Linha do tempo</a>
+                                            <a class="p-0 nav-link text-dark itemlista-menulateral" asp-area="" asp-controller="AlunosLinhaDoTempo" asp-action="Index">
+                                                <div class="icon-menu-lateral">
+                                                    <i class="bi bi-image-fill"></i>
+                                                </div>
+                                                <div class="labellista-menulateral">
+                                                    Linha do tempo
+                                                </div>
+                                            </a>
                                         </li>
                                     }
                                 }
@@ -267,19 +343,31 @@
                                     @if(ViewData["Controller"]!.Equals("AutorizacoesEventos"))
                                     {
                                         <li class="p-0 item-menu item-menu-selecionado )">
-                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="AutorizacoesEventos" asp-action="Index">Assinar autorização
-                                                <span id="autorizacaoUpdate">
+                                            <a class="p-0 nav-link text-dark itemlista-menulateral" asp-area="" asp-controller="AutorizacoesEventos" asp-action="Index">
+                                                <div class="icon-menu-lateral">
+                                                    <i class="bi bi-clipboard2-check-fill"></i>
+                                                </div>
+                                                <div class="labellista-menulateral">
+                                                    Assinar autorização
+                                                </div>
+                                                <div id="autorizacaoUpdate" class="labellista-menulateral">
                                                     @await Component.InvokeAsync("ContadorDeAutorizacoesNovas", GetIdUsuarioLogado())
-                                                </span>
+                                                </div>
                                             </a>
                                         </li>
                                     }
                                     else{
                                         <li class="p-0 item-menu )">
-                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="AutorizacoesEventos" asp-action="Index">Assinar autorização
-                                                <span id="autorizacaoUpdate">
+                                            <a class="p-0 nav-link text-dark itemlista-menulateral" asp-area="" asp-controller="AutorizacoesEventos" asp-action="Index">
+                                                <div class="icon-menu-lateral">
+                                                    <i class="bi bi-clipboard2-check-fill"></i>
+                                                </div>
+                                                <div class="labellista-menulateral">
+                                                    Assinar autorização
+                                                </div>
+                                                <div id="autorizacaoUpdate" class="labellista-menulateral">
                                                     @await Component.InvokeAsync("ContadorDeAutorizacoesNovas", GetIdUsuarioLogado())
-                                                </span>
+                                                </div>
                                             </a>
                                         </li>
                                     }
@@ -288,19 +376,25 @@
                                     @if(ViewData["Controller"]!.Equals("Turmas"))
                                     {
                                         <li class="p-0 item-menu item-menu-selecionado )">
-                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Turmas" asp-action="TurmasProfessor">Minhas turmas
-                                                <span id="autorizacaoUpdate">
-                                                    @await Component.InvokeAsync("ContadorDeAutorizacoesNovas", GetIdUsuarioLogado())
-                                                </span>
+                                            <a class="p-0 nav-link text-dark itemlista-menulateral" asp-area="" asp-controller="Turmas" asp-action="TurmasProfessor">
+                                                <div class="icon-menu-lateral">
+                                                    <i class="bi bi-person-video3"></i>
+                                                </div>
+                                                <div class="labellista-menulateral">
+                                                    Minhas turmas
+                                                </div>
                                             </a>
                                         </li>
                                     }
                                     else{
                                         <li class="p-0 item-menu )">
-                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Turmas" asp-action="TurmasProfessor">Minhas turmas
-                                                <span id="autorizacaoUpdate">
-                                                    @await Component.InvokeAsync("ContadorDeAutorizacoesNovas", GetIdUsuarioLogado())
-                                                </span>
+                                            <a class="p-0 nav-link text-dark itemlista-menulateral" asp-area="" asp-controller="Turmas" asp-action="TurmasProfessor">
+                                                <div class="icon-menu-lateral">
+                                                    <i class="bi bi-person-video3"></i>
+                                                </div>
+                                                <div class="labellista-menulateral">
+                                                    Minhas turmas
+                                                </div>
                                             </a>
                                         </li>
                                     }
@@ -309,58 +403,126 @@
                                     @if(ViewData["Controller"]!.Equals("Agendas") || ViewData["Controller"]!.Equals("EventosDaAgenda"))
                                     {
                                         <li class="p-0 item-menu item-menu-selecionado )">
-                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Index">Gerenciar agendas
+                                            <a class="p-0 nav-link text-dark itemlista-menulateral" asp-area="" asp-controller="Agendas" asp-action="Index">
+                                                <div class="icon-menu-lateral">
+                                                    <i class="bi bi-calendar-fill"></i>
+                                                </div>
+                                                <div class="labellista-menulateral">
+                                                    Gerenciar agendas
+                                                </div>
                                             </a>
                                         </li>
                                     }
                                     else{
                                         <li class="p-0 item-menu )">
-                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Agendas" asp-action="Index">Gerenciar agendas
+                                            <a class="p-0 nav-link text-dark itemlista-menulateral" asp-area="" asp-controller="Agendas" asp-action="Index">
+                                                <div class="icon-menu-lateral">
+                                                    <i class="bi bi-calendar-fill"></i>
+                                                </div>
+                                                <div class="labellista-menulateral">
+                                                    Gerenciar agendas
+                                                </div>
                                             </a>
                                         </li>
                                     }
                                     @if(ViewData["Controller"]!.Equals("Usuarios"))
                                     {
                                         <li class="p-0 item-menu item-menu-selecionado">
-                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">Gerenciar usuários</a>
+                                            <a class="p-0 nav-link text-dark itemlista-menulateral" asp-area="" asp-controller="Usuarios" asp-action="Index">
+                                                <div class="icon-menu-lateral">
+                                                    <i class="bi bi-people-fill"></i>
+                                                </div>
+                                                <div class="labellista-menulateral">
+                                                    Gerenciar usuários
+                                                </div>
+                                            </a>
                                         </li>
                                     }
                                     else{
                                         <li class="p-0 item-menu">
-                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">Gerenciar usuários</a>
+                                            <a class="p-0 nav-link text-dark itemlista-menulateral" asp-area="" asp-controller="Usuarios" asp-action="Index">
+                                                <div class="icon-menu-lateral">
+                                                    <i class="bi bi-people-fill"></i>
+                                                </div>
+                                                <div class="labellista-menulateral">
+                                                    Gerenciar usuários
+                                                </div>
+                                            </a>
                                         </li>
                                     }
                                     @if(ViewData["Controller"]!.Equals("Disciplinas"))
                                     {
                                         <li class="p-0 item-menu item-menu-selecionado">
-                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Disciplinas" asp-action="Index">Gerenciar disciplinas</a>
+                                            <a class="p-0 nav-link text-dark itemlista-menulateral" asp-area="" asp-controller="Disciplinas" asp-action="Index">
+                                                <div class="icon-menu-lateral">
+                                                    <i class="bi bi-book-fill"></i>
+                                                </div>
+                                                <div class="labellista-menulateral">
+                                                    Gerenciar disciplinas
+                                                </div>
+                                            </a>
                                         </li>
                                     }
                                     else{
                                         <li class="p-0 item-menu">
-                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Disciplinas" asp-action="Index">Gerenciar disciplinas</a>
+                                            <a class="p-0 nav-link text-dark itemlista-menulateral" asp-area="" asp-controller="Disciplinas" asp-action="Index">
+                                                <div class="icon-menu-lateral">
+                                                    <i class="bi bi-book-fill"></i>
+                                                </div>
+                                                <div class="labellista-menulateral">
+                                                    Gerenciar disciplinas
+                                                </div>
+                                            </a>
                                         </li>
                                     }
                                     @if(ViewData["Controller"]!.Equals("Turmas"))
                                     {
                                         <li class="p-0 item-menu item-menu-selecionado">
-                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Turmas" asp-action="Index">Gerenciar turmas</a>
+                                            <a class="p-0 nav-link text-dark itemlista-menulateral" asp-area="" asp-controller="Turmas" asp-action="Index">
+                                                <div class="icon-menu-lateral">
+                                                    <i class="bi bi-person-video3"></i>
+                                                </div>
+                                                <div class="labellista-menulateral">
+                                                    Gerenciar turmas
+                                                </div>
+                                            </a>
                                         </li>
                                     }
                                     else{
                                         <li class="p-0 item-menu">
-                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Turmas" asp-action="Index">Gerenciar turmas</a>
+                                            <a class="p-0 nav-link text-dark itemlista-menulateral" asp-area="" asp-controller="Turmas" asp-action="Index">
+                                                <div class="icon-menu-lateral">
+                                                    <i class="bi bi-person-video3"></i>
+                                                </div>
+                                                <div class="labellista-menulateral">
+                                                    Gerenciar turmas
+                                                </div>
+                                            </a>
                                         </li>
                                     }
                                     @if(ViewData["Controller"]!.Equals("Alunos"))
                                     {
                                         <li class="p-0 item-menu item-menu-selecionado">
-                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Alunos" asp-action="Index">Gerenciar alunos</a>
+                                            <a class="p-0 nav-link text-dark itemlista-menulateral" asp-area="" asp-controller="Alunos" asp-action="Index">
+                                                <div class="icon-menu-lateral">
+                                                    <i class="bi bi-person-badge-fill"></i>
+                                                </div>
+                                                <div class="labellista-menulateral">
+                                                    Gerenciar alunos
+                                                </div>
+                                            </a>
                                         </li>
                                     }
                                     else{
                                         <li class="p-0 item-menu">
-                                            <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Alunos" asp-action="Index">Gerenciar alunos</a>
+                                            <a class="p-0 nav-link text-dark itemlista-menulateral" asp-area="" asp-controller="Alunos" asp-action="Index">
+                                                <div class="icon-menu-lateral">
+                                                    <i class="bi bi-person-badge-fill"></i>
+                                                </div>
+                                                <div class="labellista-menulateral">
+                                                    Gerenciar alunos
+                                                </div>
+                                            </a>
                                         </li>
                                     }           
                                 }

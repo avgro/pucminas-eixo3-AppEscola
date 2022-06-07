@@ -282,7 +282,7 @@ max-width-100 {
 
 .menu-content-layout {
     display: grid;
-    grid-template-columns: 240px 1fr;
+    grid-template-columns: 262px 1fr;
 }
 
 .menu-lateral {
@@ -293,6 +293,11 @@ max-width-100 {
     background-color: white;
 }
 
+.menu-lateral li {
+    height: 48px;
+    width: 230px;
+}
+
 .menu-lateral li:hover {
     background-color: lightgray;
     transition-duration: 0.25s;
@@ -301,16 +306,17 @@ max-width-100 {
 .item-menu-first {
     border: 1px solid lightgray;
     list-style: none;
-    padding: 4px;
     border-radius: 4px;
+    margin-bottom: 4px;
+    margin-right: 4px;
 }
 
 .item-menu {
     border: 1px solid lightgray;
     list-style: none;
-    padding: 4px;
     border-radius: 4px;
-    border-top: none;
+    margin-bottom: 4px;
+    margin-right: 4px;
 }
 
 .item-menu-selecionado {
@@ -328,15 +334,38 @@ max-width-100 {
     height: 25px;
     width: 25px;
     margin: 0;
+    margin-left: -32px;
     border-radius: 100%;
 }
+
+.itemlista-menulateral {
+    display: grid;
+    grid-template-columns: 48px 1fr 1px;
+}
+
+.labellista-menulateral {
+    height: 100%;
+    padding-top: 11px;
+}
+
+.icon-menu-lateral {
+    border-radius: 3px 0px 0px 3px;
+    background-color: rgba(128, 128, 128, 0.25);
+    border-right: 1px solid lightgray;
+    padding: 12px 0px 10px 11px;
+    height: 46px;
+    width: 40px;
+}
+
 
 @media (max-width: 1199px) {
     .menu-content-layout {
         display: block;
         margin: auto;
     }
-
+    .menu-lateral {
+        margin-right: 0;
+    }
     .menu-lateral ul {
         display: flex;
         flex-direction: row;
@@ -346,6 +375,7 @@ max-width-100 {
     }
 
     .menu-lateral li {
+        width: 280px;
         display: inline;
     }
 
@@ -354,6 +384,12 @@ max-width-100 {
         list-style: none;
         padding: 4px;
         border-radius: 4px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-lateral li {
+        width: 205px;
     }
 }
 
