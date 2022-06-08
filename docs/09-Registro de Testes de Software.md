@@ -151,8 +151,8 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 
 |Caso de Teste 22| CT- 22 - Visualizar Linha do Tempo|
 |-------|-------------------------
-|Objetivo do teste|.|
-|Resultado| A funcionalidade esta funcionando corretamente.|
+|Objetivo do teste| Verificar se o usuário do tipo "responsável do aluno" consegue visualizar a linha do tempo do filho.|
+|Resultado| O Responsavel do aluno consegue visualizar a linha do tempo do seu filho.|
 
 |Caso de Teste 24| CT- 24 - Lançar notificação no sistema|
 |-------|-------------------------
