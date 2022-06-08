@@ -144,6 +144,16 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 |Objetivo do teste| Verificar se o usuário do tipo "responsável do aluno" consegue autorizar o filho a participar de um evento que requer permissão.|
 |Resultado| O usuário do tipo "responsável do aluno" consegue efetuar a autorização ou nao, do seu filho, ou seja a funcionalidade esta funcionando.|
 
+|Caso de Teste 21| CT- 21 - Adicionar evento na Linha do Tempo|
+|-------|-------------------------
+|Objetivo do teste| Verificar se o usuário do tipo "professor" consegue postar um evento na linha do tempo de um aluno.|
+|Resultado| A funcionalidade esta funcionando corretamente.|
+
+|Caso de Teste 22| CT- 22 - Visualizar Linha do Tempo|
+|-------|-------------------------
+|Objetivo do teste|.|
+|Resultado| A funcionalidade esta funcionando corretamente.|
+
 |Caso de Teste 24| CT- 24 - Lançar notificação no sistema|
 |-------|-------------------------
 |Objetivo do teste| Verificar se o usuário do tipo "Administrador" consegue lançar notificações no sistema.|
