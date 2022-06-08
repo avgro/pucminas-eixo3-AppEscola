@@ -154,6 +154,11 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 |Objetivo do teste| Verificar se o usuário do tipo "responsável do aluno" consegue visualizar a linha do tempo do filho.|
 |Resultado| O Responsavel do aluno consegue visualizar a linha do tempo do seu filho.|
 
+|Caso de Teste 23| CT- 23 - Comentar publicação da Linha do Tempo|
+|-------|-------------------------
+|Objetivo do teste| Verificar se os usuários do tipo "Professor" e "Responsável do Aluno" conseguem comentar nas publicações da linha do tempo.|
+|Resultado|A funcionalidade está funcionando corretamente.|
+
 |Caso de Teste 24| CT- 24 - Lançar notificação no sistema|
 |-------|-------------------------
 |Objetivo do teste| Verificar se o usuário do tipo "Administrador" consegue lançar notificações no sistema.|
