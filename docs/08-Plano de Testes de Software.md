@@ -164,7 +164,7 @@ Os testes funcionais a serem realizados no aplicativo são descritos a seguir:
 |Requisitos Associados | 	 RF-12 - A aplicação deve disponibilizar uma “linha do tempo” privada onde o professor possa fazer postagens, com fotos e texto sobre o aluno, que estarão visíveis apenas para os responsáveis daquele aluno, administradores do sistema e o respectivo professor.<br>A aplicação deve permitir envio de documentos, fotos, vídeos e autorizações para eventos e passeios (que podem ser aceitos dentro do próprio aplicativo) para os responsáveis do aluno pelos funcionários da escola |
 |Objetivo do teste| Verificar se o usuário do tipo "professor" consegue postar um evento na linha do tempo de um aluno |
 |Passos |	1) Acessar o navegador.	2) Informar o endereço do site. 3) Fazer login como usuário do tipo "Professor" 4) Clicar na aba "Linha do Tempo". 5) Clicar em "Cadastrar publicação". 6) Preencher as informações solicitadas. 7) Clicar em "Salvar" 8) A tela de "Linha do tempo" será atualizada e a nova postagem deverá aparecer nela . |
-|Critérios de êxito| O professor deve ser caapz de cadastrar uma publicação que deve aparecer na linha do tempo após o cadastro. |
+|Critérios de êxito| O professor deve ser capaz de cadastrar uma publicação que deve aparecer na linha do tempo após o cadastro. |
 
 |Caso de teste 22    | CT 22 - Visualizar Linha do Tempo |
 |-------|-------------------------
