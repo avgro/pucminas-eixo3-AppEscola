@@ -88,6 +88,68 @@ Os resultados obtidos nos testes de usabilidade realizados são descritos na tab
   <th>---------------------------------------</th></tr>
   </table>
   
+  <table> 
+<tr><th>Caso de Teste </th>
+<th> CT - 07  – Visualizar e cadastrar eventos na agenda escolar </th></tr>
+<tr><th>Objetivo do teste</th>
+  <th>Verificar se o usuário é capaz de cadastrar e visualizar eventos na agenda.</th></tr>
+<tr><th>Resultado</th>
+  <th>Todos usuários conseguiram realizar o proposto corretamente.<br>
+  </th></tr>
+<tr><th>Melhoria</th>	
+  <th>---------------------------------------</th></tr>
+  </table>
+  
+   <table> 
+<tr><th>Caso de Teste </th>
+<th> CT - 08  – Assinar autorização para participação do filho em eventos. </th></tr>
+<tr><th>Objetivo do teste</th>
+  <th> teste 08 teste 08 teste 08.</th></tr>
+<tr><th>Resultado</th>
+  <th>resultado 08 resultado 08.<br>
+  </th></tr>
+<tr><th>Melhoria</th>	
+  <th>---------------------------------------</th></tr>
+  </table>
+  
+  <table> 
+<tr><th>Caso de Teste </th>
+<th> CT - 09  – Visualizar, cadastrar e comentar publicação na linha do tempo </th></tr>
+<tr><th>Objetivo do teste</th>
+  <th> teste 09 teste 09 teste 09.</th></tr>
+<tr><th>Resultado</th>
+  <th>resultado 09 resultado 09 resultado 09.<br>
+  </th></tr>
+<tr><th>Melhoria</th>	
+  <th>---------------------------------------</th></tr>
+  </table>
+  
+  <table> 
+<tr><th>Caso de Teste </th>
+<th> CT - 10  – Lançar e visualizar notificações no sistema. </th></tr>
+<tr><th>Objetivo do teste</th>
+  <th> teste 10 teste 10 teste 10.</th></tr>
+<tr><th>Resultado</th>
+  <th>resultado 10 resultado 10 resultado 10.<br>
+  </th></tr>
+<tr><th>Melhoria</th>	
+  <th>---------------------------------------</th></tr>
+  </table>
+  
+   <table> 
+<tr><th>Caso de Teste </th>
+<th> CT - 11  – Alterar dados pessoais no sistema. </th></tr>
+<tr><th>Objetivo do teste</th>
+  <th> Verificar se os usuários conseguem alterar seus dados na aplicação.</th></tr>
+<tr><th>Resultado</th>
+  <th> Todos usuários conseguiram alterar seus dados com sucesso.<br>
+  </th></tr>
+<tr><th>Melhoria</th>	
+  <th>---------------------------------------</th></tr>
+  </table>
+  
+  
+  
   
   
   
