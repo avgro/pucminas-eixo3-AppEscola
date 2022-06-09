@@ -104,9 +104,9 @@ Os resultados obtidos nos testes de usabilidade realizados são descritos na tab
 <tr><th>Caso de Teste </th>
 <th> CT - 08  – Assinar autorização para participação do filho em eventos. </th></tr>
 <tr><th>Objetivo do teste</th>
-  <th> teste 08 teste 08 teste 08.</th></tr>
+  <th> Verificar se usuários conseguem localizar e clicar em " autorização para eventos ".</th></tr>
 <tr><th>Resultado</th>
-  <th>resultado 08 resultado 08.<br>
+  <th> Nenhum usuário encontrou dificuldade em localizar a autorização.<br>
   </th></tr>
 <tr><th>Melhoria</th>	
   <th>---------------------------------------</th></tr>
@@ -116,9 +116,9 @@ Os resultados obtidos nos testes de usabilidade realizados são descritos na tab
 <tr><th>Caso de Teste </th>
 <th> CT - 09  – Visualizar, cadastrar e comentar publicação na linha do tempo </th></tr>
 <tr><th>Objetivo do teste</th>
-  <th> teste 09 teste 09 teste 09.</th></tr>
+  <th> Observar se o usuário consegue visualizar, cadastrar e comentar publicações na linha do tempo.</th></tr>
 <tr><th>Resultado</th>
-  <th>resultado 09 resultado 09 resultado 09.<br>
+  <th> Todos usuários conseguiram efetuar o comando sem dificuldade.<br>
   </th></tr>
 <tr><th>Melhoria</th>	
   <th>---------------------------------------</th></tr>
