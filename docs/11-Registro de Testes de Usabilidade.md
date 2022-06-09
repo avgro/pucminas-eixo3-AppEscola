@@ -128,9 +128,9 @@ Os resultados obtidos nos testes de usabilidade realizados são descritos na tab
 <tr><th>Caso de Teste </th>
 <th> CT - 10  – Lançar e visualizar notificações no sistema. </th></tr>
 <tr><th>Objetivo do teste</th>
-  <th> teste 10 teste 10 teste 10.</th></tr>
+  <th> Verificar se usuários conseguem lançar e visualizar notificações no sistema.</th></tr>
 <tr><th>Resultado</th>
-  <th>resultado 10 resultado 10 resultado 10.<br>
+  <th> Todos usuários conseguiram lançar e visualizar notificações no sistema.<br>
   </th></tr>
 <tr><th>Melhoria</th>	
   <th>---------------------------------------</th></tr>
