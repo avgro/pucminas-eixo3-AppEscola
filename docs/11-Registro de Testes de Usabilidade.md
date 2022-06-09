@@ -31,7 +31,7 @@ Os resultados obtidos nos testes de usabilidade realizados são descritos na tab
 <tr><th>Caso de Teste </th>
 <th> CT - 02  – Realização do cadastro de usuários do tipo "Responsável do aluno" e "Professor" </th></tr>
 <tr><th>Objetivo do teste</th>
-  <th> Verificar a realização de cadastro de usuário do tipo "Professor" e "Responsável do aluno" por um usuário usando uma conta de administrador.</th></tr>
+  <th> Verificar a realização de cadastro de usuário do tipo "Professor" e "Responsável do aluno" por um usuário administrador.</th></tr>
 <tr><th>Resultado</th>
   <th>Usuário com perfil administrador obteve êxito na realização do cadastro de professor e responsável pelo aluno.<br>
   </th></tr>
