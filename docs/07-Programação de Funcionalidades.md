@@ -157,6 +157,8 @@ A funcionalidade de cadastrar novas turmas no sistema é exclusiva para a conta 
 #### Views
 - Turmas/Index.cshtml
 - Turmas/Create.cshtml
+- Turmas/Edit.cshtml
+- Turmas/Delete.cshtml
 - Turmas/GerenciarDisciplinas.cshtml
 #### Outros
 - site.css
@@ -195,6 +197,8 @@ A funcionalidade de cadastrar novos alunos no sistema é exclusiva para a conta 
 #### Views
 - Alunos/Index.cshtml
 - Alunos/Create.cshtml
+- Alunos/Edit.cshtml
+- Alunos/Delete.cshtml
 #### Outros
 - site.css
 - site.js
@@ -207,6 +211,98 @@ A funcionalidade de cadastrar novos alunos no sistema é exclusiva para a conta 
 4. Clicar em "Cadastrar aluno";
 5. Preencher as informações do formulário de cadastro de aluno e então clicar em "Cadastrar novo aluno", selecionando um ou mais responsáveis e uma turma para o aluno;
 6. Após o cadastro do aluno, o novo aluno cadastrado deverá aparecer na lista de alunos.
+
+## Cadastro de novas agendas (RF-10, RF-11)
+A funcionalidade de cadastrar novas agendas no sistema é exclusiva para a conta do administrador. Após acessar sua conta, o administrador pode cadastrar novas agendas, além de visualizar e editar as informações de todas as agendas cadastradas. Ao cadastrar uma nova agenda, o administrador deve escolher qual tipo de usuário (responsável do aluno, professor ou todos) e quais turmas (que um dependente faça parte, no caso do pai, ou na qual o usuário ministre pelo menos uma disciplina, no caso do professor) poderão visualizar seu conteúdo. Há também por padrão a opção "todas as agendas", que abrange todos os eventos cadastrados sem uma agenda específica, e que portanto serão visíveis para todos os usuários do sistema.
+
+### Visualizar agendas cadastrados
+![cadastraragendaA](https://user-images.githubusercontent.com/74699119/172973529-d8d0f85c-d032-4808-bf54-57838e77c24c.jpg)
+
+### Formulário de cadastro de nova agenda
+![cadastraragendaB](https://user-images.githubusercontent.com/74699119/172973531-af569129-a17c-4984-942c-e1bcd8152413.jpg)
+
+### Visualizar agendas cadastradas (após cadastro de nova agenda)
+![cadastraragendaC](https://user-images.githubusercontent.com/74699119/172973538-0c88e1b3-de41-4c62-9adf-7a5f76c778e1.jpg)
+
+### Requisitos atendidos
+- RF-10
+- RF-11
+
+### Artefatos da funcionalidade
+#### Models
+- Agenda.cs
+#### Controllers
+- AgendaController.cs
+#### Views
+- Agendas/Index.cshtml
+- Agendas/Create.cshtml
+- Agendas/Edit.cshtml
+- Agendas/Delete.cshtml
+
+#### Outros
+- site.css
+- site.js
+
+### Instruções de acesso
+1. Visualize a tela inicial/homepage do projeto;
+2. Realizar login na conta de administrador (conforme as instruções da funcionalidade "Login e autenticação" contida nesta seção);
+3. Clicar na opção "Gerenciar agendas" do menu lateral;
+4. Clicar em "Cadastrar agenda";
+5. Preencher as informações do formulário de cadastro de agenda, selecionando a turma e o tipo de usuário, e então clicar em "Cadastrar";
+6. Após o cadastro da agenda, a nova agenda cadastrada deverá aparecer na lista de agendas.
+
+## Cadastro de novos eventos em agenda (RF-10, RF-11)
+A funcionalidade de cadastrar novos eventos em agendas é exclusiva para as contas de administrador e professor. Após acessar sua conta, o administrador/professor poderá cadastrar novos eventos nas agendas disponíveis, sendo que o administrador poderá cadastrar um evento em qualquer agenda existente ou na opção "todas as agendas" (que deixará o evento visível para todos os usuários), enquanto o professor poderá cadastrar eventos somente em agendas da qual faz parte (agendas de turmas em que dá aula ou agendas gerais para professores). O usuário que cadastrou um evento poderá também editar informações ou excluir o evento, mas não poderá editar ou excluir eventos cadastrados por outros usuários. Ao cadastrar um novo evento em uma agenda, o usuário deverá informar o nome, descrição, início e fim do evento, além de informar se a participação de alunos neste evento requer a autorização dos responsáveis, sendo que um pedido de autorização de participação será enviado para os responsáveis dos alunos solicitados caso essa ultima opção seja marcada.
+
+### Visualizar eventos da agenda
+![eventoAgendaA](https://user-images.githubusercontent.com/74699119/172974699-c93307b4-1a9f-4e1b-9436-ea9c36965a8c.jpg)
+
+### Formulário de cadastro de novo evento na agenda
+![eventoAgendaB](https://user-images.githubusercontent.com/74699119/172974702-bd21aa23-272c-4dbd-bb38-161fb87acc4e.jpg)
+
+### Visualizar eventos da agenda (após cadastro de novo evento)
+![eventoAgendaC](https://user-images.githubusercontent.com/74699119/172974706-118330da-11a5-421a-9c27-2cb0f5b4ce3b.jpg)
+
+### Visualizar eventos da agenda em forma de lista (disponível apenas para administrador e professor)
+![even![eventoAgendaE](https://user-images.githubusercontent.com/74699119/172974762-4e389f5a-027f-4395-adce-09d9503d99a5.jpg)
+toAgendaD](https://user-images.githubusercontent.com/74699119/172974760-b433c13a-580a-4c14-add2-eb945b2edf23.jpg)
+
+### Requisitos atendidos
+- RF-10
+- RF-11
+
+### Artefatos da funcionalidade
+#### Models
+- Agenda.cs
+- EventoDaAgenda.cs
+- AutorizacaoEvento.cs
+#### Controllers
+- AgendaController.cs
+- EventosDaAgendaController.cs
+- AutorizacoesEventosController.cs
+#### Views
+- Agendas/Visualizar.cshtml
+- EventosDaAgenda/Index.cshtml
+- EventosDaAgenda/Create.cshtml
+- EventosDaAgenda/Edit.cshtml
+- EventosDaAgenda/Details.cshtml
+- EventosDaAgenda/Delete.cshtml
+
+#### Outros
+- site.css
+- site.js
+- agenda-escolar.js
+
+### Instruções de acesso
+1. Visualize a tela inicial/homepage do projeto;
+2. Realizar login na conta de administrador ou em uma conta do tipo "Professor" (conforme as instruções da funcionalidade "Login e autenticação" contida nesta seção);
+3. Caso esteja logado como administrador, clicar na opção "Gerenciar agendas" do menu lateral e em "Visualizar" ao lado da agenda que deseja cadastrar o evento;
+4. Caso esteja logado como professor, clicar na opção "Agenda escolar" do menu lateral;
+5. Clicar em "Cadastrar evento";
+5. Preencher as informações do formulário de cadastro de evento, selecionando a agenda em que deseja cadastra-lo e clique em "Cadastrar";
+6. Após o cadastro do evento, ele deverá aparecer no dia em que foi cadastrado na agenda escolar escolhida.
+7. Os usuários do tipo "Administrador" ou "Professor" podem também visualizar os eventos cadastrados em forma de lista ao clicar na opção "Lista de eventos";
+8. Uma vez dentro da opção "Lista de eventos", o usuário poderá escolher editar ou apagar os eventos que cadastrou.
 
 ## Alterar informações pessoais (RF-06)
 A funcionalidade de alterar dados pessoais é disponibilizada para todos os usuários do sistema através do menu do usuário. Esta funcionalidade permite que o usuário logado no sistema altere seu email, telefones, endereço e senha, não podendo alterar seu nome ou nome de usuário. Para alterar suas informações pessoais, incluindo a senha o usuário deve informar sua senha atual, com a troca de informações sendo bem sucedida apenas mediante a senha correta.
