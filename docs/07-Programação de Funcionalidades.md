@@ -1,6 +1,19 @@
 # Programação de Funcionalidades
 
-Nesta seção são demonstradas as telas correspondentes a cada funcionalidade implementada do sistema. As instruções de acesso são apresentados em seguida.
+Nesta seção são demonstradas as telas correspondentes a cada funcionalidade implementada do sistema. As instruções de acesso são apresentadas em seguida. Para acessar o projeto publicado online na plataforma smarterasp.net, o usuário deve clicar no seguinte link:
+
+http://smensga-001-site1.itempurl.com/
+
+Que o redirecionará para a homepage do projeto (ou para a área do usuário caso já tenha realizado login na plataforma).
+
+Caso deseje clonar este repositório do Github e rodar o projeto de forma local no próprio computador, o usuário deve seguir os seguintes passos:
+
+1. Fazer o download do arquivo do projeto (ZIP) ou clone do projeto no GitHub;
+2. Abrir o arquivo "App-comunicacao-escolar.sln" no Visual Studio;
+3. Executar o comando "update-database" no console do Package Manager para criar as tabelas do banco de dados localmente através dos arquivos "migrations" do Entity Framework Core;
+5. Rodar o projeto no Visual Studio, que deverá abrir uma janela do browser no endereço localhost:7060, exibindo a homepage do projeto (ou a área do usuário caso o usuário já esteja logado);
+
+O passo a passo de como acessar cada uma das funcionalidades do projeto a partir deste ponto é descrito nas seções abaixo.
 
 ## Login e autenticação (RF-01)
 A funcionalidade de login é acessada ao clicar no botão "Login" do cabeçalho enquanto não se está logado em nenhuma conta. As contas de usuário são criadas exclusivamente pelo administrador do sistema, podendo ser do perfil "Responsável do aluno", "Professor" e "Outros". Há ainda a conta com perfil "Administrador", que é exclusiva para o administrador do sistema. Ao entrar na tela de login, o usuário informa seu nome de usuário e senha, e, caso o sistema reconheça as informações como corretas, inicia-se a sessão daquele usuário. No caso de informações incorretas, o sistema retorna uma mensagem de erro informando que o usuário ou senha informados são inválidos. Após a realização bem sucedida do login, o usuário é direcionado para a tela inicial do usuário, aonde terá acesso a um menu lateral cujas opções variam de acordo com o perfil de usuário (opções de gerenciar informações do sistema aparecem apenas para o administrador, etc). Uma vez logado no sistema, o usuário pode realizar logout abrindo o menu do usuário presente no canto superior direito do cabeçalho e selecionado a opção "Sair".
@@ -29,17 +42,14 @@ A funcionalidade de login é acessada ao clicar no botão "Login" do cabeçalho 
 - updateMsg-check.js
 
 ### Instruções de acesso
-1. Faça o download do arquivo do projeto (ZIP) ou clone do projeto no GitHub;
-2. Abra o arquivo "App-comunicacao-escolar.sln" no Visual Studio;
-3. Execute o comando "update-database" no console do Package Manager para criar as tabelas do banco de dados localmente através dos arquivos "migrations" do Entity Framework Core;
-5. Rode o projeto no Visual Studio, que abrirá uma janela do browser no endereço localhost:7060;
-5. Visualize a tela inicial/homepage do projeto;
-6. Clique no botão "Login" presente no canto direito do cabeçalho;
-7. Informe suas credenciais de login (caso nenhum usuário tenha sido cadastrado, utilizar nome de usuário "admin" e senha "admin" para acessar a conta do administrador);
-8. Caso as credenciais tenham sido validadas, a sessão será iniciada e o usuário redirecionado para a página inicial do usuário.
+
+1. Visualize a tela inicial/homepage do projeto;
+2. Clique no botão "Login" presente no canto direito do cabeçalho;
+3. Informe suas credenciais de login (caso nenhum usuário tenha sido cadastrado, utilizar nome de usuário "admin" e senha "admin" para acessar a conta do administrador);
+4. Caso as credenciais tenham sido validadas, a sessão será iniciada e o usuário redirecionado para a página inicial do usuário.
 
 ## Cadastro/Edição de usuários e envio de email com credenciais de acesso pelo administrador (RF-02 e RF-03)
-A funcionalidade de cadastrar novos usuários no sistema é exclusiva para a conta do administrador, uma vez que o cadastro na plataforma deve ser exclusiva para responsaveis de alunos e funcionários da escola. Após acessar sua conta, o administrador pode visualizar e editar as informações de todos os usuários cadastrados, bem como escolher cadastrar um novo usuário do tipo "Responsável de aluno", "Professor" ou "Outros" (tipo de conta genérica utilizada por funcionários que não sejam professores). Após a criação da conta, o administrador poderá enviar um email para o e-mail do novo usuário contendo suas credenciais de acesso para a plataforma. Na versão local do projeto (executada via localhost), esse e-mail é enviado para uma pasta no diretório C: com o nome "AppEscolaMail". Na versão que será hospedade online, o email será de fato enviado para a conta de email informada durante o cadastro. O administrador pode ainda apagar um usuário do sistema clicando na opção "Apagar" na tela de lista de usuários e confirmando a ação na tela seguinte, excetuando-se a própria conta de administrador, que não pode ser apagada do sistema.Essa funcionalidade também atende parcialmente o RF-03, uma vez que o cadastro de responsáveis e professores ocorre nela junto a criação de suas respectivas contas de usuário. 
+A funcionalidade de cadastrar novos usuários no sistema é exclusiva para a conta do administrador, uma vez que o cadastro na plataforma deve ser exclusiva para responsaveis de alunos e funcionários da escola. Após acessar sua conta, o administrador pode visualizar e editar as informações de todos os usuários cadastrados, bem como escolher cadastrar um novo usuário do tipo "Responsável de aluno", "Professor" ou "Outros" (tipo de conta genérica utilizada por funcionários que não sejam professores). Após a criação da conta, o administrador poderá enviar um email para o e-mail do novo usuário contendo suas credenciais de acesso para a plataforma. Na versão local do projeto (executada via localhost), esse e-mail é enviado para uma pasta no diretório C: com o nome "AppEscolaMail". Na versão que hospedada online, o email originalmente seria de fato enviado para a conta de email informada durante o cadastro através da API FluentEmail, esta opção precisou ser desabilitada devido a uma mudança na política de acesso por "aplicativos menos seguros" do Google, que impossibilitou a utilização da API pela aplicação para esta finalidade. O administrador pode ainda apagar um usuário do sistema clicando na opção "Apagar" na tela de lista de usuários e confirmando a ação na tela seguinte, excetuando-se a própria conta de administrador, que não pode ser apagada do sistema. Essa funcionalidade também atende parcialmente o RF-03, uma vez que o cadastro de responsáveis e professores ocorre nela junto a criação de suas respectivas contas de usuário. 
 
 ### Visualizar usuários cadastrados
 ![cadastrarusuarioA](https://user-images.githubusercontent.com/74699119/172967241-779b71d6-25a4-4ec1-b009-64d69a38f6ec.jpg)
@@ -77,19 +87,16 @@ A funcionalidade de cadastrar novos usuários no sistema é exclusiva para a con
 - formatar-cep.js
 
 ### Instruções de acesso
-1. Faça o download do arquivo do projeto (ZIP) ou clone do projeto no GitHub;
-2. Abra o arquivo "App-comunicacao-escolar.sln" no Visual Studio;
-3. Execute o comando "update-database" no console do Package Manager para criar as tabelas do banco de dados localmente através dos arquivos "migrations" do Entity Framework Core;
-4. Criar uma pasta no diretório C: do seu computador chamada "AppEscolaMail" para recebimento local dos emails;
-5. Rode o projeto no Visual Studio, que abrirá uma janela do browser no endereço localhost:7060;
-6. Visualize a tela inicial/homepage do projeto;
-7. Realizar login na conta de administrador (conforme as instruções da funcionalidade "Login e autenticação" contida nesta seção);
-8. Clicar na opção "Gerenciar usuários" do menu lateral;
-9. Clicar em "Cadastrar usuário";
-10. Preencher as informações do formulário de cadastro de usuário, selecionado o tipo de usuário a ser criado no primeiro campo do formulário e então clicar em "Cadastrar novo usuário";
-11. Na tela seguinte, clicar na opção "Enviar email" para enviar o email contendo as credenciais de acesso para o usuário;
-12. Após o envio do email, o usuário será redirecionado para a tela de visualizar usuários cadastrados, aonde o novo usuário deverá aparecer;
-13. Abrir o arquivo .eml gerado na pasta C:/AppEscolaMail para visualizar o email enviado;
+1. Caso esteja rodando o projeto localmente, criar uma pasta no diretório C: do seu computador chamada "AppEscolaMail" para recebimento local dos emails;
+2. Visualize a tela inicial/homepage do projeto;
+3. Realizar login na conta de administrador (conforme as instruções da funcionalidade "Login e autenticação" contida nesta seção);
+4. Clicar na opção "Gerenciar usuários" do menu lateral;
+5. Clicar em "Cadastrar usuário";
+6. Preencher as informações do formulário de cadastro de usuário, selecionado o tipo de usuário a ser criado no primeiro campo do formulário e então clicar em "Cadastrar novo usuário";
+7. Na tela seguinte, clicar na opção "Enviar email" para enviar o email contendo as credenciais de acesso para o usuário (desabilitado na versão online);
+8. Após o envio do email, o usuário será redirecionado para a tela de visualizar usuários cadastrados, aonde o novo usuário deverá aparecer;
+9. Caso esteja rodando o projeto localmente, abrir o arquivo .eml gerado na pasta C:/AppEscolaMail para visualizar o email enviado;
+10. Caso esteja acessando o projeto online, o envio de emails está desabilitado na versão atual devido a uma mudança na política de acesso por "aplicações menos seguras" do google, que não permite que nossa aplicação possa acessar uma conta de e-mail para realizar o envio.
 
 ## Cadastro/Edição de disciplinas (RF-03 e RF-04)
 A funcionalidade de cadastrar novas disciplinas no sistema é exclusiva para a conta do administrador. Após acessar sua conta, o administrador pode visualizar e editar as informações de todas as disciplinas cadastradas, bem como escolher cadastrar novas disciplinas. Durante o cadastro da disciplina, o administrador deve selecionar um ou mais professores e uma turma para a disciplina, além de informar os horários em que a disciplina será ministrada durante a semana. Caso o administrador deseje trocar os professores, horário ou turmas da disciplina mais tarde, essa troca pode ser feita clicando em "Editar" na tela de visualização de disciplinas. 
@@ -118,16 +125,12 @@ A funcionalidade de cadastrar novas disciplinas no sistema é exclusiva para a c
 - selecionar-pessoas.js
 
 ### Instruções de acesso
-1. Faça o download do arquivo do projeto (ZIP) ou clone do projeto no GitHub;
-2. Abra o arquivo "App-comunicacao-escolar.sln" no Visual Studio;
-3. Execute o comando "update-database" no console do Package Manager para criar as tabelas do banco de dados localmente através dos arquivos "migrations" do Entity Framework Core;
-5. Rode o projeto no Visual Studio, que abrirá uma janela do browser no endereço localhost:7060;
-6. Visualize a tela inicial/homepage do projeto;
-7. Realizar login na conta de administrador (conforme as instruções da funcionalidade "Login e autenticação" contida nesta seção);
-8. Clicar na opção "Gerenciar disciplinas" do menu lateral;
-9. Clicar em "Cadastrar disciplina";
-10. Preencher as informações do formulário de cadastro de disciplina e então clicar em "Cadastrar nova disciplina";
-11. Após o cadastro da disciplina, caso uma turma tenha sido selecionada, o usuário será redirecionado para o quadro de disciplinas daquela turma (descrita na funcionalidade "Cadastro de novas turmas"), aonde a disciplina aparecerá cadastrada ou uma mensagem de erro aparecerá em caso de conflito de horário com outra disciplina. Não tendo sido selecionada uma turma, o usuário será redirecionado para a tela de visualizar disciplinas, aonde a nova disciplina deverá aparecer;
+1. Visualize a tela inicial/homepage do projeto;
+2. Realizar login na conta de administrador (conforme as instruções da funcionalidade "Login e autenticação" contida nesta seção);
+3. Clicar na opção "Gerenciar disciplinas" do menu lateral;
+4. Clicar em "Cadastrar disciplina";
+5. Preencher as informações do formulário de cadastro de disciplina e então clicar em "Cadastrar nova disciplina";
+6. Após o cadastro da disciplina, caso uma turma tenha sido selecionada, o usuário será redirecionado para o quadro de disciplinas daquela turma (descrita na funcionalidade "Cadastro de novas turmas"), aonde a disciplina aparecerá cadastrada ou uma mensagem de erro aparecerá em caso de conflito de horário com outra disciplina. Não tendo sido selecionada uma turma, o usuário será redirecionado para a tela de visualizar disciplinas, aonde a nova disciplina deverá aparecer;
 
 ## Cadastro/Edição de turmas (RF-03, RF-04 e RF-05)
 A funcionalidade de cadastrar novas turmas no sistema é exclusiva para a conta do administrador. Após acessar sua conta, o administrador pode visualizar e editar as informações de todas as turmas cadastradas, incluindo as disciplinas associadas a aquela turma clicando em "Editar" na tela de visualizar turmas ou indo diretamente para o quadro de disciplinas da turma clicando em "Ver quadro de disciplinas". O usuário pode também visualizar quais alunos estão associados a turma ao clicar em "Mais informações" na lista de turmas, embora a associação ou remoção de um aluno a uma turma não seja feita nesta tela, mas sim no próprio cadastro/edição de alunos.
@@ -162,17 +165,13 @@ A funcionalidade de cadastrar novas turmas no sistema é exclusiva para a conta 
 - posicionar-disciplinas-calendario.js
 
 ### Instruções de acesso
-1. Faça o download do arquivo do projeto (ZIP) ou clone do projeto no GitHub;
-2. Abra o arquivo "App-comunicacao-escolar.sln" no Visual Studio;
-3. Execute o comando "update-database" no console do Package Manager para criar as tabelas do banco de dados localmente através dos arquivos "migrations" do Entity Framework Core;
-5. Rode o projeto no Visual Studio, que abrirá uma janela do browser no endereço localhost:7060;
-6. Visualize a tela inicial/homepage do projeto;
-7. Realizar login na conta de administrador (conforme as instruções da funcionalidade "Login e autenticação" contida nesta seção);
-8. Clicar na opção "Gerenciar turmas" do menu lateral;
-9. Clicar em "Cadastrar turma";
-10. Preencher as informações do formulário de cadastro de turmas e então clicar em "Cadastrar nova turma";
-11. Após o cadastro da turma, o usuário será redirecionado para a tela de gerenciamento de disciplinas da turma, aonde poderá adicionar disciplinas previamente cadastradas que não estejam associadas a nenhuma turma ao quadro de disciplinas da turma. Caso o usuário tente adicionar uma disciplina que entre em conflito de horário com uma disciplina já associada, uma mensagem de erro será exibida e a disciplina não será cadastrada.
-12. Após o cadastro da turma, a nova turma cadastrada deverá aparecer na lista de turmas.
+1. Visualize a tela inicial/homepage do projeto;
+2. Realizar login na conta de administrador (conforme as instruções da funcionalidade "Login e autenticação" contida nesta seção);
+3. Clicar na opção "Gerenciar turmas" do menu lateral;
+4. Clicar em "Cadastrar turma";
+5. Preencher as informações do formulário de cadastro de turmas e então clicar em "Cadastrar nova turma";
+6. Após o cadastro da turma, o usuário será redirecionado para a tela de gerenciamento de disciplinas da turma, aonde poderá adicionar disciplinas previamente cadastradas que não estejam associadas a nenhuma turma ao quadro de disciplinas da turma. Caso o usuário tente adicionar uma disciplina que entre em conflito de horário com uma disciplina já associada, uma mensagem de erro será exibida e a disciplina não será cadastrada.
+7. Após o cadastro da turma, a nova turma cadastrada deverá aparecer na lista de turmas.
 
 ## Cadastro de novos alunos (RF-03, RF-05)
 A funcionalidade de cadastrar novos alunos no sistema é exclusiva para a conta do administrador. Após acessar sua conta, o administrador pode visualizar e editar as informações de todos os alunos cadastrados, associando cada aluno a um ou mais responsáveis e a uma única turma durante o cadastro. O administrador pode futuramente trocar a turma do aluno ou mesmo a lista de responsáveis clicando na opção "Editar" na lista de alunos.
@@ -202,16 +201,12 @@ A funcionalidade de cadastrar novos alunos no sistema é exclusiva para a conta 
 - selecionar-pessoas.js
 
 ### Instruções de acesso
-1. Faça o download do arquivo do projeto (ZIP) ou clone do projeto no GitHub;
-2. Abra o arquivo "App-comunicacao-escolar.sln" no Visual Studio;
-3. Execute o comando "update-database" no console do Package Manager para criar as tabelas do banco de dados localmente através dos arquivos "migrations" do Entity Framework Core;
-5. Rode o projeto no Visual Studio, que abrirá uma janela do browser no endereço localhost:7060;
-6. Visualize a tela inicial/homepage do projeto;
-7. Realizar login na conta de administrador (conforme as instruções da funcionalidade "Login e autenticação" contida nesta seção);
-8. Clicar na opção "Gerenciar alunos" do menu lateral;
-9. Clicar em "Cadastrar aluno";
-10. Preencher as informações do formulário de cadastro de aluno e então clicar em "Cadastrar novo aluno", selecionando um ou mais responsáveis e uma turma para o aluno;
-12. Após o cadastro do aluno, o novo aluno cadastrado deverá aparecer na lista de alunos.
+1. Visualize a tela inicial/homepage do projeto;
+2. Realizar login na conta de administrador (conforme as instruções da funcionalidade "Login e autenticação" contida nesta seção);
+3. Clicar na opção "Gerenciar alunos" do menu lateral;
+4. Clicar em "Cadastrar aluno";
+5. Preencher as informações do formulário de cadastro de aluno e então clicar em "Cadastrar novo aluno", selecionando um ou mais responsáveis e uma turma para o aluno;
+6. Após o cadastro do aluno, o novo aluno cadastrado deverá aparecer na lista de alunos.
 
 ## Alterar informações pessoais (RF-06)
 A funcionalidade de alterar dados pessoais é disponibilizada para todos os usuários do sistema através do menu do usuário. Esta funcionalidade permite que o usuário logado no sistema altere seu email, telefones, endereço e senha, não podendo alterar seu nome ou nome de usuário. Para alterar suas informações pessoais, incluindo a senha o usuário deve informar sua senha atual, com a troca de informações sendo bem sucedida apenas mediante a senha correta.
@@ -243,18 +238,14 @@ A funcionalidade de alterar dados pessoais é disponibilizada para todos os usu�
 - formatar-cep.js
 
 ### Instruções de acesso
-1. Faça o download do arquivo do projeto (ZIP) ou clone do projeto no GitHub;
-2. Abra o arquivo "App-comunicacao-escolar.sln" no Visual Studio;
-3. Execute o comando "update-database" no console do Package Manager para criar as tabelas do banco de dados localmente através dos arquivos "migrations" do Entity Framework Core;
-5. Rode o projeto no Visual Studio, que abrirá uma janela do browser no endereço localhost:7060;
-6. Visualize a tela inicial/homepage do projeto;
-7. Realizar login em qualquer conta de usuário;
-8. Clicar sobre o nome do usuário no canto direito do cabeçalho para abrir o menu do usuário;
-9. Selecionar a opção "Alterar dados";
-10. Selecionar a informação que deseja alterar;
-11. Preencher o formulário com as novas informações e informar a senha atual;
-12. Clicar em "Alterar dados";
-13. Caso a alteração seja bem sucedida, uma mensagem de sucesso será mostrada, caso alguma informação solicitada não seja aceita, uma mensagem de erro será mostrada.
+1. Visualize a tela inicial/homepage do projeto;
+2. Realizar login em qualquer conta de usuário;
+3. Clicar sobre o nome do usuário no canto direito do cabeçalho para abrir o menu do usuário;
+4. Selecionar a opção "Alterar dados";
+5. Selecionar a informação que deseja alterar;
+6. Preencher o formulário com as novas informações e informar a senha atual;
+7. Clicar em "Alterar dados";
+8. Caso a alteração seja bem sucedida, uma mensagem de sucesso será mostrada, caso alguma informação solicitada não seja aceita, uma mensagem de erro será mostrada.
 
 ## Troca de mensagens entre usuários (RF-07)
 A funcionalidade de troca de mensagens é disponibilizada para todos os usuários do sistema através do menu do usuário. Esta funcionalidade permite que o usuário logado no sistema envie mensagens para um ou mais usuários destinatários, além de poder responder mensagens que sejam enviadas para ele. O usuário pode visualizar as mensagens que recebeu em sua caixa de entrada, tela inicial da seção "mensagens" do menu do usuário, e visualizar o conteúdo da conversa clicando no botão "Visualizar" da conversa, podendo ainda dentro dessa tela selecionar as opções "responder" ou "responder a todos" em uma mensagem individual da conversa para responde-la. O número total de mensagens não lidas presente em sua caixa de entrada é exibido em um contador presente ao lado da opção "mensagens" do menu. O usuário também pode visualizar as mensagens que enviou selecionando a seção "Enviados" na caixa de seleção presente no canto superior direito da caixa de entrada. 
@@ -295,24 +286,20 @@ A funcionalidade de troca de mensagens é disponibilizada para todos os usuário
 - visualizar-conversas.js
 
 ### Instruções de acesso
-1. Faça o download do arquivo do projeto (ZIP) ou clone do projeto no GitHub;
-2. Abra o arquivo "App-comunicacao-escolar.sln" no Visual Studio;
-3. Execute o comando "update-database" no console do Package Manager para criar as tabelas do banco de dados localmente através dos arquivos "migrations" do Entity Framework Core;
-5. Rode o projeto no Visual Studio, que abrirá uma janela do browser no endereço localhost:7060;
-6. Visualize a tela inicial/homepage do projeto;
-7. Realizar login em qualquer conta de usuário;
-8. Clicar na opção "Mensagens" do menu lateral;
-9. Selecionar a opção "Nova mensagem";
-10. Preencher o Assunto e conteúdo da mensagem e selecionar os destinatários;
-11. Clicar em "Enviar";
-12. Fazer logout da conta atual e fazer login na conta de um dos destinatários da mensagem.
-13. Clicar na opção "Mensagens" do menu lateral para acessar a caixa de entrada, a conversa deve constar na lista de conversas e o número de mensagens não lidas mostrada no contador ao lado da opção "Mensagens" deve ser pelo menos 1;
-14. Clicar no botão "Visualizar" ao lado direito da conversa listada para ir para a tela de visualizar mensagens da conversa;
-15. Clicar em "Responder" ou "Responder a todos" na mensagem para criar uma resposta.
-16. Clicar no botão "Responder" da janela de escrever resposta.
-17. Fazer logout da conta atual e fazer login na conta de um dos destinatários da resposta.
-18. Clicar na opção "Mensagens" do menu lateral para acessar a caixa de entrada e clicar em "Visualizar";
-19. Visualizar resposta enviada.
+1. Visualize a tela inicial/homepage do projeto;
+2. Realizar login em qualquer conta de usuário;
+3. Clicar na opção "Mensagens" do menu lateral;
+4. Selecionar a opção "Nova mensagem";
+5. Preencher o Assunto e conteúdo da mensagem e selecionar os destinatários;
+6. Clicar em "Enviar";
+7. Fazer logout da conta atual e fazer login na conta de um dos destinatários da mensagem.
+8. Clicar na opção "Mensagens" do menu lateral para acessar a caixa de entrada, a conversa deve constar na lista de conversas e o número de mensagens não lidas mostrada no contador ao lado da opção "Mensagens" deve ser pelo menos 1;
+9. Clicar no botão "Visualizar" ao lado direito da conversa listada para ir para a tela de visualizar mensagens da conversa;
+10. Clicar em "Responder" ou "Responder a todos" na mensagem para criar uma resposta.
+11. Clicar no botão "Responder" da janela de escrever resposta.
+12. Fazer logout da conta atual e fazer login na conta de um dos destinatários da resposta.
+13. Clicar na opção "Mensagens" do menu lateral para acessar a caixa de entrada e clicar em "Visualizar";
+14. Visualizar resposta enviada.
 
 ## Arquivar mensagens (RF-07)
 A funcionalidade de arquivar mensagens é disponibilizada para todos os usuários do sistema através do menu do usuário. Esta funcionalidade permite que o usuário logado no sistema selecione as mensagens que deseja arquivar clicando no botão "Arquivar" da mensagem presente na caixa de entrada ou na seção "enviados". A mensagem será movida para a seção "Arquivados" e as mensagens não lidas daquela conversa não serão mais contabilizadas no número total de mensagens não lidas mostrada pra o usuário. Para mover uma mensagem de volta para a caixa de entrada/seção de "enviados" o usuário deve ir na seção de de mensagens arquivadas e clicar no botão "Desarquivar" ao lado da mensagem.
@@ -344,18 +331,14 @@ A funcionalidade de arquivar mensagens é disponibilizada para todos os usuário
 - visualizar-conversas.js
 
 ### Instruções de acesso
-1. Faça o download do arquivo do projeto (ZIP) ou clone do projeto no GitHub;
-2. Abra o arquivo "App-comunicacao-escolar.sln" no Visual Studio;
-3. Execute o comando "update-database" no console do Package Manager para criar as tabelas do banco de dados localmente através dos arquivos "migrations" do Entity Framework Core;
-5. Rode o projeto no Visual Studio, que abrirá uma janela do browser no endereço localhost:7060;
-6. Visualize a tela inicial/homepage do projeto;
-7. Realizar login em qualquer conta de usuário;
-8. Clicar na opção "Mensagens" do menu lateral;
-9. Clicar no botão "Arquivar" ao lado da mensagem que deseja arquivar;
-10. Trocar a seção de "Caixa de entrada" para "Arquivados" selecionado a opção na caixa de seleção presente no canto superior direito da caixa de entrada.
-12. Visualizar mensagem arquivada na seção "Arquivados";
-13. Clicar no botão "Desarquivar";
-14. Voltar para a seção original da mensagem e verificar que a mensagem se encontra novamente nela;
+1. Visualize a tela inicial/homepage do projeto;
+2. Realizar login em qualquer conta de usuário;
+3. Clicar na opção "Mensagens" do menu lateral;
+4. Clicar no botão "Arquivar" ao lado da mensagem que deseja arquivar;
+5. Trocar a seção de "Caixa de entrada" para "Arquivados" selecionado a opção na caixa de seleção presente no canto superior direito da caixa de entrada.
+6. Visualizar mensagem arquivada na seção "Arquivados";
+7. Clicar no botão "Desarquivar";
+8. Voltar para a seção original da mensagem e verificar que a mensagem se encontra novamente nela;
 
 ## Envio e download de arquivos via mensagem (RF-08)
 A funcionalidade de envio e download de arquivos é disponibilizada para todos os usuários do sistema através do menu do usuário. Esta funcionalidade permite que o usuário logado no sistema anexe arquivos junto as mensagens enviadas para os destinatários, que podem realizar o download dos arquivos ao clicar na opção "Fazer download" ao lado do nome de arquivo na lista de anexos da mensagem.
@@ -384,22 +367,18 @@ A funcionalidade de envio e download de arquivos é disponibilizada para todos o
 - visualizar-conversas.js
 
 ### Instruções de acesso
-1. Faça o download do arquivo do projeto (ZIP) ou clone do projeto no GitHub;
-2. Abra o arquivo "App-comunicacao-escolar.sln" no Visual Studio;
-3. Execute o comando "update-database" no console do Package Manager para criar as tabelas do banco de dados localmente através dos arquivos "migrations" do Entity Framework Core;
-5. Rode o projeto no Visual Studio, que abrirá uma janela do browser no endereço localhost:7060;
-6. Visualize a tela inicial/homepage do projeto;
-7. Realizar login em qualquer conta de usuário;
-8. Clicar na opção "Mensagens" do menu lateral;
-9. Selecionar a opção "Nova mensagem";
-10. Preencher o Assunto e conteúdo da mensagem e selecionar os destinatários;
-11. Clicar no botão "Escolher arquivos" e escolher os arquivos que deseja anexar a mensagem.
-12. Clicar em "Enviar";
-13. Fazer logout da conta atual e fazer login na conta de um dos destinatários da mensagem.
-14. Clicar na opção "Mensagens" do menu lateral para acessar a caixa de entrada, a conversa deve constar na lista de conversas e o número de mensagens não lidas mostrada no contador ao lado da opção "Mensagens" deve ser pelo menos 1;
-15. Clicar no botão "Visualizar" ao lado direito da conversa listada para ir para a tela de visualizar mensagens da conversa;
-16. Clicar em "Fazer download" ao lado do nome do arquivo presente na lista de anexos.
-17. O download do arquivo em questão será iniciado pelo browser para o computador do usuário.
+1. Visualize a tela inicial/homepage do projeto;
+2. Realizar login em qualquer conta de usuário;
+3. Clicar na opção "Mensagens" do menu lateral;
+4. Selecionar a opção "Nova mensagem";
+5. Preencher o Assunto e conteúdo da mensagem e selecionar os destinatários;
+6. Clicar no botão "Escolher arquivos" e escolher os arquivos que deseja anexar a mensagem.
+7. Clicar em "Enviar";
+8. Fazer logout da conta atual e fazer login na conta de um dos destinatários da mensagem.
+9. Clicar na opção "Mensagens" do menu lateral para acessar a caixa de entrada, a conversa deve constar na lista de conversas e o número de mensagens não lidas mostrada no contador ao lado da opção "Mensagens" deve ser pelo menos 1;
+10. Clicar no botão "Visualizar" ao lado direito da conversa listada para ir para a tela de visualizar mensagens da conversa;
+11. Clicar em "Fazer download" ao lado do nome do arquivo presente na lista de anexos.
+12. O download do arquivo em questão será iniciado pelo browser para o computador do usuário.
 
 ## Busca de conversas e mensagens por assunto ou conteúdo (RF-09)
 A funcionalidade de busca de conversas e mensagens por assunto o conteúdo é disponibilizada para todos os usuários do sistema através do menu do usuário. Esta funcionalidade permite que o usuário logado no sistema busque conversas e mensagens presentes em sua caixa de mensagens em qualquer uma de suas seções (Caixa de entrada, Enviados e Arquivados). Para realizar a busca, basta digitar os termos que deseja buscar no campo "Buscar conversa por assunto o conteúdo das mensagens" e clicar em "Buscar". A página deverá ser atualizada e mostrar apenas os resultados da busca.
@@ -431,13 +410,9 @@ A funcionalidade de busca de conversas e mensagens por assunto o conteúdo é di
 - caixa-de-mensagens.js
 
 ### Instruções de acesso
-1. Faça o download do arquivo do projeto (ZIP) ou clone do projeto no GitHub;
-2. Abra o arquivo "App-comunicacao-escolar.sln" no Visual Studio;
-3. Execute o comando "update-database" no console do Package Manager para criar as tabelas do banco de dados localmente através dos arquivos "migrations" do Entity Framework Core;
-5. Rode o projeto no Visual Studio, que abrirá uma janela do browser no endereço localhost:7060;
-6. Visualize a tela inicial/homepage do projeto;
-7. Realizar login em qualquer conta de usuário;
-8. Clicar na opção "Mensagens" do menu lateral;
-9. Preencher o campo "Buscar conversa por assunto o conteúdo das mensagens" com os termos que deseja utilizar na busca, sendo que os termos serão buscados no assunto da conversa e no conteúdo de todas as mensagens da mesma;
-10. Clicar em "Buscar";
-11. Visualizar as mensagens filtradas pela busca;
+1. Visualize a tela inicial/homepage do projeto;
+2. Realizar login em qualquer conta de usuário;
+3. Clicar na opção "Mensagens" do menu lateral;
+4. Preencher o campo "Buscar conversa por assunto o conteúdo das mensagens" com os termos que deseja utilizar na busca, sendo que os termos serão buscados no assunto da conversa e no conteúdo de todas as mensagens da mesma;
+5. Clicar em "Buscar";
+6. Visualizar as mensagens filtradas pela busca;
