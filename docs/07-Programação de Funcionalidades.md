@@ -215,7 +215,7 @@ A funcionalidade de cadastrar novos alunos no sistema é exclusiva para a conta 
 ## Cadastro de novas agendas (RF-10, RF-11)
 A funcionalidade de cadastrar novas agendas no sistema é exclusiva para a conta do administrador. Após acessar sua conta, o administrador pode cadastrar novas agendas, além de visualizar e editar as informações de todas as agendas cadastradas. Ao cadastrar uma nova agenda, o administrador deve escolher qual tipo de usuário (responsável do aluno, professor ou todos) e quais turmas (que um dependente faça parte, no caso do pai, ou na qual o usuário ministre pelo menos uma disciplina, no caso do professor) poderão visualizar seu conteúdo. Há também por padrão a opção "todas as agendas", que abrange todos os eventos cadastrados sem uma agenda específica, e que portanto serão visíveis para todos os usuários do sistema.
 
-### Visualizar agendas cadastrados
+### Visualizar agendas cadastradas
 ![cadastraragendaA](https://user-images.githubusercontent.com/74699119/172973529-d8d0f85c-d032-4808-bf54-57838e77c24c.jpg)
 
 ### Formulário de cadastro de nova agenda
@@ -251,7 +251,7 @@ A funcionalidade de cadastrar novas agendas no sistema é exclusiva para a conta
 5. Preencher as informações do formulário de cadastro de agenda, selecionando a turma e o tipo de usuário, e então clicar em "Cadastrar";
 6. Após o cadastro da agenda, a nova agenda cadastrada deverá aparecer na lista de agendas.
 
-## Cadastro de novos eventos em agenda (RF-10, RF-11)
+## Cadastro de novos eventos em agenda (RF-08, RF-10, RF-11)
 A funcionalidade de cadastrar novos eventos em agendas é exclusiva para as contas de administrador e professor. Após acessar sua conta, o administrador/professor poderá cadastrar novos eventos nas agendas disponíveis, sendo que o administrador poderá cadastrar um evento em qualquer agenda existente ou na opção "todas as agendas" (que deixará o evento visível para todos os usuários), enquanto o professor poderá cadastrar eventos somente em agendas da qual faz parte (agendas de turmas em que dá aula ou agendas gerais para professores). O usuário que cadastrou um evento poderá também editar informações ou excluir o evento, mas não poderá editar ou excluir eventos cadastrados por outros usuários. Ao cadastrar um novo evento em uma agenda, o usuário deverá informar o nome, descrição, início e fim do evento, além de informar se a participação de alunos neste evento requer a autorização dos responsáveis, sendo que um pedido de autorização de participação será enviado para os responsáveis dos alunos solicitados caso essa ultima opção seja marcada.
 
 ### Visualizar eventos da agenda
@@ -269,6 +269,7 @@ toAgendaD](https://user-images.githubusercontent.com/74699119/172974760-b433c13a
 ![eventoAgendaE](https://user-images.githubusercontent.com/74699119/172989472-3c414357-f835-48df-b359-d5964b1d3383.jpg)
 
 ### Requisitos atendidos
+- RF-08
 - RF-10
 - RF-11
 
@@ -304,6 +305,56 @@ toAgendaD](https://user-images.githubusercontent.com/74699119/172974760-b433c13a
 6. Após o cadastro do evento, ele deverá aparecer no dia em que foi cadastrado na agenda escolar escolhida.
 7. Os usuários do tipo "Administrador" ou "Professor" podem também visualizar os eventos cadastrados em forma de lista ao clicar na opção "Lista de eventos";
 8. Uma vez dentro da opção "Lista de eventos", o usuário poderá escolher editar ou apagar os eventos que cadastrou.
+
+## Visualizar agendas, eventos e detalhes de eventos (RF-10, RF-11)
+A funcionalidade de visualizar os eventos da agenda e seus detalhes é disponibilizada para todos os tipos de usuários, embora usuários do tipo "Administrador" e "Professor" possam visualizar agendas separadamente (o administrador pode visualizar qualquer agenda, enquanto o professor pode visualizar todas as agendas das turmas que faz parte e também agendas gerais para o perfil "professor"). Usuários do tipo "responsável de aluno" e "outros" visualizam uma única agenda combinando todos os eventos aos quais tem acesso (eventos gerais para todos os usuários e eventos específicos das turmas dos dependentes no caso dos responsáveis de aluno).
+
+### Visualizar agenda (Administrador)
+![visualizarAgendaAadmin](https://user-images.githubusercontent.com/74699119/173001529-0d3bfcc7-c89b-4292-bab7-b3c8f6ef2d6a.jpg)
+
+## Visualizar agenda (Professor)
+![visualizarAgendaAprof](https://user-images.githubusercontent.com/74699119/173001542-04064e06-801c-42fa-a351-b4034f041a31.jpg)
+
+### Visualizar agenda (Responsável e "outros")
+![visualizarAgendaAresp](https://user-images.githubusercontent.com/74699119/173001555-46b16711-e598-4295-8665-488da337dab3.jpg)
+
+### Visualizar detalhes de evento
+![visualizarEventoA](https://user-images.githubusercontent.com/74699119/173001594-740fc518-9b7b-4aa6-986a-9b3f61dd6311.jpg)
+![visualizarEventoB](https://user-images.githubusercontent.com/74699119/173001605-0f6d55bc-7afc-4aab-a014-e1902521bdce.jpg)
+
+### Requisitos atendidos
+- RF-10
+- RF-11
+
+### Artefatos da funcionalidade
+#### Models
+- Agenda.cs
+- EventoDaAgenda.cs
+#### Controllers
+- AgendaController.cs
+- EventosDaAgendaController.cs
+#### Views
+- Agendas/Visualizar.cshtml
+- EventosDaAgenda/Index.cshtml
+- EventosDaAgenda/Create.cshtml
+- EventosDaAgenda/Edit.cshtml
+- EventosDaAgenda/Details.cshtml
+- EventosDaAgenda/Delete.cshtml
+
+#### Outros
+- site.css
+- site.js
+- agenda-escolar.js
+
+### Instruções de acesso
+1. Visualize a tela inicial/homepage do projeto;
+2. Realizar login na conta de administrador ou em uma conta do tipo "Professor" (conforme as instruções da funcionalidade "Login e autenticação" contida nesta seção);
+3. Caso esteja logado como administrador, clicar na opção "Gerenciar agendas" do menu lateral e em "Visualizar" ao lado da agenda que deseja visualizar;
+4. Caso esteja logado como outro tipo de usuário, clicar na opção "Agenda escolar";
+5. Visualizar agenda;
+6. Usuários do tipo "Administrador" e "Professor" podem utilizar o menu de seleção no canto superior direito para mudar a agenda que estão visualizando;
+7. Clicar em cima do evento cujos detalhes deseja visualizar;
+8. Visualizar detalhes do evento;
 
 ## Alterar informações pessoais (RF-06)
 A funcionalidade de alterar dados pessoais é disponibilizada para todos os usuários do sistema através do menu do usuário. Esta funcionalidade permite que o usuário logado no sistema altere seu email, telefones, endereço e senha, não podendo alterar seu nome ou nome de usuário. Para alterar suas informações pessoais, incluindo a senha o usuário deve informar sua senha atual, com a troca de informações sendo bem sucedida apenas mediante a senha correta.
