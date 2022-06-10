@@ -266,6 +266,7 @@ A funcionalidade de cadastrar novos eventos em agendas é exclusiva para as cont
 ### Visualizar eventos da agenda em forma de lista (disponível apenas para administrador e professor)
 ![even![eventoAgendaE](https://user-images.githubusercontent.com/74699119/172974762-4e389f5a-027f-4395-adce-09d9503d99a5.jpg)
 toAgendaD](https://user-images.githubusercontent.com/74699119/172974760-b433c13a-580a-4c14-add2-eb945b2edf23.jpg)
+![eventoAgendaE](https://user-images.githubusercontent.com/74699119/172989472-3c414357-f835-48df-b359-d5964b1d3383.jpg)
 
 ### Requisitos atendidos
 - RF-10
