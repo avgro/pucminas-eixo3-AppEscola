@@ -356,6 +356,92 @@ A funcionalidade de visualizar os eventos da agenda e seus detalhes é disponibi
 7. Clicar em cima do evento cujos detalhes deseja visualizar;
 8. Visualizar detalhes do evento;
 
+## Autorizar participação de dependente em evento (RF-08)
+A funcionalidade de autorizar participação de dependente em evento é exclusiva da conta de "Responsável de aluno". Quando o administrador ou um professor cadastra um evento novo em uma agenda e marca a opção "Requer autorização", um pedido de autorização é enviado para os responsáveis de todos os alunos que participam daquela agenda (geralmente a agenda da turma que o aluno está matriculado). As autorizações pendentes podem ser visualizadas na aba "Assinar autorização" do menu lateral do responsável de aluno, que poderá visualizar os detalhes do evento e escolher se deseja ou não autorizar o dependente a participar. O responsável de aluno pode também visualizar autorizações que já assinou ou recusou no passado clicando na seção "assinados" da tela de autorizações.
+
+### Visualizar autorizações em aberto
+![autorizacaoA](https://user-images.githubusercontent.com/74699119/173132619-88f97478-971a-4e00-9596-b13df2c25a27.jpg)
+## Visualizar detalhes da autorização e decidir se autoriza ou não
+![autorizacaoB](https://user-images.githubusercontent.com/74699119/173132622-7c5a80ea-4218-4bc1-84f2-14158fafab27.jpg)
+### Visualizar autorizações em aberto (Após clicar em "Sim" ou "Não" na tela anterior)
+![autorizacaoC](https://user-images.githubusercontent.com/74699119/173132628-cb3ac3ed-4d06-49d6-b8b0-bfc7bdd70506.jpg)
+### Visualizar autorizações já assinadas
+![autorizacaoD](https://user-images.githubusercontent.com/74699119/173132635-2760e228-4b07-4bba-9a5c-a5b1669fb039.jpg)
+![autorizacaoE](https://user-images.githubusercontent.com/74699119/173132639-b000da79-d89b-421e-9a9b-804ba988dbe4.jpg)
+
+### Requisitos atendidos
+- RF-08
+### Artefatos da funcionalidade
+#### Models
+- AutorizacaoEvento.cs
+#### Controllers
+- AutorizacoesEventosController.cs
+#### Views
+- AutorizacoesEventos/Index.cshtml
+- AutorizacoesEventos/Visualizar.cshtml
+
+#### Outros
+- site.css
+- site.js
+- autorizacoes.js
+
+### Instruções de acesso
+1. Visualize a tela inicial/homepage do projeto;
+2. Realizar login em uma conta do tipo "Responsável do aluno" que tenha como dependente um aluno que foi solicitado para algum evento anteriormente cadastrado;
+3. Clicar na opção "Assinar autorização" do menu lateral;
+4. Visualizar autorizações em aberto;
+5. Clicar no botão "Visualizar" de alguma autorização;
+6. Visualizar detalhes da autorização;
+7. Clicar em "Sim" ou "Não" para garantir ou negar participação do dependente no evento, respectivamente;
+8. Visualizar novamente a lista de autorizações em aberto, sendo que a autorização concedida não deve mais constar nela;
+9. Selecionar a opção "Assinados" na caixa de seleção presente no canto superior direito;
+10. Visualizar a lista de autorizações assinadas, na qual a autorização préviamente assinada deve constar;
+
+## Lançar/Visualizar notificações no sistema (RF-13)
+A funcionalidade de lançar notificações no sistema é exclusiva para o usuário do tipo "Administrador", enquanto a visualização das notificações lançadas pelo administrador está disponível para todos os usuários. Ao lançar uma notificação, o administrador deve informar o assunto e conteúdo da notificação, bem como escolher se ela deve ser mostrada para todos os usuários ou apenas para uma turma e/ou tipo de usuário específico. Uma vez lançada, a notificação poderá ser visualizada na seção de "Notificações" por todos os usuários que fazem parte do grupo selecionado, podendo marca-las como "Visualizadas" para que sejam movidas para a seção de notificações visualizadas.
+
+### Visualizar todas as notificações já lançadas (Administrador)
+![notificacaoA](https://user-images.githubusercontent.com/74699119/173134048-fb30a95e-1177-4160-9297-4e82917c1e80.jpg)
+## Criar nova notificação (Administrador)
+![notificacaoB](https://user-images.githubusercontent.com/74699119/173134056-9f309e52-8439-4954-ab90-165574a7531d.jpg)
+### Visualizar todas as notificações já lançadas (Administrador, após criação da nova notificação)
+![notificacaoC](https://user-images.githubusercontent.com/74699119/173134061-046ab82f-a7eb-4c1c-8dac-455e58f61717.jpg)
+### Visualizar notificação lançada pelo administrador e marca-la como vista (Outros tipos de usuário)
+![notificacaoD](https://user-images.githubusercontent.com/74699119/173134156-52537683-fbe3-4148-9f1c-1c53630352da.jpg)
+### Visualizar notificação lançada pelo administrador (Outros tipos de usuário, após marcar como vista)
+![notificacaoE](https://user-images.githubusercontent.com/74699119/173134300-0630e4d3-9d54-4bc1-b4ff-c4e1079f8f94.jpg)
+### Visualizar notificações marcadas como "vistas" (Outros tipos de usuário)
+![notificacaoF](https://user-images.githubusercontent.com/74699119/173134348-c3d47291-e8fc-42f5-9c8f-c9d399e1bc57.jpg)
+![notificacaoG](https://user-images.githubusercontent.com/74699119/173134354-dd5a4307-8ce7-48e4-902b-85de0036cf2e.jpg)
+
+### Requisitos atendidos
+- RF-08
+### Artefatos da funcionalidade
+#### Models
+- AutorizacaoEvento.cs
+#### Controllers
+- AutorizacoesEventosController.cs
+#### Views
+- AutorizacoesEventos/Index.cshtml
+- AutorizacoesEventos/Visualizar.cshtml
+
+#### Outros
+- site.css
+- site.js
+- autorizacoes.js
+
+### Instruções de acesso
+1. Visualize a tela inicial/homepage do projeto;
+2. Realizar login em uma conta do tipo "Responsável do aluno" que tenha como dependente um aluno que foi solicitado para algum evento anteriormente cadastrado;
+3. Clicar na opção "Assinar autorização" do menu lateral;
+4. Visualizar autorizações em aberto;
+5. Clicar no botão "Visualizar" de alguma autorização;
+6. Visualizar detalhes da autorização;
+7. Clicar em "Sim" ou "Não" para garantir ou negar participação do dependente no evento, respectivamente;
+8. Visualizar novamente a lista de autorizações em aberto, sendo que a autorização concedida não deve mais constar nela;
+9. Selecionar a opção "Assinados" na caixa de seleção presente no canto superior direito;
+10. Visualizar a lista de autorizações assinadas, na qual a autorização préviamente assinada deve constar;
+
 ## Alterar informações pessoais (RF-06)
 A funcionalidade de alterar dados pessoais é disponibilizada para todos os usuários do sistema através do menu do usuário. Esta funcionalidade permite que o usuário logado no sistema altere seu email, telefones, endereço e senha, não podendo alterar seu nome ou nome de usuário. Para alterar suas informações pessoais, incluindo a senha o usuário deve informar sua senha atual, com a troca de informações sendo bem sucedida apenas mediante a senha correta.
 
