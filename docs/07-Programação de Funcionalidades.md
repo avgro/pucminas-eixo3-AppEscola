@@ -6,9 +6,9 @@ Nesta seção são demonstradas as telas correspondentes a cada funcionalidade i
 A funcionalidade de login é acessada ao clicar no botão "Login" do cabeçalho enquanto não se está logado em nenhuma conta. As contas de usuário são criadas exclusivamente pelo administrador do sistema, podendo ser do perfil "Responsável do aluno", "Professor" e "Outros". Há ainda a conta com perfil "Administrador", que é exclusiva para o administrador do sistema. Ao entrar na tela de login, o usuário informa seu nome de usuário e senha, e, caso o sistema reconheça as informações como corretas, inicia-se a sessão daquele usuário. No caso de informações incorretas, o sistema retorna uma mensagem de erro informando que o usuário ou senha informados são inválidos. Após a realização bem sucedida do login, o usuário é direcionado para a tela inicial do usuário, aonde terá acesso a um menu lateral cujas opções variam de acordo com o perfil de usuário (opções de gerenciar informações do sistema aparecem apenas para o administrador, etc). Uma vez logado no sistema, o usuário pode realizar logout abrindo o menu do usuário presente no canto superior direito do cabeçalho e selecionado a opção "Sair".
 
 ### Tela de login
-![Login](https://user-images.githubusercontent.com/74699119/166829687-7895e04a-aa4d-41cb-b720-b3441fc25e85.png)
+![login](https://user-images.githubusercontent.com/74699119/172967193-47c0937d-9d0c-4a33-97d0-f0c5ac84885b.jpg)
 ### Opção de logout/sair do menu do usuário
-![Logoff](https://user-images.githubusercontent.com/74699119/167031487-8e653c32-ad52-410c-abad-53198908faa0.png)
+![menusuario](https://user-images.githubusercontent.com/74699119/172967203-06ec9575-c021-46ed-9284-e7ec6ffef52c.jpg)
 
 ### Requisitos atendidos
 - RF-01
@@ -42,15 +42,15 @@ A funcionalidade de login é acessada ao clicar no botão "Login" do cabeçalho 
 A funcionalidade de cadastrar novos usuários no sistema é exclusiva para a conta do administrador, uma vez que o cadastro na plataforma deve ser exclusiva para responsaveis de alunos e funcionários da escola. Após acessar sua conta, o administrador pode visualizar e editar as informações de todos os usuários cadastrados, bem como escolher cadastrar um novo usuário do tipo "Responsável de aluno", "Professor" ou "Outros" (tipo de conta genérica utilizada por funcionários que não sejam professores). Após a criação da conta, o administrador poderá enviar um email para o e-mail do novo usuário contendo suas credenciais de acesso para a plataforma. Na versão local do projeto (executada via localhost), esse e-mail é enviado para uma pasta no diretório C: com o nome "AppEscolaMail". Na versão que será hospedade online, o email será de fato enviado para a conta de email informada durante o cadastro. O administrador pode ainda apagar um usuário do sistema clicando na opção "Apagar" na tela de lista de usuários e confirmando a ação na tela seguinte, excetuando-se a própria conta de administrador, que não pode ser apagada do sistema.Essa funcionalidade também atende parcialmente o RF-03, uma vez que o cadastro de responsáveis e professores ocorre nela junto a criação de suas respectivas contas de usuário. 
 
 ### Visualizar usuários cadastrados
-![CadastrarUsuarioA](https://user-images.githubusercontent.com/74699119/166859983-735ab572-6baf-4614-a482-7e26d034a4a0.png)
+![cadastrarusuarioA](https://user-images.githubusercontent.com/74699119/172967241-779b71d6-25a4-4ec1-b009-64d69a38f6ec.jpg)
 ### Formulário de cadastro de novo usuário
-![CadastrarUsuarioB](https://user-images.githubusercontent.com/74699119/166859988-452b62a7-21f6-439f-b3d5-80981e8daa81.png)
+![cadastrarusuarioB](https://user-images.githubusercontent.com/74699119/172967246-1252679a-d4ba-4130-9b20-8b9ee6111945.jpg)
 #### (Informações adicionais solicitadas para cadastro de professor)
-![CadastrarUsuarioBextra](https://user-images.githubusercontent.com/74699119/166859992-a1794085-458b-4b65-8189-7e805a26d36b.png)
+![cadastrarusuarioC](https://user-images.githubusercontent.com/74699119/172967249-75b3cae5-cc76-42a9-896e-bdb39e561010.jpg)
 ### Tela de envio de email de confirmação
-![CadastrarUsuarioC](https://user-images.githubusercontent.com/74699119/166859994-14d03792-69d4-4c15-9468-aa043df9fad1.png)
+![cadastrarusuarioD](https://user-images.githubusercontent.com/74699119/172967258-c6703e4c-bd06-44a2-be87-562a2fa068bb.jpg)
 ### Tela de visualizar usuários com novo usuário cadastrado
-![CadastrarUsuarioD](https://user-images.githubusercontent.com/74699119/166859998-59bdb63f-071f-40d2-96a3-84eb8c4bc441.png)
+![cadastrarusuarioE](https://user-images.githubusercontent.com/74699119/172967266-ae2a2687-92d8-4778-92d3-fa08ad0ac6be.jpg)
 
 ### Requisitos atendidos
 - RF-02
@@ -95,9 +95,9 @@ A funcionalidade de cadastrar novos usuários no sistema é exclusiva para a con
 A funcionalidade de cadastrar novas disciplinas no sistema é exclusiva para a conta do administrador. Após acessar sua conta, o administrador pode visualizar e editar as informações de todas as disciplinas cadastradas, bem como escolher cadastrar novas disciplinas. Durante o cadastro da disciplina, o administrador deve selecionar um ou mais professores e uma turma para a disciplina, além de informar os horários em que a disciplina será ministrada durante a semana. Caso o administrador deseje trocar os professores, horário ou turmas da disciplina mais tarde, essa troca pode ser feita clicando em "Editar" na tela de visualização de disciplinas. 
 
 ### Visualizar disciplinas cadastradas
-![CadastrarDisciplinaA](https://user-images.githubusercontent.com/74699119/166860547-498bf430-692d-452d-b820-3b865d2b0bf1.png)
+![disciplinasA](https://user-images.githubusercontent.com/74699119/172967303-b4d14e40-b990-4f93-9edf-10078b5bf569.jpg)
 ### Formulário de cadastro de nova disciplina
-![CadastrarDisciplinaB](https://user-images.githubusercontent.com/74699119/166860548-d0f9138e-5f28-4c8a-b51c-8aeb02ba56bf.png)
+![disciplinasB](https://user-images.githubusercontent.com/74699119/172967295-e210921f-d4a6-4643-b99b-c22389cb6db7.jpg)
 
 ### Requisitos atendidos
 - RF-03
@@ -133,13 +133,13 @@ A funcionalidade de cadastrar novas disciplinas no sistema é exclusiva para a c
 A funcionalidade de cadastrar novas turmas no sistema é exclusiva para a conta do administrador. Após acessar sua conta, o administrador pode visualizar e editar as informações de todas as turmas cadastradas, incluindo as disciplinas associadas a aquela turma clicando em "Editar" na tela de visualizar turmas ou indo diretamente para o quadro de disciplinas da turma clicando em "Ver quadro de disciplinas". O usuário pode também visualizar quais alunos estão associados a turma ao clicar em "Mais informações" na lista de turmas, embora a associação ou remoção de um aluno a uma turma não seja feita nesta tela, mas sim no próprio cadastro/edição de alunos.
 
 ### Visualizar turmas cadastradas
-![CadastrarTurmaA](https://user-images.githubusercontent.com/74699119/167016782-1a7f3ee6-6d6f-4f62-b46e-80a905a1cda3.png)
+![turmasA](https://user-images.githubusercontent.com/74699119/172967329-433dc39c-9712-4bbe-81ac-a6f8497b4f54.jpg)
 ### Formulário de cadastro de nova turma
-![CadastrarTurmaB](https://user-images.githubusercontent.com/74699119/167016788-d6568cee-6de0-4438-8b52-1d8a8ba1cc52.png)
+![turmasB](https://user-images.githubusercontent.com/74699119/172967334-63792990-c416-41b5-9cee-851ca62ee457.jpg)
 ### Quadro de disciplinas associadas à turma
-![CadastrarTurmaC](https://user-images.githubusercontent.com/74699119/167016798-e2982340-4d44-494d-80f0-a26a2e7329ba.png)
+![turmasC](https://user-images.githubusercontent.com/74699119/172967338-80ec0abd-4cb7-4a9e-9769-0fad47875942.jpg)
 ### Quadro de disciplinas associadas à turma (turma com disciplinas associadas)
-![CadastrarTurmaD](https://user-images.githubusercontent.com/74699119/167017413-49bd958f-37ff-4f3e-aaad-b5c7524d27a5.png)
+![turmasD](https://user-images.githubusercontent.com/74699119/172967342-2ffdc618-e860-4579-8f69-5e92e392ba38.jpg)
 
 ### Requisitos atendidos
 - RF-03
@@ -178,11 +178,11 @@ A funcionalidade de cadastrar novas turmas no sistema é exclusiva para a conta 
 A funcionalidade de cadastrar novos alunos no sistema é exclusiva para a conta do administrador. Após acessar sua conta, o administrador pode visualizar e editar as informações de todos os alunos cadastrados, associando cada aluno a um ou mais responsáveis e a uma única turma durante o cadastro. O administrador pode futuramente trocar a turma do aluno ou mesmo a lista de responsáveis clicando na opção "Editar" na lista de alunos.
 
 ### Visualizar alunos cadastrados
-![CadastrarAlunoA](https://user-images.githubusercontent.com/74699119/167030409-00da6ace-691b-49a8-bab6-697ffa9e80e1.png)
+![alunosA](https://user-images.githubusercontent.com/74699119/172967375-ae7d9f3b-11c7-47ad-b17f-611667c36220.jpg)
 ### Formulário de cadastro de novo aluno
-![CadastrarAlunoB](https://user-images.githubusercontent.com/74699119/167030418-9b6e730d-b929-4b4c-b983-c022f4043a7c.png)
+![alunosB](https://user-images.githubusercontent.com/74699119/172967379-eface7ae-8ad4-4f4d-9e94-7d6125891281.jpg)
 ### Visualizar alunos cadastrados (após cadastro de aluno)
-![CadastrarAlunoC](https://user-images.githubusercontent.com/74699119/167030422-3aeccefa-eea4-4fdf-8a5f-491f94351a9b.png)
+![alunosC](https://user-images.githubusercontent.com/74699119/172967383-0966bc15-c2dd-4764-8d18-06fcdb10bf02.jpg)
 
 ### Requisitos atendidos
 - RF-03
@@ -217,13 +217,13 @@ A funcionalidade de cadastrar novos alunos no sistema é exclusiva para a conta 
 A funcionalidade de alterar dados pessoais é disponibilizada para todos os usuários do sistema através do menu do usuário. Esta funcionalidade permite que o usuário logado no sistema altere seu email, telefones, endereço e senha, não podendo alterar seu nome ou nome de usuário. Para alterar suas informações pessoais, incluindo a senha o usuário deve informar sua senha atual, com a troca de informações sendo bem sucedida apenas mediante a senha correta.
 
 ### Opção no menu do usuário
-![AlterarDadosA](https://user-images.githubusercontent.com/74699119/167036042-89e46c70-b4a2-4b0d-a891-bcd1235368c5.png)
+![alterardadosA](https://user-images.githubusercontent.com/74699119/172967399-dee9faf8-b5cd-4f7e-9a28-ba6117c60f3a.jpg)
 ### Tela de alterar informações
-![AlterarDadosB](https://user-images.githubusercontent.com/74699119/167035267-fdf4070d-843c-48c4-b094-f30ae34f94a2.png)
+![alterardadosB](https://user-images.githubusercontent.com/74699119/172967402-7c348930-90cf-4483-96c9-85144c3716c1.jpg)
 ### Tela de alterar informações (após selecionar campo para alterar)
-![AlterarDadosC](https://user-images.githubusercontent.com/74699119/167035272-d88157fc-83aa-47f2-aa22-aa91303b7689.png)
+![alterardadosC](https://user-images.githubusercontent.com/74699119/172967405-4df89080-897b-41f3-9a86-c008668251c5.jpg)
 ### Tela de alterar informações (após alteração)
-![AlterarDadosD](https://user-images.githubusercontent.com/74699119/167035277-830bdd29-7274-4e2b-a375-84c43d89e623.png)
+![alterardadosD](https://user-images.githubusercontent.com/74699119/172967408-105fdbce-6b73-49b4-a825-136b3f330c3e.jpg)
 
 ### Requisitos atendidos
 - RF-06
@@ -260,17 +260,17 @@ A funcionalidade de alterar dados pessoais é disponibilizada para todos os usu�
 A funcionalidade de troca de mensagens é disponibilizada para todos os usuários do sistema através do menu do usuário. Esta funcionalidade permite que o usuário logado no sistema envie mensagens para um ou mais usuários destinatários, além de poder responder mensagens que sejam enviadas para ele. O usuário pode visualizar as mensagens que recebeu em sua caixa de entrada, tela inicial da seção "mensagens" do menu do usuário, e visualizar o conteúdo da conversa clicando no botão "Visualizar" da conversa, podendo ainda dentro dessa tela selecionar as opções "responder" ou "responder a todos" em uma mensagem individual da conversa para responde-la. O número total de mensagens não lidas presente em sua caixa de entrada é exibido em um contador presente ao lado da opção "mensagens" do menu. O usuário também pode visualizar as mensagens que enviou selecionando a seção "Enviados" na caixa de seleção presente no canto superior direito da caixa de entrada. 
 
 ### Caixa de entrada
-![MensagensA](https://user-images.githubusercontent.com/74699119/167215994-2ecabc20-6f3e-41a6-8a57-e1719a4307fa.png)
+![mensagensA](https://user-images.githubusercontent.com/74699119/172967477-671aba29-143c-4112-8c41-150c12f8ad94.jpg)
 ### Criar nova conversa
-![MensagensB](https://user-images.githubusercontent.com/74699119/167218845-b3cb7f26-1250-468e-a094-7cbd1e9fbbd7.png)
-### Caixa de entrada de um dos destinatários da mensagem (Observar que o usuário logado mudou de "Usuário" para "Ana", uma das destinatárias)
-![MensagensC](https://user-images.githubusercontent.com/74699119/167216013-8b978bad-219a-4cbd-8959-d11975d7a65a.png)
-### Tela de visualizar mensagens da conversa/Caixa de responder mensagem (Usuário "Ana")
-![MensagensD](https://user-images.githubusercontent.com/74699119/167218842-c29952ea-a240-4119-a45b-655d4c56eb34.png)
+![mensagensB](https://user-images.githubusercontent.com/74699119/172967479-0907b393-1532-4a78-96b1-7b9cd1f5a98f.jpg)
+### Caixa de entrada de um dos destinatários da mensagem (Observar que o usuário logado mudou de "Usuário" para "Mariana", a destinatária da mensagem anterior)
+![mensagensC](https://user-images.githubusercontent.com/74699119/172967484-7b66eeff-7ce3-48be-8a1b-3744c0740329.jpg)
+### Tela de visualizar mensagens da conversa/Caixa de responder mensagem (Usuário "Mariana")
+![mensagensD](https://user-images.githubusercontent.com/74699119/172967485-cef3cbd9-e875-45a2-9a3c-2618c6627d10.jpg)
 ### Caixa de entrada do usuário respondido (Logado como usuário que foi respondido na imagem anterior)
-![MensagensE](https://user-images.githubusercontent.com/74699119/167216352-0c4dc1df-c971-4d39-b772-a30b4dd2f585.png)
+![mensagensE](https://user-images.githubusercontent.com/74699119/172967486-d7fd915a-8efe-4485-9050-2791051fad5d.jpg)
 ### Tela de visualizar mensagens da conversa/Caixa de responder mensagem (Usuário "Usuário")
-![MensagensF](https://user-images.githubusercontent.com/74699119/167216498-3a5df0f0-69e2-42fa-9bcc-da92f4cce680.png)
+![mensagensF](https://user-images.githubusercontent.com/74699119/172967490-60827ec0-07c6-4642-9fc2-bfceea7a6875.jpg)
 
 ### Requisitos atendidos
 - RF-07
@@ -318,10 +318,10 @@ A funcionalidade de troca de mensagens é disponibilizada para todos os usuário
 A funcionalidade de arquivar mensagens é disponibilizada para todos os usuários do sistema através do menu do usuário. Esta funcionalidade permite que o usuário logado no sistema selecione as mensagens que deseja arquivar clicando no botão "Arquivar" da mensagem presente na caixa de entrada ou na seção "enviados". A mensagem será movida para a seção "Arquivados" e as mensagens não lidas daquela conversa não serão mais contabilizadas no número total de mensagens não lidas mostrada pra o usuário. Para mover uma mensagem de volta para a caixa de entrada/seção de "enviados" o usuário deve ir na seção de de mensagens arquivadas e clicar no botão "Desarquivar" ao lado da mensagem.
  
 ### Caixa de mensagens
-![ArquivarMensagensA](https://user-images.githubusercontent.com/74699119/167326868-ab05dc75-5dd5-40d7-ada1-ec99de67ba97.png)
-![ArquivarMensagensB](https://user-images.githubusercontent.com/74699119/167326869-4fbf7743-8317-4529-a75a-1559319b71d8.png)
+![arquivarA](https://user-images.githubusercontent.com/74699119/172967583-e52318fa-ae90-4fdf-a558-075259a64136.jpg)
+![arquivarB](https://user-images.githubusercontent.com/74699119/172967587-87ffe4ce-05c1-4e61-a9fa-a81ee48f9287.jpg)
 ### Seção de mensagens arquivadas
-![ArquivarMensagensC](https://user-images.githubusercontent.com/74699119/167326873-2bd253f1-a0e4-4c5b-a0d9-073190eebac1.png)
+![arquivarC](https://user-images.githubusercontent.com/74699119/172967595-2f8b1ff9-b31b-44ae-9520-0d7780b23486.jpg)
 
 ### Requisitos atendidos
 - RF-07
@@ -361,9 +361,9 @@ A funcionalidade de arquivar mensagens é disponibilizada para todos os usuário
 A funcionalidade de envio e download de arquivos é disponibilizada para todos os usuários do sistema através do menu do usuário. Esta funcionalidade permite que o usuário logado no sistema anexe arquivos junto as mensagens enviadas para os destinatários, que podem realizar o download dos arquivos ao clicar na opção "Fazer download" ao lado do nome de arquivo na lista de anexos da mensagem.
 
 ### Janela de seleção de arquivos na tela de criar mensagem
-![EnviarArquivoA](https://user-images.githubusercontent.com/74699119/167326337-bfd15d93-4b5b-46ea-a56c-f021f11307ae.png)
+![arquivoA](https://user-images.githubusercontent.com/74699119/172967624-ede63dc4-4e46-4dbf-9367-de1c86b8d55e.jpg)
 ### Mensagem enviada contendo lista de anexos com opção de download do arquivo
-![EnviarArquivoB](https://user-images.githubusercontent.com/74699119/167326344-cdbd0b9d-6495-4b75-859b-f20a3ca9c2e2.png)
+![arquivoB](https://user-images.githubusercontent.com/74699119/172967629-b1e4d409-5aca-40e8-b61a-7bb26525cdcc.jpg)
 
 ### Requisitos atendidos
 - RF-08
@@ -405,9 +405,9 @@ A funcionalidade de envio e download de arquivos é disponibilizada para todos o
 A funcionalidade de busca de conversas e mensagens por assunto o conteúdo é disponibilizada para todos os usuários do sistema através do menu do usuário. Esta funcionalidade permite que o usuário logado no sistema busque conversas e mensagens presentes em sua caixa de mensagens em qualquer uma de suas seções (Caixa de entrada, Enviados e Arquivados). Para realizar a busca, basta digitar os termos que deseja buscar no campo "Buscar conversa por assunto o conteúdo das mensagens" e clicar em "Buscar". A página deverá ser atualizada e mostrar apenas os resultados da busca.
 
 ### Caixa de mensagens
-![BuscarMensagensA](https://user-images.githubusercontent.com/74699119/167327389-5cda89ad-c0b0-4f00-b213-27c4db351a29.png)
+![buscarmensagemA](https://user-images.githubusercontent.com/74699119/172967659-1363c011-fa6c-405d-bc67-81ea4ce0a7d8.jpg)
 ### Caixa de mensagens (Após realização da busca)
-![BuscarMensagensB](https://user-images.githubusercontent.com/74699119/167327409-9b2822de-8661-4a90-905a-6779547c5c1a.png)
+![buscarmensagemB](https://user-images.githubusercontent.com/74699119/172967661-91fdfd1e-19c4-493d-8d91-8ce8e49373e6.jpg)
 
 ### Requisitos atendidos
 - RF-09
