@@ -418,29 +418,35 @@ A funcionalidade de lançar notificações no sistema é exclusiva para o usuár
 - RF-08
 ### Artefatos da funcionalidade
 #### Models
-- AutorizacaoEvento.cs
+- Notificacao.cs
 #### Controllers
-- AutorizacoesEventosController.cs
+- NotificacoesController.cs
 #### Views
-- AutorizacoesEventos/Index.cshtml
-- AutorizacoesEventos/Visualizar.cshtml
+- Notificacoes/Index.cshtml
+- Notificacoes/Create.cshtml
+- Notificacoes/Delete.cshtml
 
 #### Outros
 - site.css
 - site.js
-- autorizacoes.js
+- notificacoes.js
 
 ### Instruções de acesso
 1. Visualize a tela inicial/homepage do projeto;
-2. Realizar login em uma conta do tipo "Responsável do aluno" que tenha como dependente um aluno que foi solicitado para algum evento anteriormente cadastrado;
-3. Clicar na opção "Assinar autorização" do menu lateral;
-4. Visualizar autorizações em aberto;
-5. Clicar no botão "Visualizar" de alguma autorização;
-6. Visualizar detalhes da autorização;
-7. Clicar em "Sim" ou "Não" para garantir ou negar participação do dependente no evento, respectivamente;
-8. Visualizar novamente a lista de autorizações em aberto, sendo que a autorização concedida não deve mais constar nela;
-9. Selecionar a opção "Assinados" na caixa de seleção presente no canto superior direito;
-10. Visualizar a lista de autorizações assinadas, na qual a autorização préviamente assinada deve constar;
+2. Realizar login na conta de administrador (conforme as instruções da funcionalidade "Login e autenticação" contida nesta seção);
+3. Clicar na opção "Gerenciar notificações" do menu lateral;
+4. Visualizar notificações lançadas;
+5. Nova notificação;
+6. Preencher os campos solicitados, escolhendo o público alvo (turma e tipo de usuário) da notificação;
+7. Clicar "Cadastrar";
+8. Visualizar novamente a lista de notificações cadastradas, sendo que a nova notificação cadastrada deve constar nela, com como a opção "Apagar" caso deseje apagar a notificação;
+9. Fazer login em outra conta de usuário que faça parte do público alvo da notificação;
+10. Clicar em "Notificações" no menu lateral;
+11. Visualizar lista de notificações, que deve conter a notificação recém cadastrada pelo administrador;
+12. Clicar em "Marcar como vista";
+13. A notificação deve desaparecer da seção "Em aberto" da lista de notificações;
+14. Escolher a opção "Visualizadas" na caixa de seleção presente no canto superior direito da tela;
+15. Visualizar lista de notificações marcadas como vistas, que deve conter a notificação recém marcada;
 
 ## Alterar informações pessoais (RF-06)
 A funcionalidade de alterar dados pessoais é disponibilizada para todos os usuários do sistema através do menu do usuário. Esta funcionalidade permite que o usuário logado no sistema altere seu email, telefones, endereço e senha, não podendo alterar seu nome ou nome de usuário. Para alterar suas informações pessoais, incluindo a senha o usuário deve informar sua senha atual, com a troca de informações sendo bem sucedida apenas mediante a senha correta.
