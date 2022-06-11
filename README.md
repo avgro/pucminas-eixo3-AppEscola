@@ -25,8 +25,11 @@ os usuários cadastrados. Além do sistema de mensagens, a aplicação disponibi
 
 ## Instruções de utilização
 
-Na etapa atual, o projeto ainda não foi hospedado em nenhum serviço de hospedagem e deve portanto, ser rodado localmente na máquina do usuário, para fazer isso, o usuário deve seguir as seguintes instruções:
+Para acessar o projeto publicado online na plataforma smarterasp.net, o usuário deve clicar no seguinte link:
 
+http://smensga-001-site1.itempurl.com/
+
+Caso deseje rodar o projeto localmente clonando este repositório, seguir as seguintes instruções:
 - Faça o download do arquivo do projeto (ZIP) ou clone do projeto no GitHub;
 - Tenha o Visual Studio Community 2022 e o SQL server instalados no seu computador;
 - Abra o arquivo "App-comunicacao-escolar.sln" presente em src/App-comunicacao-escolar no Visual Studio Community 2022;
