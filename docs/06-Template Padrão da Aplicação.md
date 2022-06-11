@@ -15,7 +15,7 @@ O projeto utiliza o Bootstrap em conjunto com media queries customizadas no CSS 
 Nas figuras abaixo, segue o layout padrão conforme será exibido dentro da aplicação: 
 
 ## Tela principal (Desktop)
-![template_desktop](https://user-images.githubusercontent.com/74699119/168379726-bec9bec6-5aea-4478-98b9-fe054e50a9ca.png)
+![template_nao_logado](https://user-images.githubusercontent.com/74699119/173170738-23216990-b020-4c6c-9666-97f6807eb303.png)
 <p align="center"><b>Figura 9</b> - Template da tela principal da aplicação em tamanho Desktop</p>
 <br>
 
@@ -31,23 +31,23 @@ Nas figuras abaixo, segue o layout padrão conforme será exibido dentro da apli
 <p align="center"><b>Figura 11</b> - Template da tela principal da aplicação em tamanho Mobile, com as opções presentes no header sendo exibidas após clicar no icone "Toggle" presente no header</p>
 
 ## Tela principal com menu lateral (Desktop)
-![template_menu_desktop](https://user-images.githubusercontent.com/74699119/168380271-e773d24a-0602-4719-8762-3752def1bdae.png)
+![template_logado](https://user-images.githubusercontent.com/74699119/173170726-cbbe4b66-1e83-4b0f-ba06-b860f7aafe3a.png)
 
 <p align="center"><b>Figura 12</b> - Template da tela principal da aplicação em tamanho Desktop com menu lateral de navegação presente</p>
 
 ## Tela principal com menu lateral (Desktop, largura < 1200 px)
-![template_menu_1199px](https://user-images.githubusercontent.com/74699119/168384920-eb1b90bf-d318-4f34-a094-820d1a23c2f8.png)
+![template_logado1199px](https://user-images.githubusercontent.com/74699119/173170728-5770dd54-24bd-4a98-b5de-fff97beec52b.png)
 
 <p align="center"><b>Figura 13</b> - Template da tela principal da aplicação com largura da janela do navegador menor que 1200 pixels, com menu lateral de navegação presente</p>
 
 ## Tela principal com menu lateral (Mobile)
 ### Opções do header escondidas
-![template_menu_mobile](https://user-images.githubusercontent.com/74699119/168380418-bdf3fe54-791e-4512-bf2a-b317d9299be3.png)
+![template_mobile_hiddenheader](https://user-images.githubusercontent.com/74699119/173170729-01e1cebf-8feb-4dcb-90be-fbb5cb43c374.png)
 
 <p align="center"><b>Figura 14</b> - Template da tela principal da aplicação em tamanho Mobile com menu lateral de navegação presente e com as opções presentes no header colapsadas</p>
 
 ### Opções do header a mostra
-![template_menu_mobile_toggle](https://user-images.githubusercontent.com/74699119/168380358-d2f13727-448f-4360-a42e-3ebac4f5b58b.png)
+![template_mobile_showheader](https://user-images.githubusercontent.com/74699119/173170730-171a0ff0-f396-4471-8748-b5572d0c1660.png)
 
 <p align="center"><b>Figura 15</b> - Template da tela principal da aplicação em tamanho Mobile com menu lateral de navegação presente e com as opções presentes no header sendo exibidas após clicar no icone "Toggle" presente no header</p>
 
