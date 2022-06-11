@@ -373,6 +373,7 @@ namespace App_comunicacao_escolar.Controllers
         {
             if (User.IsInRole("Professor")) {
                 List<int> idAgendasSelecionadas = ListarAgendasQueProfessorTemAcesso(GetIdUsuarioLogado());
+                idAgendasSelecionadas.Add(0);
 
                 // Checar instancias nulas
                 if (eventoDaAgenda.Agenda == null)
@@ -396,6 +397,7 @@ namespace App_comunicacao_escolar.Controllers
             else if (User.IsInRole("ResponsavelAluno"))
             {
                 List<int> idAgendasSelecionadas = ListarAgendasQueResponsavelTemAcesso(GetIdUsuarioLogado());
+                idAgendasSelecionadas.Add(0);
 
                 // Checar instancias nulas
                 if (eventoDaAgenda.Agenda == null)

@@ -13,7 +13,7 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="AgendaId" class="control-label"></label>
+                <label asp-for="AgendaId" class="control-label"></label> *
                 <select onchange="mudarAgenda()" asp-for="AgendaId" class ="form-control" asp-items="ViewBag.AgendaId">
                     @if (User.IsInRole("Admin"))
                     {
@@ -22,22 +22,22 @@
                 </select>
             </div>
             <div class="form-group">
-                <label asp-for="Nome" class="control-label"></label>
+                <label asp-for="Nome" class="control-label"></label> *
                 <input asp-for="Nome" class="form-control" />
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Descricao" class="control-label"></label>
+                <label asp-for="Descricao" class="control-label"></label> *
                 <textarea asp-for="Descricao" class="form-control" placeholder="Descrição do evento..."></textarea>
                 <span asp-validation-for="Descricao" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="InicioDoEvento" class="control-label"></label>
+                <label asp-for="InicioDoEvento" class="control-label"></label> *
                 <input asp-for="InicioDoEvento" class="form-control" />
                 <span asp-validation-for="InicioDoEvento" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FimDoEvento" class="control-label"></label>
+                <label asp-for="FimDoEvento" class="control-label"></label> *
                 <input asp-for="FimDoEvento" class="form-control" />
                 <span asp-validation-for="FimDoEvento" class="text-danger"></span>
             </div>
@@ -46,6 +46,7 @@
                 <label asp-for="RequerAutorizacao" class="control-label mx-1"></label>
                 <span asp-validation-for="RequerAutorizacao" class="text-danger"></span>
             </div>
+            <i>Campos marcados com "*" são obrigatórios</i>
             <div class="form-group">
                 <input type="submit" value="Cadastrar evento" class="btn btn-primary my-2" />
             </div>

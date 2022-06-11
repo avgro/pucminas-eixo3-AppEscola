@@ -85,6 +85,11 @@ namespace App_comunicacao_escolar.Models
             .WithOne(d => d.Turma)
             .OnDelete(DeleteBehavior.SetNull);
 
+             modelBuilder.Entity<Agenda>()
+            .HasMany(a => a.EventosDaAgenda)
+            .WithOne(e => e.Agenda)
+            .OnDelete(DeleteBehavior.Cascade);
+
             modelBuilder.Entity<EventoDaAgenda>()
             .HasMany(e => e.Autorizacoes)
             .WithOne(a => a.Evento)

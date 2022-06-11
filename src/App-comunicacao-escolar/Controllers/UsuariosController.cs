@@ -324,7 +324,7 @@ namespace App_comunicacao_escolar.Controllers
         {
             try { 
                 // Mandar email
-
+                /*
                 var sender = new FluentEmail.Smtp.SmtpSender(() => new SmtpClient("localhost")
                 {
                     EnableSsl = false,
@@ -355,7 +355,7 @@ namespace App_comunicacao_escolar.Controllers
                     .SendAsync();
 
                 //
-
+                */
                 return RedirectToAction(nameof(Index));
             }
             catch {

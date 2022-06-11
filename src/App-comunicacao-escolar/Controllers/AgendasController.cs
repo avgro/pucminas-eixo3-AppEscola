@@ -148,7 +148,7 @@ namespace App_comunicacao_escolar.Controllers
                     List<int> idAgendasSelecionadas = ListarAgendasQueResponsavelTemAcesso(GetIdUsuarioLogado());
 
                     eventos = (IOrderedQueryable<EventoDaAgenda>)eventos.Where(e =>
-                        (idAgendasSelecionadas.Contains((int)e.Agenda.TurmaId) || e.Agenda == null)
+                        (idAgendasSelecionadas.Contains((int)e.Agenda.TurmaId) || e.Agenda.TurmaId == null)
                         &&
                         ((int)e.Agenda.Perfil == 0 || (int)e.Agenda.Perfil == 1 || e.Agenda == null)
                     );
@@ -171,7 +171,9 @@ namespace App_comunicacao_escolar.Controllers
                     else
                     {
                         eventos = (IOrderedQueryable<EventoDaAgenda>)eventos.Where(e =>
-                            ((int)e.Agenda.Perfil == 0 || (int)e.Agenda.Perfil == 2 || e.Agenda == null)
+                            (((int)e.Agenda.Perfil == 0 || (int)e.Agenda.Perfil == 2) && (idAgendasSelecionadas.Contains((int)e.Agenda.TurmaId) || e.Agenda.TurmaId == null ))
+                            ||
+                            (e.Agenda == null)
                         );
                     }
                 }
