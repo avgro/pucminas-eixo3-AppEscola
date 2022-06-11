@@ -479,6 +479,99 @@ A funcionalidade de visualizar turmas e alunos para os quais da aula é exclusiv
 5. Clicar no botão "Visualizar" na coluna "Lista de alunos" da turma que deseja visualizar os alunos;
 6. Visualizar lista de alunos que faz parte daquela turma, com o nome de seus responsáveis listados na coluna "Responsáveis";
 
+## Criar postagem na linha do tempo de um aluno (RF-13)
+A funcionalidade de criar postagens é exclusiva do usuário do tipo "Professor". Esta funcionalidade permite ao professor criar uma postagem na linha do tempo de um aluno para o qual dá aula, sendo que essa postagem será visível somente para os responsáveis do aluno e outros professores do aluno. Usuários do tipo "responsável" podem visualizar essas publicações, mas não podem criar publicações.
+
+### Selecionar qual linha do tempo de aluno visualizar
+![linhadotempoA](https://user-images.githubusercontent.com/74699119/173169412-1833204a-dc12-4d38-9a6b-138f9458b38a.jpg)
+## Visualizar linha do tempo
+![linhadotempoB](https://user-images.githubusercontent.com/74699119/173169421-3e9aa33b-6364-4534-a77d-ae57d1176fe6.jpg)
+## Criar nova postagem
+![linhadotempoC](https://user-images.githubusercontent.com/74699119/173169455-411cc5af-001c-496a-a50c-8ba733b61251.jpg)
+## Visualizar linha do tempo (após criação da postagem)
+![linhadotempoD](https://user-images.githubusercontent.com/74699119/173169463-cc5119b6-b459-4be3-8a35-e8173e9f37ae.jpg)
+
+### Requisitos atendidos
+- RF-13
+### Artefatos da funcionalidade
+#### Models
+- AlunoLinhaDoTempo.cs
+- PostagemLinhaDoTempo.cs
+#### Controllers
+- AlunosLinhaDoTempoController.cs
+- PostagensLinhaDoTempoController.cs
+#### Views
+- AlunosLinhaDoTempo/Index.cshtml
+- AlunosLinhaDoTempo/Visualizar.cshtml
+- PostagensLinhaDoTempo/Create.cshtml
+#### Outros
+- site.css
+- site.js
+- linha-do-tempo.js
+
+### Instruções de acesso
+1. Visualize a tela inicial/homepage do projeto;
+2. Realizar login na conta de um usuário do tipo "Professor" que ministre pelo menos uma disciplina associada a uma turma contendo pelo menos um aluno (conforme as instruções da funcionalidade "Login e autenticação" contida nesta seção);
+3. Clicar na opção "Linha do tempo" do menu lateral;
+4. Visualizar lista de linhas do tempo de alunos os quais da aula;
+5. Clicar no botão "Visualizar" da linha do tempo que deseja postar;
+6. Visualizar linha do tempo do aluno;
+7. Clicar em "Criar postagem";
+8. Preencher as informações solicitadas, podendo escolher um arquivo de imagem para a postagem;
+9. Clicar em "Criar postagem;
+10. Visualizar linha do tempo contendo nova postagem cadastrada;
+
+## Visualizar/Comentar postagens da linha do tempo de aluno (RF-13)
+A funcionalidade de visualizar e comentar postagens da linha do tempo do aluno é disponibilizada tanto para usuários do tipo "Professor" que deem aula para o aluno em questão quanto para usuários do tipo "Responsável de aluno" que tenham o aluno como dependente. Esta funcionalidade permite a estes usuários visualizar as postagens realizadas pelos professores do aluno, bem como visualizar e adicionar comentários a elas;
+
+### Selecionar qual linha do tempo de aluno visualizar
+**Professor**
+![linhadotempoA](https://user-images.githubusercontent.com/74699119/173169623-48744ee0-fe64-4c31-8df9-d42c2143b9a3.jpg)
+**Responsável de aluno**
+![resplinhadotempoA](https://user-images.githubusercontent.com/74699119/173169873-37724e0c-7d85-4b0a-9165-68dc35907060.jpg)
+
+## Visualizar linha do tempo
+**Professor**
+![ComentarioLinhaDoTempoAprof](https://user-images.githubusercontent.com/74699119/173169835-fb2b7daf-7e71-446d-85b0-ecd1eb6a68d8.jpg)
+**Responsável de aluno**
+![resplinhadotempoB](https://user-images.githubusercontent.com/74699119/173169878-519d8be5-5ce9-44ce-b45e-64c58583b418.jpg)
+## Criar comentário na postagem
+**Professor**
+![ComentarioLinhaDoTempoA](https://user-images.githubusercontent.com/74699119/173169851-ef9fcf62-131a-4ee0-8e70-c5122c65e3a7.jpg)
+![ComentarioLinhaDoTempoB](https://user-images.githubusercontent.com/74699119/173169856-768c9626-7d2e-437b-8a9f-3f5844814fe2.jpg)
+**Responsável de aluno**
+![resplinhadotempoC](https://user-images.githubusercontent.com/74699119/173169885-92a823f0-085d-4785-9b8a-fa4a768c1054.jpg)
+![resplinhadotempoD](https://user-images.githubusercontent.com/74699119/173169888-97fafc11-1181-4d0d-9219-71ac15d96d46.jpg)
+
+### Requisitos atendidos
+- RF-13
+### Artefatos da funcionalidade
+#### Models
+- AlunoLinhaDoTempo.cs
+- PostagemLinhaDoTempo.cs
+- ComentarioPostagemLinhaDoTempo.cs
+#### Controllers
+- AlunosLinhaDoTempoController.cs
+- PostagensLinhaDoTempoController.cs
+#### Views
+- AlunosLinhaDoTempo/Index.cshtml
+- AlunosLinhaDoTempo/Visualizar.cshtml
+- PostagensLinhaDoTempo/Create.cshtml
+#### Outros
+- site.css
+- site.js
+- linha-do-tempo.js
+
+### Instruções de acesso
+1. Visualize a tela inicial/homepage do projeto;
+2. Realizar login em qualquer conta de usuário;
+3. Clicar na opção "Linha do tempo" do menu lateral;
+4. Visualizar lista de alunos cuja linha do tempo o usuário tem acesso;
+5. Clicar no botão "Visualizar" da linha do tempo que deseja visualizar;
+6. Visualizar linha do tempo do aluno;
+7. Na postagem que deseja comentar, escrever seu comentário na seção "Escrever comentário" e clicar em "Postar";
+8. Visualizar linha do tempo do aluno contendo a postagem e o novo comentário;
+
 ## Alterar informações pessoais (RF-06)
 A funcionalidade de alterar dados pessoais é disponibilizada para todos os usuários do sistema através do menu do usuário. Esta funcionalidade permite que o usuário logado no sistema altere seu email, telefones, endereço e senha, não podendo alterar seu nome ou nome de usuário. Para alterar suas informações pessoais, incluindo a senha o usuário deve informar sua senha atual, com a troca de informações sendo bem sucedida apenas mediante a senha correta.
 
