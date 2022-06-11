@@ -4,14 +4,14 @@ São apresentados nesta seção os detalhes técnicos da solução desenvolvida,
 
 ## Diagrama de Classes
 
-![UML class - UML Class (1)](https://user-images.githubusercontent.com/74699119/173202632-db087b89-c7a2-40f1-9ff9-f558d0e250a7.png)
+![UML class - UML Class (2)](https://user-images.githubusercontent.com/74699119/173205578-cf89c485-e879-4c34-ac01-49e2e4274f67.png)
 <p align="center"><b>Figura 5</b> - Diagrama de classes do projeto</p>
 <br>
 
 
 ## Modelo ER
 
-![Modelo ER](https://user-images.githubusercontent.com/74699119/167976902-4a5f9a93-c1f2-4e8c-b8c4-2efca7ad4a0b.png)
+![Diagrama ER (1)](https://user-images.githubusercontent.com/74699119/173205580-31406eeb-864b-48e7-bfff-3c2e83486167.png)
 <p align="center"><b>Figura 6</b> - Modelo de entidade/relacionamento do projeto</p>
 <br>
 
