@@ -448,6 +448,37 @@ A funcionalidade de lançar notificações no sistema é exclusiva para o usuár
 14. Escolher a opção "Visualizadas" na caixa de seleção presente no canto superior direito da tela;
 15. Visualizar lista de notificações marcadas como vistas, que deve conter a notificação recém marcada;
 
+## Visualizar turmas e alunos para os quais da aula (RF-04)
+A funcionalidade de visualizar turmas e alunos para os quais da aula é exclusiva do usuário do tipo "Professor". Esta funcionalidade permite ao professor ter acesso a uma lista de todas as turmas nas quais ministra pelo menos uma disciplina, bem como ver a lista de todos os alunos pertencentes àquela turma e o nome de seus responsáveis, de modo a possibilitar que o professor saiba quem contatar caso precise enviar uma mensagem para o responsável de um aluno.
+
+### Visualizar todas as turmas para a qual dá aula
+![profturmasA](https://user-images.githubusercontent.com/74699119/173169193-ca027fc9-8f0e-425c-86b6-3fd3199ca15e.jpg)
+## Visualizar lista de alunos de uma turma específica
+![profturmasB](https://user-images.githubusercontent.com/74699119/173169195-fe0f8685-750f-4738-9b7f-c45cf8e6dc3a.jpg)
+
+### Requisitos atendidos
+- RF-04
+### Artefatos da funcionalidade
+#### Models
+- Turma.cs
+- Aluno.cs
+#### Controllers
+- TurmasController.cs
+#### Views
+- Turmas/TurmasProfessor.cshtml
+- Turmas/AlunosTurma.cshtml
+#### Outros
+- site.css
+- site.js
+
+### Instruções de acesso
+1. Visualize a tela inicial/homepage do projeto;
+2. Realizar login na conta de um usuário do tipo "Professor" que ministre pelo menos uma disciplina associada a uma turma contendo pelo menos um aluno (conforme as instruções da funcionalidade "Login e autenticação" contida nesta seção);
+3. Clicar na opção "Minhas turmas" do menu lateral;
+4. Visualizar lista de turmas para as quais da aula;
+5. Clicar no botão "Visualizar" na coluna "Lista de alunos" da turma que deseja visualizar os alunos;
+6. Visualizar lista de alunos que faz parte daquela turma, com o nome de seus responsáveis listados na coluna "Responsáveis";
+
 ## Alterar informações pessoais (RF-06)
 A funcionalidade de alterar dados pessoais é disponibilizada para todos os usuários do sistema através do menu do usuário. Esta funcionalidade permite que o usuário logado no sistema altere seu email, telefones, endereço e senha, não podendo alterar seu nome ou nome de usuário. Para alterar suas informações pessoais, incluindo a senha o usuário deve informar sua senha atual, com a troca de informações sendo bem sucedida apenas mediante a senha correta.
 
