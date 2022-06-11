@@ -2,8 +2,11 @@
 
 ## Instalação do Site
 
-Na etapa atual, o projeto ainda não foi hospedado em nenhum serviço de hospedagem e deve portanto, ser rodado localmente na máquina do usuário, para fazer isso, o usuário deve seguir as seguintes instruções:
+Para acessar o projeto publicado online na plataforma smarterasp.net, o usuário deve clicar no seguinte link:
 
+http://smensga-001-site1.itempurl.com/
+
+Caso deseje rodar o projeto localmente clonando este repositório, seguir as seguintes instruções:
 - Faça o download do arquivo do projeto (ZIP) ou clone do projeto no GitHub;
 - Tenha o Visual Studio Community 2022 e o SQL server instalados no seu computador;
 - Abra o arquivo "App-comunicacao-escolar.sln" presente em src/App-comunicacao-escolar no Visual Studio Community 2022;
@@ -18,3 +21,8 @@ Na etapa atual, o projeto ainda não foi hospedado em nenhum serviço de hospeda
 #### Adicionado
 - Implementação parcial das funcionalidades para entrega da etapa 3, RFs 1 até 9 implementados.
 - Solução ainda não hospedada na internet, roda apenas de forma local.
+
+### [0.2.0] - 11/06/2022
+#### Adicionado
+- Todas as funcionalidades da aplicação foram implementadas.
+- Solução hospedada na plataforma smarterasp.net, podendo ser acessada através do link http://smensga-001-site1.itempurl.com/.
