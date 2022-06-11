@@ -4,7 +4,7 @@ São apresentados nesta seção os detalhes técnicos da solução desenvolvida,
 
 ## Diagrama de Classes
 
-![Diagrama de classes](https://user-images.githubusercontent.com/74699119/167976888-d3397216-d1e9-49c9-b7de-aeb9eeb4227e.png)
+![UML class - UML Class (1)](https://user-images.githubusercontent.com/74699119/173202632-db087b89-c7a2-40f1-9ff9-f558d0e250a7.png)
 <p align="center"><b>Figura 5</b> - Diagrama de classes do projeto</p>
 <br>
 
