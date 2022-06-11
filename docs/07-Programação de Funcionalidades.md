@@ -479,7 +479,7 @@ A funcionalidade de visualizar turmas e alunos para os quais da aula é exclusiv
 5. Clicar no botão "Visualizar" na coluna "Lista de alunos" da turma que deseja visualizar os alunos;
 6. Visualizar lista de alunos que faz parte daquela turma, com o nome de seus responsáveis listados na coluna "Responsáveis";
 
-## Criar postagem na linha do tempo de um aluno (RF-13)
+## Criar postagem na linha do tempo de um aluno (RF-12)
 A funcionalidade de criar postagens é exclusiva do usuário do tipo "Professor". Esta funcionalidade permite ao professor criar uma postagem na linha do tempo de um aluno para o qual dá aula, sendo que essa postagem será visível somente para os responsáveis do aluno e outros professores do aluno. Usuários do tipo "responsável" podem visualizar essas publicações, mas não podem criar publicações.
 
 ### Selecionar qual linha do tempo de aluno visualizar
@@ -492,7 +492,7 @@ A funcionalidade de criar postagens é exclusiva do usuário do tipo "Professor"
 ![linhadotempoD](https://user-images.githubusercontent.com/74699119/173169463-cc5119b6-b459-4be3-8a35-e8173e9f37ae.jpg)
 
 ### Requisitos atendidos
-- RF-13
+- RF-12
 ### Artefatos da funcionalidade
 #### Models
 - AlunoLinhaDoTempo.cs
@@ -521,7 +521,7 @@ A funcionalidade de criar postagens é exclusiva do usuário do tipo "Professor"
 9. Clicar em "Criar postagem;
 10. Visualizar linha do tempo contendo nova postagem cadastrada;
 
-## Visualizar/Comentar postagens da linha do tempo de aluno (RF-13)
+## Visualizar/Comentar postagens da linha do tempo de aluno (RF-12)
 A funcionalidade de visualizar e comentar postagens da linha do tempo do aluno é disponibilizada tanto para usuários do tipo "Professor" que deem aula para o aluno em questão quanto para usuários do tipo "Responsável de aluno" que tenham o aluno como dependente. Esta funcionalidade permite a estes usuários visualizar as postagens realizadas pelos professores do aluno, bem como visualizar e adicionar comentários a elas;
 
 ### Selecionar qual linha do tempo de aluno visualizar
@@ -544,7 +544,7 @@ A funcionalidade de visualizar e comentar postagens da linha do tempo do aluno �
 ![resplinhadotempoD](https://user-images.githubusercontent.com/74699119/173169888-97fafc11-1181-4d0d-9219-71ac15d96d46.jpg)
 
 ### Requisitos atendidos
-- RF-13
+- RF-12
 ### Artefatos da funcionalidade
 #### Models
 - AlunoLinhaDoTempo.cs
