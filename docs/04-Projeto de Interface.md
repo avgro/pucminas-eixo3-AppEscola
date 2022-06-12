@@ -166,31 +166,55 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
 ![responder](https://user-images.githubusercontent.com/74699119/173227553-3fea0c17-7e76-49db-98b0-5dab158fbeaf.png)
 
-### Tela - Linha do tempo
+
+### Tela - Selecionar linha do tempo
+ 
+![selecionarLinhadotempo](https://user-images.githubusercontent.com/74699119/173227861-bbe8ad7c-fea2-4576-9c9d-cc6f5520243a.png)
+
+### Tela - Visualizar linha do tempo
+ <p align="justify"> Tela aonde se encontram todas as postagens realizadas pelos professores na linha do tempo, bem como a opção de criar comentários nas postagens (disponível tanto para os professores quanto responsáveis do aluno).</p>
+ 
  <b>Tipo de usuário - Responsável do Aluno</b><br>
   
   > - **Responsável do aluno:** Será permitido ao usuário visualizar imagens adicionadas de seus filhos. Este usuário poderá ver todas as fotos adicionadas e interagir através de comentários.
   
-![linhadotemporesp](https://user-images.githubusercontent.com/74699119/168451933-ab9e096e-ed23-4d5d-b8d7-9859f5c04808.png)
- 
+![linhadotempoResp](https://user-images.githubusercontent.com/74699119/173227787-89c6984d-537e-4ecc-9826-759ae4cc2178.png)
+
  <b>Tipo de usuário - Professor</b><br>
   
   > - **Professor:** Este usuário poderá criar postagens adicionando texto e imagens de um determinado aluno, bem como interagir com a publicação por meio de comentários.
   
-![linhadotempoprofessor](https://user-images.githubusercontent.com/74699119/168460330-b12c2a91-c2d6-4456-814a-e83005af452b.png)
+![linhadotempoProf](https://user-images.githubusercontent.com/74699119/173227791-4b4630a7-3c5a-4e13-906b-4e2d3a8028a1.png)
+
+### Tela - Criar postagem em linha do tempo
+<p align="justify"> Será permitido aos professores postar eventos dos alunos em uma "linha do tempo", que poderá ser visualizada pelos responsáveis do aluno.</p>
  
-### Tela - Assinar autorização
+![criarPostagem](https://user-images.githubusercontent.com/74699119/173227967-9ed98c9c-9ae9-4c50-8d86-0dccaeeb54c3.png)
+
+### Tela - Visualizar autorizações para assinar
 
 <p align="justify">  Será permitido aos usuários do tipo "Responsável do aluno" visualizarem notificações de eventos que necessitam de sua autorização, assinalando se autorizam ou não que seu filho participe. Ao usuário será apresentada uma mensagem informando o conteúdo necessário de autorização, que pode ser um evento, excursão etc.</p>
  
-![assinarautorizacao](https://user-images.githubusercontent.com/74699119/168451938-43cf4e6d-2bb8-49b1-a1e6-f8f58f775d58.png)
+![listaAuto](https://user-images.githubusercontent.com/74699119/173228109-c9bba083-b003-4c33-b723-32bb17a45909.png)
+
+### Tela - Assinar autorização
+
+<p align="justify"> Tela contendo a descrição do evento em questão, bem como as opções "Sim" e "Não" que o usuário poderá selecionar para autorizar ou não a participação do dependente no evento.</p>
  
+![autorizar](https://user-images.githubusercontent.com/74699119/173228111-5bf48ac0-37b3-406c-a78f-7445b9a3aa93.png)
+
 ### Tela - Visualizar turmas do professor
  
-<p align="justify">  Será permitido aos usuários do tipo "Professor" visualizar todas as turmas que estão sob sua responsabilidade e os alunos atrelados a elas. Ele poderá realizar pesquisas para filtragem das turmas por nome do aluno ou disciplina lecionada.</p>
+<p align="justify">  Será permitido aos usuários do tipo "Professor" visualizar todas as turmas que estão sob sua responsabilidade e os alunos atrelados a elas. Ao clicar em "Visualizar" na coluna "Lista de alunos" o usuário será redirecionado a uma tela contendo a lista de alunos daquela turma, bem como seus responsáveis.</p>
+
+![minhasturmas](https://user-images.githubusercontent.com/74699119/173228238-438c3f67-f523-43d6-b38b-8149bc1aa8be.png)
+
+### Tela - Visualizar alunos das turmas (Professor)
  
-![minhasturmas](https://user-images.githubusercontent.com/74699119/168452574-42efd1c0-a600-462a-bfb9-a76a11b2b398.png)
- 
+<p align="justify"> Tela que permite ao usuário visualizar a lista de todos os alunos daquela turma específica, bem como seus responsáveis.</p>
+
+![alunosturmas](https://user-images.githubusercontent.com/74699119/173228239-f52e3bdd-d5af-4bf1-a2c4-85d7231609f7.png)
+
 ### Tela - Visualizar todos os usuários do sistema
 
 <p align="justify">  Será permitido aos usuários do tipo Administrador visualizar todos os usuários cadastrados no sistema, vendo suas informações básicas de nome completo, nome de usuário e tipo de usuário. Poderão também editar ou deletar contas de usuários.</p>
