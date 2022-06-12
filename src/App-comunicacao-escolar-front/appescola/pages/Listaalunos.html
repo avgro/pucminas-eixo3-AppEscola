@@ -19,102 +19,208 @@
     <title>App Escola</title>
     <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
 </head>
-<style>
-    .tabela {
-        display: flex;
-        flex-direction: row;
-    
-    }
-    
-</style>
 
 <body>
     <!--Header-->
-    <div id="header">
-        <div class="container-fluid">
-            <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navbar">
-                <a class="navbar-brand" href="index.html">
-                    <img src="../images/logo.svg" class="img-fluid" id="logo" />
-                </a>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
+    <header id="header">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow">
+            <div class=" container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img
+                        src="../../images/logo.svg" class="img-fluid" id="logo" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../index.html">Página Principal</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Solucoes">Soluções</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./pages/solucoes.html">Soluções</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./pages/faleConosco.html">Fale Conosco</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="FaleConosco">Fale
+                                Conosco</a>
                         </li>
                     </ul>
-                    <button class="btn btn-primary me-md-2 d-md-inline-block d-block" type="button"
-                        onclick="window.location.href='../index.html'" id="login-btn">Home</button>
-                </div>
-        </div>
-        </nav>
-    </div>
-    </div>
-    <!--/Header-->
+                    <ul class="navbar-nav hidden-xs">
 
-    <!-- Conteudo -->
-    <div class="container">
-        <section class="ftco-section">
-            <div class="row">
-                <div class="col">
-                    <div class="btn-group-vertical border">
-                        <button type="button" class="btn btn-dark" onclick="window.location.href='../index.html'">Todos
-                            os usuários</button>
-                        <button type="button" class="btn btn-dark"
-                            onclick="window.location.href='../index.html'">Agenda</button>
-                        <button type="button" class="btn btn-dark"
-                            onclick="window.location.href='../index.html'">Mensagens</button>
-                        <button type="button" class="btn btn-dark"
-                            onclick="window.location.href='../index.html'">Cadastrar usuário</button>
-                        <button type="button" class="btn btn-dark"
-                            onclick="window.location.href='../index.html'">Cadastar aluno</button>
-                        <button type="button" class="btn btn-dark"
-                            onclick="window.location.href='../index.html'">Cadastar turma</button>
-                        <button type="button" class="btn btn-dark"
-                            onclick="window.location.href='../index.html'">Cadastar disciplina</button>
-                    </div>
-                </div>
-                <div class="tabela">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th scope="col">ID do usuário</th>
-                                <th scope="col">Nome do aluno</th>
-                                <th scope="col">Data de nascimento</th>
-                                <th scope="col">Responsáveis</th>
-                                <th scope="col">Turma</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>C3</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                                <td>B2</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>@twitter</td>
-                                <td>A5</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                        <li class="nav-item d-flex flex-row-reverse">
+
+                            <div id="menuUsuario_xs" class="dropdown-fix" hidden>
+                                <div class="dropdown-menu-fix">
+                                    <a class="dropdown-item" asp-area="" asp-controller="Usuarios"
+                                        asp-action="AlterarDados" asp-route-id="@GetIdUsuarioLogado()"><i
+                                            class="bi bi-person-circle bi-1halfx"></i>
+                                        <div class="dropdown-text">Alterar Dados</div>
+                                    </a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Usuarios"
+                                        asp-action="Logout"><i class="bi bi-x-circle bi-1halfx"></i>
+                                        <div class="dropdown-text">Sair</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="nav-item d-flex flex-row-reverse">
+                            <a class="btn btn-primary me-md-2" id="login-btn" asp-area="" asp-controller="Usuarios"
+                                asp-action="Login">Login</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
+        </nav>
+        <ul class="navbar-nav show-xs mx-3">
+
+            <li class="nav-item d-flex flex-row-reverse">
+                <div>
+                    <button id="botaoMenuUsuario" onclick="showDropDown(botaoMenuUsuario, menuUsuario)"
+                        class="btn btn-transparent p-0 dropdown-toggle">
+                    </button>
+                </div>
+                <div id="menuUsuario" class="dropdown-fix" hidden>
+                    <div class="dropdown-menu-fix">
+                        <a class="dropdown-item" asp-area="" asp-controller="Usuarios" asp-action="AlterarDados"
+                            asp-route-id="@GetIdUsuarioLogado()"><i class="bi bi-person-circle bi-1halfx"></i>
+                            <div class="dropdown-text">Alterar Dados</div>
+                        </a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Usuarios" asp-action="Logout"><i
+                                class="bi bi-x-circle bi-1halfx"></i>
+                            <div class="dropdown-text">Sair</div>
+                        </a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item d-flex flex-row-reverse">
+                <a class="btn btn-primary me-md-2" id="login-btn" asp-area="" asp-controller="Usuarios"
+                    asp-action="Login">Login</a>
+            </li>
+
+        </ul>
+        <div class="border-bottom p-0 mb-3"></div>
+    </header>
+    <!--/Header-->
+
+    <a hidden id="refreshPartial" class="btn btn-primary" data-ajax="true" data-ajax-mode="replace"
+        data-ajax-update="#msgupdate" href="/Home/UpdateMsg"></a>
+
+    <!-- Inicio da barra lateral -->
+
+    <div class="container-fluid ">
+        <div class="row">
+            <!--Ínicio Barra Lateral-->
+            <div class=" col-sm-2 col-md-2 barra-lateral">
+
+                <div class="menu-content-layout">
+                    <div>
+                        <div class="menu-lateral">
+                            <ul class="list-group">
+
+                                <li class="p-0 item-menu-first mb-1">
+                                    <div class="input-group">
+                                        <span class="input-group-text input-group-sm" id="inputGroup-sizing-sm">
+                                            <i class="bi bi-house-fill"></i>
+                                        </span>
+                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Home"
+                                            asp-action="AreaDoUsuario">Painel inicial</a>
+                                    </div>
+                                </li>
+                                <li class="p-0 item-menu mb-1">
+                                    <div class="input-group">
+                                        <span class="input-group-text input-group-sm">
+                                            <i class="bi bi-envelope-fill"></i>
+                                        </span>
+                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Conversas"
+                                            asp-action="Index">Mensagens
+                                            <span id="msgupdate">
+
+                                            </span>
+                                        </a>
+                                    </div>
+                                </li>
+
+                                <li class="p-0 item-menu mb-1">
+                                    <div class="input-group">
+                                        <span class="input-group-text input-group-sm">
+                                            <i class="bi bi-people-fill"></i>
+                                        </span>
+                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Usuarios"
+                                            asp-action="Index">Gerenciar usuários</a>
+                                    </div>
+                                </li>
+
+                                <li class="p-0 item-menu mb-1">
+                                    <div class="input-group">
+                                        <span class="input-group-text input-group-sm">
+                                            <i class="bi bi-book"></i>
+                                        </span>
+                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Disciplinas"
+                                            asp-action="Index">Gerenciar disciplinas</a>
+                                    </div>
+                                </li>
+
+                                <li class="p-0 item-menu mb-1">
+                                    <div class="input-group">
+                                        <span class="input-group-text input-group-sm">
+                                            <i class="bi bi-apple"></i>
+                                        </span>
+                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Turmas"
+                                            asp-action="Index">Gerenciar turmas</a>
+                                    </div>
+                                </li>
+
+                                <li class="p-0 item-menu">
+                                    <div class="input-group">
+                                        <span class="input-group-text input-group-sm">
+                                            <i class="bi bi-person-video3"></i>
+                                        </span>
+                                        <a class="p-3 nav-link text-dark" asp-area="" asp-controller="Alunos"
+                                            asp-action="Index">Gerenciar alunos</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--//Fim Barra Lateral-->
+
+            <!-- Conteudo -->
+            <div class="tabela">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID do usuário</th>
+                            <th scope="col">Nome do aluno</th>
+                            <th scope="col">Data de nascimento</th>
+                            <th scope="col">Responsáveis</th>
+                            <th scope="col">Turma</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>C3</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                            <td>B2</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td colspan="2">Larry the Bird</td>
+                            <td>@twitter</td>
+                            <td>A5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
         </section>
     </div>
 
