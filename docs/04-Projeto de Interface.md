@@ -74,7 +74,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 ![painelProf](https://user-images.githubusercontent.com/74699119/173224636-2c4fa161-73d4-4ddd-86e2-1a750e65a938.png)
 
 <b>Tipo de usuário - Administrador</b><br>
-![painelAdmin](https://user-images.githubusercontent.com/74699119/173224624-0a165832-0c17-4964-bffd-37f2c4dea73d.png)
+![painelAdmin](https://user-images.githubusercontent.com/74699119/173224665-839d496b-4f4d-46cd-bfca-bf348bbe7fb4.png)
 
 <b>Tipo de usuário - Outros</b><br>
 ![paineloutro](https://user-images.githubusercontent.com/74699119/173224630-06fc5cc7-fd8b-44b3-ba3c-abf5720dfd20.png)
