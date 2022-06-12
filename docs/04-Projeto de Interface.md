@@ -116,7 +116,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
  
 <p align="justify">  Será permitido ao administrador do sistema criar novas agendas, selecionando a turma e o tipo de usuário que terá acesso a ela.</p>
 
-![cadastraAgenda](https://user-images.githubusercontent.com/74699119/173226653-fbced85c-a1b5-4371-97b8-e4ebc58d512f.png)
+![cadastraAgenda](https://user-images.githubusercontent.com/74699119/173226751-d15d9d43-c58c-47c7-a856-2b42a4879bfe.png)
 
 ### Tela - Visualizar agenda escolar
  
