@@ -146,25 +146,25 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
  <p align="justify">  Será permitido aos usuários receber e enviar mensagens contendo texto, imagens e video. Esta tela mostra a caixa de entrada de mensagens.</p>
   
-![mensagens](https://user-images.githubusercontent.com/74699119/168452690-b59c8604-7961-48ca-98bb-fdd18f830eee.png)
+![mensagens](https://user-images.githubusercontent.com/74699119/173227546-396407fc-a0c5-4abb-a50e-68b240eb2269.png)
 
 ### Tela - Criar nova mensagem
 
  <p align="justify">  Será permitido aos usuários receber e enviar mensagens contendo texto, imagens e video. Esta tela mostra a tela de criação de nova mensagem, onde o usuário pode enviar uma mensagem para uma lista de destinatários, iniciando assim uma nova conversa.</p>
 
-![criarmensagens](https://user-images.githubusercontent.com/74699119/168448423-a37bd641-cc16-492d-a743-3e0103932680.png)
+![criarconversa](https://user-images.githubusercontent.com/74699119/173227550-98d5fe7e-9e2d-42c5-aeeb-44e888aecb6b.png)
 
 ### Tela - Visualizar mensagens da conversa
 
  <p align="justify">  Será permitido aos usuários receber e enviar mensagens contendo texto, imagens e video. Esta tela é acessada ao clicar na opção "Visualizar" em uma conversa presente na caixa de mensagens, nesta tela, o usuário pode visualizar todas as mensagens da conversa (isto é, a mensagem original e as respostas à mensagem original e a outras respostas da conversa). O usuário pode também criar uma resposta a uma das mensagens clicando na opção "Responder" ou "Responder a todos" no corpo da mensagem desejada.</p>
   
-![visualizarconversa](https://user-images.githubusercontent.com/74699119/168448244-bc25663d-1e0f-4a72-9e05-6e462e3d1897.png)
+![visualizarmensagens](https://user-images.githubusercontent.com/74699119/173227552-6019494f-b466-4a2d-899c-6f292e46c37c.png)
 
 ### Janela - Responder mensagem da conversa
 
  <p align="justify">  Será permitido aos usuários receber e enviar mensagens contendo texto, imagens e video. Esta tela é acessada ao clicar na opção "Responder" ou "Responder a todos" em uma mensagem presente na conversa. Nesta tela, o usuário pode compor sua resposta de forma similar ao que é realizado na tela de "Criar nova mensagem" e envia-la clicando em "Responder" dentro da janela de responder mensagem da conversa.</p>
 
-![respondermensagem](https://user-images.githubusercontent.com/74699119/168452692-0b506039-4110-4cc5-9109-84ece879dc7a.png)
+![responder](https://user-images.githubusercontent.com/74699119/173227553-3fea0c17-7e76-49db-98b0-5dab158fbeaf.png)
 
 ### Tela - Linha do tempo
  <b>Tipo de usuário - Responsável do Aluno</b><br>
