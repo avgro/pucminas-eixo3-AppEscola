@@ -116,11 +116,12 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 <p align="justify">  Será permitido ao administrador do sistema criar novas agendas, selecionando a turma e o tipo de usuário que terá acesso a ela.</p>
 ![cadastraAgenda](https://user-images.githubusercontent.com/74699119/173226026-0ebddee4-56dd-407b-8272-645e9796989e.png)
 
-### Tela - Visualizar genda escolar
+### Tela - Visualizar agenda escolar
  
  <p align="justify">  Será permitido aos usuários visualizar um calendário contendo os eventos da escola de acordo com a data em que estão marcados. Os usuários do tipo "Professor" e Administrador" poderão não só visualizar, como também cadastrar eventos na agenda.</p>
  
 <b> Tipo de usuário: Responsável do aluno ou "Outros"</b>
+
 ![calendarioOutros](https://user-images.githubusercontent.com/74699119/173225910-fd20e5ce-2edd-45fe-97e3-319ee00db8ce.png)
 
 <b> Tipo de usuário: Administrador ou Professor</b>
@@ -131,13 +132,13 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
  
 <p align="justify">  Será permitido aos usuários do tipo "administrador" e "professor" cadastrar eventos nas agendas criadas, sendo que o administrador pode cadastrar um evento para aparecer em todas as agendas, enquanto o professor pode cadastrar eventos apenas nas agendas que possui acesso.</p>
 
-![cadastrEvento](https://user-images.githubusercontent.com/74699119/173226104-34610f25-23f9-4d4e-80bd-3fc1c2316301.png)
+![cadastrEvento](https://user-images.githubusercontent.com/74699119/173226431-4ae1f22e-add3-42f9-85f9-1d6c6c8c2c8e.png)
 
 ### Tela - Listar eventos cadastrados
  
 <p align="justify">  Será permitido aos usuários do tipo "administrador" e "professor" visualizar os eventos cadastrados nas agendas que possuem acesso. O usuário poderá também apagar eventos que tenha cadastrado, mas não eventos cadastrados por outros usuários.</p>
 
-![listaEventos](https://user-images.githubusercontent.com/74699119/173226153-fac4228b-cfac-4517-bbb0-b3a9dd422f1c.png)
+![listaEventos](https://user-images.githubusercontent.com/74699119/173226435-a4acc261-2a85-47db-81e3-c8a23bd65319.png)
 
 ### Tela - Caixa de mensagens
 
