@@ -79,25 +79,26 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 <b>Tipo de usuário - Outros</b><br>
 ![paineloutro](https://user-images.githubusercontent.com/74699119/173224630-06fc5cc7-fd8b-44b3-ba3c-abf5720dfd20.png)
  
-### Janela - Mostrar notificações 
+### Tela - Mostrar notificações 
 
 <p align="justify"> Na tela de notificações, são mostrados avisos para os usuários, sejam notificações do sistema ou notificações lançadas diretamente pelo administrador. Será mostrado aos usuários um resumo das notificações no botão "Notificação" na parte superior da tela, bem como em um painel centralizado na página. Usuários do tipo "Administrador" poderão criar novas notificações que serão enviadas para os demais usuários clicando na opção "Criar notificação". </p>
 
 <b>Tipo de usuário: Professor, Responsável do Aluno e "Outros"</b>
-![notificacoes](https://user-images.githubusercontent.com/74699119/168452539-8329bc84-c45b-43c8-8ff6-99242bb39125.png)
+![notificacaoOutros](https://user-images.githubusercontent.com/74699119/173224832-127fdab8-50fd-4f57-88aa-252b7be87ddb.png)
 
- <b>Tipo de usuário: Administrador</b>
-![notificacoesadministrador](https://user-images.githubusercontent.com/74699119/168452548-82457fa5-1078-4773-8517-f9de4c75578b.png)
+<b>Tipo de usuário: Administrador</b>
+![notificacaoAdmin](https://user-images.githubusercontent.com/74699119/173224835-8f7d6427-33e1-4ae3-a80d-5d21bb612dcc.png)
 
-### Janela - Criar notificação
+### Tela - Criar notificação
 
+![criarNotificacao](https://user-images.githubusercontent.com/74699119/173224869-cdab2dd0-1926-4df5-908d-0db2f397ac6a.png)
  <p align="justify"> Tela acessada pelo Administrador ao clicar em "Criar notificação" no menu de notificações. Permite criar uma nova notificação e lança-la no sistema.</p>
  
 ![telacriarnotificacao](https://user-images.githubusercontent.com/74699119/168452664-7d2eede5-8d7e-4ba9-9cf6-794f807c1c60.png)
 
 ### Janela - Opções da conta
 
- <p align="justify">  Será permitido aos usuários acessarem o submenu de opções da conta, que possui as funcionalidades de "Alterar dados", que direciona o usuário para a tela de "Alterar informações da conta" e "Sair", que finaliza a sessão do usuário realiznado logoff.</p>
+<p align="justify">  Será permitido aos usuários acessarem o submenu de opções da conta, que possui as funcionalidades de "Alterar dados", que direciona o usuário para a tela de "Alterar informações da conta" e "Sair", que finaliza a sessão do usuário realiznado logoff.</p>
 
 ![perfil](https://user-images.githubusercontent.com/74699119/168452702-d73fecb4-a437-4e2d-a029-6c10332b010c.png)
  
