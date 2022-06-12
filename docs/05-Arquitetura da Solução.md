@@ -14,7 +14,7 @@ São apresentados nesta seção os detalhes técnicos da solução desenvolvida,
 <br>
 
 ## Esquema Relacional
-![Esquema Relacional](https://user-images.githubusercontent.com/74699119/173211537-eb496495-fe31-4738-9361-be6a43414f11.png)
+![Esquema Relacional](https://user-images.githubusercontent.com/74699119/173211700-554f8d36-d74d-4454-9d16-ab64e35c07e4.png)
 <p align="center"><b>Figura 7</b> - Esquema relacional do projeto</p>
 <br>
 
