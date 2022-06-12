@@ -3,13 +3,13 @@
 São apresentados nesta seção os detalhes técnicos da solução desenvolvida, tratando dos componentes que a integram e do ambiente de hospedagem utilizado para hospeda-la.
 
 ## Diagrama de Classes
-![UML class - UML Class (2)](https://user-images.githubusercontent.com/74699119/173211550-d00bd92a-7b95-43c5-9fe2-79413ef6d243.png)
+![UML class - UML Class (2)](https://user-images.githubusercontent.com/74699119/173211970-b360a122-3f17-4c96-b575-6916f1df7b95.png)
 <p align="center"><b>Figura 5</b> - Diagrama de classes do projeto</p>
 <br>
 
 
 ## Modelo ER
-![Diagrama ER ](https://user-images.githubusercontent.com/74699119/173211547-80e49d72-b64e-453e-93c5-0e0725274149.png)
+![Diagrama ER](https://user-images.githubusercontent.com/74699119/173211969-f1bff2c6-7dfa-4e55-b6ce-795308538a35.png)
 <p align="center"><b>Figura 6</b> - Modelo de entidade/relacionamento do projeto</p>
 <br>
 
