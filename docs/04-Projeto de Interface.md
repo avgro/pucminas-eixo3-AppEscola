@@ -109,12 +109,14 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 ### Tela - Lista de agendas
  
 <p align="justify">  Será permitido ao administrador do sistema visualizar todas as agendas cadastradas no sistema, bem como criar novas agendas.</p>
-![listaAgendas](https://user-images.githubusercontent.com/74699119/173225956-eec4b351-5f74-4e45-88cc-c2054b122309.png)
+
+![listaAgendas](https://user-images.githubusercontent.com/74699119/173226650-fb3149d9-c77f-46b5-9b99-f876ea74f0b5.png)
 
 ### Tela - Cadastrar nova agenda
  
 <p align="justify">  Será permitido ao administrador do sistema criar novas agendas, selecionando a turma e o tipo de usuário que terá acesso a ela.</p>
-![cadastraAgenda](https://user-images.githubusercontent.com/74699119/173226026-0ebddee4-56dd-407b-8272-645e9796989e.png)
+
+![cadastraAgenda](https://user-images.githubusercontent.com/74699119/173226653-fbced85c-a1b5-4371-97b8-e4ebc58d512f.png)
 
 ### Tela - Visualizar agenda escolar
  
