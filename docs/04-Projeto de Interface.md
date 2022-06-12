@@ -87,14 +87,12 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 ![notificacaoOutros](https://user-images.githubusercontent.com/74699119/173224832-127fdab8-50fd-4f57-88aa-252b7be87ddb.png)
 
 <b>Tipo de usuário: Administrador</b>
-![notificacaoAdmin](https://user-images.githubusercontent.com/74699119/173224835-8f7d6427-33e1-4ae3-a80d-5d21bb612dcc.png)
+![notificacaoAdmin](https://user-images.githubusercontent.com/74699119/173224983-53e42a1f-6959-4306-bd87-93740482cec3.png)
 
 ### Tela - Criar notificação
 
-![criarNotificacao](https://user-images.githubusercontent.com/74699119/173224869-cdab2dd0-1926-4df5-908d-0db2f397ac6a.png)
  <p align="justify"> Tela acessada pelo Administrador ao clicar em "Criar notificação" no menu de notificações. Permite criar uma nova notificação e lança-la no sistema.</p>
- 
-![telacriarnotificacao](https://user-images.githubusercontent.com/74699119/168452664-7d2eede5-8d7e-4ba9-9cf6-794f807c1c60.png)
+![criarNotificacao](https://user-images.githubusercontent.com/74699119/173224991-c41c9e31-7deb-407d-97e0-f4fe515fd283.png)
 
 ### Janela - Opções da conta
 
