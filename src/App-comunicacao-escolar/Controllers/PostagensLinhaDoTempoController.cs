@@ -74,9 +74,9 @@ namespace App_comunicacao_escolar.Controllers
         {
           return (_context.PostagensLinhaDoTempo?.Any(e => e.Id == id)).GetValueOrDefault();
         }
-        private PostagemLinhaDoTempo FazerUploadDaImagem(PostagemLinhaDoTempo postagem, IFormFile arquivo)
+        private PostagemLinhaDoTempo FazerUploadDaImagem(PostagemLinhaDoTempo postagem, IFormFile? arquivo)
         {
-            List<string> ImageExtensions = new List<string> { "JPG", "JPEG", "JPE", "BMP", "GIF", "PNG" };
+            List<string> ImageExtensions = new() { "JPG", "JPEG", "JPE", "BMP", "GIF", "PNG" };
             int idDoUsuarioLogado = GetIdUsuarioLogado();
             if (arquivo == null) {
                 return postagem;

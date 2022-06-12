@@ -55,7 +55,13 @@ namespace App_comunicacao_escolar.Controllers
             {
                 int idDoUsuarioLogado = GetIdUsuarioLogado();
                 var professor = await _context.Professores.Include(p => p.Disciplinas).FirstOrDefaultAsync(p => p.ProfessorId == idDoUsuarioLogado);
-                var professorTurmas = from p in professor.Disciplinas select p.TurmaId;
+
+                IEnumerable<int?> professorTurmas = Enumerable.Empty<int?>();
+
+                if (professor != null) 
+                { 
+                    professorTurmas = from p in professor.Disciplinas select p.TurmaId;
+                }
 
                 var applicationDbContext = _context.Turmas
                     .Include(t => t.Disciplinas.Where(d => d.Professores.Any(p => p.ProfessorId == idDoUsuarioLogado)))
