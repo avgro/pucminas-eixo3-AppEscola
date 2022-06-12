@@ -98,13 +98,13 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
 <p align="justify">  Será permitido aos usuários acessarem o submenu de opções da conta, que possui as funcionalidades de "Alterar dados", que direciona o usuário para a tela de "Alterar informações da conta" e "Sair", que finaliza a sessão do usuário realiznado logoff.</p>
 
-![perfil](https://user-images.githubusercontent.com/74699119/168452702-d73fecb4-a437-4e2d-a029-6c10332b010c.png)
+![menuUsuari](https://user-images.githubusercontent.com/74699119/173226592-f25ab195-b30a-4764-8e34-956570a8210b.png)
  
 ### Tela - Alterar informações da conta
 
  <p align="justify">  Será permitido aos usuários modificarem suas informações básicas, como email, telefone, senha e endereço ao preencher o formulário solicitando as novas informações e clicando em "Salvar".</p>
- 
-![alterardados](https://user-images.githubusercontent.com/74699119/168448436-f64c0ff3-2a6e-4f1c-917d-0c2ff52eb7b9.png)
+
+![alterarDados](https://user-images.githubusercontent.com/74699119/173226585-1de1485c-877c-4713-b8a6-27578ef158f1.png)
 
 ### Tela - Lista de agendas
  
