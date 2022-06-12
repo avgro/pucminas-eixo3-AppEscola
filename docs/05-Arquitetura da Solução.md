@@ -9,7 +9,7 @@ São apresentados nesta seção os detalhes técnicos da solução desenvolvida,
 
 
 ## Modelo ER
-![Diagrama ER](https://user-images.githubusercontent.com/74699119/173245055-31367e49-f522-4d0f-9c22-76f8630e896f.png)
+![Diagrama ER](https://user-images.githubusercontent.com/74699119/173245848-02ec948f-c5ab-4614-98f9-c96b45bc618c.png)
 <p align="center"><b>Figura 6</b> - Modelo de entidade/relacionamento do projeto</p>
 <br>
 
