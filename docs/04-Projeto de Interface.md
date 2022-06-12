@@ -230,7 +230,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
 <p align="justify">  Será permitido aos usuários do tipo Administrador visualizar a lista de disciplinas cadastradas no sistema, bem como apagar disciplinas cadastradas ou editar suas informações, incluindo horário das aulas e turma da qual faz parte.</p>
 
-![disciplinas](https://user-images.githubusercontent.com/74699119/173230996-0b16492e-87af-4893-9f0d-3a265a387573.png)
+![disciplinas](https://user-images.githubusercontent.com/74699119/173231041-f09b8fdf-e4e9-45e2-b107-9a3469f3ae8d.png)
 
 ### Tela - Cadastrar disciplina
 
