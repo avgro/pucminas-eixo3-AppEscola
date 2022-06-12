@@ -106,15 +106,35 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
  
 ![alterardados](https://user-images.githubusercontent.com/74699119/168448436-f64c0ff3-2a6e-4f1c-917d-0c2ff52eb7b9.png)
 
-### Tela - Agenda escolar
+### Tela - Lista de agendas
+ 
+<p align="justify">  Será permitido ao administrador do sistema visualizar todas as agendas cadastradas no sistema, bem como criar novas agendas.</p>
+![listaAgendas](https://user-images.githubusercontent.com/74699119/173225956-eec4b351-5f74-4e45-88cc-c2054b122309.png)
+
+### Tela - Cadastrar nova agenda
+ 
+<p align="justify">  Será permitido ao administrador do sistema criar novas agendas, selecionando a turma e o tipo de usuário que terá acesso a ela.</p>
+![cadastraAgenda](https://user-images.githubusercontent.com/74699119/173226026-0ebddee4-56dd-407b-8272-645e9796989e.png)
+
+### Tela - Visualizar genda escolar
  
  <p align="justify">  Será permitido aos usuários visualizar um calendário contendo os eventos da escola de acordo com a data em que estão marcados. Os usuários do tipo "Professor" e Administrador" poderão não só visualizar, como também cadastrar eventos na agenda.</p>
  
 <b> Tipo de usuário: Responsável do aluno ou "Outros"</b>
-![agenda](https://user-images.githubusercontent.com/74699119/168447225-0cca8ea1-0d70-413f-afdc-cc302d02953f.png)
+![calendarioOutros](https://user-images.githubusercontent.com/74699119/173225910-fd20e5ce-2edd-45fe-97e3-319ee00db8ce.png)
 
 <b> Tipo de usuário: Administrador ou Professor</b>
-![agendaprof](https://user-images.githubusercontent.com/74699119/162601923-507c7a98-f458-466a-b34b-82866fd46886.png)
+![calendarioAdmin](https://user-images.githubusercontent.com/74699119/173225907-5c096a85-8c4f-4add-8fdf-5bc7a19434bc.png)
+
+### Tela - Cadastrar novo evento em agenda
+ 
+<p align="justify">  Será permitido aos usuários do tipo "administrador" e "professor" cadastrar eventos nas agendas criadas, sendo que o administrador pode cadastrar um evento para aparecer em todas as agendas, enquanto o professor pode cadastrar eventos apenas nas agendas que possui acesso.</p>
+![cadastrEvento](https://user-images.githubusercontent.com/74699119/173226104-34610f25-23f9-4d4e-80bd-3fc1c2316301.png)
+
+### Tela - Listar eventos cadastrados
+ 
+<p align="justify">  Será permitido aos usuários do tipo "administrador" e "professor" visualizar os eventos cadastrados nas agendas que possuem acesso. O usuário poderá também apagar eventos que tenha cadastrado, mas não eventos cadastrados por outros usuários.</p>
+![listaEventos](https://user-images.githubusercontent.com/74699119/173226153-fac4228b-cfac-4517-bbb0-b3a9dd422f1c.png)
 
 ### Tela - Caixa de mensagens
 
