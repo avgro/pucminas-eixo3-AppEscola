@@ -68,20 +68,16 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 <p align="justify"> Além disso, todos os usuários poderão acessar as notificações e o menu de opções da conta a partir das opções "Notificações" e "Perfil" presentes no cabeçalho</p> 
 
 <b>Tipo de usuário - Responsável do Aluno</b><br>
-
-![InicialResp](https://user-images.githubusercontent.com/74699119/168451920-2409456b-f2c5-4d78-9fe3-091d320f758c.png)
+![painelResp](https://user-images.githubusercontent.com/74699119/173224633-4cdf8223-d491-487f-84ad-b36781f141cf.png)
 
 <b>Tipo de usuário - Professor</b><br>
-
-![InicialProfessor](https://user-images.githubusercontent.com/74699119/168460288-59b9b253-a227-4dd7-9652-2f6a11afff67.png)
+![painelProf](https://user-images.githubusercontent.com/74699119/173224636-2c4fa161-73d4-4ddd-86e2-1a750e65a938.png)
 
 <b>Tipo de usuário - Administrador</b><br>
-
-![InicialAdmin](https://user-images.githubusercontent.com/74699119/168452536-10eb8a2d-72ab-4104-9f48-70340a78cec1.png)
+![painelAdmin](https://user-images.githubusercontent.com/74699119/173224624-0a165832-0c17-4964-bffd-37f2c4dea73d.png)
 
 <b>Tipo de usuário - Outros</b><br>
-
-![InicialOutros](https://user-images.githubusercontent.com/74699119/168446693-b6b322af-55f3-40ce-95bf-e7e9dfa8da4e.png)
+![paineloutro](https://user-images.githubusercontent.com/74699119/173224630-06fc5cc7-fd8b-44b3-ba3c-abf5720dfd20.png)
  
 ### Janela - Mostrar notificações 
 
