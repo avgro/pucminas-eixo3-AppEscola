@@ -152,7 +152,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
  <p align="justify">  Será permitido aos usuários receber e enviar mensagens contendo texto, imagens e video. Esta tela mostra a tela de criação de nova mensagem, onde o usuário pode enviar uma mensagem para uma lista de destinatários, iniciando assim uma nova conversa.</p>
 
-![criarconversa](https://user-images.githubusercontent.com/74699119/173227550-98d5fe7e-9e2d-42c5-aeeb-44e888aecb6b.png)
+![criarconversa](https://user-images.githubusercontent.com/74699119/173228328-84439fdd-2d92-4f64-9e37-801470d89255.png)
 
 ### Tela - Visualizar mensagens da conversa
 
@@ -164,12 +164,11 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
  <p align="justify">  Será permitido aos usuários receber e enviar mensagens contendo texto, imagens e video. Esta tela é acessada ao clicar na opção "Responder" ou "Responder a todos" em uma mensagem presente na conversa. Nesta tela, o usuário pode compor sua resposta de forma similar ao que é realizado na tela de "Criar nova mensagem" e envia-la clicando em "Responder" dentro da janela de responder mensagem da conversa.</p>
 
-![responder](https://user-images.githubusercontent.com/74699119/173227553-3fea0c17-7e76-49db-98b0-5dab158fbeaf.png)
-
+![responder](https://user-images.githubusercontent.com/74699119/173228333-92455434-794a-4ae8-b13c-662c5296097a.png)
 
 ### Tela - Selecionar linha do tempo
  
-![selecionarLinhadotempo](https://user-images.githubusercontent.com/74699119/173227861-bbe8ad7c-fea2-4576-9c9d-cc6f5520243a.png)
+![selecionarLinhadotempo](https://user-images.githubusercontent.com/74699119/173228316-6ae18198-4fae-4dc1-8301-23d2a1c38c4d.png)
 
 ### Tela - Visualizar linha do tempo
  <p align="justify"> Tela aonde se encontram todas as postagens realizadas pelos professores na linha do tempo, bem como a opção de criar comentários nas postagens (disponível tanto para os professores quanto responsáveis do aluno).</p>
