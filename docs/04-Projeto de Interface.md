@@ -125,7 +125,7 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 
 <b> Tipo de usuário: Administrador ou Professor</b>
 
-![calendarioAdmin](https://user-images.githubusercontent.com/74699119/173225907-5c096a85-8c4f-4add-8fdf-5bc7a19434bc.png)
+![calendarioAdmin](https://user-images.githubusercontent.com/74699119/173226299-acefe4b3-1114-40ef-a6fb-d879925db5f7.png)
 
 ### Tela - Cadastrar novo evento em agenda
  
