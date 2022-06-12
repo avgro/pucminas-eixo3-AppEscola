@@ -124,16 +124,19 @@ A estrutura de interface será comum em todas as telas do sistema após a realiz
 ![calendarioOutros](https://user-images.githubusercontent.com/74699119/173225910-fd20e5ce-2edd-45fe-97e3-319ee00db8ce.png)
 
 <b> Tipo de usuário: Administrador ou Professor</b>
+
 ![calendarioAdmin](https://user-images.githubusercontent.com/74699119/173225907-5c096a85-8c4f-4add-8fdf-5bc7a19434bc.png)
 
 ### Tela - Cadastrar novo evento em agenda
  
 <p align="justify">  Será permitido aos usuários do tipo "administrador" e "professor" cadastrar eventos nas agendas criadas, sendo que o administrador pode cadastrar um evento para aparecer em todas as agendas, enquanto o professor pode cadastrar eventos apenas nas agendas que possui acesso.</p>
+
 ![cadastrEvento](https://user-images.githubusercontent.com/74699119/173226104-34610f25-23f9-4d4e-80bd-3fc1c2316301.png)
 
 ### Tela - Listar eventos cadastrados
  
 <p align="justify">  Será permitido aos usuários do tipo "administrador" e "professor" visualizar os eventos cadastrados nas agendas que possuem acesso. O usuário poderá também apagar eventos que tenha cadastrado, mas não eventos cadastrados por outros usuários.</p>
+
 ![listaEventos](https://user-images.githubusercontent.com/74699119/173226153-fac4228b-cfac-4517-bbb0-b3a9dd422f1c.png)
 
 ### Tela - Caixa de mensagens
