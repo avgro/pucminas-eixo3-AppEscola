@@ -1,6 +1,7 @@
 ﻿using App_comunicacao_escolar.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 
 namespace App_comunicacao_escolar.Controllers
 {
@@ -29,11 +30,11 @@ namespace App_comunicacao_escolar.Controllers
         {
             return View();
         }
-
         public IActionResult Solucoes()
         {
             return View();
         }
+        [Authorize]
         public IActionResult AreaDoUsuario(string numeroDeEventosQuePaginaMostra)
         {
             try { 
