@@ -358,7 +358,7 @@ max-width-100 {
 }
 
 
-@media (max-width: 1199px) {
+@media (max-width: 899px) {
     .menu-content-layout {
         display: block;
         margin: auto;
@@ -387,7 +387,7 @@ max-width-100 {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 628px) {
     .menu-lateral li {
         width: 205px;
     }
@@ -549,10 +549,15 @@ max-width-100 {
 
 @media (max-width: 1199px) {
     .mensagem-email {
-        min-width: 70vw;
+        min-width: 65vw;
         margin: auto;
         margin-bottom: 6px;
         margin-top: 6px;
+    }
+}
+@media (max-width: 899px) {
+    .mensagem-email {
+        min-width: 70vw;
     }
 }
 
