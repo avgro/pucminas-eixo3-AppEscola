@@ -6,6 +6,5 @@ Os slides em formato Powerpoint e o vídeo de 5 minutos contendo a apresentaçã
 
 Appescola
 
+### Logo da aplicação
 ![logo](https://user-images.githubusercontent.com/74699119/175830286-cb29dab8-9cc7-43bd-b471-3d7d5db0ed8c.jpeg)
-<br>
-<b>Logo da aplicação.</b>
