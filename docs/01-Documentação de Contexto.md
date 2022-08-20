@@ -1,7 +1,7 @@
 # Introdução
 
 
-<p align="justify"> O avanço da tecnologia traz consigo o aumento da velocidade nas atividades diárias. Desde o surgimento da internet tem se um mundo cada vez mais conectado e globalizado. As mudanças ocorridas durante esse processo, não devem ser vistas como uma coisa nova ou problema; ao contrário , a mesma deve ser observada como oportunidade para atingir os objetivos e os interesses. Desta forma, um surgimento de um novo recurso comunicativo virou a chave para as inovações e avanços tecnologicos: as aplicações mobile.</p> 
+<p align="justify"> O avanço da tecnologia traz consigo o aumento da velocidade nas atividades diárias. Desde o surgimento da internet tem se um mundo cada vez mais conectado e globalizado. As mudanças ocorridas durante esse processo, não devem ser vistas como uma coisa nova ou problema; ao contrário, a mesma deve ser observada como oportunidade para atingir os objetivos e os interesses. Desta forma, um surgimento de um novo recurso comunicativo virou a chave para as inovações e avanços tecnologicos: as aplicações mobile.</p> 
 
 <p align="justify"> A proposta deste trabalho é inovar a gestão de pedidos de um bar com o desenvolvimento de uma aplicação móvel para substituir a " comanda de papel ", registrando os pedidos feitos pelos clientes e agilizando o atendimento do garçom.</p> 
 
