@@ -14,23 +14,17 @@ Companheira de décadas de bares e restaurantes, a comanda de papel, apesar de t
 
 ## Objetivos
 
-<p align="justify">O objetivo central deste trabalho consiste na criação de uma aplicação de comunicação escolar online focada no ensino fundamental e educação infantil que possibilite uma maior conexão entre a escola e os responsáveis dos alunos.</p>
+<p align="justify">O objetivo central deste projeto consiste na criação de uma aplicação móvel de gestão de pedidos focado em um Bar que possibilite uma agilização nas solicitações de pedidos e nos atendimentos aos clientes do Bar.</p>
 
 <p align="justify">Entre os objetivos específicos temos:</p>
 
-- Disponibilizar um sistema de comunicação, com envio de mensagens, imagens e vídeo que possibilite aos responsáveis do aluno uma comunicação digital direta e mais eficiente com a escola e seus funcionários.
+•	Disponibilizar um sistema de comanda digital.
+•	Possibilitar um controle de pedidos de pedidos maior ao bar.
+•	Disponibilizar aos clientes do bar menu digital, contendo valores de cada prato e ou bebidas, além do tempo de espera.
+•	Permitir aos clientes os acompanhamentos de seus pedidos.
+•	Fornecer ao Bar um sistema que permita, através de uma conta de administrador do sistema, adicionar, remover ou editar informações relevantes ao seu menu digital.
+•	Garantir a segurança e privacidade de informações e dados do sistema.
 
-- Possibilitar também a comunicação entre a escola e seus funcionários e de funcionários entre si dentro do sistema.
-
-- Disponibilizar aos usuários uma agenda escolar online para acompanhamento das atividades escolares e eventos marcados.
-
-- Permitir o acompanhamento de avisos e notificações pelos usuários dentro do sistema.
-
-- Fornecer à escola um sistema que permita, através de uma conta de administrador do sistema, adicionar, remover ou editar informações relevantes (turmas, disciplinas, professores, alunos, etc) e cadastrar ou deletar contas de usuário.
-
-- Centralizar estas funcionalidades em um único sistema online de fácil acesso pelos usuários cadastrados, com diferentes tipos de usuários (professor, responsável, administrador do sistema, funcionário) tendo acesso a diferentes recursos dentro do sistema.
-
-- Garantir a segurança e privacidade de informações e dados do sistema.
 
 ## Justificativa
 
