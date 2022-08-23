@@ -18,11 +18,11 @@ Companheira de décadas de bares e restaurantes, a comanda de papel, apesar de t
 
 <p align="justify">Entre os objetivos específicos temos:</p>
 
-•	Disponibilizar um sistema de comanda digital.
-•	Possibilitar um controle de pedidos de pedidos maior ao bar.
-•	Disponibilizar aos clientes do bar menu digital, contendo valores de cada prato e ou bebidas, além do tempo de espera.
-•	Permitir aos clientes os acompanhamentos de seus pedidos.
-•	Fornecer ao Bar um sistema que permita, através de uma conta de administrador do sistema, adicionar, remover ou editar informações relevantes ao seu menu digital.
+•	Disponibilizar um sistema de comanda digital. <br>
+•	Possibilitar um controle de pedidos de pedidos maior ao bar. <br>
+•	Disponibilizar aos clientes do bar menu digital, contendo valores de cada prato e ou bebidas, além do tempo de espera. <br>
+•	Permitir aos clientes os acompanhamentos de seus pedidos. <br>
+•	Fornecer ao Bar um sistema que permita, através de uma conta de administrador do sistema, adicionar, remover ou editar informações relevantes ao seu menu digital. <br>
 •	Garantir a segurança e privacidade de informações e dados do sistema.
 
 
