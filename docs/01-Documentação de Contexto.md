@@ -46,8 +46,8 @@ Companheira de décadas de bares e restaurantes, a comanda de papel, apesar de t
 
 <p align="justify">O foco da aplicação está nos estabelecimentos que fornecem serviços de alimentação e bebidas, cujo tem como sua atividade principal o CNAE - 5611-2 e no consumidor final que será qualquer pessoa, incluindo as PCDs.</p>
 
-<p>Atores:<p>
+<p>Atores:
 - Estabelecimentos de alimento ou bebida, como: Restaurantes, bares e entre outros que realizam serviços similares.
 
-- Consumidor final: Qualquer pessoa que tenha condições de pagar pelo serviço e produto usufruído.
+- Consumidor final: Qualquer pessoa que tenha condições de pagar pelo serviço e produto usufruído.<p>
 
