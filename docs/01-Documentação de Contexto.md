@@ -44,12 +44,10 @@ Companheira de décadas de bares e restaurantes, a comanda de papel, apesar de t
 
 ## Público-Alvo
 
-<p align="justify">De maneira mais ampla, considera-se como público-alvo deste projeto o conjunto de interessados na integração da comunicação administrativa e pedagógica com a escola, a saber:</p>
+<p align="justify">O foco da aplicação está nos estabelecimentos que fornecem serviços de alimentação e bebidas, cujo tem como sua atividade principal o CNAE - 5611-2 e no consumidor final que será qualquer pessoa, incluindo as PCDs.</p>
 
-- Gestores da escola: praticidade e eficiência na comunicação e gerenciamento da instituição junto aos pais;
+<p>Atores:<p>
+- Estabelecimentos de alimento ou bebida, como: Restaurantes, bares e entre outros que realizam serviços similares.
 
-- Responsáveis do aluno: engajados nas rotinas escolares de seus filhos;
+- Consumidor final: Qualquer pessoa que tenha condições de pagar pelo serviço e produto usufruído.
 
-- Alunos: cujo aprendizado e formação escolar pode se beneficiar de um maior acompanhamento por parte de seus responsáveis;
-
-- Professores: fluidez no envio de comunicados e momentos para os pais e alunos;
