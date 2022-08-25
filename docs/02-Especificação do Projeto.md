@@ -41,7 +41,7 @@
 <p align="justify">Com base na compreensão da rotina das personas elaboradas para este projeto, foram registradas as histórias de usuário mostradas a seguir.</p>
 
 | EU COMO... `PERSONA` | QUERO/PRECISO ... `FUNCIONALIDADE`                                                                                                             | PARA ... `MOTIVO/VALOR`                                                                                                                         |
-
+|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
 | Rafaela Miranda      | Realizar o pedido de uma maneira prática e fácil.                                                                             
 | Para ter obter um retorno mais ágil.                                                                                                            |
 | Rafaela Miranda      | Ter um prazo de finalização do pedido.                                                                                                         | Para ter um controle do tempo de preparo e saber se está perto de ficar pronto.                                                                 |
