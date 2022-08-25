@@ -72,18 +72,11 @@
 
 ### Requisitos não Funcionais
 
-| ID     | Descrição do Requisito                                                                                                        | Prioridade |
-| ------ | ----------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| RNF-01 | O site deve ser publicado em um ambiente acessível publicamente na Internet (Repl.it, GitHub Pages, Heroku)                   | Alta       |
-| RNF-02 | O site deverá ser responsivo permitindo a visualização em um celular de forma adequada                                        | Alta       |
-| RNF-03 | O site deve ter bom nível de contraste entre os elementos da tela em conformidade                                             | Média      |
-| RNF-04 | O site deve ser compatível com os principais navegadores do mercado (Google Chrome, Firefox, Microsoft Edge)                  | Alta       |
-| RNF-05 | O sistema deve ser desenvolvido na linguagem C#, utilizando o framework Asp.NET Core                                          | Alta       |
-| RNF-06 | O tempo de resposta para as requisições não deve ser maior que cinco segundos                                                 | Média      |
-| RNF-07 | O sistema deve estar disponível pelo menos 99% do tempo entre 6 da manhã e meia noite, sete dias por semana                   | Alta       |
-| RNF-08 | O site deve ser passível de manutenção e migração de plataforma em até 3 meses                                                | Baixa      |
-| RNF-09 | O tratamento de dados pessoais na aplicação deve estar de acordo com o estabelecido na LGPD (Lei Geral de Proteção de Dados ) | Alta       |
-| RNF-10 | A aplicação deve suportar no mínimo dez usuários simultâneos sem impacto no tempo de resposta                                 | Média      |
+| ID     | Descrição do Requisito                                                                                                 | Prioridade |
+| ------ | -----------------------------------------------------------------------------------------------------------------------| ---------- |
+| RNF-01 | A aplicação deve ser compatível com sistemas Android e IOS.                                                            | Alta       |
+| RNF-02 | A aplicação deverá ser feita com a tecnologia React Native.                                                            | Alta       |
+| RNF-03 | A aplicação deve possuir interface intuitiva.                                                                          | Média      |
 
 ## Restrições
 
