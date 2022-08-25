@@ -11,10 +11,10 @@
 | ![RM](https://user-images.githubusercontent.com/74699119/157868822-a1647845-d66c-4cfc-8007-2a560dddf4de.png)                                                                                     | **Idade:** 35 <br> **Ocupação:** Gerente de RH,                                                                                             | **Aplicativos:**<br><ul>● Facebook<br>● Netflix<br>● Twitter<br>● Instagram</ul>                 |
 | **Motivações para frequentar algum estabelecimento:**<br><ul>● Encontrar com amigos, conversar e se divertir. <br>● Conhecer novos bares da sua cidade <br>● Ter boas experiências ao sair.</ul> | **Frustrações:**<br><ul>● Morosidade no atendimento. <br>● Falta de praticidade ao fazer um pedido. <br>● Contas com erros de pedido. </ul> | **Hobbies:**<br><ul>● Ler livros<br>● Viajar com a família <br>● Sair com amigos e família.</ul> |
 
-| Sebastião Silva                                                                                                                      | Informações:                                                                                                  |                                                                               |
-| ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| ![SS](https://user-images.githubusercontent.com/74699119/157877912-ab54615f-ec08-4ea7-ad39-353bc9e81a72.png)                         | **Idade:** 40 <br> **Ocupação:** Advogado                                                                     | **Aplicativos:**<br><ul>● Whatsapp<br>● E-mail</ul>                           |
-| **Motivações para frequentar algum estabelecimento:**<br><ul>● Boas opções de cervejas artesanais ou chopps <br>● Bons petiscos</ul> | **Frustrações:**<br><ul>● Cervejas de baixa qualidade <br>● Atendimento ruim <br>● Preços muito elevados</ul> | **Hobbies:**<br><ul>● Assistir futebol<br>● Assistir filmes <br>● Pescar</ul> |
+| Sebastião Silva                                                                                                                                       | Informações:                                                                                                      |                                                                               |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| ![SS](https://user-images.githubusercontent.com/74699119/157877912-ab54615f-ec08-4ea7-ad39-353bc9e81a72.png)                                          | **Idade:** 40 <br> **Ocupação:** Empresário                                                                       | **Aplicativos:**<br><ul>● Whatsapp<br>● E-mail</ul>                           |
+| **Motivações:**<br><ul>● Facilitar o processo de atendimento no seu bar <br>● Aumentar as vendas <br>● Melhorar experiência do seus consumidores</ul> | **Frustrações:**<br><ul>● Pedidos errados ou incompletos <br>● Atendimento ruim <br>● Clientes insatisfeitos</ul> | **Hobbies:**<br><ul>● Assistir futebol<br>● Assistir filmes <br>● Pescar</ul> |
 
 | Flávia de Souza                                                                                                                   | Informações:                                                                    |                                                                  |
 | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
@@ -31,10 +31,10 @@
 | ![MR](https://user-images.githubusercontent.com/74699119/157870547-f569bef9-c35f-4894-a846-0c8a56ffdb01.png)                         | **Idade:** 25 <br> **Ocupação:** Professora de educação infantil                            | **Aplicativos:**<br><ul>● Youtube<br>● Gmail<br>● Instagram</ul>    |
 | **Motivações para frequentar algum estabelecimento:**<br><ul>● Entretenimento<br>● Sair com amigos<br>● Ver pessoas <br>● Comer</ul> | **Frustrações:**<br><ul>● Locais muito barulhentos<br>● Dificuldade em fazer um pedido</ul> | **Hobbies:**<br><ul>● Assistir séries<br>● Passeios com amigos</ul> |
 
-| Fernanda Teixeira                                                                                                             | Informações:                                                                         |                                                                                                     |
-| ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------- |
-| ![FT](https://user-images.githubusercontent.com/74699119/157868769-c4830081-16db-45c5-8e95-a8f8805fce56.png)                  | **Idade:** 19 <br> **Ocupação:** Assistente de secretaria escolar                    | **Aplicativos:**<br><ul>● Youtube<br>● Whatsapp<br>● Kindle</ul>                                    |
-| **Motivações para frequentar algum estabelecimento:**<br><ul>● Sair com o namorado<br>● Ouvir música <br>● Beber cerveja</ul> | **Frustrações:**<br><ul>● Conta muito cara<br>● Locais muito longes da sua casa</ul> | **Hobbies:**<br><ul>● Leitura <br>● Sair com o namorado <br>● Filmes <br>● Cuidar de seus cães</ul> |
+| Fernanda Teixeira                                                                                                      | Informações:                                                                     |                                                                                                     |
+| ---------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| ![FT](https://user-images.githubusercontent.com/74699119/157868769-c4830081-16db-45c5-8e95-a8f8805fce56.png)           | **Idade:** 19 <br> **Ocupação:** Garçonete                                       | **Aplicativos:**<br><ul>● Youtube<br>● Whatsapp<br>● Kindle</ul>                                    |
+| **Motivações:**<br><ul>● Facilitar o antendimento<br>● Contas estarem certas <br>● Pedidos feitos de forma rápida</ul> | **Frustrações:**<br><ul>● Reclamações de clientes<br>● Erros de atendimento</ul> | **Hobbies:**<br><ul>● Leitura <br>● Sair com o namorado <br>● Filmes <br>● Cuidar de seus cães</ul> |
 
 ## Histórias de Usuários
 
@@ -62,31 +62,32 @@
 
 ### Requisitos Funcionais
 
-| ID    | Descrição do Requisito                                                                                                                                                                                                                                                                        | Prioridade |
-| ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| RF-01 | A aplicação deverá exibir o cardápio de forma prática e detalhada.                                                     | Alta       |
-| RF-02 | A aplicação deverá permitir ao cliente fazer seu pedido.                                                               | Alta       |
-| RF-03 | A aplicação deverá notificar o pedido ao garçom.                                                                       | Alta       |
-| RF-04 | A aplicação deverá mostrar a prévia de sua conta ao cliente                                                            | Média      |
-| RF-05 | A aplicação deverá permitir que o cliente peça o fechamento de sua conta.                                              | Média      |
+| ID    | Descrição do Requisito                                                    | Prioridade |
+| ----- | ------------------------------------------------------------------------- | ---------- |
+| RF-01 | A aplicação deverá exibir o cardápio de forma prática e detalhada.        | Alta       |
+| RF-02 | A aplicação deverá permitir ao cliente fazer seu pedido.                  | Alta       |
+| RF-03 | A aplicação deverá notificar o pedido ao garçom.                          | Alta       |
+| RF-04 | A aplicação deverá mostrar a prévia de sua conta ao cliente               | Média      |
+| RF-05 | A aplicação deverá permitir que o cliente peça o fechamento de sua conta. | Média      |
 
 ### Requisitos não Funcionais
 
-| ID     | Descrição do Requisito                                                                                                 | Prioridade |
-| ------ | -----------------------------------------------------------------------------------------------------------------------| ---------- |
-| RNF-01 | A aplicação deve ser compatível com sistemas Android e IOS.                                                            | Alta       |
-| RNF-02 | A aplicação deverá ser feita com a tecnologia React Native.                                                            | Alta       |
-| RNF-03 | A aplicação deve possuir interface intuitiva.                                                                          | Média      |
+| ID     | Descrição do Requisito                                      | Prioridade |
+| ------ | ----------------------------------------------------------- | ---------- |
+| RNF-01 | A aplicação deve ser compatível com sistemas Android e IOS. | Alta       |
+| RNF-02 | A aplicação deverá ser feita com a tecnologia React Native. | Alta       |
+| RNF-03 | A aplicação deve possuir interface intuitiva.               | Média      |
 
 ## Restrições
 
 <p align="justify">O projeto está restrito pelos itens apresentados na tabela a seguir.</p>
 
-| ID    | Restrição                                                                                              |
-| ----- | ------------------------------------------------------------------------------------------------------ |
-| RE-01 | O projeto deverá ser entregue no final do semestre letivo.                                             |
-| RE-02 | A equipe não pode subcontratar o desenvolvimento do trabalho.                                          |
-| RE-03 | Só poderão ser utilizados programas gratuítos ou fornecidos pela PUC Minas.                            |                    
+| ID    | Restrição                                                                   |
+| ----- | --------------------------------------------------------------------------- |
+| RE-01 | O projeto deverá ser entregue no final do semestre letivo.                  |
+| RE-02 | A equipe não pode subcontratar o desenvolvimento do trabalho.               |
+| RE-03 | Só poderão ser utilizados programas gratuítos ou fornecidos pela PUC Minas. |
+
 ## Diagrama de Casos de Uso
 
 <p align="justify">O diagrama abaixo ilustra as principais ligações entre casos de uso e atores relacionados aos Requisitos Funcionais levantados para o projeto.</p>
