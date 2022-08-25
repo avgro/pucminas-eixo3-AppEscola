@@ -84,9 +84,9 @@
 
 | ID    | Restrição                                                                                              |
 | ----- | ------------------------------------------------------------------------------------------------------ |
-| RE-01 | O projeto deverá ser entregue no final do semestre letivo, não podendo extrapolar a data de 07/07/2020 |
+| RE-01 | O projeto deverá ser entregue no final do semestre letivo.                                             |
 | RE-02 | A equipe não pode subcontratar o desenvolvimento do trabalho.                                          |
-
+| RE-03 | Só poderão ser utilizados programas gratuítos ou fornecidos pela PUC Minas.                            |                    
 ## Diagrama de Casos de Uso
 
 <p align="justify">O diagrama abaixo ilustra as principais ligações entre casos de uso e atores relacionados aos Requisitos Funcionais levantados para o projeto.</p>
