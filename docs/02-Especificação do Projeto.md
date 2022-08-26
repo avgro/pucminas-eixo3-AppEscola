@@ -102,3 +102,11 @@
 ## Gestão de Orçamento
 <p align="justify">Os valores dos custos do projeto foram calculados com a estimativa de tempo de quatro meses, utilizando seis profissionais. Qualquer alteração de custos que ultrapassar a estimativa da linha de base deverá ser avaliada pelo cliente e gerente do projeto.</p>
 
+| Recursos Necessários   | Valor      |                                                                                     
+| Recursos Humanos        | R$ 230.400,00       |
+| Hardware                | R$   6.000,00       |
+| Rede                    | R$   2.400,00       |
+| Software                | R$     480,00       |
+| Serviços                | R$   1.200,00       |
+| Total                   | R$ 240.600,00       |   
+
