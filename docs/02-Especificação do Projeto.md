@@ -115,7 +115,7 @@
 
 Recursos Humanos - 6 Profissionais x R$ 60,00/hora x 640 horas (4 meses) = R$ 230.400,00
 
-Hardware = locação 6 Notebooks x R$ 250,00/Mês x 4 Meses = R$ 6.000,00
+Hardware = 6 locações Notebooks x R$ 250,00/Mês x 4 Meses = R$ 6.000,00
 
 Rede = 6 internet banda larga x R$ 100,00/Mês x 4 Meses = R$ 2.400,00
 
