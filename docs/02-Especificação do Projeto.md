@@ -92,7 +92,9 @@
 <p align="center">
 <b>Figura 1 </b> – Diagrama de casos de uso.
 </p>
+
 # Custos e Pessoal de Projeto
+
 ## Gerenciamento de Tempo
 
 ## Gerenciamento de Equipe
