@@ -92,3 +92,11 @@
 <p align="center">
 <b>Figura 1 </b> – Diagrama de casos de uso.
 </p>
+# Custos e Pessoal de Projeto
+## Gerenciamento de Tempo
+
+## Gerenciamento de Equipe
+
+## Gestão de Orçamento
+<p align="justify">Os valores dos custos do projeto foram calculados com a estimativa de tempo de quatro meses, utilizando seis profissionais. Qualquer alteração de custos que ultrapassar a estimativa da linha de base deverá ser avaliada pelo cliente e gerente do projeto.</p>
+
