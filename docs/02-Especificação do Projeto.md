@@ -33,8 +33,8 @@
 
 | Fernanda Teixeira                                                                                                             | Informações:                                                                         |                                                                                                     |
 | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------- |
-| ![FT](https://user-images.githubusercontent.com/74699119/157868769-c4830081-16db-45c5-8e95-a8f8805fce56.png)                  | **Idade:** 19 <br> **Ocupação:** Assistente de secretaria escolar                    | **Aplicativos:**<br><ul>● Youtube<br>● Whatsapp<br>● Kindle</ul>                                    |
-| **Motivações para frequentar algum estabelecimento:**<br><ul>● Sair com o namorado<br>● Ouvir música <br>● Beber cerveja</ul> | **Frustrações:**<br><ul>● Conta muito cara<br>● Locais muito longes da sua casa</ul> | **Hobbies:**<br><ul>● Leitura <br>● Sair com o namorado <br>● Filmes <br>● Cuidar de seus cães</ul> |
+| ![FT](https://user-images.githubusercontent.com/74699119/157868769-c4830081-16db-45c5-8e95-a8f8805fce56.png)                  | **Idade:** 19 <br> **Ocupação:** Garçonete                    | **Aplicativos:**<br><ul>● Youtube<br>● Whatsapp<br>● Kindle</ul>                                    |
+| **Motivações:**<br><ul>● Facilitar o antendimento<br>● Contas estarem certas <br>● Pedidos feitos de forma rápida</ul> | **Frustrações:**<br><ul>● Reclamações de clientes<br>● Erros de atendimento</ul> | **Hobbies:**<br><ul>● Leitura <br>● Sair com o namorado <br>● Filmes <br>● Cuidar de seus cães</ul> |
 
 ## Histórias de Usuários
 
