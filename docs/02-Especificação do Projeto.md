@@ -116,6 +116,10 @@ Analista de Banco de Dados: André Soares
 
 Analista de Testes: Robson Levi
 
+![FT](/img/tabelagerenciamentodeequipe.png) 
+
+
+
 
 ## Gestão de Orçamento
 <p align="justify">Os valores dos custos do projeto foram calculados com a estimativa de tempo de quatro meses, utilizando seis profissionais. Qualquer alteração de custos que ultrapassar a estimativa da linha de base deverá ser avaliada pelo cliente e gerente do projeto.</p>
