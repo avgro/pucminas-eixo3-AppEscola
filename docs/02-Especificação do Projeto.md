@@ -116,7 +116,7 @@ Analista de Banco de Dados: André Soares
 
 Analista de Testes: Robson Levi
 
-![FT](/img/tabelagerenciamentodeequipe.png) 
+![gerenciamento equipe](https://github.com/avgro/pucminas-eixo3-AppEscola/blob/main/docs/img/tabelagerenciamentodeequipe.png) 
 
 
 
