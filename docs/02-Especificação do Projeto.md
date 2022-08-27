@@ -98,6 +98,24 @@
 ## Gerenciamento de Tempo
 
 ## Gerenciamento de Equipe
+<p align="justify"> O gerenciamento apropriado de tarefas contribuirá para que o projeto tenha um bom nível de produtividade. É fundamental que ocorra a gestão de tarefas e de pessoas, para que os profissionais envolvidos no projeto possam ser faclmente gerenciados.</p>
+
+Membros do time:
+
+Gerente de Projeto: Daniel Begas
+
+Designer: Lívia Cristina
+
+Analista de Sistemas: André Vieira
+
+Arquiteta de Software: Vânia Rezende
+
+Desenvolvedores: André Soares, André Vieira, Daniel Begas, Lívia Cristina, Robson Levi, Vânia Rezende.
+
+Analista de Banco de Dados: André Soares
+
+Analista de Testes: Robson Levi
+
 
 ## Gestão de Orçamento
 <p align="justify">Os valores dos custos do projeto foram calculados com a estimativa de tempo de quatro meses, utilizando seis profissionais. Qualquer alteração de custos que ultrapassar a estimativa da linha de base deverá ser avaliada pelo cliente e gerente do projeto.</p>
@@ -113,7 +131,7 @@
 
 <p align="justify">Cálculo:
 
-Recursos Humanos - 6 Profissionais x R$ 60,00/hora x 640 horas (4 meses) = R$ 230.400,00
+Recursos Humanos = 6 Profissionais x R$ 60,00/hora x 640 horas (4 meses) = R$ 230.400,00
 
 Hardware = 6 locações Notebooks x R$ 250,00/Mês x 4 Meses = R$ 6.000,00
 
