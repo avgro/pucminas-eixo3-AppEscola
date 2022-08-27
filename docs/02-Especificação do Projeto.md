@@ -50,7 +50,7 @@
 | Renato Moreira       | Poder filtrar os produtos por preços na ordem crescente e descrecente.                                                                          | Ter um facilidade de encontrar os produtos com preços mais baixos.                                                                              |
 | Mariana Rezende      | Poder compartilhar um relatório diário sobre a rotina escolar de seus alunos mais novos com os responsáveis do aluno de modo rápido e digital. | Assegurar os pais de que as necessidades dos filhos estão sendo devidamente atendidas.                                                          |
 | Fernanda Teixeira    | Receber uma notificação informando o produto pedido pelo cliente.                                                                              | Evitar falhas na comunicação e pedidos incorretos.                                                                                              |
-| Fernanda Teixeira    | Aumentar a taxa de adesão dos pais nos eventos e reuniões da escola.                                                                           | Por acreditar que receber uma maior participação dos pais na escola ajudaria no desempenho escolar dos alunos.                                  |
+| Fernanda Teixeira    | Receber um feedback do consumidor pelo atendimento prestado.                                                                                    | Identificar os pontos que é preciso melhorar no meu trabalho.                                                                                   |
 
 ## Requisitos
 
