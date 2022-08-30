@@ -119,7 +119,7 @@
 # Custos e Pessoal de Projeto
 
 ## Gerenciamento de Tempo
-
+![gerenciamento de Tempo](https://github.com/avgro/pucminas-eixo3-AppEscola/blob/main/docs/img/Tabela%20de%20atividades%20e%20estimativa%20de%20tempo.png)
 ## Gerenciamento de Equipe
 
 <p align="justify"> O gerenciamento apropriado de tarefas contribuirá para que o projeto tenha um bom nível de produtividade. É fundamental que ocorra a gestão de tarefas e de pessoas, para que os profissionais envolvidos no projeto possam ser faclmente gerenciados.</p>
