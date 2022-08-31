@@ -181,4 +181,7 @@ Serviços = 6 despesas (energia, hospedagem) x R$ 50,00/Mês x 4 Meses = R$ 1.20
 
 ![Gerenciamento de cronograma](https://github.com/avgro/pucminas-eixo3-AppEscola/blob/main/docs/img/Cronograma%20projeto-1.png)
 
-![Gerenciamento de cronograma Excel](https://github.com/avgro/pucminas-eixo3-AppEscola/blob/4e9fd306c149472c8efb8de24816623b1cdb4f10/docs/img/Cronograma%20projeto%20-%20Comanda.xlsx)
+● ![Gerenciamento de cronograma Excel](https://github.com/avgro/pucminas-eixo3-AppEscola/blob/4e9fd306c149472c8efb8de24816623b1cdb4f10/docs/img/Cronograma%20projeto%20-%20Comanda.xlsx)
+
+
+
