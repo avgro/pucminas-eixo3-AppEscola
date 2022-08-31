@@ -132,13 +132,13 @@ Gerente de Projeto: Daniel Begas
 
 Designer: Lívia Cristina
 
-Analista de Sistemas: André Vieira
+Analista de Sistemas: André Soares
 
 Arquiteta de Software: Vânia Rezende
 
 Desenvolvedores: André Soares, André Vieira, Daniel Begas, Lívia Cristina, Robson Levi, Vânia Rezende.
 
-Analista de Banco de Dados: André Soares
+Analista de Banco de Dados: André Vieira
 
 Analista de Testes: Robson Levi
 
